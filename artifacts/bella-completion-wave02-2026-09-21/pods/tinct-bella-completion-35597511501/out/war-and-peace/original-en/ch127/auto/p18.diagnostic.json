@@ -1,0 +1,2400 @@
+{
+  "complete": true,
+  "signature": "6060f48d93305cdf04bd7cee4e5f7746d21bb163b0772b2793203cb1161efefb",
+  "attempts": [
+    {
+      "asr_seconds": 0.43299177661538124,
+      "alignment_seconds": 0.002954523079097271,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, you know between cousins intimacy often leads to love. Le cousinage est un dangereux voisinage. * Don't you think so?\"",
+        "hotwords": "Yes, Le, Don't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, you know between cousins intimacy often leads to love. Le cousinage est un dangereux voisinage.",
+          "start": 0.0,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " you",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " know",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " between",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " cousins",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.6953125
+            },
+            {
+              "text": " intimacy",
+              "start": 1.72,
+              "end": 2.26,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " often",
+              "start": 2.26,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " leads",
+              "start": 2.6,
+              "end": 2.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " love.",
+              "start": 3.18,
+              "end": 3.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Le",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " cousinage",
+              "start": 4.7,
+              "end": 5.12,
+              "probability": 0.842041015625
+            },
+            {
+              "text": " est",
+              "start": 5.12,
+              "end": 5.3,
+              "probability": 0.1796875
+            },
+            {
+              "text": " un",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.08721923828125
+            },
+            {
+              "text": " dangereux",
+              "start": 5.56,
+              "end": 6.28,
+              "probability": 0.225494384765625
+            },
+            {
+              "text": " voisinage.",
+              "start": 6.28,
+              "end": 7.0,
+              "probability": 0.4783102671305339
+            }
+          ]
+        },
+        {
+          "text": " asterisk don't you think so?",
+          "start": 7.96,
+          "end": 9.0,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 7.96,
+              "end": 8.28,
+              "probability": 0.525115966796875
+            },
+            {
+              "text": " don't",
+              "start": 8.28,
+              "end": 8.44,
+              "probability": 0.891357421875
+            },
+            {
+              "text": " you",
+              "start": 8.44,
+              "end": 8.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " think",
+              "start": 8.58,
+              "end": 8.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so?",
+              "start": 8.74,
+              "end": 9.0,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "cousins",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "raw": "often",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "raw": "leads",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.72
+        },
+        {
+          "raw": "Le",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "raw": "est",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "raw": "un",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "dangereux",
+          "start": 5.56,
+          "end": 6.28
+        },
+        {
+          "raw": "voisinage.",
+          "start": 6.28,
+          "end": 7.0
+        },
+        {
+          "raw": "asterisk",
+          "start": 7.96,
+          "end": 8.28
+        },
+        {
+          "raw": "don't",
+          "start": 8.28,
+          "end": 8.44
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.58
+        },
+        {
+          "raw": "think",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.0
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don’t",
+        "you",
+        "think",
+        "so?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don't",
+        "you",
+        "think",
+        "so?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          21,
+          17,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "between",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cousins",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "cousins",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.72,
+          "end": 2.26,
+          "key": "intimacy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.26,
+          "end": 2.6,
+          "key": "often",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leads",
+          "start": 2.6,
+          "end": 2.94,
+          "key": "leads",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.72,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Le",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "le",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.7,
+          "end": 5.12,
+          "key": "cousinage",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 5.12,
+          "end": 5.3,
+          "key": "est",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 5.3,
+          "end": 5.56,
+          "key": "un",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dangereux",
+          "start": 5.56,
+          "end": 6.28,
+          "key": "dangereux",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "voisinage.",
+          "start": 6.28,
+          "end": 7.0,
+          "key": "voisinage",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 7.96,
+          "end": 8.28,
+          "key": "asterisk",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 8.28,
+          "end": 8.44,
+          "key": "dont",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.58,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 8.58,
+          "end": 8.74,
+          "key": "think",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.0,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "cousins",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "intimacy",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "text": "often",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "text": "leads",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "love.",
+          "start": 3.18,
+          "end": 3.72
+        },
+        {
+          "text": "Le",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "cousinage",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "text": "est",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "text": "un",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "dangereux",
+          "start": 5.56,
+          "end": 6.28
+        },
+        {
+          "text": "voisinage.",
+          "start": 6.28,
+          "end": 7.0
+        },
+        {
+          "text": "*",
+          "start": 7.0,
+          "end": 7.64
+        },
+        {
+          "text": "Don’t",
+          "start": 8.28,
+          "end": 8.44
+        },
+        {
+          "text": "you",
+          "start": 8.44,
+          "end": 8.58
+        },
+        {
+          "text": "think",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "text": "so?”",
+          "start": 8.74,
+          "end": 9.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.4362973431125283
+    },
+    {
+      "asr_seconds": 0.3494098475202918,
+      "alignment_seconds": 0.0025527290999889374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, Le, Don't"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, you know between cousins intimacy often leads to love.",
+          "start": 0.0,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " you",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " know",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " between",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " cousins",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " intimacy",
+              "start": 1.72,
+              "end": 2.26,
+              "probability": 0.916015625
+            },
+            {
+              "text": " often",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " leads",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " love.",
+              "start": 3.18,
+              "end": 3.72,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Le cousinage ist un dangerau voisonage.",
+          "start": 4.7,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " Le",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " cousinage",
+              "start": 4.7,
+              "end": 5.12,
+              "probability": 0.841552734375
+            },
+            {
+              "text": " ist",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.705810546875
+            },
+            {
+              "text": " un",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " dangerau",
+              "start": 5.54,
+              "end": 6.26,
+              "probability": 0.41644287109375
+            },
+            {
+              "text": " voisonage.",
+              "start": 6.26,
+              "end": 6.9,
+              "probability": 0.7096354166666666
+            }
+          ]
+        },
+        {
+          "text": " Asterisk don't you think so?",
+          "start": 7.98,
+          "end": 9.08,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 7.98,
+              "end": 8.28,
+              "probability": 0.5168304443359375
+            },
+            {
+              "text": " don't",
+              "start": 8.28,
+              "end": 8.44,
+              "probability": 0.859130859375
+            },
+            {
+              "text": " you",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " think",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so?",
+              "start": 8.74,
+              "end": 9.08,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "cousins",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "raw": "often",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "leads",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.72
+        },
+        {
+          "raw": "Le",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "raw": "ist",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "raw": "un",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "dangerau",
+          "start": 5.54,
+          "end": 6.26
+        },
+        {
+          "raw": "voisonage.",
+          "start": 6.26,
+          "end": 6.9
+        },
+        {
+          "raw": "Asterisk",
+          "start": 7.98,
+          "end": 8.28
+        },
+        {
+          "raw": "don't",
+          "start": 8.28,
+          "end": 8.44
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "think",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.08
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don’t",
+        "you",
+        "think",
+        "so?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don't",
+        "you",
+        "think",
+        "so?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          14,
+          17,
+          14,
+          17
+        ],
+        [
+          "equal",
+          17,
+          21,
+          17,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          17,
+          14,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "between",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cousins",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "cousins",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.72,
+          "end": 2.26,
+          "key": "intimacy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "often",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leads",
+          "start": 2.62,
+          "end": 2.94,
+          "key": "leads",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.72,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Le",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "le",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.7,
+          "end": 5.12,
+          "key": "cousinage",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ist",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "ist",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "un",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dangerau",
+          "start": 5.54,
+          "end": 6.26,
+          "key": "dangerau",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "voisonage.",
+          "start": 6.26,
+          "end": 6.9,
+          "key": "voisonage",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 7.98,
+          "end": 8.28,
+          "key": "asterisk",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 8.28,
+          "end": 8.44,
+          "key": "dont",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.56,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "think",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.08,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "cousins",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "intimacy",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "text": "often",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "leads",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "love.",
+          "start": 3.18,
+          "end": 3.72
+        },
+        {
+          "text": "Le",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "cousinage",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "text": "est",
+          "start": 5.12,
+          "end": 5.25
+        },
+        {
+          "text": "un",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "dangereux",
+          "start": 5.54,
+          "end": 6.91
+        },
+        {
+          "text": "voisinage.",
+          "start": 6.91,
+          "end": 7.595
+        },
+        {
+          "text": "*",
+          "start": 7.595,
+          "end": 7.938
+        },
+        {
+          "text": "Don’t",
+          "start": 8.28,
+          "end": 8.44
+        },
+        {
+          "text": "you",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "think",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "so?”",
+          "start": 8.74,
+          "end": 9.08
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35224313847720623
+    },
+    {
+      "asr_seconds": 0.3779646623879671,
+      "alignment_seconds": 0.0018294090405106544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, you know between cousin's intimacy often leads to love.",
+          "start": 0.0,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " you",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " know",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " between",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " cousin's",
+              "start": 1.42,
+              "end": 1.88,
+              "probability": 0.6297607421875
+            },
+            {
+              "text": " intimacy",
+              "start": 1.88,
+              "end": 2.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " often",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " leads",
+              "start": 2.6,
+              "end": 2.94,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " love.",
+              "start": 3.18,
+              "end": 3.52,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Le cousinage ist un dangerau voisonage.",
+          "start": 4.66,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " Le",
+              "start": 4.66,
+              "end": 4.68,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " cousinage",
+              "start": 4.68,
+              "end": 5.12,
+              "probability": 0.869140625
+            },
+            {
+              "text": " ist",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.692138671875
+            },
+            {
+              "text": " un",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " dangerau",
+              "start": 5.54,
+              "end": 6.26,
+              "probability": 0.41796875
+            },
+            {
+              "text": " voisonage.",
+              "start": 6.26,
+              "end": 6.9,
+              "probability": 0.7146809895833334
+            }
+          ]
+        },
+        {
+          "text": " Asterisk don't you think so?",
+          "start": 7.96,
+          "end": 9.08,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 7.96,
+              "end": 8.26,
+              "probability": 0.51806640625
+            },
+            {
+              "text": " don't",
+              "start": 8.26,
+              "end": 8.44,
+              "probability": 0.838134765625
+            },
+            {
+              "text": " you",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " think",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so?",
+              "start": 8.74,
+              "end": 9.08,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "cousin's",
+          "start": 1.42,
+          "end": 1.88
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.88,
+          "end": 2.3
+        },
+        {
+          "raw": "often",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "leads",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.52
+        },
+        {
+          "raw": "Le",
+          "start": 4.66,
+          "end": 4.68
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.68,
+          "end": 5.12
+        },
+        {
+          "raw": "ist",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "raw": "un",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "dangerau",
+          "start": 5.54,
+          "end": 6.26
+        },
+        {
+          "raw": "voisonage.",
+          "start": 6.26,
+          "end": 6.9
+        },
+        {
+          "raw": "Asterisk",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "raw": "don't",
+          "start": 8.26,
+          "end": 8.44
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "think",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.08
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don’t",
+        "you",
+        "think",
+        "so?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "you",
+        "know",
+        "between",
+        "cousins",
+        "intimacy",
+        "often",
+        "leads",
+        "to",
+        "love.",
+        "Le",
+        "cousinage",
+        "est",
+        "un",
+        "dangereux",
+        "voisinage.",
+        "*",
+        "Don't",
+        "you",
+        "think",
+        "so?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          14,
+          17,
+          14,
+          17
+        ],
+        [
+          "equal",
+          17,
+          21,
+          17,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          17,
+          14,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "between",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cousin's",
+          "start": 1.42,
+          "end": 1.88,
+          "key": "cousins",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "intimacy",
+          "start": 1.88,
+          "end": 2.3,
+          "key": "intimacy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "often",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leads",
+          "start": 2.6,
+          "end": 2.94,
+          "key": "leads",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 3.18,
+          "end": 3.52,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Le",
+          "start": 4.66,
+          "end": 4.68,
+          "key": "le",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cousinage",
+          "start": 4.68,
+          "end": 5.12,
+          "key": "cousinage",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ist",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "ist",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "un",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dangerau",
+          "start": 5.54,
+          "end": 6.26,
+          "key": "dangerau",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "voisonage.",
+          "start": 6.26,
+          "end": 6.9,
+          "key": "voisonage",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 7.96,
+          "end": 8.26,
+          "key": "asterisk",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 8.26,
+          "end": 8.44,
+          "key": "dont",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.56,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "think",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 8.74,
+          "end": 9.08,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "you",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "know",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "between",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "cousins",
+          "start": 1.42,
+          "end": 1.88
+        },
+        {
+          "text": "intimacy",
+          "start": 1.88,
+          "end": 2.3
+        },
+        {
+          "text": "often",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "leads",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "love.",
+          "start": 3.18,
+          "end": 3.52
+        },
+        {
+          "text": "Le",
+          "start": 4.66,
+          "end": 4.68
+        },
+        {
+          "text": "cousinage",
+          "start": 4.68,
+          "end": 5.12
+        },
+        {
+          "text": "est",
+          "start": 5.12,
+          "end": 5.25
+        },
+        {
+          "text": "un",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "dangereux",
+          "start": 5.54,
+          "end": 6.9
+        },
+        {
+          "text": "voisinage.",
+          "start": 6.9,
+          "end": 7.58
+        },
+        {
+          "text": "*",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "text": "Don’t",
+          "start": 8.26,
+          "end": 8.44
+        },
+        {
+          "text": "you",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "think",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "so?”",
+          "start": 8.74,
+          "end": 9.08
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.37999374605715275
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b86066714dffc7910729740c53b98b62733ff156efd6749f830dad5a9182d1c",
+  "selected_reasons": []
+}

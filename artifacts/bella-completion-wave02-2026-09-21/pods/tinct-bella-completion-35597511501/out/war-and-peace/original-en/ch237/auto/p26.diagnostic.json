@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "5dd4874e0f6a40099c28533cddeda68708fcdb02f4eb9943ca9ee627e8e73a52",
+  "attempts": [
+    {
+      "asr_seconds": 0.1840069480240345,
+      "alignment_seconds": 0.0016898512840270996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good-by!\" he said and turned with his groom toward the inn.",
+        "hotwords": "Good-by"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good-by, he said and turned with his groom toward the inn.",
+          "start": 0.0,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.0265960693359375
+            },
+            {
+              "text": "-by,",
+              "start": 0.34,
+              "end": 0.6,
+              "probability": 0.464691162109375
+            },
+            {
+              "text": " he",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " said",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " turned",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " groom",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.96484375
+            },
+            {
+              "text": " toward",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " inn.",
+              "start": 2.8,
+              "end": 2.98,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "-by,",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "raw": "he",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "said",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "turned",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "his",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "groom",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "toward",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "inn.",
+          "start": 2.8,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "“Good-by!”",
+        "he",
+        "said",
+        "and",
+        "turned",
+        "with",
+        "his",
+        "groom",
+        "toward",
+        "the",
+        "inn."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Good-by!\"",
+        "he",
+        "said",
+        "and",
+        "turned",
+        "with",
+        "his",
+        "groom",
+        "toward",
+        "the",
+        "inn."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good -by,",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "goodby",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "turned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "groom",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "groom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "toward",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "inn.",
+          "start": 2.8,
+          "end": 2.98,
+          "key": "inn",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Good-by!\"",
+          "heard": "Good -by,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.0,
+          "end": 0.6
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Good-by!”",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "he",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "said",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "and",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "turned",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "his",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "groom",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "toward",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "inn.",
+          "start": 2.8,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18592461198568344
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66af2b29cae68ea304747ebbe8587a146db812c3b0dd6dc6df327c916c8ee641",
+  "selected_reasons": []
+}

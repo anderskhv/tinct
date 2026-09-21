@@ -1,0 +1,551 @@
+{
+  "complete": true,
+  "signature": "a4b1f9ac0fa251a2624c19db81c30a662534b493e8980300df9cba14e540bd9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3223513634875417,
+      "alignment_seconds": 0.0017787478864192963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Vivarika! Vif-seruvaru! Sedyablyaka!\" repeated the soldier, flourishing his arm and really catching the tune.",
+        "hotwords": "Vivarika, Vif-seruvaru, Sedyablyaka"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Vivarika, Vif-seruvaru, Sedyablyaka repeated the soldier, flourishing his arm and really catching the tune.",
+          "start": 0.0,
+          "end": 8.34,
+          "words": [
+            {
+              "text": " Vivarika,",
+              "start": 0.0,
+              "end": 0.86,
+              "probability": 0.4671223958333333
+            },
+            {
+              "text": " Vif",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.440673828125
+            },
+            {
+              "text": "-seruvaru,",
+              "start": 2.14,
+              "end": 3.36,
+              "probability": 0.268433952331543
+            },
+            {
+              "text": " Sedyablyaka",
+              "start": 4.02,
+              "end": 4.76,
+              "probability": 0.11365853250026703
+            },
+            {
+              "text": " repeated",
+              "start": 4.76,
+              "end": 5.26,
+              "probability": 0.22900390625
+            },
+            {
+              "text": " the",
+              "start": 5.26,
+              "end": 5.5,
+              "probability": 0.974609375
+            },
+            {
+              "text": " soldier,",
+              "start": 5.5,
+              "end": 5.86,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " flourishing",
+              "start": 6.2,
+              "end": 6.52,
+              "probability": 0.982421875
+            },
+            {
+              "text": " his",
+              "start": 6.52,
+              "end": 6.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " arm",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 7.04,
+              "end": 7.22,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " really",
+              "start": 7.22,
+              "end": 7.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " catching",
+              "start": 7.5,
+              "end": 7.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 7.84,
+              "end": 8.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tune.",
+              "start": 8.08,
+              "end": 8.34,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vivarika,",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "raw": "Vif",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "-seruvaru,",
+          "start": 2.14,
+          "end": 3.36
+        },
+        {
+          "raw": "Sedyablyaka",
+          "start": 4.02,
+          "end": 4.76
+        },
+        {
+          "raw": "repeated",
+          "start": 4.76,
+          "end": 5.26
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.5
+        },
+        {
+          "raw": "soldier,",
+          "start": 5.5,
+          "end": 5.86
+        },
+        {
+          "raw": "flourishing",
+          "start": 6.2,
+          "end": 6.52
+        },
+        {
+          "raw": "his",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "raw": "arm",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "raw": "really",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "raw": "catching",
+          "start": 7.5,
+          "end": 7.84
+        },
+        {
+          "raw": "the",
+          "start": 7.84,
+          "end": 8.08
+        },
+        {
+          "raw": "tune.",
+          "start": 8.08,
+          "end": 8.34
+        }
+      ],
+      "expected_tokens": [
+        "“Vivarika!",
+        "Vif-seruvaru!",
+        "Sedyablyaka!”",
+        "repeated",
+        "the",
+        "soldier,",
+        "flourishing",
+        "his",
+        "arm",
+        "and",
+        "really",
+        "catching",
+        "the",
+        "tune."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Vivarika!",
+        "Vif-seruvaru!",
+        "Sedyablyaka!\"",
+        "repeated",
+        "the",
+        "soldier,",
+        "flourishing",
+        "his",
+        "arm",
+        "and",
+        "really",
+        "catching",
+        "the",
+        "tune."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Vivarika,",
+          "start": 0.0,
+          "end": 0.86,
+          "key": "vivarika",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vif -seruvaru,",
+          "start": 1.84,
+          "end": 3.36,
+          "key": "vifseruvaru",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Sedyablyaka",
+          "start": 4.02,
+          "end": 4.76,
+          "key": "sedyablyaka",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 4.76,
+          "end": 5.26,
+          "key": "repeated",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.5,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 5.5,
+          "end": 5.86,
+          "key": "soldier",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flourishing",
+          "start": 6.2,
+          "end": 6.52,
+          "key": "flourishing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.52,
+          "end": 6.82,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "arm",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.22,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 7.22,
+          "end": 7.5,
+          "key": "really",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "catching",
+          "start": 7.5,
+          "end": 7.84,
+          "key": "catching",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.84,
+          "end": 8.08,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tune.",
+          "start": 8.08,
+          "end": 8.34,
+          "key": "tune",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Vif-seruvaru!",
+          "heard": "Vif -seruvaru,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.84,
+          "end": 3.36
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Vivarika!",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "text": "Vif-seruvaru!",
+          "start": 1.84,
+          "end": 3.36
+        },
+        {
+          "text": "Sedyablyaka!”",
+          "start": 4.02,
+          "end": 4.76
+        },
+        {
+          "text": "repeated",
+          "start": 4.76,
+          "end": 5.26
+        },
+        {
+          "text": "the",
+          "start": 5.26,
+          "end": 5.5
+        },
+        {
+          "text": "soldier,",
+          "start": 5.5,
+          "end": 5.86
+        },
+        {
+          "text": "flourishing",
+          "start": 6.2,
+          "end": 6.52
+        },
+        {
+          "text": "his",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "text": "arm",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "and",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "text": "really",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "text": "catching",
+          "start": 7.5,
+          "end": 7.84
+        },
+        {
+          "text": "the",
+          "start": 7.84,
+          "end": 8.08
+        },
+        {
+          "text": "tune.",
+          "start": 8.08,
+          "end": 8.34
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3243374554440379
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e1e79e4a8930f3ca31f2fcf8cd40fc7b360ad96433130aa00389cedccde0096a",
+  "selected_reasons": []
+}

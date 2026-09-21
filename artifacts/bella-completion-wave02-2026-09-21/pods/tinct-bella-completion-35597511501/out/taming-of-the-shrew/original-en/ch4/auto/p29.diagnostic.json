@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "9e2f166a5df4dabc53787c40a6438a1a72a07b70616395c16c4026ff8187a634",
+  "attempts": [
+    {
+      "asr_seconds": 0.2249368941411376,
+      "alignment_seconds": 0.0011527324095368385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "My lessons make no music in three parts.",
+        "hotwords": "My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My lessons make no music in three parts.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.91796875
+            },
+            {
+              "text": " lessons",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " make",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " music",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " three",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " parts.",
+              "start": 2.21,
+              "end": 2.69,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "lessons",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "make",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "no",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "music",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "three",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "parts.",
+          "start": 2.21,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "lessons",
+        "make",
+        "no",
+        "music",
+        "in",
+        "three",
+        "parts."
+      ],
+      "acoustic_expected_tokens": [
+        "My",
+        "lessons",
+        "make",
+        "no",
+        "music",
+        "in",
+        "three",
+        "parts."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lessons",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "lessons",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 0.91,
+          "end": 1.21,
+          "key": "make",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "music",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "three",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 2.21,
+          "end": 2.69,
+          "key": "parts",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "lessons",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "make",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "text": "no",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "music",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "in",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "three",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "parts.",
+          "start": 2.21,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2262575151398778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d587ce21004d65386110f71d089bae4786e5721327e62a2bbf600bbf3e9b2196",
+  "selected_reasons": []
+}

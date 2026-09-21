@@ -1,0 +1,2064 @@
+{
+  "complete": true,
+  "signature": "98dd827548aa7b9de1c4485564a4e9a83183678c40e252b0530b31e297fee598",
+  "attempts": [
+    {
+      "asr_seconds": 0.3139134580269456,
+      "alignment_seconds": 0.0016828356310725212,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There was a stir in the next room and he heard the steps of Toll, Konovnítsyn, and Bolkhovítinov.",
+        "hotwords": "There, Toll, Konovnítsyn, Bolkhovítinov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There was a stir in the next room and he heard the steps of Toll, Konovnítsyn, and Bolkhovnítinov.",
+          "start": 0.0,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " was",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stir",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " next",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " room",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " he",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heard",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " steps",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Toll,",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.08331298828125
+            },
+            {
+              "text": " Konovnítsyn,",
+              "start": 3.34,
+              "end": 3.92,
+              "probability": 0.33537448445955914
+            },
+            {
+              "text": " and",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Bolkhovnítinov.",
+              "start": 4.3,
+              "end": 5.08,
+              "probability": 0.37185546330043245
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "Toll,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "Bolkhovnítinov.",
+          "start": 4.3,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "acoustic_expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "stir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "next",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "steps",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Toll,",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "toll",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92,
+          "key": "konovnítsyn",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Bolkhovnítinov.",
+          "start": 4.3,
+          "end": 5.08,
+          "key": "bolkhovnítinov",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "Toll,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "Bolkhovítinov.",
+          "start": 4.3,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.31579967495054007
+    },
+    {
+      "asr_seconds": 0.2964074844494462,
+      "alignment_seconds": 0.002142888493835926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "There, Toll, Konovnítsyn, Bolkhovítinov"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " There was a stir in the next room and he heard the steps of Toll, Konovnítsyn, and Bolkhovnítinov.",
+          "start": 0.0,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " was",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stir",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " next",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " room",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " he",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heard",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " steps",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Toll,",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.08331298828125
+            },
+            {
+              "text": " Konovnítsyn,",
+              "start": 3.34,
+              "end": 3.92,
+              "probability": 0.33537448445955914
+            },
+            {
+              "text": " and",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Bolkhovnítinov.",
+              "start": 4.3,
+              "end": 5.08,
+              "probability": 0.37185546330043245
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "Toll,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "Bolkhovnítinov.",
+          "start": 4.3,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "acoustic_expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "stir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "next",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "steps",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Toll,",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "toll",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92,
+          "key": "konovnítsyn",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Bolkhovnítinov.",
+          "start": 4.3,
+          "end": 5.08,
+          "key": "bolkhovnítinov",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "Toll,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "Konovnítsyn,",
+          "start": 3.34,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "Bolkhovítinov.",
+          "start": 4.3,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.2988190371543169
+    },
+    {
+      "asr_seconds": 0.3030442241579294,
+      "alignment_seconds": 0.0018635028973221779,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There was a stir in the next room and he heard the steps of Tull, Con of Nitsin, and Volkovitinov.",
+          "start": 0.0,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " was",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stir",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " next",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " room",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " he",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heard",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " steps",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Tull,",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " Con",
+              "start": 3.36,
+              "end": 3.38,
+              "probability": 0.30224609375
+            },
+            {
+              "text": " of",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " Nitsin,",
+              "start": 3.5,
+              "end": 3.92,
+              "probability": 0.5834147135416666
+            },
+            {
+              "text": " and",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Volkovitinov.",
+              "start": 4.32,
+              "end": 5.06,
+              "probability": 0.58955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "Tull,",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "Con",
+          "start": 3.36,
+          "end": 3.38
+        },
+        {
+          "raw": "of",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "Nitsin,",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "Volkovitinov.",
+          "start": 4.32,
+          "end": 5.06
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "acoustic_expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "stir",
+        "in",
+        "the",
+        "next",
+        "room",
+        "and",
+        "he",
+        "heard",
+        "the",
+        "steps",
+        "of",
+        "Toll,",
+        "Konovnítsyn,",
+        "and",
+        "Bolkhovítinov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          16,
+          14,
+          18
+        ],
+        [
+          "equal",
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          "replace",
+          17,
+          18,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          16,
+          14,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stir",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "stir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "next",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "steps",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Tull,",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "tull",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Con",
+          "start": 3.36,
+          "end": 3.38,
+          "key": "con",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.38,
+          "end": 3.5,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Nitsin,",
+          "start": 3.5,
+          "end": 3.92,
+          "key": "nitsin",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Volkovitinov.",
+          "start": 4.32,
+          "end": 5.06,
+          "key": "volkovitinov",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "was",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "a",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "stir",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "in",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "next",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "room",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "heard",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "steps",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "of",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "Toll,",
+          "start": 2.74,
+          "end": 3.45
+        },
+        {
+          "text": "Konovnítsyn,",
+          "start": 3.45,
+          "end": 3.805
+        },
+        {
+          "text": "and",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "Bolkhovítinov.",
+          "start": 4.32,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3051633099094033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0ad0f7173d89f6f171e51445d34bcab21bb0fd86a0fbb6ae467dd1d4b35d9e6",
+  "selected_reasons": []
+}

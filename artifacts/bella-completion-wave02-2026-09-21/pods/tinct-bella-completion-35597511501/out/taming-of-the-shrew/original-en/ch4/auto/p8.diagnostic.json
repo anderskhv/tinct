@@ -1,0 +1,337 @@
+{
+  "complete": true,
+  "signature": "e1074b749a26431de8c7bdba195a7f800bf79f92d9162afe98f8b81590d8de9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1987562282010913,
+      "alignment_seconds": 0.0008609658107161522,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That will be never: tune your instrument.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucentio. That will be never tune your instrument.",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Lucentio.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.7456868489583334
+            },
+            {
+              "text": " That",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " will",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.91796875
+            },
+            {
+              "text": " never",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " tune",
+              "start": 2.05,
+              "end": 2.39,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " your",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " instrument.",
+              "start": 2.59,
+              "end": 2.99,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "That",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "will",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "be",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "never",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "tune",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "raw": "your",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "instrument.",
+          "start": 2.59,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "That",
+        "will",
+        "be",
+        "never:",
+        "tune",
+        "your",
+        "instrument."
+      ],
+      "acoustic_expected_tokens": [
+        "That",
+        "will",
+        "be",
+        "never:",
+        "tune",
+        "your",
+        "instrument."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tune",
+          "start": 2.05,
+          "end": 2.39,
+          "key": "tune",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "instrument.",
+          "start": 2.59,
+          "end": 2.99,
+          "key": "instrument",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "That",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "will",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "be",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "never:",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "tune",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "text": "your",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "instrument.",
+          "start": 2.59,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19974913820624352
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd7cced45816dbd736512b1dbb03565f2c20b2ff9bc57813596f525c3faf7708",
+  "selected_reasons": []
+}

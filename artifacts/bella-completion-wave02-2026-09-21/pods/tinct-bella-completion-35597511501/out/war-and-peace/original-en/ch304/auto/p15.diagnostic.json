@@ -1,0 +1,609 @@
+{
+  "complete": true,
+  "signature": "cbbfa8d76b13b49786a820f16bd279b8e79a3fc33ac8a4039b24a16a989ad891",
+  "attempts": [
+    {
+      "asr_seconds": 0.3248366704210639,
+      "alignment_seconds": 0.0016177371144294739,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't play the fool!\" said Denísov, coughing angrily. \"Why didn't you bwing the first one?\"",
+        "hotwords": "Don't, Denísov, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't play the fool!\" said Denísov, coughing angrily.",
+          "start": 0.0,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.59649658203125
+            },
+            {
+              "text": " play",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fool",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.9296875
+            },
+            {
+              "text": "!\"",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.0169830322265625
+            },
+            {
+              "text": " said",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Denísov,",
+              "start": 1.42,
+              "end": 1.96,
+              "probability": 0.017882664998372395
+            },
+            {
+              "text": " coughing",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " angrily.",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Why didn't you bwing the first one?",
+          "start": 4.1,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Why",
+              "start": 4.1,
+              "end": 4.4,
+              "probability": 0.1334228515625
+            },
+            {
+              "text": " didn't",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bwing",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.477294921875
+            },
+            {
+              "text": " the",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " first",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one?",
+              "start": 5.34,
+              "end": 5.68,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "play",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "fool",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "!\"",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "Denísov,",
+          "start": 1.42,
+          "end": 1.96
+        },
+        {
+          "raw": "coughing",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "angrily.",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "Why",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "raw": "didn't",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "you",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "bwing",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "the",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "first",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "one?",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "“Don’t",
+        "play",
+        "the",
+        "fool!”",
+        "said",
+        "Denísov,",
+        "coughing",
+        "angrily.",
+        "“Why",
+        "didn’t",
+        "you",
+        "bwing",
+        "the",
+        "first",
+        "one?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Don't",
+        "play",
+        "the",
+        "fool!\"",
+        "said",
+        "Denísov,",
+        "coughing",
+        "angrily.",
+        "\"Why",
+        "didn't",
+        "you",
+        "bwing",
+        "the",
+        "first",
+        "one?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          15,
+          5,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "play",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "fool",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Denísov,",
+          "start": 1.42,
+          "end": 1.96,
+          "key": "denísov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "coughing",
+          "start": 2.44,
+          "end": 2.72,
+          "key": "coughing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "angrily.",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "angrily",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 4.1,
+          "end": 4.4,
+          "key": "why",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "didnt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bwing",
+          "start": 4.78,
+          "end": 4.96,
+          "key": "bwing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "first",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one?",
+          "start": 5.34,
+          "end": 5.68,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Don’t",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "play",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "the",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "fool!”",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "said",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "Denísov,",
+          "start": 1.42,
+          "end": 1.96
+        },
+        {
+          "text": "coughing",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "angrily.",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "“Why",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "text": "didn’t",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "you",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "bwing",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "the",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "first",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "one?”",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.326658146455884
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94e81b0d47607fe61a4572da041b324cf5c120cad0624ee6a2d46e999b5ec3b2",
+  "selected_reasons": []
+}

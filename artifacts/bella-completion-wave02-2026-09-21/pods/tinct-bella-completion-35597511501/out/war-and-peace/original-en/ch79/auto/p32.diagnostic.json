@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "84fb9ff2be0770fc53033f1ef5b7d156b5f516fe3b1ad74b92e31eb6c385ef52",
+  "attempts": [
+    {
+      "asr_seconds": 0.13313473481684923,
+      "alignment_seconds": 0.0009707026183605194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And Nicholas again kissed her hand.",
+        "hotwords": "And, Nicholas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Nicholas again kissed her hand.",
+          "start": 0.0,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " Nicholas",
+              "start": 0.38,
+              "end": 0.76,
+              "probability": 0.89453125
+            },
+            {
+              "text": " again",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " kissed",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " her",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hand.",
+              "start": 1.58,
+              "end": 2.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "Nicholas",
+          "start": 0.38,
+          "end": 0.76
+        },
+        {
+          "raw": "again",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "kissed",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "her",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "hand.",
+          "start": 1.58,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "Nicholas",
+        "again",
+        "kissed",
+        "her",
+        "hand."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "Nicholas",
+        "again",
+        "kissed",
+        "her",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 0.38,
+          "end": 0.76,
+          "key": "nicholas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kissed",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "kissed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 1.58,
+          "end": 2.02,
+          "key": "hand",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "Nicholas",
+          "start": 0.38,
+          "end": 0.76
+        },
+        {
+          "text": "again",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "kissed",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "her",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "hand.",
+          "start": 1.58,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13424323592334986
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10371df94a92fbbe62bb362cc8c586e6c9f81d615e9bc2381751454a9ac280b9",
+  "selected_reasons": []
+}

@@ -1,0 +1,1989 @@
+{
+  "complete": true,
+  "signature": "4b3a8641365b7a3dbb1dbbf1ec2b2fcf391ad0146cf2003212f15f5177a473b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.6690437365323305,
+      "alignment_seconds": 0.009794285520911217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"All take glasses; you too, Balagá. Well, comrades and friends of my youth, we've had our fling and lived and reveled. Eh? And now, when shall we meet again? I am going abroad. We have had a good time—now farewell, lads! To our health! Hurrah!...\" he cried, and emptying his glass flung it on the floor.",
+        "hotwords": "All, Balagá, Well, Eh, I, To, Hurrah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All take glasses—you too, Balagá. Well, comrades and friends of my youth, we've had our fling",
+          "start": 0.0,
+          "end": 7.1,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.15966796875
+            },
+            {
+              "text": " take",
+              "start": 0.4,
+              "end": 0.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " glasses—you",
+              "start": 0.66,
+              "end": 1.56,
+              "probability": 0.6722412109375
+            },
+            {
+              "text": " too,",
+              "start": 1.56,
+              "end": 1.88,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " Balagá.",
+              "start": 2.3,
+              "end": 2.8,
+              "probability": 0.13935724894205728
+            },
+            {
+              "text": " Well,",
+              "start": 3.56,
+              "end": 4.04,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " comrades",
+              "start": 4.66,
+              "end": 4.66,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " and",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " friends",
+              "start": 5.0,
+              "end": 5.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 5.22,
+              "end": 5.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 5.42,
+              "end": 5.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " youth,",
+              "start": 5.58,
+              "end": 5.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " we've",
+              "start": 6.26,
+              "end": 6.42,
+              "probability": 0.832275390625
+            },
+            {
+              "text": " had",
+              "start": 6.42,
+              "end": 6.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " our",
+              "start": 6.54,
+              "end": 6.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fling",
+              "start": 6.78,
+              "end": 7.1,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " and lived and reveled. Eh? And now, when shall we meet again? I am going abroad. We have had",
+          "start": 7.1,
+          "end": 15.64,
+          "words": [
+            {
+              "text": " and",
+              "start": 7.1,
+              "end": 7.3,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " lived",
+              "start": 7.3,
+              "end": 7.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 7.54,
+              "end": 7.74,
+              "probability": 0.681640625
+            },
+            {
+              "text": " reveled.",
+              "start": 7.74,
+              "end": 8.74,
+              "probability": 0.552734375
+            },
+            {
+              "text": " Eh?",
+              "start": 9.18,
+              "end": 9.34,
+              "probability": 0.734375
+            },
+            {
+              "text": " And",
+              "start": 10.14,
+              "end": 10.56,
+              "probability": 0.8984375
+            },
+            {
+              "text": " now,",
+              "start": 10.56,
+              "end": 10.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " when",
+              "start": 11.0,
+              "end": 11.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 11.2,
+              "end": 11.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " we",
+              "start": 11.38,
+              "end": 11.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meet",
+              "start": 11.56,
+              "end": 11.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again?",
+              "start": 11.72,
+              "end": 12.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 13.0,
+              "end": 13.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " am",
+              "start": 13.28,
+              "end": 13.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " going",
+              "start": 13.38,
+              "end": 13.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abroad.",
+              "start": 13.62,
+              "end": 14.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " We",
+              "start": 15.06,
+              "end": 15.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 15.32,
+              "end": 15.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " had",
+              "start": 15.46,
+              "end": 15.64,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " a good time—now farewell, lads! To our health! Hurrah!...\" he cried, and emptying his glass",
+          "start": 15.64,
+          "end": 23.3,
+          "words": [
+            {
+              "text": " a",
+              "start": 15.64,
+              "end": 15.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 15.78,
+              "end": 15.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time—now",
+              "start": 15.92,
+              "end": 16.8,
+              "probability": 0.753173828125
+            },
+            {
+              "text": " farewell,",
+              "start": 16.8,
+              "end": 17.2,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " lads!",
+              "start": 17.8,
+              "end": 18.02,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " To",
+              "start": 18.98,
+              "end": 19.22,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " our",
+              "start": 19.22,
+              "end": 19.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " health!",
+              "start": 19.42,
+              "end": 19.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Hurrah",
+              "start": 20.74,
+              "end": 21.32,
+              "probability": 0.7213134765625
+            },
+            {
+              "text": "!...\"",
+              "start": 21.32,
+              "end": 21.62,
+              "probability": 0.21242010593414307
+            },
+            {
+              "text": " he",
+              "start": 21.62,
+              "end": 21.62,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " cried,",
+              "start": 21.62,
+              "end": 21.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 22.34,
+              "end": 22.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " emptying",
+              "start": 22.42,
+              "end": 22.78,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " his",
+              "start": 22.78,
+              "end": 23.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glass",
+              "start": 23.0,
+              "end": 23.3,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " flung it on the floor.",
+          "start": 23.3,
+          "end": 24.3,
+          "words": [
+            {
+              "text": " flung",
+              "start": 23.3,
+              "end": 23.56,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " it",
+              "start": 23.56,
+              "end": 23.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " on",
+              "start": 23.72,
+              "end": 23.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 23.86,
+              "end": 23.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " floor.",
+              "start": 23.98,
+              "end": 24.3,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "take",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "raw": "glasses—you",
+          "start": 0.66,
+          "end": 1.56
+        },
+        {
+          "raw": "too,",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "raw": "Balagá.",
+          "start": 2.3,
+          "end": 2.8
+        },
+        {
+          "raw": "Well,",
+          "start": 3.56,
+          "end": 4.04
+        },
+        {
+          "raw": "comrades",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "raw": "friends",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "raw": "of",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "raw": "my",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "raw": "youth,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "raw": "we've",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "raw": "had",
+          "start": 6.42,
+          "end": 6.54
+        },
+        {
+          "raw": "our",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "raw": "fling",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "raw": "and",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "raw": "lived",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "raw": "and",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "raw": "reveled.",
+          "start": 7.74,
+          "end": 8.74
+        },
+        {
+          "raw": "Eh?",
+          "start": 9.18,
+          "end": 9.34
+        },
+        {
+          "raw": "And",
+          "start": 10.14,
+          "end": 10.56
+        },
+        {
+          "raw": "now,",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "raw": "when",
+          "start": 11.0,
+          "end": 11.2
+        },
+        {
+          "raw": "shall",
+          "start": 11.2,
+          "end": 11.38
+        },
+        {
+          "raw": "we",
+          "start": 11.38,
+          "end": 11.56
+        },
+        {
+          "raw": "meet",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "raw": "again?",
+          "start": 11.72,
+          "end": 12.06
+        },
+        {
+          "raw": "I",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "raw": "am",
+          "start": 13.28,
+          "end": 13.38
+        },
+        {
+          "raw": "going",
+          "start": 13.38,
+          "end": 13.62
+        },
+        {
+          "raw": "abroad.",
+          "start": 13.62,
+          "end": 14.0
+        },
+        {
+          "raw": "We",
+          "start": 15.06,
+          "end": 15.32
+        },
+        {
+          "raw": "have",
+          "start": 15.32,
+          "end": 15.46
+        },
+        {
+          "raw": "had",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "raw": "a",
+          "start": 15.64,
+          "end": 15.78
+        },
+        {
+          "raw": "good",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "raw": "time—now",
+          "start": 15.92,
+          "end": 16.8
+        },
+        {
+          "raw": "farewell,",
+          "start": 16.8,
+          "end": 17.2
+        },
+        {
+          "raw": "lads!",
+          "start": 17.8,
+          "end": 18.02
+        },
+        {
+          "raw": "To",
+          "start": 18.98,
+          "end": 19.22
+        },
+        {
+          "raw": "our",
+          "start": 19.22,
+          "end": 19.42
+        },
+        {
+          "raw": "health!",
+          "start": 19.42,
+          "end": 19.84
+        },
+        {
+          "raw": "Hurrah",
+          "start": 20.74,
+          "end": 21.32
+        },
+        {
+          "raw": "!...\"",
+          "start": 21.32,
+          "end": 21.62
+        },
+        {
+          "raw": "he",
+          "start": 21.62,
+          "end": 21.62
+        },
+        {
+          "raw": "cried,",
+          "start": 21.62,
+          "end": 21.98
+        },
+        {
+          "raw": "and",
+          "start": 22.34,
+          "end": 22.42
+        },
+        {
+          "raw": "emptying",
+          "start": 22.42,
+          "end": 22.78
+        },
+        {
+          "raw": "his",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "raw": "glass",
+          "start": 23.0,
+          "end": 23.3
+        },
+        {
+          "raw": "flung",
+          "start": 23.3,
+          "end": 23.56
+        },
+        {
+          "raw": "it",
+          "start": 23.56,
+          "end": 23.72
+        },
+        {
+          "raw": "on",
+          "start": 23.72,
+          "end": 23.86
+        },
+        {
+          "raw": "the",
+          "start": 23.86,
+          "end": 23.98
+        },
+        {
+          "raw": "floor.",
+          "start": 23.98,
+          "end": 24.3
+        }
+      ],
+      "expected_tokens": [
+        "“All",
+        "take",
+        "glasses;",
+        "you",
+        "too,",
+        "Balagá.",
+        "Well,",
+        "comrades",
+        "and",
+        "friends",
+        "of",
+        "my",
+        "youth,",
+        "we’ve",
+        "had",
+        "our",
+        "fling",
+        "and",
+        "lived",
+        "and",
+        "reveled.",
+        "Eh?",
+        "And",
+        "now,",
+        "when",
+        "shall",
+        "we",
+        "meet",
+        "again?",
+        "I",
+        "am",
+        "going",
+        "abroad.",
+        "We",
+        "have",
+        "had",
+        "a",
+        "good",
+        "time—now",
+        "farewell,",
+        "lads!",
+        "To",
+        "our",
+        "health!",
+        "Hurrah!...”",
+        "he",
+        "cried,",
+        "and",
+        "emptying",
+        "his",
+        "glass",
+        "flung",
+        "it",
+        "on",
+        "the",
+        "floor."
+      ],
+      "acoustic_expected_tokens": [
+        "\"All",
+        "take",
+        "glasses;",
+        "you",
+        "too,",
+        "Balagá.",
+        "Well,",
+        "comrades",
+        "and",
+        "friends",
+        "of",
+        "my",
+        "youth,",
+        "we've",
+        "had",
+        "our",
+        "fling",
+        "and",
+        "lived",
+        "and",
+        "reveled.",
+        "Eh?",
+        "And",
+        "now,",
+        "when",
+        "shall",
+        "we",
+        "meet",
+        "again?",
+        "I",
+        "am",
+        "going",
+        "abroad.",
+        "We",
+        "have",
+        "had",
+        "a",
+        "good",
+        "time—now",
+        "farewell,",
+        "lads!",
+        "To",
+        "our",
+        "health!",
+        "Hurrah!...\"",
+        "he",
+        "cried,",
+        "and",
+        "emptying",
+        "his",
+        "glass",
+        "flung",
+        "it",
+        "on",
+        "the",
+        "floor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          45,
+          3,
+          44
+        ],
+        [
+          "insert",
+          45,
+          45,
+          44,
+          45
+        ],
+        [
+          "equal",
+          45,
+          56,
+          45,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "insert",
+          45,
+          45,
+          44,
+          45
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 0.4,
+          "end": 0.66,
+          "key": "take",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "glasses—you",
+          "start": 0.66,
+          "end": 1.56,
+          "key": "glassesyou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 1.56,
+          "end": 1.88,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Balagá.",
+          "start": 2.3,
+          "end": 2.8,
+          "key": "balagá",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 3.56,
+          "end": 4.04,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "comrades",
+          "start": 4.66,
+          "end": 4.66,
+          "key": "comrades",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 5.0,
+          "end": 5.22,
+          "key": "friends",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.22,
+          "end": 5.42,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.42,
+          "end": 5.58,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 5.58,
+          "end": 5.9,
+          "key": "youth",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we've",
+          "start": 6.26,
+          "end": 6.42,
+          "key": "weve",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.42,
+          "end": 6.54,
+          "key": "had",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.54,
+          "end": 6.78,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fling",
+          "start": 6.78,
+          "end": 7.1,
+          "key": "fling",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.1,
+          "end": 7.3,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 7.3,
+          "end": 7.54,
+          "key": "lived",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.54,
+          "end": 7.74,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "reveled.",
+          "start": 7.74,
+          "end": 8.74,
+          "key": "reveled",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Eh?",
+          "start": 9.18,
+          "end": 9.34,
+          "key": "eh",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.14,
+          "end": 10.56,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 10.56,
+          "end": 10.82,
+          "key": "now",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 11.0,
+          "end": 11.2,
+          "key": "when",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.2,
+          "end": 11.38,
+          "key": "shall",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 11.38,
+          "end": 11.56,
+          "key": "we",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 11.56,
+          "end": 11.72,
+          "key": "meet",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "again?",
+          "start": 11.72,
+          "end": 12.06,
+          "key": "again",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.0,
+          "end": 13.28,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 13.28,
+          "end": 13.38,
+          "key": "am",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 13.38,
+          "end": 13.62,
+          "key": "going",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "abroad.",
+          "start": 13.62,
+          "end": 14.0,
+          "key": "abroad",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 15.06,
+          "end": 15.32,
+          "key": "we",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 15.32,
+          "end": 15.46,
+          "key": "have",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 15.46,
+          "end": 15.64,
+          "key": "had",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.64,
+          "end": 15.78,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 15.78,
+          "end": 15.92,
+          "key": "good",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "time—now",
+          "start": 15.92,
+          "end": 16.8,
+          "key": "timenow",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "farewell,",
+          "start": 16.8,
+          "end": 17.2,
+          "key": "farewell",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lads!",
+          "start": 17.8,
+          "end": 18.02,
+          "key": "lads",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 18.98,
+          "end": 19.22,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 19.22,
+          "end": 19.42,
+          "key": "our",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "health!",
+          "start": 19.42,
+          "end": 19.84,
+          "key": "health",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Hurrah",
+          "start": 20.74,
+          "end": 21.32,
+          "key": "hurrah",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "!...\"",
+          "start": 21.32,
+          "end": 21.62,
+          "key": "",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.62,
+          "end": 21.62,
+          "key": "he",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 21.62,
+          "end": 21.98,
+          "key": "cried",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.34,
+          "end": 22.42,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "emptying",
+          "start": 22.42,
+          "end": 22.78,
+          "key": "emptying",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 22.78,
+          "end": 23.0,
+          "key": "his",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "glass",
+          "start": 23.0,
+          "end": 23.3,
+          "key": "glass",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "flung",
+          "start": 23.3,
+          "end": 23.56,
+          "key": "flung",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 23.56,
+          "end": 23.72,
+          "key": "it",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 23.72,
+          "end": 23.86,
+          "key": "on",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.86,
+          "end": 23.98,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "floor.",
+          "start": 23.98,
+          "end": 24.3,
+          "key": "floor",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [
+        {
+          "heard_index": 2,
+          "heard": "glasses—you",
+          "expected_indexes": [
+            2,
+            3
+          ],
+          "text": "glasses; you",
+          "start": 0.66,
+          "end": 1.56
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "“All",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "take",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "text": "glasses;",
+          "start": 0.66,
+          "end": 1.29
+        },
+        {
+          "text": "you",
+          "start": 1.29,
+          "end": 1.56
+        },
+        {
+          "text": "too,",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "text": "Balagá.",
+          "start": 2.3,
+          "end": 2.8
+        },
+        {
+          "text": "Well,",
+          "start": 3.56,
+          "end": 4.04
+        },
+        {
+          "text": "comrades",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "text": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "text": "friends",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "text": "of",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "text": "my",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "text": "youth,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "text": "we’ve",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "text": "had",
+          "start": 6.42,
+          "end": 6.54
+        },
+        {
+          "text": "our",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "text": "fling",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "text": "and",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "text": "lived",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "text": "and",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "text": "reveled.",
+          "start": 7.74,
+          "end": 8.74
+        },
+        {
+          "text": "Eh?",
+          "start": 9.18,
+          "end": 9.34
+        },
+        {
+          "text": "And",
+          "start": 10.14,
+          "end": 10.56
+        },
+        {
+          "text": "now,",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "text": "when",
+          "start": 11.0,
+          "end": 11.2
+        },
+        {
+          "text": "shall",
+          "start": 11.2,
+          "end": 11.38
+        },
+        {
+          "text": "we",
+          "start": 11.38,
+          "end": 11.56
+        },
+        {
+          "text": "meet",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "text": "again?",
+          "start": 11.72,
+          "end": 12.06
+        },
+        {
+          "text": "I",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "text": "am",
+          "start": 13.28,
+          "end": 13.38
+        },
+        {
+          "text": "going",
+          "start": 13.38,
+          "end": 13.62
+        },
+        {
+          "text": "abroad.",
+          "start": 13.62,
+          "end": 14.0
+        },
+        {
+          "text": "We",
+          "start": 15.06,
+          "end": 15.32
+        },
+        {
+          "text": "have",
+          "start": 15.32,
+          "end": 15.46
+        },
+        {
+          "text": "had",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "text": "a",
+          "start": 15.64,
+          "end": 15.78
+        },
+        {
+          "text": "good",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "text": "time—now",
+          "start": 15.92,
+          "end": 16.8
+        },
+        {
+          "text": "farewell,",
+          "start": 16.8,
+          "end": 17.2
+        },
+        {
+          "text": "lads!",
+          "start": 17.8,
+          "end": 18.02
+        },
+        {
+          "text": "To",
+          "start": 18.98,
+          "end": 19.22
+        },
+        {
+          "text": "our",
+          "start": 19.22,
+          "end": 19.42
+        },
+        {
+          "text": "health!",
+          "start": 19.42,
+          "end": 19.84
+        },
+        {
+          "text": "Hurrah!...”",
+          "start": 20.74,
+          "end": 21.32
+        },
+        {
+          "text": "he",
+          "start": 21.62,
+          "end": 21.62
+        },
+        {
+          "text": "cried,",
+          "start": 21.62,
+          "end": 21.98
+        },
+        {
+          "text": "and",
+          "start": 22.34,
+          "end": 22.42
+        },
+        {
+          "text": "emptying",
+          "start": 22.42,
+          "end": 22.78
+        },
+        {
+          "text": "his",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "text": "glass",
+          "start": 23.0,
+          "end": 23.3
+        },
+        {
+          "text": "flung",
+          "start": 23.3,
+          "end": 23.56
+        },
+        {
+          "text": "it",
+          "start": 23.56,
+          "end": 23.72
+        },
+        {
+          "text": "on",
+          "start": 23.72,
+          "end": 23.86
+        },
+        {
+          "text": "the",
+          "start": 23.86,
+          "end": 23.98
+        },
+        {
+          "text": "floor.",
+          "start": 23.98,
+          "end": 24.3
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 56
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6797457113862038
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7599031e1538e6d59600dad0c53c4392a3ae934bce3d0b39f33868e064d37152",
+  "selected_reasons": []
+}

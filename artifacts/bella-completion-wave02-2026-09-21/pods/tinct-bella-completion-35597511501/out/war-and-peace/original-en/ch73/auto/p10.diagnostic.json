@@ -1,0 +1,2782 @@
+{
+  "complete": true,
+  "signature": "e3143b9cdc1e07ccae238a46da4e7edbfe0f0a2fc5e90e0b50d3ae7af109f8ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.8744080848991871,
+      "alignment_seconds": 0.01020668726414442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To your barrier!\" and Pierre, grasping what was meant, stopped by his saber. Only ten paces divided them. Dólokhov lowered his head to the snow, greedily bit at it, again raised his head, adjusted himself, drew in his legs and sat up, seeking a firm center of gravity. He sucked and swallowed the cold snow, his lips quivered but his eyes, still smiling, glittered with effort and exasperation as he mustered his remaining strength. He raised his pistol and aimed.",
+        "hotwords": "Pierre, Only, Dólokhov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To your barrier!\" and Pierre, grasping what was meant, stopped by his saber.",
+          "start": 0.0,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.1796875
+            },
+            {
+              "text": " your",
+              "start": 0.34,
+              "end": 0.52,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " barrier",
+              "start": 0.52,
+              "end": 0.94,
+              "probability": 0.958984375
+            },
+            {
+              "text": "!\"",
+              "start": 0.94,
+              "end": 1.3,
+              "probability": 0.07427978515625
+            },
+            {
+              "text": " and",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Pierre,",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " grasping",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " meant,",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stopped",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.955078125
+            },
+            {
+              "text": " by",
+              "start": 3.74,
+              "end": 4.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " saber.",
+              "start": 4.3,
+              "end": 4.76,
+              "probability": 0.57989501953125
+            }
+          ]
+        },
+        {
+          "text": " Only ten paces divided them. Dólokhov lowered his head to the snow, greedily bit at it,",
+          "start": 5.68,
+          "end": 11.28,
+          "words": [
+            {
+              "text": " Only",
+              "start": 5.68,
+              "end": 6.0,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " ten",
+              "start": 6.0,
+              "end": 6.32,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " paces",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " divided",
+              "start": 6.66,
+              "end": 7.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 7.08,
+              "end": 7.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Dólokhov",
+              "start": 8.46,
+              "end": 8.8,
+              "probability": 0.13016738891601562
+            },
+            {
+              "text": " lowered",
+              "start": 8.8,
+              "end": 9.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 9.16,
+              "end": 9.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head",
+              "start": 9.36,
+              "end": 9.54,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 9.54,
+              "end": 9.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.78,
+              "probability": 1.0
+            },
+            {
+              "text": " snow,",
+              "start": 9.78,
+              "end": 10.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " greedily",
+              "start": 10.58,
+              "end": 10.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bit",
+              "start": 10.82,
+              "end": 11.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 11.0,
+              "end": 11.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it,",
+              "start": 11.14,
+              "end": 11.28,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " again raised his head, adjusted himself, drew in his legs and sat up, seeking a firm center",
+          "start": 11.52,
+          "end": 16.66,
+          "words": [
+            {
+              "text": " again",
+              "start": 11.52,
+              "end": 11.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " raised",
+              "start": 11.76,
+              "end": 12.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head,",
+              "start": 12.3,
+              "end": 12.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " adjusted",
+              "start": 12.8,
+              "end": 13.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " himself,",
+              "start": 13.14,
+              "end": 13.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " drew",
+              "start": 13.96,
+              "end": 14.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 14.12,
+              "end": 14.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 14.28,
+              "end": 14.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " legs",
+              "start": 14.44,
+              "end": 14.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 14.68,
+              "end": 14.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " sat",
+              "start": 14.94,
+              "end": 15.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up,",
+              "start": 15.16,
+              "end": 15.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seeking",
+              "start": 15.72,
+              "end": 15.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.88,
+              "end": 16.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " firm",
+              "start": 16.12,
+              "end": 16.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " center",
+              "start": 16.36,
+              "end": 16.66,
+              "probability": 0.4765625
+            }
+          ]
+        },
+        {
+          "text": " of gravity. He sucked and swallowed the cold snow, his lips quivered but his eyes, still smiling,",
+          "start": 16.66,
+          "end": 22.66,
+          "words": [
+            {
+              "text": " of",
+              "start": 16.66,
+              "end": 16.94,
+              "probability": 1.0
+            },
+            {
+              "text": " gravity.",
+              "start": 16.94,
+              "end": 17.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 18.26,
+              "end": 18.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sucked",
+              "start": 18.54,
+              "end": 18.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 18.72,
+              "end": 18.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " swallowed",
+              "start": 18.96,
+              "end": 19.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 19.22,
+              "end": 19.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cold",
+              "start": 19.46,
+              "end": 19.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " snow,",
+              "start": 19.68,
+              "end": 20.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 20.32,
+              "end": 20.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lips",
+              "start": 20.44,
+              "end": 20.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " quivered",
+              "start": 20.7,
+              "end": 20.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " but",
+              "start": 20.98,
+              "end": 21.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 21.2,
+              "end": 21.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes,",
+              "start": 21.38,
+              "end": 21.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " still",
+              "start": 22.0,
+              "end": 22.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " smiling,",
+              "start": 22.16,
+              "end": 22.66,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " glittered with effort and exasperation as he mustered his remaining strength.",
+          "start": 22.94,
+          "end": 26.38,
+          "words": [
+            {
+              "text": " glittered",
+              "start": 22.94,
+              "end": 23.18,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " with",
+              "start": 23.18,
+              "end": 23.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " effort",
+              "start": 23.42,
+              "end": 23.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 23.64,
+              "end": 23.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " exasperation",
+              "start": 23.82,
+              "end": 24.6,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " as",
+              "start": 24.6,
+              "end": 24.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 24.76,
+              "end": 24.94,
+              "probability": 1.0
+            },
+            {
+              "text": " mustered",
+              "start": 24.94,
+              "end": 25.28,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 25.28,
+              "end": 25.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remaining",
+              "start": 25.44,
+              "end": 25.82,
+              "probability": 1.0
+            },
+            {
+              "text": " strength.",
+              "start": 25.82,
+              "end": 26.38,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " He raised his pistol and aimed.",
+          "start": 26.38,
+          "end": 28.92,
+          "words": [
+            {
+              "text": " He",
+              "start": 26.38,
+              "end": 27.56,
+              "probability": 0.734375
+            },
+            {
+              "text": " raised",
+              "start": 27.56,
+              "end": 27.84,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " his",
+              "start": 27.84,
+              "end": 28.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pistol",
+              "start": 28.06,
+              "end": 28.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 28.42,
+              "end": 28.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " aimed.",
+              "start": 28.6,
+              "end": 28.92,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "your",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "raw": "barrier",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "raw": "!\"",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "Pierre,",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "grasping",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "raw": "what",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "raw": "was",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "meant,",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "stopped",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "by",
+          "start": 3.74,
+          "end": 4.08
+        },
+        {
+          "raw": "his",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "raw": "saber.",
+          "start": 4.3,
+          "end": 4.76
+        },
+        {
+          "raw": "Only",
+          "start": 5.68,
+          "end": 6.0
+        },
+        {
+          "raw": "ten",
+          "start": 6.0,
+          "end": 6.32
+        },
+        {
+          "raw": "paces",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "raw": "divided",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "raw": "them.",
+          "start": 7.08,
+          "end": 7.48
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 8.46,
+          "end": 8.8
+        },
+        {
+          "raw": "lowered",
+          "start": 8.8,
+          "end": 9.16
+        },
+        {
+          "raw": "his",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "raw": "head",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "raw": "to",
+          "start": 9.54,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "raw": "snow,",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "raw": "greedily",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "raw": "bit",
+          "start": 10.82,
+          "end": 11.0
+        },
+        {
+          "raw": "at",
+          "start": 11.0,
+          "end": 11.14
+        },
+        {
+          "raw": "it,",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "raw": "again",
+          "start": 11.52,
+          "end": 11.76
+        },
+        {
+          "raw": "raised",
+          "start": 11.76,
+          "end": 12.1
+        },
+        {
+          "raw": "his",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "raw": "head,",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "raw": "adjusted",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "raw": "himself,",
+          "start": 13.14,
+          "end": 13.64
+        },
+        {
+          "raw": "drew",
+          "start": 13.96,
+          "end": 14.12
+        },
+        {
+          "raw": "in",
+          "start": 14.12,
+          "end": 14.28
+        },
+        {
+          "raw": "his",
+          "start": 14.28,
+          "end": 14.44
+        },
+        {
+          "raw": "legs",
+          "start": 14.44,
+          "end": 14.68
+        },
+        {
+          "raw": "and",
+          "start": 14.68,
+          "end": 14.94
+        },
+        {
+          "raw": "sat",
+          "start": 14.94,
+          "end": 15.16
+        },
+        {
+          "raw": "up,",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "raw": "seeking",
+          "start": 15.72,
+          "end": 15.88
+        },
+        {
+          "raw": "a",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "raw": "firm",
+          "start": 16.12,
+          "end": 16.36
+        },
+        {
+          "raw": "center",
+          "start": 16.36,
+          "end": 16.66
+        },
+        {
+          "raw": "of",
+          "start": 16.66,
+          "end": 16.94
+        },
+        {
+          "raw": "gravity.",
+          "start": 16.94,
+          "end": 17.32
+        },
+        {
+          "raw": "He",
+          "start": 18.26,
+          "end": 18.54
+        },
+        {
+          "raw": "sucked",
+          "start": 18.54,
+          "end": 18.72
+        },
+        {
+          "raw": "and",
+          "start": 18.72,
+          "end": 18.96
+        },
+        {
+          "raw": "swallowed",
+          "start": 18.96,
+          "end": 19.22
+        },
+        {
+          "raw": "the",
+          "start": 19.22,
+          "end": 19.46
+        },
+        {
+          "raw": "cold",
+          "start": 19.46,
+          "end": 19.68
+        },
+        {
+          "raw": "snow,",
+          "start": 19.68,
+          "end": 20.02
+        },
+        {
+          "raw": "his",
+          "start": 20.32,
+          "end": 20.44
+        },
+        {
+          "raw": "lips",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "raw": "quivered",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "raw": "but",
+          "start": 20.98,
+          "end": 21.2
+        },
+        {
+          "raw": "his",
+          "start": 21.2,
+          "end": 21.38
+        },
+        {
+          "raw": "eyes,",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "raw": "still",
+          "start": 22.0,
+          "end": 22.16
+        },
+        {
+          "raw": "smiling,",
+          "start": 22.16,
+          "end": 22.66
+        },
+        {
+          "raw": "glittered",
+          "start": 22.94,
+          "end": 23.18
+        },
+        {
+          "raw": "with",
+          "start": 23.18,
+          "end": 23.42
+        },
+        {
+          "raw": "effort",
+          "start": 23.42,
+          "end": 23.64
+        },
+        {
+          "raw": "and",
+          "start": 23.64,
+          "end": 23.82
+        },
+        {
+          "raw": "exasperation",
+          "start": 23.82,
+          "end": 24.6
+        },
+        {
+          "raw": "as",
+          "start": 24.6,
+          "end": 24.76
+        },
+        {
+          "raw": "he",
+          "start": 24.76,
+          "end": 24.94
+        },
+        {
+          "raw": "mustered",
+          "start": 24.94,
+          "end": 25.28
+        },
+        {
+          "raw": "his",
+          "start": 25.28,
+          "end": 25.44
+        },
+        {
+          "raw": "remaining",
+          "start": 25.44,
+          "end": 25.82
+        },
+        {
+          "raw": "strength.",
+          "start": 25.82,
+          "end": 26.38
+        },
+        {
+          "raw": "He",
+          "start": 26.38,
+          "end": 27.56
+        },
+        {
+          "raw": "raised",
+          "start": 27.56,
+          "end": 27.84
+        },
+        {
+          "raw": "his",
+          "start": 27.84,
+          "end": 28.06
+        },
+        {
+          "raw": "pistol",
+          "start": 28.06,
+          "end": 28.42
+        },
+        {
+          "raw": "and",
+          "start": 28.42,
+          "end": 28.6
+        },
+        {
+          "raw": "aimed.",
+          "start": 28.6,
+          "end": 28.92
+        }
+      ],
+      "expected_tokens": [
+        "“To",
+        "your",
+        "barrier!”",
+        "and",
+        "Pierre,",
+        "grasping",
+        "what",
+        "was",
+        "meant,",
+        "stopped",
+        "by",
+        "his",
+        "saber.",
+        "Only",
+        "ten",
+        "paces",
+        "divided",
+        "them.",
+        "Dólokhov",
+        "lowered",
+        "his",
+        "head",
+        "to",
+        "the",
+        "snow,",
+        "greedily",
+        "bit",
+        "at",
+        "it,",
+        "again",
+        "raised",
+        "his",
+        "head,",
+        "adjusted",
+        "himself,",
+        "drew",
+        "in",
+        "his",
+        "legs",
+        "and",
+        "sat",
+        "up,",
+        "seeking",
+        "a",
+        "firm",
+        "center",
+        "of",
+        "gravity.",
+        "He",
+        "sucked",
+        "and",
+        "swallowed",
+        "the",
+        "cold",
+        "snow,",
+        "his",
+        "lips",
+        "quivered",
+        "but",
+        "his",
+        "eyes,",
+        "still",
+        "smiling,",
+        "glittered",
+        "with",
+        "effort",
+        "and",
+        "exasperation",
+        "as",
+        "he",
+        "mustered",
+        "his",
+        "remaining",
+        "strength.",
+        "He",
+        "raised",
+        "his",
+        "pistol",
+        "and",
+        "aimed."
+      ],
+      "acoustic_expected_tokens": [
+        "\"To",
+        "your",
+        "barrier!\"",
+        "and",
+        "Pierre,",
+        "grasping",
+        "what",
+        "was",
+        "meant,",
+        "stopped",
+        "by",
+        "his",
+        "saber.",
+        "Only",
+        "ten",
+        "paces",
+        "divided",
+        "them.",
+        "Dólokhov",
+        "lowered",
+        "his",
+        "head",
+        "to",
+        "the",
+        "snow,",
+        "greedily",
+        "bit",
+        "at",
+        "it,",
+        "again",
+        "raised",
+        "his",
+        "head,",
+        "adjusted",
+        "himself,",
+        "drew",
+        "in",
+        "his",
+        "legs",
+        "and",
+        "sat",
+        "up,",
+        "seeking",
+        "a",
+        "firm",
+        "center",
+        "of",
+        "gravity.",
+        "He",
+        "sucked",
+        "and",
+        "swallowed",
+        "the",
+        "cold",
+        "snow,",
+        "his",
+        "lips",
+        "quivered",
+        "but",
+        "his",
+        "eyes,",
+        "still",
+        "smiling,",
+        "glittered",
+        "with",
+        "effort",
+        "and",
+        "exasperation",
+        "as",
+        "he",
+        "mustered",
+        "his",
+        "remaining",
+        "strength.",
+        "He",
+        "raised",
+        "his",
+        "pistol",
+        "and",
+        "aimed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          80,
+          4,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.34,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "barrier",
+          "start": 0.52,
+          "end": 0.94,
+          "key": "barrier",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 0.94,
+          "end": 1.3,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pierre,",
+          "start": 1.44,
+          "end": 1.76,
+          "key": "pierre",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grasping",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "grasping",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "meant,",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "meant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "stopped",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.74,
+          "end": 4.08,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "saber.",
+          "start": 4.3,
+          "end": 4.76,
+          "key": "saber",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Only",
+          "start": 5.68,
+          "end": 6.0,
+          "key": "only",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 6.0,
+          "end": 6.32,
+          "key": "ten",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "paces",
+          "start": 6.32,
+          "end": 6.66,
+          "key": "paces",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "divided",
+          "start": 6.66,
+          "end": 7.08,
+          "key": "divided",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 7.08,
+          "end": 7.48,
+          "key": "them",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 8.46,
+          "end": 8.8,
+          "key": "dólokhov",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lowered",
+          "start": 8.8,
+          "end": 9.16,
+          "key": "lowered",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.16,
+          "end": 9.36,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 9.36,
+          "end": 9.54,
+          "key": "head",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.54,
+          "end": 9.66,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.78,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "snow,",
+          "start": 9.78,
+          "end": 10.1,
+          "key": "snow",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "greedily",
+          "start": 10.58,
+          "end": 10.82,
+          "key": "greedily",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bit",
+          "start": 10.82,
+          "end": 11.0,
+          "key": "bit",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.0,
+          "end": 11.14,
+          "key": "at",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 11.14,
+          "end": 11.28,
+          "key": "it",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 11.52,
+          "end": 11.76,
+          "key": "again",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 11.76,
+          "end": 12.1,
+          "key": "raised",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.1,
+          "end": 12.3,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "head,",
+          "start": 12.3,
+          "end": 12.54,
+          "key": "head",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "adjusted",
+          "start": 12.8,
+          "end": 13.14,
+          "key": "adjusted",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 13.14,
+          "end": 13.64,
+          "key": "himself",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 13.96,
+          "end": 14.12,
+          "key": "drew",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.12,
+          "end": 14.28,
+          "key": "in",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.28,
+          "end": 14.44,
+          "key": "his",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "legs",
+          "start": 14.44,
+          "end": 14.68,
+          "key": "legs",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.68,
+          "end": 14.94,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 14.94,
+          "end": 15.16,
+          "key": "sat",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 15.16,
+          "end": 15.44,
+          "key": "up",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "seeking",
+          "start": 15.72,
+          "end": 15.88,
+          "key": "seeking",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.88,
+          "end": 16.12,
+          "key": "a",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "firm",
+          "start": 16.12,
+          "end": 16.36,
+          "key": "firm",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "center",
+          "start": 16.36,
+          "end": 16.66,
+          "key": "center",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.66,
+          "end": 16.94,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "gravity.",
+          "start": 16.94,
+          "end": 17.32,
+          "key": "gravity",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 18.26,
+          "end": 18.54,
+          "key": "he",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "sucked",
+          "start": 18.54,
+          "end": 18.72,
+          "key": "sucked",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.72,
+          "end": 18.96,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "swallowed",
+          "start": 18.96,
+          "end": 19.22,
+          "key": "swallowed",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.22,
+          "end": 19.46,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 19.46,
+          "end": 19.68,
+          "key": "cold",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "snow,",
+          "start": 19.68,
+          "end": 20.02,
+          "key": "snow",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 20.32,
+          "end": 20.44,
+          "key": "his",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 20.44,
+          "end": 20.7,
+          "key": "lips",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "quivered",
+          "start": 20.7,
+          "end": 20.98,
+          "key": "quivered",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 20.98,
+          "end": 21.2,
+          "key": "but",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 21.2,
+          "end": 21.38,
+          "key": "his",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 21.38,
+          "end": 21.64,
+          "key": "eyes",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 22.0,
+          "end": 22.16,
+          "key": "still",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "smiling,",
+          "start": 22.16,
+          "end": 22.66,
+          "key": "smiling",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "glittered",
+          "start": 22.94,
+          "end": 23.18,
+          "key": "glittered",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 23.18,
+          "end": 23.42,
+          "key": "with",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "effort",
+          "start": 23.42,
+          "end": 23.64,
+          "key": "effort",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.64,
+          "end": 23.82,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "exasperation",
+          "start": 23.82,
+          "end": 24.6,
+          "key": "exasperation",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 24.6,
+          "end": 24.76,
+          "key": "as",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 24.76,
+          "end": 24.94,
+          "key": "he",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "mustered",
+          "start": 24.94,
+          "end": 25.28,
+          "key": "mustered",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 25.28,
+          "end": 25.44,
+          "key": "his",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "remaining",
+          "start": 25.44,
+          "end": 25.82,
+          "key": "remaining",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "strength.",
+          "start": 25.82,
+          "end": 26.38,
+          "key": "strength",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 26.38,
+          "end": 27.56,
+          "key": "he",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 27.56,
+          "end": 27.84,
+          "key": "raised",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 27.84,
+          "end": 28.06,
+          "key": "his",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "pistol",
+          "start": 28.06,
+          "end": 28.42,
+          "key": "pistol",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 28.42,
+          "end": 28.6,
+          "key": "and",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "aimed.",
+          "start": 28.6,
+          "end": 28.92,
+          "key": "aimed",
+          "pieces": [
+            80
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“To",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "your",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "text": "barrier!”",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "text": "and",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "Pierre,",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "grasping",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "text": "what",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "was",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "meant,",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "stopped",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "by",
+          "start": 3.74,
+          "end": 4.08
+        },
+        {
+          "text": "his",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "text": "saber.",
+          "start": 4.3,
+          "end": 4.76
+        },
+        {
+          "text": "Only",
+          "start": 5.68,
+          "end": 6.0
+        },
+        {
+          "text": "ten",
+          "start": 6.0,
+          "end": 6.32
+        },
+        {
+          "text": "paces",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "text": "divided",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "text": "them.",
+          "start": 7.08,
+          "end": 7.48
+        },
+        {
+          "text": "Dólokhov",
+          "start": 8.46,
+          "end": 8.8
+        },
+        {
+          "text": "lowered",
+          "start": 8.8,
+          "end": 9.16
+        },
+        {
+          "text": "his",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "text": "head",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "text": "to",
+          "start": 9.54,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "text": "snow,",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "text": "greedily",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "text": "bit",
+          "start": 10.82,
+          "end": 11.0
+        },
+        {
+          "text": "at",
+          "start": 11.0,
+          "end": 11.14
+        },
+        {
+          "text": "it,",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "text": "again",
+          "start": 11.52,
+          "end": 11.76
+        },
+        {
+          "text": "raised",
+          "start": 11.76,
+          "end": 12.1
+        },
+        {
+          "text": "his",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "text": "head,",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "text": "adjusted",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "text": "himself,",
+          "start": 13.14,
+          "end": 13.64
+        },
+        {
+          "text": "drew",
+          "start": 13.96,
+          "end": 14.12
+        },
+        {
+          "text": "in",
+          "start": 14.12,
+          "end": 14.28
+        },
+        {
+          "text": "his",
+          "start": 14.28,
+          "end": 14.44
+        },
+        {
+          "text": "legs",
+          "start": 14.44,
+          "end": 14.68
+        },
+        {
+          "text": "and",
+          "start": 14.68,
+          "end": 14.94
+        },
+        {
+          "text": "sat",
+          "start": 14.94,
+          "end": 15.16
+        },
+        {
+          "text": "up,",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "text": "seeking",
+          "start": 15.72,
+          "end": 15.88
+        },
+        {
+          "text": "a",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "text": "firm",
+          "start": 16.12,
+          "end": 16.36
+        },
+        {
+          "text": "center",
+          "start": 16.36,
+          "end": 16.66
+        },
+        {
+          "text": "of",
+          "start": 16.66,
+          "end": 16.94
+        },
+        {
+          "text": "gravity.",
+          "start": 16.94,
+          "end": 17.32
+        },
+        {
+          "text": "He",
+          "start": 18.26,
+          "end": 18.54
+        },
+        {
+          "text": "sucked",
+          "start": 18.54,
+          "end": 18.72
+        },
+        {
+          "text": "and",
+          "start": 18.72,
+          "end": 18.96
+        },
+        {
+          "text": "swallowed",
+          "start": 18.96,
+          "end": 19.22
+        },
+        {
+          "text": "the",
+          "start": 19.22,
+          "end": 19.46
+        },
+        {
+          "text": "cold",
+          "start": 19.46,
+          "end": 19.68
+        },
+        {
+          "text": "snow,",
+          "start": 19.68,
+          "end": 20.02
+        },
+        {
+          "text": "his",
+          "start": 20.32,
+          "end": 20.44
+        },
+        {
+          "text": "lips",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "text": "quivered",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "text": "but",
+          "start": 20.98,
+          "end": 21.2
+        },
+        {
+          "text": "his",
+          "start": 21.2,
+          "end": 21.38
+        },
+        {
+          "text": "eyes,",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "text": "still",
+          "start": 22.0,
+          "end": 22.16
+        },
+        {
+          "text": "smiling,",
+          "start": 22.16,
+          "end": 22.66
+        },
+        {
+          "text": "glittered",
+          "start": 22.94,
+          "end": 23.18
+        },
+        {
+          "text": "with",
+          "start": 23.18,
+          "end": 23.42
+        },
+        {
+          "text": "effort",
+          "start": 23.42,
+          "end": 23.64
+        },
+        {
+          "text": "and",
+          "start": 23.64,
+          "end": 23.82
+        },
+        {
+          "text": "exasperation",
+          "start": 23.82,
+          "end": 24.6
+        },
+        {
+          "text": "as",
+          "start": 24.6,
+          "end": 24.76
+        },
+        {
+          "text": "he",
+          "start": 24.76,
+          "end": 24.94
+        },
+        {
+          "text": "mustered",
+          "start": 24.94,
+          "end": 25.28
+        },
+        {
+          "text": "his",
+          "start": 25.28,
+          "end": 25.44
+        },
+        {
+          "text": "remaining",
+          "start": 25.44,
+          "end": 25.82
+        },
+        {
+          "text": "strength.",
+          "start": 25.82,
+          "end": 26.38
+        },
+        {
+          "text": "He",
+          "start": 26.38,
+          "end": 27.56
+        },
+        {
+          "text": "raised",
+          "start": 27.56,
+          "end": 27.84
+        },
+        {
+          "text": "his",
+          "start": 27.84,
+          "end": 28.06
+        },
+        {
+          "text": "pistol",
+          "start": 28.06,
+          "end": 28.42
+        },
+        {
+          "text": "and",
+          "start": 28.42,
+          "end": 28.6
+        },
+        {
+          "text": "aimed.",
+          "start": 28.6,
+          "end": 28.92
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 81,
+        "matched_words": 80
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8853295538574457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30311a52dad376cfa8e1348c18fbb56dde50fa5348f160fb9948cc5f3af12d9f",
+  "selected_reasons": []
+}

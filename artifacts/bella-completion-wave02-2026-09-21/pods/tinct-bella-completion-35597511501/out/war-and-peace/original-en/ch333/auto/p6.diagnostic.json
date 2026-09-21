@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "f45f24550b680eb2313a1c9b3d0adb883a623d620f6ab9807bf39b2a0276289d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2779177902266383,
+      "alignment_seconds": 0.001179317943751812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why is it true?\" Natásha asked, looking attentively into Pierre's eyes.",
+        "hotwords": "Why, Natásha, Pierre's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why is it true? Natásha asked, looking attentively into Pierre's eyes.",
+          "start": 0.0,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.294677734375
+            },
+            {
+              "text": " is",
+              "start": 0.42,
+              "end": 0.6,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " it",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " true?",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Natásha",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.016871134440104168
+            },
+            {
+              "text": " asked,",
+              "start": 2.6,
+              "end": 3.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " looking",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " attentively",
+              "start": 3.5,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Pierre's",
+              "start": 4.38,
+              "end": 4.92,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " eyes.",
+              "start": 4.92,
+              "end": 5.18,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "is",
+          "start": 0.42,
+          "end": 0.6
+        },
+        {
+          "raw": "it",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "true?",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "Natásha",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "asked,",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "raw": "looking",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "attentively",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "raw": "into",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "Pierre's",
+          "start": 4.38,
+          "end": 4.92
+        },
+        {
+          "raw": "eyes.",
+          "start": 4.92,
+          "end": 5.18
+        }
+      ],
+      "expected_tokens": [
+        "“Why",
+        "is",
+        "it",
+        "true?”",
+        "Natásha",
+        "asked,",
+        "looking",
+        "attentively",
+        "into",
+        "Pierre’s",
+        "eyes."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Why",
+        "is",
+        "it",
+        "true?\"",
+        "Natásha",
+        "asked,",
+        "looking",
+        "attentively",
+        "into",
+        "Pierre's",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.42,
+          "end": 0.6,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true?",
+          "start": 0.72,
+          "end": 1.08,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "natásha",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 2.6,
+          "end": 3.02,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "looking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "attentively",
+          "start": 3.5,
+          "end": 4.08,
+          "key": "attentively",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pierre's",
+          "start": 4.38,
+          "end": 4.92,
+          "key": "pierres",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 4.92,
+          "end": 5.18,
+          "key": "eyes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Why",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "is",
+          "start": 0.42,
+          "end": 0.6
+        },
+        {
+          "text": "it",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "true?”",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "Natásha",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "asked,",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "text": "looking",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "attentively",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "text": "into",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "Pierre’s",
+          "start": 4.38,
+          "end": 4.92
+        },
+        {
+          "text": "eyes.",
+          "start": 4.92,
+          "end": 5.18
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2792453235015273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "40660851852a1333d9758b03af6d0a7f6d0e2c560d503ef0cdbe00bcf915b58a",
+  "selected_reasons": []
+}

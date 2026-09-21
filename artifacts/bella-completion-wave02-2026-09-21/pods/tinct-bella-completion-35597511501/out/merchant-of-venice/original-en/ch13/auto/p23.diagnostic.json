@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "d971a58c246dce5cc8652dab1f247ed4a986098fd895c235b376a4862d251005",
+  "attempts": [
+    {
+      "asr_seconds": 0.2925444757565856,
+      "alignment_seconds": 0.0012006396427750587,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gentlemen, my master Antonio is at his house, and desires to speak with you both.",
+        "hotwords": "Gentlemen, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, gentlemen, my master Antonio is at his house, and desires to speak with you both.",
+          "start": 0.08,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.906494140625
+            },
+            {
+              "text": " gentlemen,",
+              "start": 1.3,
+              "end": 1.72,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " my",
+              "start": 2.08,
+              "end": 2.12,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " master",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " Antonio",
+              "start": 2.48,
+              "end": 2.94,
+              "probability": 0.9375
+            },
+            {
+              "text": " is",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " at",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " house,",
+              "start": 3.56,
+              "end": 3.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 4.38,
+              "end": 4.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " desires",
+              "start": 4.48,
+              "end": 4.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak",
+              "start": 5.16,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 5.6,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both.",
+              "start": 5.78,
+              "end": 6.02,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.12
+        },
+        {
+          "raw": "master",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.48,
+          "end": 2.94
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "at",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "house,",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "raw": "desires",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "speak",
+          "start": 5.16,
+          "end": 5.42
+        },
+        {
+          "raw": "with",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "you",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "raw": "both.",
+          "start": 5.78,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "SERVANT.",
+        "Gentlemen,",
+        "my",
+        "master",
+        "Antonio",
+        "is",
+        "at",
+        "his",
+        "house,",
+        "and",
+        "desires",
+        "to",
+        "speak",
+        "with",
+        "you",
+        "both."
+      ],
+      "acoustic_expected_tokens": [
+        "Gentlemen,",
+        "my",
+        "master",
+        "Antonio",
+        "is",
+        "at",
+        "his",
+        "house,",
+        "and",
+        "desires",
+        "to",
+        "speak",
+        "with",
+        "you",
+        "both."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          15,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.3,
+          "end": 1.72,
+          "key": "gentlemen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.12,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.48,
+          "end": 2.94,
+          "key": "antonio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 3.3,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 3.56,
+          "end": 3.92,
+          "key": "house",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.48,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 4.48,
+          "end": 4.88,
+          "key": "desires",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 5.16,
+          "end": 5.42,
+          "key": "speak",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.6,
+          "end": 5.78,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 5.78,
+          "end": 6.02,
+          "key": "both",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SERVANT.",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "text": "Gentlemen,",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "text": "my",
+          "start": 2.08,
+          "end": 2.12
+        },
+        {
+          "text": "master",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "text": "Antonio",
+          "start": 2.48,
+          "end": 2.94
+        },
+        {
+          "text": "is",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "at",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "his",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "text": "house,",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "text": "desires",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "to",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "text": "speak",
+          "start": 5.16,
+          "end": 5.42
+        },
+        {
+          "text": "with",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "you",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "text": "both.",
+          "start": 5.78,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29390610195696354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "99d2842c92e6d02024ded67c519ce7ad9eeaf6a8cba26e6895e1c420eeb36a24",
+  "selected_reasons": []
+}

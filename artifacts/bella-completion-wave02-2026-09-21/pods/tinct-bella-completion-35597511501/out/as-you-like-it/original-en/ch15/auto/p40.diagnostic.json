@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "7e2bf5dad9419398fa40d13994ece8fdabd5e149df0bacbccc5b1d171dea608d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1954744402319193,
+      "alignment_seconds": 0.0010602697730064392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "If this be so, why blame you me to love you?",
+        "hotwords": "If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silvius, if this be so, why blame you me to love you?",
+          "start": 0.58,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Silvius,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.6822916666666666
+            },
+            {
+              "text": " if",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " this",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " so,",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " why",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " blame",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " me",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " love",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you?",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silvius,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "if",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "this",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "be",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "so,",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "why",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "blame",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "you",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "me",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "love",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "you?",
+          "start": 3.18,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "SILVIUS.",
+        "If",
+        "this",
+        "be",
+        "so,",
+        "why",
+        "blame",
+        "you",
+        "me",
+        "to",
+        "love",
+        "you?"
+      ],
+      "acoustic_expected_tokens": [
+        "If",
+        "this",
+        "be",
+        "so,",
+        "why",
+        "blame",
+        "you",
+        "me",
+        "to",
+        "love",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silvius,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "silvius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blame",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "blame",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.98,
+          "end": 3.18,
+          "key": "love",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 3.18,
+          "end": 3.42,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SILVIUS.",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "If",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "this",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "be",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "so,",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "why",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "blame",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "text": "you",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "me",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "love",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "text": "you?",
+          "start": 3.18,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1966998102143407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e2b149aee23d900c67ba7228a8b951faec97ebe4e70a409f9c4c103988006bc",
+  "selected_reasons": []
+}

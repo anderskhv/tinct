@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "0b5d636ccabf2be3f16f6fc20357c35e4b60d5cc20cb6e1f5e9c28809e3276c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.22535093873739243,
+      "alignment_seconds": 0.001532500609755516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I have already refused,\" she said hurriedly.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I have already refused,\" she said hurriedly.",
+          "start": 0.0,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.11328125
+            },
+            {
+              "text": " have",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " already",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " refused,\"",
+              "start": 0.82,
+              "end": 1.72,
+              "probability": 0.902587890625
+            },
+            {
+              "text": " she",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " said",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hurriedly.",
+              "start": 2.1,
+              "end": 2.7,
+              "probability": 0.999267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "already",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "refused,\"",
+          "start": 0.82,
+          "end": 1.72
+        },
+        {
+          "raw": "she",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "said",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.1,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "have",
+        "already",
+        "refused,”",
+        "she",
+        "said",
+        "hurriedly."
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "have",
+        "already",
+        "refused,\"",
+        "she",
+        "said",
+        "hurriedly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "already",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "refused,\"",
+          "start": 0.82,
+          "end": 1.72,
+          "key": "refused",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.1,
+          "end": 2.7,
+          "key": "hurriedly",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "already",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "refused,”",
+          "start": 0.82,
+          "end": 1.72
+        },
+        {
+          "text": "she",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "said",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "hurriedly.",
+          "start": 2.1,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22712646704167128
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0a15259f84916ee38ad30cb7e7e2467e5b132a282224e24a7a2f932c2c87659e",
+  "selected_reasons": []
+}

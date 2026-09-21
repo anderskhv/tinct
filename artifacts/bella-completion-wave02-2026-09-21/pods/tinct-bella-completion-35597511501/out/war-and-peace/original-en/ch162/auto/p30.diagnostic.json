@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "6d5f2e9a6868bca1115bc844078692c5bd26b6352faef2df6afaaec4a727da47",
+  "attempts": [
+    {
+      "asr_seconds": 0.2787678949534893,
+      "alignment_seconds": 0.0013777883723378181,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He was met by Gabriel, Márya Dmítrievna's gigantic footman.",
+        "hotwords": "He, Gabriel, Márya, Dmítrievna's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He was met by Gabriel, Márya Dmítrievna's gigantic footman.",
+          "start": 0.0,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " was",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " met",
+              "start": 0.46,
+              "end": 0.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Gabriel,",
+              "start": 0.94,
+              "end": 1.42,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Márya",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.029847145080566406
+            },
+            {
+              "text": " Dmítrievna's",
+              "start": 2.02,
+              "end": 2.72,
+              "probability": 0.30532945905412945
+            },
+            {
+              "text": " gigantic",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " footman.",
+              "start": 3.14,
+              "end": 3.76,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "met",
+          "start": 0.46,
+          "end": 0.7
+        },
+        {
+          "raw": "by",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "Gabriel,",
+          "start": 0.94,
+          "end": 1.42
+        },
+        {
+          "raw": "Márya",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Dmítrievna's",
+          "start": 2.02,
+          "end": 2.72
+        },
+        {
+          "raw": "gigantic",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "footman.",
+          "start": 3.14,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "was",
+        "met",
+        "by",
+        "Gabriel,",
+        "Márya",
+        "Dmítrievna’s",
+        "gigantic",
+        "footman."
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "was",
+        "met",
+        "by",
+        "Gabriel,",
+        "Márya",
+        "Dmítrievna's",
+        "gigantic",
+        "footman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 0.46,
+          "end": 0.7,
+          "key": "met",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gabriel,",
+          "start": 0.94,
+          "end": 1.42,
+          "key": "gabriel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Márya",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "márya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dmítrievna's",
+          "start": 2.02,
+          "end": 2.72,
+          "key": "dmítrievnas",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gigantic",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "gigantic",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "footman.",
+          "start": 3.14,
+          "end": 3.76,
+          "key": "footman",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "met",
+          "start": 0.46,
+          "end": 0.7
+        },
+        {
+          "text": "by",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "Gabriel,",
+          "start": 0.94,
+          "end": 1.42
+        },
+        {
+          "text": "Márya",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "Dmítrievna’s",
+          "start": 2.02,
+          "end": 2.72
+        },
+        {
+          "text": "gigantic",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "footman.",
+          "start": 3.14,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2803308917209506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7676352169a389093cd249fbaeff80f5efbcc41ef2189123cfc718dbfba2b479",
+  "selected_reasons": []
+}

@@ -1,0 +1,1918 @@
+{
+  "complete": true,
+  "signature": "5918273296384810cf5a665bc8ec8d207aac5925d0d374044141f34ff3d83202",
+  "attempts": [
+    {
+      "asr_seconds": 0.564364924095571,
+      "alignment_seconds": 0.004588433541357517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You see,\" he suddenly said, \"I am a kinsman of the count's and he has been very kind to me. As you see\" (he glanced with an amused air and good-natured smile at his coat and boots) \"my things are worn out and I have no money, so I was going to ask the count...\"",
+        "hotwords": "I, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You see,\" he suddenly said, \"...I am a kinsman of the count's and he has been very kind to me.\"",
+          "start": 0.0,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.12359619140625
+            },
+            {
+              "text": " see,\"",
+              "start": 0.34,
+              "end": 0.9,
+              "probability": 0.53436279296875
+            },
+            {
+              "text": " he",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " suddenly",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " said,",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " \"...I",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.40701770782470703
+            },
+            {
+              "text": " am",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " kinsman",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.78,
+              "end": 2.88,
+              "probability": 0.31201171875
+            },
+            {
+              "text": " count's",
+              "start": 2.88,
+              "end": 3.24,
+              "probability": 0.14096832275390625
+            },
+            {
+              "text": " and",
+              "start": 3.24,
+              "end": 3.3,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " he",
+              "start": 3.3,
+              "end": 3.46,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " has",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " been",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 3.78,
+              "end": 4.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " kind",
+              "start": 4.06,
+              "end": 4.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.32,
+              "end": 4.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.\"",
+              "start": 4.54,
+              "end": 5.64,
+              "probability": 0.93603515625
+            }
+          ]
+        },
+        {
+          "text": " As you see, he glanced with an amused air and good-natured smile at his coat and boots,",
+          "start": 5.64,
+          "end": 9.9,
+          "words": [
+            {
+              "text": " As",
+              "start": 5.64,
+              "end": 5.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 5.82,
+              "end": 5.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see,",
+              "start": 5.96,
+              "end": 6.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 6.54,
+              "end": 6.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " glanced",
+              "start": 6.64,
+              "end": 6.86,
+              "probability": 0.962890625
+            },
+            {
+              "text": " with",
+              "start": 6.86,
+              "end": 7.1,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " an",
+              "start": 7.1,
+              "end": 7.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " amused",
+              "start": 7.22,
+              "end": 7.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " air",
+              "start": 7.5,
+              "end": 7.82,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " and",
+              "start": 7.82,
+              "end": 8.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " good",
+              "start": 8.02,
+              "end": 8.18,
+              "probability": 0.97998046875
+            },
+            {
+              "text": "-natured",
+              "start": 8.18,
+              "end": 8.5,
+              "probability": 0.9630533854166666
+            },
+            {
+              "text": " smile",
+              "start": 8.5,
+              "end": 8.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 8.84,
+              "end": 9.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 9.06,
+              "end": 9.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coat",
+              "start": 9.24,
+              "end": 9.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.44,
+              "end": 9.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " boots,",
+              "start": 9.66,
+              "end": 9.9,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " \"...my things are worn out and I have no money, so I was going to ask the count...\"",
+          "start": 10.28,
+          "end": 14.48,
+          "words": [
+            {
+              "text": " \"...my",
+              "start": 10.28,
+              "end": 10.42,
+              "probability": 0.3174896240234375
+            },
+            {
+              "text": " things",
+              "start": 10.42,
+              "end": 10.68,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " are",
+              "start": 10.68,
+              "end": 10.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " worn",
+              "start": 10.9,
+              "end": 11.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " out",
+              "start": 11.1,
+              "end": 11.32,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " and",
+              "start": 11.32,
+              "end": 11.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 11.5,
+              "end": 11.64,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " have",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 11.78,
+              "end": 12.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " money,",
+              "start": 12.06,
+              "end": 12.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 12.56,
+              "end": 12.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 12.7,
+              "end": 12.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 12.82,
+              "end": 12.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " going",
+              "start": 12.96,
+              "end": 13.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 13.14,
+              "end": 13.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ask",
+              "start": 13.34,
+              "end": 13.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 13.56,
+              "end": 13.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " count...\"",
+              "start": 13.74,
+              "end": 14.48,
+              "probability": 0.473907470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "see,\"",
+          "start": 0.34,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "suddenly",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "said,",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "\"...I",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "am",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "kinsman",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "raw": "count's",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "raw": "and",
+          "start": 3.24,
+          "end": 3.3
+        },
+        {
+          "raw": "he",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "raw": "has",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "been",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "very",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "raw": "kind",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "raw": "to",
+          "start": 4.32,
+          "end": 4.54
+        },
+        {
+          "raw": "me.\"",
+          "start": 4.54,
+          "end": 5.64
+        },
+        {
+          "raw": "As",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "raw": "you",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "raw": "see,",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "raw": "he",
+          "start": 6.54,
+          "end": 6.64
+        },
+        {
+          "raw": "glanced",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "raw": "with",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "raw": "an",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "raw": "amused",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "raw": "air",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "raw": "and",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "raw": "good",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "raw": "-natured",
+          "start": 8.18,
+          "end": 8.5
+        },
+        {
+          "raw": "smile",
+          "start": 8.5,
+          "end": 8.84
+        },
+        {
+          "raw": "at",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "raw": "his",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "raw": "coat",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "raw": "and",
+          "start": 9.44,
+          "end": 9.66
+        },
+        {
+          "raw": "boots,",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "raw": "\"...my",
+          "start": 10.28,
+          "end": 10.42
+        },
+        {
+          "raw": "things",
+          "start": 10.42,
+          "end": 10.68
+        },
+        {
+          "raw": "are",
+          "start": 10.68,
+          "end": 10.9
+        },
+        {
+          "raw": "worn",
+          "start": 10.9,
+          "end": 11.1
+        },
+        {
+          "raw": "out",
+          "start": 11.1,
+          "end": 11.32
+        },
+        {
+          "raw": "and",
+          "start": 11.32,
+          "end": 11.5
+        },
+        {
+          "raw": "I",
+          "start": 11.5,
+          "end": 11.64
+        },
+        {
+          "raw": "have",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "no",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "raw": "money,",
+          "start": 12.06,
+          "end": 12.32
+        },
+        {
+          "raw": "so",
+          "start": 12.56,
+          "end": 12.7
+        },
+        {
+          "raw": "I",
+          "start": 12.7,
+          "end": 12.82
+        },
+        {
+          "raw": "was",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "raw": "going",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "raw": "to",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "raw": "ask",
+          "start": 13.34,
+          "end": 13.56
+        },
+        {
+          "raw": "the",
+          "start": 13.56,
+          "end": 13.74
+        },
+        {
+          "raw": "count...\"",
+          "start": 13.74,
+          "end": 14.48
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "see,”",
+        "he",
+        "suddenly",
+        "said,",
+        "“I",
+        "am",
+        "a",
+        "kinsman",
+        "of",
+        "the",
+        "count’s",
+        "and",
+        "he",
+        "has",
+        "been",
+        "very",
+        "kind",
+        "to",
+        "me.",
+        "As",
+        "you",
+        "see”",
+        "(he",
+        "glanced",
+        "with",
+        "an",
+        "amused",
+        "air",
+        "and",
+        "good-natured",
+        "smile",
+        "at",
+        "his",
+        "coat",
+        "and",
+        "boots)",
+        "“my",
+        "things",
+        "are",
+        "worn",
+        "out",
+        "and",
+        "I",
+        "have",
+        "no",
+        "money,",
+        "so",
+        "I",
+        "was",
+        "going",
+        "to",
+        "ask",
+        "the",
+        "count...”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "see,\"",
+        "he",
+        "suddenly",
+        "said,",
+        "\"I",
+        "am",
+        "a",
+        "kinsman",
+        "of",
+        "the",
+        "count's",
+        "and",
+        "he",
+        "has",
+        "been",
+        "very",
+        "kind",
+        "to",
+        "me.",
+        "As",
+        "you",
+        "see\"",
+        "(he",
+        "glanced",
+        "with",
+        "an",
+        "amused",
+        "air",
+        "and",
+        "good-natured",
+        "smile",
+        "at",
+        "his",
+        "coat",
+        "and",
+        "boots)",
+        "\"my",
+        "things",
+        "are",
+        "worn",
+        "out",
+        "and",
+        "I",
+        "have",
+        "no",
+        "money,",
+        "so",
+        "I",
+        "was",
+        "going",
+        "to",
+        "ask",
+        "the",
+        "count...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          55,
+          0,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see,\"",
+          "start": 0.34,
+          "end": 0.9,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.9,
+          "end": 1.02,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 1.02,
+          "end": 1.3,
+          "key": "suddenly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.3,
+          "end": 1.68,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "\"...I",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kinsman",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "kinsman",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "count's",
+          "start": 2.88,
+          "end": 3.24,
+          "key": "counts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.24,
+          "end": 3.3,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.3,
+          "end": 3.46,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.46,
+          "end": 3.62,
+          "key": "has",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "been",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.78,
+          "end": 4.06,
+          "key": "very",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 4.06,
+          "end": 4.32,
+          "key": "kind",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.32,
+          "end": 4.54,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me.\"",
+          "start": 4.54,
+          "end": 5.64,
+          "key": "me",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 5.64,
+          "end": 5.82,
+          "key": "as",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.82,
+          "end": 5.96,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 5.96,
+          "end": 6.22,
+          "key": "see",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.54,
+          "end": 6.64,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 6.64,
+          "end": 6.86,
+          "key": "glanced",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.86,
+          "end": 7.1,
+          "key": "with",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.1,
+          "end": 7.22,
+          "key": "an",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "amused",
+          "start": 7.22,
+          "end": 7.5,
+          "key": "amused",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 7.5,
+          "end": 7.82,
+          "key": "air",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.82,
+          "end": 8.02,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "good -natured",
+          "start": 8.02,
+          "end": 8.5,
+          "key": "goodnatured",
+          "pieces": [
+            30,
+            31
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 8.5,
+          "end": 8.84,
+          "key": "smile",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.84,
+          "end": 9.06,
+          "key": "at",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.06,
+          "end": 9.24,
+          "key": "his",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "coat",
+          "start": 9.24,
+          "end": 9.44,
+          "key": "coat",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.44,
+          "end": 9.66,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "boots,",
+          "start": 9.66,
+          "end": 9.9,
+          "key": "boots",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "\"...my",
+          "start": 10.28,
+          "end": 10.42,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 10.42,
+          "end": 10.68,
+          "key": "things",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.68,
+          "end": 10.9,
+          "key": "are",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "worn",
+          "start": 10.9,
+          "end": 11.1,
+          "key": "worn",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 11.1,
+          "end": 11.32,
+          "key": "out",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.32,
+          "end": 11.5,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.5,
+          "end": 11.64,
+          "key": "i",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "have",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 11.78,
+          "end": 12.06,
+          "key": "no",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 12.06,
+          "end": 12.32,
+          "key": "money",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 12.56,
+          "end": 12.7,
+          "key": "so",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.7,
+          "end": 12.82,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 12.82,
+          "end": 12.96,
+          "key": "was",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 12.96,
+          "end": 13.14,
+          "key": "going",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.14,
+          "end": 13.34,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 13.34,
+          "end": 13.56,
+          "key": "ask",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.56,
+          "end": 13.74,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "count...\"",
+          "start": 13.74,
+          "end": 14.48,
+          "key": "count",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 30,
+          "text": "good-natured",
+          "heard": "good -natured",
+          "heard_indexes": [
+            30,
+            31
+          ],
+          "start": 8.02,
+          "end": 8.5
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "see,”",
+          "start": 0.34,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "suddenly",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "said,",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "“I",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "am",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "a",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "kinsman",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "the",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "count’s",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "text": "and",
+          "start": 3.24,
+          "end": 3.3
+        },
+        {
+          "text": "he",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "text": "has",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "been",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "very",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "text": "kind",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "text": "to",
+          "start": 4.32,
+          "end": 4.54
+        },
+        {
+          "text": "me.",
+          "start": 4.54,
+          "end": 5.64
+        },
+        {
+          "text": "As",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "text": "you",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "text": "see”",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "text": "(he",
+          "start": 6.54,
+          "end": 6.64
+        },
+        {
+          "text": "glanced",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "text": "with",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "text": "an",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "amused",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "text": "air",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "text": "and",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "text": "good-natured",
+          "start": 8.02,
+          "end": 8.5
+        },
+        {
+          "text": "smile",
+          "start": 8.5,
+          "end": 8.84
+        },
+        {
+          "text": "at",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "text": "his",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "text": "coat",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "text": "and",
+          "start": 9.44,
+          "end": 9.66
+        },
+        {
+          "text": "boots)",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "text": "“my",
+          "start": 10.28,
+          "end": 10.42
+        },
+        {
+          "text": "things",
+          "start": 10.42,
+          "end": 10.68
+        },
+        {
+          "text": "are",
+          "start": 10.68,
+          "end": 10.9
+        },
+        {
+          "text": "worn",
+          "start": 10.9,
+          "end": 11.1
+        },
+        {
+          "text": "out",
+          "start": 11.1,
+          "end": 11.32
+        },
+        {
+          "text": "and",
+          "start": 11.32,
+          "end": 11.5
+        },
+        {
+          "text": "I",
+          "start": 11.5,
+          "end": 11.64
+        },
+        {
+          "text": "have",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "no",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "text": "money,",
+          "start": 12.06,
+          "end": 12.32
+        },
+        {
+          "text": "so",
+          "start": 12.56,
+          "end": 12.7
+        },
+        {
+          "text": "I",
+          "start": 12.7,
+          "end": 12.82
+        },
+        {
+          "text": "was",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "text": "going",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "text": "to",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "text": "ask",
+          "start": 13.34,
+          "end": 13.56
+        },
+        {
+          "text": "the",
+          "start": 13.56,
+          "end": 13.74
+        },
+        {
+          "text": "count...”",
+          "start": 13.74,
+          "end": 14.48
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 55,
+        "matched_words": 55
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5693833762779832
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "254b348cbe76a08ad228ae5c0d9dd57f0a592090bd528fc348f11eb238141535",
+  "selected_reasons": []
+}

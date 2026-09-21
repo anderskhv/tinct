@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "ade927168d2a50e4a57ccab214a063c624397a991b30f2313619aa77d52d4142",
+  "attempts": [
+    {
+      "asr_seconds": 0.12132650706917048,
+      "alignment_seconds": 0.0006862860172986984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Take care, you'll fall out.\"",
+        "hotwords": "Take"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Take care, you'll fall out.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " care,",
+              "start": 0.4,
+              "end": 0.78,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " you'll",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " fall",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.970703125
+            },
+            {
+              "text": " out.",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "care,",
+          "start": 0.4,
+          "end": 0.78
+        },
+        {
+          "raw": "you'll",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "fall",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "out.",
+          "start": 1.42,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "“Take",
+        "care,",
+        "you’ll",
+        "fall",
+        "out.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Take",
+        "care,",
+        "you'll",
+        "fall",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "care,",
+          "start": 0.4,
+          "end": 0.78,
+          "key": "care",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "youll",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "fall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 1.42,
+          "end": 1.84,
+          "key": "out",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Take",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "care,",
+          "start": 0.4,
+          "end": 0.78
+        },
+        {
+          "text": "you’ll",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "fall",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "out.”",
+          "start": 1.42,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12211109418421984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ebada6e1a668f1600e585f37b7386a8fc1f573ff38d1e89e5702fc64df08c9e",
+  "selected_reasons": []
+}

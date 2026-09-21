@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "5a6eb5693afdf420e2d314fbdb1ea29997c7de0cf4eab75eb3391c136d205ce4",
+  "attempts": [
+    {
+      "asr_seconds": 0.21556551475077868,
+      "alignment_seconds": 0.0011636698618531227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sónya and Natásha slept in the sitting room without undressing.",
+        "hotwords": "Sónya, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sónya and Natásha slept in the sitting room without undressing.",
+          "start": 0.0,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Sónya",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.38157057762145996
+            },
+            {
+              "text": " and",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Natásha",
+              "start": 0.78,
+              "end": 1.26,
+              "probability": 0.024312337239583332
+            },
+            {
+              "text": " slept",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sitting",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " room",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " without",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " undressing.",
+              "start": 2.72,
+              "end": 3.3,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sónya",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "and",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.78,
+          "end": 1.26
+        },
+        {
+          "raw": "slept",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "in",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "sitting",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "room",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "without",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "raw": "undressing.",
+          "start": 2.72,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Sónya",
+        "and",
+        "Natásha",
+        "slept",
+        "in",
+        "the",
+        "sitting",
+        "room",
+        "without",
+        "undressing."
+      ],
+      "acoustic_expected_tokens": [
+        "Sónya",
+        "and",
+        "Natásha",
+        "slept",
+        "in",
+        "the",
+        "sitting",
+        "room",
+        "without",
+        "undressing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sónya",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "sónya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.62,
+          "end": 0.78,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.78,
+          "end": 1.26,
+          "key": "natásha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slept",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "slept",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "sitting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "without",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "undressing.",
+          "start": 2.72,
+          "end": 3.3,
+          "key": "undressing",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Sónya",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "and",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "Natásha",
+          "start": 0.78,
+          "end": 1.26
+        },
+        {
+          "text": "slept",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "in",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "sitting",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "room",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "without",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "text": "undressing.",
+          "start": 2.72,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2168857241049409
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4892b6dd0afae0f665abe7e322e34cb263a19ebbc79351e249c3913ef7354bf9",
+  "selected_reasons": []
+}

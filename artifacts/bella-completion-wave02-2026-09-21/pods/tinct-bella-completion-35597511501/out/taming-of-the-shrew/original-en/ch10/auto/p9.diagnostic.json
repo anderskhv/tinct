@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "11dd47021653c5210ce7f0749eb19c57183082d0dd787d517665fdbee2da6d85",
+  "attempts": [
+    {
+      "asr_seconds": 0.15075667388737202,
+      "alignment_seconds": 0.0010501556098461151,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I know it is the moon.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharina, I know it is the moon.",
+          "start": 0.56,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Katharina,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.775146484375
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " know",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " moon.",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.89794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharina,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "know",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "moon.",
+          "start": 1.9,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "KATHERINA.",
+        "I",
+        "know",
+        "it",
+        "is",
+        "the",
+        "moon."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "know",
+        "it",
+        "is",
+        "the",
+        "moon."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharina,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "katharina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "moon.",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "moon",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "KATHERINA.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "know",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "it",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "is",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "moon.",
+          "start": 1.9,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1519632088020444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bcbacb3f1826f4c328099e8951763ebe81f78edbf80b98b2e4af3b949e03fbf7",
+  "selected_reasons": []
+}

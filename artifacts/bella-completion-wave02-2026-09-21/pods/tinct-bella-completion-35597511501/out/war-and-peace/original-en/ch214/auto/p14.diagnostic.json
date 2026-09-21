@@ -1,0 +1,1260 @@
+{
+  "complete": true,
+  "signature": "af2dbcc3d390d838978e352add7f09a2d8dccca11dc8c043b7f381e23f055902",
+  "attempts": [
+    {
+      "asr_seconds": 0.46330233849585056,
+      "alignment_seconds": 0.003036824055016041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh yes, and what do the Masonic brothers say about war? How would they stop it?\" said Prince Andrew sarcastically. \"Well, and how's Moscow? And my people? Have they reached Moscow at last?\" he asked seriously.",
+        "hotwords": "Oh, Masonic, How, Prince, Andrew, Well, Moscow, Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh yes, and what do the Masonic brothers say about war? How would they stop it?\" said Prince Andrew sarcastically.",
+          "start": 0.0,
+          "end": 7.1,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.1785888671875
+            },
+            {
+              "text": " yes,",
+              "start": 0.36,
+              "end": 0.68,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " and",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " what",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Masonic",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " brothers",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " say",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " war?",
+              "start": 2.84,
+              "end": 3.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " How",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.4453125
+            },
+            {
+              "text": " would",
+              "start": 4.42,
+              "end": 4.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stop",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it?\"",
+              "start": 4.96,
+              "end": 5.42,
+              "probability": 0.5618896484375
+            },
+            {
+              "text": " said",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Prince",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Andrew",
+              "start": 5.84,
+              "end": 6.32,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sarcastically.",
+              "start": 6.32,
+              "end": 7.1,
+              "probability": 0.972900390625
+            }
+          ]
+        },
+        {
+          "text": " Well, and how's Moscow? And my people? Have they reached Moscow at last?\" he asked seriously.",
+          "start": 8.1,
+          "end": 15.02,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 8.1,
+              "end": 8.32,
+              "probability": 0.032318115234375
+            },
+            {
+              "text": " and",
+              "start": 8.62,
+              "end": 8.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " how's",
+              "start": 8.74,
+              "end": 9.08,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " Moscow?",
+              "start": 9.08,
+              "end": 9.36,
+              "probability": 0.970703125
+            },
+            {
+              "text": " And",
+              "start": 10.58,
+              "end": 10.74,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " my",
+              "start": 10.74,
+              "end": 10.88,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " people?",
+              "start": 10.88,
+              "end": 11.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Have",
+              "start": 12.12,
+              "end": 12.38,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " they",
+              "start": 12.38,
+              "end": 12.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reached",
+              "start": 12.54,
+              "end": 12.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Moscow",
+              "start": 12.8,
+              "end": 13.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 13.2,
+              "end": 13.4,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " last?\"",
+              "start": 13.4,
+              "end": 14.04,
+              "probability": 0.6654052734375
+            },
+            {
+              "text": " he",
+              "start": 14.04,
+              "end": 14.14,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " asked",
+              "start": 14.14,
+              "end": 14.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seriously.",
+              "start": 14.44,
+              "end": 15.02,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "yes,",
+          "start": 0.36,
+          "end": 0.68
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "do",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "Masonic",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "raw": "brothers",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "say",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "raw": "about",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "war?",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "raw": "How",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "would",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "raw": "they",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "stop",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "raw": "it?\"",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "raw": "said",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "Prince",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "Andrew",
+          "start": 5.84,
+          "end": 6.32
+        },
+        {
+          "raw": "sarcastically.",
+          "start": 6.32,
+          "end": 7.1
+        },
+        {
+          "raw": "Well,",
+          "start": 8.1,
+          "end": 8.32
+        },
+        {
+          "raw": "and",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "raw": "how's",
+          "start": 8.74,
+          "end": 9.08
+        },
+        {
+          "raw": "Moscow?",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "raw": "And",
+          "start": 10.58,
+          "end": 10.74
+        },
+        {
+          "raw": "my",
+          "start": 10.74,
+          "end": 10.88
+        },
+        {
+          "raw": "people?",
+          "start": 10.88,
+          "end": 11.22
+        },
+        {
+          "raw": "Have",
+          "start": 12.12,
+          "end": 12.38
+        },
+        {
+          "raw": "they",
+          "start": 12.38,
+          "end": 12.54
+        },
+        {
+          "raw": "reached",
+          "start": 12.54,
+          "end": 12.8
+        },
+        {
+          "raw": "Moscow",
+          "start": 12.8,
+          "end": 13.2
+        },
+        {
+          "raw": "at",
+          "start": 13.2,
+          "end": 13.4
+        },
+        {
+          "raw": "last?\"",
+          "start": 13.4,
+          "end": 14.04
+        },
+        {
+          "raw": "he",
+          "start": 14.04,
+          "end": 14.14
+        },
+        {
+          "raw": "asked",
+          "start": 14.14,
+          "end": 14.44
+        },
+        {
+          "raw": "seriously.",
+          "start": 14.44,
+          "end": 15.02
+        }
+      ],
+      "expected_tokens": [
+        "“Oh",
+        "yes,",
+        "and",
+        "what",
+        "do",
+        "the",
+        "Masonic",
+        "brothers",
+        "say",
+        "about",
+        "war?",
+        "How",
+        "would",
+        "they",
+        "stop",
+        "it?”",
+        "said",
+        "Prince",
+        "Andrew",
+        "sarcastically.",
+        "“Well,",
+        "and",
+        "how’s",
+        "Moscow?",
+        "And",
+        "my",
+        "people?",
+        "Have",
+        "they",
+        "reached",
+        "Moscow",
+        "at",
+        "last?”",
+        "he",
+        "asked",
+        "seriously."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh",
+        "yes,",
+        "and",
+        "what",
+        "do",
+        "the",
+        "Masonic",
+        "brothers",
+        "say",
+        "about",
+        "war?",
+        "How",
+        "would",
+        "they",
+        "stop",
+        "it?\"",
+        "said",
+        "Prince",
+        "Andrew",
+        "sarcastically.",
+        "\"Well,",
+        "and",
+        "how's",
+        "Moscow?",
+        "And",
+        "my",
+        "people?",
+        "Have",
+        "they",
+        "reached",
+        "Moscow",
+        "at",
+        "last?\"",
+        "he",
+        "asked",
+        "seriously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 0.36,
+          "end": 0.68,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Masonic",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "masonic",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brothers",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "brothers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.18,
+          "end": 2.54,
+          "key": "say",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "about",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "war?",
+          "start": 2.84,
+          "end": 3.2,
+          "key": "war",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "how",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.42,
+          "end": 4.58,
+          "key": "would",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.58,
+          "end": 4.72,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stop",
+          "start": 4.72,
+          "end": 4.96,
+          "key": "stop",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it?\"",
+          "start": 4.96,
+          "end": 5.42,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.42,
+          "end": 5.56,
+          "key": "said",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "prince",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 5.84,
+          "end": 6.32,
+          "key": "andrew",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sarcastically.",
+          "start": 6.32,
+          "end": 7.1,
+          "key": "sarcastically",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 8.1,
+          "end": 8.32,
+          "key": "well",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.62,
+          "end": 8.74,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "how's",
+          "start": 8.74,
+          "end": 9.08,
+          "key": "hows",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Moscow?",
+          "start": 9.08,
+          "end": 9.36,
+          "key": "moscow",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.58,
+          "end": 10.74,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.74,
+          "end": 10.88,
+          "key": "my",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "people?",
+          "start": 10.88,
+          "end": 11.22,
+          "key": "people",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 12.12,
+          "end": 12.38,
+          "key": "have",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 12.38,
+          "end": 12.54,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "reached",
+          "start": 12.54,
+          "end": 12.8,
+          "key": "reached",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Moscow",
+          "start": 12.8,
+          "end": 13.2,
+          "key": "moscow",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 13.2,
+          "end": 13.4,
+          "key": "at",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "last?\"",
+          "start": 13.4,
+          "end": 14.04,
+          "key": "last",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.04,
+          "end": 14.14,
+          "key": "he",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 14.14,
+          "end": 14.44,
+          "key": "asked",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "seriously.",
+          "start": 14.44,
+          "end": 15.02,
+          "key": "seriously",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "yes,",
+          "start": 0.36,
+          "end": 0.68
+        },
+        {
+          "text": "and",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "what",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "do",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "Masonic",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "text": "brothers",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "say",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "text": "about",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "war?",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "text": "How",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "would",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "text": "they",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "stop",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "text": "it?”",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "text": "said",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "Prince",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "Andrew",
+          "start": 5.84,
+          "end": 6.32
+        },
+        {
+          "text": "sarcastically.",
+          "start": 6.32,
+          "end": 7.1
+        },
+        {
+          "text": "“Well,",
+          "start": 8.1,
+          "end": 8.32
+        },
+        {
+          "text": "and",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "text": "how’s",
+          "start": 8.74,
+          "end": 9.08
+        },
+        {
+          "text": "Moscow?",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "text": "And",
+          "start": 10.58,
+          "end": 10.74
+        },
+        {
+          "text": "my",
+          "start": 10.74,
+          "end": 10.88
+        },
+        {
+          "text": "people?",
+          "start": 10.88,
+          "end": 11.22
+        },
+        {
+          "text": "Have",
+          "start": 12.12,
+          "end": 12.38
+        },
+        {
+          "text": "they",
+          "start": 12.38,
+          "end": 12.54
+        },
+        {
+          "text": "reached",
+          "start": 12.54,
+          "end": 12.8
+        },
+        {
+          "text": "Moscow",
+          "start": 12.8,
+          "end": 13.2
+        },
+        {
+          "text": "at",
+          "start": 13.2,
+          "end": 13.4
+        },
+        {
+          "text": "last?”",
+          "start": 13.4,
+          "end": 14.04
+        },
+        {
+          "text": "he",
+          "start": 14.04,
+          "end": 14.14
+        },
+        {
+          "text": "asked",
+          "start": 14.14,
+          "end": 14.44
+        },
+        {
+          "text": "seriously.",
+          "start": 14.44,
+          "end": 15.02
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4666864210739732
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4cdd6ca7a9556a7586fc0dd3b7e36e2d54ecda6918419eeb9efa6dd7aaeedad1",
+  "selected_reasons": []
+}

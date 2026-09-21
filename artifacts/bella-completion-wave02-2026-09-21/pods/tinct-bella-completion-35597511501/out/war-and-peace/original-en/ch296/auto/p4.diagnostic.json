@@ -1,0 +1,2353 @@
+{
+  "complete": true,
+  "signature": "54d593feee01c94587c231cfd922f9935fff64b6d35be238d4d4261e81faa3a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.576086675748229,
+      "alignment_seconds": 0.005427255295217037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"They want to run to see how they have wounded it. Wait and we shall see! Continual maneuvers, continual advances!\" thought he. \"What for? Only to distinguish themselves! As if fighting were fun. They are like children from whom one can't get any sensible account of what has happened because they all want to show how well they can fight. But that's not what is needed now.",
+        "hotwords": "Wait, Only, As, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They want to run to see how they have wounded it. Wait and we shall see!",
+          "start": 0.0,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.771484375
+            },
+            {
+              "text": " want",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " run",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " see",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wounded",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 2.02,
+              "end": 2.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Wait",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " and",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.904296875
+            },
+            {
+              "text": " we",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shall",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see!",
+              "start": 4.04,
+              "end": 4.44,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Continual maneuvers, continual advances!\" thought he.",
+          "start": 5.56,
+          "end": 8.8,
+          "words": [
+            {
+              "text": " Continual",
+              "start": 5.56,
+              "end": 6.02,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " maneuvers,",
+              "start": 6.02,
+              "end": 6.4,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " continual",
+              "start": 6.94,
+              "end": 7.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " advances",
+              "start": 7.2,
+              "end": 7.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "!\"",
+              "start": 7.86,
+              "end": 8.42,
+              "probability": 0.00022494792938232422
+            },
+            {
+              "text": " thought",
+              "start": 8.42,
+              "end": 8.46,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " he.",
+              "start": 8.46,
+              "end": 8.8,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " What for? Only to distinguish themselves!",
+          "start": 9.72,
+          "end": 12.7,
+          "words": [
+            {
+              "text": " What",
+              "start": 9.72,
+              "end": 9.9,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " for?",
+              "start": 9.9,
+              "end": 10.26,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Only",
+              "start": 11.26,
+              "end": 11.46,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " to",
+              "start": 11.46,
+              "end": 11.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distinguish",
+              "start": 11.68,
+              "end": 12.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " themselves!",
+              "start": 12.12,
+              "end": 12.7,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " As if fighting were fun. They are like children from whom one can't get any",
+          "start": 13.88,
+          "end": 18.46,
+          "words": [
+            {
+              "text": " As",
+              "start": 13.88,
+              "end": 14.14,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " if",
+              "start": 14.14,
+              "end": 14.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fighting",
+              "start": 14.3,
+              "end": 14.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " were",
+              "start": 14.56,
+              "end": 14.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fun.",
+              "start": 14.86,
+              "end": 15.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " They",
+              "start": 16.2,
+              "end": 16.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " are",
+              "start": 16.34,
+              "end": 16.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 16.46,
+              "end": 16.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " children",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 16.9,
+              "end": 17.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " whom",
+              "start": 17.26,
+              "end": 17.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 17.54,
+              "end": 17.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " can't",
+              "start": 17.74,
+              "end": 18.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " get",
+              "start": 18.12,
+              "end": 18.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 18.22,
+              "end": 18.46,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " sensible account of what has happened because they all want to show how well they can fight.",
+          "start": 18.46,
+          "end": 22.26,
+          "words": [
+            {
+              "text": " sensible",
+              "start": 18.46,
+              "end": 18.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " account",
+              "start": 18.84,
+              "end": 19.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 19.16,
+              "end": 19.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 19.34,
+              "end": 19.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 19.54,
+              "end": 19.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " happened",
+              "start": 19.7,
+              "end": 20.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " because",
+              "start": 20.04,
+              "end": 20.34,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " they",
+              "start": 20.34,
+              "end": 20.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 20.5,
+              "end": 20.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " want",
+              "start": 20.68,
+              "end": 20.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 20.84,
+              "end": 21.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " show",
+              "start": 21.0,
+              "end": 21.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " how",
+              "start": 21.16,
+              "end": 21.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " well",
+              "start": 21.42,
+              "end": 21.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 21.62,
+              "end": 21.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 21.78,
+              "end": 21.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fight.",
+              "start": 21.96,
+              "end": 22.26,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " But that's not what is needed now.",
+          "start": 23.24,
+          "end": 24.9,
+          "words": [
+            {
+              "text": " But",
+              "start": 23.24,
+              "end": 23.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that's",
+              "start": 23.46,
+              "end": 23.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 23.76,
+              "end": 23.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 23.86,
+              "end": 24.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 24.04,
+              "end": 24.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " needed",
+              "start": 24.22,
+              "end": 24.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " now.",
+              "start": 24.5,
+              "end": 24.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "want",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "run",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "see",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "how",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "they",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "have",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "wounded",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "it.",
+          "start": 2.02,
+          "end": 2.52
+        },
+        {
+          "raw": "Wait",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "we",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "shall",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "see!",
+          "start": 4.04,
+          "end": 4.44
+        },
+        {
+          "raw": "Continual",
+          "start": 5.56,
+          "end": 6.02
+        },
+        {
+          "raw": "maneuvers,",
+          "start": 6.02,
+          "end": 6.4
+        },
+        {
+          "raw": "continual",
+          "start": 6.94,
+          "end": 7.2
+        },
+        {
+          "raw": "advances",
+          "start": 7.2,
+          "end": 7.86
+        },
+        {
+          "raw": "!\"",
+          "start": 7.86,
+          "end": 8.42
+        },
+        {
+          "raw": "thought",
+          "start": 8.42,
+          "end": 8.46
+        },
+        {
+          "raw": "he.",
+          "start": 8.46,
+          "end": 8.8
+        },
+        {
+          "raw": "What",
+          "start": 9.72,
+          "end": 9.9
+        },
+        {
+          "raw": "for?",
+          "start": 9.9,
+          "end": 10.26
+        },
+        {
+          "raw": "Only",
+          "start": 11.26,
+          "end": 11.46
+        },
+        {
+          "raw": "to",
+          "start": 11.46,
+          "end": 11.68
+        },
+        {
+          "raw": "distinguish",
+          "start": 11.68,
+          "end": 12.12
+        },
+        {
+          "raw": "themselves!",
+          "start": 12.12,
+          "end": 12.7
+        },
+        {
+          "raw": "As",
+          "start": 13.88,
+          "end": 14.14
+        },
+        {
+          "raw": "if",
+          "start": 14.14,
+          "end": 14.3
+        },
+        {
+          "raw": "fighting",
+          "start": 14.3,
+          "end": 14.56
+        },
+        {
+          "raw": "were",
+          "start": 14.56,
+          "end": 14.86
+        },
+        {
+          "raw": "fun.",
+          "start": 14.86,
+          "end": 15.16
+        },
+        {
+          "raw": "They",
+          "start": 16.2,
+          "end": 16.34
+        },
+        {
+          "raw": "are",
+          "start": 16.34,
+          "end": 16.46
+        },
+        {
+          "raw": "like",
+          "start": 16.46,
+          "end": 16.64
+        },
+        {
+          "raw": "children",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "from",
+          "start": 16.9,
+          "end": 17.26
+        },
+        {
+          "raw": "whom",
+          "start": 17.26,
+          "end": 17.54
+        },
+        {
+          "raw": "one",
+          "start": 17.54,
+          "end": 17.74
+        },
+        {
+          "raw": "can't",
+          "start": 17.74,
+          "end": 18.12
+        },
+        {
+          "raw": "get",
+          "start": 18.12,
+          "end": 18.22
+        },
+        {
+          "raw": "any",
+          "start": 18.22,
+          "end": 18.46
+        },
+        {
+          "raw": "sensible",
+          "start": 18.46,
+          "end": 18.84
+        },
+        {
+          "raw": "account",
+          "start": 18.84,
+          "end": 19.16
+        },
+        {
+          "raw": "of",
+          "start": 19.16,
+          "end": 19.34
+        },
+        {
+          "raw": "what",
+          "start": 19.34,
+          "end": 19.54
+        },
+        {
+          "raw": "has",
+          "start": 19.54,
+          "end": 19.7
+        },
+        {
+          "raw": "happened",
+          "start": 19.7,
+          "end": 20.04
+        },
+        {
+          "raw": "because",
+          "start": 20.04,
+          "end": 20.34
+        },
+        {
+          "raw": "they",
+          "start": 20.34,
+          "end": 20.5
+        },
+        {
+          "raw": "all",
+          "start": 20.5,
+          "end": 20.68
+        },
+        {
+          "raw": "want",
+          "start": 20.68,
+          "end": 20.84
+        },
+        {
+          "raw": "to",
+          "start": 20.84,
+          "end": 21.0
+        },
+        {
+          "raw": "show",
+          "start": 21.0,
+          "end": 21.16
+        },
+        {
+          "raw": "how",
+          "start": 21.16,
+          "end": 21.42
+        },
+        {
+          "raw": "well",
+          "start": 21.42,
+          "end": 21.62
+        },
+        {
+          "raw": "they",
+          "start": 21.62,
+          "end": 21.78
+        },
+        {
+          "raw": "can",
+          "start": 21.78,
+          "end": 21.96
+        },
+        {
+          "raw": "fight.",
+          "start": 21.96,
+          "end": 22.26
+        },
+        {
+          "raw": "But",
+          "start": 23.24,
+          "end": 23.46
+        },
+        {
+          "raw": "that's",
+          "start": 23.46,
+          "end": 23.76
+        },
+        {
+          "raw": "not",
+          "start": 23.76,
+          "end": 23.86
+        },
+        {
+          "raw": "what",
+          "start": 23.86,
+          "end": 24.04
+        },
+        {
+          "raw": "is",
+          "start": 24.04,
+          "end": 24.22
+        },
+        {
+          "raw": "needed",
+          "start": 24.22,
+          "end": 24.5
+        },
+        {
+          "raw": "now.",
+          "start": 24.5,
+          "end": 24.9
+        }
+      ],
+      "expected_tokens": [
+        "“They",
+        "want",
+        "to",
+        "run",
+        "to",
+        "see",
+        "how",
+        "they",
+        "have",
+        "wounded",
+        "it.",
+        "Wait",
+        "and",
+        "we",
+        "shall",
+        "see!",
+        "Continual",
+        "maneuvers,",
+        "continual",
+        "advances!”",
+        "thought",
+        "he.",
+        "“What",
+        "for?",
+        "Only",
+        "to",
+        "distinguish",
+        "themselves!",
+        "As",
+        "if",
+        "fighting",
+        "were",
+        "fun.",
+        "They",
+        "are",
+        "like",
+        "children",
+        "from",
+        "whom",
+        "one",
+        "can’t",
+        "get",
+        "any",
+        "sensible",
+        "account",
+        "of",
+        "what",
+        "has",
+        "happened",
+        "because",
+        "they",
+        "all",
+        "want",
+        "to",
+        "show",
+        "how",
+        "well",
+        "they",
+        "can",
+        "fight.",
+        "But",
+        "that’s",
+        "not",
+        "what",
+        "is",
+        "needed",
+        "now."
+      ],
+      "acoustic_expected_tokens": [
+        "\"They",
+        "want",
+        "to",
+        "run",
+        "to",
+        "see",
+        "how",
+        "they",
+        "have",
+        "wounded",
+        "it.",
+        "Wait",
+        "and",
+        "we",
+        "shall",
+        "see!",
+        "Continual",
+        "maneuvers,",
+        "continual",
+        "advances!\"",
+        "thought",
+        "he.",
+        "\"What",
+        "for?",
+        "Only",
+        "to",
+        "distinguish",
+        "themselves!",
+        "As",
+        "if",
+        "fighting",
+        "were",
+        "fun.",
+        "They",
+        "are",
+        "like",
+        "children",
+        "from",
+        "whom",
+        "one",
+        "can't",
+        "get",
+        "any",
+        "sensible",
+        "account",
+        "of",
+        "what",
+        "has",
+        "happened",
+        "because",
+        "they",
+        "all",
+        "want",
+        "to",
+        "show",
+        "how",
+        "well",
+        "they",
+        "can",
+        "fight.",
+        "But",
+        "that's",
+        "not",
+        "what",
+        "is",
+        "needed",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "insert",
+          20,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          67,
+          21,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          20,
+          20,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.34,
+          "end": 0.5,
+          "key": "want",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "run",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "wounded",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.02,
+          "end": 2.52,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Wait",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "wait",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "see!",
+          "start": 4.04,
+          "end": 4.44,
+          "key": "see",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Continual",
+          "start": 5.56,
+          "end": 6.02,
+          "key": "continual",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "maneuvers,",
+          "start": 6.02,
+          "end": 6.4,
+          "key": "maneuvers",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "continual",
+          "start": 6.94,
+          "end": 7.2,
+          "key": "continual",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "advances",
+          "start": 7.2,
+          "end": 7.86,
+          "key": "advances",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 7.86,
+          "end": 8.42,
+          "key": "",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 8.42,
+          "end": 8.46,
+          "key": "thought",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 8.46,
+          "end": 8.8,
+          "key": "he",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 9.72,
+          "end": 9.9,
+          "key": "what",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 9.9,
+          "end": 10.26,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Only",
+          "start": 11.26,
+          "end": 11.46,
+          "key": "only",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.46,
+          "end": 11.68,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "distinguish",
+          "start": 11.68,
+          "end": 12.12,
+          "key": "distinguish",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "themselves!",
+          "start": 12.12,
+          "end": 12.7,
+          "key": "themselves",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 13.88,
+          "end": 14.14,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 14.14,
+          "end": 14.3,
+          "key": "if",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "fighting",
+          "start": 14.3,
+          "end": 14.56,
+          "key": "fighting",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 14.56,
+          "end": 14.86,
+          "key": "were",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "fun.",
+          "start": 14.86,
+          "end": 15.16,
+          "key": "fun",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 16.2,
+          "end": 16.34,
+          "key": "they",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.34,
+          "end": 16.46,
+          "key": "are",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 16.46,
+          "end": 16.64,
+          "key": "like",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 16.64,
+          "end": 16.9,
+          "key": "children",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 16.9,
+          "end": 17.26,
+          "key": "from",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 17.26,
+          "end": 17.54,
+          "key": "whom",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 17.54,
+          "end": 17.74,
+          "key": "one",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 17.74,
+          "end": 18.12,
+          "key": "cant",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 18.12,
+          "end": 18.22,
+          "key": "get",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 18.22,
+          "end": 18.46,
+          "key": "any",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "sensible",
+          "start": 18.46,
+          "end": 18.84,
+          "key": "sensible",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 18.84,
+          "end": 19.16,
+          "key": "account",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.16,
+          "end": 19.34,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 19.34,
+          "end": 19.54,
+          "key": "what",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 19.54,
+          "end": 19.7,
+          "key": "has",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 19.7,
+          "end": 20.04,
+          "key": "happened",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 20.04,
+          "end": 20.34,
+          "key": "because",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 20.34,
+          "end": 20.5,
+          "key": "they",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.5,
+          "end": 20.68,
+          "key": "all",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 20.68,
+          "end": 20.84,
+          "key": "want",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.84,
+          "end": 21.0,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 21.0,
+          "end": 21.16,
+          "key": "show",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 21.16,
+          "end": 21.42,
+          "key": "how",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 21.42,
+          "end": 21.62,
+          "key": "well",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 21.62,
+          "end": 21.78,
+          "key": "they",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 21.78,
+          "end": 21.96,
+          "key": "can",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "fight.",
+          "start": 21.96,
+          "end": 22.26,
+          "key": "fight",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 23.24,
+          "end": 23.46,
+          "key": "but",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 23.46,
+          "end": 23.76,
+          "key": "thats",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 23.76,
+          "end": 23.86,
+          "key": "not",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 23.86,
+          "end": 24.04,
+          "key": "what",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.04,
+          "end": 24.22,
+          "key": "is",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "needed",
+          "start": 24.22,
+          "end": 24.5,
+          "key": "needed",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 24.5,
+          "end": 24.9,
+          "key": "now",
+          "pieces": [
+            67
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "want",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "text": "to",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "run",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "to",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "see",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "how",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "they",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "have",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "wounded",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "it.",
+          "start": 2.02,
+          "end": 2.52
+        },
+        {
+          "text": "Wait",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "and",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "we",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "shall",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "see!",
+          "start": 4.04,
+          "end": 4.44
+        },
+        {
+          "text": "Continual",
+          "start": 5.56,
+          "end": 6.02
+        },
+        {
+          "text": "maneuvers,",
+          "start": 6.02,
+          "end": 6.4
+        },
+        {
+          "text": "continual",
+          "start": 6.94,
+          "end": 7.2
+        },
+        {
+          "text": "advances!”",
+          "start": 7.2,
+          "end": 7.86
+        },
+        {
+          "text": "thought",
+          "start": 8.42,
+          "end": 8.46
+        },
+        {
+          "text": "he.",
+          "start": 8.46,
+          "end": 8.8
+        },
+        {
+          "text": "“What",
+          "start": 9.72,
+          "end": 9.9
+        },
+        {
+          "text": "for?",
+          "start": 9.9,
+          "end": 10.26
+        },
+        {
+          "text": "Only",
+          "start": 11.26,
+          "end": 11.46
+        },
+        {
+          "text": "to",
+          "start": 11.46,
+          "end": 11.68
+        },
+        {
+          "text": "distinguish",
+          "start": 11.68,
+          "end": 12.12
+        },
+        {
+          "text": "themselves!",
+          "start": 12.12,
+          "end": 12.7
+        },
+        {
+          "text": "As",
+          "start": 13.88,
+          "end": 14.14
+        },
+        {
+          "text": "if",
+          "start": 14.14,
+          "end": 14.3
+        },
+        {
+          "text": "fighting",
+          "start": 14.3,
+          "end": 14.56
+        },
+        {
+          "text": "were",
+          "start": 14.56,
+          "end": 14.86
+        },
+        {
+          "text": "fun.",
+          "start": 14.86,
+          "end": 15.16
+        },
+        {
+          "text": "They",
+          "start": 16.2,
+          "end": 16.34
+        },
+        {
+          "text": "are",
+          "start": 16.34,
+          "end": 16.46
+        },
+        {
+          "text": "like",
+          "start": 16.46,
+          "end": 16.64
+        },
+        {
+          "text": "children",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "from",
+          "start": 16.9,
+          "end": 17.26
+        },
+        {
+          "text": "whom",
+          "start": 17.26,
+          "end": 17.54
+        },
+        {
+          "text": "one",
+          "start": 17.54,
+          "end": 17.74
+        },
+        {
+          "text": "can’t",
+          "start": 17.74,
+          "end": 18.12
+        },
+        {
+          "text": "get",
+          "start": 18.12,
+          "end": 18.22
+        },
+        {
+          "text": "any",
+          "start": 18.22,
+          "end": 18.46
+        },
+        {
+          "text": "sensible",
+          "start": 18.46,
+          "end": 18.84
+        },
+        {
+          "text": "account",
+          "start": 18.84,
+          "end": 19.16
+        },
+        {
+          "text": "of",
+          "start": 19.16,
+          "end": 19.34
+        },
+        {
+          "text": "what",
+          "start": 19.34,
+          "end": 19.54
+        },
+        {
+          "text": "has",
+          "start": 19.54,
+          "end": 19.7
+        },
+        {
+          "text": "happened",
+          "start": 19.7,
+          "end": 20.04
+        },
+        {
+          "text": "because",
+          "start": 20.04,
+          "end": 20.34
+        },
+        {
+          "text": "they",
+          "start": 20.34,
+          "end": 20.5
+        },
+        {
+          "text": "all",
+          "start": 20.5,
+          "end": 20.68
+        },
+        {
+          "text": "want",
+          "start": 20.68,
+          "end": 20.84
+        },
+        {
+          "text": "to",
+          "start": 20.84,
+          "end": 21.0
+        },
+        {
+          "text": "show",
+          "start": 21.0,
+          "end": 21.16
+        },
+        {
+          "text": "how",
+          "start": 21.16,
+          "end": 21.42
+        },
+        {
+          "text": "well",
+          "start": 21.42,
+          "end": 21.62
+        },
+        {
+          "text": "they",
+          "start": 21.62,
+          "end": 21.78
+        },
+        {
+          "text": "can",
+          "start": 21.78,
+          "end": 21.96
+        },
+        {
+          "text": "fight.",
+          "start": 21.96,
+          "end": 22.26
+        },
+        {
+          "text": "But",
+          "start": 23.24,
+          "end": 23.46
+        },
+        {
+          "text": "that’s",
+          "start": 23.46,
+          "end": 23.76
+        },
+        {
+          "text": "not",
+          "start": 23.76,
+          "end": 23.86
+        },
+        {
+          "text": "what",
+          "start": 23.86,
+          "end": 24.04
+        },
+        {
+          "text": "is",
+          "start": 24.04,
+          "end": 24.22
+        },
+        {
+          "text": "needed",
+          "start": 24.22,
+          "end": 24.5
+        },
+        {
+          "text": "now.",
+          "start": 24.5,
+          "end": 24.9
+        }
+      ],
+      "stats": {
+        "expected_words": 67,
+        "heard_words": 68,
+        "matched_words": 67
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5819500274956226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b43184adab7318ac48f21f5d8d0647f66e59ee439e9b08735e1ca4d36b6431d2",
+  "selected_reasons": []
+}

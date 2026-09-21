@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "687cdea0e5a0e46620db0627bbc31088bec550334c5ffa6ea36beebbb1ad4b6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1438203528523445,
+      "alignment_seconds": 0.0008090008050203323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt Bardolph and Page.",
+        "hotwords": "Exeunt, Bardolph, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Bardolph and Page.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.33477783203125
+            },
+            {
+              "text": " Bardolph",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.0867462158203125
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.42333984375
+            },
+            {
+              "text": " Page.",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.423095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Bardolph",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "Page.",
+          "start": 1.35,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Bardolph",
+        "and",
+        "Page._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "Bardolph",
+        "and",
+        "Page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bardolph",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "bardolph",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "page",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Bardolph",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "Page._]",
+          "start": 1.35,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14474042411893606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ad649b4fa61c2f7f224a1e300a649a89933cbf544b167360bddf0bca63410dc",
+  "selected_reasons": []
+}

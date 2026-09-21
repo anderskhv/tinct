@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "5e846c461a19696ae415d02b872b9015254fb103d79fc55ec81cc4f4ddbe2067",
+  "attempts": [
+    {
+      "asr_seconds": 0.21980144176632166,
+      "alignment_seconds": 0.0013610338792204857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then hand to the governor in person a letter about the deed.\"",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then hand to the governor in person a letter about the deed.",
+          "start": 0.0,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " hand",
+              "start": 0.36,
+              "end": 0.56,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " to",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " governor",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " in",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " person",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " letter",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deed.",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "hand",
+          "start": 0.36,
+          "end": 0.56
+        },
+        {
+          "raw": "to",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "governor",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "person",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "a",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "letter",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "about",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "deed.",
+          "start": 2.42,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "“Then",
+        "hand",
+        "to",
+        "the",
+        "governor",
+        "in",
+        "person",
+        "a",
+        "letter",
+        "about",
+        "the",
+        "deed.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Then",
+        "hand",
+        "to",
+        "the",
+        "governor",
+        "in",
+        "person",
+        "a",
+        "letter",
+        "about",
+        "the",
+        "deed.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 0.36,
+          "end": 0.56,
+          "key": "hand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "governor",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "governor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "person",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "letter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "about",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deed.",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "deed",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Then",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "hand",
+          "start": 0.36,
+          "end": 0.56
+        },
+        {
+          "text": "to",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "governor",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "in",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "person",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "a",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "letter",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "about",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "the",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "deed.”",
+          "start": 2.42,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22135596722364426
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a2d1e107a494cb847981ae803c0acb9fd49177cbc73d2d01eba34aa409c1a47",
+  "selected_reasons": []
+}

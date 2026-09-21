@@ -1,0 +1,2304 @@
+{
+  "complete": true,
+  "signature": "e6c8201ffac003f10c2bd9b524fff68f32509ae6ef76d0b41787a5fe86dfc53c",
+  "attempts": [
+    {
+      "asr_seconds": 0.6337937442585826,
+      "alignment_seconds": 0.006197803653776646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They gave him some more porridge and Morel with a laugh set to work on his third bowl. All the young soldiers smiled gaily as they watched him. The older men, who thought it undignified to amuse themselves with such nonsense, continued to lie at the opposite side of the fire, but one would occasionally raise himself on an elbow and glance at Morel with a smile.",
+        "hotwords": "Morel, All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They gave him some more porridge and Morel with a laugh set to work on his third bowl.",
+          "start": 0.0,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " gave",
+              "start": 0.34,
+              "end": 0.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " some",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " porridge",
+              "start": 1.16,
+              "end": 1.52,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " and",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Morel",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.30816650390625
+            },
+            {
+              "text": " with",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.552734375
+            },
+            {
+              "text": " a",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " laugh",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " set",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " work",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " third",
+              "start": 3.48,
+              "end": 3.82,
+              "probability": 0.974609375
+            },
+            {
+              "text": " bowl.",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.92236328125
+            }
+          ]
+        },
+        {
+          "text": " All the young soldiers smiled gaily as they watched him.",
+          "start": 5.22,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " All",
+              "start": 5.22,
+              "end": 5.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 5.38,
+              "end": 5.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " young",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soldiers",
+              "start": 5.72,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " smiled",
+              "start": 6.1,
+              "end": 6.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gaily",
+              "start": 6.48,
+              "end": 6.82,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " as",
+              "start": 6.82,
+              "end": 7.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 7.06,
+              "end": 7.24,
+              "probability": 1.0
+            },
+            {
+              "text": " watched",
+              "start": 7.24,
+              "end": 7.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him.",
+              "start": 7.5,
+              "end": 7.8,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " The older men, who thought it undignified to amuse themselves with such nonsense,",
+          "start": 8.82,
+          "end": 12.72,
+          "words": [
+            {
+              "text": " The",
+              "start": 8.82,
+              "end": 8.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " older",
+              "start": 8.94,
+              "end": 9.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " men,",
+              "start": 9.12,
+              "end": 9.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 9.64,
+              "end": 9.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thought",
+              "start": 9.78,
+              "end": 10.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 10.0,
+              "end": 10.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " undignified",
+              "start": 10.16,
+              "end": 10.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 10.72,
+              "end": 10.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " amuse",
+              "start": 10.98,
+              "end": 11.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " themselves",
+              "start": 11.24,
+              "end": 11.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 11.72,
+              "end": 12.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " such",
+              "start": 12.04,
+              "end": 12.3,
+              "probability": 1.0
+            },
+            {
+              "text": " nonsense,",
+              "start": 12.3,
+              "end": 12.72,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " continued to lie at the opposite side of the fire, but one would occasionally raise",
+          "start": 13.2,
+          "end": 16.94,
+          "words": [
+            {
+              "text": " continued",
+              "start": 13.2,
+              "end": 13.42,
+              "probability": 0.9609375
+            },
+            {
+              "text": " to",
+              "start": 13.42,
+              "end": 13.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lie",
+              "start": 13.76,
+              "end": 13.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 13.9,
+              "end": 14.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.04,
+              "end": 14.16,
+              "probability": 1.0
+            },
+            {
+              "text": " opposite",
+              "start": 14.16,
+              "end": 14.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " side",
+              "start": 14.4,
+              "end": 14.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 14.84,
+              "end": 14.98,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 14.98,
+              "end": 15.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fire,",
+              "start": 15.08,
+              "end": 15.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 15.68,
+              "end": 15.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one",
+              "start": 15.78,
+              "end": 16.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " would",
+              "start": 16.0,
+              "end": 16.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " occasionally",
+              "start": 16.14,
+              "end": 16.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " raise",
+              "start": 16.54,
+              "end": 16.94,
+              "probability": 0.9365234375
+            }
+          ]
+        },
+        {
+          "text": " himself on an elbow and glance at Morel with a smile.",
+          "start": 16.94,
+          "end": 19.68,
+          "words": [
+            {
+              "text": " himself",
+              "start": 16.94,
+              "end": 17.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 17.34,
+              "end": 17.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 17.56,
+              "end": 17.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " elbow",
+              "start": 17.68,
+              "end": 17.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 17.9,
+              "end": 18.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " glance",
+              "start": 18.2,
+              "end": 18.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 18.48,
+              "end": 18.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Morel",
+              "start": 18.74,
+              "end": 19.08,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " with",
+              "start": 19.08,
+              "end": 19.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 19.24,
+              "end": 19.36,
+              "probability": 1.0
+            },
+            {
+              "text": " smile.",
+              "start": 19.36,
+              "end": 19.68,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "gave",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "raw": "him",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "some",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "raw": "more",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "porridge",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "Morel",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "raw": "with",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "a",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "laugh",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "set",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "work",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "his",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "third",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "raw": "bowl.",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "All",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "raw": "the",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "raw": "young",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "soldiers",
+          "start": 5.72,
+          "end": 6.1
+        },
+        {
+          "raw": "smiled",
+          "start": 6.1,
+          "end": 6.48
+        },
+        {
+          "raw": "gaily",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "raw": "as",
+          "start": 6.82,
+          "end": 7.06
+        },
+        {
+          "raw": "they",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "raw": "watched",
+          "start": 7.24,
+          "end": 7.5
+        },
+        {
+          "raw": "him.",
+          "start": 7.5,
+          "end": 7.8
+        },
+        {
+          "raw": "The",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "raw": "older",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "raw": "men,",
+          "start": 9.12,
+          "end": 9.42
+        },
+        {
+          "raw": "who",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "raw": "thought",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "raw": "it",
+          "start": 10.0,
+          "end": 10.16
+        },
+        {
+          "raw": "undignified",
+          "start": 10.16,
+          "end": 10.72
+        },
+        {
+          "raw": "to",
+          "start": 10.72,
+          "end": 10.98
+        },
+        {
+          "raw": "amuse",
+          "start": 10.98,
+          "end": 11.24
+        },
+        {
+          "raw": "themselves",
+          "start": 11.24,
+          "end": 11.72
+        },
+        {
+          "raw": "with",
+          "start": 11.72,
+          "end": 12.04
+        },
+        {
+          "raw": "such",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "raw": "nonsense,",
+          "start": 12.3,
+          "end": 12.72
+        },
+        {
+          "raw": "continued",
+          "start": 13.2,
+          "end": 13.42
+        },
+        {
+          "raw": "to",
+          "start": 13.42,
+          "end": 13.76
+        },
+        {
+          "raw": "lie",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "raw": "at",
+          "start": 13.9,
+          "end": 14.04
+        },
+        {
+          "raw": "the",
+          "start": 14.04,
+          "end": 14.16
+        },
+        {
+          "raw": "opposite",
+          "start": 14.16,
+          "end": 14.4
+        },
+        {
+          "raw": "side",
+          "start": 14.4,
+          "end": 14.84
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 14.98
+        },
+        {
+          "raw": "the",
+          "start": 14.98,
+          "end": 15.08
+        },
+        {
+          "raw": "fire,",
+          "start": 15.08,
+          "end": 15.42
+        },
+        {
+          "raw": "but",
+          "start": 15.68,
+          "end": 15.78
+        },
+        {
+          "raw": "one",
+          "start": 15.78,
+          "end": 16.0
+        },
+        {
+          "raw": "would",
+          "start": 16.0,
+          "end": 16.14
+        },
+        {
+          "raw": "occasionally",
+          "start": 16.14,
+          "end": 16.54
+        },
+        {
+          "raw": "raise",
+          "start": 16.54,
+          "end": 16.94
+        },
+        {
+          "raw": "himself",
+          "start": 16.94,
+          "end": 17.34
+        },
+        {
+          "raw": "on",
+          "start": 17.34,
+          "end": 17.56
+        },
+        {
+          "raw": "an",
+          "start": 17.56,
+          "end": 17.68
+        },
+        {
+          "raw": "elbow",
+          "start": 17.68,
+          "end": 17.9
+        },
+        {
+          "raw": "and",
+          "start": 17.9,
+          "end": 18.2
+        },
+        {
+          "raw": "glance",
+          "start": 18.2,
+          "end": 18.48
+        },
+        {
+          "raw": "at",
+          "start": 18.48,
+          "end": 18.74
+        },
+        {
+          "raw": "Morel",
+          "start": 18.74,
+          "end": 19.08
+        },
+        {
+          "raw": "with",
+          "start": 19.08,
+          "end": 19.24
+        },
+        {
+          "raw": "a",
+          "start": 19.24,
+          "end": 19.36
+        },
+        {
+          "raw": "smile.",
+          "start": 19.36,
+          "end": 19.68
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "gave",
+        "him",
+        "some",
+        "more",
+        "porridge",
+        "and",
+        "Morel",
+        "with",
+        "a",
+        "laugh",
+        "set",
+        "to",
+        "work",
+        "on",
+        "his",
+        "third",
+        "bowl.",
+        "All",
+        "the",
+        "young",
+        "soldiers",
+        "smiled",
+        "gaily",
+        "as",
+        "they",
+        "watched",
+        "him.",
+        "The",
+        "older",
+        "men,",
+        "who",
+        "thought",
+        "it",
+        "undignified",
+        "to",
+        "amuse",
+        "themselves",
+        "with",
+        "such",
+        "nonsense,",
+        "continued",
+        "to",
+        "lie",
+        "at",
+        "the",
+        "opposite",
+        "side",
+        "of",
+        "the",
+        "fire,",
+        "but",
+        "one",
+        "would",
+        "occasionally",
+        "raise",
+        "himself",
+        "on",
+        "an",
+        "elbow",
+        "and",
+        "glance",
+        "at",
+        "Morel",
+        "with",
+        "a",
+        "smile."
+      ],
+      "acoustic_expected_tokens": [
+        "They",
+        "gave",
+        "him",
+        "some",
+        "more",
+        "porridge",
+        "and",
+        "Morel",
+        "with",
+        "a",
+        "laugh",
+        "set",
+        "to",
+        "work",
+        "on",
+        "his",
+        "third",
+        "bowl.",
+        "All",
+        "the",
+        "young",
+        "soldiers",
+        "smiled",
+        "gaily",
+        "as",
+        "they",
+        "watched",
+        "him.",
+        "The",
+        "older",
+        "men,",
+        "who",
+        "thought",
+        "it",
+        "undignified",
+        "to",
+        "amuse",
+        "themselves",
+        "with",
+        "such",
+        "nonsense,",
+        "continued",
+        "to",
+        "lie",
+        "at",
+        "the",
+        "opposite",
+        "side",
+        "of",
+        "the",
+        "fire,",
+        "but",
+        "one",
+        "would",
+        "occasionally",
+        "raise",
+        "himself",
+        "on",
+        "an",
+        "elbow",
+        "and",
+        "glance",
+        "at",
+        "Morel",
+        "with",
+        "a",
+        "smile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          67,
+          0,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.34,
+          "end": 0.52,
+          "key": "gave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.7,
+          "end": 0.92,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "porridge",
+          "start": 1.16,
+          "end": 1.52,
+          "key": "porridge",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Morel",
+          "start": 1.68,
+          "end": 2.0,
+          "key": "morel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "laugh",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "laugh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "set",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "work",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "work",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 3.48,
+          "end": 3.82,
+          "key": "third",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "bowl.",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "bowl",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 5.22,
+          "end": 5.38,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.38,
+          "end": 5.52,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "young",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "soldiers",
+          "start": 5.72,
+          "end": 6.1,
+          "key": "soldiers",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 6.1,
+          "end": 6.48,
+          "key": "smiled",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "gaily",
+          "start": 6.48,
+          "end": 6.82,
+          "key": "gaily",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.82,
+          "end": 7.06,
+          "key": "as",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 7.06,
+          "end": 7.24,
+          "key": "they",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "watched",
+          "start": 7.24,
+          "end": 7.5,
+          "key": "watched",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 7.5,
+          "end": 7.8,
+          "key": "him",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.82,
+          "end": 8.94,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "older",
+          "start": 8.94,
+          "end": 9.12,
+          "key": "older",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 9.12,
+          "end": 9.42,
+          "key": "men",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 9.64,
+          "end": 9.78,
+          "key": "who",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 9.78,
+          "end": 10.0,
+          "key": "thought",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.0,
+          "end": 10.16,
+          "key": "it",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "undignified",
+          "start": 10.16,
+          "end": 10.72,
+          "key": "undignified",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.72,
+          "end": 10.98,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "amuse",
+          "start": 10.98,
+          "end": 11.24,
+          "key": "amuse",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 11.24,
+          "end": 11.72,
+          "key": "themselves",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 11.72,
+          "end": 12.04,
+          "key": "with",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 12.04,
+          "end": 12.3,
+          "key": "such",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "nonsense,",
+          "start": 12.3,
+          "end": 12.72,
+          "key": "nonsense",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 13.2,
+          "end": 13.42,
+          "key": "continued",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.42,
+          "end": 13.76,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 13.76,
+          "end": 13.9,
+          "key": "lie",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 13.9,
+          "end": 14.04,
+          "key": "at",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.04,
+          "end": 14.16,
+          "key": "the",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 14.16,
+          "end": 14.4,
+          "key": "opposite",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 14.4,
+          "end": 14.84,
+          "key": "side",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 14.98,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.98,
+          "end": 15.08,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "fire,",
+          "start": 15.08,
+          "end": 15.42,
+          "key": "fire",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 15.68,
+          "end": 15.78,
+          "key": "but",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 15.78,
+          "end": 16.0,
+          "key": "one",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 16.0,
+          "end": 16.14,
+          "key": "would",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "occasionally",
+          "start": 16.14,
+          "end": 16.54,
+          "key": "occasionally",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "raise",
+          "start": 16.54,
+          "end": 16.94,
+          "key": "raise",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 16.94,
+          "end": 17.34,
+          "key": "himself",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 17.34,
+          "end": 17.56,
+          "key": "on",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 17.56,
+          "end": 17.68,
+          "key": "an",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "elbow",
+          "start": 17.68,
+          "end": 17.9,
+          "key": "elbow",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.9,
+          "end": 18.2,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "glance",
+          "start": 18.2,
+          "end": 18.48,
+          "key": "glance",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.48,
+          "end": 18.74,
+          "key": "at",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Morel",
+          "start": 18.74,
+          "end": 19.08,
+          "key": "morel",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.08,
+          "end": 19.24,
+          "key": "with",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.24,
+          "end": 19.36,
+          "key": "a",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "smile.",
+          "start": 19.36,
+          "end": 19.68,
+          "key": "smile",
+          "pieces": [
+            66
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "gave",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "text": "him",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "some",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "text": "more",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "porridge",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "Morel",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "with",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "a",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "laugh",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "set",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "to",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "work",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "on",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "his",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "third",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "text": "bowl.",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "All",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "text": "the",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "text": "young",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "soldiers",
+          "start": 5.72,
+          "end": 6.1
+        },
+        {
+          "text": "smiled",
+          "start": 6.1,
+          "end": 6.48
+        },
+        {
+          "text": "gaily",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "text": "as",
+          "start": 6.82,
+          "end": 7.06
+        },
+        {
+          "text": "they",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "text": "watched",
+          "start": 7.24,
+          "end": 7.5
+        },
+        {
+          "text": "him.",
+          "start": 7.5,
+          "end": 7.8
+        },
+        {
+          "text": "The",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "text": "older",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "text": "men,",
+          "start": 9.12,
+          "end": 9.42
+        },
+        {
+          "text": "who",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "text": "thought",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "text": "it",
+          "start": 10.0,
+          "end": 10.16
+        },
+        {
+          "text": "undignified",
+          "start": 10.16,
+          "end": 10.72
+        },
+        {
+          "text": "to",
+          "start": 10.72,
+          "end": 10.98
+        },
+        {
+          "text": "amuse",
+          "start": 10.98,
+          "end": 11.24
+        },
+        {
+          "text": "themselves",
+          "start": 11.24,
+          "end": 11.72
+        },
+        {
+          "text": "with",
+          "start": 11.72,
+          "end": 12.04
+        },
+        {
+          "text": "such",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "text": "nonsense,",
+          "start": 12.3,
+          "end": 12.72
+        },
+        {
+          "text": "continued",
+          "start": 13.2,
+          "end": 13.42
+        },
+        {
+          "text": "to",
+          "start": 13.42,
+          "end": 13.76
+        },
+        {
+          "text": "lie",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "text": "at",
+          "start": 13.9,
+          "end": 14.04
+        },
+        {
+          "text": "the",
+          "start": 14.04,
+          "end": 14.16
+        },
+        {
+          "text": "opposite",
+          "start": 14.16,
+          "end": 14.4
+        },
+        {
+          "text": "side",
+          "start": 14.4,
+          "end": 14.84
+        },
+        {
+          "text": "of",
+          "start": 14.84,
+          "end": 14.98
+        },
+        {
+          "text": "the",
+          "start": 14.98,
+          "end": 15.08
+        },
+        {
+          "text": "fire,",
+          "start": 15.08,
+          "end": 15.42
+        },
+        {
+          "text": "but",
+          "start": 15.68,
+          "end": 15.78
+        },
+        {
+          "text": "one",
+          "start": 15.78,
+          "end": 16.0
+        },
+        {
+          "text": "would",
+          "start": 16.0,
+          "end": 16.14
+        },
+        {
+          "text": "occasionally",
+          "start": 16.14,
+          "end": 16.54
+        },
+        {
+          "text": "raise",
+          "start": 16.54,
+          "end": 16.94
+        },
+        {
+          "text": "himself",
+          "start": 16.94,
+          "end": 17.34
+        },
+        {
+          "text": "on",
+          "start": 17.34,
+          "end": 17.56
+        },
+        {
+          "text": "an",
+          "start": 17.56,
+          "end": 17.68
+        },
+        {
+          "text": "elbow",
+          "start": 17.68,
+          "end": 17.9
+        },
+        {
+          "text": "and",
+          "start": 17.9,
+          "end": 18.2
+        },
+        {
+          "text": "glance",
+          "start": 18.2,
+          "end": 18.48
+        },
+        {
+          "text": "at",
+          "start": 18.48,
+          "end": 18.74
+        },
+        {
+          "text": "Morel",
+          "start": 18.74,
+          "end": 19.08
+        },
+        {
+          "text": "with",
+          "start": 19.08,
+          "end": 19.24
+        },
+        {
+          "text": "a",
+          "start": 19.24,
+          "end": 19.36
+        },
+        {
+          "text": "smile.",
+          "start": 19.36,
+          "end": 19.68
+        }
+      ],
+      "stats": {
+        "expected_words": 67,
+        "heard_words": 67,
+        "matched_words": 67
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6405495256185532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea6ee7182df54ff02162af130e63d381e18be124e96b7d832a9dddfa03116b5b",
+  "selected_reasons": []
+}

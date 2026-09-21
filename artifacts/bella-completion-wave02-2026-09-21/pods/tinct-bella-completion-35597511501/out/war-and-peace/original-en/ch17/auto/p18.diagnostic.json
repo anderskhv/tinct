@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "695cf86324c112c339ed60b14f2d94654d4c4dc21022724f496abf7145f9a5fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.1481367889791727,
+      "alignment_seconds": 0.0005683228373527527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, yes; just so! Bring it. Give it to the countess.\"",
+        "hotwords": "Bring, Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, yes, just so. Bring it. Give it to the countess.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.828125
+            },
+            {
+              "text": " yes,",
+              "start": 0.87,
+              "end": 0.93,
+              "probability": 0.962890625
+            },
+            {
+              "text": " just",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " so.",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Bring",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it.",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Give",
+              "start": 2.29,
+              "end": 2.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " it",
+              "start": 2.35,
+              "end": 2.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.55,
+              "end": 2.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " countess.",
+              "start": 2.67,
+              "end": 3.15,
+              "probability": 0.607666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "yes,",
+          "start": 0.87,
+          "end": 0.93
+        },
+        {
+          "raw": "just",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "so.",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "Bring",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "it.",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "Give",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "raw": "it",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "raw": "countess.",
+          "start": 2.67,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "yes;",
+        "just",
+        "so!",
+        "Bring",
+        "it.",
+        "Give",
+        "it",
+        "to",
+        "the",
+        "countess.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "yes;",
+        "just",
+        "so!",
+        "Bring",
+        "it.",
+        "Give",
+        "it",
+        "to",
+        "the",
+        "countess.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 0.87,
+          "end": 0.93,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "just",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "bring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.29,
+          "end": 2.35,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.35,
+          "end": 2.45,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.55,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.67,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "countess.",
+          "start": 2.67,
+          "end": 3.15,
+          "key": "countess",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "yes;",
+          "start": 0.87,
+          "end": 0.93
+        },
+        {
+          "text": "just",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "so!",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "Bring",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "it.",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "Give",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "text": "it",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "text": "the",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "text": "countess.”",
+          "start": 2.67,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1487748073413968
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966168ba7d066f68f2c71834fd678f5f488247e2b18066d0ce6d66838601677d",
+  "selected_reasons": []
+}

@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "ab31cb726fc7099628436f993f9dffe515a4b824f83308958ac50224145d00f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10381803009659052,
+      "alignment_seconds": 0.0003895508125424385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Her face became sad.",
+        "hotwords": "Her"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Her face became sad.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Her",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " face",
+              "start": 0.49,
+              "end": 0.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " became",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sad.",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "face",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "raw": "became",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "sad.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Her",
+        "face",
+        "became",
+        "sad."
+      ],
+      "acoustic_expected_tokens": [
+        "Her",
+        "face",
+        "became",
+        "sad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "her",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 0.49,
+          "end": 0.71,
+          "key": "face",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 0.71,
+          "end": 1.07,
+          "key": "became",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sad.",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "sad",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Her",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "face",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "text": "became",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "text": "sad.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10426474455744028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d4248be0c156c6bf2db7b4b96404851e596daecefdec6958c73ef069be62e27",
+  "selected_reasons": []
+}

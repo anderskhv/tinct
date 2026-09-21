@@ -1,0 +1,2305 @@
+{
+  "complete": true,
+  "signature": "c03725ad510c76a36f2109203df9d5b4c96a39a82e08b9a5282b48b13d450552",
+  "attempts": [
+    {
+      "asr_seconds": 0.2562041701748967,
+      "alignment_seconds": 0.0015461351722478867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She spoke, mingling most trifling details with the intimate secrets of her soul, and it seemed as if she could never finish. Several times she repeated the same thing twice.",
+        "hotwords": "Several"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Several times she repeated the same thing twice.",
+          "start": 6.48,
+          "end": 9.46,
+          "words": [
+            {
+              "text": " Several",
+              "start": 6.48,
+              "end": 7.12,
+              "probability": 1.0371208190917969e-05
+            },
+            {
+              "text": " times",
+              "start": 7.12,
+              "end": 7.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 7.76,
+              "end": 8.0,
+              "probability": 0.916015625
+            },
+            {
+              "text": " repeated",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 8.32,
+              "end": 8.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 8.56,
+              "end": 8.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thing",
+              "start": 8.8,
+              "end": 9.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " twice.",
+              "start": 9.08,
+              "end": 9.46,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Several",
+          "start": 6.48,
+          "end": 7.12
+        },
+        {
+          "raw": "times",
+          "start": 7.12,
+          "end": 7.76
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "raw": "thing",
+          "start": 8.8,
+          "end": 9.08
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.46
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "equal",
+          22,
+          30,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Several",
+          "start": 6.48,
+          "end": 7.12,
+          "key": "several",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 7.12,
+          "end": 7.76,
+          "key": "times",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "repeated",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.8,
+          "key": "same",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 8.8,
+          "end": 9.08,
+          "key": "thing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.46,
+          "key": "twice",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 3.24
+        },
+        {
+          "text": "spoke,",
+          "start": 3.24,
+          "end": 4.86
+        },
+        {
+          "text": "mingling",
+          "start": 4.86,
+          "end": 5.67
+        },
+        {
+          "text": "most",
+          "start": 5.67,
+          "end": 6.075
+        },
+        {
+          "text": "trifling",
+          "start": 6.075,
+          "end": 6.277
+        },
+        {
+          "text": "details",
+          "start": 6.277,
+          "end": 6.379
+        },
+        {
+          "text": "with",
+          "start": 6.379,
+          "end": 6.429
+        },
+        {
+          "text": "the",
+          "start": 6.429,
+          "end": 6.455
+        },
+        {
+          "text": "intimate",
+          "start": 6.455,
+          "end": 6.468
+        },
+        {
+          "text": "secrets",
+          "start": 6.468,
+          "end": 6.474
+        },
+        {
+          "text": "of",
+          "start": 6.474,
+          "end": 6.477
+        },
+        {
+          "text": "her",
+          "start": 6.477,
+          "end": 6.479
+        },
+        {
+          "text": "soul,",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "and",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "it",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "seemed",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "as",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "if",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "she",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "could",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "never",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "finish.",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "Several",
+          "start": 6.48,
+          "end": 7.12
+        },
+        {
+          "text": "times",
+          "start": 7.12,
+          "end": 7.76
+        },
+        {
+          "text": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "text": "repeated",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "the",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "same",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "text": "thing",
+          "start": 8.8,
+          "end": 9.08
+        },
+        {
+          "text": "twice.",
+          "start": 9.08,
+          "end": 9.46
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.26666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25781274028122425
+    },
+    {
+      "asr_seconds": 0.2711540060117841,
+      "alignment_seconds": 0.0023208465427160263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Several"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Several times she repeated the same thing twice.",
+          "start": 6.48,
+          "end": 9.46,
+          "words": [
+            {
+              "text": " Several",
+              "start": 6.48,
+              "end": 7.12,
+              "probability": 1.0371208190917969e-05
+            },
+            {
+              "text": " times",
+              "start": 7.12,
+              "end": 7.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 7.76,
+              "end": 8.0,
+              "probability": 0.916015625
+            },
+            {
+              "text": " repeated",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 8.32,
+              "end": 8.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 8.56,
+              "end": 8.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thing",
+              "start": 8.8,
+              "end": 9.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " twice.",
+              "start": 9.08,
+              "end": 9.46,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Several",
+          "start": 6.48,
+          "end": 7.12
+        },
+        {
+          "raw": "times",
+          "start": 7.12,
+          "end": 7.76
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "raw": "thing",
+          "start": 8.8,
+          "end": 9.08
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.46
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "equal",
+          22,
+          30,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Several",
+          "start": 6.48,
+          "end": 7.12,
+          "key": "several",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 7.12,
+          "end": 7.76,
+          "key": "times",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "repeated",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.8,
+          "key": "same",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 8.8,
+          "end": 9.08,
+          "key": "thing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.46,
+          "key": "twice",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 3.24
+        },
+        {
+          "text": "spoke,",
+          "start": 3.24,
+          "end": 4.86
+        },
+        {
+          "text": "mingling",
+          "start": 4.86,
+          "end": 5.67
+        },
+        {
+          "text": "most",
+          "start": 5.67,
+          "end": 6.075
+        },
+        {
+          "text": "trifling",
+          "start": 6.075,
+          "end": 6.277
+        },
+        {
+          "text": "details",
+          "start": 6.277,
+          "end": 6.379
+        },
+        {
+          "text": "with",
+          "start": 6.379,
+          "end": 6.429
+        },
+        {
+          "text": "the",
+          "start": 6.429,
+          "end": 6.455
+        },
+        {
+          "text": "intimate",
+          "start": 6.455,
+          "end": 6.468
+        },
+        {
+          "text": "secrets",
+          "start": 6.468,
+          "end": 6.474
+        },
+        {
+          "text": "of",
+          "start": 6.474,
+          "end": 6.477
+        },
+        {
+          "text": "her",
+          "start": 6.477,
+          "end": 6.479
+        },
+        {
+          "text": "soul,",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "and",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "it",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "seemed",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "as",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "if",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "she",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "could",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "never",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "finish.",
+          "start": 6.479,
+          "end": 6.479
+        },
+        {
+          "text": "Several",
+          "start": 6.48,
+          "end": 7.12
+        },
+        {
+          "text": "times",
+          "start": 7.12,
+          "end": 7.76
+        },
+        {
+          "text": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "text": "repeated",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "the",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "same",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "text": "thing",
+          "start": 8.8,
+          "end": 9.08
+        },
+        {
+          "text": "twice.",
+          "start": 9.08,
+          "end": 9.46
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.26666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2735466454178095
+    },
+    {
+      "asr_seconds": 0.4140355894342065,
+      "alignment_seconds": 0.0010168300941586494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She spoke, mingling most trifling details with the intimate secrets of her soul,",
+          "start": 0.0,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " spoke,",
+              "start": 0.38,
+              "end": 0.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mingling",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " most",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " trifling",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " details",
+              "start": 1.84,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " intimate",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " secrets",
+              "start": 3.08,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.42,
+              "end": 3.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " soul,",
+              "start": 3.8,
+              "end": 4.08,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " and it seemed as if she could never finish. Several times she repeated the same thing twice.",
+          "start": 4.36,
+          "end": 9.38,
+          "words": [
+            {
+              "text": " and",
+              "start": 4.36,
+              "end": 4.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 4.46,
+              "end": 4.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seemed",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 4.8,
+              "end": 5.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 5.12,
+              "end": 5.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " could",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " never",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " finish.",
+              "start": 5.64,
+              "end": 6.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Several",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " times",
+              "start": 7.42,
+              "end": 7.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 7.76,
+              "end": 8.0,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " repeated",
+              "start": 8.0,
+              "end": 8.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.34,
+              "end": 8.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 1.0
+            },
+            {
+              "text": " thing",
+              "start": 8.82,
+              "end": 9.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " twice.",
+              "start": 9.08,
+              "end": 9.38,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "spoke,",
+          "start": 0.38,
+          "end": 0.68
+        },
+        {
+          "raw": "mingling",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "most",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "trifling",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "details",
+          "start": 1.84,
+          "end": 2.38
+        },
+        {
+          "raw": "with",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "intimate",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "secrets",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "raw": "of",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "raw": "her",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "soul,",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "raw": "it",
+          "start": 4.46,
+          "end": 4.58
+        },
+        {
+          "raw": "seemed",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "as",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "raw": "if",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "she",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "raw": "could",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "never",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "finish.",
+          "start": 5.64,
+          "end": 6.0
+        },
+        {
+          "raw": "Several",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "times",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.34
+        },
+        {
+          "raw": "the",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "thing",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.38
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "spoke,",
+        "mingling",
+        "most",
+        "trifling",
+        "details",
+        "with",
+        "the",
+        "intimate",
+        "secrets",
+        "of",
+        "her",
+        "soul,",
+        "and",
+        "it",
+        "seemed",
+        "as",
+        "if",
+        "she",
+        "could",
+        "never",
+        "finish.",
+        "Several",
+        "times",
+        "she",
+        "repeated",
+        "the",
+        "same",
+        "thing",
+        "twice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "spoke,",
+          "start": 0.38,
+          "end": 0.68,
+          "key": "spoke",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mingling",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "mingling",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trifling",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "trifling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "details",
+          "start": 1.84,
+          "end": 2.38,
+          "key": "details",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "intimate",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "intimate",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "secrets",
+          "start": 3.08,
+          "end": 3.42,
+          "key": "secrets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.42,
+          "end": 3.66,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 3.8,
+          "end": 4.08,
+          "key": "soul",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.46,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.46,
+          "end": 4.58,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "seemed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.8,
+          "end": 5.0,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "if",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.12,
+          "end": 5.26,
+          "key": "she",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "could",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "never",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "finish.",
+          "start": 5.64,
+          "end": 6.0,
+          "key": "finish",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Several",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "several",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 7.42,
+          "end": 7.76,
+          "key": "times",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 7.76,
+          "end": 8.0,
+          "key": "she",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 8.0,
+          "end": 8.34,
+          "key": "repeated",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.34,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "same",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 8.82,
+          "end": 9.08,
+          "key": "thing",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "twice.",
+          "start": 9.08,
+          "end": 9.38,
+          "key": "twice",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "spoke,",
+          "start": 0.38,
+          "end": 0.68
+        },
+        {
+          "text": "mingling",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "most",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "trifling",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "details",
+          "start": 1.84,
+          "end": 2.38
+        },
+        {
+          "text": "with",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "the",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "intimate",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "secrets",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "text": "of",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "text": "her",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "soul,",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "text": "and",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "text": "it",
+          "start": 4.46,
+          "end": 4.58
+        },
+        {
+          "text": "seemed",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "as",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "text": "if",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "text": "she",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "text": "could",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "never",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "finish.",
+          "start": 5.64,
+          "end": 6.0
+        },
+        {
+          "text": "Several",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "times",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "text": "she",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "text": "repeated",
+          "start": 8.0,
+          "end": 8.34
+        },
+        {
+          "text": "the",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "text": "same",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "thing",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "text": "twice.",
+          "start": 9.08,
+          "end": 9.38
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41517061833292246
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0063527d8e598c5508fd857b7e20c14dd2bb38e6cc20c6693facb77d3ada192",
+  "selected_reasons": []
+}

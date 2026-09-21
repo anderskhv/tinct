@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "964501d549a5e68e28a81734d79d26e303fa0203fa5f99ceb1520429fc436bfb",
+  "attempts": [
+    {
+      "asr_seconds": 0.19758161064237356,
+      "alignment_seconds": 0.000781891867518425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And Natásha kissed her brother and ran away.",
+        "hotwords": "Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Natásha kissed her brother and ran away.",
+          "start": 0.0,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.448974609375
+            },
+            {
+              "text": " Natásha",
+              "start": 0.36,
+              "end": 0.84,
+              "probability": 0.010993162790934244
+            },
+            {
+              "text": " kissed",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ran",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " away.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.36,
+          "end": 0.84
+        },
+        {
+          "raw": "kissed",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "her",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "brother",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "raw": "ran",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "away.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "Natásha",
+        "kissed",
+        "her",
+        "brother",
+        "and",
+        "ran",
+        "away."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "Natásha",
+        "kissed",
+        "her",
+        "brother",
+        "and",
+        "ran",
+        "away."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.36,
+          "end": 0.84,
+          "key": "natásha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kissed",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "kissed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "brother",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "ran",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Natásha",
+          "start": 0.36,
+          "end": 0.84
+        },
+        {
+          "text": "kissed",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "her",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "brother",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "text": "ran",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "away.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19846964813768864
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "323dc05d375e18979893628b33ec520d4ac080a31e83151239fd7ac1486d1a56",
+  "selected_reasons": []
+}

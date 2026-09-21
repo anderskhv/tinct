@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "15a6d574039162f5a98f3b98bb81d39a79dda55ae991110cec6ae2c6a407c16c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2225312041118741,
+      "alignment_seconds": 0.0015793778002262115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Two girlish voices sang a musical passage—the end of some song.",
+        "hotwords": "Two"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Two girlish voices sang a musical passage—the end of some song.",
+          "start": 0.0,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " girlish",
+              "start": 0.38,
+              "end": 0.74,
+              "probability": 0.925048828125
+            },
+            {
+              "text": " voices",
+              "start": 0.74,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sang",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " musical",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " passage—the",
+              "start": 1.82,
+              "end": 2.8,
+              "probability": 0.646697998046875
+            },
+            {
+              "text": " end",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " some",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " song.",
+              "start": 3.28,
+              "end": 3.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "girlish",
+          "start": 0.38,
+          "end": 0.74
+        },
+        {
+          "raw": "voices",
+          "start": 0.74,
+          "end": 1.16
+        },
+        {
+          "raw": "sang",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "musical",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "passage—the",
+          "start": 1.82,
+          "end": 2.8
+        },
+        {
+          "raw": "end",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "some",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "song.",
+          "start": 3.28,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Two",
+        "girlish",
+        "voices",
+        "sang",
+        "a",
+        "musical",
+        "passage—the",
+        "end",
+        "of",
+        "some",
+        "song."
+      ],
+      "acoustic_expected_tokens": [
+        "Two",
+        "girlish",
+        "voices",
+        "sang",
+        "a",
+        "musical",
+        "passage—the",
+        "end",
+        "of",
+        "some",
+        "song."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "girlish",
+          "start": 0.38,
+          "end": 0.74,
+          "key": "girlish",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "voices",
+          "start": 0.74,
+          "end": 1.16,
+          "key": "voices",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sang",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "sang",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "musical",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "musical",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "passage—the",
+          "start": 1.82,
+          "end": 2.8,
+          "key": "passagethe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "end",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "some",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "song.",
+          "start": 3.28,
+          "end": 3.64,
+          "key": "song",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Two",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "girlish",
+          "start": 0.38,
+          "end": 0.74
+        },
+        {
+          "text": "voices",
+          "start": 0.74,
+          "end": 1.16
+        },
+        {
+          "text": "sang",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "musical",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "passage—the",
+          "start": 1.82,
+          "end": 2.8
+        },
+        {
+          "text": "end",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "of",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "some",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "song.",
+          "start": 3.28,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2243255153298378
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ecd444b8f9e79f44d345f55664f7dca69638235a0a33898e2272ebdf8d037607",
+  "selected_reasons": []
+}

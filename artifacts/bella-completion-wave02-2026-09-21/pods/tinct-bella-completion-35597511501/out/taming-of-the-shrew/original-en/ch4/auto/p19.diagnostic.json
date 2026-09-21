@@ -1,0 +1,863 @@
+{
+  "complete": true,
+  "signature": "e5feb071158d0e0f82968ffa1d33348125249b3350fcb0ee26512160e197e8e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1674738759174943,
+      "alignment_seconds": 0.0007103933021426201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Madam, 'tis now in tune.",
+        "hotwords": "Madam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hortensio, Madam, tease now in tune.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Hortensio,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.9275716145833334
+            },
+            {
+              "text": " Madam,",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.59625244140625
+            },
+            {
+              "text": " tease",
+              "start": 2.19,
+              "end": 2.21,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " now",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.92578125
+            },
+            {
+              "text": " tune.",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "Madam,",
+        "’tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "acoustic_expected_tokens": [
+        "Madam,",
+        "'tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "tune",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "text": "Madam,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "’tis",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "tune.",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16827950719743967
+    },
+    {
+      "asr_seconds": 0.22943488135933876,
+      "alignment_seconds": 0.0010171076282858849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Madam"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Hortensio, Madam, tease now in tune.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Hortensio,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.9275716145833334
+            },
+            {
+              "text": " Madam,",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.59625244140625
+            },
+            {
+              "text": " tease",
+              "start": 2.19,
+              "end": 2.21,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " now",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.92578125
+            },
+            {
+              "text": " tune.",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "Madam,",
+        "’tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "acoustic_expected_tokens": [
+        "Madam,",
+        "'tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "tune",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "text": "Madam,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "’tis",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "tune.",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23059354536235332
+    },
+    {
+      "asr_seconds": 0.16867687460035086,
+      "alignment_seconds": 0.001045028679072857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hortensio, madam, tease now in tune.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Hortensio,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.9275716145833334
+            },
+            {
+              "text": " madam,",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.696044921875
+            },
+            {
+              "text": " tease",
+              "start": 2.19,
+              "end": 2.21,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " now",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " tune.",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.92578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "madam,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "Madam,",
+        "’tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "acoustic_expected_tokens": [
+        "Madam,",
+        "'tis",
+        "now",
+        "in",
+        "tune."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.19,
+          "end": 2.21,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tune.",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "tune",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "text": "Madam,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "’tis",
+          "start": 1.79,
+          "end": 2.0
+        },
+        {
+          "text": "now",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "tune.",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16986297816038132
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de7ad597bad9fa653c8833541ef4a3d99397bf3f371edec7188cd73f88b2c600",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

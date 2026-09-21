@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "6ed6fe8d1a1ed000ea3eefe02206e78f00a0a095c2467b77a52da4f7a09dbc69",
+  "attempts": [
+    {
+      "asr_seconds": 0.32780383341014385,
+      "alignment_seconds": 0.0013623330742120743,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The ancient saying is no heresy: Hanging and wiving goes by destiny.",
+        "hotwords": "The, Hanging"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Narissa, the ancient saying is no heresy. Hanging and wiving goes by destiny.",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Narissa,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.535400390625
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " ancient",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " saying",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " is",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " heresy.",
+              "start": 2.63,
+              "end": 2.99,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Hanging",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 4.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " wiving",
+              "start": 4.11,
+              "end": 4.49,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " goes",
+              "start": 4.49,
+              "end": 4.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " by",
+              "start": 4.79,
+              "end": 5.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " destiny.",
+              "start": 5.09,
+              "end": 5.45,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Narissa,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "ancient",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "saying",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "raw": "is",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "no",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "heresy.",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "raw": "Hanging",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "raw": "wiving",
+          "start": 4.11,
+          "end": 4.49
+        },
+        {
+          "raw": "goes",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "raw": "by",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "raw": "destiny.",
+          "start": 5.09,
+          "end": 5.45
+        }
+      ],
+      "expected_tokens": [
+        "NERISSA.",
+        "The",
+        "ancient",
+        "saying",
+        "is",
+        "no",
+        "heresy:",
+        "Hanging",
+        "and",
+        "wiving",
+        "goes",
+        "by",
+        "destiny."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "ancient",
+        "saying",
+        "is",
+        "no",
+        "heresy:",
+        "Hanging",
+        "and",
+        "wiving",
+        "goes",
+        "by",
+        "destiny."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Narissa,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "narissa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ancient",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "ancient",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "saying",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heresy.",
+          "start": 2.63,
+          "end": 2.99,
+          "key": "heresy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hanging",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "hanging",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.11,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wiving",
+          "start": 4.11,
+          "end": 4.49,
+          "key": "wiving",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 4.49,
+          "end": 4.79,
+          "key": "goes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.79,
+          "end": 5.09,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "destiny.",
+          "start": 5.09,
+          "end": 5.45,
+          "key": "destiny",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "NERISSA.",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "The",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "ancient",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "saying",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "text": "is",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "text": "no",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "heresy:",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "text": "Hanging",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "and",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "text": "wiving",
+          "start": 4.11,
+          "end": 4.49
+        },
+        {
+          "text": "goes",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "text": "by",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "text": "destiny.",
+          "start": 5.09,
+          "end": 5.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32936506904661655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60036b785baeeb689d21f88d12c18a606da378165d024cfe54ea7fee760066ae",
+  "selected_reasons": []
+}

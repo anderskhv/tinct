@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "c7490a11b58a9543b5e49733c972ae92ffcdee29e12e451ca6d1bfc03f9d2cfe",
+  "attempts": [
+    {
+      "asr_seconds": 0.25938573759049177,
+      "alignment_seconds": 0.0007436098530888557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, and he?\" asked the count.",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, and he?\" asked the count.",
+          "start": 0.0,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.48681640625
+            },
+            {
+              "text": " and",
+              "start": 0.76,
+              "end": 0.82,
+              "probability": 0.97265625
+            },
+            {
+              "text": " he?\"",
+              "start": 0.82,
+              "end": 1.3,
+              "probability": 0.4956214427947998
+            },
+            {
+              "text": " asked",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " count.",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.41748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "and",
+          "start": 0.76,
+          "end": 0.82
+        },
+        {
+          "raw": "he?\"",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "raw": "asked",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "count.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "and",
+        "he?”",
+        "asked",
+        "the",
+        "count."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "and",
+        "he?\"",
+        "asked",
+        "the",
+        "count."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.76,
+          "end": 0.82,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he?\"",
+          "start": 0.82,
+          "end": 1.3,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "count.",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "count",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "and",
+          "start": 0.76,
+          "end": 0.82
+        },
+        {
+          "text": "he?”",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "text": "asked",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "count.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.260231239721179
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "449108084ab1e9a8594a83f4f5e4e7ffdf18c29e6a4731db3794fe0c188d86f9",
+  "selected_reasons": []
+}

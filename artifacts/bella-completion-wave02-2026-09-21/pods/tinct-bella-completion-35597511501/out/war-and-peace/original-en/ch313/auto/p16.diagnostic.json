@@ -1,0 +1,791 @@
+{
+  "complete": true,
+  "signature": "c943bccea541be4e3a5f4cd23ccb998bdb2d4d5e39bae5c687554d130123dd23",
+  "attempts": [
+    {
+      "asr_seconds": 0.31481666024774313,
+      "alignment_seconds": 0.001459447667002678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "For a long time he could not understand what was happening to him. All around he heard his comrades sobbing with joy.",
+        "hotwords": "For, All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For a long time he could not understand what was happening to him. All around he heard his comrades sobbing with joy.",
+          "start": 0.0,
+          "end": 6.52,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " a",
+              "start": 0.36,
+              "end": 0.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long",
+              "start": 0.48,
+              "end": 0.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " time",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " could",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " not",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " understand",
+              "start": 1.44,
+              "end": 1.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happening",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.64,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " All",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " around",
+              "start": 4.34,
+              "end": 4.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 4.62,
+              "end": 4.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " heard",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 5.06,
+              "end": 5.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comrades",
+              "start": 5.3,
+              "end": 5.62,
+              "probability": 0.11822509765625
+            },
+            {
+              "text": " sobbing",
+              "start": 5.62,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " joy.",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "a",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "raw": "long",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "raw": "time",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "he",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "could",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "understand",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "raw": "what",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "was",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "happening",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.92
+        },
+        {
+          "raw": "him.",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "raw": "All",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "around",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "raw": "he",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "raw": "heard",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "his",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "raw": "comrades",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "raw": "sobbing",
+          "start": 5.62,
+          "end": 6.08
+        },
+        {
+          "raw": "with",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "joy.",
+          "start": 6.22,
+          "end": 6.52
+        }
+      ],
+      "expected_tokens": [
+        "For",
+        "a",
+        "long",
+        "time",
+        "he",
+        "could",
+        "not",
+        "understand",
+        "what",
+        "was",
+        "happening",
+        "to",
+        "him.",
+        "All",
+        "around",
+        "he",
+        "heard",
+        "his",
+        "comrades",
+        "sobbing",
+        "with",
+        "joy."
+      ],
+      "acoustic_expected_tokens": [
+        "For",
+        "a",
+        "long",
+        "time",
+        "he",
+        "could",
+        "not",
+        "understand",
+        "what",
+        "was",
+        "happening",
+        "to",
+        "him.",
+        "All",
+        "around",
+        "he",
+        "heard",
+        "his",
+        "comrades",
+        "sobbing",
+        "with",
+        "joy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.36,
+          "end": 0.48,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.48,
+          "end": 0.64,
+          "key": "long",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "time",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "could",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 1.44,
+          "end": 1.9,
+          "key": "understand",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "happening",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "happening",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.92,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "all",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "around",
+          "start": 4.34,
+          "end": 4.62,
+          "key": "around",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.62,
+          "end": 4.84,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "heard",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.06,
+          "end": 5.3,
+          "key": "his",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "comrades",
+          "start": 5.3,
+          "end": 5.62,
+          "key": "comrades",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sobbing",
+          "start": 5.62,
+          "end": 6.08,
+          "key": "sobbing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.08,
+          "end": 6.22,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 6.22,
+          "end": 6.52,
+          "key": "joy",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "For",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "a",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "text": "long",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "text": "time",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "he",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "could",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "understand",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "text": "what",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "was",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "happening",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "to",
+          "start": 2.64,
+          "end": 2.92
+        },
+        {
+          "text": "him.",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "text": "All",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "around",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "text": "he",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "text": "heard",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "his",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "text": "comrades",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "text": "sobbing",
+          "start": 5.62,
+          "end": 6.08
+        },
+        {
+          "text": "with",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "joy.",
+          "start": 6.22,
+          "end": 6.52
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3164566932246089
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d9b27292f381e93d9b68489fac320a0b04c208f0b7e6c5c074462069403ed345",
+  "selected_reasons": []
+}

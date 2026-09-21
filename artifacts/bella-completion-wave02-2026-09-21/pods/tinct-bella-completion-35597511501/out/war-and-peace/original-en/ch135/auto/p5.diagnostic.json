@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "3f716e454e812adc5b6d6cffc86d706be743c2f43236432a6ac59bccc5c14864",
+  "attempts": [
+    {
+      "asr_seconds": 0.3166284579783678,
+      "alignment_seconds": 0.0021337363868951797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's a good day, eh? For a hunt and a gallop, eh?\" asked Nicholas, scratching Mílka behind the ears.",
+        "hotwords": "It's, For, Nicholas, Mílka"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's a good day, eh? For a hunt and a gallop, eh?\" asked Nicholas, scratching Mílka behind the ears.",
+          "start": 0.0,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.5831298828125
+            },
+            {
+              "text": " a",
+              "start": 0.42,
+              "end": 0.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " good",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " day,",
+              "start": 0.62,
+              "end": 0.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " eh?",
+              "start": 1.42,
+              "end": 1.42,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " For",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " a",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.98828125
+            },
+            {
+              "text": " hunt",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " and",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.8515625
+            },
+            {
+              "text": " a",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " gallop,",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.974853515625
+            },
+            {
+              "text": " eh?\"",
+              "start": 3.92,
+              "end": 4.58,
+              "probability": 0.55859375
+            },
+            {
+              "text": " asked",
+              "start": 4.58,
+              "end": 4.58,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Nicholas,",
+              "start": 4.58,
+              "end": 5.06,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " scratching",
+              "start": 5.36,
+              "end": 5.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Mílka",
+              "start": 5.78,
+              "end": 6.12,
+              "probability": 0.3240966796875
+            },
+            {
+              "text": " behind",
+              "start": 6.12,
+              "end": 6.54,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 6.54,
+              "end": 6.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ears.",
+              "start": 6.76,
+              "end": 7.04,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "a",
+          "start": 0.42,
+          "end": 0.48
+        },
+        {
+          "raw": "good",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "day,",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "raw": "eh?",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "raw": "For",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "hunt",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "a",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "gallop,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "eh?\"",
+          "start": 3.92,
+          "end": 4.58
+        },
+        {
+          "raw": "asked",
+          "start": 4.58,
+          "end": 4.58
+        },
+        {
+          "raw": "Nicholas,",
+          "start": 4.58,
+          "end": 5.06
+        },
+        {
+          "raw": "scratching",
+          "start": 5.36,
+          "end": 5.78
+        },
+        {
+          "raw": "Mílka",
+          "start": 5.78,
+          "end": 6.12
+        },
+        {
+          "raw": "behind",
+          "start": 6.12,
+          "end": 6.54
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "raw": "ears.",
+          "start": 6.76,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "“It’s",
+        "a",
+        "good",
+        "day,",
+        "eh?",
+        "For",
+        "a",
+        "hunt",
+        "and",
+        "a",
+        "gallop,",
+        "eh?”",
+        "asked",
+        "Nicholas,",
+        "scratching",
+        "Mílka",
+        "behind",
+        "the",
+        "ears."
+      ],
+      "acoustic_expected_tokens": [
+        "\"It's",
+        "a",
+        "good",
+        "day,",
+        "eh?",
+        "For",
+        "a",
+        "hunt",
+        "and",
+        "a",
+        "gallop,",
+        "eh?\"",
+        "asked",
+        "Nicholas,",
+        "scratching",
+        "Mílka",
+        "behind",
+        "the",
+        "ears."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.42,
+          "end": 0.48,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.48,
+          "end": 0.62,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 0.62,
+          "end": 0.92,
+          "key": "day",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "eh?",
+          "start": 1.42,
+          "end": 1.42,
+          "key": "eh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hunt",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "hunt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gallop,",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "gallop",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "eh?\"",
+          "start": 3.92,
+          "end": 4.58,
+          "key": "eh",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 4.58,
+          "end": 4.58,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Nicholas,",
+          "start": 4.58,
+          "end": 5.06,
+          "key": "nicholas",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "scratching",
+          "start": 5.36,
+          "end": 5.78,
+          "key": "scratching",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Mílka",
+          "start": 5.78,
+          "end": 6.12,
+          "key": "mílka",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 6.12,
+          "end": 6.54,
+          "key": "behind",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.76,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ears.",
+          "start": 6.76,
+          "end": 7.04,
+          "key": "ears",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“It’s",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "a",
+          "start": 0.42,
+          "end": 0.48
+        },
+        {
+          "text": "good",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "day,",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "text": "eh?",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "For",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "a",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "hunt",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "a",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "gallop,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "text": "eh?”",
+          "start": 3.92,
+          "end": 4.58
+        },
+        {
+          "text": "asked",
+          "start": 4.58,
+          "end": 4.58
+        },
+        {
+          "text": "Nicholas,",
+          "start": 4.58,
+          "end": 5.06
+        },
+        {
+          "text": "scratching",
+          "start": 5.36,
+          "end": 5.78
+        },
+        {
+          "text": "Mílka",
+          "start": 5.78,
+          "end": 6.12
+        },
+        {
+          "text": "behind",
+          "start": 6.12,
+          "end": 6.54
+        },
+        {
+          "text": "the",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "text": "ears.",
+          "start": 6.76,
+          "end": 7.04
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31902151368558407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1fc012c9fd9d59ca762b804e04283ebb07bf44fa0fbdc69e08949d0a3201be57",
+  "selected_reasons": []
+}

@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "f9fad0b9f5ce679421922ecffc0f1149a8f2ff55d7ed12f489bbc27c9cc31095",
+  "attempts": [
+    {
+      "asr_seconds": 0.1279246248304844,
+      "alignment_seconds": 0.0005547292530536652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Natásha considered.",
+        "hotwords": "Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Natásha considered.",
+          "start": 0.08,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Natásha",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.06664713223775227
+            },
+            {
+              "text": " considered.",
+              "start": 0.94,
+              "end": 1.36,
+              "probability": 0.6201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Natásha",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "considered.",
+          "start": 0.94,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "Natásha",
+        "considered."
+      ],
+      "acoustic_expected_tokens": [
+        "Natásha",
+        "considered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Natásha",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "natásha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "considered.",
+          "start": 0.94,
+          "end": 1.36,
+          "key": "considered",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Natásha",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "considered.",
+          "start": 0.94,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.128588174469769
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68cc5cdc335bee77d6e1de794eda20af2930dd773b8b2a5a9a0ab6ed7712e99b",
+  "selected_reasons": []
+}

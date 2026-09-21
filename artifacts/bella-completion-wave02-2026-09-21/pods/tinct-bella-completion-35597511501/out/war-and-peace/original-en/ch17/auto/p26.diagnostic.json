@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "d64e6f6e6a29b9601eb14804a77019d37d715d939223e1eee408438511be527a",
+  "attempts": [
+    {
+      "asr_seconds": 0.32283579744398594,
+      "alignment_seconds": 0.0019272314384579659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anna Mikháylovna instantly guessed her intention and stooped to be ready to embrace the countess at the appropriate moment.",
+        "hotwords": "Anna, Mikháylovna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anna Mikháylovna instantly guessed her intention and stooped to be ready to embrace the countess at the appropriate moment.",
+          "start": 0.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Anna",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Mikháylovna",
+              "start": 0.63,
+              "end": 1.37,
+              "probability": 0.44093020757039386
+            },
+            {
+              "text": " instantly",
+              "start": 1.37,
+              "end": 2.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " guessed",
+              "start": 2.13,
+              "end": 2.49,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " her",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " intention",
+              "start": 2.69,
+              "end": 3.09,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 3.09,
+              "end": 3.83,
+              "probability": 0.81640625
+            },
+            {
+              "text": " stooped",
+              "start": 3.83,
+              "end": 4.19,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " to",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ready",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.67,
+              "end": 4.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " embrace",
+              "start": 4.91,
+              "end": 5.29,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 5.29,
+              "end": 5.57,
+              "probability": 0.986328125
+            },
+            {
+              "text": " countess",
+              "start": 5.57,
+              "end": 6.07,
+              "probability": 0.5714111328125
+            },
+            {
+              "text": " at",
+              "start": 6.07,
+              "end": 6.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.25,
+              "end": 6.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " appropriate",
+              "start": 6.37,
+              "end": 6.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moment.",
+              "start": 6.71,
+              "end": 7.23,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anna",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Mikháylovna",
+          "start": 0.63,
+          "end": 1.37
+        },
+        {
+          "raw": "instantly",
+          "start": 1.37,
+          "end": 2.13
+        },
+        {
+          "raw": "guessed",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "raw": "her",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "intention",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "raw": "and",
+          "start": 3.09,
+          "end": 3.83
+        },
+        {
+          "raw": "stooped",
+          "start": 3.83,
+          "end": 4.19
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "be",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "ready",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.91
+        },
+        {
+          "raw": "embrace",
+          "start": 4.91,
+          "end": 5.29
+        },
+        {
+          "raw": "the",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "raw": "countess",
+          "start": 5.57,
+          "end": 6.07
+        },
+        {
+          "raw": "at",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "raw": "the",
+          "start": 6.25,
+          "end": 6.37
+        },
+        {
+          "raw": "appropriate",
+          "start": 6.37,
+          "end": 6.71
+        },
+        {
+          "raw": "moment.",
+          "start": 6.71,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Anna",
+        "Mikháylovna",
+        "instantly",
+        "guessed",
+        "her",
+        "intention",
+        "and",
+        "stooped",
+        "to",
+        "be",
+        "ready",
+        "to",
+        "embrace",
+        "the",
+        "countess",
+        "at",
+        "the",
+        "appropriate",
+        "moment."
+      ],
+      "acoustic_expected_tokens": [
+        "Anna",
+        "Mikháylovna",
+        "instantly",
+        "guessed",
+        "her",
+        "intention",
+        "and",
+        "stooped",
+        "to",
+        "be",
+        "ready",
+        "to",
+        "embrace",
+        "the",
+        "countess",
+        "at",
+        "the",
+        "appropriate",
+        "moment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anna",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "anna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mikháylovna",
+          "start": 0.63,
+          "end": 1.37,
+          "key": "mikháylovna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "instantly",
+          "start": 1.37,
+          "end": 2.13,
+          "key": "instantly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "guessed",
+          "start": 2.13,
+          "end": 2.49,
+          "key": "guessed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "intention",
+          "start": 2.69,
+          "end": 3.09,
+          "key": "intention",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.09,
+          "end": 3.83,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stooped",
+          "start": 3.83,
+          "end": 4.19,
+          "key": "stooped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "ready",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.91,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "embrace",
+          "start": 4.91,
+          "end": 5.29,
+          "key": "embrace",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.29,
+          "end": 5.57,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "countess",
+          "start": 5.57,
+          "end": 6.07,
+          "key": "countess",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.07,
+          "end": 6.25,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.25,
+          "end": 6.37,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "appropriate",
+          "start": 6.37,
+          "end": 6.71,
+          "key": "appropriate",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "moment.",
+          "start": 6.71,
+          "end": 7.23,
+          "key": "moment",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Anna",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Mikháylovna",
+          "start": 0.63,
+          "end": 1.37
+        },
+        {
+          "text": "instantly",
+          "start": 1.37,
+          "end": 2.13
+        },
+        {
+          "text": "guessed",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "text": "her",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "intention",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.83
+        },
+        {
+          "text": "stooped",
+          "start": 3.83,
+          "end": 4.19
+        },
+        {
+          "text": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "be",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "ready",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "to",
+          "start": 4.67,
+          "end": 4.91
+        },
+        {
+          "text": "embrace",
+          "start": 4.91,
+          "end": 5.29
+        },
+        {
+          "text": "the",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "text": "countess",
+          "start": 5.57,
+          "end": 6.07
+        },
+        {
+          "text": "at",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "text": "the",
+          "start": 6.25,
+          "end": 6.37
+        },
+        {
+          "text": "appropriate",
+          "start": 6.37,
+          "end": 6.71
+        },
+        {
+          "text": "moment.",
+          "start": 6.71,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32499379105865955
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6f44e9b3356af6db7fad52f5f48526d51c3dafac22fb39ccba9ab5a2b833d73",
+  "selected_reasons": []
+}

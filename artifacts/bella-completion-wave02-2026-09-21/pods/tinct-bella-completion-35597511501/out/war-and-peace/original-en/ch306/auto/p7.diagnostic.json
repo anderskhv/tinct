@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "aaaac35695ed0056e48e8fe30926b84290771d88a3b3885f55768c857051cd38",
+  "attempts": [
+    {
+      "asr_seconds": 0.11754937004297972,
+      "alignment_seconds": 0.0006743026897311211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Because it's useless.\"",
+        "hotwords": "Because"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Because it's useless.",
+          "start": 0.0,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Because",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " it's",
+              "start": 0.4,
+              "end": 0.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " useless.",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "it's",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "raw": "useless.",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "“Because",
+        "it’s",
+        "useless.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Because",
+        "it's",
+        "useless.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 0.4,
+          "end": 0.66,
+          "key": "its",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "useless.",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "useless",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Because",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "it’s",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "text": "useless.”",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11832127347588539
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e90e2ee9a8d061af5acef0edc3a4ba6fc7e789dafde9faae03f08decc2659a92",
+  "selected_reasons": []
+}

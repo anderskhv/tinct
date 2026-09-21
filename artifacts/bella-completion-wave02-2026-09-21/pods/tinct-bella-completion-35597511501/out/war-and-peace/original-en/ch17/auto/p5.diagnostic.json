@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "6d41ed018656bc0e50a5b02a8e448102750434a07d4aa286dfbed3808594c21b",
+  "attempts": [
+    {
+      "asr_seconds": 0.30078912526369095,
+      "alignment_seconds": 0.001849648542702198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The count came waddling in to see his wife with a rather guilty look as usual.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The count came waddling in to see his wife with a rather guilty look as usual.",
+          "start": 0.02,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " count",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.1951904296875
+            },
+            {
+              "text": " came",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " waddling",
+              "start": 1.08,
+              "end": 1.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " see",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wife",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.5,
+              "end": 2.9,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " a",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " rather",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guilty",
+              "start": 3.26,
+              "end": 3.72,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " look",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.95703125
+            },
+            {
+              "text": " usual.",
+              "start": 4.18,
+              "end": 4.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "count",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "came",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "waddling",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "raw": "in",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "see",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "his",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "wife",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "with",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "rather",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "guilty",
+          "start": 3.26,
+          "end": 3.72
+        },
+        {
+          "raw": "look",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "as",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "usual.",
+          "start": 4.18,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "count",
+        "came",
+        "waddling",
+        "in",
+        "to",
+        "see",
+        "his",
+        "wife",
+        "with",
+        "a",
+        "rather",
+        "guilty",
+        "look",
+        "as",
+        "usual."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "count",
+        "came",
+        "waddling",
+        "in",
+        "to",
+        "see",
+        "his",
+        "wife",
+        "with",
+        "a",
+        "rather",
+        "guilty",
+        "look",
+        "as",
+        "usual."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "count",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.76,
+          "end": 1.08,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "waddling",
+          "start": 1.08,
+          "end": 1.54,
+          "key": "waddling",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "wife",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.5,
+          "end": 2.9,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "rather",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "guilty",
+          "start": 3.26,
+          "end": 3.72,
+          "key": "guilty",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "look",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.0,
+          "end": 4.18,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "usual.",
+          "start": 4.18,
+          "end": 4.58,
+          "key": "usual",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "count",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "came",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "waddling",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "text": "in",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "see",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "his",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "wife",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "with",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "text": "a",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "rather",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "guilty",
+          "start": 3.26,
+          "end": 3.72
+        },
+        {
+          "text": "look",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "as",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "usual.",
+          "start": 4.18,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3028878113254905
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48bfb0247065c18e360a787a958ab9d7afd541b22913e1640a1ed7b05d90b5c7",
+  "selected_reasons": []
+}

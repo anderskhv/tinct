@@ -1,0 +1,791 @@
+{
+  "complete": true,
+  "signature": "8b5759f660d3135db05428fd9e51b23048f273dfe82384901aff6379d5c10d55",
+  "attempts": [
+    {
+      "asr_seconds": 0.3156090574339032,
+      "alignment_seconds": 0.001381024718284607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The princess said nothing, but suddenly her short downy lip quivered. Prince Andrew rose, shrugged his shoulders, and walked about the room.",
+        "hotwords": "Prince, Andrew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The princess said nothing, but suddenly her short downy lip quivered. Prince Andrew rose, shrugged his shoulders, and walked about the room.",
+          "start": 0.02,
+          "end": 8.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " princess",
+              "start": 0.48,
+              "end": 0.78,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " said",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nothing,",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " suddenly",
+              "start": 2.0,
+              "end": 2.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " her",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " short",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " downy",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " lip",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " quivered.",
+              "start": 3.54,
+              "end": 3.98,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " Prince",
+              "start": 4.76,
+              "end": 4.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Andrew",
+              "start": 4.82,
+              "end": 5.22,
+              "probability": 0.986328125
+            },
+            {
+              "text": " rose,",
+              "start": 5.22,
+              "end": 5.7,
+              "probability": 0.1295166015625
+            },
+            {
+              "text": " shrugged",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 6.24,
+              "end": 6.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shoulders,",
+              "start": 6.48,
+              "end": 6.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 7.04,
+              "end": 7.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " walked",
+              "start": 7.14,
+              "end": 7.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 7.38,
+              "end": 7.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.62,
+              "end": 7.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room.",
+              "start": 7.78,
+              "end": 8.04,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "princess",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "but",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "raw": "her",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "short",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "raw": "downy",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "lip",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "quivered.",
+          "start": 3.54,
+          "end": 3.98
+        },
+        {
+          "raw": "Prince",
+          "start": 4.76,
+          "end": 4.82
+        },
+        {
+          "raw": "Andrew",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "raw": "rose,",
+          "start": 5.22,
+          "end": 5.7
+        },
+        {
+          "raw": "shrugged",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "his",
+          "start": 6.24,
+          "end": 6.48
+        },
+        {
+          "raw": "shoulders,",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.14
+        },
+        {
+          "raw": "walked",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "raw": "about",
+          "start": 7.38,
+          "end": 7.62
+        },
+        {
+          "raw": "the",
+          "start": 7.62,
+          "end": 7.78
+        },
+        {
+          "raw": "room.",
+          "start": 7.78,
+          "end": 8.04
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "princess",
+        "said",
+        "nothing,",
+        "but",
+        "suddenly",
+        "her",
+        "short",
+        "downy",
+        "lip",
+        "quivered.",
+        "Prince",
+        "Andrew",
+        "rose,",
+        "shrugged",
+        "his",
+        "shoulders,",
+        "and",
+        "walked",
+        "about",
+        "the",
+        "room."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "princess",
+        "said",
+        "nothing,",
+        "but",
+        "suddenly",
+        "her",
+        "short",
+        "downy",
+        "lip",
+        "quivered.",
+        "Prince",
+        "Andrew",
+        "rose,",
+        "shrugged",
+        "his",
+        "shoulders,",
+        "and",
+        "walked",
+        "about",
+        "the",
+        "room."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "princess",
+          "start": 0.48,
+          "end": 0.78,
+          "key": "princess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "nothing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.0,
+          "end": 2.38,
+          "key": "suddenly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "short",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "downy",
+          "start": 2.92,
+          "end": 3.36,
+          "key": "downy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lip",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "lip",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quivered.",
+          "start": 3.54,
+          "end": 3.98,
+          "key": "quivered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 4.76,
+          "end": 4.82,
+          "key": "prince",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 4.82,
+          "end": 5.22,
+          "key": "andrew",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rose,",
+          "start": 5.22,
+          "end": 5.7,
+          "key": "rose",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shrugged",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "shrugged",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.24,
+          "end": 6.48,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shoulders,",
+          "start": 6.48,
+          "end": 6.82,
+          "key": "shoulders",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.14,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 7.14,
+          "end": 7.38,
+          "key": "walked",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 7.38,
+          "end": 7.62,
+          "key": "about",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.62,
+          "end": 7.78,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 7.78,
+          "end": 8.04,
+          "key": "room",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "princess",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "text": "said",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "text": "nothing,",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "but",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "suddenly",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "text": "her",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "short",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "text": "downy",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "text": "lip",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "quivered.",
+          "start": 3.54,
+          "end": 3.98
+        },
+        {
+          "text": "Prince",
+          "start": 4.76,
+          "end": 4.82
+        },
+        {
+          "text": "Andrew",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "text": "rose,",
+          "start": 5.22,
+          "end": 5.7
+        },
+        {
+          "text": "shrugged",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "his",
+          "start": 6.24,
+          "end": 6.48
+        },
+        {
+          "text": "shoulders,",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "text": "and",
+          "start": 7.04,
+          "end": 7.14
+        },
+        {
+          "text": "walked",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "text": "about",
+          "start": 7.38,
+          "end": 7.62
+        },
+        {
+          "text": "the",
+          "start": 7.62,
+          "end": 7.78
+        },
+        {
+          "text": "room.",
+          "start": 7.78,
+          "end": 8.04
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31715396884828806
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "93a939a20d5cf6b1e1e644e29b1b32ecee6012a1ebbf389b61f9e87d6034722b",
+  "selected_reasons": []
+}

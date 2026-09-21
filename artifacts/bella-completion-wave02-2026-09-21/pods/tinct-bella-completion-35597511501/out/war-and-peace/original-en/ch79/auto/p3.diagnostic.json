@@ -1,0 +1,774 @@
+{
+  "complete": true,
+  "signature": "0237c2c9361c50d09bb92687ddde879836758acf6c3460aa8f2de8747b906a7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4439281728118658,
+      "alignment_seconds": 0.003063294105231762,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nicholas, will you come to Iogel's? Please do!\" said Natásha. \"He asked you, and Vasíli Dmítrich * is also going.\"",
+        "hotwords": "Nicholas, Iogel's, Please, Natásha, He, Vasíli, Dmítrich"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nicholas, will you come to Iogel's? Please do!\" said Natásha.",
+          "start": 0.0,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " Nicholas,",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.05841064453125
+            },
+            {
+              "text": " will",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.96875
+            },
+            {
+              "text": " you",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Iogel's?",
+              "start": 1.52,
+              "end": 2.28,
+              "probability": 0.25499439239501953
+            },
+            {
+              "text": " Please",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " do",
+              "start": 3.42,
+              "end": 3.82,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "!\"",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.0173492431640625
+            },
+            {
+              "text": " said",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Natásha.",
+              "start": 4.2,
+              "end": 4.78,
+              "probability": 0.015352249145507812
+            }
+          ]
+        },
+        {
+          "text": " He asked you, and Vasíli Dmítrich ** is also going.\"",
+          "start": 4.78,
+          "end": 9.1,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.78,
+              "end": 5.92,
+              "probability": 0.472900390625
+            },
+            {
+              "text": " asked",
+              "start": 5.92,
+              "end": 6.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you,",
+              "start": 6.24,
+              "end": 6.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 6.74,
+              "end": 6.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Vasíli",
+              "start": 6.82,
+              "end": 7.26,
+              "probability": 0.3591400782267253
+            },
+            {
+              "text": " Dmítrich",
+              "start": 7.26,
+              "end": 7.76,
+              "probability": 0.221209716796875
+            },
+            {
+              "text": " **",
+              "start": 7.76,
+              "end": 7.96,
+              "probability": 0.006763458251953125
+            },
+            {
+              "text": " is",
+              "start": 7.96,
+              "end": 8.34,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " also",
+              "start": 8.34,
+              "end": 8.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " going.\"",
+              "start": 8.6,
+              "end": 9.1,
+              "probability": 0.523712158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nicholas,",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "will",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "you",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "come",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "Iogel's?",
+          "start": 1.52,
+          "end": 2.28
+        },
+        {
+          "raw": "Please",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "raw": "do",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "raw": "!\"",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "said",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "Natásha.",
+          "start": 4.2,
+          "end": 4.78
+        },
+        {
+          "raw": "He",
+          "start": 4.78,
+          "end": 5.92
+        },
+        {
+          "raw": "asked",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "raw": "you,",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "raw": "and",
+          "start": 6.74,
+          "end": 6.82
+        },
+        {
+          "raw": "Vasíli",
+          "start": 6.82,
+          "end": 7.26
+        },
+        {
+          "raw": "Dmítrich",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "raw": "**",
+          "start": 7.76,
+          "end": 7.96
+        },
+        {
+          "raw": "is",
+          "start": 7.96,
+          "end": 8.34
+        },
+        {
+          "raw": "also",
+          "start": 8.34,
+          "end": 8.6
+        },
+        {
+          "raw": "going.\"",
+          "start": 8.6,
+          "end": 9.1
+        }
+      ],
+      "expected_tokens": [
+        "“Nicholas,",
+        "will",
+        "you",
+        "come",
+        "to",
+        "Iogel’s?",
+        "Please",
+        "do!”",
+        "said",
+        "Natásha.",
+        "“He",
+        "asked",
+        "you,",
+        "and",
+        "Vasíli",
+        "Dmítrich",
+        "*",
+        "is",
+        "also",
+        "going.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Nicholas,",
+        "will",
+        "you",
+        "come",
+        "to",
+        "Iogel's?",
+        "Please",
+        "do!\"",
+        "said",
+        "Natásha.",
+        "\"He",
+        "asked",
+        "you,",
+        "and",
+        "Vasíli",
+        "Dmítrich",
+        "*",
+        "is",
+        "also",
+        "going.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          20,
+          9,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nicholas,",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "nicholas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Iogel's?",
+          "start": 1.52,
+          "end": 2.28,
+          "key": "iogels",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Please",
+          "start": 3.18,
+          "end": 3.42,
+          "key": "please",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.42,
+          "end": 3.82,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Natásha.",
+          "start": 4.2,
+          "end": 4.78,
+          "key": "natásha",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.78,
+          "end": 5.92,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 5.92,
+          "end": 6.24,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.24,
+          "end": 6.5,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.74,
+          "end": 6.82,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Vasíli",
+          "start": 6.82,
+          "end": 7.26,
+          "key": "vasíli",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Dmítrich",
+          "start": 7.26,
+          "end": 7.76,
+          "key": "dmítrich",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "**",
+          "start": 7.76,
+          "end": 7.96,
+          "key": "",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.96,
+          "end": 8.34,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 8.34,
+          "end": 8.6,
+          "key": "also",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "going.\"",
+          "start": 8.6,
+          "end": 9.1,
+          "key": "going",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Nicholas,",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "will",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "you",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "come",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "Iogel’s?",
+          "start": 1.52,
+          "end": 2.28
+        },
+        {
+          "text": "Please",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "text": "do!”",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "text": "said",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "Natásha.",
+          "start": 4.2,
+          "end": 4.78
+        },
+        {
+          "text": "“He",
+          "start": 4.78,
+          "end": 5.92
+        },
+        {
+          "text": "asked",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "text": "you,",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "text": "and",
+          "start": 6.74,
+          "end": 6.82
+        },
+        {
+          "text": "Vasíli",
+          "start": 6.82,
+          "end": 7.26
+        },
+        {
+          "text": "Dmítrich",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "text": "*",
+          "start": 7.76,
+          "end": 7.96
+        },
+        {
+          "text": "is",
+          "start": 7.96,
+          "end": 8.34
+        },
+        {
+          "text": "also",
+          "start": 8.34,
+          "end": 8.6
+        },
+        {
+          "text": "going.”",
+          "start": 8.6,
+          "end": 9.1
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44739820808172226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f9bbcefb91d5a9b95280104732492e287e2d49c8b69f1b551a82759419b1927",
+  "selected_reasons": []
+}

@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "36237bb97f51ef996e9c206cf77211593080595816cd759af2ca06f03120c59a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12039199844002724,
+      "alignment_seconds": 0.0006358306854963303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exit Shallow.",
+        "hotwords": "Exit, Shallow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Shallow.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " Shallow.",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.61224365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Shallow.",
+          "start": 0.64,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Shallow._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exit",
+        "Shallow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shallow.",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "shallow",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Shallow._]",
+          "start": 0.64,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12112869136035442
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4f440ff58f6cf8e00d137f58bcf54718afd89a2ed82b8d40fe8f8053260d378",
+  "selected_reasons": []
+}

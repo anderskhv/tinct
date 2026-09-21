@@ -1,0 +1,3125 @@
+{
+  "complete": true,
+  "signature": "14e0c09eb7d763c495b5edd7e375c42228b874629a3e776f1adae6fd2751b9b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.39123370964080095,
+      "alignment_seconds": 0.0020440490916371346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was now hot spring weather. The whole forest was already clothed in green. It was dusty and so hot that on passing near water one longed to bathe.",
+        "hotwords": "It, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It was now hot spring weather. The whole forest was already clothed in green. It was dusty and so hot that on passing near water one long to bathe.",
+          "start": 0.0,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " was",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now",
+              "start": 0.46,
+              "end": 0.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hot",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " spring",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " weather.",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " The",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " whole",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " forest",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " already",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clothed",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " green.",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " It",
+              "start": 5.98,
+              "end": 6.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 1.0
+            },
+            {
+              "text": " dusty",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.58,
+              "end": 6.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " so",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hot",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 7.38,
+              "end": 7.56,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " passing",
+              "start": 7.56,
+              "end": 7.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " near",
+              "start": 7.96,
+              "end": 8.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " water",
+              "start": 8.2,
+              "end": 8.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.303955078125
+            },
+            {
+              "text": " long",
+              "start": 8.76,
+              "end": 8.98,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 8.98,
+              "end": 9.16,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " bathe.",
+              "start": 9.16,
+              "end": 9.58,
+              "probability": 0.975341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.2
+        },
+        {
+          "raw": "water",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "raw": "one",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "long",
+          "start": 8.76,
+          "end": 8.98
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          29,
+          27,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "hot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3,
+          "key": "spring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "weather",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "whole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "forest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "already",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "clothed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84,
+          "key": "green",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58,
+          "key": "dusty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "hot",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96,
+          "key": "passing",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.2,
+          "key": "near",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 8.2,
+          "end": 8.52,
+          "key": "water",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "one",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 8.76,
+          "end": 8.98,
+          "key": "long",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58,
+          "key": "bathe",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "text": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "text": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "text": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "text": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "text": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "text": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "text": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "text": "near",
+          "start": 7.96,
+          "end": 8.2
+        },
+        {
+          "text": "water",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "text": "one",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "longed",
+          "start": 8.76,
+          "end": 8.87
+        },
+        {
+          "text": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "text": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.39352494571357965
+    },
+    {
+      "asr_seconds": 0.3705412968993187,
+      "alignment_seconds": 0.0028218990191817284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It, The"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " It was now hot spring weather. The whole forest was already clothed in green.",
+          "start": 0.0,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " was",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now",
+              "start": 0.46,
+              "end": 0.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hot",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " spring",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " weather.",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " The",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " whole",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " forest",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " already",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clothed",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " green.",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It was dusty and so hot that on passing near water won't long to bathe.",
+          "start": 5.98,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.98,
+              "end": 6.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 1.0
+            },
+            {
+              "text": " dusty",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.58,
+              "end": 6.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " so",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hot",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 7.38,
+              "end": 7.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " passing",
+              "start": 7.56,
+              "end": 7.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " near",
+              "start": 7.96,
+              "end": 8.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " water",
+              "start": 8.22,
+              "end": 8.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " won't",
+              "start": 8.52,
+              "end": 8.96,
+              "probability": 0.6905517578125
+            },
+            {
+              "text": " long",
+              "start": 8.96,
+              "end": 8.98,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " to",
+              "start": 8.98,
+              "end": 9.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bathe.",
+              "start": 9.16,
+              "end": 9.58,
+              "probability": 0.979248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.22
+        },
+        {
+          "raw": "water",
+          "start": 8.22,
+          "end": 8.52
+        },
+        {
+          "raw": "won't",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "raw": "long",
+          "start": 8.96,
+          "end": 8.98
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ],
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "equal",
+          27,
+          29,
+          27,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "hot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3,
+          "key": "spring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "weather",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "whole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "forest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "already",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "clothed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84,
+          "key": "green",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58,
+          "key": "dusty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "hot",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96,
+          "key": "passing",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.22,
+          "key": "near",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 8.22,
+          "end": 8.52,
+          "key": "water",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 8.52,
+          "end": 8.96,
+          "key": "wont",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 8.96,
+          "end": 8.98,
+          "key": "long",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58,
+          "key": "bathe",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "text": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "text": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "text": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "text": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "text": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "text": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "text": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "text": "near",
+          "start": 7.96,
+          "end": 8.22
+        },
+        {
+          "text": "water",
+          "start": 8.22,
+          "end": 8.52
+        },
+        {
+          "text": "one",
+          "start": 8.52,
+          "end": 8.75
+        },
+        {
+          "text": "longed",
+          "start": 8.75,
+          "end": 8.865
+        },
+        {
+          "text": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "text": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9310344827586207,
+      "rejection_reasons": [],
+      "seconds": 0.3736924026161432
+    },
+    {
+      "asr_seconds": 0.40015218313783407,
+      "alignment_seconds": 0.002250329591333866,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It was now hot spring weather. The whole forest was already clothed in green.",
+          "start": 0.0,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " was",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now",
+              "start": 0.46,
+              "end": 0.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hot",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " spring",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " weather.",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " The",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " whole",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " forest",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " already",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clothed",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " green.",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It was dusty and so hot that on passing near water won't long to bathe.",
+          "start": 5.98,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.98,
+              "end": 6.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 1.0
+            },
+            {
+              "text": " dusty",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.58,
+              "end": 6.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " so",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hot",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 7.38,
+              "end": 7.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " passing",
+              "start": 7.56,
+              "end": 7.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " near",
+              "start": 7.96,
+              "end": 8.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " water",
+              "start": 8.22,
+              "end": 8.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " won't",
+              "start": 8.52,
+              "end": 8.96,
+              "probability": 0.6905517578125
+            },
+            {
+              "text": " long",
+              "start": 8.96,
+              "end": 8.98,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " to",
+              "start": 8.98,
+              "end": 9.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bathe.",
+              "start": 9.16,
+              "end": 9.58,
+              "probability": 0.979248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.22
+        },
+        {
+          "raw": "water",
+          "start": 8.22,
+          "end": 8.52
+        },
+        {
+          "raw": "won't",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "raw": "long",
+          "start": 8.96,
+          "end": 8.98
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "hot",
+        "spring",
+        "weather.",
+        "The",
+        "whole",
+        "forest",
+        "was",
+        "already",
+        "clothed",
+        "in",
+        "green.",
+        "It",
+        "was",
+        "dusty",
+        "and",
+        "so",
+        "hot",
+        "that",
+        "on",
+        "passing",
+        "near",
+        "water",
+        "one",
+        "longed",
+        "to",
+        "bathe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ],
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "equal",
+          27,
+          29,
+          27,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.46,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "hot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spring",
+          "start": 0.98,
+          "end": 1.3,
+          "key": "spring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "weather",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "whole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "forest",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "forest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "already",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "clothed",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "clothed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "green.",
+          "start": 4.56,
+          "end": 4.84,
+          "key": "green",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.98,
+          "end": 6.06,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.06,
+          "end": 6.22,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dusty",
+          "start": 6.22,
+          "end": 6.58,
+          "key": "dusty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.76,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hot",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "hot",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.22,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.38,
+          "end": 7.56,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "passing",
+          "start": 7.56,
+          "end": 7.96,
+          "key": "passing",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 7.96,
+          "end": 8.22,
+          "key": "near",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 8.22,
+          "end": 8.52,
+          "key": "water",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 8.52,
+          "end": 8.96,
+          "key": "wont",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 8.96,
+          "end": 8.98,
+          "key": "long",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.98,
+          "end": 9.16,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bathe.",
+          "start": 9.16,
+          "end": 9.58,
+          "key": "bathe",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "was",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "now",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "text": "hot",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "spring",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "weather.",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "text": "The",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "whole",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "forest",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "was",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "already",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "clothed",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "in",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "green.",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "text": "It",
+          "start": 5.98,
+          "end": 6.06
+        },
+        {
+          "text": "was",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "text": "dusty",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "text": "so",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "hot",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "that",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "on",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "text": "passing",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "text": "near",
+          "start": 7.96,
+          "end": 8.22
+        },
+        {
+          "text": "water",
+          "start": 8.22,
+          "end": 8.52
+        },
+        {
+          "text": "one",
+          "start": 8.52,
+          "end": 8.75
+        },
+        {
+          "text": "longed",
+          "start": 8.75,
+          "end": 8.865
+        },
+        {
+          "text": "to",
+          "start": 8.98,
+          "end": 9.16
+        },
+        {
+          "text": "bathe.",
+          "start": 9.16,
+          "end": 9.58
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9310344827586207,
+      "rejection_reasons": [],
+      "seconds": 0.4026634842157364
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "416b6224ab7495866097d1f6d3e27b6c6102f4e1de5e97edff21360ddf75b356",
+  "selected_reasons": []
+}

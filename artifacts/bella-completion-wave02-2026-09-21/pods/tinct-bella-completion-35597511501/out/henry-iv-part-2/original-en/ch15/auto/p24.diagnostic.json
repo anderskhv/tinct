@@ -1,0 +1,806 @@
+{
+  "complete": true,
+  "signature": "5db0f9376b93b867633632924bdeb65f537bdf936fbecd50f8440627c37a0a0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3807105300948024,
+      "alignment_seconds": 0.00214454997330904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I thank thee with all my heart, kind Master Bardolph; and welcome, my tall fellow to the Page. Come, Sir John.",
+        "hotwords": "I, Master, Bardolph, Page, Come, Sir, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shallow, I thank thee with all my heart, kind Master Bardolph, and welcome, my tall fellow",
+          "start": 0.0,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " Shallow,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.7100830078125
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thank",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thee",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.96484375
+            },
+            {
+              "text": " with",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heart,",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kind",
+              "start": 2.62,
+              "end": 2.68,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Master",
+              "start": 2.68,
+              "end": 3.1,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " Bardolph,",
+              "start": 3.1,
+              "end": 3.48,
+              "probability": 0.762451171875
+            },
+            {
+              "text": " and",
+              "start": 4.0,
+              "end": 4.08,
+              "probability": 0.88671875
+            },
+            {
+              "text": " welcome,",
+              "start": 4.08,
+              "end": 4.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " tall",
+              "start": 4.7,
+              "end": 4.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fellow",
+              "start": 4.96,
+              "end": 5.2,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " to the Page. Come, Sir John.",
+          "start": 5.2,
+          "end": 7.28,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.2,
+              "end": 5.42,
+              "probability": 0.1478271484375
+            },
+            {
+              "text": " the",
+              "start": 5.42,
+              "end": 5.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Page.",
+              "start": 5.54,
+              "end": 5.8,
+              "probability": 0.0163116455078125
+            },
+            {
+              "text": " Come,",
+              "start": 6.5,
+              "end": 6.72,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Sir",
+              "start": 6.84,
+              "end": 6.98,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " John.",
+              "start": 6.98,
+              "end": 7.28,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shallow,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "thank",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "thee",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "all",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "my",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "heart,",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "kind",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "raw": "Master",
+          "start": 2.68,
+          "end": 3.1
+        },
+        {
+          "raw": "Bardolph,",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 4.0,
+          "end": 4.08
+        },
+        {
+          "raw": "welcome,",
+          "start": 4.08,
+          "end": 4.44
+        },
+        {
+          "raw": "my",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "tall",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "raw": "fellow",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "raw": "to",
+          "start": 5.2,
+          "end": 5.42
+        },
+        {
+          "raw": "the",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "raw": "Page.",
+          "start": 5.54,
+          "end": 5.8
+        },
+        {
+          "raw": "Come,",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "raw": "Sir",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "raw": "John.",
+          "start": 6.98,
+          "end": 7.28
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW.",
+        "I",
+        "thank",
+        "thee",
+        "with",
+        "all",
+        "my",
+        "heart,",
+        "kind",
+        "Master",
+        "Bardolph;",
+        "and",
+        "welcome,",
+        "my",
+        "tall",
+        "fellow",
+        "[_to",
+        "the",
+        "Page_].",
+        "Come,",
+        "Sir",
+        "John."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "thank",
+        "thee",
+        "with",
+        "all",
+        "my",
+        "heart,",
+        "kind",
+        "Master",
+        "Bardolph;",
+        "and",
+        "welcome,",
+        "my",
+        "tall",
+        "fellow",
+        "to",
+        "the",
+        "Page.",
+        "Come,",
+        "Sir",
+        "John."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          21,
+          1,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shallow,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "shallow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "heart",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 2.62,
+          "end": 2.68,
+          "key": "kind",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 2.68,
+          "end": 3.1,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bardolph,",
+          "start": 3.1,
+          "end": 3.48,
+          "key": "bardolph",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.0,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "welcome,",
+          "start": 4.08,
+          "end": 4.44,
+          "key": "welcome",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tall",
+          "start": 4.7,
+          "end": 4.96,
+          "key": "tall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 4.96,
+          "end": 5.2,
+          "key": "fellow",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.2,
+          "end": 5.42,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.42,
+          "end": 5.54,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 5.54,
+          "end": 5.8,
+          "key": "page",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 6.5,
+          "end": 6.72,
+          "key": "come",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 6.84,
+          "end": 6.98,
+          "key": "sir",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "John.",
+          "start": 6.98,
+          "end": 7.28,
+          "key": "john",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "thank",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "thee",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "with",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "all",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "my",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "heart,",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "kind",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "text": "Master",
+          "start": 2.68,
+          "end": 3.1
+        },
+        {
+          "text": "Bardolph;",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 4.0,
+          "end": 4.08
+        },
+        {
+          "text": "welcome,",
+          "start": 4.08,
+          "end": 4.44
+        },
+        {
+          "text": "my",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "tall",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "text": "fellow",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "text": "[_to",
+          "start": 5.2,
+          "end": 5.42
+        },
+        {
+          "text": "the",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "text": "Page_].",
+          "start": 5.54,
+          "end": 5.8
+        },
+        {
+          "text": "Come,",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "text": "Sir",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "text": "John.",
+          "start": 6.98,
+          "end": 7.28
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3831144589930773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2db0c6e70abc4c19fa485642b45d9674ba17471d71e3f1ebba6c1cd8a181b22",
+  "selected_reasons": []
+}

@@ -1,0 +1,6373 @@
+{
+  "complete": true,
+  "signature": "7630a967afb565035946c4b9384b8c8171d5c37e8aae4eafe4c49874e1b72d18",
+  "attempts": [
+    {
+      "asr_seconds": 0.5872208215296268,
+      "alignment_seconds": 0.02566075325012207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soft, son! Sir, by your leave: having come to Padua To gather in some debts, my son Lucentio Made me acquainted with a weighty cause Of love between your daughter and himself: And,—for the good report I hear of you, And for the love he beareth to your daughter, And she to him,—to stay him not too long, I am content, in a good father's care, To have him match'd; and, if you please to like No worse than I, upon some agreement Me shall you find ready and willing With one consent to have her so bestow'd; For curious I cannot be with you, Signior Baptista, of whom I hear so well.",
+        "hotwords": "Soft, Sir, Padua, Lucentio, Made, And,—for, I, No, Signior, Baptista"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And, if you please to like No worse than I, upon some agreement",
+          "start": 9.59,
+          "end": 24.59,
+          "words": [
+            {
+              "text": " And,",
+              "start": 9.59,
+              "end": 10.05,
+              "probability": 0.0062408447265625
+            },
+            {
+              "text": " if",
+              "start": 20.53,
+              "end": 20.53,
+              "probability": 0.127685546875
+            },
+            {
+              "text": " you",
+              "start": 20.53,
+              "end": 22.09,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " please",
+              "start": 22.09,
+              "end": 22.31,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " to",
+              "start": 22.31,
+              "end": 22.51,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " like",
+              "start": 22.51,
+              "end": 22.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " No",
+              "start": 22.67,
+              "end": 22.89,
+              "probability": 0.00850677490234375
+            },
+            {
+              "text": " worse",
+              "start": 22.89,
+              "end": 23.09,
+              "probability": 0.734375
+            },
+            {
+              "text": " than",
+              "start": 23.09,
+              "end": 23.31,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " I,",
+              "start": 23.31,
+              "end": 23.55,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " upon",
+              "start": 23.91,
+              "end": 23.99,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " some",
+              "start": 23.99,
+              "end": 24.25,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " agreement",
+              "start": 24.25,
+              "end": 24.59,
+              "probability": 0.9462890625
+            }
+          ]
+        },
+        {
+          "text": " Me shall you find ready and willing With one consent to have her so bestow'd.",
+          "start": 24.59,
+          "end": 28.71,
+          "words": [
+            {
+              "text": " Me",
+              "start": 24.59,
+              "end": 24.89,
+              "probability": 0.0248260498046875
+            },
+            {
+              "text": " shall",
+              "start": 24.89,
+              "end": 25.03,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " you",
+              "start": 25.03,
+              "end": 25.21,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " find",
+              "start": 25.21,
+              "end": 25.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ready",
+              "start": 25.49,
+              "end": 25.85,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " and",
+              "start": 25.85,
+              "end": 26.07,
+              "probability": 0.951171875
+            },
+            {
+              "text": " willing",
+              "start": 26.07,
+              "end": 26.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " With",
+              "start": 26.35,
+              "end": 26.59,
+              "probability": 0.278564453125
+            },
+            {
+              "text": " one",
+              "start": 26.59,
+              "end": 26.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " consent",
+              "start": 26.87,
+              "end": 27.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 27.29,
+              "end": 27.53,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " have",
+              "start": 27.53,
+              "end": 27.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " her",
+              "start": 27.67,
+              "end": 27.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 27.81,
+              "end": 28.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bestow'd.",
+              "start": 28.05,
+              "end": 28.71,
+              "probability": 0.3856099446614583
+            }
+          ]
+        },
+        {
+          "text": " For curious I cannot be with you, Signior Baptista, of whom I hear so well.",
+          "start": 29.59,
+          "end": 34.29,
+          "words": [
+            {
+              "text": " For",
+              "start": 29.59,
+              "end": 29.81,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " curious",
+              "start": 29.81,
+              "end": 30.17,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " I",
+              "start": 30.17,
+              "end": 30.45,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " cannot",
+              "start": 30.45,
+              "end": 30.69,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " be",
+              "start": 30.69,
+              "end": 30.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with",
+              "start": 30.95,
+              "end": 31.09,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " you,",
+              "start": 31.09,
+              "end": 31.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Signior",
+              "start": 31.85,
+              "end": 32.11,
+              "probability": 0.715576171875
+            },
+            {
+              "text": " Baptista,",
+              "start": 32.11,
+              "end": 32.71,
+              "probability": 0.656005859375
+            },
+            {
+              "text": " of",
+              "start": 33.09,
+              "end": 33.25,
+              "probability": 0.75390625
+            },
+            {
+              "text": " whom",
+              "start": 33.25,
+              "end": 33.41,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 33.41,
+              "end": 33.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hear",
+              "start": 33.57,
+              "end": 33.75,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " so",
+              "start": 33.75,
+              "end": 33.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well.",
+              "start": 33.99,
+              "end": 34.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And,",
+          "start": 9.59,
+          "end": 10.05
+        },
+        {
+          "raw": "if",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "raw": "you",
+          "start": 20.53,
+          "end": 22.09
+        },
+        {
+          "raw": "please",
+          "start": 22.09,
+          "end": 22.31
+        },
+        {
+          "raw": "to",
+          "start": 22.31,
+          "end": 22.51
+        },
+        {
+          "raw": "like",
+          "start": 22.51,
+          "end": 22.67
+        },
+        {
+          "raw": "No",
+          "start": 22.67,
+          "end": 22.89
+        },
+        {
+          "raw": "worse",
+          "start": 22.89,
+          "end": 23.09
+        },
+        {
+          "raw": "than",
+          "start": 23.09,
+          "end": 23.31
+        },
+        {
+          "raw": "I,",
+          "start": 23.31,
+          "end": 23.55
+        },
+        {
+          "raw": "upon",
+          "start": 23.91,
+          "end": 23.99
+        },
+        {
+          "raw": "some",
+          "start": 23.99,
+          "end": 24.25
+        },
+        {
+          "raw": "agreement",
+          "start": 24.25,
+          "end": 24.59
+        },
+        {
+          "raw": "Me",
+          "start": 24.59,
+          "end": 24.89
+        },
+        {
+          "raw": "shall",
+          "start": 24.89,
+          "end": 25.03
+        },
+        {
+          "raw": "you",
+          "start": 25.03,
+          "end": 25.21
+        },
+        {
+          "raw": "find",
+          "start": 25.21,
+          "end": 25.49
+        },
+        {
+          "raw": "ready",
+          "start": 25.49,
+          "end": 25.85
+        },
+        {
+          "raw": "and",
+          "start": 25.85,
+          "end": 26.07
+        },
+        {
+          "raw": "willing",
+          "start": 26.07,
+          "end": 26.35
+        },
+        {
+          "raw": "With",
+          "start": 26.35,
+          "end": 26.59
+        },
+        {
+          "raw": "one",
+          "start": 26.59,
+          "end": 26.87
+        },
+        {
+          "raw": "consent",
+          "start": 26.87,
+          "end": 27.29
+        },
+        {
+          "raw": "to",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "raw": "have",
+          "start": 27.53,
+          "end": 27.67
+        },
+        {
+          "raw": "her",
+          "start": 27.67,
+          "end": 27.81
+        },
+        {
+          "raw": "so",
+          "start": 27.81,
+          "end": 28.05
+        },
+        {
+          "raw": "bestow'd.",
+          "start": 28.05,
+          "end": 28.71
+        },
+        {
+          "raw": "For",
+          "start": 29.59,
+          "end": 29.81
+        },
+        {
+          "raw": "curious",
+          "start": 29.81,
+          "end": 30.17
+        },
+        {
+          "raw": "I",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "raw": "cannot",
+          "start": 30.45,
+          "end": 30.69
+        },
+        {
+          "raw": "be",
+          "start": 30.69,
+          "end": 30.95
+        },
+        {
+          "raw": "with",
+          "start": 30.95,
+          "end": 31.09
+        },
+        {
+          "raw": "you,",
+          "start": 31.09,
+          "end": 31.37
+        },
+        {
+          "raw": "Signior",
+          "start": 31.85,
+          "end": 32.11
+        },
+        {
+          "raw": "Baptista,",
+          "start": 32.11,
+          "end": 32.71
+        },
+        {
+          "raw": "of",
+          "start": 33.09,
+          "end": 33.25
+        },
+        {
+          "raw": "whom",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "raw": "I",
+          "start": 33.41,
+          "end": 33.57
+        },
+        {
+          "raw": "hear",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "raw": "so",
+          "start": 33.75,
+          "end": 33.99
+        },
+        {
+          "raw": "well.",
+          "start": 33.99,
+          "end": 34.29
+        }
+      ],
+      "expected_tokens": [
+        "PEDANT.",
+        "Soft,",
+        "son!",
+        "Sir,",
+        "by",
+        "your",
+        "leave:",
+        "having",
+        "come",
+        "to",
+        "Padua",
+        "To",
+        "gather",
+        "in",
+        "some",
+        "debts,",
+        "my",
+        "son",
+        "Lucentio",
+        "Made",
+        "me",
+        "acquainted",
+        "with",
+        "a",
+        "weighty",
+        "cause",
+        "Of",
+        "love",
+        "between",
+        "your",
+        "daughter",
+        "and",
+        "himself:",
+        "And,—for",
+        "the",
+        "good",
+        "report",
+        "I",
+        "hear",
+        "of",
+        "you,",
+        "And",
+        "for",
+        "the",
+        "love",
+        "he",
+        "beareth",
+        "to",
+        "your",
+        "daughter,",
+        "And",
+        "she",
+        "to",
+        "him,—to",
+        "stay",
+        "him",
+        "not",
+        "too",
+        "long,",
+        "I",
+        "am",
+        "content,",
+        "in",
+        "a",
+        "good",
+        "father’s",
+        "care,",
+        "To",
+        "have",
+        "him",
+        "match’d;",
+        "and,",
+        "if",
+        "you",
+        "please",
+        "to",
+        "like",
+        "No",
+        "worse",
+        "than",
+        "I,",
+        "upon",
+        "some",
+        "agreement",
+        "Me",
+        "shall",
+        "you",
+        "find",
+        "ready",
+        "and",
+        "willing",
+        "With",
+        "one",
+        "consent",
+        "to",
+        "have",
+        "her",
+        "so",
+        "bestow’d;",
+        "For",
+        "curious",
+        "I",
+        "cannot",
+        "be",
+        "with",
+        "you,",
+        "Signior",
+        "Baptista,",
+        "of",
+        "whom",
+        "I",
+        "hear",
+        "so",
+        "well."
+      ],
+      "acoustic_expected_tokens": [
+        "Soft,",
+        "son!",
+        "Sir,",
+        "by",
+        "your",
+        "leave:",
+        "having",
+        "come",
+        "to",
+        "Padua",
+        "To",
+        "gather",
+        "in",
+        "some",
+        "debts,",
+        "my",
+        "son",
+        "Lucentio",
+        "Made",
+        "me",
+        "acquainted",
+        "with",
+        "a",
+        "weighty",
+        "cause",
+        "Of",
+        "love",
+        "between",
+        "your",
+        "daughter",
+        "and",
+        "himself:",
+        "And,—for",
+        "the",
+        "good",
+        "report",
+        "I",
+        "hear",
+        "of",
+        "you,",
+        "And",
+        "for",
+        "the",
+        "love",
+        "he",
+        "beareth",
+        "to",
+        "your",
+        "daughter,",
+        "And",
+        "she",
+        "to",
+        "him,—to",
+        "stay",
+        "him",
+        "not",
+        "too",
+        "long,",
+        "I",
+        "am",
+        "content,",
+        "in",
+        "a",
+        "good",
+        "father's",
+        "care,",
+        "To",
+        "have",
+        "him",
+        "match'd;",
+        "and,",
+        "if",
+        "you",
+        "please",
+        "to",
+        "like",
+        "No",
+        "worse",
+        "than",
+        "I,",
+        "upon",
+        "some",
+        "agreement",
+        "Me",
+        "shall",
+        "you",
+        "find",
+        "ready",
+        "and",
+        "willing",
+        "With",
+        "one",
+        "consent",
+        "to",
+        "have",
+        "her",
+        "so",
+        "bestow'd;",
+        "For",
+        "curious",
+        "I",
+        "cannot",
+        "be",
+        "with",
+        "you,",
+        "Signior",
+        "Baptista,",
+        "of",
+        "whom",
+        "I",
+        "hear",
+        "so",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          70,
+          0,
+          0
+        ],
+        [
+          "equal",
+          70,
+          97,
+          0,
+          27
+        ],
+        [
+          "replace",
+          97,
+          98,
+          27,
+          28
+        ],
+        [
+          "equal",
+          98,
+          113,
+          28,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 97,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          70,
+          0,
+          0
+        ],
+        [
+          "replace",
+          97,
+          98,
+          27,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And,",
+          "start": 9.59,
+          "end": 10.05,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 20.53,
+          "end": 20.53,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 20.53,
+          "end": 22.09,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 22.09,
+          "end": 22.31,
+          "key": "please",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.31,
+          "end": 22.51,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 22.51,
+          "end": 22.67,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 22.67,
+          "end": 22.89,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 22.89,
+          "end": 23.09,
+          "key": "worse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 23.09,
+          "end": 23.31,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 23.31,
+          "end": 23.55,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 23.91,
+          "end": 23.99,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 23.99,
+          "end": 24.25,
+          "key": "some",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "agreement",
+          "start": 24.25,
+          "end": 24.59,
+          "key": "agreement",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Me",
+          "start": 24.59,
+          "end": 24.89,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 24.89,
+          "end": 25.03,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 25.03,
+          "end": 25.21,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 25.21,
+          "end": 25.49,
+          "key": "find",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 25.49,
+          "end": 25.85,
+          "key": "ready",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.85,
+          "end": 26.07,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "willing",
+          "start": 26.07,
+          "end": 26.35,
+          "key": "willing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 26.35,
+          "end": 26.59,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 26.59,
+          "end": 26.87,
+          "key": "one",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "consent",
+          "start": 26.87,
+          "end": 27.29,
+          "key": "consent",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 27.29,
+          "end": 27.53,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 27.53,
+          "end": 27.67,
+          "key": "have",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 27.67,
+          "end": 27.81,
+          "key": "her",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 27.81,
+          "end": 28.05,
+          "key": "so",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bestow'd.",
+          "start": 28.05,
+          "end": 28.71,
+          "key": "bestowd",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 29.59,
+          "end": 29.81,
+          "key": "for",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 29.81,
+          "end": 30.17,
+          "key": "curious",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 30.17,
+          "end": 30.45,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 30.45,
+          "end": 30.69,
+          "key": "cannot",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 30.69,
+          "end": 30.95,
+          "key": "be",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 30.95,
+          "end": 31.09,
+          "key": "with",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 31.09,
+          "end": 31.37,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Signior",
+          "start": 31.85,
+          "end": 32.11,
+          "key": "signior",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Baptista,",
+          "start": 32.11,
+          "end": 32.71,
+          "key": "baptista",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.09,
+          "end": 33.25,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 33.25,
+          "end": 33.41,
+          "key": "whom",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 33.41,
+          "end": 33.57,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 33.57,
+          "end": 33.75,
+          "key": "hear",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 33.75,
+          "end": 33.99,
+          "key": "so",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 33.99,
+          "end": 34.29,
+          "key": "well",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PEDANT.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Soft,",
+          "start": 0.0,
+          "end": 4.795
+        },
+        {
+          "text": "son!",
+          "start": 4.795,
+          "end": 7.192
+        },
+        {
+          "text": "Sir,",
+          "start": 7.192,
+          "end": 8.391
+        },
+        {
+          "text": "by",
+          "start": 8.391,
+          "end": 8.991
+        },
+        {
+          "text": "your",
+          "start": 8.991,
+          "end": 9.29
+        },
+        {
+          "text": "leave:",
+          "start": 9.29,
+          "end": 9.44
+        },
+        {
+          "text": "having",
+          "start": 9.44,
+          "end": 9.515
+        },
+        {
+          "text": "come",
+          "start": 9.515,
+          "end": 9.553
+        },
+        {
+          "text": "to",
+          "start": 9.553,
+          "end": 9.572
+        },
+        {
+          "text": "Padua",
+          "start": 9.572,
+          "end": 9.581
+        },
+        {
+          "text": "To",
+          "start": 9.581,
+          "end": 9.585
+        },
+        {
+          "text": "gather",
+          "start": 9.585,
+          "end": 9.588
+        },
+        {
+          "text": "in",
+          "start": 9.588,
+          "end": 9.589
+        },
+        {
+          "text": "some",
+          "start": 9.589,
+          "end": 9.59
+        },
+        {
+          "text": "debts,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "my",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "son",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "Lucentio",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "Made",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "me",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "acquainted",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "with",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "a",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "weighty",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "cause",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "Of",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "love",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "between",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "your",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "daughter",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "and",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "himself:",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "And,—for",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "the",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "good",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "report",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "I",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "hear",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "of",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "you,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "And",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "for",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "the",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "love",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "he",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "beareth",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "to",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "your",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "daughter,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "And",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "she",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "to",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "him,—to",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "stay",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "him",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "not",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "too",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "long,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "I",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "am",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "content,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "in",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "a",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "good",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "father’s",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "care,",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "To",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "have",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "him",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "match’d;",
+          "start": 9.59,
+          "end": 9.59
+        },
+        {
+          "text": "and,",
+          "start": 9.59,
+          "end": 10.05
+        },
+        {
+          "text": "if",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "text": "you",
+          "start": 20.53,
+          "end": 22.09
+        },
+        {
+          "text": "please",
+          "start": 22.09,
+          "end": 22.31
+        },
+        {
+          "text": "to",
+          "start": 22.31,
+          "end": 22.51
+        },
+        {
+          "text": "like",
+          "start": 22.51,
+          "end": 22.67
+        },
+        {
+          "text": "No",
+          "start": 22.67,
+          "end": 22.89
+        },
+        {
+          "text": "worse",
+          "start": 22.89,
+          "end": 23.09
+        },
+        {
+          "text": "than",
+          "start": 23.09,
+          "end": 23.31
+        },
+        {
+          "text": "I,",
+          "start": 23.31,
+          "end": 23.55
+        },
+        {
+          "text": "upon",
+          "start": 23.91,
+          "end": 23.99
+        },
+        {
+          "text": "some",
+          "start": 23.99,
+          "end": 24.25
+        },
+        {
+          "text": "agreement",
+          "start": 24.25,
+          "end": 24.59
+        },
+        {
+          "text": "Me",
+          "start": 24.59,
+          "end": 24.89
+        },
+        {
+          "text": "shall",
+          "start": 24.89,
+          "end": 25.03
+        },
+        {
+          "text": "you",
+          "start": 25.03,
+          "end": 25.21
+        },
+        {
+          "text": "find",
+          "start": 25.21,
+          "end": 25.49
+        },
+        {
+          "text": "ready",
+          "start": 25.49,
+          "end": 25.85
+        },
+        {
+          "text": "and",
+          "start": 25.85,
+          "end": 26.07
+        },
+        {
+          "text": "willing",
+          "start": 26.07,
+          "end": 26.35
+        },
+        {
+          "text": "With",
+          "start": 26.35,
+          "end": 26.59
+        },
+        {
+          "text": "one",
+          "start": 26.59,
+          "end": 26.87
+        },
+        {
+          "text": "consent",
+          "start": 26.87,
+          "end": 27.29
+        },
+        {
+          "text": "to",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "text": "have",
+          "start": 27.53,
+          "end": 27.67
+        },
+        {
+          "text": "her",
+          "start": 27.67,
+          "end": 27.81
+        },
+        {
+          "text": "so",
+          "start": 27.81,
+          "end": 28.05
+        },
+        {
+          "text": "bestow’d;",
+          "start": 28.05,
+          "end": 28.82
+        },
+        {
+          "text": "For",
+          "start": 29.59,
+          "end": 29.81
+        },
+        {
+          "text": "curious",
+          "start": 29.81,
+          "end": 30.17
+        },
+        {
+          "text": "I",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "text": "cannot",
+          "start": 30.45,
+          "end": 30.69
+        },
+        {
+          "text": "be",
+          "start": 30.69,
+          "end": 30.95
+        },
+        {
+          "text": "with",
+          "start": 30.95,
+          "end": 31.09
+        },
+        {
+          "text": "you,",
+          "start": 31.09,
+          "end": 31.37
+        },
+        {
+          "text": "Signior",
+          "start": 31.85,
+          "end": 32.11
+        },
+        {
+          "text": "Baptista,",
+          "start": 32.11,
+          "end": 32.71
+        },
+        {
+          "text": "of",
+          "start": 33.09,
+          "end": 33.25
+        },
+        {
+          "text": "whom",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "text": "I",
+          "start": 33.41,
+          "end": 33.57
+        },
+        {
+          "text": "hear",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "text": "so",
+          "start": 33.75,
+          "end": 33.99
+        },
+        {
+          "text": "well.",
+          "start": 33.99,
+          "end": 34.29
+        }
+      ],
+      "stats": {
+        "expected_words": 113,
+        "heard_words": 43,
+        "matched_words": 42
+      },
+      "match_ratio": 0.37168141592920356,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6135277338325977
+    },
+    {
+      "asr_seconds": 0.9302333816885948,
+      "alignment_seconds": 0.021045406349003315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Soft, Sir, Padua, Lucentio, Made, And,—for, I, No, Signior, Baptista"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Pedant, Soft Son, Sir, by your leave, Having come to Padua to gather in some debts,",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " Pedant,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.4215240478515625
+            },
+            {
+              "text": " Soft",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.134521484375
+            },
+            {
+              "text": " Son,",
+              "start": 1.15,
+              "end": 1.53,
+              "probability": 0.73046875
+            },
+            {
+              "text": " Sir,",
+              "start": 2.69,
+              "end": 2.75,
+              "probability": 0.5537109375
+            },
+            {
+              "text": " by",
+              "start": 2.91,
+              "end": 3.01,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " your",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " leave,",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Having",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.495849609375
+            },
+            {
+              "text": " come",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Padua",
+              "start": 4.61,
+              "end": 4.89,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " to",
+              "start": 4.89,
+              "end": 5.07,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " gather",
+              "start": 5.07,
+              "end": 5.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.96875
+            },
+            {
+              "text": " some",
+              "start": 5.49,
+              "end": 5.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " debts,",
+              "start": 5.69,
+              "end": 5.95,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " My son Lucentio made me acquainted with a weighty cause of love between your daughter",
+          "start": 6.35,
+          "end": 9.89,
+          "words": [
+            {
+              "text": " My",
+              "start": 6.35,
+              "end": 6.49,
+              "probability": 0.92578125
+            },
+            {
+              "text": " son",
+              "start": 6.49,
+              "end": 6.71,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Lucentio",
+              "start": 6.71,
+              "end": 7.25,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " made",
+              "start": 7.25,
+              "end": 7.43,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " me",
+              "start": 7.43,
+              "end": 7.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " acquainted",
+              "start": 7.63,
+              "end": 7.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " with",
+              "start": 7.89,
+              "end": 8.11,
+              "probability": 0.560546875
+            },
+            {
+              "text": " a",
+              "start": 8.11,
+              "end": 8.25,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " weighty",
+              "start": 8.25,
+              "end": 8.61,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " cause",
+              "start": 8.61,
+              "end": 8.83,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " of",
+              "start": 8.83,
+              "end": 9.01,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " love",
+              "start": 9.01,
+              "end": 9.17,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " between",
+              "start": 9.17,
+              "end": 9.47,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " your",
+              "start": 9.47,
+              "end": 9.65,
+              "probability": 0.86328125
+            },
+            {
+              "text": " daughter",
+              "start": 9.65,
+              "end": 9.89,
+              "probability": 0.95361328125
+            }
+          ]
+        },
+        {
+          "text": " and himself, And, for the good report I hear of you,",
+          "start": 9.89,
+          "end": 13.23,
+          "words": [
+            {
+              "text": " and",
+              "start": 9.89,
+              "end": 10.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " himself,",
+              "start": 10.05,
+              "end": 10.43,
+              "probability": 0.984375
+            },
+            {
+              "text": " And,",
+              "start": 10.99,
+              "end": 11.33,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " for",
+              "start": 11.75,
+              "end": 11.93,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " the",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 12.03,
+              "end": 12.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " report",
+              "start": 12.17,
+              "end": 12.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 12.51,
+              "end": 12.67,
+              "probability": 0.974609375
+            },
+            {
+              "text": " hear",
+              "start": 12.67,
+              "end": 12.87,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 12.87,
+              "end": 12.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you,",
+              "start": 12.99,
+              "end": 13.23,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " And for the love he beareth to your daughter and she to him,",
+          "start": 13.55,
+          "end": 16.03,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " for",
+              "start": 13.71,
+              "end": 13.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 13.85,
+              "end": 13.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love",
+              "start": 13.97,
+              "end": 14.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 14.13,
+              "end": 14.33,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " beareth",
+              "start": 14.33,
+              "end": 14.59,
+              "probability": 0.6907958984375
+            },
+            {
+              "text": " to",
+              "start": 14.59,
+              "end": 14.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 14.79,
+              "end": 14.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " daughter",
+              "start": 14.89,
+              "end": 15.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 15.17,
+              "end": 15.47,
+              "probability": 0.38330078125
+            },
+            {
+              "text": " she",
+              "start": 15.47,
+              "end": 15.61,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 15.61,
+              "end": 15.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him,",
+              "start": 15.75,
+              "end": 16.03,
+              "probability": 0.9794921875
+            }
+          ]
+        },
+        {
+          "text": " To stay him not too long, I am content in a good father's care,",
+          "start": 16.47,
+          "end": 20.03,
+          "words": [
+            {
+              "text": " To",
+              "start": 16.47,
+              "end": 16.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " stay",
+              "start": 16.69,
+              "end": 16.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 16.91,
+              "end": 17.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 17.03,
+              "end": 17.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " too",
+              "start": 17.21,
+              "end": 17.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " long,",
+              "start": 17.41,
+              "end": 17.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 18.07,
+              "end": 18.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 18.23,
+              "end": 18.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " content",
+              "start": 18.37,
+              "end": 18.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " in",
+              "start": 18.75,
+              "end": 19.05,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " a",
+              "start": 19.05,
+              "end": 19.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " good",
+              "start": 19.13,
+              "end": 19.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " father's",
+              "start": 19.27,
+              "end": 19.77,
+              "probability": 0.947509765625
+            },
+            {
+              "text": " care,",
+              "start": 19.77,
+              "end": 20.03,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " To have him matched, And if you please to like no worse than I,",
+          "start": 20.31,
+          "end": 23.57,
+          "words": [
+            {
+              "text": " To",
+              "start": 20.31,
+              "end": 20.43,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " have",
+              "start": 20.43,
+              "end": 20.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 20.59,
+              "end": 20.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matched,",
+              "start": 20.75,
+              "end": 21.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " And",
+              "start": 21.69,
+              "end": 21.89,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " if",
+              "start": 21.89,
+              "end": 22.01,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " you",
+              "start": 22.01,
+              "end": 22.13,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " please",
+              "start": 22.13,
+              "end": 22.31,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " to",
+              "start": 22.31,
+              "end": 22.51,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " like",
+              "start": 22.51,
+              "end": 22.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " no",
+              "start": 22.67,
+              "end": 22.87,
+              "probability": 0.951171875
+            },
+            {
+              "text": " worse",
+              "start": 22.87,
+              "end": 23.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " than",
+              "start": 23.09,
+              "end": 23.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I,",
+              "start": 23.31,
+              "end": 23.57,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " Upon some agreement me shall you find ready and willing with one consent to have her so",
+          "start": 23.79,
+          "end": 28.05,
+          "words": [
+            {
+              "text": " Upon",
+              "start": 23.79,
+              "end": 23.99,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " some",
+              "start": 23.99,
+              "end": 24.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " agreement",
+              "start": 24.25,
+              "end": 24.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 24.57,
+              "end": 24.91,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " shall",
+              "start": 24.91,
+              "end": 25.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 25.03,
+              "end": 25.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " find",
+              "start": 25.21,
+              "end": 25.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ready",
+              "start": 25.47,
+              "end": 25.83,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " and",
+              "start": 25.83,
+              "end": 26.09,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " willing",
+              "start": 26.09,
+              "end": 26.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 26.35,
+              "end": 26.59,
+              "probability": 0.1285400390625
+            },
+            {
+              "text": " one",
+              "start": 26.59,
+              "end": 26.87,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " consent",
+              "start": 26.87,
+              "end": 27.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 27.29,
+              "end": 27.53,
+              "probability": 0.436767578125
+            },
+            {
+              "text": " have",
+              "start": 27.53,
+              "end": 27.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 27.67,
+              "end": 27.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 27.83,
+              "end": 28.05,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " bestowed. For curious I cannot be with you, Signior, Baptista, of whom I hear so well.",
+          "start": 28.05,
+          "end": 34.31,
+          "words": [
+            {
+              "text": " bestowed.",
+              "start": 28.05,
+              "end": 28.51,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " For",
+              "start": 29.59,
+              "end": 29.79,
+              "probability": 0.970703125
+            },
+            {
+              "text": " curious",
+              "start": 29.79,
+              "end": 30.17,
+              "probability": 0.806640625
+            },
+            {
+              "text": " I",
+              "start": 30.17,
+              "end": 30.45,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " cannot",
+              "start": 30.45,
+              "end": 30.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 30.71,
+              "end": 30.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 30.95,
+              "end": 31.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 31.09,
+              "end": 31.37,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Signior,",
+              "start": 31.85,
+              "end": 32.11,
+              "probability": 0.40283203125
+            },
+            {
+              "text": " Baptista,",
+              "start": 32.23,
+              "end": 32.71,
+              "probability": 0.6405029296875
+            },
+            {
+              "text": " of",
+              "start": 33.09,
+              "end": 33.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " whom",
+              "start": 33.25,
+              "end": 33.41,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 33.41,
+              "end": 33.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hear",
+              "start": 33.57,
+              "end": 33.75,
+              "probability": 0.98046875
+            },
+            {
+              "text": " so",
+              "start": 33.75,
+              "end": 34.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " well.",
+              "start": 34.01,
+              "end": 34.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Soft",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "Son,",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "raw": "Sir,",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "raw": "by",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "raw": "your",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "leave,",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "Having",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "come",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "Padua",
+          "start": 4.61,
+          "end": 4.89
+        },
+        {
+          "raw": "to",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "raw": "gather",
+          "start": 5.07,
+          "end": 5.27
+        },
+        {
+          "raw": "in",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "raw": "some",
+          "start": 5.49,
+          "end": 5.69
+        },
+        {
+          "raw": "debts,",
+          "start": 5.69,
+          "end": 5.95
+        },
+        {
+          "raw": "My",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "raw": "son",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "raw": "Lucentio",
+          "start": 6.71,
+          "end": 7.25
+        },
+        {
+          "raw": "made",
+          "start": 7.25,
+          "end": 7.43
+        },
+        {
+          "raw": "me",
+          "start": 7.43,
+          "end": 7.63
+        },
+        {
+          "raw": "acquainted",
+          "start": 7.63,
+          "end": 7.89
+        },
+        {
+          "raw": "with",
+          "start": 7.89,
+          "end": 8.11
+        },
+        {
+          "raw": "a",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "raw": "weighty",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "raw": "cause",
+          "start": 8.61,
+          "end": 8.83
+        },
+        {
+          "raw": "of",
+          "start": 8.83,
+          "end": 9.01
+        },
+        {
+          "raw": "love",
+          "start": 9.01,
+          "end": 9.17
+        },
+        {
+          "raw": "between",
+          "start": 9.17,
+          "end": 9.47
+        },
+        {
+          "raw": "your",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "raw": "daughter",
+          "start": 9.65,
+          "end": 9.89
+        },
+        {
+          "raw": "and",
+          "start": 9.89,
+          "end": 10.05
+        },
+        {
+          "raw": "himself,",
+          "start": 10.05,
+          "end": 10.43
+        },
+        {
+          "raw": "And,",
+          "start": 10.99,
+          "end": 11.33
+        },
+        {
+          "raw": "for",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "raw": "the",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "good",
+          "start": 12.03,
+          "end": 12.17
+        },
+        {
+          "raw": "report",
+          "start": 12.17,
+          "end": 12.51
+        },
+        {
+          "raw": "I",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "raw": "hear",
+          "start": 12.67,
+          "end": 12.87
+        },
+        {
+          "raw": "of",
+          "start": 12.87,
+          "end": 12.99
+        },
+        {
+          "raw": "you,",
+          "start": 12.99,
+          "end": 13.23
+        },
+        {
+          "raw": "And",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "for",
+          "start": 13.71,
+          "end": 13.85
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 13.97
+        },
+        {
+          "raw": "love",
+          "start": 13.97,
+          "end": 14.13
+        },
+        {
+          "raw": "he",
+          "start": 14.13,
+          "end": 14.33
+        },
+        {
+          "raw": "beareth",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "raw": "to",
+          "start": 14.59,
+          "end": 14.79
+        },
+        {
+          "raw": "your",
+          "start": 14.79,
+          "end": 14.89
+        },
+        {
+          "raw": "daughter",
+          "start": 14.89,
+          "end": 15.17
+        },
+        {
+          "raw": "and",
+          "start": 15.17,
+          "end": 15.47
+        },
+        {
+          "raw": "she",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "raw": "to",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "raw": "him,",
+          "start": 15.75,
+          "end": 16.03
+        },
+        {
+          "raw": "To",
+          "start": 16.47,
+          "end": 16.69
+        },
+        {
+          "raw": "stay",
+          "start": 16.69,
+          "end": 16.91
+        },
+        {
+          "raw": "him",
+          "start": 16.91,
+          "end": 17.03
+        },
+        {
+          "raw": "not",
+          "start": 17.03,
+          "end": 17.21
+        },
+        {
+          "raw": "too",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "raw": "long,",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "raw": "I",
+          "start": 18.07,
+          "end": 18.23
+        },
+        {
+          "raw": "am",
+          "start": 18.23,
+          "end": 18.37
+        },
+        {
+          "raw": "content",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "raw": "in",
+          "start": 18.75,
+          "end": 19.05
+        },
+        {
+          "raw": "a",
+          "start": 19.05,
+          "end": 19.13
+        },
+        {
+          "raw": "good",
+          "start": 19.13,
+          "end": 19.27
+        },
+        {
+          "raw": "father's",
+          "start": 19.27,
+          "end": 19.77
+        },
+        {
+          "raw": "care,",
+          "start": 19.77,
+          "end": 20.03
+        },
+        {
+          "raw": "To",
+          "start": 20.31,
+          "end": 20.43
+        },
+        {
+          "raw": "have",
+          "start": 20.43,
+          "end": 20.59
+        },
+        {
+          "raw": "him",
+          "start": 20.59,
+          "end": 20.75
+        },
+        {
+          "raw": "matched,",
+          "start": 20.75,
+          "end": 21.11
+        },
+        {
+          "raw": "And",
+          "start": 21.69,
+          "end": 21.89
+        },
+        {
+          "raw": "if",
+          "start": 21.89,
+          "end": 22.01
+        },
+        {
+          "raw": "you",
+          "start": 22.01,
+          "end": 22.13
+        },
+        {
+          "raw": "please",
+          "start": 22.13,
+          "end": 22.31
+        },
+        {
+          "raw": "to",
+          "start": 22.31,
+          "end": 22.51
+        },
+        {
+          "raw": "like",
+          "start": 22.51,
+          "end": 22.67
+        },
+        {
+          "raw": "no",
+          "start": 22.67,
+          "end": 22.87
+        },
+        {
+          "raw": "worse",
+          "start": 22.87,
+          "end": 23.09
+        },
+        {
+          "raw": "than",
+          "start": 23.09,
+          "end": 23.31
+        },
+        {
+          "raw": "I,",
+          "start": 23.31,
+          "end": 23.57
+        },
+        {
+          "raw": "Upon",
+          "start": 23.79,
+          "end": 23.99
+        },
+        {
+          "raw": "some",
+          "start": 23.99,
+          "end": 24.25
+        },
+        {
+          "raw": "agreement",
+          "start": 24.25,
+          "end": 24.57
+        },
+        {
+          "raw": "me",
+          "start": 24.57,
+          "end": 24.91
+        },
+        {
+          "raw": "shall",
+          "start": 24.91,
+          "end": 25.03
+        },
+        {
+          "raw": "you",
+          "start": 25.03,
+          "end": 25.21
+        },
+        {
+          "raw": "find",
+          "start": 25.21,
+          "end": 25.47
+        },
+        {
+          "raw": "ready",
+          "start": 25.47,
+          "end": 25.83
+        },
+        {
+          "raw": "and",
+          "start": 25.83,
+          "end": 26.09
+        },
+        {
+          "raw": "willing",
+          "start": 26.09,
+          "end": 26.35
+        },
+        {
+          "raw": "with",
+          "start": 26.35,
+          "end": 26.59
+        },
+        {
+          "raw": "one",
+          "start": 26.59,
+          "end": 26.87
+        },
+        {
+          "raw": "consent",
+          "start": 26.87,
+          "end": 27.29
+        },
+        {
+          "raw": "to",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "raw": "have",
+          "start": 27.53,
+          "end": 27.67
+        },
+        {
+          "raw": "her",
+          "start": 27.67,
+          "end": 27.83
+        },
+        {
+          "raw": "so",
+          "start": 27.83,
+          "end": 28.05
+        },
+        {
+          "raw": "bestowed.",
+          "start": 28.05,
+          "end": 28.51
+        },
+        {
+          "raw": "For",
+          "start": 29.59,
+          "end": 29.79
+        },
+        {
+          "raw": "curious",
+          "start": 29.79,
+          "end": 30.17
+        },
+        {
+          "raw": "I",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "raw": "cannot",
+          "start": 30.45,
+          "end": 30.71
+        },
+        {
+          "raw": "be",
+          "start": 30.71,
+          "end": 30.95
+        },
+        {
+          "raw": "with",
+          "start": 30.95,
+          "end": 31.09
+        },
+        {
+          "raw": "you,",
+          "start": 31.09,
+          "end": 31.37
+        },
+        {
+          "raw": "Signior,",
+          "start": 31.85,
+          "end": 32.11
+        },
+        {
+          "raw": "Baptista,",
+          "start": 32.23,
+          "end": 32.71
+        },
+        {
+          "raw": "of",
+          "start": 33.09,
+          "end": 33.25
+        },
+        {
+          "raw": "whom",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "raw": "I",
+          "start": 33.41,
+          "end": 33.57
+        },
+        {
+          "raw": "hear",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "raw": "so",
+          "start": 33.75,
+          "end": 34.01
+        },
+        {
+          "raw": "well.",
+          "start": 34.01,
+          "end": 34.31
+        }
+      ],
+      "expected_tokens": [
+        "PEDANT.",
+        "Soft,",
+        "son!",
+        "Sir,",
+        "by",
+        "your",
+        "leave:",
+        "having",
+        "come",
+        "to",
+        "Padua",
+        "To",
+        "gather",
+        "in",
+        "some",
+        "debts,",
+        "my",
+        "son",
+        "Lucentio",
+        "Made",
+        "me",
+        "acquainted",
+        "with",
+        "a",
+        "weighty",
+        "cause",
+        "Of",
+        "love",
+        "between",
+        "your",
+        "daughter",
+        "and",
+        "himself:",
+        "And,—for",
+        "the",
+        "good",
+        "report",
+        "I",
+        "hear",
+        "of",
+        "you,",
+        "And",
+        "for",
+        "the",
+        "love",
+        "he",
+        "beareth",
+        "to",
+        "your",
+        "daughter,",
+        "And",
+        "she",
+        "to",
+        "him,—to",
+        "stay",
+        "him",
+        "not",
+        "too",
+        "long,",
+        "I",
+        "am",
+        "content,",
+        "in",
+        "a",
+        "good",
+        "father’s",
+        "care,",
+        "To",
+        "have",
+        "him",
+        "match’d;",
+        "and,",
+        "if",
+        "you",
+        "please",
+        "to",
+        "like",
+        "No",
+        "worse",
+        "than",
+        "I,",
+        "upon",
+        "some",
+        "agreement",
+        "Me",
+        "shall",
+        "you",
+        "find",
+        "ready",
+        "and",
+        "willing",
+        "With",
+        "one",
+        "consent",
+        "to",
+        "have",
+        "her",
+        "so",
+        "bestow’d;",
+        "For",
+        "curious",
+        "I",
+        "cannot",
+        "be",
+        "with",
+        "you,",
+        "Signior",
+        "Baptista,",
+        "of",
+        "whom",
+        "I",
+        "hear",
+        "so",
+        "well."
+      ],
+      "acoustic_expected_tokens": [
+        "Soft,",
+        "son!",
+        "Sir,",
+        "by",
+        "your",
+        "leave:",
+        "having",
+        "come",
+        "to",
+        "Padua",
+        "To",
+        "gather",
+        "in",
+        "some",
+        "debts,",
+        "my",
+        "son",
+        "Lucentio",
+        "Made",
+        "me",
+        "acquainted",
+        "with",
+        "a",
+        "weighty",
+        "cause",
+        "Of",
+        "love",
+        "between",
+        "your",
+        "daughter",
+        "and",
+        "himself:",
+        "And,—for",
+        "the",
+        "good",
+        "report",
+        "I",
+        "hear",
+        "of",
+        "you,",
+        "And",
+        "for",
+        "the",
+        "love",
+        "he",
+        "beareth",
+        "to",
+        "your",
+        "daughter,",
+        "And",
+        "she",
+        "to",
+        "him,—to",
+        "stay",
+        "him",
+        "not",
+        "too",
+        "long,",
+        "I",
+        "am",
+        "content,",
+        "in",
+        "a",
+        "good",
+        "father's",
+        "care,",
+        "To",
+        "have",
+        "him",
+        "match'd;",
+        "and,",
+        "if",
+        "you",
+        "please",
+        "to",
+        "like",
+        "No",
+        "worse",
+        "than",
+        "I,",
+        "upon",
+        "some",
+        "agreement",
+        "Me",
+        "shall",
+        "you",
+        "find",
+        "ready",
+        "and",
+        "willing",
+        "With",
+        "one",
+        "consent",
+        "to",
+        "have",
+        "her",
+        "so",
+        "bestow'd;",
+        "For",
+        "curious",
+        "I",
+        "cannot",
+        "be",
+        "with",
+        "you,",
+        "Signior",
+        "Baptista,",
+        "of",
+        "whom",
+        "I",
+        "hear",
+        "so",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          113,
+          1,
+          114
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 113
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pedant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soft",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "soft",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Son,",
+          "start": 1.15,
+          "end": 1.53,
+          "key": "son",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 2.69,
+          "end": 2.75,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.91,
+          "end": 3.01,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leave,",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "leave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Having",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "having",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Padua",
+          "start": 4.61,
+          "end": 4.89,
+          "key": "padua",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.89,
+          "end": 5.07,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gather",
+          "start": 5.07,
+          "end": 5.27,
+          "key": "gather",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.27,
+          "end": 5.49,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.49,
+          "end": 5.69,
+          "key": "some",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "debts,",
+          "start": 5.69,
+          "end": 5.95,
+          "key": "debts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 6.35,
+          "end": 6.49,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 6.49,
+          "end": 6.71,
+          "key": "son",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Lucentio",
+          "start": 6.71,
+          "end": 7.25,
+          "key": "lucentio",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 7.25,
+          "end": 7.43,
+          "key": "made",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 7.43,
+          "end": 7.63,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "acquainted",
+          "start": 7.63,
+          "end": 7.89,
+          "key": "acquainted",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.89,
+          "end": 8.11,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.11,
+          "end": 8.25,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "weighty",
+          "start": 8.25,
+          "end": 8.61,
+          "key": "weighty",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cause",
+          "start": 8.61,
+          "end": 8.83,
+          "key": "cause",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.83,
+          "end": 9.01,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 9.01,
+          "end": 9.17,
+          "key": "love",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 9.17,
+          "end": 9.47,
+          "key": "between",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.47,
+          "end": 9.65,
+          "key": "your",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 9.65,
+          "end": 9.89,
+          "key": "daughter",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.89,
+          "end": 10.05,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 10.05,
+          "end": 10.43,
+          "key": "himself",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "And, for",
+          "start": 10.99,
+          "end": 11.93,
+          "key": "andfor",
+          "pieces": [
+            33,
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.93,
+          "end": 12.03,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 12.03,
+          "end": 12.17,
+          "key": "good",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 12.17,
+          "end": 12.51,
+          "key": "report",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.51,
+          "end": 12.67,
+          "key": "i",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 12.67,
+          "end": 12.87,
+          "key": "hear",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.87,
+          "end": 12.99,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 12.99,
+          "end": 13.23,
+          "key": "you",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.55,
+          "end": 13.71,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.71,
+          "end": 13.85,
+          "key": "for",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 13.97,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 13.97,
+          "end": 14.13,
+          "key": "love",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.13,
+          "end": 14.33,
+          "key": "he",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "beareth",
+          "start": 14.33,
+          "end": 14.59,
+          "key": "beareth",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.59,
+          "end": 14.79,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.79,
+          "end": 14.89,
+          "key": "your",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 14.89,
+          "end": 15.17,
+          "key": "daughter",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.17,
+          "end": 15.47,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 15.47,
+          "end": 15.61,
+          "key": "she",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.61,
+          "end": 15.75,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "him, To",
+          "start": 15.75,
+          "end": 16.69,
+          "key": "himto",
+          "pieces": [
+            54,
+            55
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 16.69,
+          "end": 16.91,
+          "key": "stay",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.91,
+          "end": 17.03,
+          "key": "him",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 17.03,
+          "end": 17.21,
+          "key": "not",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 17.21,
+          "end": 17.41,
+          "key": "too",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 17.41,
+          "end": 17.71,
+          "key": "long",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.07,
+          "end": 18.23,
+          "key": "i",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 18.23,
+          "end": 18.37,
+          "key": "am",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 18.37,
+          "end": 18.75,
+          "key": "content",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.75,
+          "end": 19.05,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.05,
+          "end": 19.13,
+          "key": "a",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 19.13,
+          "end": 19.27,
+          "key": "good",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 19.27,
+          "end": 19.77,
+          "key": "fathers",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "care,",
+          "start": 19.77,
+          "end": 20.03,
+          "key": "care",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 20.31,
+          "end": 20.43,
+          "key": "to",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 20.43,
+          "end": 20.59,
+          "key": "have",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 20.59,
+          "end": 20.75,
+          "key": "him",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "matched,",
+          "start": 20.75,
+          "end": 21.11,
+          "key": "matched",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 21.69,
+          "end": 21.89,
+          "key": "and",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.89,
+          "end": 22.01,
+          "key": "if",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 22.01,
+          "end": 22.13,
+          "key": "you",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 22.13,
+          "end": 22.31,
+          "key": "please",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.31,
+          "end": 22.51,
+          "key": "to",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 22.51,
+          "end": 22.67,
+          "key": "like",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 22.67,
+          "end": 22.87,
+          "key": "no",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 22.87,
+          "end": 23.09,
+          "key": "worse",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 23.09,
+          "end": 23.31,
+          "key": "than",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 23.31,
+          "end": 23.57,
+          "key": "i",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 23.79,
+          "end": 23.99,
+          "key": "upon",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 23.99,
+          "end": 24.25,
+          "key": "some",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "agreement",
+          "start": 24.25,
+          "end": 24.57,
+          "key": "agreement",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 24.57,
+          "end": 24.91,
+          "key": "me",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 24.91,
+          "end": 25.03,
+          "key": "shall",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 25.03,
+          "end": 25.21,
+          "key": "you",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 25.21,
+          "end": 25.47,
+          "key": "find",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 25.47,
+          "end": 25.83,
+          "key": "ready",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.83,
+          "end": 26.09,
+          "key": "and",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "willing",
+          "start": 26.09,
+          "end": 26.35,
+          "key": "willing",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 26.35,
+          "end": 26.59,
+          "key": "with",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 26.59,
+          "end": 26.87,
+          "key": "one",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "consent",
+          "start": 26.87,
+          "end": 27.29,
+          "key": "consent",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 27.29,
+          "end": 27.53,
+          "key": "to",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 27.53,
+          "end": 27.67,
+          "key": "have",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 27.67,
+          "end": 27.83,
+          "key": "her",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 27.83,
+          "end": 28.05,
+          "key": "so",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "bestowed.",
+          "start": 28.05,
+          "end": 28.51,
+          "key": "bestowed",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 29.59,
+          "end": 29.79,
+          "key": "for",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 29.79,
+          "end": 30.17,
+          "key": "curious",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 30.17,
+          "end": 30.45,
+          "key": "i",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 30.45,
+          "end": 30.71,
+          "key": "cannot",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 30.71,
+          "end": 30.95,
+          "key": "be",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 30.95,
+          "end": 31.09,
+          "key": "with",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 31.09,
+          "end": 31.37,
+          "key": "you",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "Signior,",
+          "start": 31.85,
+          "end": 32.11,
+          "key": "signior",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "Baptista,",
+          "start": 32.23,
+          "end": 32.71,
+          "key": "baptista",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.09,
+          "end": 33.25,
+          "key": "of",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 33.25,
+          "end": 33.41,
+          "key": "whom",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 33.41,
+          "end": 33.57,
+          "key": "i",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 33.57,
+          "end": 33.75,
+          "key": "hear",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 33.75,
+          "end": 34.01,
+          "key": "so",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 34.01,
+          "end": 34.31,
+          "key": "well",
+          "pieces": [
+            115
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 32,
+          "text": "And,—for",
+          "heard": "And, for",
+          "heard_indexes": [
+            33,
+            34
+          ],
+          "start": 10.99,
+          "end": 11.93
+        },
+        {
+          "expected_index": 52,
+          "text": "him,—to",
+          "heard": "him, To",
+          "heard_indexes": [
+            54,
+            55
+          ],
+          "start": 15.75,
+          "end": 16.69
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PEDANT.",
+          "start": 0.89,
+          "end": 0.89
+        },
+        {
+          "text": "Soft,",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "son!",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "text": "Sir,",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "text": "by",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "text": "your",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "leave:",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "having",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "come",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "to",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "text": "Padua",
+          "start": 4.61,
+          "end": 4.89
+        },
+        {
+          "text": "To",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "text": "gather",
+          "start": 5.07,
+          "end": 5.27
+        },
+        {
+          "text": "in",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "text": "some",
+          "start": 5.49,
+          "end": 5.69
+        },
+        {
+          "text": "debts,",
+          "start": 5.69,
+          "end": 5.95
+        },
+        {
+          "text": "my",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "text": "son",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "text": "Lucentio",
+          "start": 6.71,
+          "end": 7.25
+        },
+        {
+          "text": "Made",
+          "start": 7.25,
+          "end": 7.43
+        },
+        {
+          "text": "me",
+          "start": 7.43,
+          "end": 7.63
+        },
+        {
+          "text": "acquainted",
+          "start": 7.63,
+          "end": 7.89
+        },
+        {
+          "text": "with",
+          "start": 7.89,
+          "end": 8.11
+        },
+        {
+          "text": "a",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "text": "weighty",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "text": "cause",
+          "start": 8.61,
+          "end": 8.83
+        },
+        {
+          "text": "Of",
+          "start": 8.83,
+          "end": 9.01
+        },
+        {
+          "text": "love",
+          "start": 9.01,
+          "end": 9.17
+        },
+        {
+          "text": "between",
+          "start": 9.17,
+          "end": 9.47
+        },
+        {
+          "text": "your",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "text": "daughter",
+          "start": 9.65,
+          "end": 9.89
+        },
+        {
+          "text": "and",
+          "start": 9.89,
+          "end": 10.05
+        },
+        {
+          "text": "himself:",
+          "start": 10.05,
+          "end": 10.43
+        },
+        {
+          "text": "And,—for",
+          "start": 10.99,
+          "end": 11.93
+        },
+        {
+          "text": "the",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "good",
+          "start": 12.03,
+          "end": 12.17
+        },
+        {
+          "text": "report",
+          "start": 12.17,
+          "end": 12.51
+        },
+        {
+          "text": "I",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "text": "hear",
+          "start": 12.67,
+          "end": 12.87
+        },
+        {
+          "text": "of",
+          "start": 12.87,
+          "end": 12.99
+        },
+        {
+          "text": "you,",
+          "start": 12.99,
+          "end": 13.23
+        },
+        {
+          "text": "And",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "for",
+          "start": 13.71,
+          "end": 13.85
+        },
+        {
+          "text": "the",
+          "start": 13.85,
+          "end": 13.97
+        },
+        {
+          "text": "love",
+          "start": 13.97,
+          "end": 14.13
+        },
+        {
+          "text": "he",
+          "start": 14.13,
+          "end": 14.33
+        },
+        {
+          "text": "beareth",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "text": "to",
+          "start": 14.59,
+          "end": 14.79
+        },
+        {
+          "text": "your",
+          "start": 14.79,
+          "end": 14.89
+        },
+        {
+          "text": "daughter,",
+          "start": 14.89,
+          "end": 15.17
+        },
+        {
+          "text": "And",
+          "start": 15.17,
+          "end": 15.47
+        },
+        {
+          "text": "she",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "text": "to",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "text": "him,—to",
+          "start": 15.75,
+          "end": 16.69
+        },
+        {
+          "text": "stay",
+          "start": 16.69,
+          "end": 16.91
+        },
+        {
+          "text": "him",
+          "start": 16.91,
+          "end": 17.03
+        },
+        {
+          "text": "not",
+          "start": 17.03,
+          "end": 17.21
+        },
+        {
+          "text": "too",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "text": "long,",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "text": "I",
+          "start": 18.07,
+          "end": 18.23
+        },
+        {
+          "text": "am",
+          "start": 18.23,
+          "end": 18.37
+        },
+        {
+          "text": "content,",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "text": "in",
+          "start": 18.75,
+          "end": 19.05
+        },
+        {
+          "text": "a",
+          "start": 19.05,
+          "end": 19.13
+        },
+        {
+          "text": "good",
+          "start": 19.13,
+          "end": 19.27
+        },
+        {
+          "text": "father’s",
+          "start": 19.27,
+          "end": 19.77
+        },
+        {
+          "text": "care,",
+          "start": 19.77,
+          "end": 20.03
+        },
+        {
+          "text": "To",
+          "start": 20.31,
+          "end": 20.43
+        },
+        {
+          "text": "have",
+          "start": 20.43,
+          "end": 20.59
+        },
+        {
+          "text": "him",
+          "start": 20.59,
+          "end": 20.75
+        },
+        {
+          "text": "match’d;",
+          "start": 20.75,
+          "end": 21.11
+        },
+        {
+          "text": "and,",
+          "start": 21.69,
+          "end": 21.89
+        },
+        {
+          "text": "if",
+          "start": 21.89,
+          "end": 22.01
+        },
+        {
+          "text": "you",
+          "start": 22.01,
+          "end": 22.13
+        },
+        {
+          "text": "please",
+          "start": 22.13,
+          "end": 22.31
+        },
+        {
+          "text": "to",
+          "start": 22.31,
+          "end": 22.51
+        },
+        {
+          "text": "like",
+          "start": 22.51,
+          "end": 22.67
+        },
+        {
+          "text": "No",
+          "start": 22.67,
+          "end": 22.87
+        },
+        {
+          "text": "worse",
+          "start": 22.87,
+          "end": 23.09
+        },
+        {
+          "text": "than",
+          "start": 23.09,
+          "end": 23.31
+        },
+        {
+          "text": "I,",
+          "start": 23.31,
+          "end": 23.57
+        },
+        {
+          "text": "upon",
+          "start": 23.79,
+          "end": 23.99
+        },
+        {
+          "text": "some",
+          "start": 23.99,
+          "end": 24.25
+        },
+        {
+          "text": "agreement",
+          "start": 24.25,
+          "end": 24.57
+        },
+        {
+          "text": "Me",
+          "start": 24.57,
+          "end": 24.91
+        },
+        {
+          "text": "shall",
+          "start": 24.91,
+          "end": 25.03
+        },
+        {
+          "text": "you",
+          "start": 25.03,
+          "end": 25.21
+        },
+        {
+          "text": "find",
+          "start": 25.21,
+          "end": 25.47
+        },
+        {
+          "text": "ready",
+          "start": 25.47,
+          "end": 25.83
+        },
+        {
+          "text": "and",
+          "start": 25.83,
+          "end": 26.09
+        },
+        {
+          "text": "willing",
+          "start": 26.09,
+          "end": 26.35
+        },
+        {
+          "text": "With",
+          "start": 26.35,
+          "end": 26.59
+        },
+        {
+          "text": "one",
+          "start": 26.59,
+          "end": 26.87
+        },
+        {
+          "text": "consent",
+          "start": 26.87,
+          "end": 27.29
+        },
+        {
+          "text": "to",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "text": "have",
+          "start": 27.53,
+          "end": 27.67
+        },
+        {
+          "text": "her",
+          "start": 27.67,
+          "end": 27.83
+        },
+        {
+          "text": "so",
+          "start": 27.83,
+          "end": 28.05
+        },
+        {
+          "text": "bestow’d;",
+          "start": 28.05,
+          "end": 28.51
+        },
+        {
+          "text": "For",
+          "start": 29.59,
+          "end": 29.79
+        },
+        {
+          "text": "curious",
+          "start": 29.79,
+          "end": 30.17
+        },
+        {
+          "text": "I",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "text": "cannot",
+          "start": 30.45,
+          "end": 30.71
+        },
+        {
+          "text": "be",
+          "start": 30.71,
+          "end": 30.95
+        },
+        {
+          "text": "with",
+          "start": 30.95,
+          "end": 31.09
+        },
+        {
+          "text": "you,",
+          "start": 31.09,
+          "end": 31.37
+        },
+        {
+          "text": "Signior",
+          "start": 31.85,
+          "end": 32.11
+        },
+        {
+          "text": "Baptista,",
+          "start": 32.23,
+          "end": 32.71
+        },
+        {
+          "text": "of",
+          "start": 33.09,
+          "end": 33.25
+        },
+        {
+          "text": "whom",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "text": "I",
+          "start": 33.41,
+          "end": 33.57
+        },
+        {
+          "text": "hear",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "text": "so",
+          "start": 33.75,
+          "end": 34.01
+        },
+        {
+          "text": "well.",
+          "start": 34.01,
+          "end": 34.31
+        }
+      ],
+      "stats": {
+        "expected_words": 113,
+        "heard_words": 114,
+        "matched_words": 113
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9525729240849614
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "aee49295076822dd4a293195f2ee1b4c7c9425bde0a02df816a7701ce46b9837",
+  "selected_reasons": []
+}

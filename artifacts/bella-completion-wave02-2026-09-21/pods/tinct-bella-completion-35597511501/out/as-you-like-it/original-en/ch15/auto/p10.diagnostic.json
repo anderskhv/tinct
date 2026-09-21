@@ -1,0 +1,535 @@
+{
+  "complete": true,
+  "signature": "44e8d6bc3b73a6752070311a1c9261e5c6f26e884167924f8dbc44efb93e77e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.23373768478631973,
+      "alignment_seconds": 0.0017727883532643318,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I thought thy heart had been wounded with the claws of a lion.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosalind, I thought thy heart had been wounded with the claws of a lion.",
+          "start": 0.62,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " Rosalind,",
+              "start": 0.62,
+              "end": 1.08,
+              "probability": 0.8207194010416666
+            },
+            {
+              "text": " I",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thought",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thy",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " heart",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " had",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " been",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wounded",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " claws",
+              "start": 3.28,
+              "end": 3.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 3.78,
+              "end": 3.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lion.",
+              "start": 3.86,
+              "end": 4.1,
+              "probability": 0.94775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.62,
+          "end": 1.08
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "thought",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "thy",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "heart",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "had",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "been",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "wounded",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "with",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "claws",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "raw": "lion.",
+          "start": 3.86,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "I",
+        "thought",
+        "thy",
+        "heart",
+        "had",
+        "been",
+        "wounded",
+        "with",
+        "the",
+        "claws",
+        "of",
+        "a",
+        "lion."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "thought",
+        "thy",
+        "heart",
+        "had",
+        "been",
+        "wounded",
+        "with",
+        "the",
+        "claws",
+        "of",
+        "a",
+        "lion."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.62,
+          "end": 1.08,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "heart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.28,
+          "end": 2.42,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "wounded",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "claws",
+          "start": 3.28,
+          "end": 3.56,
+          "key": "claws",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.86,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lion.",
+          "start": 3.86,
+          "end": 4.1,
+          "key": "lion",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "I",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "thought",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "thy",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "heart",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "had",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "been",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "wounded",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "with",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "the",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "claws",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "text": "of",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "text": "a",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "text": "lion.",
+          "start": 3.86,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23575840145349503
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "baca6ebb9b7d5edd5ce4bdc8fd527c1d0a6d472f6e73942455cb13ec423c5edc",
+  "selected_reasons": []
+}

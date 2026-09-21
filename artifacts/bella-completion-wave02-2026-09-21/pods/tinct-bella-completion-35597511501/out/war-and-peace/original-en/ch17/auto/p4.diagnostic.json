@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "0b16747c841e2001b9bc12a32b6f6749a41250f42f8db3064d14398471f41690",
+  "attempts": [
+    {
+      "asr_seconds": 0.13022147584706545,
+      "alignment_seconds": 0.0009980667382478714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ask the count to come to me.\"",
+        "hotwords": "Ask"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ask the count to come to me.",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Ask",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " count",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.496337890625
+            },
+            {
+              "text": " to",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ask",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "count",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "come",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "me.",
+          "start": 1.48,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "“Ask",
+        "the",
+        "count",
+        "to",
+        "come",
+        "to",
+        "me.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ask",
+        "the",
+        "count",
+        "to",
+        "come",
+        "to",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ask",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "ask",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ask",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "the",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "count",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "to",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "come",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "me.”",
+          "start": 1.48,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13135912362486124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5f75b0e01b4347303d48fae4153e845abc2b46c6a8addef7caf9bbf4f98caed",
+  "selected_reasons": []
+}

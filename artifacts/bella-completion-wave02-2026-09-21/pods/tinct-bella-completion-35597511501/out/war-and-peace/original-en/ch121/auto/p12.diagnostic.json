@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "68284e5ef1389b9915b8433acf584f10077d7b259e32e6797c65e943aefdccbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.27605089265853167,
+      "alignment_seconds": 0.0007327292114496231,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She is a splendid match, a millionairess,\" said Perónskaya. \"And look, here come her suitors.\"",
+        "hotwords": "She, Perónskaya, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She is a splendid match, a millionairess,\" said Perónskaya.",
+          "start": 0.0,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.45361328125
+            },
+            {
+              "text": " is",
+              "start": 0.38,
+              "end": 0.52,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " a",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " splendid",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " match,",
+              "start": 0.92,
+              "end": 1.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 1.7,
+              "end": 1.76,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " millionairess,\"",
+              "start": 1.76,
+              "end": 2.82,
+              "probability": 0.26591968536376953
+            },
+            {
+              "text": " said",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Perónskaya.",
+              "start": 2.94,
+              "end": 3.64,
+              "probability": 0.5389528274536133
+            }
+          ]
+        },
+        {
+          "text": " And look, here come her suitors.",
+          "start": 4.64,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " And",
+              "start": 4.64,
+              "end": 4.9,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " look,",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " here",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " come",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " her",
+              "start": 5.88,
+              "end": 6.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " suitors.",
+              "start": 6.06,
+              "end": 6.58,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "is",
+          "start": 0.38,
+          "end": 0.52
+        },
+        {
+          "raw": "a",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "splendid",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "match,",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "raw": "millionairess,\"",
+          "start": 1.76,
+          "end": 2.82
+        },
+        {
+          "raw": "said",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "Perónskaya.",
+          "start": 2.94,
+          "end": 3.64
+        },
+        {
+          "raw": "And",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "raw": "look,",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "here",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "raw": "come",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "her",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "raw": "suitors.",
+          "start": 6.06,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "“She",
+        "is",
+        "a",
+        "splendid",
+        "match,",
+        "a",
+        "millionairess,”",
+        "said",
+        "Perónskaya.",
+        "“And",
+        "look,",
+        "here",
+        "come",
+        "her",
+        "suitors.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"She",
+        "is",
+        "a",
+        "splendid",
+        "match,",
+        "a",
+        "millionairess,\"",
+        "said",
+        "Perónskaya.",
+        "\"And",
+        "look,",
+        "here",
+        "come",
+        "her",
+        "suitors.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.38,
+          "end": 0.52,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "splendid",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "splendid",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "match,",
+          "start": 0.92,
+          "end": 1.38,
+          "key": "match",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "millionairess,\"",
+          "start": 1.76,
+          "end": 2.82,
+          "key": "millionairess",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Perónskaya.",
+          "start": 2.94,
+          "end": 3.64,
+          "key": "perónskaya",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.64,
+          "end": 4.9,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "look,",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 5.48,
+          "end": 5.64,
+          "key": "here",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.88,
+          "end": 6.06,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "suitors.",
+          "start": 6.06,
+          "end": 6.58,
+          "key": "suitors",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "is",
+          "start": 0.38,
+          "end": 0.52
+        },
+        {
+          "text": "a",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "splendid",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "match,",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "text": "millionairess,”",
+          "start": 1.76,
+          "end": 2.82
+        },
+        {
+          "text": "said",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "Perónskaya.",
+          "start": 2.94,
+          "end": 3.64
+        },
+        {
+          "text": "“And",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "text": "look,",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "here",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "text": "come",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "her",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "text": "suitors.”",
+          "start": 6.06,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27686875592917204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d1b6b64c813bb2c86e72d7bf63ccfdc7e1ee128e511d781bcdf38ce79448a2b",
+  "selected_reasons": []
+}

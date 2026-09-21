@@ -1,0 +1,404 @@
+{
+  "complete": true,
+  "signature": "d024e826f9da793fb037c0ef40ccfe2ccdfe33850ab64eb4016baa2386031efb",
+  "attempts": [
+    {
+      "asr_seconds": 0.27182915806770325,
+      "alignment_seconds": 0.0009246943518519402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Speak quicker, quicker! Don't torture me!\" Kutúzov interrupted him.",
+        "hotwords": "Speak, Don't, Kutúzov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Speak quicker, quicker! Don't torture me!\" Kutúzov interrupted him.",
+          "start": 0.0,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " Speak",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.470947265625
+            },
+            {
+              "text": " quicker,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " quicker!",
+              "start": 1.42,
+              "end": 1.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Don't",
+              "start": 2.38,
+              "end": 2.82,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " torture",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 3.0,
+              "end": 3.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": "!\"",
+              "start": 3.58,
+              "end": 4.46,
+              "probability": 0.04730224609375
+            },
+            {
+              "text": " Kutúzov",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.4849248081445694
+            },
+            {
+              "text": " interrupted",
+              "start": 4.84,
+              "end": 5.42,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " him.",
+              "start": 5.42,
+              "end": 5.74,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Speak",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "quicker,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "quicker!",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "raw": "Don't",
+          "start": 2.38,
+          "end": 2.82
+        },
+        {
+          "raw": "torture",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "me",
+          "start": 3.0,
+          "end": 3.58
+        },
+        {
+          "raw": "!\"",
+          "start": 3.58,
+          "end": 4.46
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "interrupted",
+          "start": 4.84,
+          "end": 5.42
+        },
+        {
+          "raw": "him.",
+          "start": 5.42,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "“Speak",
+        "quicker,",
+        "quicker!",
+        "Don’t",
+        "torture",
+        "me!”",
+        "Kutúzov",
+        "interrupted",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Speak",
+        "quicker,",
+        "quicker!",
+        "Don't",
+        "torture",
+        "me!\"",
+        "Kutúzov",
+        "interrupted",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Speak",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "speak",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quicker,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "quicker",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quicker!",
+          "start": 1.42,
+          "end": 1.42,
+          "key": "quicker",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 2.38,
+          "end": 2.82,
+          "key": "dont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "torture",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "torture",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.0,
+          "end": 3.58,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.58,
+          "end": 4.46,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "kutúzov",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "interrupted",
+          "start": 4.84,
+          "end": 5.42,
+          "key": "interrupted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.42,
+          "end": 5.74,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Speak",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "quicker,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "quicker!",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "Don’t",
+          "start": 2.38,
+          "end": 2.82
+        },
+        {
+          "text": "torture",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "me!”",
+          "start": 3.0,
+          "end": 3.58
+        },
+        {
+          "text": "Kutúzov",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "interrupted",
+          "start": 4.84,
+          "end": 5.42
+        },
+        {
+          "text": "him.",
+          "start": 5.42,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2728833965957165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9397f53420f1b90316d3fd994e66c5147db892e286617f9d8bb99e74bd2e1667",
+  "selected_reasons": []
+}

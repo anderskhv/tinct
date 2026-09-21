@@ -1,0 +1,588 @@
+{
+  "complete": true,
+  "signature": "eb1e5e42e748911942c54b79ba503f87fc50a1678409a202eb470d1aba7bf1b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.3207920342683792,
+      "alignment_seconds": 0.0011669853702187538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then thus: Baptista is safe, talking with the deceiving father of a deceitful son.",
+        "hotwords": "Then, Baptista"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By Ondello Then thus, Baptista is safe, talking with the deceiving father of a deceitful son.",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.355224609375
+            },
+            {
+              "text": " Ondello",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.7189127604166666
+            },
+            {
+              "text": " Then",
+              "start": 1.05,
+              "end": 1.75,
+              "probability": 0.0162200927734375
+            },
+            {
+              "text": " thus,",
+              "start": 1.75,
+              "end": 2.19,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Baptista",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.32583045959472656
+            },
+            {
+              "text": " is",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " safe,",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " talking",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " with",
+              "start": 4.17,
+              "end": 4.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " deceiving",
+              "start": 4.53,
+              "end": 4.99,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " father",
+              "start": 4.99,
+              "end": 5.25,
+              "probability": 0.931640625
+            },
+            {
+              "text": " of",
+              "start": 5.25,
+              "end": 5.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 5.53,
+              "end": 5.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " deceitful",
+              "start": 5.63,
+              "end": 6.11,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " son.",
+              "start": 6.11,
+              "end": 6.37,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Ondello",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "Then",
+          "start": 1.05,
+          "end": 1.75
+        },
+        {
+          "raw": "thus,",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "raw": "Baptista",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "is",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "safe,",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "talking",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "with",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "deceiving",
+          "start": 4.53,
+          "end": 4.99
+        },
+        {
+          "raw": "father",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.53
+        },
+        {
+          "raw": "a",
+          "start": 5.53,
+          "end": 5.63
+        },
+        {
+          "raw": "deceitful",
+          "start": 5.63,
+          "end": 6.11
+        },
+        {
+          "raw": "son.",
+          "start": 6.11,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "BIONDELLO.",
+        "Then",
+        "thus:",
+        "Baptista",
+        "is",
+        "safe,",
+        "talking",
+        "with",
+        "the",
+        "deceiving",
+        "father",
+        "of",
+        "a",
+        "deceitful",
+        "son."
+      ],
+      "acoustic_expected_tokens": [
+        "Then",
+        "thus:",
+        "Baptista",
+        "is",
+        "safe,",
+        "talking",
+        "with",
+        "the",
+        "deceiving",
+        "father",
+        "of",
+        "a",
+        "deceitful",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          14,
+          2,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ondello",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "ondello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.05,
+          "end": 1.75,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thus,",
+          "start": 1.75,
+          "end": 2.19,
+          "key": "thus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Baptista",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "baptista",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "safe,",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "safe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "talking",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "talking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.17,
+          "end": 4.39,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.53,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deceiving",
+          "start": 4.53,
+          "end": 4.99,
+          "key": "deceiving",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 4.99,
+          "end": 5.25,
+          "key": "father",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.53,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.53,
+          "end": 5.63,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deceitful",
+          "start": 5.63,
+          "end": 6.11,
+          "key": "deceitful",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 6.11,
+          "end": 6.37,
+          "key": "son",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIONDELLO.",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "text": "Then",
+          "start": 1.05,
+          "end": 1.75
+        },
+        {
+          "text": "thus:",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "text": "Baptista",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "is",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "safe,",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "talking",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "with",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "deceiving",
+          "start": 4.53,
+          "end": 4.99
+        },
+        {
+          "text": "father",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "text": "of",
+          "start": 5.25,
+          "end": 5.53
+        },
+        {
+          "text": "a",
+          "start": 5.53,
+          "end": 5.63
+        },
+        {
+          "text": "deceitful",
+          "start": 5.63,
+          "end": 6.11
+        },
+        {
+          "text": "son.",
+          "start": 6.11,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32212162390351295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e9232b9ba260c63cbedb099289d597baaf215a0bad8d6631f870ce823caf8c4",
+  "selected_reasons": []
+}

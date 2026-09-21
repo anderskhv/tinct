@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "250620939cb0fca6a29d48d9f7690af95124be75b5ade2b38775e6fa76088170",
+  "attempts": [
+    {
+      "asr_seconds": 0.24049291294068098,
+      "alignment_seconds": 0.0011256914585828781,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good-by, Peter Kirílych!\" Pierre heard the other voices repeat.",
+        "hotwords": "Good-by, Peter, Kirílych, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good-by, Peter Kirílych, Pierre heard the other voices repeat.",
+          "start": 0.0,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.0255889892578125
+            },
+            {
+              "text": "-by,",
+              "start": 0.36,
+              "end": 0.68,
+              "probability": 0.4127197265625
+            },
+            {
+              "text": " Peter",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Kirílych,",
+              "start": 1.36,
+              "end": 2.32,
+              "probability": 0.29476404190063477
+            },
+            {
+              "text": " Pierre",
+              "start": 2.62,
+              "end": 3.32,
+              "probability": 0.3154296875
+            },
+            {
+              "text": " heard",
+              "start": 3.32,
+              "end": 3.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " other",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " voices",
+              "start": 4.06,
+              "end": 4.38,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " repeat.",
+              "start": 4.38,
+              "end": 4.82,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "-by,",
+          "start": 0.36,
+          "end": 0.68
+        },
+        {
+          "raw": "Peter",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "Kirílych,",
+          "start": 1.36,
+          "end": 2.32
+        },
+        {
+          "raw": "Pierre",
+          "start": 2.62,
+          "end": 3.32
+        },
+        {
+          "raw": "heard",
+          "start": 3.32,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "other",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "voices",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "raw": "repeat.",
+          "start": 4.38,
+          "end": 4.82
+        }
+      ],
+      "expected_tokens": [
+        "“Good-by,",
+        "Peter",
+        "Kirílych!”",
+        "Pierre",
+        "heard",
+        "the",
+        "other",
+        "voices",
+        "repeat."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Good-by,",
+        "Peter",
+        "Kirílych!\"",
+        "Pierre",
+        "heard",
+        "the",
+        "other",
+        "voices",
+        "repeat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good -by,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "goodby",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Peter",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "peter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kirílych,",
+          "start": 1.36,
+          "end": 2.32,
+          "key": "kirílych",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 2.62,
+          "end": 3.32,
+          "key": "pierre",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 3.32,
+          "end": 3.7,
+          "key": "heard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "voices",
+          "start": 4.06,
+          "end": 4.38,
+          "key": "voices",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "repeat.",
+          "start": 4.38,
+          "end": 4.82,
+          "key": "repeat",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Good-by,",
+          "heard": "Good -by,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.0,
+          "end": 0.68
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Good-by,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Peter",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "Kirílych!”",
+          "start": 1.36,
+          "end": 2.32
+        },
+        {
+          "text": "Pierre",
+          "start": 2.62,
+          "end": 3.32
+        },
+        {
+          "text": "heard",
+          "start": 3.32,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "other",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "text": "voices",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "text": "repeat.",
+          "start": 4.38,
+          "end": 4.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2417571423575282
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af01a73905dcab1fdb60dcdcce922e932b65e6998675b1d85fd568c5cd9746e4",
+  "selected_reasons": []
+}

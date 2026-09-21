@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "484f7806191e188523684217719d961ce6e5a4ed77992cdf42b024e92b986c1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2834187801927328,
+      "alignment_seconds": 0.0019058194011449814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I pray you stand good father to me now; Give me Bianca for my patrimony.",
+        "hotwords": "I, Give, Bianca"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I pray you stand good father to me now, Give me Bianca for my patrimony.",
+          "start": 0.08,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " pray",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.873046875
+            },
+            {
+              "text": " stand",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " father",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " to",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " now,",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Give",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.038848876953125
+            },
+            {
+              "text": " me",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Bianca",
+              "start": 3.06,
+              "end": 3.52,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " for",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " my",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " patrimony.",
+              "start": 3.86,
+              "end": 4.4,
+              "probability": 0.9617513020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "pray",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "stand",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "good",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "father",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "now,",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "Give",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "me",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "Bianca",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "raw": "for",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "patrimony.",
+          "start": 3.86,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "pray",
+        "you",
+        "stand",
+        "good",
+        "father",
+        "to",
+        "me",
+        "now;",
+        "Give",
+        "me",
+        "Bianca",
+        "for",
+        "my",
+        "patrimony."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "pray",
+        "you",
+        "stand",
+        "good",
+        "father",
+        "to",
+        "me",
+        "now;",
+        "Give",
+        "me",
+        "Bianca",
+        "for",
+        "my",
+        "patrimony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bianca",
+          "start": 3.06,
+          "end": 3.52,
+          "key": "bianca",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "patrimony.",
+          "start": 3.86,
+          "end": 4.4,
+          "key": "patrimony",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "pray",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "you",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "stand",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "good",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "father",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "to",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "me",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "now;",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "text": "Give",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "me",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "text": "Bianca",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "text": "for",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "patrimony.",
+          "start": 3.86,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28558770939707756
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6fd8287100c251f0cd441622774b09f785effd31f80a39658e7f0712b849dc4b",
+  "selected_reasons": []
+}

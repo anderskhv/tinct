@@ -1,0 +1,234 @@
+{
+  "complete": true,
+  "signature": "11bb861849e28e2cfe1e45c8f6935560350a1fe1b028895f5ad5a5c63554fa7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13663103710860014,
+      "alignment_seconds": 0.0009307432919740677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter ORLANDO and OLIVER",
+        "hotwords": "Enter, ORLANDO, OLIVER"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter ORLANDO and OLIVER",
+          "start": 0.18,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " ORLANDO",
+              "start": 0.68,
+              "end": 1.22,
+              "probability": 0.44968946774800617
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " OLIVER",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "ORLANDO",
+          "start": 0.68,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "OLIVER",
+          "start": 1.4,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "ORLANDO",
+        "and",
+        "OLIVER"
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "ORLANDO",
+        "and",
+        "OLIVER"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        2
+      ],
+      "unspoken_expected_indexes": [
+        1,
+        3
+      ],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ORLANDO",
+          "start": 0.68,
+          "end": 1.22,
+          "key": "orlando",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "OLIVER",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "oliver",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "ORLANDO",
+          "start": 0.68,
+          "end": 0.95
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "OLIVER",
+          "start": 1.4,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13769056368619204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "075dcb89980255ce9619336a3297cd0ef79d7f9681457ebcc4945b63617e173b",
+  "selected_reasons": []
+}

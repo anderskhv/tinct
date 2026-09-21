@@ -1,0 +1,956 @@
+{
+  "complete": true,
+  "signature": "66ad7af550a5263dd42654918417279c746fd8a1a66f09c2cb0a83941aee1a96",
+  "attempts": [
+    {
+      "asr_seconds": 0.28983572497963905,
+      "alignment_seconds": 0.0013894997537136078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'No barrier bars a Russian's path'—we'll go!\" shouted Pétya.",
+        "hotwords": "No, Russian's, Pétya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"'No barrier bars a Russian's path'—we'll go!\" shouted Pétya.",
+          "start": 0.0,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " \"'No",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " barrier",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " bars",
+              "start": 0.82,
+              "end": 1.16,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " Russian's",
+              "start": 1.3,
+              "end": 1.72,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " path",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "'—we'll",
+              "start": 2.0,
+              "end": 2.54,
+              "probability": 0.2891502380371094
+            },
+            {
+              "text": " go",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": "!\"",
+              "start": 2.8,
+              "end": 3.12,
+              "probability": 0.001873016357421875
+            },
+            {
+              "text": " shouted",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Pétya.",
+              "start": 3.36,
+              "end": 3.88,
+              "probability": 0.334212064743042
+            }
+          ]
+        },
+        {
+          "text": " No barrier bars a Russian's path—we'll go!",
+          "start": 3.88,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " No",
+              "start": 3.88,
+              "end": 4.7,
+              "probability": 0.0015020370483398438
+            },
+            {
+              "text": " barrier",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 4.1604042053222656e-05
+            },
+            {
+              "text": " bars",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 3.3855438232421875e-05
+            },
+            {
+              "text": " a",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.00017464160919189453
+            },
+            {
+              "text": " Russian's",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.005065053701400757
+            },
+            {
+              "text": " path—we'll",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.022006943821907043
+            },
+            {
+              "text": " go!",
+              "start": 4.7,
+              "end": 4.7,
+              "probability": 0.03350830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"'No",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "barrier",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "bars",
+          "start": 0.82,
+          "end": 1.16
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "Russian's",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "raw": "path",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "'—we'll",
+          "start": 2.0,
+          "end": 2.54
+        },
+        {
+          "raw": "go",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "!\"",
+          "start": 2.8,
+          "end": 3.12
+        },
+        {
+          "raw": "shouted",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "Pétya.",
+          "start": 3.36,
+          "end": 3.88
+        },
+        {
+          "raw": "No",
+          "start": 3.88,
+          "end": 4.7
+        },
+        {
+          "raw": "barrier",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "bars",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "Russian's",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "path—we'll",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "raw": "go!",
+          "start": 4.7,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "“‘No",
+        "barrier",
+        "bars",
+        "a",
+        "Russian’s",
+        "path’—we’ll",
+        "go!”",
+        "shouted",
+        "Pétya."
+      ],
+      "acoustic_expected_tokens": [
+        "\"'No",
+        "barrier",
+        "bars",
+        "a",
+        "Russian's",
+        "path'—we'll",
+        "go!\"",
+        "shouted",
+        "Pétya."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          11
+        ],
+        [
+          "equal",
+          0,
+          7,
+          11,
+          18
+        ],
+        [
+          "delete",
+          7,
+          9,
+          18,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          11
+        ],
+        [
+          "delete",
+          7,
+          9,
+          18,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"'No",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "barrier",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "barrier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 0.82,
+          "end": 1.16,
+          "key": "bars",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Russian's",
+          "start": 1.3,
+          "end": 1.72,
+          "key": "russians",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "path",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "path",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'—we'll",
+          "start": 2.0,
+          "end": 2.54,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.54,
+          "end": 2.8,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.8,
+          "end": 3.12,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 3.12,
+          "end": 3.36,
+          "key": "shouted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pétya.",
+          "start": 3.36,
+          "end": 3.88,
+          "key": "pétya",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.88,
+          "end": 4.7,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "barrier",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "barrier",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "bars",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Russian's",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "russians",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "path—we'll",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "pathwell",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "go!",
+          "start": 4.7,
+          "end": 4.7,
+          "key": "go",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“‘No",
+          "start": 3.88,
+          "end": 4.7
+        },
+        {
+          "text": "barrier",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "bars",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "a",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "Russian’s",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "path’—we’ll",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "go!”",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "shouted",
+          "start": 4.7,
+          "end": 4.7
+        },
+        {
+          "text": "Pétya.",
+          "start": 4.7,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 18,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2915272815153003
+    },
+    {
+      "asr_seconds": 0.2262415299192071,
+      "alignment_seconds": 0.0014156978577375412,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "No, Russian's, Pétya"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No barrier bars a Russian's path, we'll go, shouted Pétya",
+          "start": 0.0,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.1383056640625
+            },
+            {
+              "text": " barrier",
+              "start": 0.46,
+              "end": 0.84,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " bars",
+              "start": 0.84,
+              "end": 1.16,
+              "probability": 0.947265625
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Russian's",
+              "start": 1.32,
+              "end": 1.72,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " path,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " we'll",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.740478515625
+            },
+            {
+              "text": " go,",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shouted",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Pétya",
+              "start": 3.36,
+              "end": 3.88,
+              "probability": 0.3429986238479614
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "barrier",
+          "start": 0.46,
+          "end": 0.84
+        },
+        {
+          "raw": "bars",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "Russian's",
+          "start": 1.32,
+          "end": 1.72
+        },
+        {
+          "raw": "path,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "we'll",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "go,",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "shouted",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "Pétya",
+          "start": 3.36,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "“‘No",
+        "barrier",
+        "bars",
+        "a",
+        "Russian’s",
+        "path’—we’ll",
+        "go!”",
+        "shouted",
+        "Pétya."
+      ],
+      "acoustic_expected_tokens": [
+        "\"'No",
+        "barrier",
+        "bars",
+        "a",
+        "Russian's",
+        "path'—we'll",
+        "go!\"",
+        "shouted",
+        "Pétya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "barrier",
+          "start": 0.46,
+          "end": 0.84,
+          "key": "barrier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 0.84,
+          "end": 1.16,
+          "key": "bars",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Russian's",
+          "start": 1.32,
+          "end": 1.72,
+          "key": "russians",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "path, we'll",
+          "start": 1.72,
+          "end": 2.54,
+          "key": "pathwell",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 3.12,
+          "end": 3.36,
+          "key": "shouted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pétya",
+          "start": 3.36,
+          "end": 3.88,
+          "key": "pétya",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "path'—we'll",
+          "heard": "path, we'll",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.72,
+          "end": 2.54
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“‘No",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "barrier",
+          "start": 0.46,
+          "end": 0.84
+        },
+        {
+          "text": "bars",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "text": "a",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "Russian’s",
+          "start": 1.32,
+          "end": 1.72
+        },
+        {
+          "text": "path’—we’ll",
+          "start": 1.72,
+          "end": 2.54
+        },
+        {
+          "text": "go!”",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "shouted",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "Pétya.",
+          "start": 3.36,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22783406171947718
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "bb13b72a597488d966533408bb169c6f252fdddda9163b7c1580a8c938a0f6ce",
+  "selected_reasons": []
+}

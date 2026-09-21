@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "0380fc40db87fe2e2e2c50294ddf76841a7a710c1d92bc7f7960e61067703f76",
+  "attempts": [
+    {
+      "asr_seconds": 0.19169803895056248,
+      "alignment_seconds": 0.000961916521191597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt Solanio, Salarino and the Servant.",
+        "hotwords": "Exeunt, Solanio, Salarino, Servant"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Solanio, Salarino and the Servant.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6112467447916666
+            },
+            {
+              "text": " Solanio,",
+              "start": 0.79,
+              "end": 1.37,
+              "probability": 0.6251627604166666
+            },
+            {
+              "text": " Salarino",
+              "start": 1.81,
+              "end": 2.25,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " and",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.86328125
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Servant.",
+              "start": 2.55,
+              "end": 3.03,
+              "probability": 0.66064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Solanio,",
+          "start": 0.79,
+          "end": 1.37
+        },
+        {
+          "raw": "Salarino",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "Servant.",
+          "start": 2.55,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Solanio,",
+        "Salarino",
+        "and",
+        "the",
+        "Servant._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "Solanio,",
+        "Salarino",
+        "and",
+        "the",
+        "Servant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Solanio,",
+          "start": 0.79,
+          "end": 1.37,
+          "key": "solanio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Salarino",
+          "start": 1.81,
+          "end": 2.25,
+          "key": "salarino",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Servant.",
+          "start": 2.55,
+          "end": 3.03,
+          "key": "servant",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Solanio,",
+          "start": 0.79,
+          "end": 1.37
+        },
+        {
+          "text": "Salarino",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "text": "and",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "Servant._]",
+          "start": 2.55,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19279872439801693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8a45313823bb35e3a3186b5dbb0d034830c6be426df6b576ead16c6475890060",
+  "selected_reasons": []
+}

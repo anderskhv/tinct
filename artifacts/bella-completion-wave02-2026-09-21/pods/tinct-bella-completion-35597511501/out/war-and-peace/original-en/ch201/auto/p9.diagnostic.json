@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "92f5eebc177cec631210bf67d85853b049e1ec38f930f3aee70c942c495ca21b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20822120551019907,
+      "alignment_seconds": 0.0014968933537602425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"If you order it they will go away,\" said he.",
+        "hotwords": "If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If you order it they will go away,\" said he.",
+          "start": 0.0,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.359375
+            },
+            {
+              "text": " you",
+              "start": 0.36,
+              "end": 0.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " order",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 0.98,
+              "end": 1.08,
+              "probability": 0.896484375
+            },
+            {
+              "text": " will",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " go",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " away,\"",
+              "start": 1.42,
+              "end": 2.12,
+              "probability": 0.6949462890625
+            },
+            {
+              "text": " said",
+              "start": 2.12,
+              "end": 2.16,
+              "probability": 0.982421875
+            },
+            {
+              "text": " he.",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "you",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "raw": "order",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "it",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "they",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "raw": "will",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "go",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "away,\"",
+          "start": 1.42,
+          "end": 2.12
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.16
+        },
+        {
+          "raw": "he.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "“If",
+        "you",
+        "order",
+        "it",
+        "they",
+        "will",
+        "go",
+        "away,”",
+        "said",
+        "he."
+      ],
+      "acoustic_expected_tokens": [
+        "\"If",
+        "you",
+        "order",
+        "it",
+        "they",
+        "will",
+        "go",
+        "away,\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.36,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "order",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.98,
+          "end": 1.08,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away,\"",
+          "start": 1.42,
+          "end": 2.12,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.16,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“If",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "you",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "text": "order",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "it",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "they",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "text": "will",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "go",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "away,”",
+          "start": 1.42,
+          "end": 2.12
+        },
+        {
+          "text": "said",
+          "start": 2.12,
+          "end": 2.16
+        },
+        {
+          "text": "he.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20992958545684814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "728119ce3ed697d59a4aafb62df939e58ae6372aca873657c5bbad0c00bd677b",
+  "selected_reasons": []
+}

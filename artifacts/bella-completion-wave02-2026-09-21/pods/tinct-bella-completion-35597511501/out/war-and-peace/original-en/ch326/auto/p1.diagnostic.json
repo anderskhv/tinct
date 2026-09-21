@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "f53e496789ea1fb2a7d2aae365d53d8a76b2871f5b994c2efad4f38be09751f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.34349550772458315,
+      "alignment_seconds": 0.0016164863482117653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "About midnight they heard the sound of steps in the snow of the forest, and the crackling of dry branches.",
+        "hotwords": "About"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " About midnight they heard the sound of steps in the snow of the forest, and the crackling of dry branches.",
+          "start": 0.0,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " About",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " midnight",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.892578125
+            },
+            {
+              "text": " heard",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sound",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steps",
+              "start": 1.8,
+              "end": 2.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " snow",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forest,",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " crackling",
+              "start": 3.66,
+              "end": 4.06,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " of",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dry",
+              "start": 4.22,
+              "end": 4.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " branches.",
+              "start": 4.52,
+              "end": 4.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "About",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "midnight",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "they",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "heard",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "sound",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "of",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "steps",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "raw": "in",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "snow",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "raw": "forest,",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "crackling",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "dry",
+          "start": 4.22,
+          "end": 4.52
+        },
+        {
+          "raw": "branches.",
+          "start": 4.52,
+          "end": 4.98
+        }
+      ],
+      "expected_tokens": [
+        "About",
+        "midnight",
+        "they",
+        "heard",
+        "the",
+        "sound",
+        "of",
+        "steps",
+        "in",
+        "the",
+        "snow",
+        "of",
+        "the",
+        "forest,",
+        "and",
+        "the",
+        "crackling",
+        "of",
+        "dry",
+        "branches."
+      ],
+      "acoustic_expected_tokens": [
+        "About",
+        "midnight",
+        "they",
+        "heard",
+        "the",
+        "sound",
+        "of",
+        "steps",
+        "in",
+        "the",
+        "snow",
+        "of",
+        "the",
+        "forest,",
+        "and",
+        "the",
+        "crackling",
+        "of",
+        "dry",
+        "branches."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "About",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "about",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "midnight",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "midnight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "sound",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 1.8,
+          "end": 2.06,
+          "key": "steps",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "snow",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "snow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "forest,",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "forest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.54,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "crackling",
+          "start": 3.66,
+          "end": 4.06,
+          "key": "crackling",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 4.22,
+          "end": 4.52,
+          "key": "dry",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "branches.",
+          "start": 4.52,
+          "end": 4.98,
+          "key": "branches",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "About",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "midnight",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "they",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "heard",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "sound",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "of",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "steps",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "in",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "snow",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "of",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "forest,",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "crackling",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "text": "of",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "dry",
+          "start": 4.22,
+          "end": 4.52
+        },
+        {
+          "text": "branches.",
+          "start": 4.52,
+          "end": 4.98
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3453280068933964
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "760a0640d9f63028f79af30dcb167c2c7a5741aea06c31c0bf0275ce3a737938",
+  "selected_reasons": []
+}

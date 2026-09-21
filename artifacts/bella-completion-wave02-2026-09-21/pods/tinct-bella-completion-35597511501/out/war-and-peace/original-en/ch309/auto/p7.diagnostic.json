@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "7d06f35041260a80e9cc8fe94a3e7061b017e4332a28c62eb2e1dfd55e4b41aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.13791767321527004,
+      "alignment_seconds": 0.0006584050133824348,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The signal!\" said he.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The signal, said he.",
+          "start": 0.0,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " signal,",
+              "start": 0.36,
+              "end": 0.7,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " said",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he.",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "signal,",
+          "start": 0.36,
+          "end": 0.7
+        },
+        {
+          "raw": "said",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "he.",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "signal!”",
+        "said",
+        "he."
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "signal!\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "signal,",
+          "start": 0.36,
+          "end": 0.7,
+          "key": "signal",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "signal!”",
+          "start": 0.36,
+          "end": 0.7
+        },
+        {
+          "text": "said",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "he.",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13867715280503035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cdcc05d2cc8b18fc49e443395f58f19807dfafb1bc8a6c4349cb352eda0f7c3e",
+  "selected_reasons": []
+}

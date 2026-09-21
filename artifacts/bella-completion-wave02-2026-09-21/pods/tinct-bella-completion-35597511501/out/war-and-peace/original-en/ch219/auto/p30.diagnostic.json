@@ -1,0 +1,419 @@
+{
+  "complete": true,
+  "signature": "28218704fef945ad7edaab5f167b226e571b19aad3420908b6607a351f463fd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20944609679281712,
+      "alignment_seconds": 0.0013845060020685196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "At half-past five Napoleon rode to the village of Shevárdino.",
+        "hotwords": "At, Napoleon, Shevárdino"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " At half-past five Napoleon rode to the village of Shevárdino.",
+          "start": 0.0,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.49658203125
+            },
+            {
+              "text": " half",
+              "start": 0.34,
+              "end": 0.6,
+              "probability": 0.755859375
+            },
+            {
+              "text": "-past",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " five",
+              "start": 0.84,
+              "end": 1.2,
+              "probability": 0.7421875
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.2,
+              "end": 1.74,
+              "probability": 0.67578125
+            },
+            {
+              "text": " rode",
+              "start": 1.74,
+              "end": 2.04,
+              "probability": 0.04449462890625
+            },
+            {
+              "text": " to",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " village",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Shevárdino.",
+              "start": 2.7,
+              "end": 3.3,
+              "probability": 0.2798455715179443
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "half",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "raw": "-past",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "five",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.2,
+          "end": 1.74
+        },
+        {
+          "raw": "rode",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "raw": "village",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "Shevárdino.",
+          "start": 2.7,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "half-past",
+        "five",
+        "Napoleon",
+        "rode",
+        "to",
+        "the",
+        "village",
+        "of",
+        "Shevárdino."
+      ],
+      "acoustic_expected_tokens": [
+        "At",
+        "half-past",
+        "five",
+        "Napoleon",
+        "rode",
+        "to",
+        "the",
+        "village",
+        "of",
+        "Shevárdino."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "half -past",
+          "start": 0.34,
+          "end": 0.84,
+          "key": "halfpast",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 0.84,
+          "end": 1.2,
+          "key": "five",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.2,
+          "end": 1.74,
+          "key": "napoleon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 1.74,
+          "end": 2.04,
+          "key": "rode",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "village",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "village",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Shevárdino.",
+          "start": 2.7,
+          "end": 3.3,
+          "key": "shevárdino",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "half-past",
+          "heard": "half -past",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.34,
+          "end": 0.84
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "half-past",
+          "start": 0.34,
+          "end": 0.84
+        },
+        {
+          "text": "five",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "text": "Napoleon",
+          "start": 1.2,
+          "end": 1.74
+        },
+        {
+          "text": "rode",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "text": "to",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "text": "village",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "Shevárdino.",
+          "start": 2.7,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21102549973875284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff707638d788e0ad7361ba30c0507383be9c684bfdf960dc994de495d5560dac",
+  "selected_reasons": []
+}

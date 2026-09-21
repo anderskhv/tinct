@@ -1,0 +1,1078 @@
+{
+  "complete": true,
+  "signature": "ddae5e44a25bc1655d53e71e3bf0823dd7ff77cdb43ac6514239053f329becaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.5273450892418623,
+      "alignment_seconds": 0.004278780892491341,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The French at Vítebsk, in four days' march they may be at Smolénsk; perhaps are already there! Tíkhon!\" Tíkhon jumped up. \"No, no, I don't want anything!\" he shouted.",
+        "hotwords": "The, French, Vítebsk, Smolénsk, Tíkhon, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The French at Vítebsk, in four days' march they may be at Smolénsk, perhaps are already there!",
+          "start": 0.0,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " French",
+              "start": 0.3,
+              "end": 0.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " at",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Vítebsk,",
+              "start": 0.8,
+              "end": 1.36,
+              "probability": 0.3052486181259155
+            },
+            {
+              "text": " in",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " four",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.87109375
+            },
+            {
+              "text": " days'",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " march",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.91015625
+            },
+            {
+              "text": " they",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " may",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Smolénsk,",
+              "start": 3.34,
+              "end": 4.12,
+              "probability": 0.7194336175918579
+            },
+            {
+              "text": " perhaps",
+              "start": 4.3,
+              "end": 4.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are",
+              "start": 4.6,
+              "end": 4.88,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " already",
+              "start": 4.88,
+              "end": 5.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " there!",
+              "start": 5.24,
+              "end": 5.74,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Tíkhon! Tíkhon jumped up.",
+          "start": 6.5,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " Tíkhon!",
+              "start": 6.5,
+              "end": 7.06,
+              "probability": 0.06484313309192657
+            },
+            {
+              "text": " Tíkhon",
+              "start": 7.86,
+              "end": 8.42,
+              "probability": 0.9765625
+            },
+            {
+              "text": " jumped",
+              "start": 8.42,
+              "end": 8.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " up.",
+              "start": 8.66,
+              "end": 9.06,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " No, no, I don't want anything!\" he shouted.",
+          "start": 9.72,
+          "end": 12.68,
+          "words": [
+            {
+              "text": " No,",
+              "start": 9.72,
+              "end": 10.28,
+              "probability": 0.1348876953125
+            },
+            {
+              "text": " no,",
+              "start": 10.6,
+              "end": 10.78,
+              "probability": 0.953125
+            },
+            {
+              "text": " I",
+              "start": 11.04,
+              "end": 11.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " don't",
+              "start": 11.2,
+              "end": 11.4,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " want",
+              "start": 11.4,
+              "end": 11.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " anything",
+              "start": 11.54,
+              "end": 11.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "!\"",
+              "start": 11.92,
+              "end": 12.22,
+              "probability": 0.01514434814453125
+            },
+            {
+              "text": " he",
+              "start": 12.22,
+              "end": 12.32,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " shouted.",
+              "start": 12.32,
+              "end": 12.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "French",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "raw": "at",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "raw": "Vítebsk,",
+          "start": 0.8,
+          "end": 1.36
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "four",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "days'",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "march",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "they",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "may",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "be",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "at",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "Smolénsk,",
+          "start": 3.34,
+          "end": 4.12
+        },
+        {
+          "raw": "perhaps",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "raw": "are",
+          "start": 4.6,
+          "end": 4.88
+        },
+        {
+          "raw": "already",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "raw": "there!",
+          "start": 5.24,
+          "end": 5.74
+        },
+        {
+          "raw": "Tíkhon!",
+          "start": 6.5,
+          "end": 7.06
+        },
+        {
+          "raw": "Tíkhon",
+          "start": 7.86,
+          "end": 8.42
+        },
+        {
+          "raw": "jumped",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "raw": "up.",
+          "start": 8.66,
+          "end": 9.06
+        },
+        {
+          "raw": "No,",
+          "start": 9.72,
+          "end": 10.28
+        },
+        {
+          "raw": "no,",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "raw": "I",
+          "start": 11.04,
+          "end": 11.2
+        },
+        {
+          "raw": "don't",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "raw": "want",
+          "start": 11.4,
+          "end": 11.54
+        },
+        {
+          "raw": "anything",
+          "start": 11.54,
+          "end": 11.92
+        },
+        {
+          "raw": "!\"",
+          "start": 11.92,
+          "end": 12.22
+        },
+        {
+          "raw": "he",
+          "start": 12.22,
+          "end": 12.32
+        },
+        {
+          "raw": "shouted.",
+          "start": 12.32,
+          "end": 12.68
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "French",
+        "at",
+        "Vítebsk,",
+        "in",
+        "four",
+        "days’",
+        "march",
+        "they",
+        "may",
+        "be",
+        "at",
+        "Smolénsk;",
+        "perhaps",
+        "are",
+        "already",
+        "there!",
+        "Tíkhon!”",
+        "Tíkhon",
+        "jumped",
+        "up.",
+        "“No,",
+        "no,",
+        "I",
+        "don’t",
+        "want",
+        "anything!”",
+        "he",
+        "shouted."
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "French",
+        "at",
+        "Vítebsk,",
+        "in",
+        "four",
+        "days'",
+        "march",
+        "they",
+        "may",
+        "be",
+        "at",
+        "Smolénsk;",
+        "perhaps",
+        "are",
+        "already",
+        "there!",
+        "Tíkhon!\"",
+        "Tíkhon",
+        "jumped",
+        "up.",
+        "\"No,",
+        "no,",
+        "I",
+        "don't",
+        "want",
+        "anything!\"",
+        "he",
+        "shouted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ],
+        [
+          "insert",
+          27,
+          27,
+          27,
+          28
+        ],
+        [
+          "equal",
+          27,
+          29,
+          28,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          27,
+          27,
+          27,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 0.3,
+          "end": 0.58,
+          "key": "french",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.58,
+          "end": 0.8,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Vítebsk,",
+          "start": 0.8,
+          "end": 1.36,
+          "key": "vítebsk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "four",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "four",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "days'",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "days",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "march",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "march",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "may",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Smolénsk,",
+          "start": 3.34,
+          "end": 4.12,
+          "key": "smolénsk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 4.3,
+          "end": 4.6,
+          "key": "perhaps",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.6,
+          "end": 4.88,
+          "key": "are",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 4.88,
+          "end": 5.24,
+          "key": "already",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "there!",
+          "start": 5.24,
+          "end": 5.74,
+          "key": "there",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Tíkhon!",
+          "start": 6.5,
+          "end": 7.06,
+          "key": "tíkhon",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Tíkhon",
+          "start": 7.86,
+          "end": 8.42,
+          "key": "tíkhon",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "jumped",
+          "start": 8.42,
+          "end": 8.66,
+          "key": "jumped",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 8.66,
+          "end": 9.06,
+          "key": "up",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 9.72,
+          "end": 10.28,
+          "key": "no",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 10.6,
+          "end": 10.78,
+          "key": "no",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.04,
+          "end": 11.2,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 11.2,
+          "end": 11.4,
+          "key": "dont",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 11.4,
+          "end": 11.54,
+          "key": "want",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 11.54,
+          "end": 11.92,
+          "key": "anything",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 11.92,
+          "end": 12.22,
+          "key": "",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.22,
+          "end": 12.32,
+          "key": "he",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "shouted.",
+          "start": 12.32,
+          "end": 12.68,
+          "key": "shouted",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "French",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "text": "at",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "text": "Vítebsk,",
+          "start": 0.8,
+          "end": 1.36
+        },
+        {
+          "text": "in",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "four",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "days’",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "march",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "they",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "may",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "be",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "at",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "Smolénsk;",
+          "start": 3.34,
+          "end": 4.12
+        },
+        {
+          "text": "perhaps",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "text": "are",
+          "start": 4.6,
+          "end": 4.88
+        },
+        {
+          "text": "already",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "text": "there!",
+          "start": 5.24,
+          "end": 5.74
+        },
+        {
+          "text": "Tíkhon!”",
+          "start": 6.5,
+          "end": 7.06
+        },
+        {
+          "text": "Tíkhon",
+          "start": 7.86,
+          "end": 8.42
+        },
+        {
+          "text": "jumped",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "text": "up.",
+          "start": 8.66,
+          "end": 9.06
+        },
+        {
+          "text": "“No,",
+          "start": 9.72,
+          "end": 10.28
+        },
+        {
+          "text": "no,",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "text": "I",
+          "start": 11.04,
+          "end": 11.2
+        },
+        {
+          "text": "don’t",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "text": "want",
+          "start": 11.4,
+          "end": 11.54
+        },
+        {
+          "text": "anything!”",
+          "start": 11.54,
+          "end": 11.92
+        },
+        {
+          "text": "he",
+          "start": 12.22,
+          "end": 12.32
+        },
+        {
+          "text": "shouted.",
+          "start": 12.32,
+          "end": 12.68
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5320841828361154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a25ace2efd8fdd9bb221fa7ec775947bffb6edfcb0fa2fe5536ae8962efb9a9b",
+  "selected_reasons": []
+}

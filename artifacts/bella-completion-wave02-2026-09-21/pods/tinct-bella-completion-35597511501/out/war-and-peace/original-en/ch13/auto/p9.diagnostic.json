@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "a4f60b5ab27b2d5e18b96aefaa53dca1382e8a7abf6273926a1fd0f272c5429b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13571706227958202,
+      "alignment_seconds": 0.0012066923081874847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I don't like you to talk like that.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I don't like you to talk like that.",
+          "start": 0.11,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " don't",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " like",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " talk",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that.",
+              "start": 1.39,
+              "end": 1.73,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "like",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "raw": "talk",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "like",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "that.",
+          "start": 1.39,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "don’t",
+        "like",
+        "you",
+        "to",
+        "talk",
+        "like",
+        "that.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "don't",
+        "like",
+        "you",
+        "to",
+        "talk",
+        "like",
+        "that.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.03,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "talk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 1.39,
+          "end": 1.73,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "don’t",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "like",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "you",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "text": "talk",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "like",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "that.”",
+          "start": 1.39,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13709100615233183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ba4025b772eec4d48f10f09fa8500bc4a821d86a080ec82dfc5181419a6220c",
+  "selected_reasons": []
+}

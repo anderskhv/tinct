@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "baf75b3c9e223d09a152ac313197fcef972f0d300bbd467195b0292c6bb7be2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.26253763772547245,
+      "alignment_seconds": 0.001251152716577053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, go, go! If anything more is wanted I'll send after you.\"",
+        "hotwords": "Well, If, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, go, go! If anything more is wanted I'll send after you.",
+          "start": 0.0,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.82421875
+            },
+            {
+              "text": " go,",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " go!",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " If",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " anything",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wanted",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I'll",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " send",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " after",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you.",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "go,",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "go!",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "If",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "anything",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "more",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "is",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "wanted",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "raw": "I'll",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "send",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "after",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "you.",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "go,",
+        "go!",
+        "If",
+        "anything",
+        "more",
+        "is",
+        "wanted",
+        "I’ll",
+        "send",
+        "after",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "go,",
+        "go!",
+        "If",
+        "anything",
+        "more",
+        "is",
+        "wanted",
+        "I'll",
+        "send",
+        "after",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go!",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "anything",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wanted",
+          "start": 3.42,
+          "end": 3.68,
+          "key": "wanted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "send",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.12,
+          "end": 4.4,
+          "key": "after",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "go,",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "go!",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "If",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "anything",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "more",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "is",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "wanted",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "text": "I’ll",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "send",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "after",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "you.”",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26395057514309883
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5aa1331ab64517fc02ee96e433bc01fb9091235186301b258afbe79d3674d2ef",
+  "selected_reasons": []
+}

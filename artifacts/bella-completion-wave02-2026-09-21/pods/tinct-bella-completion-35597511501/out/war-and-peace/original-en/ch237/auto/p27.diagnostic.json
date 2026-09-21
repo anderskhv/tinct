@@ -1,0 +1,774 @@
+{
+  "complete": true,
+  "signature": "3b2365f863bf25ba51742c3cdc062521adb063ef8f1b52f59c32e736c9520a17",
+  "attempts": [
+    {
+      "asr_seconds": 0.36901186406612396,
+      "alignment_seconds": 0.0012837434187531471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I ought to give them something!\" he thought, and felt in his pocket. \"No, better not!\" said another, inner voice.",
+        "hotwords": "I, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I ought to give them something,\" he thought, and felt in his pocket.",
+          "start": 0.0,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.7109375
+            },
+            {
+              "text": " ought",
+              "start": 0.34,
+              "end": 0.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 0.46,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " give",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " something,\"",
+              "start": 0.9,
+              "end": 1.64,
+              "probability": 0.60357666015625
+            },
+            {
+              "text": " he",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thought,",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " felt",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pocket.",
+              "start": 3.08,
+              "end": 3.42,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " No, better not!\" said another, inner voice.",
+          "start": 4.46,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " No,",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.194580078125
+            },
+            {
+              "text": " better",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " not",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!\"",
+              "start": 5.66,
+              "end": 5.94,
+              "probability": 0.0081939697265625
+            },
+            {
+              "text": " said",
+              "start": 5.94,
+              "end": 6.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " another,",
+              "start": 6.02,
+              "end": 6.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " inner",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.0038738250732421875
+            },
+            {
+              "text": " voice.",
+              "start": 6.84,
+              "end": 7.24,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "ought",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "raw": "to",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "raw": "give",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "them",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "something,\"",
+          "start": 0.9,
+          "end": 1.64
+        },
+        {
+          "raw": "he",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "thought,",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "felt",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "his",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "pocket.",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "raw": "No,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "better",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "not",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "raw": "!\"",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "raw": "said",
+          "start": 5.94,
+          "end": 6.02
+        },
+        {
+          "raw": "another,",
+          "start": 6.02,
+          "end": 6.34
+        },
+        {
+          "raw": "inner",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "voice.",
+          "start": 6.84,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "ought",
+        "to",
+        "give",
+        "them",
+        "something!”",
+        "he",
+        "thought,",
+        "and",
+        "felt",
+        "in",
+        "his",
+        "pocket.",
+        "“No,",
+        "better",
+        "not!”",
+        "said",
+        "another,",
+        "inner",
+        "voice."
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "ought",
+        "to",
+        "give",
+        "them",
+        "something!\"",
+        "he",
+        "thought,",
+        "and",
+        "felt",
+        "in",
+        "his",
+        "pocket.",
+        "\"No,",
+        "better",
+        "not!\"",
+        "said",
+        "another,",
+        "inner",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "insert",
+          16,
+          16,
+          16,
+          17
+        ],
+        [
+          "equal",
+          16,
+          20,
+          17,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          16,
+          16,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 0.34,
+          "end": 0.46,
+          "key": "ought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.46,
+          "end": 0.62,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "something,\"",
+          "start": 0.9,
+          "end": 1.64,
+          "key": "something",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.64,
+          "end": 1.74,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "felt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pocket.",
+          "start": 3.08,
+          "end": 3.42,
+          "key": "pocket",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 5.18,
+          "end": 5.3,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.3,
+          "end": 5.66,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 5.66,
+          "end": 5.94,
+          "key": "",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.94,
+          "end": 6.02,
+          "key": "said",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "another,",
+          "start": 6.02,
+          "end": 6.34,
+          "key": "another",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "inner",
+          "start": 6.68,
+          "end": 6.84,
+          "key": "inner",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 6.84,
+          "end": 7.24,
+          "key": "voice",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "ought",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "text": "to",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "text": "give",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "them",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "something!”",
+          "start": 0.9,
+          "end": 1.64
+        },
+        {
+          "text": "he",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "thought,",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "felt",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "in",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "his",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "pocket.",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "text": "“No,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "better",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "not!”",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "text": "said",
+          "start": 5.94,
+          "end": 6.02
+        },
+        {
+          "text": "another,",
+          "start": 6.02,
+          "end": 6.34
+        },
+        {
+          "text": "inner",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "voice.",
+          "start": 6.84,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3704448416829109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9671a8e4413900a9c4513d95dda96a110d70e132fa65121f95d508b5b01d0129",
+  "selected_reasons": []
+}

@@ -1,0 +1,336 @@
+{
+  "complete": true,
+  "signature": "e363448e73ca59bd74d3e6af92270174fe45f83e42f57cf245073a105397cfc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.237699082121253,
+      "alignment_seconds": 0.0010073436424136162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What, what, what? Ill luck, ill luck?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock? What, what, what? Ill luck, ill luck.",
+          "start": 0.02,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Shylock?",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8185221354166666
+            },
+            {
+              "text": " What,",
+              "start": 1.22,
+              "end": 1.3,
+              "probability": 0.435546875
+            },
+            {
+              "text": " what,",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " what?",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Ill",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.724609375
+            },
+            {
+              "text": " luck,",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.280517578125
+            },
+            {
+              "text": " ill",
+              "start": 2.56,
+              "end": 2.66,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " luck.",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock?",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "What,",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "raw": "what,",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "raw": "what?",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Ill",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "luck,",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "ill",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "raw": "luck.",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "SHYLOCK.",
+        "What,",
+        "what,",
+        "what?",
+        "Ill",
+        "luck,",
+        "ill",
+        "luck?"
+      ],
+      "acoustic_expected_tokens": [
+        "What,",
+        "what,",
+        "what?",
+        "Ill",
+        "luck,",
+        "ill",
+        "luck?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock?",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.22,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 1.46,
+          "end": 1.46,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "luck,",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "luck",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 2.56,
+          "end": 2.66,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "luck.",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "luck",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHYLOCK.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "What,",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "text": "what,",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "what?",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "Ill",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "luck,",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "ill",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "text": "luck?",
+          "start": 2.66,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23885444458574057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b23e6428c6c2b084977ab34350163b313bd846909a4795d916a5952bcd110641",
+  "selected_reasons": []
+}

@@ -1,0 +1,914 @@
+{
+  "complete": true,
+  "signature": "5a343dc68577f25c3b2f0addd753bd904f4f11e636da1218162ed1481990586c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18525765649974346,
+      "alignment_seconds": 0.0010185148566961288,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* Knight without fear and without reproach.",
+        "hotwords": "Knight"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Asterisk Knight without fear and without reproach.",
+          "start": 0.0,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.5153961181640625
+            },
+            {
+              "text": " Knight",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.07720947265625
+            },
+            {
+              "text": " without",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " fear",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " and",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " without",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " reproach.",
+              "start": 1.96,
+              "end": 2.58,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "Knight",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "reproach.",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Knight",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "knight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "without",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "fear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "without",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reproach.",
+          "start": 1.96,
+          "end": 2.58,
+          "key": "reproach",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Knight",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "reproach.",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.18641579523682594
+    },
+    {
+      "asr_seconds": 0.1934370081871748,
+      "alignment_seconds": 0.0012893499806523323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Knight"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk Knight without fear and without reproach",
+          "start": 0.0,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.5153961181640625
+            },
+            {
+              "text": " Knight",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.07720947265625
+            },
+            {
+              "text": " without",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " fear",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " and",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " without",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " reproach",
+              "start": 1.96,
+              "end": 2.58,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "Knight",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "reproach",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Knight",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "knight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "without",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "fear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "without",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reproach",
+          "start": 1.96,
+          "end": 2.58,
+          "key": "reproach",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Knight",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "reproach.",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19487975258380175
+    },
+    {
+      "asr_seconds": 0.19634170271456242,
+      "alignment_seconds": 0.0008818628266453743,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk night without fear and without reproach.",
+          "start": 0.0,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.5153961181640625
+            },
+            {
+              "text": " night",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " without",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fear",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " without",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " reproach.",
+              "start": 1.96,
+              "end": 2.58,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "night",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "reproach.",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Knight",
+        "without",
+        "fear",
+        "and",
+        "without",
+        "reproach."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "night",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "without",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "fear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "without",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reproach.",
+          "start": 1.96,
+          "end": 2.58,
+          "key": "reproach",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "Knight",
+          "start": 0.42,
+          "end": 0.63
+        },
+        {
+          "text": "without",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "fear",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "without",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "reproach.",
+          "start": 1.96,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19733503181487322
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7413c548eca9e1f651c6859efcf9badef8dd81cacb185cae61c16bb77b23d249",
+  "selected_reasons": []
+}

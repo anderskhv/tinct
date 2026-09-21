@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "54c073ae5e76105f2d3e18539a801b615ba9055d0702634cac8644b8c1d162a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12615578062832355,
+      "alignment_seconds": 0.0009234556928277016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exit Arragon with his train.",
+        "hotwords": "Exit, Arragon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Arragon with his train.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Arragon",
+              "start": 0.63,
+              "end": 1.05,
+              "probability": 0.0007679462432861328
+            },
+            {
+              "text": " with",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " train.",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Arragon",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "raw": "with",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "train.",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Arragon",
+        "with",
+        "his",
+        "train._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exit",
+        "Arragon",
+        "with",
+        "his",
+        "train."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Arragon",
+          "start": 0.63,
+          "end": 1.05,
+          "key": "arragon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "train.",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "train",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Arragon",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "text": "with",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "his",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "train._]",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12722722627222538
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ad2ff1f46051af9507ff67497b5fc59e88e53f224aa3ae100127d4523311bfe",
+  "selected_reasons": []
+}

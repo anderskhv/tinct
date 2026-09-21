@@ -1,0 +1,600 @@
+{
+  "complete": true,
+  "signature": "b5eaace92efdd5c17f6177b252cfe128093ef09e7159060bf8f828b7357baad0",
+  "attempts": [
+    {
+      "asr_seconds": 0.40367443673312664,
+      "alignment_seconds": 0.002277527004480362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Thirteen, fourteen, fifteen, sixteen,\" she counted on her slender little fingers. \"All right! Then it's settled?\"",
+        "hotwords": "Thirteen, All, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thirteen, fourteen, fifteen, sixteen,\" she counted on her slender little fingers.",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " Thirteen,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.60211181640625
+            },
+            {
+              "text": " fourteen,",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " fifteen,",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sixteen,\"",
+              "start": 2.19,
+              "end": 3.19,
+              "probability": 0.5163421630859375
+            },
+            {
+              "text": " she",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.94921875
+            },
+            {
+              "text": " counted",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slender",
+              "start": 3.89,
+              "end": 4.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " little",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.9609375
+            },
+            {
+              "text": " fingers.",
+              "start": 4.47,
+              "end": 4.85,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " All right! Then it's settled.",
+          "start": 4.85,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " All",
+              "start": 4.85,
+              "end": 5.77,
+              "probability": 0.484375
+            },
+            {
+              "text": " right!",
+              "start": 5.77,
+              "end": 6.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Then",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.900390625
+            },
+            {
+              "text": " it's",
+              "start": 6.45,
+              "end": 6.65,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " settled.",
+              "start": 6.65,
+              "end": 6.93,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thirteen,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "fourteen,",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "fifteen,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "sixteen,\"",
+          "start": 2.19,
+          "end": 3.19
+        },
+        {
+          "raw": "she",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "counted",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "on",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "her",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "slender",
+          "start": 3.89,
+          "end": 4.25
+        },
+        {
+          "raw": "little",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "raw": "fingers.",
+          "start": 4.47,
+          "end": 4.85
+        },
+        {
+          "raw": "All",
+          "start": 4.85,
+          "end": 5.77
+        },
+        {
+          "raw": "right!",
+          "start": 5.77,
+          "end": 6.05
+        },
+        {
+          "raw": "Then",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "it's",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "raw": "settled.",
+          "start": 6.65,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "“Thirteen,",
+        "fourteen,",
+        "fifteen,",
+        "sixteen,”",
+        "she",
+        "counted",
+        "on",
+        "her",
+        "slender",
+        "little",
+        "fingers.",
+        "“All",
+        "right!",
+        "Then",
+        "it’s",
+        "settled?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Thirteen,",
+        "fourteen,",
+        "fifteen,",
+        "sixteen,\"",
+        "she",
+        "counted",
+        "on",
+        "her",
+        "slender",
+        "little",
+        "fingers.",
+        "\"All",
+        "right!",
+        "Then",
+        "it's",
+        "settled?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thirteen,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "thirteen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fourteen,",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "fourteen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fifteen,",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "fifteen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sixteen,\"",
+          "start": 2.19,
+          "end": 3.19,
+          "key": "sixteen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "counted",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "counted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "slender",
+          "start": 3.89,
+          "end": 4.25,
+          "key": "slender",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "little",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fingers.",
+          "start": 4.47,
+          "end": 4.85,
+          "key": "fingers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 4.85,
+          "end": 5.77,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "right!",
+          "start": 5.77,
+          "end": 6.05,
+          "key": "right",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "then",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 6.45,
+          "end": 6.65,
+          "key": "its",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "settled.",
+          "start": 6.65,
+          "end": 6.93,
+          "key": "settled",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Thirteen,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "fourteen,",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "fifteen,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "sixteen,”",
+          "start": 2.19,
+          "end": 3.19
+        },
+        {
+          "text": "she",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "counted",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "on",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "her",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "slender",
+          "start": 3.89,
+          "end": 4.25
+        },
+        {
+          "text": "little",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "fingers.",
+          "start": 4.47,
+          "end": 4.85
+        },
+        {
+          "text": "“All",
+          "start": 4.85,
+          "end": 5.77
+        },
+        {
+          "text": "right!",
+          "start": 5.77,
+          "end": 6.05
+        },
+        {
+          "text": "Then",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "it’s",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "text": "settled?”",
+          "start": 6.65,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4062301553785801
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9218926a47defa6529363fe7c528790c5303db31155d890daf4dbb582e3ea376",
+  "selected_reasons": []
+}

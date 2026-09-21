@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "e78feea67fd8357fb95550df019a13292d2a3bcb6e8171c04a4320146b1200a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3040364133194089,
+      "alignment_seconds": 0.002120502293109894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She took his arm and with a happy face went with him into the adjoining sitting room.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She took his arm and with a happy face went with him into the adjoining sitting room.",
+          "start": 0.02,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " took",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " arm",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.2,
+              "end": 1.66,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.953125
+            },
+            {
+              "text": " a",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " happy",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " face",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " went",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " with",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " into",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " adjoining",
+              "start": 3.52,
+              "end": 3.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sitting",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " room.",
+              "start": 4.34,
+              "end": 4.7,
+              "probability": 0.92578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "took",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "his",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "arm",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "happy",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "face",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "went",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "with",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "him",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "into",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "adjoining",
+          "start": 3.52,
+          "end": 3.94
+        },
+        {
+          "raw": "sitting",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "room.",
+          "start": 4.34,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "took",
+        "his",
+        "arm",
+        "and",
+        "with",
+        "a",
+        "happy",
+        "face",
+        "went",
+        "with",
+        "him",
+        "into",
+        "the",
+        "adjoining",
+        "sitting",
+        "room."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "took",
+        "his",
+        "arm",
+        "and",
+        "with",
+        "a",
+        "happy",
+        "face",
+        "went",
+        "with",
+        "him",
+        "into",
+        "the",
+        "adjoining",
+        "sitting",
+        "room."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "took",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "arm",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.66,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "happy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "went",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.18,
+          "end": 3.4,
+          "key": "into",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.52,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "adjoining",
+          "start": 3.52,
+          "end": 3.94,
+          "key": "adjoining",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "sitting",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 4.34,
+          "end": 4.7,
+          "key": "room",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "took",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "his",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "arm",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "and",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "a",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "happy",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "face",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "went",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "with",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "him",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "into",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "text": "the",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "adjoining",
+          "start": 3.52,
+          "end": 3.94
+        },
+        {
+          "text": "sitting",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "room.",
+          "start": 4.34,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30645676609128714
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1612e52ef16a09835b55176f447130e6c975d54f5e37432ab79f66fb7c7b763b",
+  "selected_reasons": []
+}

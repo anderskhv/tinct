@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "7e030689c0ec5d21c4ef376d4722e27baef92da32bbb10d7f474cda3aeccee44",
+  "attempts": [
+    {
+      "asr_seconds": 0.09865323267877102,
+      "alignment_seconds": 0.0005717417225241661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"He visits them?\"",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He visits them.",
+          "start": 0.0,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.73828125
+            },
+            {
+              "text": " visits",
+              "start": 0.36,
+              "end": 0.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " them.",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "visits",
+          "start": 0.36,
+          "end": 0.58
+        },
+        {
+          "raw": "them.",
+          "start": 0.58,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "“He",
+        "visits",
+        "them?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"He",
+        "visits",
+        "them?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "visits",
+          "start": 0.36,
+          "end": 0.58,
+          "key": "visits",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“He",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "visits",
+          "start": 0.36,
+          "end": 0.58
+        },
+        {
+          "text": "them?”",
+          "start": 0.58,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09929847996681929
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df96829dbc6d600673ced8a0569140775be1b5f6730acae73620fe936419f345",
+  "selected_reasons": []
+}

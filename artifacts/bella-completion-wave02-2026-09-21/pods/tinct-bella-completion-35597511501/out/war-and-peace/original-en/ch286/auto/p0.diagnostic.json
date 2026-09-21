@@ -1,0 +1,1696 @@
+{
+  "complete": true,
+  "signature": "058ea16a744b6fb5f3f869bb6baf29a7bff8172f01bfa383eb2b0959c35a0c28",
+  "attempts": [
+    {
+      "asr_seconds": 0.4738574391230941,
+      "alignment_seconds": 0.004314814694225788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Meanwhile another column was to have attacked the French from the front, but Kutúzov accompanied that column. He well knew that nothing but confusion would come of this battle undertaken against his will, and as far as was in his power held the troops back. He did not advance.",
+        "hotwords": "Meanwhile, French, Kutúzov, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Meanwhile another column was to have attacked the French from the front, but Kutúzov accompanied that column.",
+          "start": 0.0,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " Meanwhile",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " another",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " column",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " was",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " attacked",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " the",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " French",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " from",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " front,",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 3.4,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Kutúzov",
+              "start": 3.48,
+              "end": 4.06,
+              "probability": 0.06522537767887115
+            },
+            {
+              "text": " accompanied",
+              "start": 4.06,
+              "end": 4.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " column.",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " He well knew that nothing but confusion would come of this battle undertaken against his will, and as far as was in his power held the troops back.",
+          "start": 6.12,
+          "end": 12.98,
+          "words": [
+            {
+              "text": " He",
+              "start": 6.12,
+              "end": 6.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " well",
+              "start": 6.26,
+              "end": 6.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " knew",
+              "start": 6.46,
+              "end": 6.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 6.68,
+              "end": 6.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 6.88,
+              "end": 7.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 7.18,
+              "end": 7.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " confusion",
+              "start": 7.4,
+              "end": 7.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " would",
+              "start": 7.82,
+              "end": 8.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come",
+              "start": 8.08,
+              "end": 8.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 8.3,
+              "end": 8.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 8.42,
+              "end": 8.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " battle",
+              "start": 8.58,
+              "end": 8.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " undertaken",
+              "start": 8.92,
+              "end": 9.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " against",
+              "start": 9.44,
+              "end": 9.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 9.8,
+              "end": 10.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " will,",
+              "start": 10.06,
+              "end": 10.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 10.58,
+              "end": 10.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 10.66,
+              "end": 10.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " far",
+              "start": 10.82,
+              "end": 11.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 11.08,
+              "end": 11.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 11.26,
+              "end": 11.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 11.4,
+              "end": 11.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 11.56,
+              "end": 11.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " power",
+              "start": 11.7,
+              "end": 11.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " held",
+              "start": 11.96,
+              "end": 12.22,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " the",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " troops",
+              "start": 12.4,
+              "end": 12.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " back.",
+              "start": 12.58,
+              "end": 12.98,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " He did not advance.",
+          "start": 14.02,
+          "end": 14.96,
+          "words": [
+            {
+              "text": " He",
+              "start": 14.02,
+              "end": 14.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " did",
+              "start": 14.2,
+              "end": 14.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 14.34,
+              "end": 14.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " advance.",
+              "start": 14.54,
+              "end": 14.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "another",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "column",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "was",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "have",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "attacked",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "French",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "raw": "from",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "front,",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "but",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 3.48,
+          "end": 4.06
+        },
+        {
+          "raw": "accompanied",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "raw": "that",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "column.",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "He",
+          "start": 6.12,
+          "end": 6.26
+        },
+        {
+          "raw": "well",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "raw": "knew",
+          "start": 6.46,
+          "end": 6.68
+        },
+        {
+          "raw": "that",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "raw": "nothing",
+          "start": 6.88,
+          "end": 7.18
+        },
+        {
+          "raw": "but",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "raw": "confusion",
+          "start": 7.4,
+          "end": 7.82
+        },
+        {
+          "raw": "would",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "raw": "come",
+          "start": 8.08,
+          "end": 8.3
+        },
+        {
+          "raw": "of",
+          "start": 8.3,
+          "end": 8.42
+        },
+        {
+          "raw": "this",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "raw": "battle",
+          "start": 8.58,
+          "end": 8.92
+        },
+        {
+          "raw": "undertaken",
+          "start": 8.92,
+          "end": 9.44
+        },
+        {
+          "raw": "against",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "raw": "his",
+          "start": 9.8,
+          "end": 10.06
+        },
+        {
+          "raw": "will,",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "raw": "and",
+          "start": 10.58,
+          "end": 10.66
+        },
+        {
+          "raw": "as",
+          "start": 10.66,
+          "end": 10.82
+        },
+        {
+          "raw": "far",
+          "start": 10.82,
+          "end": 11.08
+        },
+        {
+          "raw": "as",
+          "start": 11.08,
+          "end": 11.26
+        },
+        {
+          "raw": "was",
+          "start": 11.26,
+          "end": 11.4
+        },
+        {
+          "raw": "in",
+          "start": 11.4,
+          "end": 11.56
+        },
+        {
+          "raw": "his",
+          "start": 11.56,
+          "end": 11.7
+        },
+        {
+          "raw": "power",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "raw": "held",
+          "start": 11.96,
+          "end": 12.22
+        },
+        {
+          "raw": "the",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "troops",
+          "start": 12.4,
+          "end": 12.58
+        },
+        {
+          "raw": "back.",
+          "start": 12.58,
+          "end": 12.98
+        },
+        {
+          "raw": "He",
+          "start": 14.02,
+          "end": 14.2
+        },
+        {
+          "raw": "did",
+          "start": 14.2,
+          "end": 14.34
+        },
+        {
+          "raw": "not",
+          "start": 14.34,
+          "end": 14.54
+        },
+        {
+          "raw": "advance.",
+          "start": 14.54,
+          "end": 14.96
+        }
+      ],
+      "expected_tokens": [
+        "Meanwhile",
+        "another",
+        "column",
+        "was",
+        "to",
+        "have",
+        "attacked",
+        "the",
+        "French",
+        "from",
+        "the",
+        "front,",
+        "but",
+        "Kutúzov",
+        "accompanied",
+        "that",
+        "column.",
+        "He",
+        "well",
+        "knew",
+        "that",
+        "nothing",
+        "but",
+        "confusion",
+        "would",
+        "come",
+        "of",
+        "this",
+        "battle",
+        "undertaken",
+        "against",
+        "his",
+        "will,",
+        "and",
+        "as",
+        "far",
+        "as",
+        "was",
+        "in",
+        "his",
+        "power",
+        "held",
+        "the",
+        "troops",
+        "back.",
+        "He",
+        "did",
+        "not",
+        "advance."
+      ],
+      "acoustic_expected_tokens": [
+        "Meanwhile",
+        "another",
+        "column",
+        "was",
+        "to",
+        "have",
+        "attacked",
+        "the",
+        "French",
+        "from",
+        "the",
+        "front,",
+        "but",
+        "Kutúzov",
+        "accompanied",
+        "that",
+        "column.",
+        "He",
+        "well",
+        "knew",
+        "that",
+        "nothing",
+        "but",
+        "confusion",
+        "would",
+        "come",
+        "of",
+        "this",
+        "battle",
+        "undertaken",
+        "against",
+        "his",
+        "will,",
+        "and",
+        "as",
+        "far",
+        "as",
+        "was",
+        "in",
+        "his",
+        "power",
+        "held",
+        "the",
+        "troops",
+        "back.",
+        "He",
+        "did",
+        "not",
+        "advance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "meanwhile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "another",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "column",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "column",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "attacked",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "attacked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 2.18,
+          "end": 2.4,
+          "key": "french",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "front,",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "front",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.4,
+          "end": 3.48,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 3.48,
+          "end": 4.06,
+          "key": "kutúzov",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "accompanied",
+          "start": 4.06,
+          "end": 4.48,
+          "key": "accompanied",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.48,
+          "end": 4.74,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "column.",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "column",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.12,
+          "end": 6.26,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 6.26,
+          "end": 6.46,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 6.46,
+          "end": 6.68,
+          "key": "knew",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.68,
+          "end": 6.88,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 6.88,
+          "end": 7.18,
+          "key": "nothing",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.18,
+          "end": 7.4,
+          "key": "but",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "confusion",
+          "start": 7.4,
+          "end": 7.82,
+          "key": "confusion",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 7.82,
+          "end": 8.08,
+          "key": "would",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.08,
+          "end": 8.3,
+          "key": "come",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.3,
+          "end": 8.42,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.42,
+          "end": 8.58,
+          "key": "this",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 8.58,
+          "end": 8.92,
+          "key": "battle",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "undertaken",
+          "start": 8.92,
+          "end": 9.44,
+          "key": "undertaken",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 9.44,
+          "end": 9.8,
+          "key": "against",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.8,
+          "end": 10.06,
+          "key": "his",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 10.06,
+          "end": 10.3,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.58,
+          "end": 10.66,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.66,
+          "end": 10.82,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 10.82,
+          "end": 11.08,
+          "key": "far",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.08,
+          "end": 11.26,
+          "key": "as",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.26,
+          "end": 11.4,
+          "key": "was",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.4,
+          "end": 11.56,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 11.56,
+          "end": 11.7,
+          "key": "his",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 11.7,
+          "end": 11.96,
+          "key": "power",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 11.96,
+          "end": 12.22,
+          "key": "held",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "troops",
+          "start": 12.4,
+          "end": 12.58,
+          "key": "troops",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 12.58,
+          "end": 12.98,
+          "key": "back",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 14.02,
+          "end": 14.2,
+          "key": "he",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 14.2,
+          "end": 14.34,
+          "key": "did",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.34,
+          "end": 14.54,
+          "key": "not",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "advance.",
+          "start": 14.54,
+          "end": 14.96,
+          "key": "advance",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Meanwhile",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "another",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "column",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "was",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "to",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "have",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "attacked",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "French",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "from",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "the",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "front,",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "but",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "text": "Kutúzov",
+          "start": 3.48,
+          "end": 4.06
+        },
+        {
+          "text": "accompanied",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "text": "that",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "column.",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "He",
+          "start": 6.12,
+          "end": 6.26
+        },
+        {
+          "text": "well",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "text": "knew",
+          "start": 6.46,
+          "end": 6.68
+        },
+        {
+          "text": "that",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "text": "nothing",
+          "start": 6.88,
+          "end": 7.18
+        },
+        {
+          "text": "but",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "text": "confusion",
+          "start": 7.4,
+          "end": 7.82
+        },
+        {
+          "text": "would",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "text": "come",
+          "start": 8.08,
+          "end": 8.3
+        },
+        {
+          "text": "of",
+          "start": 8.3,
+          "end": 8.42
+        },
+        {
+          "text": "this",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "text": "battle",
+          "start": 8.58,
+          "end": 8.92
+        },
+        {
+          "text": "undertaken",
+          "start": 8.92,
+          "end": 9.44
+        },
+        {
+          "text": "against",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "text": "his",
+          "start": 9.8,
+          "end": 10.06
+        },
+        {
+          "text": "will,",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "text": "and",
+          "start": 10.58,
+          "end": 10.66
+        },
+        {
+          "text": "as",
+          "start": 10.66,
+          "end": 10.82
+        },
+        {
+          "text": "far",
+          "start": 10.82,
+          "end": 11.08
+        },
+        {
+          "text": "as",
+          "start": 11.08,
+          "end": 11.26
+        },
+        {
+          "text": "was",
+          "start": 11.26,
+          "end": 11.4
+        },
+        {
+          "text": "in",
+          "start": 11.4,
+          "end": 11.56
+        },
+        {
+          "text": "his",
+          "start": 11.56,
+          "end": 11.7
+        },
+        {
+          "text": "power",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "text": "held",
+          "start": 11.96,
+          "end": 12.22
+        },
+        {
+          "text": "the",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "troops",
+          "start": 12.4,
+          "end": 12.58
+        },
+        {
+          "text": "back.",
+          "start": 12.58,
+          "end": 12.98
+        },
+        {
+          "text": "He",
+          "start": 14.02,
+          "end": 14.2
+        },
+        {
+          "text": "did",
+          "start": 14.2,
+          "end": 14.34
+        },
+        {
+          "text": "not",
+          "start": 14.34,
+          "end": 14.54
+        },
+        {
+          "text": "advance.",
+          "start": 14.54,
+          "end": 14.96
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4785947548225522
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b9a147a8b9340c150558b9ba7bf6f33c55e6e664408e472689f28a91dcb9874c",
+  "selected_reasons": []
+}

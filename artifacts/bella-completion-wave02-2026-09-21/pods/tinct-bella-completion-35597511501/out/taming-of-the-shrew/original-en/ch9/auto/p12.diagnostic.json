@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "5a118debea3d599a63f83341c7201200a8a2c774a9381108a8792673f676133b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20287813618779182,
+      "alignment_seconds": 0.0009656203910708427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Signior Baptista, you are happily met.",
+        "hotwords": "Signior, Baptista"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Signior Baptista, you are happily met.",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Signior",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.431488037109375
+            },
+            {
+              "text": " Baptista,",
+              "start": 0.76,
+              "end": 1.28,
+              "probability": 0.61175537109375
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " are",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.990234375
+            },
+            {
+              "text": " happily",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " met.",
+              "start": 2.16,
+              "end": 2.5,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Signior",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Baptista,",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "are",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "happily",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "met.",
+          "start": 2.16,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Signior",
+        "Baptista,",
+        "you",
+        "are",
+        "happily",
+        "met."
+      ],
+      "acoustic_expected_tokens": [
+        "Signior",
+        "Baptista,",
+        "you",
+        "are",
+        "happily",
+        "met."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Signior",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "signior",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Baptista,",
+          "start": 0.76,
+          "end": 1.28,
+          "key": "baptista",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "happily",
+          "start": 1.86,
+          "end": 2.16,
+          "key": "happily",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "met.",
+          "start": 2.16,
+          "end": 2.5,
+          "key": "met",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Signior",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Baptista,",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "are",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "happily",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "text": "met.",
+          "start": 2.16,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20398192387074232
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "91685d55b07dcb1d4bfa2a061ed709adc639e34db5a8970d856cdff0b1c715cb",
+  "selected_reasons": []
+}

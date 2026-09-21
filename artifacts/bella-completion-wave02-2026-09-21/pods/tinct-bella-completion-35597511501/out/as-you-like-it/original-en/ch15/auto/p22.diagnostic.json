@@ -1,0 +1,321 @@
+{
+  "complete": true,
+  "signature": "009edd6a3ebb3638874fba16dbf151b795d244cc815e5951fdb41483cebaa3f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3036995558068156,
+      "alignment_seconds": 0.0007467018440365791,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter SILVIUS and PHEBE",
+        "hotwords": "Enter, SILVIUS, PHEBE"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter SILVIUS and PHEBE",
+          "start": 0.11,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " SILVIUS",
+              "start": 0.63,
+              "end": 1.19,
+              "probability": 0.4288809100786845
+            },
+            {
+              "text": " and",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " PHEBE",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.10877482096354167
+            }
+          ]
+        },
+        {
+          "text": " Enter SILVIUS and PHEBE",
+          "start": 1.67,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 1.67,
+              "end": 2.37,
+              "probability": 7.092952728271484e-06
+            },
+            {
+              "text": " SILVIUS",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.005535542964935303
+            },
+            {
+              "text": " and",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.0177001953125
+            },
+            {
+              "text": " PHEBE",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.0008968710899353027
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "SILVIUS",
+          "start": 0.63,
+          "end": 1.19
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "PHEBE",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "Enter",
+          "start": 1.67,
+          "end": 2.37
+        },
+        {
+          "raw": "SILVIUS",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "raw": "PHEBE",
+          "start": 2.37,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "SILVIUS",
+        "and",
+        "PHEBE"
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "SILVIUS",
+        "and",
+        "PHEBE"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        2
+      ],
+      "unspoken_expected_indexes": [
+        1,
+        3
+      ],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "SILVIUS",
+          "start": 0.63,
+          "end": 1.19,
+          "key": "silvius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "PHEBE",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "phebe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.67,
+          "end": 2.37,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "SILVIUS",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "silvius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "PHEBE",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "phebe",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "SILVIUS",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "and",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "PHEBE",
+          "start": 1.33,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 8,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3046118123456836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d32bc440c5741e1535284a581084fbda18d576e7695f43ae6102346ec72122b7",
+  "selected_reasons": []
+}

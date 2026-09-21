@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "6777a806b4ab5c2897db9cb40b8c17617a8cafb419aaad2496ff5921e5638ad0",
+  "attempts": [
+    {
+      "asr_seconds": 0.27140451688319445,
+      "alignment_seconds": 0.002123648300766945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then she slipped down among the flowerpots on the other side of the tubs and stood, hanging her head.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then she slipped down among the flowerpots on the other side of the tubs and stood, hanging her head.",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " she",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " slipped",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " down",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " among",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flowerpots",
+              "start": 1.66,
+              "end": 2.16,
+              "probability": 0.697998046875
+            },
+            {
+              "text": " on",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " other",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " side",
+              "start": 2.64,
+              "end": 2.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tubs",
+              "start": 3.1,
+              "end": 3.78,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " and",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " stood,",
+              "start": 4.0,
+              "end": 4.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hanging",
+              "start": 4.78,
+              "end": 5.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 5.06,
+              "end": 5.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head.",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "she",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "slipped",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "down",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "among",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "flowerpots",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "raw": "on",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "other",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "side",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "raw": "of",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "tubs",
+          "start": 3.1,
+          "end": 3.78
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "stood,",
+          "start": 4.0,
+          "end": 4.42
+        },
+        {
+          "raw": "hanging",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "raw": "her",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "raw": "head.",
+          "start": 5.34,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "she",
+        "slipped",
+        "down",
+        "among",
+        "the",
+        "flowerpots",
+        "on",
+        "the",
+        "other",
+        "side",
+        "of",
+        "the",
+        "tubs",
+        "and",
+        "stood,",
+        "hanging",
+        "her",
+        "head."
+      ],
+      "acoustic_expected_tokens": [
+        "Then",
+        "she",
+        "slipped",
+        "down",
+        "among",
+        "the",
+        "flowerpots",
+        "on",
+        "the",
+        "other",
+        "side",
+        "of",
+        "the",
+        "tubs",
+        "and",
+        "stood,",
+        "hanging",
+        "her",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "slipped",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "slipped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "down",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 1.28,
+          "end": 1.5,
+          "key": "among",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flowerpots",
+          "start": 1.66,
+          "end": 2.16,
+          "key": "flowerpots",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "other",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 2.64,
+          "end": 2.88,
+          "key": "side",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tubs",
+          "start": 3.1,
+          "end": 3.78,
+          "key": "tubs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 4.0,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stood,",
+          "start": 4.0,
+          "end": 4.42,
+          "key": "stood",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hanging",
+          "start": 4.78,
+          "end": 5.06,
+          "key": "hanging",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.06,
+          "end": 5.34,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 5.34,
+          "end": 5.62,
+          "key": "head",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "she",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "slipped",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "down",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "among",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "flowerpots",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "text": "on",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "other",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "side",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "text": "of",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "the",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "tubs",
+          "start": 3.1,
+          "end": 3.78
+        },
+        {
+          "text": "and",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "stood,",
+          "start": 4.0,
+          "end": 4.42
+        },
+        {
+          "text": "hanging",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "text": "her",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "text": "head.",
+          "start": 5.34,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2738100700080395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56749d9fcc27efa8044c7a7b79c17f2d8b402adb3215464f1e16ab83f2dc9771",
+  "selected_reasons": []
+}

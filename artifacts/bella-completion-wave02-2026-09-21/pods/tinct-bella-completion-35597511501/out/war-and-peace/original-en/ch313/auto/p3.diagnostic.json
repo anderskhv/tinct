@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "f1e4a97d7124a9ad71b0709c82889850b0a5a328433ac9bfa01c2d4689f4ac7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.20010964386165142,
+      "alignment_seconds": 0.0006673401221632957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Karatáev!\" came to Pierre's mind.",
+        "hotwords": "Karatáev, Pierre's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Karatáev came to Pierre's mind.",
+          "start": 0.0,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Karatáev",
+              "start": 0.0,
+              "end": 0.88,
+              "probability": 0.3078842908143997
+            },
+            {
+              "text": " came",
+              "start": 0.88,
+              "end": 1.28,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " to",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pierre's",
+              "start": 1.48,
+              "end": 1.96,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " mind.",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Karatáev",
+          "start": 0.0,
+          "end": 0.88
+        },
+        {
+          "raw": "came",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "Pierre's",
+          "start": 1.48,
+          "end": 1.96
+        },
+        {
+          "raw": "mind.",
+          "start": 1.96,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "“Karatáev!”",
+        "came",
+        "to",
+        "Pierre’s",
+        "mind."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Karatáev!\"",
+        "came",
+        "to",
+        "Pierre's",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Karatáev",
+          "start": 0.0,
+          "end": 0.88,
+          "key": "karatáev",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.88,
+          "end": 1.28,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pierre's",
+          "start": 1.48,
+          "end": 1.96,
+          "key": "pierres",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "mind",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Karatáev!”",
+          "start": 0.0,
+          "end": 0.88
+        },
+        {
+          "text": "came",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "text": "to",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "Pierre’s",
+          "start": 1.48,
+          "end": 1.96
+        },
+        {
+          "text": "mind.",
+          "start": 1.96,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20086367800831795
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64b4120dc69f75b423923c83d6794acb2264db8e86b2c64627a1b51673643509",
+  "selected_reasons": []
+}

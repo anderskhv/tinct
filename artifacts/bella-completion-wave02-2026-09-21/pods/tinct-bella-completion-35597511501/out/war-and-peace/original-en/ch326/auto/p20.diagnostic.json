@@ -1,0 +1,1880 @@
+{
+  "complete": true,
+  "signature": "8c46c7fb100f173e366e1c160fe2e55c081bc347125f03642f89d49b80d6391e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3847176004201174,
+      "alignment_seconds": 0.0020434679463505745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Qui eut le triple talent, De boire, de battre, Et d'être un vert galant.\" *",
+        "hotwords": "Qui, Et"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Qui, Et le triple talent, De boire, de battre, Et d'être un vert galant.\"",
+          "start": 0.0,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " Qui,",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.27593994140625
+            },
+            {
+              "text": " Et",
+              "start": 0.62,
+              "end": 0.62,
+              "probability": 0.00012493133544921875
+            },
+            {
+              "text": " le",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.032501220703125
+            },
+            {
+              "text": " triple",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.54638671875
+            },
+            {
+              "text": " talent,",
+              "start": 1.0,
+              "end": 1.46,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " De",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.2135009765625
+            },
+            {
+              "text": " boire,",
+              "start": 1.86,
+              "end": 2.28,
+              "probability": 0.10163688659667969
+            },
+            {
+              "text": " de",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.087890625
+            },
+            {
+              "text": " battre,",
+              "start": 2.6,
+              "end": 3.12,
+              "probability": 0.21893310546875
+            },
+            {
+              "text": " Et",
+              "start": 3.5,
+              "end": 3.54,
+              "probability": 0.023956298828125
+            },
+            {
+              "text": " d",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.1666259765625
+            },
+            {
+              "text": "'être",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.6708577473958334
+            },
+            {
+              "text": " un",
+              "start": 3.82,
+              "end": 4.34,
+              "probability": 0.466796875
+            },
+            {
+              "text": " vert",
+              "start": 4.34,
+              "end": 4.66,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " galant.\"",
+              "start": 4.66,
+              "end": 6.1,
+              "probability": 0.14728228251139322
+            }
+          ]
+        },
+        {
+          "text": " asterisk",
+          "start": 6.1,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 6.1,
+              "end": 6.86,
+              "probability": 0.5087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Qui,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "Et",
+          "start": 0.62,
+          "end": 0.62
+        },
+        {
+          "raw": "le",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "triple",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "talent,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "raw": "De",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "boire,",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "raw": "de",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "battre,",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "raw": "Et",
+          "start": 3.5,
+          "end": 3.54
+        },
+        {
+          "raw": "d",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "'être",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "un",
+          "start": 3.82,
+          "end": 4.34
+        },
+        {
+          "raw": "vert",
+          "start": 4.34,
+          "end": 4.66
+        },
+        {
+          "raw": "galant.\"",
+          "start": 4.66,
+          "end": 6.1
+        },
+        {
+          "raw": "asterisk",
+          "start": 6.1,
+          "end": 6.86
+        }
+      ],
+      "expected_tokens": [
+        "“Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d’être",
+        "un",
+        "vert",
+        "galant.”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d'être",
+        "un",
+        "vert",
+        "galant.\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          14,
+          2,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Qui,",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "qui",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 0.62,
+          "end": 0.62,
+          "key": "et",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 0.62,
+          "end": 0.78,
+          "key": "le",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "triple",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "triple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talent,",
+          "start": 1.0,
+          "end": 1.46,
+          "key": "talent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "De",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boire,",
+          "start": 1.86,
+          "end": 2.28,
+          "key": "boire",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "battre,",
+          "start": 2.6,
+          "end": 3.12,
+          "key": "battre",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 3.5,
+          "end": 3.54,
+          "key": "et",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "d 'être",
+          "start": 3.54,
+          "end": 3.82,
+          "key": "dêtre",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 3.82,
+          "end": 4.34,
+          "key": "un",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vert",
+          "start": 4.34,
+          "end": 4.66,
+          "key": "vert",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "galant.\"",
+          "start": 4.66,
+          "end": 6.1,
+          "key": "galant",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 6.1,
+          "end": 6.86,
+          "key": "asterisk",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "d'être",
+          "heard": "d 'être",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.54,
+          "end": 3.82
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Qui",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "eut",
+          "start": 0.44,
+          "end": 0.53
+        },
+        {
+          "text": "le",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "triple",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "talent,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "text": "De",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "boire,",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "text": "de",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "battre,",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "text": "Et",
+          "start": 3.5,
+          "end": 3.54
+        },
+        {
+          "text": "d’être",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "text": "un",
+          "start": 3.82,
+          "end": 4.34
+        },
+        {
+          "text": "vert",
+          "start": 4.34,
+          "end": 4.66
+        },
+        {
+          "text": "galant.”",
+          "start": 4.66,
+          "end": 6.1
+        },
+        {
+          "text": "*",
+          "start": 6.1,
+          "end": 6.48
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3870504377409816
+    },
+    {
+      "asr_seconds": 0.329281291924417,
+      "alignment_seconds": 0.0022534653544425964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Qui, Et"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Qui, Ute, Le Triple Talent, De Bois, De Batre, Edetre U.N. Vergallant.",
+          "start": 0.0,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Qui,",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.27532958984375
+            },
+            {
+              "text": " Ute,",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.4722747802734375
+            },
+            {
+              "text": " Le",
+              "start": 0.78,
+              "end": 0.82,
+              "probability": 0.343017578125
+            },
+            {
+              "text": " Triple",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.3095703125
+            },
+            {
+              "text": " Talent,",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " De",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.38916015625
+            },
+            {
+              "text": " Bois,",
+              "start": 1.86,
+              "end": 2.26,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " De",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Batre,",
+              "start": 2.6,
+              "end": 3.12,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " Edetre",
+              "start": 3.5,
+              "end": 3.9,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " U",
+              "start": 3.9,
+              "end": 4.12,
+              "probability": 0.07452392578125
+            },
+            {
+              "text": ".N.",
+              "start": 4.12,
+              "end": 4.44,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " Vergallant.",
+              "start": 4.88,
+              "end": 5.5,
+              "probability": 0.5806732177734375
+            }
+          ]
+        },
+        {
+          "text": " Asterisk.",
+          "start": 6.2,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Asterisk.",
+              "start": 6.2,
+              "end": 6.82,
+              "probability": 0.522186279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Qui,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "Ute,",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "Le",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "raw": "Triple",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "Talent,",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "raw": "De",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "Bois,",
+          "start": 1.86,
+          "end": 2.26
+        },
+        {
+          "raw": "De",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "Batre,",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "raw": "Edetre",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "raw": "U",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "raw": ".N.",
+          "start": 4.12,
+          "end": 4.44
+        },
+        {
+          "raw": "Vergallant.",
+          "start": 4.88,
+          "end": 5.5
+        },
+        {
+          "raw": "Asterisk.",
+          "start": 6.2,
+          "end": 6.82
+        }
+      ],
+      "expected_tokens": [
+        "“Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d’être",
+        "un",
+        "vert",
+        "galant.”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d'être",
+        "un",
+        "vert",
+        "galant.\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          15,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          15,
+          8,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Qui,",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "qui",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ute,",
+          "start": 0.6,
+          "end": 0.7,
+          "key": "ute",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Le",
+          "start": 0.78,
+          "end": 0.82,
+          "key": "le",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Triple",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "triple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Talent,",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "talent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "De",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bois,",
+          "start": 1.86,
+          "end": 2.26,
+          "key": "bois",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "De",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Batre,",
+          "start": 2.6,
+          "end": 3.12,
+          "key": "batre",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Edetre",
+          "start": 3.5,
+          "end": 3.9,
+          "key": "edetre",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "U",
+          "start": 3.9,
+          "end": 4.12,
+          "key": "u",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": ".N.",
+          "start": 4.12,
+          "end": 4.44,
+          "key": "n",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Vergallant.",
+          "start": 4.88,
+          "end": 5.5,
+          "key": "vergallant",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Asterisk.",
+          "start": 6.2,
+          "end": 6.82,
+          "key": "asterisk",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Qui",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "eut",
+          "start": 0.44,
+          "end": 0.61
+        },
+        {
+          "text": "le",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "text": "triple",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "talent,",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "text": "De",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "boire,",
+          "start": 1.86,
+          "end": 2.19
+        },
+        {
+          "text": "de",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "battre,",
+          "start": 2.6,
+          "end": 4.71
+        },
+        {
+          "text": "Et",
+          "start": 4.71,
+          "end": 5.765
+        },
+        {
+          "text": "d’être",
+          "start": 5.765,
+          "end": 6.293
+        },
+        {
+          "text": "un",
+          "start": 6.293,
+          "end": 6.556
+        },
+        {
+          "text": "vert",
+          "start": 6.556,
+          "end": 6.688
+        },
+        {
+          "text": "galant.”",
+          "start": 6.688,
+          "end": 6.754
+        },
+        {
+          "text": "*",
+          "start": 6.754,
+          "end": 6.787
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 6
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3317322423681617
+    },
+    {
+      "asr_seconds": 0.3668348202481866,
+      "alignment_seconds": 0.001470121555030346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Qui ute la triple talent, de bois, de batre, et detre un vert gallant.",
+          "start": 0.0,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " Qui",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.27593994140625
+            },
+            {
+              "text": " ute",
+              "start": 0.42,
+              "end": 0.7,
+              "probability": 0.407958984375
+            },
+            {
+              "text": " la",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.496826171875
+            },
+            {
+              "text": " triple",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " talent,",
+              "start": 1.0,
+              "end": 1.48,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " de",
+              "start": 1.8,
+              "end": 1.86,
+              "probability": 0.431396484375
+            },
+            {
+              "text": " bois,",
+              "start": 1.86,
+              "end": 2.26,
+              "probability": 0.7734375
+            },
+            {
+              "text": " de",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " batre,",
+              "start": 2.6,
+              "end": 3.12,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " et",
+              "start": 3.5,
+              "end": 3.52,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " detre",
+              "start": 3.52,
+              "end": 3.9,
+              "probability": 0.688232421875
+            },
+            {
+              "text": " un",
+              "start": 3.9,
+              "end": 4.36,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " vert",
+              "start": 4.36,
+              "end": 4.66,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " gallant.",
+              "start": 4.66,
+              "end": 5.7,
+              "probability": 0.775390625
+            }
+          ]
+        },
+        {
+          "text": " Asterisk.",
+          "start": 6.1,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Asterisk.",
+              "start": 6.1,
+              "end": 6.82,
+              "probability": 0.5304718017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Qui",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "ute",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "raw": "la",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "triple",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "talent,",
+          "start": 1.0,
+          "end": 1.48
+        },
+        {
+          "raw": "de",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "raw": "bois,",
+          "start": 1.86,
+          "end": 2.26
+        },
+        {
+          "raw": "de",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "batre,",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "raw": "et",
+          "start": 3.5,
+          "end": 3.52
+        },
+        {
+          "raw": "detre",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "raw": "un",
+          "start": 3.9,
+          "end": 4.36
+        },
+        {
+          "raw": "vert",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "raw": "gallant.",
+          "start": 4.66,
+          "end": 5.7
+        },
+        {
+          "raw": "Asterisk.",
+          "start": 6.1,
+          "end": 6.82
+        }
+      ],
+      "expected_tokens": [
+        "“Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d’être",
+        "un",
+        "vert",
+        "galant.”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Qui",
+        "eut",
+        "le",
+        "triple",
+        "talent,",
+        "De",
+        "boire,",
+        "de",
+        "battre,",
+        "Et",
+        "d'être",
+        "un",
+        "vert",
+        "galant.\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Qui",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "qui",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ute",
+          "start": 0.42,
+          "end": 0.7,
+          "key": "ute",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "la",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "triple",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "triple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talent,",
+          "start": 1.0,
+          "end": 1.48,
+          "key": "talent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.8,
+          "end": 1.86,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bois,",
+          "start": 1.86,
+          "end": 2.26,
+          "key": "bois",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "batre,",
+          "start": 2.6,
+          "end": 3.12,
+          "key": "batre",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 3.5,
+          "end": 3.52,
+          "key": "et",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "detre",
+          "start": 3.52,
+          "end": 3.9,
+          "key": "detre",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 3.9,
+          "end": 4.36,
+          "key": "un",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "vert",
+          "start": 4.36,
+          "end": 4.66,
+          "key": "vert",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gallant.",
+          "start": 4.66,
+          "end": 5.7,
+          "key": "gallant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Asterisk.",
+          "start": 6.1,
+          "end": 6.82,
+          "key": "asterisk",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Qui",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "eut",
+          "start": 0.42,
+          "end": 0.62
+        },
+        {
+          "text": "le",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "triple",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "talent,",
+          "start": 1.0,
+          "end": 1.48
+        },
+        {
+          "text": "De",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "text": "boire,",
+          "start": 1.86,
+          "end": 2.19
+        },
+        {
+          "text": "de",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "battre,",
+          "start": 2.6,
+          "end": 3.05
+        },
+        {
+          "text": "Et",
+          "start": 3.5,
+          "end": 3.52
+        },
+        {
+          "text": "d’être",
+          "start": 3.52,
+          "end": 3.71
+        },
+        {
+          "text": "un",
+          "start": 3.9,
+          "end": 4.36
+        },
+        {
+          "text": "vert",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "text": "galant.”",
+          "start": 4.66,
+          "end": 5.74
+        },
+        {
+          "text": "*",
+          "start": 5.74,
+          "end": 6.28
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 8
+      },
+      "match_ratio": 0.5333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.36849797051399946
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d892608d35b384779de081caa129b716692c65bc83a076f1eb82f6b569484947",
+  "selected_reasons": []
+}

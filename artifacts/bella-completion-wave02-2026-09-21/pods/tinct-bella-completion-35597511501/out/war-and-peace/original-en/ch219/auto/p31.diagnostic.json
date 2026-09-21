@@ -1,0 +1,1024 @@
+{
+  "complete": true,
+  "signature": "69510ef8ab1311e911773098c3f1a03501c38d1e46acc85ff86e3ad7d9875d4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3796083377674222,
+      "alignment_seconds": 0.001590583473443985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was growing light, the sky was clearing, only a single cloud lay in the east. The abandoned campfires were burning themselves out in the faint morning light.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It It was growing light, the sky was clearing, only a single cloud lay in the east. The abandoned campfires were burning themselves out in the faint morning light.",
+          "start": 0.0,
+          "end": 9.26,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.90625
+            },
+            {
+              "text": " It",
+              "start": 0.32,
+              "end": 0.38,
+              "probability": 2.205371856689453e-06
+            },
+            {
+              "text": " was",
+              "start": 0.38,
+              "end": 0.46,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " growing",
+              "start": 0.46,
+              "end": 0.72,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " light,",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sky",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " was",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " clearing,",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " only",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " single",
+              "start": 3.1,
+              "end": 3.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cloud",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lay",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " east.",
+              "start": 4.22,
+              "end": 4.54,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " The",
+              "start": 5.66,
+              "end": 5.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " abandoned",
+              "start": 5.74,
+              "end": 6.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " campfires",
+              "start": 6.1,
+              "end": 6.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " were",
+              "start": 6.74,
+              "end": 7.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " burning",
+              "start": 7.02,
+              "end": 7.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " themselves",
+              "start": 7.3,
+              "end": 7.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " out",
+              "start": 7.68,
+              "end": 8.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 8.08,
+              "end": 8.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.22,
+              "end": 8.34,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " faint",
+              "start": 8.34,
+              "end": 8.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " morning",
+              "start": 8.56,
+              "end": 8.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " light.",
+              "start": 8.84,
+              "end": 9.26,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "It",
+          "start": 0.32,
+          "end": 0.38
+        },
+        {
+          "raw": "was",
+          "start": 0.38,
+          "end": 0.46
+        },
+        {
+          "raw": "growing",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "raw": "light,",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "sky",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "clearing,",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "raw": "only",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "single",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "raw": "cloud",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "lay",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "east.",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "raw": "The",
+          "start": 5.66,
+          "end": 5.74
+        },
+        {
+          "raw": "abandoned",
+          "start": 5.74,
+          "end": 6.1
+        },
+        {
+          "raw": "campfires",
+          "start": 6.1,
+          "end": 6.74
+        },
+        {
+          "raw": "were",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "raw": "burning",
+          "start": 7.02,
+          "end": 7.3
+        },
+        {
+          "raw": "themselves",
+          "start": 7.3,
+          "end": 7.68
+        },
+        {
+          "raw": "out",
+          "start": 7.68,
+          "end": 8.08
+        },
+        {
+          "raw": "in",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "raw": "the",
+          "start": 8.22,
+          "end": 8.34
+        },
+        {
+          "raw": "faint",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "raw": "morning",
+          "start": 8.56,
+          "end": 8.84
+        },
+        {
+          "raw": "light.",
+          "start": 8.84,
+          "end": 9.26
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "growing",
+        "light,",
+        "the",
+        "sky",
+        "was",
+        "clearing,",
+        "only",
+        "a",
+        "single",
+        "cloud",
+        "lay",
+        "in",
+        "the",
+        "east.",
+        "The",
+        "abandoned",
+        "campfires",
+        "were",
+        "burning",
+        "themselves",
+        "out",
+        "in",
+        "the",
+        "faint",
+        "morning",
+        "light."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "was",
+        "growing",
+        "light,",
+        "the",
+        "sky",
+        "was",
+        "clearing,",
+        "only",
+        "a",
+        "single",
+        "cloud",
+        "lay",
+        "in",
+        "the",
+        "east.",
+        "The",
+        "abandoned",
+        "campfires",
+        "were",
+        "burning",
+        "themselves",
+        "out",
+        "in",
+        "the",
+        "faint",
+        "morning",
+        "light."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          28,
+          1,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 0.32,
+          "end": 0.38,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.38,
+          "end": 0.46,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "growing",
+          "start": 0.46,
+          "end": 0.72,
+          "key": "growing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "light",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sky",
+          "start": 1.44,
+          "end": 1.76,
+          "key": "sky",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clearing,",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "clearing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "only",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "single",
+          "start": 3.1,
+          "end": 3.38,
+          "key": "single",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cloud",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "cloud",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "lay",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "east.",
+          "start": 4.22,
+          "end": 4.54,
+          "key": "east",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.66,
+          "end": 5.74,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "abandoned",
+          "start": 5.74,
+          "end": 6.1,
+          "key": "abandoned",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "campfires",
+          "start": 6.1,
+          "end": 6.74,
+          "key": "campfires",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 6.74,
+          "end": 7.02,
+          "key": "were",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "burning",
+          "start": 7.02,
+          "end": 7.3,
+          "key": "burning",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 7.3,
+          "end": 7.68,
+          "key": "themselves",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 7.68,
+          "end": 8.08,
+          "key": "out",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.08,
+          "end": 8.22,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.22,
+          "end": 8.34,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 8.34,
+          "end": 8.56,
+          "key": "faint",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 8.56,
+          "end": 8.84,
+          "key": "morning",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 8.84,
+          "end": 9.26,
+          "key": "light",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.32,
+          "end": 0.38
+        },
+        {
+          "text": "was",
+          "start": 0.38,
+          "end": 0.46
+        },
+        {
+          "text": "growing",
+          "start": 0.46,
+          "end": 0.72
+        },
+        {
+          "text": "light,",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "sky",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "was",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "clearing,",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "text": "only",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "a",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "single",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "text": "cloud",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "lay",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "the",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "east.",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "text": "The",
+          "start": 5.66,
+          "end": 5.74
+        },
+        {
+          "text": "abandoned",
+          "start": 5.74,
+          "end": 6.1
+        },
+        {
+          "text": "campfires",
+          "start": 6.1,
+          "end": 6.74
+        },
+        {
+          "text": "were",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "text": "burning",
+          "start": 7.02,
+          "end": 7.3
+        },
+        {
+          "text": "themselves",
+          "start": 7.3,
+          "end": 7.68
+        },
+        {
+          "text": "out",
+          "start": 7.68,
+          "end": 8.08
+        },
+        {
+          "text": "in",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "text": "the",
+          "start": 8.22,
+          "end": 8.34
+        },
+        {
+          "text": "faint",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "text": "morning",
+          "start": 8.56,
+          "end": 8.84
+        },
+        {
+          "text": "light.",
+          "start": 8.84,
+          "end": 9.26
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3813948603346944
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02204786d9ad4c10f3c06288f67bde8213ec74d5a2dac4db2d808e089356a7d8",
+  "selected_reasons": []
+}

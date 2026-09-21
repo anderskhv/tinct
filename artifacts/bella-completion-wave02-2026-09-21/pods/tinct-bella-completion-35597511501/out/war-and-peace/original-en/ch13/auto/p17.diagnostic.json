@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "5278eb3554e9b06d77853f7dcdebefc8f912f1a1a4979599b5bda72c1a0b4dbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.2671580696478486,
+      "alignment_seconds": 0.001733703538775444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Borís looked attentively and kindly at her eager face, but did not reply.",
+        "hotwords": "Borís"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Borís looked attentively and kindly at her eager face, but did not reply.",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Borís",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.007191568613052368
+            },
+            {
+              "text": " looked",
+              "start": 0.82,
+              "end": 1.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " attentively",
+              "start": 1.06,
+              "end": 1.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kindly",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eager",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " face,",
+              "start": 2.88,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " did",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reply.",
+              "start": 4.26,
+              "end": 4.64,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borís",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "looked",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "raw": "attentively",
+          "start": 1.06,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "kindly",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": "at",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "her",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "eager",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "face,",
+          "start": 2.88,
+          "end": 3.3
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "did",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "not",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "raw": "reply.",
+          "start": 4.26,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Borís",
+        "looked",
+        "attentively",
+        "and",
+        "kindly",
+        "at",
+        "her",
+        "eager",
+        "face,",
+        "but",
+        "did",
+        "not",
+        "reply."
+      ],
+      "acoustic_expected_tokens": [
+        "Borís",
+        "looked",
+        "attentively",
+        "and",
+        "kindly",
+        "at",
+        "her",
+        "eager",
+        "face,",
+        "but",
+        "did",
+        "not",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borís",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "borís",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.82,
+          "end": 1.06,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attentively",
+          "start": 1.06,
+          "end": 1.64,
+          "key": "attentively",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kindly",
+          "start": 1.88,
+          "end": 2.26,
+          "key": "kindly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eager",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "eager",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 2.88,
+          "end": 3.3,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.06,
+          "end": 4.26,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 4.26,
+          "end": 4.64,
+          "key": "reply",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Borís",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "looked",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "text": "attentively",
+          "start": 1.06,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "kindly",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "text": "at",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "her",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "eager",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "face,",
+          "start": 2.88,
+          "end": 3.3
+        },
+        {
+          "text": "but",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "did",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "not",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "text": "reply.",
+          "start": 4.26,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26912787090986967
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9a075304bb3b36997960c03beb576fcb62e186d097a6500f9aff21acc8f9482",
+  "selected_reasons": []
+}

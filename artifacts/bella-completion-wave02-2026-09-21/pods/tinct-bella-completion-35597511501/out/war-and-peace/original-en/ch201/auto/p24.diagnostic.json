@@ -1,0 +1,526 @@
+{
+  "complete": true,
+  "signature": "021bf980adfb456611a17d2fe418315db1786e48d84e3f32bd1663d8127cc901",
+  "attempts": [
+    {
+      "asr_seconds": 0.23976855538785458,
+      "alignment_seconds": 0.0014836816117167473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The silence began to oppress the princess and she tried to catch someone's eye."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The silence began to oppress the princess and she tried to catch someone's eye.",
+          "start": 0.0,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " silence",
+              "start": 0.32,
+              "end": 0.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " began",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " oppress",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " princess",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " and",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " she",
+              "start": 2.3,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tried",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " catch",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " someone's",
+              "start": 3.1,
+              "end": 3.66,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " eye.",
+              "start": 3.66,
+              "end": 3.9,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "silence",
+          "start": 0.32,
+          "end": 0.68
+        },
+        {
+          "raw": "began",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "oppress",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "princess",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "raw": "she",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "raw": "tried",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "catch",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "someone's",
+          "start": 3.1,
+          "end": 3.66
+        },
+        {
+          "raw": "eye.",
+          "start": 3.66,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "silence",
+        "began",
+        "to",
+        "oppress",
+        "the",
+        "princess",
+        "and",
+        "she",
+        "tried",
+        "to",
+        "catch",
+        "someone’s",
+        "eye."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "silence",
+        "began",
+        "to",
+        "oppress",
+        "the",
+        "princess",
+        "and",
+        "she",
+        "tried",
+        "to",
+        "catch",
+        "someone's",
+        "eye."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "silence",
+          "start": 0.32,
+          "end": 0.68,
+          "key": "silence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "began",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "oppress",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "oppress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "princess",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "princess",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.3,
+          "end": 2.46,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tried",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "tried",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "catch",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "catch",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "someone's",
+          "start": 3.1,
+          "end": 3.66,
+          "key": "someones",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "eye.",
+          "start": 3.66,
+          "end": 3.9,
+          "key": "eye",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "silence",
+          "start": 0.32,
+          "end": 0.68
+        },
+        {
+          "text": "began",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "to",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "oppress",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "princess",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "and",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "text": "she",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "text": "tried",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "to",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "catch",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "someone’s",
+          "start": 3.1,
+          "end": 3.66
+        },
+        {
+          "text": "eye.",
+          "start": 3.66,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2414562487974763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd47cebb9c5dbe458ab854bd6aef7a0d13f9cdd34ecf65508a2665ea941ba2ea",
+  "selected_reasons": []
+}

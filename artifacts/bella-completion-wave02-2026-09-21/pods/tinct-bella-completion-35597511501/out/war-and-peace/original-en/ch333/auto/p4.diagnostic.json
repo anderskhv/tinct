@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "be24a0f546e3dbe4bb6ead56001bdfaf540a010f2dd56bf9f71a5239de6b8be7",
+  "attempts": [
+    {
+      "asr_seconds": 0.26440118346363306,
+      "alignment_seconds": 0.0014781961217522621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, in these days it would be hard to live without faith...\" remarked Princess Mary.",
+        "hotwords": "Yes, Princess, Mary"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, in these days it would be hard to live without faith...\" remarked Princess Mary.",
+          "start": 0.0,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.2281494140625
+            },
+            {
+              "text": " in",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9765625
+            },
+            {
+              "text": " these",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " days",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " would",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hard",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " live",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 2.38,
+              "end": 2.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faith...\"",
+              "start": 2.68,
+              "end": 3.38,
+              "probability": 0.48664164543151855
+            },
+            {
+              "text": " remarked",
+              "start": 3.38,
+              "end": 3.64,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Princess",
+              "start": 3.64,
+              "end": 4.04,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Mary.",
+              "start": 4.04,
+              "end": 4.46,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "these",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "raw": "days",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "it",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "would",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "be",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "hard",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "live",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "without",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "raw": "faith...\"",
+          "start": 2.68,
+          "end": 3.38
+        },
+        {
+          "raw": "remarked",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "raw": "Princess",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "raw": "Mary.",
+          "start": 4.04,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "in",
+        "these",
+        "days",
+        "it",
+        "would",
+        "be",
+        "hard",
+        "to",
+        "live",
+        "without",
+        "faith...”",
+        "remarked",
+        "Princess",
+        "Mary."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "in",
+        "these",
+        "days",
+        "it",
+        "would",
+        "be",
+        "hard",
+        "to",
+        "live",
+        "without",
+        "faith...\"",
+        "remarked",
+        "Princess",
+        "Mary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 0.88,
+          "end": 1.12,
+          "key": "these",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "days",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "days",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "would",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "hard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "live",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.38,
+          "end": 2.68,
+          "key": "without",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "faith...\"",
+          "start": 2.68,
+          "end": 3.38,
+          "key": "faith",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "remarked",
+          "start": 3.38,
+          "end": 3.64,
+          "key": "remarked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Princess",
+          "start": 3.64,
+          "end": 4.04,
+          "key": "princess",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Mary.",
+          "start": 4.04,
+          "end": 4.46,
+          "key": "mary",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "in",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "these",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "text": "days",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "it",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "would",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "be",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "hard",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "to",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "live",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "without",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "text": "faith...”",
+          "start": 2.68,
+          "end": 3.38
+        },
+        {
+          "text": "remarked",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "text": "Princess",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "text": "Mary.",
+          "start": 4.04,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26606949232518673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "098de274861ac0add19f18485559a80f8a14432b4ee1c5c5f6025f5a9557e36f",
+  "selected_reasons": []
+}

@@ -1,0 +1,1300 @@
+{
+  "complete": true,
+  "signature": "1fb45e2ccb5df16b1d2d22e834b0fa6a87e9d9dcfb25635bf3a2c880a8244066",
+  "attempts": [
+    {
+      "asr_seconds": 0.4567309357225895,
+      "alignment_seconds": 0.003577946685254574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, perhaps,\" said he with a sigh. \"We don't expect to get him home alive! We have a house of our own in Moscow, but it's a long way from here, and there's nobody living in it.\"",
+        "hotwords": "Well, We, Moscow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, perhaps,\" said he with a sigh.",
+          "start": 0.0,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.402099609375
+            },
+            {
+              "text": " perhaps,\"",
+              "start": 0.82,
+              "end": 1.58,
+              "probability": 0.572509765625
+            },
+            {
+              "text": " said",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.98046875
+            },
+            {
+              "text": " a",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sigh.",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " \"...We don't expect to get him home alive! We have a house of our own in Moscow, but it's",
+          "start": 3.4,
+          "end": 8.7,
+          "words": [
+            {
+              "text": " \"...We",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.20776605606079102
+            },
+            {
+              "text": " don't",
+              "start": 3.62,
+              "end": 3.84,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " expect",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 4.32,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " home",
+              "start": 4.6,
+              "end": 4.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " alive!",
+              "start": 4.8,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " We",
+              "start": 6.18,
+              "end": 6.52,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " have",
+              "start": 6.52,
+              "end": 6.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.68,
+              "end": 6.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 6.8,
+              "end": 7.0,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " of",
+              "start": 7.0,
+              "end": 7.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 7.16,
+              "end": 7.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " own",
+              "start": 7.36,
+              "end": 7.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 7.56,
+              "end": 7.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Moscow,",
+              "start": 7.72,
+              "end": 8.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 8.42,
+              "end": 8.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it's",
+              "start": 8.54,
+              "end": 8.7,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " a long way from here, and there's nobody living in it.\"",
+          "start": 8.7,
+          "end": 11.38,
+          "words": [
+            {
+              "text": " a",
+              "start": 8.7,
+              "end": 8.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " long",
+              "start": 8.82,
+              "end": 9.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " way",
+              "start": 9.0,
+              "end": 9.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 9.24,
+              "end": 9.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here,",
+              "start": 9.46,
+              "end": 9.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 10.02,
+              "end": 10.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there's",
+              "start": 10.14,
+              "end": 10.36,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " nobody",
+              "start": 10.36,
+              "end": 10.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " living",
+              "start": 10.6,
+              "end": 10.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 10.94,
+              "end": 11.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it.\"",
+              "start": 11.16,
+              "end": 11.38,
+              "probability": 0.73974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "perhaps,\"",
+          "start": 0.82,
+          "end": 1.58
+        },
+        {
+          "raw": "said",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "he",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "with",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "sigh.",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "\"...We",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "don't",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "raw": "expect",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "get",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "raw": "him",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "home",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "raw": "alive!",
+          "start": 4.8,
+          "end": 5.2
+        },
+        {
+          "raw": "We",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "raw": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "raw": "a",
+          "start": 6.68,
+          "end": 6.8
+        },
+        {
+          "raw": "house",
+          "start": 6.8,
+          "end": 7.0
+        },
+        {
+          "raw": "of",
+          "start": 7.0,
+          "end": 7.16
+        },
+        {
+          "raw": "our",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "raw": "own",
+          "start": 7.36,
+          "end": 7.56
+        },
+        {
+          "raw": "in",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "raw": "Moscow,",
+          "start": 7.72,
+          "end": 8.08
+        },
+        {
+          "raw": "but",
+          "start": 8.42,
+          "end": 8.54
+        },
+        {
+          "raw": "it's",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "raw": "a",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "raw": "long",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "raw": "way",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "raw": "from",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "raw": "here,",
+          "start": 9.46,
+          "end": 9.76
+        },
+        {
+          "raw": "and",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "raw": "there's",
+          "start": 10.14,
+          "end": 10.36
+        },
+        {
+          "raw": "nobody",
+          "start": 10.36,
+          "end": 10.6
+        },
+        {
+          "raw": "living",
+          "start": 10.6,
+          "end": 10.94
+        },
+        {
+          "raw": "in",
+          "start": 10.94,
+          "end": 11.16
+        },
+        {
+          "raw": "it.\"",
+          "start": 11.16,
+          "end": 11.38
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "perhaps,”",
+        "said",
+        "he",
+        "with",
+        "a",
+        "sigh.",
+        "“We",
+        "don’t",
+        "expect",
+        "to",
+        "get",
+        "him",
+        "home",
+        "alive!",
+        "We",
+        "have",
+        "a",
+        "house",
+        "of",
+        "our",
+        "own",
+        "in",
+        "Moscow,",
+        "but",
+        "it’s",
+        "a",
+        "long",
+        "way",
+        "from",
+        "here,",
+        "and",
+        "there’s",
+        "nobody",
+        "living",
+        "in",
+        "it.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "perhaps,\"",
+        "said",
+        "he",
+        "with",
+        "a",
+        "sigh.",
+        "\"We",
+        "don't",
+        "expect",
+        "to",
+        "get",
+        "him",
+        "home",
+        "alive!",
+        "We",
+        "have",
+        "a",
+        "house",
+        "of",
+        "our",
+        "own",
+        "in",
+        "Moscow,",
+        "but",
+        "it's",
+        "a",
+        "long",
+        "way",
+        "from",
+        "here,",
+        "and",
+        "there's",
+        "nobody",
+        "living",
+        "in",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "perhaps,\"",
+          "start": 0.82,
+          "end": 1.58,
+          "key": "perhaps",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sigh.",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "sigh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"...We",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 3.62,
+          "end": 3.84,
+          "key": "dont",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "expect",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 4.32,
+          "end": 4.44,
+          "key": "get",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.44,
+          "end": 4.6,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 4.6,
+          "end": 4.8,
+          "key": "home",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "alive!",
+          "start": 4.8,
+          "end": 5.2,
+          "key": "alive",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.18,
+          "end": 6.52,
+          "key": "we",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.52,
+          "end": 6.68,
+          "key": "have",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.68,
+          "end": 6.8,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 6.8,
+          "end": 7.0,
+          "key": "house",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.0,
+          "end": 7.16,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 7.16,
+          "end": 7.36,
+          "key": "our",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 7.36,
+          "end": 7.56,
+          "key": "own",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.56,
+          "end": 7.72,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Moscow,",
+          "start": 7.72,
+          "end": 8.08,
+          "key": "moscow",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.42,
+          "end": 8.54,
+          "key": "but",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 8.54,
+          "end": 8.7,
+          "key": "its",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.7,
+          "end": 8.82,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 8.82,
+          "end": 9.0,
+          "key": "long",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 9.0,
+          "end": 9.24,
+          "key": "way",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 9.24,
+          "end": 9.46,
+          "key": "from",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 9.46,
+          "end": 9.76,
+          "key": "here",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.02,
+          "end": 10.14,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 10.14,
+          "end": 10.36,
+          "key": "theres",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "nobody",
+          "start": 10.36,
+          "end": 10.6,
+          "key": "nobody",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 10.6,
+          "end": 10.94,
+          "key": "living",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.94,
+          "end": 11.16,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "it.\"",
+          "start": 11.16,
+          "end": 11.38,
+          "key": "it",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "perhaps,”",
+          "start": 0.82,
+          "end": 1.58
+        },
+        {
+          "text": "said",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "he",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "with",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "sigh.",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "“We",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "don’t",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "text": "expect",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "get",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "text": "him",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "home",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "text": "alive!",
+          "start": 4.8,
+          "end": 5.2
+        },
+        {
+          "text": "We",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "text": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "text": "a",
+          "start": 6.68,
+          "end": 6.8
+        },
+        {
+          "text": "house",
+          "start": 6.8,
+          "end": 7.0
+        },
+        {
+          "text": "of",
+          "start": 7.0,
+          "end": 7.16
+        },
+        {
+          "text": "our",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "text": "own",
+          "start": 7.36,
+          "end": 7.56
+        },
+        {
+          "text": "in",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "text": "Moscow,",
+          "start": 7.72,
+          "end": 8.08
+        },
+        {
+          "text": "but",
+          "start": 8.42,
+          "end": 8.54
+        },
+        {
+          "text": "it’s",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "text": "a",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "text": "long",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "text": "way",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "text": "from",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "text": "here,",
+          "start": 9.46,
+          "end": 9.76
+        },
+        {
+          "text": "and",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "text": "there’s",
+          "start": 10.14,
+          "end": 10.36
+        },
+        {
+          "text": "nobody",
+          "start": 10.36,
+          "end": 10.6
+        },
+        {
+          "text": "living",
+          "start": 10.6,
+          "end": 10.94
+        },
+        {
+          "text": "in",
+          "start": 10.94,
+          "end": 11.16
+        },
+        {
+          "text": "it.”",
+          "start": 11.16,
+          "end": 11.38
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4606829658150673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5a26386c9f1ea0c0bf7a88eb565d4e10f66657c0bb0ea7d9ed3fa773fc28197",
+  "selected_reasons": []
+}

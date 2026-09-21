@@ -1,0 +1,371 @@
+{
+  "complete": true,
+  "signature": "d6774e89e45c362fa3b8745bc4a9f38bfe7e0a11fb18dc58962eac670b6fe6e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21367217879742384,
+      "alignment_seconds": 0.0013011712580919266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't mess Mary Hendríkhovna's dress!\" cried other voices.",
+        "hotwords": "Don't, Mary, Hendríkhovna's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't mess Mary Hendríkhovna's dress!\" cried other voices.",
+          "start": 0.0,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.720703125
+            },
+            {
+              "text": " mess",
+              "start": 0.46,
+              "end": 0.62,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Mary",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Hendríkhovna's",
+              "start": 1.0,
+              "end": 1.8,
+              "probability": 0.45059735434395926
+            },
+            {
+              "text": " dress",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": "!\"",
+              "start": 2.04,
+              "end": 2.64,
+              "probability": 0.0280303955078125
+            },
+            {
+              "text": " cried",
+              "start": 2.64,
+              "end": 2.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " voices.",
+              "start": 2.9,
+              "end": 3.28,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "mess",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "raw": "Mary",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "Hendríkhovna's",
+          "start": 1.0,
+          "end": 1.8
+        },
+        {
+          "raw": "dress",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "!\"",
+          "start": 2.04,
+          "end": 2.64
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.64
+        },
+        {
+          "raw": "other",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "voices.",
+          "start": 2.9,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "“Don’t",
+        "mess",
+        "Mary",
+        "Hendríkhovna’s",
+        "dress!”",
+        "cried",
+        "other",
+        "voices."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Don't",
+        "mess",
+        "Mary",
+        "Hendríkhovna's",
+        "dress!\"",
+        "cried",
+        "other",
+        "voices."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mess",
+          "start": 0.46,
+          "end": 0.62,
+          "key": "mess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 0.62,
+          "end": 1.0,
+          "key": "mary",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hendríkhovna's",
+          "start": 1.0,
+          "end": 1.8,
+          "key": "hendríkhovnas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dress",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "dress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.04,
+          "end": 2.64,
+          "key": "",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.64,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "voices.",
+          "start": 2.9,
+          "end": 3.28,
+          "key": "voices",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Don’t",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "mess",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "text": "Mary",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "Hendríkhovna’s",
+          "start": 1.0,
+          "end": 1.8
+        },
+        {
+          "text": "dress!”",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "cried",
+          "start": 2.64,
+          "end": 2.64
+        },
+        {
+          "text": "other",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "voices.",
+          "start": 2.9,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21514494344592094
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df92a69df63ee61aa8fdb0936694ec12bdd913493afdd869aebe497afe41ecbf",
+  "selected_reasons": []
+}

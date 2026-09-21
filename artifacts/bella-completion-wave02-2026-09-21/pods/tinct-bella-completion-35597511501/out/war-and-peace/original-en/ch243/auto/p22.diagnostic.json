@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "450c49fb462a73193cad227cd11581ee8fb5ec38405b77040de7e3fd044c18b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2550699384883046,
+      "alignment_seconds": 0.001661212183535099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We don't expect to get him home! We must ask the doctor.\"",
+        "hotwords": "We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We don't expect to get him home! We must ask the doctor.",
+          "start": 0.0,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " don't",
+              "start": 0.32,
+              "end": 0.56,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " expect",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " get",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " home!",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " We",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " must",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ask",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " doctor.",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.88720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "don't",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "raw": "expect",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "get",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "him",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "home!",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "We",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "must",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "ask",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "doctor.",
+          "start": 3.6,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "“We",
+        "don’t",
+        "expect",
+        "to",
+        "get",
+        "him",
+        "home!",
+        "We",
+        "must",
+        "ask",
+        "the",
+        "doctor.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"We",
+        "don't",
+        "expect",
+        "to",
+        "get",
+        "him",
+        "home!",
+        "We",
+        "must",
+        "ask",
+        "the",
+        "doctor.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.32,
+          "end": 0.56,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "expect",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "get",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "home!",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "home",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "ask",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.6,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "doctor",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“We",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "don’t",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "text": "expect",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "get",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "him",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "home!",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "We",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "must",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "ask",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "doctor.”",
+          "start": 3.6,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.256953164935112
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37731b5c04324845cc02ff2921b365d753d44f7e8a81bf33fc004a586238198e",
+  "selected_reasons": []
+}

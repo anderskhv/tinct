@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "5ff75440e341ce5ff1b7af1c201f5eb3893cccaf466c277c731132b7af03f9f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2587717492133379,
+      "alignment_seconds": 0.001395280472934246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Just once more,\" said a girlish voice above him which Prince Andrew recognized at once.",
+        "hotwords": "Just, Prince, Andrew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Just once more, said a girlish voice above him which Prince Andrew recognized at once.",
+          "start": 0.0,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.1964111328125
+            },
+            {
+              "text": " once",
+              "start": 0.4,
+              "end": 0.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " more,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " girlish",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " voice",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " above",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " which",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Prince",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Andrew",
+              "start": 3.0,
+              "end": 3.44,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " recognized",
+              "start": 3.44,
+              "end": 3.94,
+              "probability": 0.471923828125
+            },
+            {
+              "text": " at",
+              "start": 3.94,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once.",
+              "start": 4.18,
+              "end": 4.54,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "once",
+          "start": 0.4,
+          "end": 0.64
+        },
+        {
+          "raw": "more,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "girlish",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "voice",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "above",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "him",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "which",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "raw": "Prince",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "Andrew",
+          "start": 3.0,
+          "end": 3.44
+        },
+        {
+          "raw": "recognized",
+          "start": 3.44,
+          "end": 3.94
+        },
+        {
+          "raw": "at",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "raw": "once.",
+          "start": 4.18,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "“Just",
+        "once",
+        "more,”",
+        "said",
+        "a",
+        "girlish",
+        "voice",
+        "above",
+        "him",
+        "which",
+        "Prince",
+        "Andrew",
+        "recognized",
+        "at",
+        "once."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Just",
+        "once",
+        "more,\"",
+        "said",
+        "a",
+        "girlish",
+        "voice",
+        "above",
+        "him",
+        "which",
+        "Prince",
+        "Andrew",
+        "recognized",
+        "at",
+        "once."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Just",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "just",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 0.4,
+          "end": 0.64,
+          "key": "once",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "girlish",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "girlish",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.82,
+          "end": 2.12,
+          "key": "voice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "above",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "above",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "prince",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 3.0,
+          "end": 3.44,
+          "key": "andrew",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "recognized",
+          "start": 3.44,
+          "end": 3.94,
+          "key": "recognized",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.94,
+          "end": 4.18,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 4.18,
+          "end": 4.54,
+          "key": "once",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Just",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "once",
+          "start": 0.4,
+          "end": 0.64
+        },
+        {
+          "text": "more,”",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "said",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "girlish",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "voice",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "above",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "him",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "which",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "text": "Prince",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "Andrew",
+          "start": 3.0,
+          "end": 3.44
+        },
+        {
+          "text": "recognized",
+          "start": 3.44,
+          "end": 3.94
+        },
+        {
+          "text": "at",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "text": "once.",
+          "start": 4.18,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26036070194095373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7e16a9f8ba4c8b1b570102c8a00d6b34e3fd96f9dcf528e073a66c66f28097f",
+  "selected_reasons": []
+}

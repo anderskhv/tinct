@@ -1,0 +1,791 @@
+{
+  "complete": true,
+  "signature": "4dd10af1482b440e4b40109e8df4e3359a8831fc60991651e21c2fb6ebe5c654",
+  "attempts": [
+    {
+      "asr_seconds": 0.3036899520084262,
+      "alignment_seconds": 0.0019261110574007034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She has written to you. How she torments herself, poor thing! She's afraid you might think that she does not like you.\"",
+        "hotwords": "How, She's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She has written to you. How she torments herself, poor thing! She's afraid you might think that she does not like you.",
+          "start": 0.0,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " has",
+              "start": 0.4,
+              "end": 0.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " written",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 1.04,
+              "end": 1.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " How",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " she",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " torments",
+              "start": 2.7,
+              "end": 3.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " herself,",
+              "start": 3.1,
+              "end": 3.6,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " poor",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " thing!",
+              "start": 4.18,
+              "end": 4.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " She's",
+              "start": 5.64,
+              "end": 5.82,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " afraid",
+              "start": 5.82,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 6.08,
+              "end": 6.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " might",
+              "start": 6.28,
+              "end": 6.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " think",
+              "start": 6.42,
+              "end": 6.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 6.64,
+              "end": 6.8,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " she",
+              "start": 6.8,
+              "end": 6.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " does",
+              "start": 6.92,
+              "end": 7.1,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 7.1,
+              "end": 7.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 7.3,
+              "end": 7.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 7.5,
+              "end": 7.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "has",
+          "start": 0.4,
+          "end": 0.54
+        },
+        {
+          "raw": "written",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "you.",
+          "start": 1.04,
+          "end": 1.58
+        },
+        {
+          "raw": "How",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "torments",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "raw": "herself,",
+          "start": 3.1,
+          "end": 3.6
+        },
+        {
+          "raw": "poor",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "thing!",
+          "start": 4.18,
+          "end": 4.54
+        },
+        {
+          "raw": "She's",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "raw": "afraid",
+          "start": 5.82,
+          "end": 6.08
+        },
+        {
+          "raw": "you",
+          "start": 6.08,
+          "end": 6.28
+        },
+        {
+          "raw": "might",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "raw": "think",
+          "start": 6.42,
+          "end": 6.64
+        },
+        {
+          "raw": "that",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "raw": "she",
+          "start": 6.8,
+          "end": 6.92
+        },
+        {
+          "raw": "does",
+          "start": 6.92,
+          "end": 7.1
+        },
+        {
+          "raw": "not",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "raw": "like",
+          "start": 7.3,
+          "end": 7.5
+        },
+        {
+          "raw": "you.",
+          "start": 7.5,
+          "end": 7.8
+        }
+      ],
+      "expected_tokens": [
+        "“She",
+        "has",
+        "written",
+        "to",
+        "you.",
+        "How",
+        "she",
+        "torments",
+        "herself,",
+        "poor",
+        "thing!",
+        "She’s",
+        "afraid",
+        "you",
+        "might",
+        "think",
+        "that",
+        "she",
+        "does",
+        "not",
+        "like",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"She",
+        "has",
+        "written",
+        "to",
+        "you.",
+        "How",
+        "she",
+        "torments",
+        "herself,",
+        "poor",
+        "thing!",
+        "She's",
+        "afraid",
+        "you",
+        "might",
+        "think",
+        "that",
+        "she",
+        "does",
+        "not",
+        "like",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.4,
+          "end": 0.54,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "written",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.04,
+          "end": 1.58,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "torments",
+          "start": 2.7,
+          "end": 3.1,
+          "key": "torments",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "herself,",
+          "start": 3.1,
+          "end": 3.6,
+          "key": "herself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 4.04,
+          "end": 4.18,
+          "key": "poor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thing!",
+          "start": 4.18,
+          "end": 4.54,
+          "key": "thing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 5.64,
+          "end": 5.82,
+          "key": "shes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 5.82,
+          "end": 6.08,
+          "key": "afraid",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.08,
+          "end": 6.28,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 6.28,
+          "end": 6.42,
+          "key": "might",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 6.42,
+          "end": 6.64,
+          "key": "think",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.64,
+          "end": 6.8,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.8,
+          "end": 6.92,
+          "key": "she",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 6.92,
+          "end": 7.1,
+          "key": "does",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.1,
+          "end": 7.3,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 7.3,
+          "end": 7.5,
+          "key": "like",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 7.5,
+          "end": 7.8,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“She",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "has",
+          "start": 0.4,
+          "end": 0.54
+        },
+        {
+          "text": "written",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "to",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "you.",
+          "start": 1.04,
+          "end": 1.58
+        },
+        {
+          "text": "How",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "she",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "torments",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "text": "herself,",
+          "start": 3.1,
+          "end": 3.6
+        },
+        {
+          "text": "poor",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "thing!",
+          "start": 4.18,
+          "end": 4.54
+        },
+        {
+          "text": "She’s",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "text": "afraid",
+          "start": 5.82,
+          "end": 6.08
+        },
+        {
+          "text": "you",
+          "start": 6.08,
+          "end": 6.28
+        },
+        {
+          "text": "might",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "text": "think",
+          "start": 6.42,
+          "end": 6.64
+        },
+        {
+          "text": "that",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "text": "she",
+          "start": 6.8,
+          "end": 6.92
+        },
+        {
+          "text": "does",
+          "start": 6.92,
+          "end": 7.1
+        },
+        {
+          "text": "not",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "text": "like",
+          "start": 7.3,
+          "end": 7.5
+        },
+        {
+          "text": "you.”",
+          "start": 7.5,
+          "end": 7.8
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3058526776731014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c7f5725d7a8f2d64d01bef1434dd4ce9195d937e17f5ae563d728293b0747274",
+  "selected_reasons": []
+}

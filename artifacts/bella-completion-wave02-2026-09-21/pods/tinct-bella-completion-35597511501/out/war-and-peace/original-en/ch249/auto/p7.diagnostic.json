@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "7704b9ae89847e35c30dc8fe56dc98b1b2a5b15d1b78f6c08600a0b381750ac7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11087697371840477,
+      "alignment_seconds": 0.000815659761428833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My carriage!\" he said.",
+        "hotwords": "My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My carriage, he said.",
+          "start": 0.0,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.08721923828125
+            },
+            {
+              "text": " carriage,",
+              "start": 0.42,
+              "end": 0.86,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " he",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " said.",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "carriage,",
+          "start": 0.42,
+          "end": 0.86
+        },
+        {
+          "raw": "he",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "said.",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "“My",
+        "carriage!”",
+        "he",
+        "said."
+      ],
+      "acoustic_expected_tokens": [
+        "\"My",
+        "carriage!\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage,",
+          "start": 0.42,
+          "end": 0.86,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“My",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "carriage!”",
+          "start": 0.42,
+          "end": 0.86
+        },
+        {
+          "text": "he",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "said.",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11180588975548744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b454e099746246ae352416580565522d8123e28ffdb8bafe27c194404210b3bf",
+  "selected_reasons": []
+}

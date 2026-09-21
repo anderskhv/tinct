@@ -1,0 +1,503 @@
+{
+  "complete": true,
+  "signature": "5f8c85aa7d2350696fd75fe565e0263f32c852e28fcec548c237916b318a16a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2034393446519971,
+      "alignment_seconds": 0.001435273326933384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Devil take it!\" said the voice of a man stumbling over something.",
+        "hotwords": "Devil"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Devil take it!\" said the voice of a man stumbling over something.",
+          "start": 0.0,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Devil",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.03228759765625
+            },
+            {
+              "text": " take",
+              "start": 0.44,
+              "end": 0.64,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " it",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "!\"",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.041168212890625
+            },
+            {
+              "text": " said",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " voice",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stumbling",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " over",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " something.",
+              "start": 2.78,
+              "end": 3.16,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Devil",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "take",
+          "start": 0.44,
+          "end": 0.64
+        },
+        {
+          "raw": "it",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "!\"",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "raw": "said",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "voice",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "man",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "stumbling",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "over",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "something.",
+          "start": 2.78,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "“Devil",
+        "take",
+        "it!”",
+        "said",
+        "the",
+        "voice",
+        "of",
+        "a",
+        "man",
+        "stumbling",
+        "over",
+        "something."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Devil",
+        "take",
+        "it!\"",
+        "said",
+        "the",
+        "voice",
+        "of",
+        "a",
+        "man",
+        "stumbling",
+        "over",
+        "something."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          12,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Devil",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "devil",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 0.44,
+          "end": 0.64,
+          "key": "take",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 0.88,
+          "end": 1.12,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "voice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stumbling",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "stumbling",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "over",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "something.",
+          "start": 2.78,
+          "end": 3.16,
+          "key": "something",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Devil",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "take",
+          "start": 0.44,
+          "end": 0.64
+        },
+        {
+          "text": "it!”",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "said",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "voice",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "of",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "man",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "stumbling",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "over",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "something.",
+          "start": 2.78,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20506172347813845
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97ec4454909adcc5e0b96270986c7d260cc152c6d034bdb0cf7070429f8288df",
+  "selected_reasons": []
+}

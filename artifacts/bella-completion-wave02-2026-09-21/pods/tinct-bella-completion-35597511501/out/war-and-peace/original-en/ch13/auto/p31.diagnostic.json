@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "cc995c4f5df7fca784e91aa49769b3aae29ee7782e2622d948b6f594223b5e8c",
+  "attempts": [
+    {
+      "asr_seconds": 3.0977190230041742,
+      "alignment_seconds": 0.0007537147030234337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Settled!\" replied Borís.",
+        "hotwords": "Settled, Borís"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Settled, replied Borís.",
+          "start": 0.11,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Settled,",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " replied",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Borís.",
+              "start": 1.41,
+              "end": 1.97,
+              "probability": 0.0033676624298095703
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Settled,",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "raw": "replied",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "Borís.",
+          "start": 1.41,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "“Settled!”",
+        "replied",
+        "Borís."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Settled!\"",
+        "replied",
+        "Borís."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Settled,",
+          "start": 0.11,
+          "end": 0.89,
+          "key": "settled",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "replied",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Borís.",
+          "start": 1.41,
+          "end": 1.97,
+          "key": "borís",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Settled!”",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "text": "replied",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "Borís.",
+          "start": 1.41,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.0985776176676154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f93aab9a50566aa4a6086210fa9d80ae784bafe6c7dd0bf7845d0fcdd6a95ced",
+  "selected_reasons": []
+}

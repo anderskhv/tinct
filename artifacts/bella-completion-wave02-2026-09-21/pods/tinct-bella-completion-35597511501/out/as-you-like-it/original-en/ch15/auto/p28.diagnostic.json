@@ -1,0 +1,203 @@
+{
+  "complete": true,
+  "signature": "9d94641270f89d2e3f9e2bfac552a144a95360702c34354cfd40696176f57f5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14947103708982468,
+      "alignment_seconds": 0.0008140569552779198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And I for Ganymede.",
+        "hotwords": "And, I, Ganymede"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And I for Ganymede.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.004138946533203125
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 1.32,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " for",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.14599609375
+            },
+            {
+              "text": " Ganymede.",
+              "start": 1.48,
+              "end": 2.1,
+              "probability": 0.77490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 1.32
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "Ganymede.",
+          "start": 1.48,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "PHEBE.",
+        "And",
+        "I",
+        "for",
+        "Ganymede."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "I",
+        "for",
+        "Ganymede."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 1.32,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ganymede.",
+          "start": 1.48,
+          "end": 2.1,
+          "key": "ganymede",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PHEBE.",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 1.32
+        },
+        {
+          "text": "for",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "Ganymede.",
+          "start": 1.48,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1503975559026003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d5e0582eb7cc1f2062b2320afd365eb2756aec84df642f73504b77adb3bc9234",
+  "selected_reasons": []
+}

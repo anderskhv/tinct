@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "ea3277042ccbdf9f7990d9b6627a76bff74173518578ba5c955a541026319fed",
+  "attempts": [
+    {
+      "asr_seconds": 0.38620157074183226,
+      "alignment_seconds": 0.0016099140048027039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What swells they are! Why, the water streams from them! Don't make our drawing room so wet.\"",
+        "hotwords": "What, Why, Don't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What swells they are! Why, the water streams from them! Don't make our drawing room so wet.",
+          "start": 0.0,
+          "end": 6.98,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " swells",
+              "start": 0.36,
+              "end": 0.72,
+              "probability": 0.962890625
+            },
+            {
+              "text": " they",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are!",
+              "start": 0.96,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Why,",
+              "start": 2.24,
+              "end": 2.6,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " water",
+              "start": 2.96,
+              "end": 3.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " streams",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them!",
+              "start": 3.92,
+              "end": 4.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Don't",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " make",
+              "start": 5.34,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 5.5,
+              "end": 5.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " drawing",
+              "start": 5.76,
+              "end": 6.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " room",
+              "start": 6.1,
+              "end": 6.38,
+              "probability": 0.91796875
+            },
+            {
+              "text": " so",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wet.",
+              "start": 6.66,
+              "end": 6.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "swells",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "raw": "they",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "are!",
+          "start": 0.96,
+          "end": 1.6
+        },
+        {
+          "raw": "Why,",
+          "start": 2.24,
+          "end": 2.6
+        },
+        {
+          "raw": "the",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "water",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "raw": "streams",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "raw": "from",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "them!",
+          "start": 3.92,
+          "end": 4.32
+        },
+        {
+          "raw": "Don't",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "make",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "raw": "our",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "raw": "drawing",
+          "start": 5.76,
+          "end": 6.1
+        },
+        {
+          "raw": "room",
+          "start": 6.1,
+          "end": 6.38
+        },
+        {
+          "raw": "so",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "wet.",
+          "start": 6.66,
+          "end": 6.98
+        }
+      ],
+      "expected_tokens": [
+        "“What",
+        "swells",
+        "they",
+        "are!",
+        "Why,",
+        "the",
+        "water",
+        "streams",
+        "from",
+        "them!",
+        "Don’t",
+        "make",
+        "our",
+        "drawing",
+        "room",
+        "so",
+        "wet.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"What",
+        "swells",
+        "they",
+        "are!",
+        "Why,",
+        "the",
+        "water",
+        "streams",
+        "from",
+        "them!",
+        "Don't",
+        "make",
+        "our",
+        "drawing",
+        "room",
+        "so",
+        "wet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "swells",
+          "start": 0.36,
+          "end": 0.72,
+          "key": "swells",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are!",
+          "start": 0.96,
+          "end": 1.6,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 2.24,
+          "end": 2.6,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 2.96,
+          "end": 3.22,
+          "key": "water",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "streams",
+          "start": 3.22,
+          "end": 3.64,
+          "key": "streams",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.64,
+          "end": 3.92,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "them!",
+          "start": 3.92,
+          "end": 4.32,
+          "key": "them",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.34,
+          "end": 5.5,
+          "key": "make",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.5,
+          "end": 5.76,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drawing",
+          "start": 5.76,
+          "end": 6.1,
+          "key": "drawing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 6.1,
+          "end": 6.38,
+          "key": "room",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wet.",
+          "start": 6.66,
+          "end": 6.98,
+          "key": "wet",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“What",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "swells",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "text": "they",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "text": "are!",
+          "start": 0.96,
+          "end": 1.6
+        },
+        {
+          "text": "Why,",
+          "start": 2.24,
+          "end": 2.6
+        },
+        {
+          "text": "the",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "water",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "text": "streams",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "text": "from",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "them!",
+          "start": 3.92,
+          "end": 4.32
+        },
+        {
+          "text": "Don’t",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "make",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "text": "our",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "text": "drawing",
+          "start": 5.76,
+          "end": 6.1
+        },
+        {
+          "text": "room",
+          "start": 6.1,
+          "end": 6.38
+        },
+        {
+          "text": "so",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "wet.”",
+          "start": 6.66,
+          "end": 6.98
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3880104376003146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b51edea38497a58dd358fd9a1c94aeee8ddabd66ed73a460baa23b8e3e3eacd5",
+  "selected_reasons": []
+}

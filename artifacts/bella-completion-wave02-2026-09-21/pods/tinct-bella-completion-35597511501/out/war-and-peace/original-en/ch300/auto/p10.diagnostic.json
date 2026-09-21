@@ -1,0 +1,2690 @@
+{
+  "complete": true,
+  "signature": "940393ebe85b333ebde5ec6b8fc549448ebe384fad76b4efa6dc14d480c1aad5",
+  "attempts": [
+    {
+      "asr_seconds": 0.6867298800498247,
+      "alignment_seconds": 0.005945312790572643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That unknown quantity is the spirit of the army, that is to say, the greater or lesser readiness to fight and face danger felt by all the men composing an army, quite independently of whether they are, or are not, fighting under the command of a genius, in two—or three-line formation, with cudgels or with rifles that repeat thirty times a minute. Men who want to fight will always put themselves in the most advantageous conditions for fighting."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That unknown quantity is the spirit of the army, that is to say, the greater or lesser readiness to",
+          "start": 0.0,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " unknown",
+              "start": 0.34,
+              "end": 0.7,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " quantity",
+              "start": 0.7,
+              "end": 1.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spirit",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " of",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " army,",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " that",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " is",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say,",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " greater",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": " or",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lesser",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " readiness",
+              "start": 4.48,
+              "end": 4.82,
+              "probability": 0.55859375
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " fight and face danger felt by all the men composing an army, quite independently of whether they are,",
+          "start": 5.04,
+          "end": 10.18,
+          "words": [
+            {
+              "text": " fight",
+              "start": 5.04,
+              "end": 5.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.28,
+              "end": 5.46,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " face",
+              "start": 5.46,
+              "end": 5.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " danger",
+              "start": 5.72,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " felt",
+              "start": 6.1,
+              "end": 6.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 6.36,
+              "end": 6.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 6.62,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 6.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " men",
+              "start": 6.98,
+              "end": 7.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " composing",
+              "start": 7.14,
+              "end": 7.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " an",
+              "start": 7.6,
+              "end": 7.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " army,",
+              "start": 7.86,
+              "end": 8.18,
+              "probability": 0.978515625
+            },
+            {
+              "text": " quite",
+              "start": 8.38,
+              "end": 8.58,
+              "probability": 0.98046875
+            },
+            {
+              "text": " independently",
+              "start": 8.58,
+              "end": 9.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.16,
+              "end": 9.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whether",
+              "start": 9.42,
+              "end": 9.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 9.6,
+              "end": 9.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are,",
+              "start": 9.82,
+              "end": 10.18,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " or are not, fighting under the command of a genius, in two—or three-line formation,",
+          "start": 10.44,
+          "end": 15.36,
+          "words": [
+            {
+              "text": " or",
+              "start": 10.44,
+              "end": 10.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 10.64,
+              "end": 10.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not,",
+              "start": 10.8,
+              "end": 11.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fighting",
+              "start": 11.4,
+              "end": 11.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " under",
+              "start": 11.6,
+              "end": 11.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 11.92,
+              "end": 12.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " command",
+              "start": 12.1,
+              "end": 12.38,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 12.58,
+              "end": 12.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " genius,",
+              "start": 12.7,
+              "end": 12.94,
+              "probability": 0.921875
+            },
+            {
+              "text": " in",
+              "start": 13.4,
+              "end": 13.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " two—or",
+              "start": 13.58,
+              "end": 14.38,
+              "probability": 0.5892740885416666
+            },
+            {
+              "text": " three",
+              "start": 14.38,
+              "end": 14.64,
+              "probability": 0.99072265625
+            },
+            {
+              "text": "-line",
+              "start": 14.64,
+              "end": 14.86,
+              "probability": 0.913818359375
+            },
+            {
+              "text": " formation,",
+              "start": 14.86,
+              "end": 15.36,
+              "probability": 0.9697265625
+            }
+          ]
+        },
+        {
+          "text": " with cudgels or with rifles that repeat thirty times a minute.",
+          "start": 15.7,
+          "end": 18.9,
+          "words": [
+            {
+              "text": " with",
+              "start": 15.7,
+              "end": 15.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cudgels",
+              "start": 15.86,
+              "end": 16.32,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " or",
+              "start": 16.32,
+              "end": 16.64,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " with",
+              "start": 16.64,
+              "end": 16.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rifles",
+              "start": 16.8,
+              "end": 17.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 17.18,
+              "end": 17.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " repeat",
+              "start": 17.42,
+              "end": 17.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thirty",
+              "start": 17.7,
+              "end": 18.08,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " times",
+              "start": 18.08,
+              "end": 18.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 18.48,
+              "end": 18.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " minute.",
+              "start": 18.66,
+              "end": 18.9,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Men who want to fight will always put themselves in the most advantageous conditions for fighting.",
+          "start": 19.98,
+          "end": 24.48,
+          "words": [
+            {
+              "text": " Men",
+              "start": 19.98,
+              "end": 20.16,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " who",
+              "start": 20.16,
+              "end": 20.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " want",
+              "start": 20.34,
+              "end": 20.5,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 20.5,
+              "end": 20.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fight",
+              "start": 20.64,
+              "end": 20.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 20.86,
+              "end": 21.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " always",
+              "start": 21.06,
+              "end": 21.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " put",
+              "start": 21.38,
+              "end": 21.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " themselves",
+              "start": 21.6,
+              "end": 21.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 21.98,
+              "end": 22.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 22.26,
+              "end": 22.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " most",
+              "start": 22.38,
+              "end": 22.58,
+              "probability": 1.0
+            },
+            {
+              "text": " advantageous",
+              "start": 22.58,
+              "end": 23.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " conditions",
+              "start": 23.22,
+              "end": 23.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 23.8,
+              "end": 24.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fighting.",
+              "start": 24.08,
+              "end": 24.48,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "unknown",
+          "start": 0.34,
+          "end": 0.7
+        },
+        {
+          "raw": "quantity",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "spirit",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "army,",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "that",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "is",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "say,",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "greater",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "raw": "or",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "lesser",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "readiness",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "fight",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.46
+        },
+        {
+          "raw": "face",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "raw": "danger",
+          "start": 5.72,
+          "end": 6.1
+        },
+        {
+          "raw": "felt",
+          "start": 6.1,
+          "end": 6.36
+        },
+        {
+          "raw": "by",
+          "start": 6.36,
+          "end": 6.62
+        },
+        {
+          "raw": "all",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "raw": "men",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "raw": "composing",
+          "start": 7.14,
+          "end": 7.6
+        },
+        {
+          "raw": "an",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "raw": "army,",
+          "start": 7.86,
+          "end": 8.18
+        },
+        {
+          "raw": "quite",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "raw": "independently",
+          "start": 8.58,
+          "end": 9.16
+        },
+        {
+          "raw": "of",
+          "start": 9.16,
+          "end": 9.42
+        },
+        {
+          "raw": "whether",
+          "start": 9.42,
+          "end": 9.6
+        },
+        {
+          "raw": "they",
+          "start": 9.6,
+          "end": 9.82
+        },
+        {
+          "raw": "are,",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "raw": "or",
+          "start": 10.44,
+          "end": 10.64
+        },
+        {
+          "raw": "are",
+          "start": 10.64,
+          "end": 10.8
+        },
+        {
+          "raw": "not,",
+          "start": 10.8,
+          "end": 11.02
+        },
+        {
+          "raw": "fighting",
+          "start": 11.4,
+          "end": 11.6
+        },
+        {
+          "raw": "under",
+          "start": 11.6,
+          "end": 11.92
+        },
+        {
+          "raw": "the",
+          "start": 11.92,
+          "end": 12.1
+        },
+        {
+          "raw": "command",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "raw": "of",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "a",
+          "start": 12.58,
+          "end": 12.7
+        },
+        {
+          "raw": "genius,",
+          "start": 12.7,
+          "end": 12.94
+        },
+        {
+          "raw": "in",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "raw": "two—or",
+          "start": 13.58,
+          "end": 14.38
+        },
+        {
+          "raw": "three",
+          "start": 14.38,
+          "end": 14.64
+        },
+        {
+          "raw": "-line",
+          "start": 14.64,
+          "end": 14.86
+        },
+        {
+          "raw": "formation,",
+          "start": 14.86,
+          "end": 15.36
+        },
+        {
+          "raw": "with",
+          "start": 15.7,
+          "end": 15.86
+        },
+        {
+          "raw": "cudgels",
+          "start": 15.86,
+          "end": 16.32
+        },
+        {
+          "raw": "or",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "raw": "with",
+          "start": 16.64,
+          "end": 16.8
+        },
+        {
+          "raw": "rifles",
+          "start": 16.8,
+          "end": 17.18
+        },
+        {
+          "raw": "that",
+          "start": 17.18,
+          "end": 17.42
+        },
+        {
+          "raw": "repeat",
+          "start": 17.42,
+          "end": 17.7
+        },
+        {
+          "raw": "thirty",
+          "start": 17.7,
+          "end": 18.08
+        },
+        {
+          "raw": "times",
+          "start": 18.08,
+          "end": 18.48
+        },
+        {
+          "raw": "a",
+          "start": 18.48,
+          "end": 18.66
+        },
+        {
+          "raw": "minute.",
+          "start": 18.66,
+          "end": 18.9
+        },
+        {
+          "raw": "Men",
+          "start": 19.98,
+          "end": 20.16
+        },
+        {
+          "raw": "who",
+          "start": 20.16,
+          "end": 20.34
+        },
+        {
+          "raw": "want",
+          "start": 20.34,
+          "end": 20.5
+        },
+        {
+          "raw": "to",
+          "start": 20.5,
+          "end": 20.64
+        },
+        {
+          "raw": "fight",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "raw": "will",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "raw": "always",
+          "start": 21.06,
+          "end": 21.38
+        },
+        {
+          "raw": "put",
+          "start": 21.38,
+          "end": 21.6
+        },
+        {
+          "raw": "themselves",
+          "start": 21.6,
+          "end": 21.98
+        },
+        {
+          "raw": "in",
+          "start": 21.98,
+          "end": 22.26
+        },
+        {
+          "raw": "the",
+          "start": 22.26,
+          "end": 22.38
+        },
+        {
+          "raw": "most",
+          "start": 22.38,
+          "end": 22.58
+        },
+        {
+          "raw": "advantageous",
+          "start": 22.58,
+          "end": 23.22
+        },
+        {
+          "raw": "conditions",
+          "start": 23.22,
+          "end": 23.8
+        },
+        {
+          "raw": "for",
+          "start": 23.8,
+          "end": 24.08
+        },
+        {
+          "raw": "fighting.",
+          "start": 24.08,
+          "end": 24.48
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "unknown",
+        "quantity",
+        "is",
+        "the",
+        "spirit",
+        "of",
+        "the",
+        "army,",
+        "that",
+        "is",
+        "to",
+        "say,",
+        "the",
+        "greater",
+        "or",
+        "lesser",
+        "readiness",
+        "to",
+        "fight",
+        "and",
+        "face",
+        "danger",
+        "felt",
+        "by",
+        "all",
+        "the",
+        "men",
+        "composing",
+        "an",
+        "army,",
+        "quite",
+        "independently",
+        "of",
+        "whether",
+        "they",
+        "are,",
+        "or",
+        "are",
+        "not,",
+        "fighting",
+        "under",
+        "the",
+        "command",
+        "of",
+        "a",
+        "genius,",
+        "in",
+        "two—or",
+        "three-line",
+        "formation,",
+        "with",
+        "cudgels",
+        "or",
+        "with",
+        "rifles",
+        "that",
+        "repeat",
+        "thirty",
+        "times",
+        "a",
+        "minute.",
+        "Men",
+        "who",
+        "want",
+        "to",
+        "fight",
+        "will",
+        "always",
+        "put",
+        "themselves",
+        "in",
+        "the",
+        "most",
+        "advantageous",
+        "conditions",
+        "for",
+        "fighting."
+      ],
+      "acoustic_expected_tokens": [
+        "That",
+        "unknown",
+        "quantity",
+        "is",
+        "the",
+        "spirit",
+        "of",
+        "the",
+        "army,",
+        "that",
+        "is",
+        "to",
+        "say,",
+        "the",
+        "greater",
+        "or",
+        "lesser",
+        "readiness",
+        "to",
+        "fight",
+        "and",
+        "face",
+        "danger",
+        "felt",
+        "by",
+        "all",
+        "the",
+        "men",
+        "composing",
+        "an",
+        "army,",
+        "quite",
+        "independently",
+        "of",
+        "whether",
+        "they",
+        "are,",
+        "or",
+        "are",
+        "not,",
+        "fighting",
+        "under",
+        "the",
+        "command",
+        "of",
+        "a",
+        "genius,",
+        "in",
+        "two—or",
+        "three-line",
+        "formation,",
+        "with",
+        "cudgels",
+        "or",
+        "with",
+        "rifles",
+        "that",
+        "repeat",
+        "thirty",
+        "times",
+        "a",
+        "minute.",
+        "Men",
+        "who",
+        "want",
+        "to",
+        "fight",
+        "will",
+        "always",
+        "put",
+        "themselves",
+        "in",
+        "the",
+        "most",
+        "advantageous",
+        "conditions",
+        "for",
+        "fighting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          78,
+          0,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "unknown",
+          "start": 0.34,
+          "end": 0.7,
+          "key": "unknown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 0.7,
+          "end": 1.18,
+          "key": "quantity",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "spirit",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "army,",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "army",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "say",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 3.8,
+          "end": 4.04,
+          "key": "greater",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "or",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lesser",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "lesser",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "readiness",
+          "start": 4.48,
+          "end": 4.82,
+          "key": "readiness",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 5.04,
+          "end": 5.28,
+          "key": "fight",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.46,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 5.46,
+          "end": 5.72,
+          "key": "face",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 5.72,
+          "end": 6.1,
+          "key": "danger",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 6.1,
+          "end": 6.36,
+          "key": "felt",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.36,
+          "end": 6.62,
+          "key": "by",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.62,
+          "end": 6.84,
+          "key": "all",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 6.98,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 6.98,
+          "end": 7.14,
+          "key": "men",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "composing",
+          "start": 7.14,
+          "end": 7.6,
+          "key": "composing",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.6,
+          "end": 7.86,
+          "key": "an",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "army,",
+          "start": 7.86,
+          "end": 8.18,
+          "key": "army",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 8.38,
+          "end": 8.58,
+          "key": "quite",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "independently",
+          "start": 8.58,
+          "end": 9.16,
+          "key": "independently",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.16,
+          "end": 9.42,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 9.42,
+          "end": 9.6,
+          "key": "whether",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.6,
+          "end": 9.82,
+          "key": "they",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 9.82,
+          "end": 10.18,
+          "key": "are",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 10.44,
+          "end": 10.64,
+          "key": "or",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.64,
+          "end": 10.8,
+          "key": "are",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 10.8,
+          "end": 11.02,
+          "key": "not",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "fighting",
+          "start": 11.4,
+          "end": 11.6,
+          "key": "fighting",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 11.6,
+          "end": 11.92,
+          "key": "under",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.92,
+          "end": 12.1,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 12.1,
+          "end": 12.38,
+          "key": "command",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.38,
+          "end": 12.58,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.58,
+          "end": 12.7,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "genius,",
+          "start": 12.7,
+          "end": 12.94,
+          "key": "genius",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.4,
+          "end": 13.58,
+          "key": "in",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "two—or",
+          "start": 13.58,
+          "end": 14.38,
+          "key": "twoor",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "three -line",
+          "start": 14.38,
+          "end": 14.86,
+          "key": "threeline",
+          "pieces": [
+            49,
+            50
+          ]
+        },
+        {
+          "raw": "formation,",
+          "start": 14.86,
+          "end": 15.36,
+          "key": "formation",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.7,
+          "end": 15.86,
+          "key": "with",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "cudgels",
+          "start": 15.86,
+          "end": 16.32,
+          "key": "cudgels",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 16.32,
+          "end": 16.64,
+          "key": "or",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.64,
+          "end": 16.8,
+          "key": "with",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "rifles",
+          "start": 16.8,
+          "end": 17.18,
+          "key": "rifles",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 17.18,
+          "end": 17.42,
+          "key": "that",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "repeat",
+          "start": 17.42,
+          "end": 17.7,
+          "key": "repeat",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "thirty",
+          "start": 17.7,
+          "end": 18.08,
+          "key": "thirty",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 18.08,
+          "end": 18.48,
+          "key": "times",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.48,
+          "end": 18.66,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "minute.",
+          "start": 18.66,
+          "end": 18.9,
+          "key": "minute",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Men",
+          "start": 19.98,
+          "end": 20.16,
+          "key": "men",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 20.16,
+          "end": 20.34,
+          "key": "who",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 20.34,
+          "end": 20.5,
+          "key": "want",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.5,
+          "end": 20.64,
+          "key": "to",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 20.64,
+          "end": 20.86,
+          "key": "fight",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 20.86,
+          "end": 21.06,
+          "key": "will",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 21.06,
+          "end": 21.38,
+          "key": "always",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 21.38,
+          "end": 21.6,
+          "key": "put",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 21.6,
+          "end": 21.98,
+          "key": "themselves",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.98,
+          "end": 22.26,
+          "key": "in",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.26,
+          "end": 22.38,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 22.38,
+          "end": 22.58,
+          "key": "most",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "advantageous",
+          "start": 22.58,
+          "end": 23.22,
+          "key": "advantageous",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "conditions",
+          "start": 23.22,
+          "end": 23.8,
+          "key": "conditions",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 23.8,
+          "end": 24.08,
+          "key": "for",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "fighting.",
+          "start": 24.08,
+          "end": 24.48,
+          "key": "fighting",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 49,
+          "text": "three-line",
+          "heard": "three -line",
+          "heard_indexes": [
+            49,
+            50
+          ],
+          "start": 14.38,
+          "end": 14.86
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "unknown",
+          "start": 0.34,
+          "end": 0.7
+        },
+        {
+          "text": "quantity",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "spirit",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "of",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "army,",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "that",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "is",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "say,",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "greater",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "text": "or",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "lesser",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "readiness",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "fight",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.28,
+          "end": 5.46
+        },
+        {
+          "text": "face",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "text": "danger",
+          "start": 5.72,
+          "end": 6.1
+        },
+        {
+          "text": "felt",
+          "start": 6.1,
+          "end": 6.36
+        },
+        {
+          "text": "by",
+          "start": 6.36,
+          "end": 6.62
+        },
+        {
+          "text": "all",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 6.98
+        },
+        {
+          "text": "men",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "text": "composing",
+          "start": 7.14,
+          "end": 7.6
+        },
+        {
+          "text": "an",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "text": "army,",
+          "start": 7.86,
+          "end": 8.18
+        },
+        {
+          "text": "quite",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "text": "independently",
+          "start": 8.58,
+          "end": 9.16
+        },
+        {
+          "text": "of",
+          "start": 9.16,
+          "end": 9.42
+        },
+        {
+          "text": "whether",
+          "start": 9.42,
+          "end": 9.6
+        },
+        {
+          "text": "they",
+          "start": 9.6,
+          "end": 9.82
+        },
+        {
+          "text": "are,",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "text": "or",
+          "start": 10.44,
+          "end": 10.64
+        },
+        {
+          "text": "are",
+          "start": 10.64,
+          "end": 10.8
+        },
+        {
+          "text": "not,",
+          "start": 10.8,
+          "end": 11.02
+        },
+        {
+          "text": "fighting",
+          "start": 11.4,
+          "end": 11.6
+        },
+        {
+          "text": "under",
+          "start": 11.6,
+          "end": 11.92
+        },
+        {
+          "text": "the",
+          "start": 11.92,
+          "end": 12.1
+        },
+        {
+          "text": "command",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "text": "of",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "a",
+          "start": 12.58,
+          "end": 12.7
+        },
+        {
+          "text": "genius,",
+          "start": 12.7,
+          "end": 12.94
+        },
+        {
+          "text": "in",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "text": "two—or",
+          "start": 13.58,
+          "end": 14.38
+        },
+        {
+          "text": "three-line",
+          "start": 14.38,
+          "end": 14.86
+        },
+        {
+          "text": "formation,",
+          "start": 14.86,
+          "end": 15.36
+        },
+        {
+          "text": "with",
+          "start": 15.7,
+          "end": 15.86
+        },
+        {
+          "text": "cudgels",
+          "start": 15.86,
+          "end": 16.32
+        },
+        {
+          "text": "or",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "text": "with",
+          "start": 16.64,
+          "end": 16.8
+        },
+        {
+          "text": "rifles",
+          "start": 16.8,
+          "end": 17.18
+        },
+        {
+          "text": "that",
+          "start": 17.18,
+          "end": 17.42
+        },
+        {
+          "text": "repeat",
+          "start": 17.42,
+          "end": 17.7
+        },
+        {
+          "text": "thirty",
+          "start": 17.7,
+          "end": 18.08
+        },
+        {
+          "text": "times",
+          "start": 18.08,
+          "end": 18.48
+        },
+        {
+          "text": "a",
+          "start": 18.48,
+          "end": 18.66
+        },
+        {
+          "text": "minute.",
+          "start": 18.66,
+          "end": 18.9
+        },
+        {
+          "text": "Men",
+          "start": 19.98,
+          "end": 20.16
+        },
+        {
+          "text": "who",
+          "start": 20.16,
+          "end": 20.34
+        },
+        {
+          "text": "want",
+          "start": 20.34,
+          "end": 20.5
+        },
+        {
+          "text": "to",
+          "start": 20.5,
+          "end": 20.64
+        },
+        {
+          "text": "fight",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "text": "will",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "text": "always",
+          "start": 21.06,
+          "end": 21.38
+        },
+        {
+          "text": "put",
+          "start": 21.38,
+          "end": 21.6
+        },
+        {
+          "text": "themselves",
+          "start": 21.6,
+          "end": 21.98
+        },
+        {
+          "text": "in",
+          "start": 21.98,
+          "end": 22.26
+        },
+        {
+          "text": "the",
+          "start": 22.26,
+          "end": 22.38
+        },
+        {
+          "text": "most",
+          "start": 22.38,
+          "end": 22.58
+        },
+        {
+          "text": "advantageous",
+          "start": 22.58,
+          "end": 23.22
+        },
+        {
+          "text": "conditions",
+          "start": 23.22,
+          "end": 23.8
+        },
+        {
+          "text": "for",
+          "start": 23.8,
+          "end": 24.08
+        },
+        {
+          "text": "fighting.",
+          "start": 24.08,
+          "end": 24.48
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 78
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.693133944645524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dbe19c71076914d7a217238eafb9eb32198fdababbbceefd97db3c6ebbc8581f",
+  "selected_reasons": []
+}

@@ -1,0 +1,1876 @@
+{
+  "complete": true,
+  "signature": "02243effd8cb7700f6b7f77e953aa6da2c466d3358189573a1220b58addbc6e9",
+  "attempts": [
+    {
+      "asr_seconds": 1.182477429509163,
+      "alignment_seconds": 0.004403761588037014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, money, Count, money! How much sorrow it causes in the world,\" said the countess. \"But I am in great need of this sum.\"",
+        "hotwords": "Ah, Count, How, But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, money, Count, money! How much sorrow it causes in the world,\" said the countess.",
+          "start": 0.27,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.27,
+              "end": 0.67,
+              "probability": 0.126708984375
+            },
+            {
+              "text": " money,",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Count,",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.1302490234375
+            },
+            {
+              "text": " money!",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " How",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " much",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sorrow",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " causes",
+              "start": 3.01,
+              "end": 3.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " world,\"",
+              "start": 3.65,
+              "end": 4.23,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " said",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " countess.",
+              "start": 4.61,
+              "end": 5.05,
+              "probability": 0.517974853515625
+            }
+          ]
+        },
+        {
+          "text": " Ah, money, Count, money! How much sorrow it causes in the world,\" said the countess.",
+          "start": 5.05,
+          "end": 7.85,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 5.05,
+              "end": 5.91,
+              "probability": 1.996755599975586e-05
+            },
+            {
+              "text": " money,",
+              "start": 6.01,
+              "end": 6.01,
+              "probability": 1.0848045349121094e-05
+            },
+            {
+              "text": " Count,",
+              "start": 6.01,
+              "end": 6.01,
+              "probability": 1.817941665649414e-05
+            },
+            {
+              "text": " money!",
+              "start": 6.01,
+              "end": 6.01,
+              "probability": 0.024627685546875
+            },
+            {
+              "text": " How",
+              "start": 6.01,
+              "end": 6.01,
+              "probability": 0.01361083984375
+            },
+            {
+              "text": " much",
+              "start": 6.01,
+              "end": 6.13,
+              "probability": 0.0389404296875
+            },
+            {
+              "text": " sorrow",
+              "start": 6.13,
+              "end": 6.53,
+              "probability": 3.993511199951172e-06
+            },
+            {
+              "text": " it",
+              "start": 6.53,
+              "end": 6.53,
+              "probability": 0.02227783203125
+            },
+            {
+              "text": " causes",
+              "start": 6.53,
+              "end": 6.53,
+              "probability": 0.0012159347534179688
+            },
+            {
+              "text": " in",
+              "start": 6.53,
+              "end": 6.53,
+              "probability": 0.026611328125
+            },
+            {
+              "text": " the",
+              "start": 6.53,
+              "end": 6.85,
+              "probability": 0.10809326171875
+            },
+            {
+              "text": " world,\"",
+              "start": 6.85,
+              "end": 7.09,
+              "probability": 0.05149126052856445
+            },
+            {
+              "text": " said",
+              "start": 7.09,
+              "end": 7.09,
+              "probability": 0.333251953125
+            },
+            {
+              "text": " the",
+              "start": 7.09,
+              "end": 7.85,
+              "probability": 0.14111328125
+            },
+            {
+              "text": " countess.",
+              "start": 7.85,
+              "end": 7.85,
+              "probability": 0.02027958631515503
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "raw": "money,",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "Count,",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "money!",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "How",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "much",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "it",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "causes",
+          "start": 3.01,
+          "end": 3.31
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "world,\"",
+          "start": 3.65,
+          "end": 4.23
+        },
+        {
+          "raw": "said",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "countess.",
+          "start": 4.61,
+          "end": 5.05
+        },
+        {
+          "raw": "Ah,",
+          "start": 5.05,
+          "end": 5.91
+        },
+        {
+          "raw": "money,",
+          "start": 6.01,
+          "end": 6.01
+        },
+        {
+          "raw": "Count,",
+          "start": 6.01,
+          "end": 6.01
+        },
+        {
+          "raw": "money!",
+          "start": 6.01,
+          "end": 6.01
+        },
+        {
+          "raw": "How",
+          "start": 6.01,
+          "end": 6.01
+        },
+        {
+          "raw": "much",
+          "start": 6.01,
+          "end": 6.13
+        },
+        {
+          "raw": "sorrow",
+          "start": 6.13,
+          "end": 6.53
+        },
+        {
+          "raw": "it",
+          "start": 6.53,
+          "end": 6.53
+        },
+        {
+          "raw": "causes",
+          "start": 6.53,
+          "end": 6.53
+        },
+        {
+          "raw": "in",
+          "start": 6.53,
+          "end": 6.53
+        },
+        {
+          "raw": "the",
+          "start": 6.53,
+          "end": 6.85
+        },
+        {
+          "raw": "world,\"",
+          "start": 6.85,
+          "end": 7.09
+        },
+        {
+          "raw": "said",
+          "start": 7.09,
+          "end": 7.09
+        },
+        {
+          "raw": "the",
+          "start": 7.09,
+          "end": 7.85
+        },
+        {
+          "raw": "countess.",
+          "start": 7.85,
+          "end": 7.85
+        }
+      ],
+      "expected_tokens": [
+        "“Ah,",
+        "money,",
+        "Count,",
+        "money!",
+        "How",
+        "much",
+        "sorrow",
+        "it",
+        "causes",
+        "in",
+        "the",
+        "world,”",
+        "said",
+        "the",
+        "countess.",
+        "“But",
+        "I",
+        "am",
+        "in",
+        "great",
+        "need",
+        "of",
+        "this",
+        "sum.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah,",
+        "money,",
+        "Count,",
+        "money!",
+        "How",
+        "much",
+        "sorrow",
+        "it",
+        "causes",
+        "in",
+        "the",
+        "world,\"",
+        "said",
+        "the",
+        "countess.",
+        "\"But",
+        "I",
+        "am",
+        "in",
+        "great",
+        "need",
+        "of",
+        "this",
+        "sum.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          18,
+          15,
+          24
+        ],
+        [
+          "equal",
+          18,
+          19,
+          24,
+          25
+        ],
+        [
+          "replace",
+          19,
+          24,
+          25,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          18,
+          15,
+          24
+        ],
+        [
+          "replace",
+          19,
+          24,
+          25,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.67,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "money",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "money!",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "money",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "sorrow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 3.01,
+          "end": 3.31,
+          "key": "causes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "world,\"",
+          "start": 3.65,
+          "end": 4.23,
+          "key": "world",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "countess.",
+          "start": 4.61,
+          "end": 5.05,
+          "key": "countess",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 5.05,
+          "end": 5.91,
+          "key": "ah",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 6.01,
+          "end": 6.01,
+          "key": "money",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 6.01,
+          "end": 6.01,
+          "key": "count",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "money!",
+          "start": 6.01,
+          "end": 6.01,
+          "key": "money",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.01,
+          "end": 6.01,
+          "key": "how",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 6.01,
+          "end": 6.13,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 6.13,
+          "end": 6.53,
+          "key": "sorrow",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.53,
+          "end": 6.53,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 6.53,
+          "end": 6.53,
+          "key": "causes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.53,
+          "end": 6.53,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.53,
+          "end": 6.85,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "world,\"",
+          "start": 6.85,
+          "end": 7.09,
+          "key": "world",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 7.09,
+          "end": 7.09,
+          "key": "said",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.09,
+          "end": 7.85,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "countess.",
+          "start": 7.85,
+          "end": 7.85,
+          "key": "countess",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah,",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "text": "money,",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "Count,",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "money!",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "How",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "much",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "sorrow",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "it",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "causes",
+          "start": 3.01,
+          "end": 3.31
+        },
+        {
+          "text": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "world,”",
+          "start": 3.65,
+          "end": 4.23
+        },
+        {
+          "text": "said",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "text": "countess.",
+          "start": 4.61,
+          "end": 5.05
+        },
+        {
+          "text": "“But",
+          "start": 5.05,
+          "end": 5.79
+        },
+        {
+          "text": "I",
+          "start": 5.79,
+          "end": 6.16
+        },
+        {
+          "text": "am",
+          "start": 6.16,
+          "end": 6.345
+        },
+        {
+          "text": "in",
+          "start": 6.53,
+          "end": 6.53
+        },
+        {
+          "text": "great",
+          "start": 6.53,
+          "end": 7.19
+        },
+        {
+          "text": "need",
+          "start": 7.19,
+          "end": 7.52
+        },
+        {
+          "text": "of",
+          "start": 7.52,
+          "end": 7.685
+        },
+        {
+          "text": "this",
+          "start": 7.685,
+          "end": 7.768
+        },
+        {
+          "text": "sum.”",
+          "start": 7.768,
+          "end": 7.809
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 30,
+        "matched_words": 16
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.1873410725966096
+    },
+    {
+      "asr_seconds": 0.3381902491673827,
+      "alignment_seconds": 0.0030283741652965546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ah, Count, How, But, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ah, Money, Count, Money, How much sorrow it causes in the world, said the Countess,",
+          "start": 0.27,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.27,
+              "end": 0.67,
+              "probability": 0.1268310546875
+            },
+            {
+              "text": " Money,",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.05560302734375
+            },
+            {
+              "text": " Count,",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " Money,",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " How",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.1339111328125
+            },
+            {
+              "text": " much",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " sorrow",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " it",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.958984375
+            },
+            {
+              "text": " causes",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.947265625
+            },
+            {
+              "text": " in",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " world,",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " said",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Countess,",
+              "start": 4.61,
+              "end": 5.07,
+              "probability": 0.973388671875
+            }
+          ]
+        },
+        {
+          "text": " But I am in great need of this sum.",
+          "start": 5.55,
+          "end": 7.19,
+          "words": [
+            {
+              "text": " But",
+              "start": 5.55,
+              "end": 5.75,
+              "probability": 0.444091796875
+            },
+            {
+              "text": " I",
+              "start": 5.75,
+              "end": 5.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " am",
+              "start": 5.91,
+              "end": 6.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.03,
+              "end": 6.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " great",
+              "start": 6.17,
+              "end": 6.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " need",
+              "start": 6.37,
+              "end": 6.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 6.61,
+              "end": 6.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 6.75,
+              "end": 6.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sum.",
+              "start": 6.91,
+              "end": 7.19,
+              "probability": 0.52685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "raw": "Money,",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "Count,",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "raw": "Money,",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "How",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "much",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "it",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "raw": "causes",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "world,",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "said",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "Countess,",
+          "start": 4.61,
+          "end": 5.07
+        },
+        {
+          "raw": "But",
+          "start": 5.55,
+          "end": 5.75
+        },
+        {
+          "raw": "I",
+          "start": 5.75,
+          "end": 5.91
+        },
+        {
+          "raw": "am",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "raw": "in",
+          "start": 6.03,
+          "end": 6.17
+        },
+        {
+          "raw": "great",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "raw": "need",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "raw": "of",
+          "start": 6.61,
+          "end": 6.75
+        },
+        {
+          "raw": "this",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "raw": "sum.",
+          "start": 6.91,
+          "end": 7.19
+        }
+      ],
+      "expected_tokens": [
+        "“Ah,",
+        "money,",
+        "Count,",
+        "money!",
+        "How",
+        "much",
+        "sorrow",
+        "it",
+        "causes",
+        "in",
+        "the",
+        "world,”",
+        "said",
+        "the",
+        "countess.",
+        "“But",
+        "I",
+        "am",
+        "in",
+        "great",
+        "need",
+        "of",
+        "this",
+        "sum.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah,",
+        "money,",
+        "Count,",
+        "money!",
+        "How",
+        "much",
+        "sorrow",
+        "it",
+        "causes",
+        "in",
+        "the",
+        "world,\"",
+        "said",
+        "the",
+        "countess.",
+        "\"But",
+        "I",
+        "am",
+        "in",
+        "great",
+        "need",
+        "of",
+        "this",
+        "sum.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.67,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Money,",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "money",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 1.43,
+          "end": 1.49,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Money,",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "money",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.57,
+          "end": 2.79,
+          "key": "sorrow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 3.01,
+          "end": 3.29,
+          "key": "causes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "world",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Countess,",
+          "start": 4.61,
+          "end": 5.07,
+          "key": "countess",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 5.55,
+          "end": 5.75,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.75,
+          "end": 5.91,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 5.91,
+          "end": 6.03,
+          "key": "am",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.03,
+          "end": 6.17,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 6.17,
+          "end": 6.37,
+          "key": "great",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 6.37,
+          "end": 6.61,
+          "key": "need",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.61,
+          "end": 6.75,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.75,
+          "end": 6.91,
+          "key": "this",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sum.",
+          "start": 6.91,
+          "end": 7.19,
+          "key": "sum",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah,",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "text": "money,",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "Count,",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "text": "money!",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "How",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "much",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "sorrow",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "it",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "text": "causes",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "in",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "world,”",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "said",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "text": "countess.",
+          "start": 4.61,
+          "end": 5.07
+        },
+        {
+          "text": "“But",
+          "start": 5.55,
+          "end": 5.75
+        },
+        {
+          "text": "I",
+          "start": 5.75,
+          "end": 5.91
+        },
+        {
+          "text": "am",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "text": "in",
+          "start": 6.03,
+          "end": 6.17
+        },
+        {
+          "text": "great",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "text": "need",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "text": "of",
+          "start": 6.61,
+          "end": 6.75
+        },
+        {
+          "text": "this",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "text": "sum.”",
+          "start": 6.91,
+          "end": 7.19
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3415609998628497
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1035e0efb9ea081e8c8b2cc9e6affe4ca8a39482dad85c7b64751b8f11d6716f",
+  "selected_reasons": []
+}

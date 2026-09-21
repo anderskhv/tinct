@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "6c4f766defd27c6b953d67ed06ea1d03de92ac21c9e92105a5c78f5485cd8f2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2833107551559806,
+      "alignment_seconds": 0.0014536269009113312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O Lord, O Lord! How starry it is! Tremendous! That means a hard frost....\"",
+        "hotwords": "O, Lord, How, Tremendous, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O Lord, O Lord! How starry it is! Tremendous! That means a hard frost....",
+          "start": 0.0,
+          "end": 8.0,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.445068359375
+            },
+            {
+              "text": " Lord,",
+              "start": 0.38,
+              "end": 0.72,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " O",
+              "start": 1.1,
+              "end": 1.14,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Lord!",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " How",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " starry",
+              "start": 2.86,
+              "end": 3.38,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " it",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is!",
+              "start": 3.5,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Tremendous!",
+              "start": 4.88,
+              "end": 5.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " That",
+              "start": 6.46,
+              "end": 6.64,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " means",
+              "start": 6.64,
+              "end": 6.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.86,
+              "end": 7.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " hard",
+              "start": 7.04,
+              "end": 7.34,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " frost....",
+              "start": 7.34,
+              "end": 8.0,
+              "probability": 0.41303110122680664
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "raw": "O",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "raw": "Lord!",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "raw": "How",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "starry",
+          "start": 2.86,
+          "end": 3.38
+        },
+        {
+          "raw": "it",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "is!",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "raw": "Tremendous!",
+          "start": 4.88,
+          "end": 5.5
+        },
+        {
+          "raw": "That",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "raw": "means",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "raw": "a",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "raw": "hard",
+          "start": 7.04,
+          "end": 7.34
+        },
+        {
+          "raw": "frost....",
+          "start": 7.34,
+          "end": 8.0
+        }
+      ],
+      "expected_tokens": [
+        "“O",
+        "Lord,",
+        "O",
+        "Lord!",
+        "How",
+        "starry",
+        "it",
+        "is!",
+        "Tremendous!",
+        "That",
+        "means",
+        "a",
+        "hard",
+        "frost....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"O",
+        "Lord,",
+        "O",
+        "Lord!",
+        "How",
+        "starry",
+        "it",
+        "is!",
+        "Tremendous!",
+        "That",
+        "means",
+        "a",
+        "hard",
+        "frost....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.38,
+          "end": 0.72,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.1,
+          "end": 1.14,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lord!",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "starry",
+          "start": 2.86,
+          "end": 3.38,
+          "key": "starry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.38,
+          "end": 3.5,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is!",
+          "start": 3.5,
+          "end": 4.08,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Tremendous!",
+          "start": 4.88,
+          "end": 5.5,
+          "key": "tremendous",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 6.46,
+          "end": 6.64,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 6.64,
+          "end": 6.86,
+          "key": "means",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.86,
+          "end": 7.04,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 7.04,
+          "end": 7.34,
+          "key": "hard",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "frost....",
+          "start": 7.34,
+          "end": 8.0,
+          "key": "frost",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“O",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "Lord,",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "text": "O",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "text": "Lord!",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "text": "How",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "starry",
+          "start": 2.86,
+          "end": 3.38
+        },
+        {
+          "text": "it",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "text": "is!",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "text": "Tremendous!",
+          "start": 4.88,
+          "end": 5.5
+        },
+        {
+          "text": "That",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "text": "means",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "text": "a",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "text": "hard",
+          "start": 7.04,
+          "end": 7.34
+        },
+        {
+          "text": "frost....”",
+          "start": 7.34,
+          "end": 8.0
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2849461380392313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff4985830763b0a28a7bdb4281fbeda8ae2bab1d3aba60b2a158b1cd7c3d978e",
+  "selected_reasons": []
+}

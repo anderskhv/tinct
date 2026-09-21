@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "5403811678f185bae2a20be0774e9d42ee4c4c98b23bb3c0dbfac10781d7a281",
+  "attempts": [
+    {
+      "asr_seconds": 0.280930507928133,
+      "alignment_seconds": 0.0027717016637325287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Would you like a little mash?\" the first soldier asked, and handed Pierre a wooden spoon after licking it clean.",
+        "hotwords": "Would, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would you like a little mash?\" the first soldier asked,",
+          "start": 0.0,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.10235595703125
+            },
+            {
+              "text": " you",
+              "start": 0.32,
+              "end": 0.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " like",
+              "start": 0.44,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " little",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " mash?\"",
+              "start": 1.0,
+              "end": 1.54,
+              "probability": 0.54388427734375
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " first",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " soldier",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " asked,",
+              "start": 2.3,
+              "end": 2.76,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and handed Pierre a wooden spoon after licking it clean.",
+          "start": 3.1,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " and",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " handed",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Pierre",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " a",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wooden",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " spoon",
+              "start": 4.28,
+              "end": 4.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " after",
+              "start": 4.68,
+              "end": 5.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " licking",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.978515625
+            },
+            {
+              "text": " it",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " clean.",
+              "start": 5.52,
+              "end": 5.78,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "raw": "like",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "little",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "mash?\"",
+          "start": 1.0,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "first",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "soldier",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "asked,",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "handed",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "wooden",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "spoon",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "raw": "after",
+          "start": 4.68,
+          "end": 5.06
+        },
+        {
+          "raw": "licking",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "it",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "clean.",
+          "start": 5.52,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "“Would",
+        "you",
+        "like",
+        "a",
+        "little",
+        "mash?”",
+        "the",
+        "first",
+        "soldier",
+        "asked,",
+        "and",
+        "handed",
+        "Pierre",
+        "a",
+        "wooden",
+        "spoon",
+        "after",
+        "licking",
+        "it",
+        "clean."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Would",
+        "you",
+        "like",
+        "a",
+        "little",
+        "mash?\"",
+        "the",
+        "first",
+        "soldier",
+        "asked,",
+        "and",
+        "handed",
+        "Pierre",
+        "a",
+        "wooden",
+        "spoon",
+        "after",
+        "licking",
+        "it",
+        "clean."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Would",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "would",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.44,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.44,
+          "end": 0.62,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "little",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mash?\"",
+          "start": 1.0,
+          "end": 1.54,
+          "key": "mash",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "first",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "soldier",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 2.3,
+          "end": 2.76,
+          "key": "asked",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "handed",
+          "start": 3.2,
+          "end": 3.5,
+          "key": "handed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "pierre",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wooden",
+          "start": 4.1,
+          "end": 4.28,
+          "key": "wooden",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spoon",
+          "start": 4.28,
+          "end": 4.68,
+          "key": "spoon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.68,
+          "end": 5.06,
+          "key": "after",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "licking",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clean.",
+          "start": 5.52,
+          "end": 5.78,
+          "key": "clean",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Would",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "you",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "text": "like",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "little",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "mash?”",
+          "start": 1.0,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "first",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "soldier",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "asked,",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "text": "and",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "handed",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "Pierre",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "wooden",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "spoon",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "text": "after",
+          "start": 4.68,
+          "end": 5.06
+        },
+        {
+          "text": "licking",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "it",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "clean.",
+          "start": 5.52,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28416084218770266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "253b4a4a9577371293753a24b7d434d218f33429682711094aa413abdb248aa5",
+  "selected_reasons": []
+}

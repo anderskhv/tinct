@@ -1,0 +1,600 @@
+{
+  "complete": true,
+  "signature": "d548c949e4f440c22a88cc1227ee1cc99f9649fd632611756c9018a92c4420b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.31579569913446903,
+      "alignment_seconds": 0.0012728599831461906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Denísov at once cheered up and, calling Pétya to him, said: \"Well, tell me about yourself.\"",
+        "hotwords": "Denísov, Pétya, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Denísov at once cheered up and, calling Pétya to him, said,",
+          "start": 0.0,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Denísov",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.00691525141398112
+            },
+            {
+              "text": " at",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.921875
+            },
+            {
+              "text": " once",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cheered",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " up",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and,",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " calling",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Pétya",
+              "start": 2.34,
+              "end": 2.76,
+              "probability": 0.35675811767578125
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said,",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Well, tell me about yourself.",
+          "start": 3.94,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.01110076904296875
+            },
+            {
+              "text": " tell",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yourself.",
+              "start": 5.16,
+              "end": 5.62,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "at",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "once",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "cheered",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "up",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "and,",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "calling",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "Pétya",
+          "start": 2.34,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "him,",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "said,",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "Well,",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "raw": "tell",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "about",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "yourself.",
+          "start": 5.16,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "Denísov",
+        "at",
+        "once",
+        "cheered",
+        "up",
+        "and,",
+        "calling",
+        "Pétya",
+        "to",
+        "him,",
+        "said:",
+        "“Well,",
+        "tell",
+        "me",
+        "about",
+        "yourself.”"
+      ],
+      "acoustic_expected_tokens": [
+        "Denísov",
+        "at",
+        "once",
+        "cheered",
+        "up",
+        "and,",
+        "calling",
+        "Pétya",
+        "to",
+        "him,",
+        "said:",
+        "\"Well,",
+        "tell",
+        "me",
+        "about",
+        "yourself.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "denísov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 0.86,
+          "end": 1.18,
+          "key": "once",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cheered",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "cheered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "calling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pétya",
+          "start": 2.34,
+          "end": 2.76,
+          "key": "pétya",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.88,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.56,
+          "end": 4.7,
+          "key": "tell",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "about",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yourself.",
+          "start": 5.16,
+          "end": 5.62,
+          "key": "yourself",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Denísov",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "at",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "once",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "cheered",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "up",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "and,",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "calling",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "Pétya",
+          "start": 2.34,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "him,",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "said:",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "“Well,",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "text": "tell",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "me",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "text": "about",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "yourself.”",
+          "start": 5.16,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3172967843711376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb2eac82db1af210bf0d1b011a281a898eebcbe02d56a3c0bd2554f0998b13a2",
+  "selected_reasons": []
+}

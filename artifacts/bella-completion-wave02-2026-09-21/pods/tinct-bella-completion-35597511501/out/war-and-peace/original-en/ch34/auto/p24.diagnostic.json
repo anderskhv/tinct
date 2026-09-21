@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "7ad3c37b579ef471529f78e24a2908992550545846d3f799e603067f49388ac7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16974426712840796,
+      "alignment_seconds": 0.0006556473672389984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Crew, to your guns!\" commanded the officer.",
+        "hotwords": "Crew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Crew, to your guns! commanded the officer.",
+          "start": 0.0,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Crew,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " your",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " guns!",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " commanded",
+              "start": 1.98,
+              "end": 2.02,
+              "probability": 0.76953125
+            },
+            {
+              "text": " the",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " officer.",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.8955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Crew,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "your",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "guns!",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "raw": "commanded",
+          "start": 1.98,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "officer.",
+          "start": 2.32,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "“Crew,",
+        "to",
+        "your",
+        "guns!”",
+        "commanded",
+        "the",
+        "officer."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Crew,",
+        "to",
+        "your",
+        "guns!\"",
+        "commanded",
+        "the",
+        "officer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Crew,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "crew",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "guns!",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "guns",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "commanded",
+          "start": 1.98,
+          "end": 2.02,
+          "key": "commanded",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "officer.",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "officer",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Crew,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "your",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "guns!”",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "text": "commanded",
+          "start": 1.98,
+          "end": 2.02
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "officer.",
+          "start": 2.32,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1704822387546301
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e54d2dbd3b57e9eb4daa5284fab1c16546250cbb911771348d32c4a0c11443cc",
+  "selected_reasons": []
+}

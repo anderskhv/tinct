@@ -1,0 +1,1463 @@
+{
+  "complete": true,
+  "signature": "c9545a8b6bf14122c313d89e2b86925a9f398b1e84ebac75b4fe3900fa09f797",
+  "attempts": [
+    {
+      "asr_seconds": 0.3172245416790247,
+      "alignment_seconds": 0.0023230062797665596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I told him that your father was at Venice, And that you look'd for him this day in Padua.",
+        "hotwords": "I, Venice, And, Padua"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I told him that your father was at Venice, And that you look'd for him this day in Padua.",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.007030487060546875
+            },
+            {
+              "text": " told",
+              "start": 0.61,
+              "end": 2.01,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " him",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " father",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " was",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Venice,",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " And",
+              "start": 3.93,
+              "end": 3.99,
+              "probability": 0.003055572509765625
+            },
+            {
+              "text": " that",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " look'd",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.1330413818359375
+            },
+            {
+              "text": " for",
+              "start": 4.53,
+              "end": 4.59,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " him",
+              "start": 4.59,
+              "end": 4.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " day",
+              "start": 4.99,
+              "end": 5.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " in",
+              "start": 5.29,
+              "end": 5.53,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Padua.",
+              "start": 5.53,
+              "end": 5.97,
+              "probability": 0.95263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "told",
+          "start": 0.61,
+          "end": 2.01
+        },
+        {
+          "raw": "him",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "that",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "your",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "father",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "was",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "Venice,",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "raw": "And",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "look'd",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "for",
+          "start": 4.53,
+          "end": 4.59
+        },
+        {
+          "raw": "him",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "raw": "this",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "day",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "raw": "Padua.",
+          "start": 5.53,
+          "end": 5.97
+        }
+      ],
+      "expected_tokens": [
+        "BIONDELLO.",
+        "I",
+        "told",
+        "him",
+        "that",
+        "your",
+        "father",
+        "was",
+        "at",
+        "Venice,",
+        "And",
+        "that",
+        "you",
+        "look’d",
+        "for",
+        "him",
+        "this",
+        "day",
+        "in",
+        "Padua."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "told",
+        "him",
+        "that",
+        "your",
+        "father",
+        "was",
+        "at",
+        "Venice,",
+        "And",
+        "that",
+        "you",
+        "look'd",
+        "for",
+        "him",
+        "this",
+        "day",
+        "in",
+        "Padua."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          19,
+          13,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.61,
+          "end": 2.01,
+          "key": "told",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Venice,",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "venice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.93,
+          "end": 3.99,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.09,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look'd",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "lookd",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.53,
+          "end": 4.59,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.59,
+          "end": 4.79,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 4.99,
+          "end": 5.29,
+          "key": "day",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.53,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Padua.",
+          "start": 5.53,
+          "end": 5.97,
+          "key": "padua",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIONDELLO.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "told",
+          "start": 0.61,
+          "end": 2.01
+        },
+        {
+          "text": "him",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "that",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "your",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "father",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "was",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "text": "at",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "Venice,",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "text": "And",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "text": "that",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "you",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "look’d",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "for",
+          "start": 4.53,
+          "end": 4.59
+        },
+        {
+          "text": "him",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "text": "this",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "day",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "text": "in",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "text": "Padua.",
+          "start": 5.53,
+          "end": 5.97
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3199079530313611
+    },
+    {
+      "asr_seconds": 0.3205695264041424,
+      "alignment_seconds": 0.0027214987203478813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Venice, And, Padua"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " By Ondello, I told him that your father was at Venice, and that you looked for him this day in Padua.",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.2144775390625
+            },
+            {
+              "text": " Ondello,",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.6272786458333334
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " told",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " father",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Venice,",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.89,
+              "end": 3.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " looked",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 4.41,
+              "end": 4.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " day",
+              "start": 4.99,
+              "end": 5.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 5.31,
+              "end": 5.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Padua.",
+              "start": 5.53,
+              "end": 5.95,
+              "probability": 0.959228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "told",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "him",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "that",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "your",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "father",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "was",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "Venice,",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "looked",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "for",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "raw": "him",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "this",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "day",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "raw": "in",
+          "start": 5.31,
+          "end": 5.53
+        },
+        {
+          "raw": "Padua.",
+          "start": 5.53,
+          "end": 5.95
+        }
+      ],
+      "expected_tokens": [
+        "BIONDELLO.",
+        "I",
+        "told",
+        "him",
+        "that",
+        "your",
+        "father",
+        "was",
+        "at",
+        "Venice,",
+        "And",
+        "that",
+        "you",
+        "look’d",
+        "for",
+        "him",
+        "this",
+        "day",
+        "in",
+        "Padua."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "told",
+        "him",
+        "that",
+        "your",
+        "father",
+        "was",
+        "at",
+        "Venice,",
+        "And",
+        "that",
+        "you",
+        "look'd",
+        "for",
+        "him",
+        "this",
+        "day",
+        "in",
+        "Padua."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          19,
+          2,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "ondello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "told",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "father",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Venice,",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "venice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.99,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.09,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "looked",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.41,
+          "end": 4.61,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.61,
+          "end": 4.79,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "this",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 4.99,
+          "end": 5.31,
+          "key": "day",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.31,
+          "end": 5.53,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Padua.",
+          "start": 5.53,
+          "end": 5.95,
+          "key": "padua",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIONDELLO.",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "told",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "him",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "that",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "your",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "father",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "was",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "text": "at",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "Venice,",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "text": "And",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "text": "that",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "you",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "look’d",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "for",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "text": "him",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "this",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "day",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "text": "in",
+          "start": 5.31,
+          "end": 5.53
+        },
+        {
+          "text": "Padua.",
+          "start": 5.53,
+          "end": 5.95
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3237500609830022
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "53272b26e7dac1c9ba8f7d5e1e52fdcc73fbca97c3cef79fe79cb4b2aff03844",
+  "selected_reasons": []
+}

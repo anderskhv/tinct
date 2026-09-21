@@ -1,0 +1,1941 @@
+{
+  "complete": true,
+  "signature": "3b7dc6a00e61656962eac2a78980bb10937ac59bb0c2a71b9b0ddeb6bacb2a69",
+  "attempts": [
+    {
+      "asr_seconds": 0.55266282428056,
+      "alignment_seconds": 0.005926203913986683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nay, that's true, that's very true. Go, Tubal, fee me an officer; bespeak him a fortnight before. I will have the heart of him if he forfeit, for were he out of Venice I can make what merchandise I will. Go, Tubal, and meet me at our synagogue. Go, good Tubal, at our synagogue, Tubal.",
+        "hotwords": "Nay, Go, Tubal, I, Venice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, Venice Nay, that's true, that's very true. Go, Tubal, fee me an officer, bespeak him a fortnight before. I will have the heart of him if he forfeit, for were he out of Venice I can make what merchandise I will. Go, Tubal, and meet me at our synagogue. Go, good Tubal, at our synagogue, Tubal.",
+          "start": 0.0,
+          "end": 17.44,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.006954193115234375
+            },
+            {
+              "text": " Venice",
+              "start": 0.78,
+              "end": 1.28,
+              "probability": 5.960464477539062e-07
+            },
+            {
+              "text": " Nay,",
+              "start": 1.28,
+              "end": 1.28,
+              "probability": 7.152557373046875e-07
+            },
+            {
+              "text": " that's",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.921630859375
+            },
+            {
+              "text": " true,",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " that's",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " very",
+              "start": 2.36,
+              "end": 2.6,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " true.",
+              "start": 2.6,
+              "end": 3.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Go,",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Tubal,",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.618896484375
+            },
+            {
+              "text": " fee",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.775390625
+            },
+            {
+              "text": " me",
+              "start": 4.5,
+              "end": 4.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " officer,",
+              "start": 4.82,
+              "end": 5.22,
+              "probability": 0.943359375
+            },
+            {
+              "text": " bespeak",
+              "start": 5.46,
+              "end": 5.74,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " him",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 5.88,
+              "end": 6.02,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " fortnight",
+              "start": 6.02,
+              "end": 6.32,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " before.",
+              "start": 6.32,
+              "end": 6.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 7.38,
+              "end": 7.46,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 7.46,
+              "end": 7.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 7.54,
+              "end": 7.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 7.7,
+              "end": 7.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heart",
+              "start": 7.82,
+              "end": 7.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 7.98,
+              "end": 8.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 8.1,
+              "end": 8.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 8.22,
+              "end": 8.34,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " he",
+              "start": 8.34,
+              "end": 8.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " forfeit,",
+              "start": 8.48,
+              "end": 8.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " for",
+              "start": 9.14,
+              "end": 9.24,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " were",
+              "start": 9.24,
+              "end": 9.38,
+              "probability": 0.60546875
+            },
+            {
+              "text": " he",
+              "start": 9.38,
+              "end": 9.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 9.68,
+              "end": 9.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Venice",
+              "start": 9.82,
+              "end": 10.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 10.06,
+              "end": 10.3,
+              "probability": 0.603515625
+            },
+            {
+              "text": " can",
+              "start": 10.3,
+              "end": 10.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " make",
+              "start": 10.44,
+              "end": 10.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 10.62,
+              "end": 10.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " merchandise",
+              "start": 10.82,
+              "end": 11.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 11.26,
+              "end": 11.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will.",
+              "start": 11.68,
+              "end": 11.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Go,",
+              "start": 12.7,
+              "end": 12.94,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Tubal,",
+              "start": 13.14,
+              "end": 13.44,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " and",
+              "start": 13.62,
+              "end": 13.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " meet",
+              "start": 13.66,
+              "end": 13.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 13.82,
+              "end": 14.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 14.0,
+              "end": 14.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " our",
+              "start": 14.12,
+              "end": 14.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " synagogue.",
+              "start": 14.26,
+              "end": 14.54,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Go,",
+              "start": 15.14,
+              "end": 15.5,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " good",
+              "start": 15.66,
+              "end": 15.74,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " Tubal,",
+              "start": 15.74,
+              "end": 16.18,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " at",
+              "start": 16.28,
+              "end": 16.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " our",
+              "start": 16.34,
+              "end": 16.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " synagogue,",
+              "start": 16.5,
+              "end": 16.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Tubal.",
+              "start": 17.14,
+              "end": 17.44,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "Venice",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.28,
+          "end": 1.28
+        },
+        {
+          "raw": "that's",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "true,",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "that's",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "raw": "very",
+          "start": 2.36,
+          "end": 2.6
+        },
+        {
+          "raw": "true.",
+          "start": 2.6,
+          "end": 3.0
+        },
+        {
+          "raw": "Go,",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "Tubal,",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "fee",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "me",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "raw": "an",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "officer,",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "raw": "bespeak",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "raw": "him",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "a",
+          "start": 5.88,
+          "end": 6.02
+        },
+        {
+          "raw": "fortnight",
+          "start": 6.02,
+          "end": 6.32
+        },
+        {
+          "raw": "before.",
+          "start": 6.32,
+          "end": 6.74
+        },
+        {
+          "raw": "I",
+          "start": 7.38,
+          "end": 7.46
+        },
+        {
+          "raw": "will",
+          "start": 7.46,
+          "end": 7.54
+        },
+        {
+          "raw": "have",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "raw": "the",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "raw": "heart",
+          "start": 7.82,
+          "end": 7.98
+        },
+        {
+          "raw": "of",
+          "start": 7.98,
+          "end": 8.1
+        },
+        {
+          "raw": "him",
+          "start": 8.1,
+          "end": 8.22
+        },
+        {
+          "raw": "if",
+          "start": 8.22,
+          "end": 8.34
+        },
+        {
+          "raw": "he",
+          "start": 8.34,
+          "end": 8.48
+        },
+        {
+          "raw": "forfeit,",
+          "start": 8.48,
+          "end": 8.82
+        },
+        {
+          "raw": "for",
+          "start": 9.14,
+          "end": 9.24
+        },
+        {
+          "raw": "were",
+          "start": 9.24,
+          "end": 9.38
+        },
+        {
+          "raw": "he",
+          "start": 9.38,
+          "end": 9.52
+        },
+        {
+          "raw": "out",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "of",
+          "start": 9.68,
+          "end": 9.82
+        },
+        {
+          "raw": "Venice",
+          "start": 9.82,
+          "end": 10.06
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "raw": "can",
+          "start": 10.3,
+          "end": 10.44
+        },
+        {
+          "raw": "make",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "raw": "what",
+          "start": 10.62,
+          "end": 10.82
+        },
+        {
+          "raw": "merchandise",
+          "start": 10.82,
+          "end": 11.26
+        },
+        {
+          "raw": "I",
+          "start": 11.26,
+          "end": 11.68
+        },
+        {
+          "raw": "will.",
+          "start": 11.68,
+          "end": 11.94
+        },
+        {
+          "raw": "Go,",
+          "start": 12.7,
+          "end": 12.94
+        },
+        {
+          "raw": "Tubal,",
+          "start": 13.14,
+          "end": 13.44
+        },
+        {
+          "raw": "and",
+          "start": 13.62,
+          "end": 13.66
+        },
+        {
+          "raw": "meet",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "raw": "me",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "raw": "at",
+          "start": 14.0,
+          "end": 14.12
+        },
+        {
+          "raw": "our",
+          "start": 14.12,
+          "end": 14.26
+        },
+        {
+          "raw": "synagogue.",
+          "start": 14.26,
+          "end": 14.54
+        },
+        {
+          "raw": "Go,",
+          "start": 15.14,
+          "end": 15.5
+        },
+        {
+          "raw": "good",
+          "start": 15.66,
+          "end": 15.74
+        },
+        {
+          "raw": "Tubal,",
+          "start": 15.74,
+          "end": 16.18
+        },
+        {
+          "raw": "at",
+          "start": 16.28,
+          "end": 16.34
+        },
+        {
+          "raw": "our",
+          "start": 16.34,
+          "end": 16.5
+        },
+        {
+          "raw": "synagogue,",
+          "start": 16.5,
+          "end": 16.84
+        },
+        {
+          "raw": "Tubal.",
+          "start": 17.14,
+          "end": 17.44
+        }
+      ],
+      "expected_tokens": [
+        "SHYLOCK.",
+        "Nay,",
+        "that’s",
+        "true,",
+        "that’s",
+        "very",
+        "true.",
+        "Go,",
+        "Tubal,",
+        "fee",
+        "me",
+        "an",
+        "officer;",
+        "bespeak",
+        "him",
+        "a",
+        "fortnight",
+        "before.",
+        "I",
+        "will",
+        "have",
+        "the",
+        "heart",
+        "of",
+        "him",
+        "if",
+        "he",
+        "forfeit,",
+        "for",
+        "were",
+        "he",
+        "out",
+        "of",
+        "Venice",
+        "I",
+        "can",
+        "make",
+        "what",
+        "merchandise",
+        "I",
+        "will.",
+        "Go,",
+        "Tubal,",
+        "and",
+        "meet",
+        "me",
+        "at",
+        "our",
+        "synagogue.",
+        "Go,",
+        "good",
+        "Tubal,",
+        "at",
+        "our",
+        "synagogue,",
+        "Tubal."
+      ],
+      "acoustic_expected_tokens": [
+        "Nay,",
+        "that's",
+        "true,",
+        "that's",
+        "very",
+        "true.",
+        "Go,",
+        "Tubal,",
+        "fee",
+        "me",
+        "an",
+        "officer;",
+        "bespeak",
+        "him",
+        "a",
+        "fortnight",
+        "before.",
+        "I",
+        "will",
+        "have",
+        "the",
+        "heart",
+        "of",
+        "him",
+        "if",
+        "he",
+        "forfeit,",
+        "for",
+        "were",
+        "he",
+        "out",
+        "of",
+        "Venice",
+        "I",
+        "can",
+        "make",
+        "what",
+        "merchandise",
+        "I",
+        "will.",
+        "Go,",
+        "Tubal,",
+        "and",
+        "meet",
+        "me",
+        "at",
+        "our",
+        "synagogue.",
+        "Go,",
+        "good",
+        "Tubal,",
+        "at",
+        "our",
+        "synagogue,",
+        "Tubal."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          55,
+          2,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Venice",
+          "start": 0.78,
+          "end": 1.28,
+          "key": "venice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.28,
+          "end": 1.28,
+          "key": "nay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.36,
+          "end": 2.6,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 2.6,
+          "end": 3.0,
+          "key": "true",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tubal,",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "tubal",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fee",
+          "start": 4.42,
+          "end": 4.5,
+          "key": "fee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.5,
+          "end": 4.68,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "officer,",
+          "start": 4.82,
+          "end": 5.22,
+          "key": "officer",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bespeak",
+          "start": 5.46,
+          "end": 5.74,
+          "key": "bespeak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.88,
+          "end": 6.02,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fortnight",
+          "start": 6.02,
+          "end": 6.32,
+          "key": "fortnight",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "before.",
+          "start": 6.32,
+          "end": 6.74,
+          "key": "before",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.38,
+          "end": 7.46,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.46,
+          "end": 7.54,
+          "key": "will",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 7.54,
+          "end": 7.7,
+          "key": "have",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.7,
+          "end": 7.82,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 7.82,
+          "end": 7.98,
+          "key": "heart",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.98,
+          "end": 8.1,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.1,
+          "end": 8.22,
+          "key": "him",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 8.22,
+          "end": 8.34,
+          "key": "if",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.34,
+          "end": 8.48,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "forfeit,",
+          "start": 8.48,
+          "end": 8.82,
+          "key": "forfeit",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.14,
+          "end": 9.24,
+          "key": "for",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 9.24,
+          "end": 9.38,
+          "key": "were",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 9.38,
+          "end": 9.52,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 9.52,
+          "end": 9.68,
+          "key": "out",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.68,
+          "end": 9.82,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Venice",
+          "start": 9.82,
+          "end": 10.06,
+          "key": "venice",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.3,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 10.3,
+          "end": 10.44,
+          "key": "can",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 10.44,
+          "end": 10.62,
+          "key": "make",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.62,
+          "end": 10.82,
+          "key": "what",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "merchandise",
+          "start": 10.82,
+          "end": 11.26,
+          "key": "merchandise",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.26,
+          "end": 11.68,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 11.68,
+          "end": 11.94,
+          "key": "will",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 12.7,
+          "end": 12.94,
+          "key": "go",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Tubal,",
+          "start": 13.14,
+          "end": 13.44,
+          "key": "tubal",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.62,
+          "end": 13.66,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 13.66,
+          "end": 13.82,
+          "key": "meet",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 13.82,
+          "end": 14.0,
+          "key": "me",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.0,
+          "end": 14.12,
+          "key": "at",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 14.12,
+          "end": 14.26,
+          "key": "our",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "synagogue.",
+          "start": 14.26,
+          "end": 14.54,
+          "key": "synagogue",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 15.14,
+          "end": 15.5,
+          "key": "go",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 15.66,
+          "end": 15.74,
+          "key": "good",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Tubal,",
+          "start": 15.74,
+          "end": 16.18,
+          "key": "tubal",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 16.28,
+          "end": 16.34,
+          "key": "at",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 16.34,
+          "end": 16.5,
+          "key": "our",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "synagogue,",
+          "start": 16.5,
+          "end": 16.84,
+          "key": "synagogue",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Tubal.",
+          "start": 17.14,
+          "end": 17.44,
+          "key": "tubal",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHYLOCK.",
+          "start": 1.28,
+          "end": 1.28
+        },
+        {
+          "text": "Nay,",
+          "start": 1.28,
+          "end": 1.28
+        },
+        {
+          "text": "that’s",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "true,",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "that’s",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "text": "very",
+          "start": 2.36,
+          "end": 2.6
+        },
+        {
+          "text": "true.",
+          "start": 2.6,
+          "end": 3.0
+        },
+        {
+          "text": "Go,",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "Tubal,",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "fee",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "me",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "text": "an",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "officer;",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "text": "bespeak",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "text": "him",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "a",
+          "start": 5.88,
+          "end": 6.02
+        },
+        {
+          "text": "fortnight",
+          "start": 6.02,
+          "end": 6.32
+        },
+        {
+          "text": "before.",
+          "start": 6.32,
+          "end": 6.74
+        },
+        {
+          "text": "I",
+          "start": 7.38,
+          "end": 7.46
+        },
+        {
+          "text": "will",
+          "start": 7.46,
+          "end": 7.54
+        },
+        {
+          "text": "have",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "text": "the",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "text": "heart",
+          "start": 7.82,
+          "end": 7.98
+        },
+        {
+          "text": "of",
+          "start": 7.98,
+          "end": 8.1
+        },
+        {
+          "text": "him",
+          "start": 8.1,
+          "end": 8.22
+        },
+        {
+          "text": "if",
+          "start": 8.22,
+          "end": 8.34
+        },
+        {
+          "text": "he",
+          "start": 8.34,
+          "end": 8.48
+        },
+        {
+          "text": "forfeit,",
+          "start": 8.48,
+          "end": 8.82
+        },
+        {
+          "text": "for",
+          "start": 9.14,
+          "end": 9.24
+        },
+        {
+          "text": "were",
+          "start": 9.24,
+          "end": 9.38
+        },
+        {
+          "text": "he",
+          "start": 9.38,
+          "end": 9.52
+        },
+        {
+          "text": "out",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "of",
+          "start": 9.68,
+          "end": 9.82
+        },
+        {
+          "text": "Venice",
+          "start": 9.82,
+          "end": 10.06
+        },
+        {
+          "text": "I",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "text": "can",
+          "start": 10.3,
+          "end": 10.44
+        },
+        {
+          "text": "make",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "text": "what",
+          "start": 10.62,
+          "end": 10.82
+        },
+        {
+          "text": "merchandise",
+          "start": 10.82,
+          "end": 11.26
+        },
+        {
+          "text": "I",
+          "start": 11.26,
+          "end": 11.68
+        },
+        {
+          "text": "will.",
+          "start": 11.68,
+          "end": 11.94
+        },
+        {
+          "text": "Go,",
+          "start": 12.7,
+          "end": 12.94
+        },
+        {
+          "text": "Tubal,",
+          "start": 13.14,
+          "end": 13.44
+        },
+        {
+          "text": "and",
+          "start": 13.62,
+          "end": 13.66
+        },
+        {
+          "text": "meet",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "text": "me",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "text": "at",
+          "start": 14.0,
+          "end": 14.12
+        },
+        {
+          "text": "our",
+          "start": 14.12,
+          "end": 14.26
+        },
+        {
+          "text": "synagogue.",
+          "start": 14.26,
+          "end": 14.54
+        },
+        {
+          "text": "Go,",
+          "start": 15.14,
+          "end": 15.5
+        },
+        {
+          "text": "good",
+          "start": 15.66,
+          "end": 15.74
+        },
+        {
+          "text": "Tubal,",
+          "start": 15.74,
+          "end": 16.18
+        },
+        {
+          "text": "at",
+          "start": 16.28,
+          "end": 16.34
+        },
+        {
+          "text": "our",
+          "start": 16.34,
+          "end": 16.5
+        },
+        {
+          "text": "synagogue,",
+          "start": 16.5,
+          "end": 16.84
+        },
+        {
+          "text": "Tubal.",
+          "start": 17.14,
+          "end": 17.44
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 57,
+        "matched_words": 55
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5590630825608969
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96a58f06d1ec637b883a3edd25452bc4e1d776cf8819d80b5be777d2afef150b",
+  "selected_reasons": []
+}

@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "d0b4dd57dbe288fef315553a464bec61d61d1be463ddb38e4be64fba0632c61e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14874559175223112,
+      "alignment_seconds": 0.000849992036819458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And so am I for Rosalind.",
+        "hotwords": "And, I, Rosalind"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orlando And so am I for Rosalind.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Orlando",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " And",
+              "start": 0.87,
+              "end": 1.47,
+              "probability": 0.016143798828125
+            },
+            {
+              "text": " so",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " am",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Rosalind.",
+              "start": 2.07,
+              "end": 2.67,
+              "probability": 0.9156901041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orlando",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "And",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "raw": "so",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "am",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "for",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "Rosalind.",
+          "start": 2.07,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "ORLANDO.",
+        "And",
+        "so",
+        "am",
+        "I",
+        "for",
+        "Rosalind."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "so",
+        "am",
+        "I",
+        "for",
+        "Rosalind."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orlando",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "orlando",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 0.87,
+          "end": 1.47,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rosalind.",
+          "start": 2.07,
+          "end": 2.67,
+          "key": "rosalind",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ORLANDO.",
+          "start": 0.87,
+          "end": 0.87
+        },
+        {
+          "text": "And",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "text": "so",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "am",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "for",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "Rosalind.",
+          "start": 2.07,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14971752557903528
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f594c9670d00602dcc867c35878bb269ee9ea4fb3945df19c8a12d0f3be8f6d3",
+  "selected_reasons": []
+}

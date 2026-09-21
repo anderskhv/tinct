@@ -1,0 +1,205 @@
+{
+  "complete": true,
+  "signature": "f5ff13129c235bd794ad65f9968593aeed82084aea6217bbf3c4e88b9961dd9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19284749124199152,
+      "alignment_seconds": 0.0006240755319595337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lucentio, gentle sir.",
+        "hotwords": "Lucentio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Vincentio, Lucentio, gentle sir.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Vincentio,",
+              "start": 0.05,
+              "end": 1.15,
+              "probability": 0.6236572265625
+            },
+            {
+              "text": " Lucentio,",
+              "start": 1.55,
+              "end": 2.01,
+              "probability": 0.8186848958333334
+            },
+            {
+              "text": " gentle",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " sir.",
+              "start": 2.33,
+              "end": 2.69,
+              "probability": 0.734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vincentio,",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "raw": "gentle",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "sir.",
+          "start": 2.33,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "VINCENTIO.",
+        "Lucentio,",
+        "gentle",
+        "sir."
+      ],
+      "acoustic_expected_tokens": [
+        "Lucentio,",
+        "gentle",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          3,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Vincentio,",
+          "start": 0.05,
+          "end": 1.15,
+          "key": "vincentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.55,
+          "end": 2.01,
+          "key": "lucentio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "gentle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.33,
+          "end": 2.69,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "VINCENTIO.",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "Lucentio,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "text": "gentle",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "sir.",
+          "start": 2.33,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19356303196400404
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81c84315884dbd88758c0641cbe4e91aa63147fa7ab2ff920924fc354ce79b94",
+  "selected_reasons": []
+}

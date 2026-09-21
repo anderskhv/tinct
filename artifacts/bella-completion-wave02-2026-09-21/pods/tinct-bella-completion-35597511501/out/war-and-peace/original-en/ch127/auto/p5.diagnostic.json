@@ -1,0 +1,1154 @@
+{
+  "complete": true,
+  "signature": "7e66b16bc9546139374eac907c0ba52180a8a05d46bef5cb3d51ac04784c70cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.40061372984200716,
+      "alignment_seconds": 0.0036153197288513184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pierre changed places several times during the game, sitting now with his back to Natásha and now facing her, but during the whole of the six rubbers he watched her and his friend.",
+        "hotwords": "Pierre, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pierre changed places several times during the game, sitting now with his back to Natásha and now facing her, but during the whole of the six rubbers he watched her and his friend.",
+          "start": 0.0,
+          "end": 8.9,
+          "words": [
+            {
+              "text": " Pierre",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " changed",
+              "start": 0.46,
+              "end": 0.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " places",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " several",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " times",
+              "start": 1.58,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " during",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " game,",
+              "start": 2.52,
+              "end": 2.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sitting",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " now",
+              "start": 3.28,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " to",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Natásha",
+              "start": 4.26,
+              "end": 4.7,
+              "probability": 0.010964711507161459
+            },
+            {
+              "text": " and",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " now",
+              "start": 4.92,
+              "end": 5.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " facing",
+              "start": 5.14,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her,",
+              "start": 5.46,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 6.1,
+              "end": 6.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " during",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.38,
+              "end": 6.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole",
+              "start": 6.6,
+              "end": 6.8,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.94,
+              "end": 7.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " six",
+              "start": 7.06,
+              "end": 7.26,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " rubbers",
+              "start": 7.26,
+              "end": 7.64,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " he",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " watched",
+              "start": 7.8,
+              "end": 8.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 8.06,
+              "end": 8.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 8.34,
+              "end": 8.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 8.46,
+              "end": 8.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " friend.",
+              "start": 8.64,
+              "end": 8.9,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "changed",
+          "start": 0.46,
+          "end": 0.92
+        },
+        {
+          "raw": "places",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "raw": "several",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "times",
+          "start": 1.58,
+          "end": 2.0
+        },
+        {
+          "raw": "during",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "game,",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "raw": "sitting",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "now",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "raw": "with",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "his",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "back",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "to",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "Natásha",
+          "start": 4.26,
+          "end": 4.7
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "now",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "raw": "facing",
+          "start": 5.14,
+          "end": 5.46
+        },
+        {
+          "raw": "her,",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "raw": "but",
+          "start": 6.1,
+          "end": 6.18
+        },
+        {
+          "raw": "during",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "raw": "the",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "raw": "whole",
+          "start": 6.6,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "the",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "raw": "six",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "raw": "rubbers",
+          "start": 7.26,
+          "end": 7.64
+        },
+        {
+          "raw": "he",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "watched",
+          "start": 7.8,
+          "end": 8.06
+        },
+        {
+          "raw": "her",
+          "start": 8.06,
+          "end": 8.34
+        },
+        {
+          "raw": "and",
+          "start": 8.34,
+          "end": 8.46
+        },
+        {
+          "raw": "his",
+          "start": 8.46,
+          "end": 8.64
+        },
+        {
+          "raw": "friend.",
+          "start": 8.64,
+          "end": 8.9
+        }
+      ],
+      "expected_tokens": [
+        "Pierre",
+        "changed",
+        "places",
+        "several",
+        "times",
+        "during",
+        "the",
+        "game,",
+        "sitting",
+        "now",
+        "with",
+        "his",
+        "back",
+        "to",
+        "Natásha",
+        "and",
+        "now",
+        "facing",
+        "her,",
+        "but",
+        "during",
+        "the",
+        "whole",
+        "of",
+        "the",
+        "six",
+        "rubbers",
+        "he",
+        "watched",
+        "her",
+        "and",
+        "his",
+        "friend."
+      ],
+      "acoustic_expected_tokens": [
+        "Pierre",
+        "changed",
+        "places",
+        "several",
+        "times",
+        "during",
+        "the",
+        "game,",
+        "sitting",
+        "now",
+        "with",
+        "his",
+        "back",
+        "to",
+        "Natásha",
+        "and",
+        "now",
+        "facing",
+        "her,",
+        "but",
+        "during",
+        "the",
+        "whole",
+        "of",
+        "the",
+        "six",
+        "rubbers",
+        "he",
+        "watched",
+        "her",
+        "and",
+        "his",
+        "friend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "pierre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "changed",
+          "start": 0.46,
+          "end": 0.92,
+          "key": "changed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "places",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "several",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 1.58,
+          "end": 2.0,
+          "key": "times",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "during",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "game,",
+          "start": 2.52,
+          "end": 2.82,
+          "key": "game",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "sitting",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.28,
+          "end": 3.58,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.74,
+          "end": 3.92,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "back",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 4.26,
+          "end": 4.7,
+          "key": "natásha",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 4.92,
+          "end": 5.14,
+          "key": "now",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "facing",
+          "start": 5.14,
+          "end": 5.46,
+          "key": "facing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.46,
+          "end": 5.84,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.1,
+          "end": 6.18,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 6.18,
+          "end": 6.38,
+          "key": "during",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.38,
+          "end": 6.6,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 6.6,
+          "end": 6.8,
+          "key": "whole",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.94,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.94,
+          "end": 7.06,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 7.06,
+          "end": 7.26,
+          "key": "six",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "rubbers",
+          "start": 7.26,
+          "end": 7.64,
+          "key": "rubbers",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.64,
+          "end": 7.8,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "watched",
+          "start": 7.8,
+          "end": 8.06,
+          "key": "watched",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.06,
+          "end": 8.34,
+          "key": "her",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.34,
+          "end": 8.46,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.46,
+          "end": 8.64,
+          "key": "his",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "friend.",
+          "start": 8.64,
+          "end": 8.9,
+          "key": "friend",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Pierre",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "changed",
+          "start": 0.46,
+          "end": 0.92
+        },
+        {
+          "text": "places",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "text": "several",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "times",
+          "start": 1.58,
+          "end": 2.0
+        },
+        {
+          "text": "during",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "the",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "game,",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "text": "sitting",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "now",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "text": "with",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "his",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "back",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "to",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "Natásha",
+          "start": 4.26,
+          "end": 4.7
+        },
+        {
+          "text": "and",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "text": "now",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "text": "facing",
+          "start": 5.14,
+          "end": 5.46
+        },
+        {
+          "text": "her,",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "text": "but",
+          "start": 6.1,
+          "end": 6.18
+        },
+        {
+          "text": "during",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "text": "the",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "text": "whole",
+          "start": 6.6,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "the",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "text": "six",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "text": "rubbers",
+          "start": 7.26,
+          "end": 7.64
+        },
+        {
+          "text": "he",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "text": "watched",
+          "start": 7.8,
+          "end": 8.06
+        },
+        {
+          "text": "her",
+          "start": 8.06,
+          "end": 8.34
+        },
+        {
+          "text": "and",
+          "start": 8.34,
+          "end": 8.46
+        },
+        {
+          "text": "his",
+          "start": 8.46,
+          "end": 8.64
+        },
+        {
+          "text": "friend.",
+          "start": 8.64,
+          "end": 8.9
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40463839657604694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58c0ff0ac8630835d700882de254b9e112dedaebe6d974a2df134fba6897d0e1",
+  "selected_reasons": []
+}

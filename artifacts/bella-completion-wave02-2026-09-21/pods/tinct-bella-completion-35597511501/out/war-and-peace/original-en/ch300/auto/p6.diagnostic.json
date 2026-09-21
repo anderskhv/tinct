@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "89f31e9c95d0afb3a836a53da9780d6302e85c2d6d14afdc868ad1e8b80a73b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18773541040718555,
+      "alignment_seconds": 0.001147652044892311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Momentum (quantity of motion) is the product of mass and velocity.",
+        "hotwords": "Momentum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Momentum, quantity of motion, is the product of mass and velocity.",
+          "start": 0.0,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Momentum,",
+              "start": 0.0,
+              "end": 0.9,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " quantity",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " of",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " motion,",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " product",
+              "start": 2.58,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 2.82,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mass",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " velocity.",
+              "start": 3.56,
+              "end": 3.98,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Momentum,",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "raw": "quantity",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "motion,",
+          "start": 1.62,
+          "end": 2.0
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "product",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "raw": "of",
+          "start": 2.82,
+          "end": 3.04
+        },
+        {
+          "raw": "mass",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "velocity.",
+          "start": 3.56,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "Momentum",
+        "(quantity",
+        "of",
+        "motion)",
+        "is",
+        "the",
+        "product",
+        "of",
+        "mass",
+        "and",
+        "velocity."
+      ],
+      "acoustic_expected_tokens": [
+        "Momentum",
+        "(quantity",
+        "of",
+        "motion)",
+        "is",
+        "the",
+        "product",
+        "of",
+        "mass",
+        "and",
+        "velocity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Momentum,",
+          "start": 0.0,
+          "end": 0.9,
+          "key": "momentum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "quantity",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "motion,",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "motion",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "product",
+          "start": 2.58,
+          "end": 2.82,
+          "key": "product",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.82,
+          "end": 3.04,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mass",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "mass",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "velocity.",
+          "start": 3.56,
+          "end": 3.98,
+          "key": "velocity",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Momentum",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "text": "(quantity",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "of",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "motion)",
+          "start": 1.62,
+          "end": 2.0
+        },
+        {
+          "text": "is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "product",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "of",
+          "start": 2.82,
+          "end": 3.04
+        },
+        {
+          "text": "mass",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "text": "velocity.",
+          "start": 3.56,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18903712555766106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f5f876c7215140229e1c5051490432033213994e3f8d56d7f7b897aab31edd1",
+  "selected_reasons": []
+}

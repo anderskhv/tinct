@@ -1,0 +1,920 @@
+{
+  "complete": true,
+  "signature": "4aeee4c88fb253d063996f8ef2ce079af7733da98a12c39bc7879a33709a1c9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.35108161345124245,
+      "alignment_seconds": 0.0015801060944795609,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He shall answer it. Some pigeons, Davy, a couple of short-legged hens, a joint of mutton, and any pretty little tiny kickshaws, tell William cook.",
+        "hotwords": "He, Some, Davy, William"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He shall answer it. Some pigeons, Davy, a couple of short-legged hens, a joint of mutton, and any pretty little tiny kickshaws, tell William cook.",
+          "start": 0.02,
+          "end": 9.5,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.00027942657470703125
+            },
+            {
+              "text": " shall",
+              "start": 0.6,
+              "end": 1.16,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " answer",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.966796875
+            },
+            {
+              "text": " it.",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Some",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.93359375
+            },
+            {
+              "text": " pigeons,",
+              "start": 2.52,
+              "end": 3.02,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Davy,",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " a",
+              "start": 3.72,
+              "end": 3.8,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " couple",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " short",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": "-legged",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.935546875
+            },
+            {
+              "text": " hens,",
+              "start": 4.72,
+              "end": 5.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 5.6,
+              "end": 5.7,
+              "probability": 0.865234375
+            },
+            {
+              "text": " joint",
+              "start": 5.7,
+              "end": 5.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 5.94,
+              "end": 6.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mutton,",
+              "start": 6.1,
+              "end": 6.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " any",
+              "start": 6.72,
+              "end": 6.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pretty",
+              "start": 6.92,
+              "end": 7.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " little",
+              "start": 7.14,
+              "end": 7.42,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " tiny",
+              "start": 7.42,
+              "end": 7.7,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " kickshaws,",
+              "start": 7.7,
+              "end": 8.3,
+              "probability": 0.5755818684895834
+            },
+            {
+              "text": " tell",
+              "start": 8.68,
+              "end": 8.86,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " William",
+              "start": 8.86,
+              "end": 9.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cook.",
+              "start": 9.24,
+              "end": 9.5,
+              "probability": 0.00714874267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "shall",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "raw": "answer",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "it.",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "Some",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "pigeons,",
+          "start": 2.52,
+          "end": 3.02
+        },
+        {
+          "raw": "Davy,",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "a",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "raw": "couple",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "of",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "short",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "-legged",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "hens,",
+          "start": 4.72,
+          "end": 5.24
+        },
+        {
+          "raw": "a",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "raw": "joint",
+          "start": 5.7,
+          "end": 5.94
+        },
+        {
+          "raw": "of",
+          "start": 5.94,
+          "end": 6.1
+        },
+        {
+          "raw": "mutton,",
+          "start": 6.1,
+          "end": 6.52
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "any",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "raw": "pretty",
+          "start": 6.92,
+          "end": 7.14
+        },
+        {
+          "raw": "little",
+          "start": 7.14,
+          "end": 7.42
+        },
+        {
+          "raw": "tiny",
+          "start": 7.42,
+          "end": 7.7
+        },
+        {
+          "raw": "kickshaws,",
+          "start": 7.7,
+          "end": 8.3
+        },
+        {
+          "raw": "tell",
+          "start": 8.68,
+          "end": 8.86
+        },
+        {
+          "raw": "William",
+          "start": 8.86,
+          "end": 9.24
+        },
+        {
+          "raw": "cook.",
+          "start": 9.24,
+          "end": 9.5
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW.",
+        "He",
+        "shall",
+        "answer",
+        "it.",
+        "Some",
+        "pigeons,",
+        "Davy,",
+        "a",
+        "couple",
+        "of",
+        "short-legged",
+        "hens,",
+        "a",
+        "joint",
+        "of",
+        "mutton,",
+        "and",
+        "any",
+        "pretty",
+        "little",
+        "tiny",
+        "kickshaws,",
+        "tell",
+        "William",
+        "cook."
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "shall",
+        "answer",
+        "it.",
+        "Some",
+        "pigeons,",
+        "Davy,",
+        "a",
+        "couple",
+        "of",
+        "short-legged",
+        "hens,",
+        "a",
+        "joint",
+        "of",
+        "mutton,",
+        "and",
+        "any",
+        "pretty",
+        "little",
+        "tiny",
+        "kickshaws,",
+        "tell",
+        "William",
+        "cook."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.6,
+          "end": 1.16,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "answer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "some",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pigeons,",
+          "start": 2.52,
+          "end": 3.02,
+          "key": "pigeons",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Davy,",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "davy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.72,
+          "end": 3.8,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "couple",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "couple",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "short -legged",
+          "start": 4.22,
+          "end": 4.72,
+          "key": "shortlegged",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "hens,",
+          "start": 4.72,
+          "end": 5.24,
+          "key": "hens",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.6,
+          "end": 5.7,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "joint",
+          "start": 5.7,
+          "end": 5.94,
+          "key": "joint",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.94,
+          "end": 6.1,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mutton,",
+          "start": 6.1,
+          "end": 6.52,
+          "key": "mutton",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.72,
+          "end": 6.92,
+          "key": "any",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 6.92,
+          "end": 7.14,
+          "key": "pretty",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.14,
+          "end": 7.42,
+          "key": "little",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tiny",
+          "start": 7.42,
+          "end": 7.7,
+          "key": "tiny",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "kickshaws,",
+          "start": 7.7,
+          "end": 8.3,
+          "key": "kickshaws",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 8.68,
+          "end": 8.86,
+          "key": "tell",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "William",
+          "start": 8.86,
+          "end": 9.24,
+          "key": "william",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cook.",
+          "start": 9.24,
+          "end": 9.5,
+          "key": "cook",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "short-legged",
+          "heard": "short -legged",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.22,
+          "end": 4.72
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 0.02,
+          "end": 0.02
+        },
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "shall",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "text": "answer",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "it.",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "Some",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "pigeons,",
+          "start": 2.52,
+          "end": 3.02
+        },
+        {
+          "text": "Davy,",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "a",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "text": "couple",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "of",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "short-legged",
+          "start": 4.22,
+          "end": 4.72
+        },
+        {
+          "text": "hens,",
+          "start": 4.72,
+          "end": 5.24
+        },
+        {
+          "text": "a",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "text": "joint",
+          "start": 5.7,
+          "end": 5.94
+        },
+        {
+          "text": "of",
+          "start": 5.94,
+          "end": 6.1
+        },
+        {
+          "text": "mutton,",
+          "start": 6.1,
+          "end": 6.52
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "text": "any",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "text": "pretty",
+          "start": 6.92,
+          "end": 7.14
+        },
+        {
+          "text": "little",
+          "start": 7.14,
+          "end": 7.42
+        },
+        {
+          "text": "tiny",
+          "start": 7.42,
+          "end": 7.7
+        },
+        {
+          "text": "kickshaws,",
+          "start": 7.7,
+          "end": 8.3
+        },
+        {
+          "text": "tell",
+          "start": 8.68,
+          "end": 8.86
+        },
+        {
+          "text": "William",
+          "start": 8.86,
+          "end": 9.24
+        },
+        {
+          "text": "cook.",
+          "start": 9.24,
+          "end": 9.5
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35283782705664635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e052fb6aae8976c1298fc3a66b9c916d8f1e9696d6eb28b7cb7d98ddecf7cf3",
+  "selected_reasons": []
+}

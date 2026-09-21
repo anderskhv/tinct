@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "db90ca4090e01cc6f12dfb34797849c62cfdf989911f9fa52535dac33964302f",
+  "attempts": [
+    {
+      "asr_seconds": 0.25130861159414053,
+      "alignment_seconds": 0.0020615868270397186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And Natásha began rapidly taking out of the case dishes and plates wrapped in paper.",
+        "hotwords": "Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Natásha began rapidly taking out of the case dishes and plates wrapped in paper.",
+          "start": 0.0,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.44482421875
+            },
+            {
+              "text": " Natásha",
+              "start": 0.36,
+              "end": 0.8,
+              "probability": 0.008055289586385092
+            },
+            {
+              "text": " began",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " rapidly",
+              "start": 1.12,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " taking",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " out",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " case",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " dishes",
+              "start": 2.56,
+              "end": 2.9,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " plates",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wrapped",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " paper.",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.36,
+          "end": 0.8
+        },
+        {
+          "raw": "began",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "rapidly",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "raw": "taking",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "out",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "the",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "case",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "dishes",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "raw": "and",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "plates",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "wrapped",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "in",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "paper.",
+          "start": 3.94,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "Natásha",
+        "began",
+        "rapidly",
+        "taking",
+        "out",
+        "of",
+        "the",
+        "case",
+        "dishes",
+        "and",
+        "plates",
+        "wrapped",
+        "in",
+        "paper."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "Natásha",
+        "began",
+        "rapidly",
+        "taking",
+        "out",
+        "of",
+        "the",
+        "case",
+        "dishes",
+        "and",
+        "plates",
+        "wrapped",
+        "in",
+        "paper."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.36,
+          "end": 0.8,
+          "key": "natásha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "began",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rapidly",
+          "start": 1.12,
+          "end": 1.58,
+          "key": "rapidly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "taking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "case",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dishes",
+          "start": 2.56,
+          "end": 2.9,
+          "key": "dishes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.9,
+          "end": 3.16,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "plates",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "plates",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wrapped",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "wrapped",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "paper.",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "paper",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Natásha",
+          "start": 0.36,
+          "end": 0.8
+        },
+        {
+          "text": "began",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "rapidly",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "text": "taking",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "out",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "the",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "case",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "dishes",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "text": "and",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "plates",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "wrapped",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "in",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "paper.",
+          "start": 3.94,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2536299182102084
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32f50cffbc1bd77d4e17828a9c6fbcbbb845605f3dd1a7c2575388d6f0071d78",
+  "selected_reasons": []
+}

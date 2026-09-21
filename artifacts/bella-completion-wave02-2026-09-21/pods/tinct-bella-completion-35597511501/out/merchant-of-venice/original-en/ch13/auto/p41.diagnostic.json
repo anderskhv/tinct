@@ -1,0 +1,634 @@
+{
+  "complete": true,
+  "signature": "508148856e0f8677a31cf98e9e694c1e652e7b81eb2672e9bb2a1cb6235763a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.23850472923368216,
+      "alignment_seconds": 0.0020253844559192657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "One of them showed me a ring that he had of your daughter for a monkey.",
+        "hotwords": "One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tubal. One of them showed me a ring that he had of your daughter for a monkey.",
+          "start": 0.42,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " Tubal.",
+              "start": 0.42,
+              "end": 0.82,
+              "probability": 0.690673828125
+            },
+            {
+              "text": " One",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " of",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " showed",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ring",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 2.48,
+              "end": 2.7,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " he",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " had",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " daughter",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 3.56,
+              "end": 3.82,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 3.82,
+              "end": 3.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " monkey.",
+              "start": 3.92,
+              "end": 4.14,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tubal.",
+          "start": 0.42,
+          "end": 0.82
+        },
+        {
+          "raw": "One",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "of",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "them",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "showed",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "a",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "ring",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "that",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "raw": "he",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "had",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "your",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "daughter",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "for",
+          "start": 3.56,
+          "end": 3.82
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "raw": "monkey.",
+          "start": 3.92,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "TUBAL.",
+        "One",
+        "of",
+        "them",
+        "showed",
+        "me",
+        "a",
+        "ring",
+        "that",
+        "he",
+        "had",
+        "of",
+        "your",
+        "daughter",
+        "for",
+        "a",
+        "monkey."
+      ],
+      "acoustic_expected_tokens": [
+        "One",
+        "of",
+        "them",
+        "showed",
+        "me",
+        "a",
+        "ring",
+        "that",
+        "he",
+        "had",
+        "of",
+        "your",
+        "daughter",
+        "for",
+        "a",
+        "monkey."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tubal.",
+          "start": 0.42,
+          "end": 0.82,
+          "key": "tubal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "showed",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "showed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ring",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "ring",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.48,
+          "end": 2.7,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "daughter",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.56,
+          "end": 3.82,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.92,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "monkey.",
+          "start": 3.92,
+          "end": 4.14,
+          "key": "monkey",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "TUBAL.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "One",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "of",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "them",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "showed",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "me",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "a",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "text": "ring",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "that",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "text": "he",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "had",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "of",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "your",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "daughter",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "text": "for",
+          "start": 3.56,
+          "end": 3.82
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "text": "monkey.",
+          "start": 3.92,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24079997185617685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8db977472ecfb7be57955606372349d8b5f5f2b4f79ff90d6b3ba0b19f6a482d",
+  "selected_reasons": []
+}

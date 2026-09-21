@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "1d5d9000a6df6bf3469edfdd605c14fed38b96ea54b35ce9e4078f6481be4da1",
+  "attempts": [
+    {
+      "asr_seconds": 0.21504230424761772,
+      "alignment_seconds": 0.0013618739321827888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In time I may believe, yet I mistrust.",
+        "hotwords": "In, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bianca, In time I may believe, yet I mistrust.",
+          "start": 0.53,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " In",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.0234222412109375
+            },
+            {
+              "text": " time",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.9765625
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.787109375
+            },
+            {
+              "text": " may",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " believe,",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " yet",
+              "start": 2.39,
+              "end": 2.45,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " I",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " mistrust.",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.90087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "In",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "time",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "believe,",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "raw": "yet",
+          "start": 2.39,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "mistrust.",
+          "start": 2.57,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "BIANCA.",
+        "In",
+        "time",
+        "I",
+        "may",
+        "believe,",
+        "yet",
+        "I",
+        "mistrust."
+      ],
+      "acoustic_expected_tokens": [
+        "In",
+        "time",
+        "I",
+        "may",
+        "believe,",
+        "yet",
+        "I",
+        "mistrust."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          8,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "may",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "believe,",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "believe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 2.39,
+          "end": 2.45,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.57,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mistrust.",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "mistrust",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIANCA.",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "text": "In",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "time",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "may",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "believe,",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "yet",
+          "start": 2.39,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "mistrust.",
+          "start": 2.57,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2166107725352049
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe69e50b6354f217f8f6da63d7b694d63c24e70db2b91436fdda5326b02aaf4c",
+  "selected_reasons": []
+}

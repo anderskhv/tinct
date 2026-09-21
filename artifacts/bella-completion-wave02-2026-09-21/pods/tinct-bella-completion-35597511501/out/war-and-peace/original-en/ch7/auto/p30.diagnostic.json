@@ -1,0 +1,1680 @@
+{
+  "complete": true,
+  "signature": "82a589262c346606634883c80772e0ca8a88c9ccb27931345dd9634019a6ceab",
+  "attempts": [
+    {
+      "asr_seconds": 0.570225203409791,
+      "alignment_seconds": 0.004661237820982933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Suddenly the angry, squirrel-like expression of the princess' pretty face changed into a winning and piteous look of fear. Her beautiful eyes glanced askance at her husband's face, and her own assumed the timid, deprecating expression of a dog when it rapidly but feebly wags its drooping tail.",
+        "hotwords": "Suddenly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Suddenly the angry, squirrel-like expression of the princess' pretty face changed into a winning and piteous look of fear.",
+          "start": 0.0,
+          "end": 7.38,
+          "words": [
+            {
+              "text": " Suddenly",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.196533203125
+            },
+            {
+              "text": " angry,",
+              "start": 1.02,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " squirrel",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-like",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " expression",
+              "start": 2.26,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " princess'",
+              "start": 3.1,
+              "end": 3.46,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " pretty",
+              "start": 4.18,
+              "end": 4.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " face",
+              "start": 4.28,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " changed",
+              "start": 4.74,
+              "end": 5.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " into",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " winning",
+              "start": 5.74,
+              "end": 5.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 5.96,
+              "end": 6.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " piteous",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.9474283854166666
+            },
+            {
+              "text": " look",
+              "start": 6.74,
+              "end": 6.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 6.92,
+              "end": 7.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fear.",
+              "start": 7.08,
+              "end": 7.38,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Her beautiful eyes glanced askance at her husband's face, and her own assumed the timid, deprecating expression of a dog when it rapidly but feebly wags its drooping tail.",
+          "start": 8.16,
+          "end": 18.38,
+          "words": [
+            {
+              "text": " Her",
+              "start": 8.16,
+              "end": 8.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beautiful",
+              "start": 8.28,
+              "end": 8.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes",
+              "start": 8.58,
+              "end": 9.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " glanced",
+              "start": 9.04,
+              "end": 9.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " askance",
+              "start": 9.5,
+              "end": 10.08,
+              "probability": 0.7095947265625
+            },
+            {
+              "text": " at",
+              "start": 10.08,
+              "end": 10.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 10.24,
+              "end": 10.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " husband's",
+              "start": 10.38,
+              "end": 10.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " face,",
+              "start": 10.86,
+              "end": 11.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.5,
+              "end": 11.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 11.76,
+              "end": 11.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 11.9,
+              "end": 12.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " assumed",
+              "start": 12.18,
+              "end": 12.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.66,
+              "end": 12.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " timid,",
+              "start": 12.88,
+              "end": 13.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deprecating",
+              "start": 13.56,
+              "end": 14.06,
+              "probability": 0.9947916666666666
+            },
+            {
+              "text": " expression",
+              "start": 14.06,
+              "end": 14.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 14.56,
+              "end": 14.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.82,
+              "end": 14.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dog",
+              "start": 14.94,
+              "end": 15.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when",
+              "start": 15.24,
+              "end": 15.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 15.42,
+              "end": 15.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rapidly",
+              "start": 15.54,
+              "end": 15.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 15.98,
+              "end": 16.6,
+              "probability": 0.2113037109375
+            },
+            {
+              "text": " feebly",
+              "start": 16.6,
+              "end": 16.98,
+              "probability": 0.9768880208333334
+            },
+            {
+              "text": " wags",
+              "start": 16.98,
+              "end": 17.4,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " its",
+              "start": 17.4,
+              "end": 17.62,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " drooping",
+              "start": 17.62,
+              "end": 18.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tail.",
+              "start": 18.06,
+              "end": 18.38,
+              "probability": 0.93115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Suddenly",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "raw": "angry,",
+          "start": 1.02,
+          "end": 1.46
+        },
+        {
+          "raw": "squirrel",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "-like",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "expression",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "princess'",
+          "start": 3.1,
+          "end": 3.46
+        },
+        {
+          "raw": "pretty",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "raw": "face",
+          "start": 4.28,
+          "end": 4.74
+        },
+        {
+          "raw": "changed",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "raw": "into",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "raw": "a",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "winning",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "raw": "and",
+          "start": 5.96,
+          "end": 6.3
+        },
+        {
+          "raw": "piteous",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "raw": "look",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "raw": "of",
+          "start": 6.92,
+          "end": 7.08
+        },
+        {
+          "raw": "fear.",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "raw": "Her",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "raw": "beautiful",
+          "start": 8.28,
+          "end": 8.58
+        },
+        {
+          "raw": "eyes",
+          "start": 8.58,
+          "end": 9.04
+        },
+        {
+          "raw": "glanced",
+          "start": 9.04,
+          "end": 9.5
+        },
+        {
+          "raw": "askance",
+          "start": 9.5,
+          "end": 10.08
+        },
+        {
+          "raw": "at",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "raw": "her",
+          "start": 10.24,
+          "end": 10.38
+        },
+        {
+          "raw": "husband's",
+          "start": 10.38,
+          "end": 10.86
+        },
+        {
+          "raw": "face,",
+          "start": 10.86,
+          "end": 11.14
+        },
+        {
+          "raw": "and",
+          "start": 11.5,
+          "end": 11.76
+        },
+        {
+          "raw": "her",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "raw": "own",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "raw": "assumed",
+          "start": 12.18,
+          "end": 12.66
+        },
+        {
+          "raw": "the",
+          "start": 12.66,
+          "end": 12.88
+        },
+        {
+          "raw": "timid,",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "raw": "deprecating",
+          "start": 13.56,
+          "end": 14.06
+        },
+        {
+          "raw": "expression",
+          "start": 14.06,
+          "end": 14.56
+        },
+        {
+          "raw": "of",
+          "start": 14.56,
+          "end": 14.82
+        },
+        {
+          "raw": "a",
+          "start": 14.82,
+          "end": 14.94
+        },
+        {
+          "raw": "dog",
+          "start": 14.94,
+          "end": 15.24
+        },
+        {
+          "raw": "when",
+          "start": 15.24,
+          "end": 15.42
+        },
+        {
+          "raw": "it",
+          "start": 15.42,
+          "end": 15.54
+        },
+        {
+          "raw": "rapidly",
+          "start": 15.54,
+          "end": 15.98
+        },
+        {
+          "raw": "but",
+          "start": 15.98,
+          "end": 16.6
+        },
+        {
+          "raw": "feebly",
+          "start": 16.6,
+          "end": 16.98
+        },
+        {
+          "raw": "wags",
+          "start": 16.98,
+          "end": 17.4
+        },
+        {
+          "raw": "its",
+          "start": 17.4,
+          "end": 17.62
+        },
+        {
+          "raw": "drooping",
+          "start": 17.62,
+          "end": 18.06
+        },
+        {
+          "raw": "tail.",
+          "start": 18.06,
+          "end": 18.38
+        }
+      ],
+      "expected_tokens": [
+        "Suddenly",
+        "the",
+        "angry,",
+        "squirrel-like",
+        "expression",
+        "of",
+        "the",
+        "princess’",
+        "pretty",
+        "face",
+        "changed",
+        "into",
+        "a",
+        "winning",
+        "and",
+        "piteous",
+        "look",
+        "of",
+        "fear.",
+        "Her",
+        "beautiful",
+        "eyes",
+        "glanced",
+        "askance",
+        "at",
+        "her",
+        "husband’s",
+        "face,",
+        "and",
+        "her",
+        "own",
+        "assumed",
+        "the",
+        "timid,",
+        "deprecating",
+        "expression",
+        "of",
+        "a",
+        "dog",
+        "when",
+        "it",
+        "rapidly",
+        "but",
+        "feebly",
+        "wags",
+        "its",
+        "drooping",
+        "tail."
+      ],
+      "acoustic_expected_tokens": [
+        "Suddenly",
+        "the",
+        "angry,",
+        "squirrel-like",
+        "expression",
+        "of",
+        "the",
+        "princess'",
+        "pretty",
+        "face",
+        "changed",
+        "into",
+        "a",
+        "winning",
+        "and",
+        "piteous",
+        "look",
+        "of",
+        "fear.",
+        "Her",
+        "beautiful",
+        "eyes",
+        "glanced",
+        "askance",
+        "at",
+        "her",
+        "husband's",
+        "face,",
+        "and",
+        "her",
+        "own",
+        "assumed",
+        "the",
+        "timid,",
+        "deprecating",
+        "expression",
+        "of",
+        "a",
+        "dog",
+        "when",
+        "it",
+        "rapidly",
+        "but",
+        "feebly",
+        "wags",
+        "its",
+        "drooping",
+        "tail."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Suddenly",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "suddenly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "angry,",
+          "start": 1.02,
+          "end": 1.46,
+          "key": "angry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "squirrel -like",
+          "start": 1.7,
+          "end": 2.26,
+          "key": "squirrellike",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 2.26,
+          "end": 2.76,
+          "key": "expression",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "princess'",
+          "start": 3.1,
+          "end": 3.46,
+          "key": "princess",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 4.18,
+          "end": 4.28,
+          "key": "pretty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 4.28,
+          "end": 4.74,
+          "key": "face",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "changed",
+          "start": 4.74,
+          "end": 5.24,
+          "key": "changed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "into",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "winning",
+          "start": 5.74,
+          "end": 5.96,
+          "key": "winning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.96,
+          "end": 6.3,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "piteous",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "piteous",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 6.74,
+          "end": 6.92,
+          "key": "look",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.92,
+          "end": 7.08,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 7.08,
+          "end": 7.38,
+          "key": "fear",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 8.16,
+          "end": 8.28,
+          "key": "her",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "beautiful",
+          "start": 8.28,
+          "end": 8.58,
+          "key": "beautiful",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 8.58,
+          "end": 9.04,
+          "key": "eyes",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 9.04,
+          "end": 9.5,
+          "key": "glanced",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "askance",
+          "start": 9.5,
+          "end": 10.08,
+          "key": "askance",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 10.08,
+          "end": 10.24,
+          "key": "at",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.24,
+          "end": 10.38,
+          "key": "her",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "husband's",
+          "start": 10.38,
+          "end": 10.86,
+          "key": "husbands",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 10.86,
+          "end": 11.14,
+          "key": "face",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.5,
+          "end": 11.76,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 11.76,
+          "end": 11.9,
+          "key": "her",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 11.9,
+          "end": 12.18,
+          "key": "own",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "assumed",
+          "start": 12.18,
+          "end": 12.66,
+          "key": "assumed",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.66,
+          "end": 12.88,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "timid,",
+          "start": 12.88,
+          "end": 13.26,
+          "key": "timid",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "deprecating",
+          "start": 13.56,
+          "end": 14.06,
+          "key": "deprecating",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 14.06,
+          "end": 14.56,
+          "key": "expression",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.56,
+          "end": 14.82,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 14.82,
+          "end": 14.94,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 14.94,
+          "end": 15.24,
+          "key": "dog",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 15.24,
+          "end": 15.42,
+          "key": "when",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.42,
+          "end": 15.54,
+          "key": "it",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "rapidly",
+          "start": 15.54,
+          "end": 15.98,
+          "key": "rapidly",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 15.98,
+          "end": 16.6,
+          "key": "but",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "feebly",
+          "start": 16.6,
+          "end": 16.98,
+          "key": "feebly",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "wags",
+          "start": 16.98,
+          "end": 17.4,
+          "key": "wags",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 17.4,
+          "end": 17.62,
+          "key": "its",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "drooping",
+          "start": 17.62,
+          "end": 18.06,
+          "key": "drooping",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "tail.",
+          "start": 18.06,
+          "end": 18.38,
+          "key": "tail",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "squirrel-like",
+          "heard": "squirrel -like",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.7,
+          "end": 2.26
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Suddenly",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "text": "angry,",
+          "start": 1.02,
+          "end": 1.46
+        },
+        {
+          "text": "squirrel-like",
+          "start": 1.7,
+          "end": 2.26
+        },
+        {
+          "text": "expression",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "text": "of",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "princess’",
+          "start": 3.1,
+          "end": 3.46
+        },
+        {
+          "text": "pretty",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "text": "face",
+          "start": 4.28,
+          "end": 4.74
+        },
+        {
+          "text": "changed",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "text": "into",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "text": "a",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "winning",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "text": "and",
+          "start": 5.96,
+          "end": 6.3
+        },
+        {
+          "text": "piteous",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "text": "look",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "text": "of",
+          "start": 6.92,
+          "end": 7.08
+        },
+        {
+          "text": "fear.",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "text": "Her",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "text": "beautiful",
+          "start": 8.28,
+          "end": 8.58
+        },
+        {
+          "text": "eyes",
+          "start": 8.58,
+          "end": 9.04
+        },
+        {
+          "text": "glanced",
+          "start": 9.04,
+          "end": 9.5
+        },
+        {
+          "text": "askance",
+          "start": 9.5,
+          "end": 10.08
+        },
+        {
+          "text": "at",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "text": "her",
+          "start": 10.24,
+          "end": 10.38
+        },
+        {
+          "text": "husband’s",
+          "start": 10.38,
+          "end": 10.86
+        },
+        {
+          "text": "face,",
+          "start": 10.86,
+          "end": 11.14
+        },
+        {
+          "text": "and",
+          "start": 11.5,
+          "end": 11.76
+        },
+        {
+          "text": "her",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "text": "own",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "text": "assumed",
+          "start": 12.18,
+          "end": 12.66
+        },
+        {
+          "text": "the",
+          "start": 12.66,
+          "end": 12.88
+        },
+        {
+          "text": "timid,",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "text": "deprecating",
+          "start": 13.56,
+          "end": 14.06
+        },
+        {
+          "text": "expression",
+          "start": 14.06,
+          "end": 14.56
+        },
+        {
+          "text": "of",
+          "start": 14.56,
+          "end": 14.82
+        },
+        {
+          "text": "a",
+          "start": 14.82,
+          "end": 14.94
+        },
+        {
+          "text": "dog",
+          "start": 14.94,
+          "end": 15.24
+        },
+        {
+          "text": "when",
+          "start": 15.24,
+          "end": 15.42
+        },
+        {
+          "text": "it",
+          "start": 15.42,
+          "end": 15.54
+        },
+        {
+          "text": "rapidly",
+          "start": 15.54,
+          "end": 15.98
+        },
+        {
+          "text": "but",
+          "start": 15.98,
+          "end": 16.6
+        },
+        {
+          "text": "feebly",
+          "start": 16.6,
+          "end": 16.98
+        },
+        {
+          "text": "wags",
+          "start": 16.98,
+          "end": 17.4
+        },
+        {
+          "text": "its",
+          "start": 17.4,
+          "end": 17.62
+        },
+        {
+          "text": "drooping",
+          "start": 17.62,
+          "end": 18.06
+        },
+        {
+          "text": "tail.",
+          "start": 18.06,
+          "end": 18.38
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 48,
+        "matched_words": 48
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5752964727580547
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "847511939e28e35a0ef5b8b302869e91997bd51372e92334534df29ce0db7d05",
+  "selected_reasons": []
+}

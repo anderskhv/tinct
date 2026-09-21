@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "d737db6b8f62a899dce1a99693cf534c2f10521f8be5520991af43f5a26b4597",
+  "attempts": [
+    {
+      "asr_seconds": 0.11169973108917475,
+      "alignment_seconds": 0.0004750005900859833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To Mozháysk.\"",
+        "hotwords": "To, Mozháysk"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Mozháysk.",
+          "start": 0.0,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.304931640625
+            },
+            {
+              "text": " Mozháysk.",
+              "start": 0.32,
+              "end": 1.06,
+              "probability": 0.21839256286621095
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "Mozháysk.",
+          "start": 0.32,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "“To",
+        "Mozháysk.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"To",
+        "Mozháysk.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mozháysk.",
+          "start": 0.32,
+          "end": 1.06,
+          "key": "mozháysk",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Mozháysk.”",
+          "start": 0.32,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11224755644798279
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a85002aacb8a6144a2ded1b70e8cbc97145d3f97a0216b0d8705914b77e82420",
+  "selected_reasons": []
+}

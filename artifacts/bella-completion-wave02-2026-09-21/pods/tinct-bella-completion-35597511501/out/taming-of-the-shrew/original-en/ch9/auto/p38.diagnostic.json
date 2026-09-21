@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ea9f7ec25e467f235af816b18bbbe7f536463c88ff3921f994be794b8aee3ca5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11532281432300806,
+      "alignment_seconds": 0.0002844221889972687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Going.",
+        "hotwords": "Going"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Going.",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " Going.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Going.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Going._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Going."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Going.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "going",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Going._]",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11565315257757902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a81440ef14250d765dd10f5e320cbbf8cfb12c8e129843b8d2730ca44ce613dd",
+  "selected_reasons": []
+}

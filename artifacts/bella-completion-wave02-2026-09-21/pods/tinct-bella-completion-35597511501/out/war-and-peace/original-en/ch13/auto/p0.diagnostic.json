@@ -1,0 +1,2646 @@
+{
+  "complete": true,
+  "signature": "9432d4f2602ee3675435bdc9e1ef1a0bf477a537673139f1902260a0220e365f",
+  "attempts": [
+    {
+      "asr_seconds": 0.6257110703736544,
+      "alignment_seconds": 0.007164607755839825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When Natásha ran out of the drawing room she only went as far as the conservatory. There she paused and stood listening to the conversation in the drawing room, waiting for Borís to come out. She was already growing impatient, and stamped her foot, ready to cry at his not coming at once, when she heard the young man's discreet steps approaching neither quickly nor slowly. At this Natásha dashed swiftly among the flower tubs and hid there.",
+        "hotwords": "Natásha, Borís"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When Natásha ran out of the drawing room she only went as far as the conservatory. There she paused and stood listening to the conversation in the drawing room, waiting for Borís to come out. She was already growing impatient, and stamped her foot, ready to cry at his not coming at once, when she heard the young man's discreet steps approaching neither quickly nor slowly.",
+          "start": 0.05,
+          "end": 20.51,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Natásha",
+              "start": 0.51,
+              "end": 0.97,
+              "probability": 0.06891012191772461
+            },
+            {
+              "text": " ran",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " drawing",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " room",
+              "start": 1.89,
+              "end": 2.23,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " she",
+              "start": 2.23,
+              "end": 2.69,
+              "probability": 0.058197021484375
+            },
+            {
+              "text": " only",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " went",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " far",
+              "start": 3.33,
+              "end": 3.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 3.51,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " conservatory.",
+              "start": 3.77,
+              "end": 4.55,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " There",
+              "start": 5.17,
+              "end": 5.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " she",
+              "start": 5.37,
+              "end": 5.53,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " paused",
+              "start": 5.53,
+              "end": 5.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.95,
+              "end": 6.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " stood",
+              "start": 6.21,
+              "end": 6.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " listening",
+              "start": 6.43,
+              "end": 6.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 6.81,
+              "end": 7.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.05,
+              "end": 7.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " conversation",
+              "start": 7.17,
+              "end": 7.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 7.61,
+              "end": 7.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.93,
+              "end": 8.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drawing",
+              "start": 8.03,
+              "end": 8.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room,",
+              "start": 8.31,
+              "end": 8.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " waiting",
+              "start": 8.97,
+              "end": 9.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 9.27,
+              "end": 9.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Borís",
+              "start": 9.57,
+              "end": 9.89,
+              "probability": 0.005554705858230591
+            },
+            {
+              "text": " to",
+              "start": 9.89,
+              "end": 10.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 10.07,
+              "end": 10.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out.",
+              "start": 10.19,
+              "end": 10.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " She",
+              "start": 11.07,
+              "end": 11.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 11.19,
+              "end": 11.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " already",
+              "start": 11.29,
+              "end": 11.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " growing",
+              "start": 11.59,
+              "end": 11.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " impatient,",
+              "start": 11.97,
+              "end": 12.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 12.95,
+              "end": 13.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stamped",
+              "start": 13.13,
+              "end": 13.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 13.41,
+              "end": 13.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " foot,",
+              "start": 13.63,
+              "end": 13.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ready",
+              "start": 14.35,
+              "end": 14.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.49,
+              "end": 14.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cry",
+              "start": 14.67,
+              "end": 14.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 14.85,
+              "end": 15.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 15.03,
+              "end": 15.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 15.17,
+              "end": 15.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " coming",
+              "start": 15.41,
+              "end": 15.63,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " at",
+              "start": 15.63,
+              "end": 15.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " once,",
+              "start": 15.81,
+              "end": 16.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " when",
+              "start": 16.49,
+              "end": 16.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 16.67,
+              "end": 16.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heard",
+              "start": 16.81,
+              "end": 17.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 17.01,
+              "end": 17.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " young",
+              "start": 17.15,
+              "end": 17.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man's",
+              "start": 17.31,
+              "end": 17.75,
+              "probability": 0.900390625
+            },
+            {
+              "text": " discreet",
+              "start": 17.75,
+              "end": 18.09,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " steps",
+              "start": 18.09,
+              "end": 18.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " approaching",
+              "start": 18.49,
+              "end": 18.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " neither",
+              "start": 18.91,
+              "end": 19.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " quickly",
+              "start": 19.25,
+              "end": 19.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nor",
+              "start": 19.69,
+              "end": 20.01,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " slowly.",
+              "start": 20.01,
+              "end": 20.51,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " At this Natásha dashed swiftly among the flower tubs and hid there.",
+          "start": 21.19,
+          "end": 25.31,
+          "words": [
+            {
+              "text": " At",
+              "start": 21.19,
+              "end": 21.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 21.45,
+              "end": 21.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Natásha",
+              "start": 21.75,
+              "end": 22.47,
+              "probability": 0.7126057942708334
+            },
+            {
+              "text": " dashed",
+              "start": 22.47,
+              "end": 22.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " swiftly",
+              "start": 22.83,
+              "end": 23.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " among",
+              "start": 23.39,
+              "end": 23.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 23.75,
+              "end": 23.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flower",
+              "start": 23.93,
+              "end": 24.19,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " tubs",
+              "start": 24.19,
+              "end": 24.75,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " and",
+              "start": 24.75,
+              "end": 24.85,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " hid",
+              "start": 24.85,
+              "end": 25.01,
+              "probability": 1.0
+            },
+            {
+              "text": " there.",
+              "start": 25.01,
+              "end": 25.31,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.51,
+          "end": 0.97
+        },
+        {
+          "raw": "ran",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "out",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "of",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "drawing",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "room",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "raw": "she",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "raw": "only",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "went",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "as",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "far",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "raw": "as",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "raw": "the",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "conservatory.",
+          "start": 3.77,
+          "end": 4.55
+        },
+        {
+          "raw": "There",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "raw": "she",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "raw": "paused",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "raw": "and",
+          "start": 5.95,
+          "end": 6.21
+        },
+        {
+          "raw": "stood",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "raw": "listening",
+          "start": 6.43,
+          "end": 6.81
+        },
+        {
+          "raw": "to",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "raw": "the",
+          "start": 7.05,
+          "end": 7.17
+        },
+        {
+          "raw": "conversation",
+          "start": 7.17,
+          "end": 7.61
+        },
+        {
+          "raw": "in",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "raw": "the",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "raw": "drawing",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "raw": "room,",
+          "start": 8.31,
+          "end": 8.65
+        },
+        {
+          "raw": "waiting",
+          "start": 8.97,
+          "end": 9.27
+        },
+        {
+          "raw": "for",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "raw": "Borís",
+          "start": 9.57,
+          "end": 9.89
+        },
+        {
+          "raw": "to",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "raw": "come",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "raw": "out.",
+          "start": 10.19,
+          "end": 10.49
+        },
+        {
+          "raw": "She",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "raw": "was",
+          "start": 11.19,
+          "end": 11.29
+        },
+        {
+          "raw": "already",
+          "start": 11.29,
+          "end": 11.59
+        },
+        {
+          "raw": "growing",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "raw": "impatient,",
+          "start": 11.97,
+          "end": 12.51
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.13
+        },
+        {
+          "raw": "stamped",
+          "start": 13.13,
+          "end": 13.41
+        },
+        {
+          "raw": "her",
+          "start": 13.41,
+          "end": 13.63
+        },
+        {
+          "raw": "foot,",
+          "start": 13.63,
+          "end": 13.91
+        },
+        {
+          "raw": "ready",
+          "start": 14.35,
+          "end": 14.49
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "raw": "cry",
+          "start": 14.67,
+          "end": 14.85
+        },
+        {
+          "raw": "at",
+          "start": 14.85,
+          "end": 15.03
+        },
+        {
+          "raw": "his",
+          "start": 15.03,
+          "end": 15.17
+        },
+        {
+          "raw": "not",
+          "start": 15.17,
+          "end": 15.41
+        },
+        {
+          "raw": "coming",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "raw": "at",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "raw": "once,",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "raw": "when",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "raw": "she",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "raw": "heard",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "raw": "the",
+          "start": 17.01,
+          "end": 17.15
+        },
+        {
+          "raw": "young",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "raw": "man's",
+          "start": 17.31,
+          "end": 17.75
+        },
+        {
+          "raw": "discreet",
+          "start": 17.75,
+          "end": 18.09
+        },
+        {
+          "raw": "steps",
+          "start": 18.09,
+          "end": 18.49
+        },
+        {
+          "raw": "approaching",
+          "start": 18.49,
+          "end": 18.91
+        },
+        {
+          "raw": "neither",
+          "start": 18.91,
+          "end": 19.25
+        },
+        {
+          "raw": "quickly",
+          "start": 19.25,
+          "end": 19.69
+        },
+        {
+          "raw": "nor",
+          "start": 19.69,
+          "end": 20.01
+        },
+        {
+          "raw": "slowly.",
+          "start": 20.01,
+          "end": 20.51
+        },
+        {
+          "raw": "At",
+          "start": 21.19,
+          "end": 21.45
+        },
+        {
+          "raw": "this",
+          "start": 21.45,
+          "end": 21.75
+        },
+        {
+          "raw": "Natásha",
+          "start": 21.75,
+          "end": 22.47
+        },
+        {
+          "raw": "dashed",
+          "start": 22.47,
+          "end": 22.83
+        },
+        {
+          "raw": "swiftly",
+          "start": 22.83,
+          "end": 23.39
+        },
+        {
+          "raw": "among",
+          "start": 23.39,
+          "end": 23.75
+        },
+        {
+          "raw": "the",
+          "start": 23.75,
+          "end": 23.93
+        },
+        {
+          "raw": "flower",
+          "start": 23.93,
+          "end": 24.19
+        },
+        {
+          "raw": "tubs",
+          "start": 24.19,
+          "end": 24.75
+        },
+        {
+          "raw": "and",
+          "start": 24.75,
+          "end": 24.85
+        },
+        {
+          "raw": "hid",
+          "start": 24.85,
+          "end": 25.01
+        },
+        {
+          "raw": "there.",
+          "start": 25.01,
+          "end": 25.31
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "Natásha",
+        "ran",
+        "out",
+        "of",
+        "the",
+        "drawing",
+        "room",
+        "she",
+        "only",
+        "went",
+        "as",
+        "far",
+        "as",
+        "the",
+        "conservatory.",
+        "There",
+        "she",
+        "paused",
+        "and",
+        "stood",
+        "listening",
+        "to",
+        "the",
+        "conversation",
+        "in",
+        "the",
+        "drawing",
+        "room,",
+        "waiting",
+        "for",
+        "Borís",
+        "to",
+        "come",
+        "out.",
+        "She",
+        "was",
+        "already",
+        "growing",
+        "impatient,",
+        "and",
+        "stamped",
+        "her",
+        "foot,",
+        "ready",
+        "to",
+        "cry",
+        "at",
+        "his",
+        "not",
+        "coming",
+        "at",
+        "once,",
+        "when",
+        "she",
+        "heard",
+        "the",
+        "young",
+        "man’s",
+        "discreet",
+        "steps",
+        "approaching",
+        "neither",
+        "quickly",
+        "nor",
+        "slowly.",
+        "At",
+        "this",
+        "Natásha",
+        "dashed",
+        "swiftly",
+        "among",
+        "the",
+        "flower",
+        "tubs",
+        "and",
+        "hid",
+        "there."
+      ],
+      "acoustic_expected_tokens": [
+        "When",
+        "Natásha",
+        "ran",
+        "out",
+        "of",
+        "the",
+        "drawing",
+        "room",
+        "she",
+        "only",
+        "went",
+        "as",
+        "far",
+        "as",
+        "the",
+        "conservatory.",
+        "There",
+        "she",
+        "paused",
+        "and",
+        "stood",
+        "listening",
+        "to",
+        "the",
+        "conversation",
+        "in",
+        "the",
+        "drawing",
+        "room,",
+        "waiting",
+        "for",
+        "Borís",
+        "to",
+        "come",
+        "out.",
+        "She",
+        "was",
+        "already",
+        "growing",
+        "impatient,",
+        "and",
+        "stamped",
+        "her",
+        "foot,",
+        "ready",
+        "to",
+        "cry",
+        "at",
+        "his",
+        "not",
+        "coming",
+        "at",
+        "once,",
+        "when",
+        "she",
+        "heard",
+        "the",
+        "young",
+        "man's",
+        "discreet",
+        "steps",
+        "approaching",
+        "neither",
+        "quickly",
+        "nor",
+        "slowly.",
+        "At",
+        "this",
+        "Natásha",
+        "dashed",
+        "swiftly",
+        "among",
+        "the",
+        "flower",
+        "tubs",
+        "and",
+        "hid",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          78,
+          0,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 0.51,
+          "end": 0.97,
+          "key": "natásha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "ran",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drawing",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "drawing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.89,
+          "end": 2.23,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.23,
+          "end": 2.69,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "only",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.93,
+          "end": 3.15,
+          "key": "went",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 3.33,
+          "end": 3.51,
+          "key": "far",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.51,
+          "end": 3.65,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.65,
+          "end": 3.77,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "conservatory.",
+          "start": 3.77,
+          "end": 4.55,
+          "key": "conservatory",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 5.17,
+          "end": 5.37,
+          "key": "there",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.37,
+          "end": 5.53,
+          "key": "she",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "paused",
+          "start": 5.53,
+          "end": 5.95,
+          "key": "paused",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.95,
+          "end": 6.21,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 6.21,
+          "end": 6.43,
+          "key": "stood",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 6.43,
+          "end": 6.81,
+          "key": "listening",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.81,
+          "end": 7.05,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.05,
+          "end": 7.17,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "conversation",
+          "start": 7.17,
+          "end": 7.61,
+          "key": "conversation",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.61,
+          "end": 7.93,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.93,
+          "end": 8.03,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "drawing",
+          "start": 8.03,
+          "end": 8.31,
+          "key": "drawing",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 8.31,
+          "end": 8.65,
+          "key": "room",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "waiting",
+          "start": 8.97,
+          "end": 9.27,
+          "key": "waiting",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.27,
+          "end": 9.57,
+          "key": "for",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Borís",
+          "start": 9.57,
+          "end": 9.89,
+          "key": "borís",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.89,
+          "end": 10.07,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 10.07,
+          "end": 10.19,
+          "key": "come",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 10.19,
+          "end": 10.49,
+          "key": "out",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 11.07,
+          "end": 11.19,
+          "key": "she",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.19,
+          "end": 11.29,
+          "key": "was",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 11.29,
+          "end": 11.59,
+          "key": "already",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "growing",
+          "start": 11.59,
+          "end": 11.97,
+          "key": "growing",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "impatient,",
+          "start": 11.97,
+          "end": 12.51,
+          "key": "impatient",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.13,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "stamped",
+          "start": 13.13,
+          "end": 13.41,
+          "key": "stamped",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 13.41,
+          "end": 13.63,
+          "key": "her",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "foot,",
+          "start": 13.63,
+          "end": 13.91,
+          "key": "foot",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 14.35,
+          "end": 14.49,
+          "key": "ready",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.67,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 14.67,
+          "end": 14.85,
+          "key": "cry",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.85,
+          "end": 15.03,
+          "key": "at",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 15.03,
+          "end": 15.17,
+          "key": "his",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.17,
+          "end": 15.41,
+          "key": "not",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 15.41,
+          "end": 15.63,
+          "key": "coming",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 15.63,
+          "end": 15.81,
+          "key": "at",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 15.81,
+          "end": 16.19,
+          "key": "once",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.49,
+          "end": 16.67,
+          "key": "when",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 16.67,
+          "end": 16.81,
+          "key": "she",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 16.81,
+          "end": 17.01,
+          "key": "heard",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.01,
+          "end": 17.15,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 17.15,
+          "end": 17.31,
+          "key": "young",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 17.31,
+          "end": 17.75,
+          "key": "mans",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "discreet",
+          "start": 17.75,
+          "end": 18.09,
+          "key": "discreet",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 18.09,
+          "end": 18.49,
+          "key": "steps",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "approaching",
+          "start": 18.49,
+          "end": 18.91,
+          "key": "approaching",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 18.91,
+          "end": 19.25,
+          "key": "neither",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 19.25,
+          "end": 19.69,
+          "key": "quickly",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 19.69,
+          "end": 20.01,
+          "key": "nor",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "slowly.",
+          "start": 20.01,
+          "end": 20.51,
+          "key": "slowly",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 21.19,
+          "end": 21.45,
+          "key": "at",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 21.45,
+          "end": 21.75,
+          "key": "this",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 21.75,
+          "end": 22.47,
+          "key": "natásha",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "dashed",
+          "start": 22.47,
+          "end": 22.83,
+          "key": "dashed",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "swiftly",
+          "start": 22.83,
+          "end": 23.39,
+          "key": "swiftly",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 23.39,
+          "end": 23.75,
+          "key": "among",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.75,
+          "end": 23.93,
+          "key": "the",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 23.93,
+          "end": 24.19,
+          "key": "flower",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "tubs",
+          "start": 24.19,
+          "end": 24.75,
+          "key": "tubs",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.75,
+          "end": 24.85,
+          "key": "and",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 24.85,
+          "end": 25.01,
+          "key": "hid",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 25.01,
+          "end": 25.31,
+          "key": "there",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "Natásha",
+          "start": 0.51,
+          "end": 0.97
+        },
+        {
+          "text": "ran",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "text": "out",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "of",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "drawing",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "room",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "text": "she",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "text": "only",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "went",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "as",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "far",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "as",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "text": "the",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "conservatory.",
+          "start": 3.77,
+          "end": 4.55
+        },
+        {
+          "text": "There",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "text": "she",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "text": "paused",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "text": "and",
+          "start": 5.95,
+          "end": 6.21
+        },
+        {
+          "text": "stood",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "text": "listening",
+          "start": 6.43,
+          "end": 6.81
+        },
+        {
+          "text": "to",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "text": "the",
+          "start": 7.05,
+          "end": 7.17
+        },
+        {
+          "text": "conversation",
+          "start": 7.17,
+          "end": 7.61
+        },
+        {
+          "text": "in",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "text": "the",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "text": "drawing",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "text": "room,",
+          "start": 8.31,
+          "end": 8.65
+        },
+        {
+          "text": "waiting",
+          "start": 8.97,
+          "end": 9.27
+        },
+        {
+          "text": "for",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "text": "Borís",
+          "start": 9.57,
+          "end": 9.89
+        },
+        {
+          "text": "to",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "text": "come",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "text": "out.",
+          "start": 10.19,
+          "end": 10.49
+        },
+        {
+          "text": "She",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "text": "was",
+          "start": 11.19,
+          "end": 11.29
+        },
+        {
+          "text": "already",
+          "start": 11.29,
+          "end": 11.59
+        },
+        {
+          "text": "growing",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "text": "impatient,",
+          "start": 11.97,
+          "end": 12.51
+        },
+        {
+          "text": "and",
+          "start": 12.95,
+          "end": 13.13
+        },
+        {
+          "text": "stamped",
+          "start": 13.13,
+          "end": 13.41
+        },
+        {
+          "text": "her",
+          "start": 13.41,
+          "end": 13.63
+        },
+        {
+          "text": "foot,",
+          "start": 13.63,
+          "end": 13.91
+        },
+        {
+          "text": "ready",
+          "start": 14.35,
+          "end": 14.49
+        },
+        {
+          "text": "to",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "text": "cry",
+          "start": 14.67,
+          "end": 14.85
+        },
+        {
+          "text": "at",
+          "start": 14.85,
+          "end": 15.03
+        },
+        {
+          "text": "his",
+          "start": 15.03,
+          "end": 15.17
+        },
+        {
+          "text": "not",
+          "start": 15.17,
+          "end": 15.41
+        },
+        {
+          "text": "coming",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "text": "at",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "text": "once,",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "text": "when",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "text": "she",
+          "start": 16.67,
+          "end": 16.81
+        },
+        {
+          "text": "heard",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "text": "the",
+          "start": 17.01,
+          "end": 17.15
+        },
+        {
+          "text": "young",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "text": "man’s",
+          "start": 17.31,
+          "end": 17.75
+        },
+        {
+          "text": "discreet",
+          "start": 17.75,
+          "end": 18.09
+        },
+        {
+          "text": "steps",
+          "start": 18.09,
+          "end": 18.49
+        },
+        {
+          "text": "approaching",
+          "start": 18.49,
+          "end": 18.91
+        },
+        {
+          "text": "neither",
+          "start": 18.91,
+          "end": 19.25
+        },
+        {
+          "text": "quickly",
+          "start": 19.25,
+          "end": 19.69
+        },
+        {
+          "text": "nor",
+          "start": 19.69,
+          "end": 20.01
+        },
+        {
+          "text": "slowly.",
+          "start": 20.01,
+          "end": 20.51
+        },
+        {
+          "text": "At",
+          "start": 21.19,
+          "end": 21.45
+        },
+        {
+          "text": "this",
+          "start": 21.45,
+          "end": 21.75
+        },
+        {
+          "text": "Natásha",
+          "start": 21.75,
+          "end": 22.47
+        },
+        {
+          "text": "dashed",
+          "start": 22.47,
+          "end": 22.83
+        },
+        {
+          "text": "swiftly",
+          "start": 22.83,
+          "end": 23.39
+        },
+        {
+          "text": "among",
+          "start": 23.39,
+          "end": 23.75
+        },
+        {
+          "text": "the",
+          "start": 23.75,
+          "end": 23.93
+        },
+        {
+          "text": "flower",
+          "start": 23.93,
+          "end": 24.19
+        },
+        {
+          "text": "tubs",
+          "start": 24.19,
+          "end": 24.75
+        },
+        {
+          "text": "and",
+          "start": 24.75,
+          "end": 24.85
+        },
+        {
+          "text": "hid",
+          "start": 24.85,
+          "end": 25.01
+        },
+        {
+          "text": "there.",
+          "start": 25.01,
+          "end": 25.31
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 78
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6334389857947826
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0fb0db190e000a5d77a0936073895c8dbe04c71e033b054ecea190e0b57557a1",
+  "selected_reasons": []
+}

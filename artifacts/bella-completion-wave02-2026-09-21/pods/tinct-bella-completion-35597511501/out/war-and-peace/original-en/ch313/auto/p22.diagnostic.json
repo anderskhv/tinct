@@ -1,0 +1,2534 @@
+{
+  "complete": true,
+  "signature": "ae64bfcdf9795adcc3170b76a6d0ee9bf4d8da817a2adcccfcdb4fda726b693d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3751236591488123,
+      "alignment_seconds": 0.011412253603339195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Filez, filez!\" * Dólokhov kept saying, having adopted this expression from the French, and when his eyes met those of the prisoners they flashed with a cruel light.",
+        "hotwords": "Dólokhov, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Filez, filez!",
+          "start": 0.0,
+          "end": 9.9,
+          "words": [
+            {
+              "text": " Filez,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.08082008361816406
+            },
+            {
+              "text": " filez!",
+              "start": 9.22,
+              "end": 9.9,
+              "probability": 0.595703125
+            }
+          ]
+        },
+        {
+          "text": " Filez, filez!",
+          "start": 9.9,
+          "end": 10.62,
+          "words": [
+            {
+              "text": " Filez,",
+              "start": 9.9,
+              "end": 10.62,
+              "probability": 0.00011330842971801758
+            },
+            {
+              "text": " filez!",
+              "start": 10.62,
+              "end": 10.62,
+              "probability": 0.42805004119873047
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Filez,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "filez!",
+          "start": 9.22,
+          "end": 9.9
+        },
+        {
+          "raw": "Filez,",
+          "start": 9.9,
+          "end": 10.62
+        },
+        {
+          "raw": "filez!",
+          "start": 10.62,
+          "end": 10.62
+        }
+      ],
+      "expected_tokens": [
+        "“Filez,",
+        "filez!”",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Filez,",
+        "filez!\"",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          28,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          28,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Filez,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "filez",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "filez!",
+          "start": 9.22,
+          "end": 9.9,
+          "key": "filez",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Filez,",
+          "start": 9.9,
+          "end": 10.62,
+          "key": "filez",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "filez!",
+          "start": 10.62,
+          "end": 10.62,
+          "key": "filez",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Filez,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "filez!”",
+          "start": 9.22,
+          "end": 9.9
+        },
+        {
+          "text": "*",
+          "start": 9.9,
+          "end": 10.26
+        },
+        {
+          "text": "Dólokhov",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "text": "kept",
+          "start": 10.44,
+          "end": 10.53
+        },
+        {
+          "text": "saying,",
+          "start": 10.53,
+          "end": 10.575
+        },
+        {
+          "text": "having",
+          "start": 10.575,
+          "end": 10.598
+        },
+        {
+          "text": "adopted",
+          "start": 10.598,
+          "end": 10.609
+        },
+        {
+          "text": "this",
+          "start": 10.609,
+          "end": 10.614
+        },
+        {
+          "text": "expression",
+          "start": 10.614,
+          "end": 10.617
+        },
+        {
+          "text": "from",
+          "start": 10.617,
+          "end": 10.619
+        },
+        {
+          "text": "the",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "French,",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "and",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "when",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "his",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "eyes",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "met",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "those",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "of",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "the",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "prisoners",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "they",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "flashed",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "with",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "a",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "cruel",
+          "start": 10.619,
+          "end": 10.619
+        },
+        {
+          "text": "light.",
+          "start": 10.619,
+          "end": 10.619
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.07142857142857142,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3866711715236306
+    },
+    {
+      "asr_seconds": 0.4546788865700364,
+      "alignment_seconds": 0.0017570368945598602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dólokhov, French"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Phyllis, Phyllis. Asterisk Dólokhov kept saying, having adopted this expression from the French, and when his eyes met those of the prisoners they flashed with a cruel light.",
+          "start": 0.0,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " Phyllis,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.6350911458333334
+            },
+            {
+              "text": " Phyllis.",
+              "start": 0.84,
+              "end": 1.72,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Asterisk",
+              "start": 2.44,
+              "end": 2.78,
+              "probability": 0.54327392578125
+            },
+            {
+              "text": " Dólokhov",
+              "start": 2.78,
+              "end": 3.24,
+              "probability": 0.19469947814941407
+            },
+            {
+              "text": " kept",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " saying,",
+              "start": 3.54,
+              "end": 3.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " having",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " adopted",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " this",
+              "start": 4.86,
+              "end": 5.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " expression",
+              "start": 5.14,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " French,",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 6.58,
+              "end": 6.68,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " when",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " his",
+              "start": 6.84,
+              "end": 7.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 7.02,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " met",
+              "start": 7.22,
+              "end": 7.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 7.46,
+              "end": 7.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 7.7,
+              "end": 7.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.82,
+              "end": 7.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prisoners",
+              "start": 7.94,
+              "end": 8.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 8.2,
+              "end": 8.48,
+              "probability": 0.92578125
+            },
+            {
+              "text": " flashed",
+              "start": 8.48,
+              "end": 8.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 9.04,
+              "end": 9.14,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " cruel",
+              "start": 9.14,
+              "end": 9.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " light.",
+              "start": 9.36,
+              "end": 9.66,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Phyllis,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "Phyllis.",
+          "start": 0.84,
+          "end": 1.72
+        },
+        {
+          "raw": "Asterisk",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 2.78,
+          "end": 3.24
+        },
+        {
+          "raw": "kept",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "raw": "saying,",
+          "start": 3.54,
+          "end": 3.9
+        },
+        {
+          "raw": "having",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "adopted",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "this",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "raw": "expression",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "raw": "from",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "French,",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "raw": "when",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "his",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "raw": "eyes",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "raw": "met",
+          "start": 7.22,
+          "end": 7.46
+        },
+        {
+          "raw": "those",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "raw": "the",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "raw": "prisoners",
+          "start": 7.94,
+          "end": 8.2
+        },
+        {
+          "raw": "they",
+          "start": 8.2,
+          "end": 8.48
+        },
+        {
+          "raw": "flashed",
+          "start": 8.48,
+          "end": 8.76
+        },
+        {
+          "raw": "with",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "a",
+          "start": 9.04,
+          "end": 9.14
+        },
+        {
+          "raw": "cruel",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "raw": "light.",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "“Filez,",
+        "filez!”",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Filez,",
+        "filez!\"",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "equal",
+          3,
+          28,
+          3,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Phyllis,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "phyllis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Phyllis.",
+          "start": 0.84,
+          "end": 1.72,
+          "key": "phyllis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 2.44,
+          "end": 2.78,
+          "key": "asterisk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 2.78,
+          "end": 3.24,
+          "key": "dólokhov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "kept",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "saying,",
+          "start": 3.54,
+          "end": 3.9,
+          "key": "saying",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "having",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "adopted",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "adopted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.86,
+          "end": 5.14,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 5.14,
+          "end": 5.56,
+          "key": "expression",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 5.98,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "French,",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "french",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.68,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.68,
+          "end": 6.84,
+          "key": "when",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.84,
+          "end": 7.02,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.02,
+          "end": 7.22,
+          "key": "eyes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 7.22,
+          "end": 7.46,
+          "key": "met",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 7.46,
+          "end": 7.7,
+          "key": "those",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.82,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.82,
+          "end": 7.94,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "prisoners",
+          "start": 7.94,
+          "end": 8.2,
+          "key": "prisoners",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 8.2,
+          "end": 8.48,
+          "key": "they",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "flashed",
+          "start": 8.48,
+          "end": 8.76,
+          "key": "flashed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.76,
+          "end": 9.04,
+          "key": "with",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.04,
+          "end": 9.14,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "cruel",
+          "start": 9.14,
+          "end": 9.36,
+          "key": "cruel",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 9.36,
+          "end": 9.66,
+          "key": "light",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Filez,",
+          "start": 0.0,
+          "end": 1.39
+        },
+        {
+          "text": "filez!”",
+          "start": 1.39,
+          "end": 2.085
+        },
+        {
+          "text": "*",
+          "start": 2.085,
+          "end": 2.433
+        },
+        {
+          "text": "Dólokhov",
+          "start": 2.78,
+          "end": 3.24
+        },
+        {
+          "text": "kept",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "text": "saying,",
+          "start": 3.54,
+          "end": 3.9
+        },
+        {
+          "text": "having",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "adopted",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "this",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "text": "expression",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "text": "from",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "French,",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "text": "when",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "his",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "text": "eyes",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "text": "met",
+          "start": 7.22,
+          "end": 7.46
+        },
+        {
+          "text": "those",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "text": "of",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "text": "the",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "text": "prisoners",
+          "start": 7.94,
+          "end": 8.2
+        },
+        {
+          "text": "they",
+          "start": 8.2,
+          "end": 8.48
+        },
+        {
+          "text": "flashed",
+          "start": 8.48,
+          "end": 8.76
+        },
+        {
+          "text": "with",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "text": "a",
+          "start": 9.04,
+          "end": 9.14
+        },
+        {
+          "text": "cruel",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "text": "light.",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 25
+      },
+      "match_ratio": 0.8928571428571429,
+      "rejection_reasons": [],
+      "seconds": 0.45663441717624664
+    },
+    {
+      "asr_seconds": 0.39448279328644276,
+      "alignment_seconds": 0.0016367938369512558,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Phyllis, Phyllis!",
+          "start": 0.0,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Phyllis,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.6350911458333334
+            },
+            {
+              "text": " Phyllis!",
+              "start": 0.84,
+              "end": 1.72,
+              "probability": 0.95458984375
+            }
+          ]
+        },
+        {
+          "text": " Asterisk Dolichov kept saying, having adopted this expression from the French, and when",
+          "start": 2.44,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 2.44,
+              "end": 2.78,
+              "probability": 0.52789306640625
+            },
+            {
+              "text": " Dolichov",
+              "start": 2.78,
+              "end": 3.24,
+              "probability": 0.4571126302083333
+            },
+            {
+              "text": " kept",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " saying,",
+              "start": 3.52,
+              "end": 3.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " having",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " adopted",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " this",
+              "start": 4.86,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " expression",
+              "start": 5.14,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " French,",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 6.58,
+              "end": 6.68,
+              "probability": 0.94140625
+            },
+            {
+              "text": " when",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " his eyes met those of the prisoners they flashed with a cruel light.",
+          "start": 6.84,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " his",
+              "start": 6.84,
+              "end": 7.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 7.02,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " met",
+              "start": 7.22,
+              "end": 7.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 7.46,
+              "end": 7.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 7.7,
+              "end": 7.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.82,
+              "end": 7.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prisoners",
+              "start": 7.94,
+              "end": 8.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " they",
+              "start": 8.2,
+              "end": 8.48,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " flashed",
+              "start": 8.48,
+              "end": 8.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 9.04,
+              "end": 9.14,
+              "probability": 0.841796875
+            },
+            {
+              "text": " cruel",
+              "start": 9.14,
+              "end": 9.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " light.",
+              "start": 9.36,
+              "end": 9.66,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Phyllis,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "Phyllis!",
+          "start": 0.84,
+          "end": 1.72
+        },
+        {
+          "raw": "Asterisk",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "raw": "Dolichov",
+          "start": 2.78,
+          "end": 3.24
+        },
+        {
+          "raw": "kept",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "saying,",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "raw": "having",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "adopted",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "this",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "raw": "expression",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "raw": "from",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "French,",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "raw": "when",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "his",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "raw": "eyes",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "raw": "met",
+          "start": 7.22,
+          "end": 7.46
+        },
+        {
+          "raw": "those",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "raw": "the",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "raw": "prisoners",
+          "start": 7.94,
+          "end": 8.2
+        },
+        {
+          "raw": "they",
+          "start": 8.2,
+          "end": 8.48
+        },
+        {
+          "raw": "flashed",
+          "start": 8.48,
+          "end": 8.76
+        },
+        {
+          "raw": "with",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "a",
+          "start": 9.04,
+          "end": 9.14
+        },
+        {
+          "raw": "cruel",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "raw": "light.",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "“Filez,",
+        "filez!”",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Filez,",
+        "filez!\"",
+        "*",
+        "Dólokhov",
+        "kept",
+        "saying,",
+        "having",
+        "adopted",
+        "this",
+        "expression",
+        "from",
+        "the",
+        "French,",
+        "and",
+        "when",
+        "his",
+        "eyes",
+        "met",
+        "those",
+        "of",
+        "the",
+        "prisoners",
+        "they",
+        "flashed",
+        "with",
+        "a",
+        "cruel",
+        "light."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "equal",
+          4,
+          28,
+          4,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Phyllis,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "phyllis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Phyllis!",
+          "start": 0.84,
+          "end": 1.72,
+          "key": "phyllis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 2.44,
+          "end": 2.78,
+          "key": "asterisk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dolichov",
+          "start": 2.78,
+          "end": 3.24,
+          "key": "dolichov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "kept",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "saying,",
+          "start": 3.52,
+          "end": 3.9,
+          "key": "saying",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "having",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "adopted",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "adopted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.86,
+          "end": 5.14,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 5.14,
+          "end": 5.56,
+          "key": "expression",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 5.98,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "French,",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "french",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.58,
+          "end": 6.68,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.68,
+          "end": 6.84,
+          "key": "when",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.84,
+          "end": 7.02,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.02,
+          "end": 7.22,
+          "key": "eyes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 7.22,
+          "end": 7.46,
+          "key": "met",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 7.46,
+          "end": 7.7,
+          "key": "those",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.82,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.82,
+          "end": 7.94,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "prisoners",
+          "start": 7.94,
+          "end": 8.2,
+          "key": "prisoners",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 8.2,
+          "end": 8.48,
+          "key": "they",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "flashed",
+          "start": 8.48,
+          "end": 8.76,
+          "key": "flashed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.76,
+          "end": 9.04,
+          "key": "with",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.04,
+          "end": 9.14,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "cruel",
+          "start": 9.14,
+          "end": 9.36,
+          "key": "cruel",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 9.36,
+          "end": 9.66,
+          "key": "light",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Filez,",
+          "start": 0.0,
+          "end": 1.62
+        },
+        {
+          "text": "filez!”",
+          "start": 1.62,
+          "end": 2.43
+        },
+        {
+          "text": "*",
+          "start": 2.43,
+          "end": 2.835
+        },
+        {
+          "text": "Dólokhov",
+          "start": 2.835,
+          "end": 3.038
+        },
+        {
+          "text": "kept",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "saying,",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "text": "having",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "adopted",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "this",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "text": "expression",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "text": "from",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "French,",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "text": "when",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "his",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "text": "eyes",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "text": "met",
+          "start": 7.22,
+          "end": 7.46
+        },
+        {
+          "text": "those",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "text": "of",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "text": "the",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "text": "prisoners",
+          "start": 7.94,
+          "end": 8.2
+        },
+        {
+          "text": "they",
+          "start": 8.2,
+          "end": 8.48
+        },
+        {
+          "text": "flashed",
+          "start": 8.48,
+          "end": 8.76
+        },
+        {
+          "text": "with",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "text": "a",
+          "start": 9.04,
+          "end": 9.14
+        },
+        {
+          "text": "cruel",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "text": "light.",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3962858999148011
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "6a3bea1621e44b9bc711199341233e006548306e804755032dbe11bae564b241",
+  "selected_reasons": []
+}

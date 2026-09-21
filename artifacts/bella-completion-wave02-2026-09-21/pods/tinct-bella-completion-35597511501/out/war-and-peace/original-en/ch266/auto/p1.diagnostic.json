@@ -1,0 +1,1110 @@
+{
+  "complete": true,
+  "signature": "90774e58f57ff578a09f8719673ee34d606d0207db6e19569d1c08454f78aba4",
+  "attempts": [
+    {
+      "asr_seconds": 0.18922662269324064,
+      "alignment_seconds": 0.0009032357484102249,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* Though a foreigner, Russian in heart and soul.",
+        "hotwords": "Though, Russian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Asterisk though a foreigner, Russian in heart and soul.",
+          "start": 0.0,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " though",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.697265625
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " foreigner,",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Russian",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " in",
+              "start": 1.8,
+              "end": 2.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heart",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " soul.",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "foreigner,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "Russian",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "soul.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "though",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "foreigner,",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "foreigner",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "russian",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 2.02,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "heart",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "soul",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "Though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "foreigner,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "text": "Russian",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "in",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "text": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "soul.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19026178494095802
+    },
+    {
+      "asr_seconds": 0.21176786720752716,
+      "alignment_seconds": 0.0011895550414919853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Though, Russian"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " asterisk though a foreigner Russian in heart and soul",
+          "start": 0.0,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " though",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " foreigner",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Russian",
+              "start": 1.34,
+              "end": 1.78,
+              "probability": 0.44580078125
+            },
+            {
+              "text": " in",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " heart",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " soul",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "foreigner",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "Russian",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "raw": "in",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "soul",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "though",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "foreigner",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "foreigner",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 1.34,
+          "end": 1.78,
+          "key": "russian",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "heart",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "soul",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "Though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "foreigner,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "text": "Russian",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "text": "in",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "soul.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.21312747988849878
+    },
+    {
+      "asr_seconds": 0.2237730659544468,
+      "alignment_seconds": 0.0011603813618421555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk though a foreigner Russian in heart and soul",
+          "start": 0.0,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " though",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.697265625
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " foreigner",
+              "start": 1.0,
+              "end": 1.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Russian",
+              "start": 1.32,
+              "end": 1.78,
+              "probability": 0.303466796875
+            },
+            {
+              "text": " in",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heart",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " soul",
+              "start": 2.48,
+              "end": 2.78,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "foreigner",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "raw": "Russian",
+          "start": 1.32,
+          "end": 1.78
+        },
+        {
+          "raw": "in",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "soul",
+          "start": 2.48,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Though",
+        "a",
+        "foreigner,",
+        "Russian",
+        "in",
+        "heart",
+        "and",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "though",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "foreigner",
+          "start": 1.0,
+          "end": 1.32,
+          "key": "foreigner",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 1.32,
+          "end": 1.78,
+          "key": "russian",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "heart",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 2.48,
+          "end": 2.78,
+          "key": "soul",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "Though",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "foreigner,",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "text": "Russian",
+          "start": 1.32,
+          "end": 1.78
+        },
+        {
+          "text": "in",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "heart",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "soul.",
+          "start": 2.48,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22509779129177332
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1dcace66253a61df2465f219fe2d9d888cc9051e4ad60320c1831c12b79e4ee",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "0a581e22f2eccce45e6880b0384fadecdf33003e7fd8eec7cadd439af6d57003",
+  "attempts": [
+    {
+      "asr_seconds": 0.0918247140944004,
+      "alignment_seconds": 0.0004825713112950325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter a man from Antonio.",
+        "hotwords": "Enter, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter a man from Antonio.",
+          "start": 0.18,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.64,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " a",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.982421875
+            },
+            {
+              "text": " man",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " from",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Antonio.",
+              "start": 1.16,
+              "end": 1.58,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.64
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "man",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "from",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "Antonio.",
+          "start": 1.16,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "man",
+        "from",
+        "Antonio."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "a",
+        "man",
+        "from",
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antonio.",
+          "start": 1.16,
+          "end": 1.58,
+          "key": "antonio",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.64
+        },
+        {
+          "text": "a",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "man",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "from",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "Antonio.",
+          "start": 1.16,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0923853786662221
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "549a57eb849a22693a8b921c79815cfb9b07195af73c8203d7a1d4a8aba10cf8",
+  "selected_reasons": []
+}

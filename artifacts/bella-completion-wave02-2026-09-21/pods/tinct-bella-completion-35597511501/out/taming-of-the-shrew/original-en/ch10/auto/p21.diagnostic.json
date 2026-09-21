@@ -1,0 +1,872 @@
+{
+  "complete": true,
+  "signature": "c52c40e164001d367dbc8acf441ce83c9727e119aa2f60e4ca0136786dba7700",
+  "attempts": [
+    {
+      "asr_seconds": 0.36257836874574423,
+      "alignment_seconds": 0.002327253110706806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Do, good old grandsire, and withal make known Which way thou travellest: if along with us, We shall be joyful of thy company.",
+        "hotwords": "Do, Which, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Petrushio, Do, good old grandsire, and withal make known Which way thou travellest. If along",
+          "start": 0.54,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Petrushio,",
+              "start": 0.54,
+              "end": 1.04,
+              "probability": 0.650146484375
+            },
+            {
+              "text": " Do,",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.1673583984375
+            },
+            {
+              "text": " good",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.591796875
+            },
+            {
+              "text": " old",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " grandsire,",
+              "start": 2.62,
+              "end": 3.34,
+              "probability": 0.7159830729166666
+            },
+            {
+              "text": " and",
+              "start": 3.52,
+              "end": 3.56,
+              "probability": 0.498779296875
+            },
+            {
+              "text": " withal",
+              "start": 3.56,
+              "end": 3.88,
+              "probability": 0.929443359375
+            },
+            {
+              "text": " make",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.83984375
+            },
+            {
+              "text": " known",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Which",
+              "start": 4.36,
+              "end": 4.62,
+              "probability": 0.1475830078125
+            },
+            {
+              "text": " way",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.48583984375
+            },
+            {
+              "text": " thou",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.984375
+            },
+            {
+              "text": " travellest.",
+              "start": 5.1,
+              "end": 5.82,
+              "probability": 0.6471033096313477
+            },
+            {
+              "text": " If",
+              "start": 6.34,
+              "end": 6.44,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " along",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.96484375
+            }
+          ]
+        },
+        {
+          "text": " with us, We shall be joyful of thy company.",
+          "start": 6.7,
+          "end": 8.88,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.7,
+              "end": 6.9,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " us,",
+              "start": 6.9,
+              "end": 7.16,
+              "probability": 0.990234375
+            },
+            {
+              "text": " We",
+              "start": 7.4,
+              "end": 7.48,
+              "probability": 0.318603515625
+            },
+            {
+              "text": " shall",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " joyful",
+              "start": 7.8,
+              "end": 8.1,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " of",
+              "start": 8.1,
+              "end": 8.34,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " thy",
+              "start": 8.34,
+              "end": 8.48,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " company.",
+              "start": 8.48,
+              "end": 8.88,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Petrushio,",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "raw": "Do,",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "good",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "old",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "grandsire,",
+          "start": 2.62,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.56
+        },
+        {
+          "raw": "withal",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "raw": "make",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "known",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "Which",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "raw": "way",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "thou",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "travellest.",
+          "start": 5.1,
+          "end": 5.82
+        },
+        {
+          "raw": "If",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "raw": "along",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "with",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "raw": "us,",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "raw": "We",
+          "start": 7.4,
+          "end": 7.48
+        },
+        {
+          "raw": "shall",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "be",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "joyful",
+          "start": 7.8,
+          "end": 8.1
+        },
+        {
+          "raw": "of",
+          "start": 8.1,
+          "end": 8.34
+        },
+        {
+          "raw": "thy",
+          "start": 8.34,
+          "end": 8.48
+        },
+        {
+          "raw": "company.",
+          "start": 8.48,
+          "end": 8.88
+        }
+      ],
+      "expected_tokens": [
+        "PETRUCHIO.",
+        "Do,",
+        "good",
+        "old",
+        "grandsire,",
+        "and",
+        "withal",
+        "make",
+        "known",
+        "Which",
+        "way",
+        "thou",
+        "travellest:",
+        "if",
+        "along",
+        "with",
+        "us,",
+        "We",
+        "shall",
+        "be",
+        "joyful",
+        "of",
+        "thy",
+        "company."
+      ],
+      "acoustic_expected_tokens": [
+        "Do,",
+        "good",
+        "old",
+        "grandsire,",
+        "and",
+        "withal",
+        "make",
+        "known",
+        "Which",
+        "way",
+        "thou",
+        "travellest:",
+        "if",
+        "along",
+        "with",
+        "us,",
+        "We",
+        "shall",
+        "be",
+        "joyful",
+        "of",
+        "thy",
+        "company."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          23,
+          1,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Petrushio,",
+          "start": 0.54,
+          "end": 1.04,
+          "key": "petrushio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Do,",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grandsire,",
+          "start": 2.62,
+          "end": 3.34,
+          "key": "grandsire",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "withal",
+          "start": 3.56,
+          "end": 3.88,
+          "key": "withal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "make",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 4.1,
+          "end": 4.36,
+          "key": "known",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 4.36,
+          "end": 4.62,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "way",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "travellest.",
+          "start": 5.1,
+          "end": 5.82,
+          "key": "travellest",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 6.34,
+          "end": 6.44,
+          "key": "if",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "along",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.7,
+          "end": 6.9,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 6.9,
+          "end": 7.16,
+          "key": "us",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 7.4,
+          "end": 7.48,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.48,
+          "end": 7.64,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.64,
+          "end": 7.8,
+          "key": "be",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "joyful",
+          "start": 7.8,
+          "end": 8.1,
+          "key": "joyful",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.1,
+          "end": 8.34,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 8.34,
+          "end": 8.48,
+          "key": "thy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "company.",
+          "start": 8.48,
+          "end": 8.88,
+          "key": "company",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PETRUCHIO.",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "Do,",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "good",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "old",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "grandsire,",
+          "start": 2.62,
+          "end": 3.34
+        },
+        {
+          "text": "and",
+          "start": 3.52,
+          "end": 3.56
+        },
+        {
+          "text": "withal",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "text": "make",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "known",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "Which",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "text": "way",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "text": "thou",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "travellest:",
+          "start": 5.1,
+          "end": 5.82
+        },
+        {
+          "text": "if",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "text": "along",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "with",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "text": "us,",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "text": "We",
+          "start": 7.4,
+          "end": 7.48
+        },
+        {
+          "text": "shall",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "be",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "text": "joyful",
+          "start": 7.8,
+          "end": 8.1
+        },
+        {
+          "text": "of",
+          "start": 8.1,
+          "end": 8.34
+        },
+        {
+          "text": "thy",
+          "start": 8.34,
+          "end": 8.48
+        },
+        {
+          "text": "company.",
+          "start": 8.48,
+          "end": 8.88
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36518595833331347
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5fbcfa28deb07e1c259c2430a5ae0ba7f922f520409a74d6798383f040baf7f",
+  "selected_reasons": []
+}

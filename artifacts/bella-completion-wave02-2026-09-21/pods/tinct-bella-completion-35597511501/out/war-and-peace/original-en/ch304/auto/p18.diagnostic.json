@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "580b6f8cf1afd9d46ad19ea01bdde894c9052e7c7f1dfbb242e7a32dc6b4aaf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2188427336513996,
+      "alignment_seconds": 0.00133476871997118,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You are a bwute!\" said Denísov. \"I wanted to question...\"",
+        "hotwords": "You, Denísov, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are a bwute!\" said Denísov.",
+          "start": 0.0,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.11883544921875
+            },
+            {
+              "text": " are",
+              "start": 0.36,
+              "end": 0.52,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " a",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " bwute",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.0026652018229166665
+            },
+            {
+              "text": "!\"",
+              "start": 1.02,
+              "end": 1.32,
+              "probability": 0.02069091796875
+            },
+            {
+              "text": " said",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Denísov.",
+              "start": 1.44,
+              "end": 1.96,
+              "probability": 0.02570819854736328
+            }
+          ]
+        },
+        {
+          "text": " I wanted to question...",
+          "start": 2.94,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.94,
+              "end": 3.22,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " wanted",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.42,
+              "end": 3.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " question...",
+              "start": 3.66,
+              "end": 4.0,
+              "probability": 0.51080322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "are",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "raw": "a",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "bwute",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "raw": "!\"",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "Denísov.",
+          "start": 1.44,
+          "end": 1.96
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "raw": "wanted",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "to",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "raw": "question...",
+          "start": 3.66,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "are",
+        "a",
+        "bwute!”",
+        "said",
+        "Denísov.",
+        "“I",
+        "wanted",
+        "to",
+        "question...”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "are",
+        "a",
+        "bwute!\"",
+        "said",
+        "Denísov.",
+        "\"I",
+        "wanted",
+        "to",
+        "question...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.36,
+          "end": 0.52,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bwute",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "bwute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.02,
+          "end": 1.32,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Denísov.",
+          "start": 1.44,
+          "end": 1.96,
+          "key": "denísov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.22,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wanted",
+          "start": 3.22,
+          "end": 3.42,
+          "key": "wanted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.42,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "question...",
+          "start": 3.66,
+          "end": 4.0,
+          "key": "question",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "are",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "text": "a",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "bwute!”",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "text": "said",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "Denísov.",
+          "start": 1.44,
+          "end": 1.96
+        },
+        {
+          "text": "“I",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "text": "wanted",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "to",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "text": "question...”",
+          "start": 3.66,
+          "end": 4.0
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2203616900369525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d25389932c7292a53a14b49adc5037f984edfea695d4cbf30a3aa61b7933ee56",
+  "selected_reasons": []
+}

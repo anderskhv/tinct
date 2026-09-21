@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "78f35d15e43c318f9d6185f62bd320dea29d8ece8018beaf3ac2e0afd271bd68",
+  "attempts": [
+    {
+      "asr_seconds": 0.12058153003454208,
+      "alignment_seconds": 0.0006636874750256538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The rice too?\"",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The rice too!",
+          "start": 0.0,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " rice",
+              "start": 0.32,
+              "end": 0.54,
+              "probability": 0.123291015625
+            },
+            {
+              "text": " too!",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.66064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "rice",
+          "start": 0.32,
+          "end": 0.54
+        },
+        {
+          "raw": "too!",
+          "start": 0.54,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "rice",
+        "too?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "rice",
+        "too?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rice",
+          "start": 0.32,
+          "end": 0.54,
+          "key": "rice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "too!",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "too",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "rice",
+          "start": 0.32,
+          "end": 0.54
+        },
+        {
+          "text": "too?”",
+          "start": 0.54,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12133994419127703
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bcdeebbf7e85358959e6e2ad4452c97e7dfe677523c0169d83902e13368fd6bb",
+  "selected_reasons": []
+}

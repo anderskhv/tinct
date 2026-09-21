@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "72dc8eabe351c487273574d3265b28724600b15d9c39dbd0c38b09d9d1340a22",
+  "attempts": [
+    {
+      "asr_seconds": 0.21894928347319365,
+      "alignment_seconds": 0.0009635500609874725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This wounded man was Prince Andrew Bolkónski.",
+        "hotwords": "This, Prince, Andrew, Bolkónski"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This wounded man was Prince Andrew Bolkónski.",
+          "start": 0.0,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.857421875
+            },
+            {
+              "text": " wounded",
+              "start": 0.4,
+              "end": 0.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Prince",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Andrew",
+              "start": 1.56,
+              "end": 2.0,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Bolkónski.",
+              "start": 2.0,
+              "end": 2.64,
+              "probability": 0.3415348529815674
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "wounded",
+          "start": 0.4,
+          "end": 0.72
+        },
+        {
+          "raw": "man",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "raw": "was",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "Prince",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.56,
+          "end": 2.0
+        },
+        {
+          "raw": "Bolkónski.",
+          "start": 2.0,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "wounded",
+        "man",
+        "was",
+        "Prince",
+        "Andrew",
+        "Bolkónski."
+      ],
+      "acoustic_expected_tokens": [
+        "This",
+        "wounded",
+        "man",
+        "was",
+        "Prince",
+        "Andrew",
+        "Bolkónski."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 0.4,
+          "end": 0.72,
+          "key": "wounded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "prince",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.56,
+          "end": 2.0,
+          "key": "andrew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bolkónski.",
+          "start": 2.0,
+          "end": 2.64,
+          "key": "bolkónski",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "wounded",
+          "start": 0.4,
+          "end": 0.72
+        },
+        {
+          "text": "man",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "text": "was",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "Prince",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "Andrew",
+          "start": 1.56,
+          "end": 2.0
+        },
+        {
+          "text": "Bolkónski.",
+          "start": 2.0,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2200470408424735
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "69cf1b433ecf7a9480b4669b01ec618b322b2c14da96af69c2344f2f20ed8ae3",
+  "selected_reasons": []
+}

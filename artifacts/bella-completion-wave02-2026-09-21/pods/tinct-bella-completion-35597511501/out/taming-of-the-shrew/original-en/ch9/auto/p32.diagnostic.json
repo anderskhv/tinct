@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "signature": "cbf23589aa2a6349ae68acdaa944845ab7128fecf7040922e4d750d1cb954cfd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13956708181649446,
+      "alignment_seconds": 0.0008387435227632523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And what of him?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucentio, and what of him?",
+          "start": 0.74,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Lucentio,",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.7360026041666666
+            },
+            {
+              "text": " and",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.990234375
+            },
+            {
+              "text": " what",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him?",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "what",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "him?",
+          "start": 1.72,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "And",
+        "what",
+        "of",
+        "him?"
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "what",
+        "of",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.74,
+          "end": 1.06,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.38,
+          "end": 1.38
+        },
+        {
+          "text": "And",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "what",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "of",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "him?",
+          "start": 1.72,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14053401164710522
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "faeea10b7d0326533a63b313343f3c91ac0db0609f9a2511f85d22c457586248",
+  "selected_reasons": []
+}

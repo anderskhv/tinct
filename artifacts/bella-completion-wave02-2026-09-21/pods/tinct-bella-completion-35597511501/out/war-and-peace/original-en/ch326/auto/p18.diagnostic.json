@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "5810782ce0e7175169775f5e06bfe0daf805aab97a9d4be9a0467697b94ad92d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23131769709289074,
+      "alignment_seconds": 0.0011567892506718636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Morel, wrinkling up his face, laughed too.",
+        "hotwords": "Morel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Morel, wrinkling up his face, laughed too.",
+          "start": 0.0,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Morel,",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " wrinkling",
+              "start": 0.98,
+              "end": 1.32,
+              "probability": 0.96484375
+            },
+            {
+              "text": " up",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " face,",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " laughed",
+              "start": 2.58,
+              "end": 2.6,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " too.",
+              "start": 2.6,
+              "end": 3.02,
+              "probability": 0.9541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Morel,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "wrinkling",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "raw": "up",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "his",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "face,",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "laughed",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "raw": "too.",
+          "start": 2.6,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Morel,",
+        "wrinkling",
+        "up",
+        "his",
+        "face,",
+        "laughed",
+        "too."
+      ],
+      "acoustic_expected_tokens": [
+        "Morel,",
+        "wrinkling",
+        "up",
+        "his",
+        "face,",
+        "laughed",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Morel,",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "morel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wrinkling",
+          "start": 0.98,
+          "end": 1.32,
+          "key": "wrinkling",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "face",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 2.58,
+          "end": 2.6,
+          "key": "laughed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.6,
+          "end": 3.02,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Morel,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "wrinkling",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "text": "up",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "his",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "face,",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "laughed",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "text": "too.",
+          "start": 2.6,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23262869566679
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8bfb908cb2d494b029b680e7fef1c8cbc6ffeeffaa698843e4e3a1bf515d2b2b",
+  "selected_reasons": []
+}

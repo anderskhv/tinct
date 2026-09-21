@@ -1,0 +1,536 @@
+{
+  "complete": true,
+  "signature": "fe02d675dc4231f73c07803e1c8d8c63980aa87c81c667d196383701b3099454",
+  "attempts": [
+    {
+      "asr_seconds": 0.23495387565344572,
+      "alignment_seconds": 0.0016770269721746445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To Lucentio You may go walk and give me leave a while;",
+        "hotwords": "To, Lucentio, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To, Lucentio, You To Lucentio, You May Go Walk and Give Me Leave a While.",
+          "start": 0.02,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " To,",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.304931640625
+            },
+            {
+              "text": " Lucentio,",
+              "start": 0.58,
+              "end": 1.12,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " You",
+              "start": 1.16,
+              "end": 1.16,
+              "probability": 0.00841522216796875
+            },
+            {
+              "text": " To",
+              "start": 1.16,
+              "end": 1.16,
+              "probability": 3.7550926208496094e-06
+            },
+            {
+              "text": " Lucentio,",
+              "start": 1.16,
+              "end": 1.16,
+              "probability": 0.6637732187906901
+            },
+            {
+              "text": " You",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " May",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " Go",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Walk",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " and",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " Give",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Me",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Leave",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " While.",
+              "start": 2.96,
+              "end": 3.22,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To,",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 0.58,
+          "end": 1.12
+        },
+        {
+          "raw": "You",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "raw": "To",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "raw": "You",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "May",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "Go",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "Walk",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "Give",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "Me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "Leave",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "While.",
+          "start": 2.96,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Lucentio_]",
+        "You",
+        "may",
+        "go",
+        "walk",
+        "and",
+        "give",
+        "me",
+        "leave",
+        "a",
+        "while;"
+      ],
+      "acoustic_expected_tokens": [
+        "To",
+        "Lucentio",
+        "You",
+        "may",
+        "go",
+        "walk",
+        "and",
+        "give",
+        "me",
+        "leave",
+        "a",
+        "while;"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          12,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To,",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 0.58,
+          "end": 1.12,
+          "key": "lucentio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.16,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.16,
+          "end": 1.16,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.16,
+          "end": 1.16,
+          "key": "lucentio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "may",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Walk",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "walk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "give",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Me",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Leave",
+          "start": 2.68,
+          "end": 2.84,
+          "key": "leave",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "While.",
+          "start": 2.96,
+          "end": 3.22,
+          "key": "while",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "text": "Lucentio_]",
+          "start": 1.16,
+          "end": 1.16
+        },
+        {
+          "text": "You",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "may",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "go",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "walk",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "and",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "give",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "leave",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "while;",
+          "start": 2.96,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2368970699608326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c8ddbf71408d6624ab5215c0858573a799abe7f9222c6a1277ec565e0622124",
+  "selected_reasons": []
+}

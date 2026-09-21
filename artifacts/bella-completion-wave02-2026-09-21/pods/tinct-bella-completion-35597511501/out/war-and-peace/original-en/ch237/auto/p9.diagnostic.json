@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "217ac7df70f05f598a9f631258d14eb26d4b336c0602e6ccd23ca5aeda2c6c80",
+  "attempts": [
+    {
+      "asr_seconds": 0.09624740481376648,
+      "alignment_seconds": 0.0005044844001531601,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Another shook his head.",
+        "hotwords": "Another"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Another shook his head.",
+          "start": 0.0,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Another",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.493896484375
+            },
+            {
+              "text": " shook",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " head.",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "shook",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "head.",
+          "start": 0.94,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Another",
+        "shook",
+        "his",
+        "head."
+      ],
+      "acoustic_expected_tokens": [
+        "Another",
+        "shook",
+        "his",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "shook",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "head",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Another",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "shook",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "his",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "head.",
+          "start": 0.94,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09684510063380003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4114a8709f1e00b051c9d9d5a09432c701faa65a4e44081d85a88e31cdf0f161",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "e045394c18fef8c8dbd9578974a725bfb3d513d8de5c1306e13a95cdf3b7c424",
+  "attempts": [
+    {
+      "asr_seconds": 0.16249900124967098,
+      "alignment_seconds": 0.0008125230669975281,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, wait a minute, please.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, wait a minute, please.",
+          "start": 0.0,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " wait",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " minute,",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " please.",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "wait",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "minute,",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "please.",
+          "start": 1.82,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "“No,",
+        "wait",
+        "a",
+        "minute,",
+        "please.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No,",
+        "wait",
+        "a",
+        "minute,",
+        "please.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "minute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "please.",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "please",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“No,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "wait",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "a",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "minute,",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "please.”",
+          "start": 1.82,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16342289838939905
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3bc28bffa84adbc61dcab1a18fa38a029751ea5d37b303d27e8d0c81916470c",
+  "selected_reasons": []
+}

@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "273e376862c426594a467863bb04f19c433a165c725088a5525a0ab33eea00f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.29485050588846207,
+      "alignment_seconds": 0.0014006784185767174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, Rapp, do you think we shall do good business today?\" Napoleon asked him.",
+        "hotwords": "Well, Rapp, Napoleon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, Rapp, do you think we shall do good business today? Napoleon asked him.",
+          "start": 0.0,
+          "end": 5.34,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.1864013671875
+            },
+            {
+              "text": " Rapp,",
+              "start": 0.86,
+              "end": 0.88,
+              "probability": 0.1051025390625
+            },
+            {
+              "text": " do",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " think",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shall",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.98046875
+            },
+            {
+              "text": " do",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " business",
+              "start": 2.28,
+              "end": 2.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " today?",
+              "start": 2.62,
+              "end": 3.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Napoleon",
+              "start": 4.66,
+              "end": 4.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " asked",
+              "start": 4.66,
+              "end": 5.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him.",
+              "start": 5.06,
+              "end": 5.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "Rapp,",
+          "start": 0.86,
+          "end": 0.88
+        },
+        {
+          "raw": "do",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "think",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "we",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "shall",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "do",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "good",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "business",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "raw": "today?",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "raw": "Napoleon",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "raw": "asked",
+          "start": 4.66,
+          "end": 5.06
+        },
+        {
+          "raw": "him.",
+          "start": 5.06,
+          "end": 5.34
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "Rapp,",
+        "do",
+        "you",
+        "think",
+        "we",
+        "shall",
+        "do",
+        "good",
+        "business",
+        "today?”",
+        "Napoleon",
+        "asked",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "Rapp,",
+        "do",
+        "you",
+        "think",
+        "we",
+        "shall",
+        "do",
+        "good",
+        "business",
+        "today?\"",
+        "Napoleon",
+        "asked",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rapp,",
+          "start": 0.86,
+          "end": 0.88,
+          "key": "rapp",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 2.28,
+          "end": 2.62,
+          "key": "business",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "today?",
+          "start": 2.62,
+          "end": 3.06,
+          "key": "today",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 4.66,
+          "end": 4.66,
+          "key": "napoleon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 4.66,
+          "end": 5.06,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.06,
+          "end": 5.34,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "Rapp,",
+          "start": 0.86,
+          "end": 0.88
+        },
+        {
+          "text": "do",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "think",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "we",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "shall",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "do",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "good",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "business",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "text": "today?”",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "text": "Napoleon",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "text": "asked",
+          "start": 4.66,
+          "end": 5.06
+        },
+        {
+          "text": "him.",
+          "start": 5.06,
+          "end": 5.34
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29643481131643057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1778ea94666c7c759b35f2c3d5e58cabf6ee0bd6914c79f89431c907060004b",
+  "selected_reasons": []
+}

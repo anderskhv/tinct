@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "2ed16aa9dffe3646426bcd00d69647b3cf080b10440387054b2fe7fcadb2790c",
+  "attempts": [
+    {
+      "asr_seconds": 0.20216529443860054,
+      "alignment_seconds": 0.0012211054563522339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come now, just this one more little card!\"",
+        "hotwords": "Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come now, just this one more little card!",
+          "start": 0.0,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " now,",
+              "start": 0.38,
+              "end": 0.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " just",
+              "start": 1.02,
+              "end": 1.1,
+              "probability": 0.990234375
+            },
+            {
+              "text": " this",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " more",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " card!",
+              "start": 2.08,
+              "end": 2.54,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "now,",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "raw": "just",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "raw": "this",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "one",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "more",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "little",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "card!",
+          "start": 2.08,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "“Come",
+        "now,",
+        "just",
+        "this",
+        "one",
+        "more",
+        "little",
+        "card!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Come",
+        "now,",
+        "just",
+        "this",
+        "one",
+        "more",
+        "little",
+        "card!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.38,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 1.02,
+          "end": 1.1,
+          "key": "just",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "card!",
+          "start": 2.08,
+          "end": 2.54,
+          "key": "card",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Come",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "now,",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "text": "just",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "this",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "one",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "more",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "little",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "card!”",
+          "start": 2.08,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2035556212067604
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3baa980906622f80ec5a47762620aeb544d9c982ebc26f15beb2df65152addf3",
+  "selected_reasons": []
+}

@@ -1,0 +1,1088 @@
+{
+  "complete": true,
+  "signature": "bc23c4373e52307cd70ff93b73f6e51c65391edd6963cdc11fd6e2034c74ea0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3581378823146224,
+      "alignment_seconds": 0.002308974042534828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You see! They are asking to attack and making plans of all kinds, but as soon as one gets to business nothing is ready, and the enemy, forewarned, takes measures accordingly.\"",
+        "hotwords": "You, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You see! They are asking to attack and making plans of all kinds, but as soon as one gets to business nothing is ready, and the enemy, forewarned, takes measures accordingly.",
+          "start": 0.0,
+          "end": 10.24,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " see!",
+              "start": 0.38,
+              "end": 0.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " They",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.90234375
+            },
+            {
+              "text": " are",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " asking",
+              "start": 2.08,
+              "end": 2.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attack",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.06,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " making",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " plans",
+              "start": 3.3,
+              "end": 3.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.66,
+              "end": 3.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kinds,",
+              "start": 4.02,
+              "end": 4.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " but",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.982421875
+            },
+            {
+              "text": " as",
+              "start": 4.86,
+              "end": 5.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " soon",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 5.2,
+              "end": 5.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " one",
+              "start": 5.38,
+              "end": 5.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gets",
+              "start": 5.58,
+              "end": 5.8,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " to",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " business",
+              "start": 6.04,
+              "end": 6.34,
+              "probability": 0.98046875
+            },
+            {
+              "text": " nothing",
+              "start": 6.34,
+              "end": 6.66,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " is",
+              "start": 6.66,
+              "end": 6.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ready,",
+              "start": 6.96,
+              "end": 7.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 7.58,
+              "end": 7.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 7.7,
+              "end": 7.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enemy,",
+              "start": 7.82,
+              "end": 8.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " forewarned,",
+              "start": 8.48,
+              "end": 9.0,
+              "probability": 0.9397786458333334
+            },
+            {
+              "text": " takes",
+              "start": 9.2,
+              "end": 9.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " measures",
+              "start": 9.34,
+              "end": 9.72,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " accordingly.",
+              "start": 9.72,
+              "end": 10.24,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "see!",
+          "start": 0.38,
+          "end": 0.68
+        },
+        {
+          "raw": "They",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "are",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "asking",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "raw": "to",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "attack",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.06
+        },
+        {
+          "raw": "making",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "plans",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "raw": "all",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "kinds,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "raw": "but",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "as",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "raw": "soon",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "as",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "raw": "one",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "raw": "gets",
+          "start": 5.58,
+          "end": 5.8
+        },
+        {
+          "raw": "to",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "raw": "business",
+          "start": 6.04,
+          "end": 6.34
+        },
+        {
+          "raw": "nothing",
+          "start": 6.34,
+          "end": 6.66
+        },
+        {
+          "raw": "is",
+          "start": 6.66,
+          "end": 6.96
+        },
+        {
+          "raw": "ready,",
+          "start": 6.96,
+          "end": 7.2
+        },
+        {
+          "raw": "and",
+          "start": 7.58,
+          "end": 7.7
+        },
+        {
+          "raw": "the",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "raw": "enemy,",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "raw": "forewarned,",
+          "start": 8.48,
+          "end": 9.0
+        },
+        {
+          "raw": "takes",
+          "start": 9.2,
+          "end": 9.34
+        },
+        {
+          "raw": "measures",
+          "start": 9.34,
+          "end": 9.72
+        },
+        {
+          "raw": "accordingly.",
+          "start": 9.72,
+          "end": 10.24
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "see!",
+        "They",
+        "are",
+        "asking",
+        "to",
+        "attack",
+        "and",
+        "making",
+        "plans",
+        "of",
+        "all",
+        "kinds,",
+        "but",
+        "as",
+        "soon",
+        "as",
+        "one",
+        "gets",
+        "to",
+        "business",
+        "nothing",
+        "is",
+        "ready,",
+        "and",
+        "the",
+        "enemy,",
+        "forewarned,",
+        "takes",
+        "measures",
+        "accordingly.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "see!",
+        "They",
+        "are",
+        "asking",
+        "to",
+        "attack",
+        "and",
+        "making",
+        "plans",
+        "of",
+        "all",
+        "kinds,",
+        "but",
+        "as",
+        "soon",
+        "as",
+        "one",
+        "gets",
+        "to",
+        "business",
+        "nothing",
+        "is",
+        "ready,",
+        "and",
+        "the",
+        "enemy,",
+        "forewarned,",
+        "takes",
+        "measures",
+        "accordingly.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see!",
+          "start": 0.38,
+          "end": 0.68,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 2.08,
+          "end": 2.4,
+          "key": "asking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "attack",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "attack",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.06,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "making",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "plans",
+          "start": 3.3,
+          "end": 3.66,
+          "key": "plans",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.84,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "kinds,",
+          "start": 4.02,
+          "end": 4.36,
+          "key": "kinds",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.86,
+          "end": 5.02,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "soon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.2,
+          "end": 5.38,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.38,
+          "end": 5.58,
+          "key": "one",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gets",
+          "start": 5.58,
+          "end": 5.8,
+          "key": "gets",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.8,
+          "end": 6.04,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 6.04,
+          "end": 6.34,
+          "key": "business",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 6.34,
+          "end": 6.66,
+          "key": "nothing",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.66,
+          "end": 6.96,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "ready,",
+          "start": 6.96,
+          "end": 7.2,
+          "key": "ready",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.58,
+          "end": 7.7,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.7,
+          "end": 7.82,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "enemy,",
+          "start": 7.82,
+          "end": 8.06,
+          "key": "enemy",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "forewarned,",
+          "start": 8.48,
+          "end": 9.0,
+          "key": "forewarned",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 9.2,
+          "end": 9.34,
+          "key": "takes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "measures",
+          "start": 9.34,
+          "end": 9.72,
+          "key": "measures",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "accordingly.",
+          "start": 9.72,
+          "end": 10.24,
+          "key": "accordingly",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "see!",
+          "start": 0.38,
+          "end": 0.68
+        },
+        {
+          "text": "They",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "are",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "asking",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "text": "to",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "attack",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.06
+        },
+        {
+          "text": "making",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "plans",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "text": "of",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "text": "all",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "kinds,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "text": "but",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "as",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "text": "soon",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "as",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "text": "one",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "text": "gets",
+          "start": 5.58,
+          "end": 5.8
+        },
+        {
+          "text": "to",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "text": "business",
+          "start": 6.04,
+          "end": 6.34
+        },
+        {
+          "text": "nothing",
+          "start": 6.34,
+          "end": 6.66
+        },
+        {
+          "text": "is",
+          "start": 6.66,
+          "end": 6.96
+        },
+        {
+          "text": "ready,",
+          "start": 6.96,
+          "end": 7.2
+        },
+        {
+          "text": "and",
+          "start": 7.58,
+          "end": 7.7
+        },
+        {
+          "text": "the",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "text": "enemy,",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "forewarned,",
+          "start": 8.48,
+          "end": 9.0
+        },
+        {
+          "text": "takes",
+          "start": 9.2,
+          "end": 9.34
+        },
+        {
+          "text": "measures",
+          "start": 9.34,
+          "end": 9.72
+        },
+        {
+          "text": "accordingly.”",
+          "start": 9.72,
+          "end": 10.24
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3607081240043044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b4ec201e6e6a3c183e13b5572cfbbb93cf91e45d058f11d3b40e1473617cd3e",
+  "selected_reasons": []
+}

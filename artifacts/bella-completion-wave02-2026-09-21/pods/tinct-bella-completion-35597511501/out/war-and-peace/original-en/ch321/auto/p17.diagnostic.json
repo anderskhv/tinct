@@ -1,0 +1,1814 @@
+{
+  "complete": true,
+  "signature": "dd9714a12a2cac323c163c98c12ea1b56fe7487bd52d5c4e0c2ee166897a729e",
+  "attempts": [
+    {
+      "asr_seconds": 0.5746135041117668,
+      "alignment_seconds": 0.003678740933537483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not only did his contemporaries, carried away by their passions, talk in this way, but posterity and history have acclaimed Napoleon as grand, while Kutúzov is described by foreigners as a crafty, dissolute, weak old courtier, and by Russians as something indefinite—a sort of puppet useful only because he had a Russian name.",
+        "hotwords": "Not, Napoleon, Kutúzov, Russians, Russian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not only did his contemporaries, carried away by their passions, talk in this way, but posterity and history have acclaimed Napoleon as grand, while Kutúzov is described by foreigners as a crafty, dissolute, weak old courtier, and by Russians as something indefinite—a sort of puppet useful only because he had a Russian name.",
+          "start": 0.0,
+          "end": 18.16,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.75
+            },
+            {
+              "text": " only",
+              "start": 0.4,
+              "end": 0.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " did",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " contemporaries,",
+              "start": 1.08,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " carried",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " away",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " passions,",
+              "start": 3.08,
+              "end": 3.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " talk",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " in",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way,",
+              "start": 4.4,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " posterity",
+              "start": 5.12,
+              "end": 5.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 5.76,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " history",
+              "start": 5.98,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 6.3,
+              "end": 6.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " acclaimed",
+              "start": 6.56,
+              "end": 6.9,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Napoleon",
+              "start": 6.9,
+              "end": 7.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " as",
+              "start": 7.4,
+              "end": 7.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grand,",
+              "start": 7.62,
+              "end": 7.94,
+              "probability": 0.890625
+            },
+            {
+              "text": " while",
+              "start": 8.22,
+              "end": 8.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Kutúzov",
+              "start": 8.44,
+              "end": 9.0,
+              "probability": 0.36788199841976166
+            },
+            {
+              "text": " is",
+              "start": 9.0,
+              "end": 9.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " described",
+              "start": 9.18,
+              "end": 9.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 9.6,
+              "end": 9.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foreigners",
+              "start": 9.92,
+              "end": 10.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 10.24,
+              "end": 10.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 10.54,
+              "end": 10.68,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " crafty,",
+              "start": 10.68,
+              "end": 11.1,
+              "probability": 0.905517578125
+            },
+            {
+              "text": " dissolute,",
+              "start": 11.3,
+              "end": 11.66,
+              "probability": 0.926513671875
+            },
+            {
+              "text": " weak",
+              "start": 12.08,
+              "end": 12.2,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " old",
+              "start": 12.2,
+              "end": 12.46,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " courtier,",
+              "start": 12.46,
+              "end": 13.0,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " and",
+              "start": 13.3,
+              "end": 13.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 13.4,
+              "end": 13.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Russians",
+              "start": 13.62,
+              "end": 13.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 13.9,
+              "end": 14.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " something",
+              "start": 14.18,
+              "end": 14.54,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " indefinite—a",
+              "start": 14.54,
+              "end": 15.48,
+              "probability": 0.63885498046875
+            },
+            {
+              "text": " sort",
+              "start": 15.48,
+              "end": 15.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.66,
+              "end": 15.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " puppet",
+              "start": 15.84,
+              "end": 16.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " useful",
+              "start": 16.06,
+              "end": 16.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " only",
+              "start": 16.44,
+              "end": 16.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " because",
+              "start": 16.76,
+              "end": 17.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 17.08,
+              "end": 17.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 17.24,
+              "end": 17.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 17.4,
+              "end": 17.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Russian",
+              "start": 17.54,
+              "end": 17.82,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " name.",
+              "start": 17.82,
+              "end": 18.16,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "only",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "raw": "did",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "his",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "contemporaries,",
+          "start": 1.08,
+          "end": 1.68
+        },
+        {
+          "raw": "carried",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "away",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "raw": "by",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "their",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "passions,",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "raw": "talk",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "in",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "way,",
+          "start": 4.4,
+          "end": 4.72
+        },
+        {
+          "raw": "but",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "posterity",
+          "start": 5.12,
+          "end": 5.76
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "raw": "history",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "raw": "have",
+          "start": 6.3,
+          "end": 6.56
+        },
+        {
+          "raw": "acclaimed",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "raw": "Napoleon",
+          "start": 6.9,
+          "end": 7.4
+        },
+        {
+          "raw": "as",
+          "start": 7.4,
+          "end": 7.62
+        },
+        {
+          "raw": "grand,",
+          "start": 7.62,
+          "end": 7.94
+        },
+        {
+          "raw": "while",
+          "start": 8.22,
+          "end": 8.44
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 8.44,
+          "end": 9.0
+        },
+        {
+          "raw": "is",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "raw": "described",
+          "start": 9.18,
+          "end": 9.6
+        },
+        {
+          "raw": "by",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "raw": "foreigners",
+          "start": 9.92,
+          "end": 10.24
+        },
+        {
+          "raw": "as",
+          "start": 10.24,
+          "end": 10.54
+        },
+        {
+          "raw": "a",
+          "start": 10.54,
+          "end": 10.68
+        },
+        {
+          "raw": "crafty,",
+          "start": 10.68,
+          "end": 11.1
+        },
+        {
+          "raw": "dissolute,",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "raw": "weak",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "raw": "old",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "raw": "courtier,",
+          "start": 12.46,
+          "end": 13.0
+        },
+        {
+          "raw": "and",
+          "start": 13.3,
+          "end": 13.4
+        },
+        {
+          "raw": "by",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "raw": "Russians",
+          "start": 13.62,
+          "end": 13.9
+        },
+        {
+          "raw": "as",
+          "start": 13.9,
+          "end": 14.18
+        },
+        {
+          "raw": "something",
+          "start": 14.18,
+          "end": 14.54
+        },
+        {
+          "raw": "indefinite—a",
+          "start": 14.54,
+          "end": 15.48
+        },
+        {
+          "raw": "sort",
+          "start": 15.48,
+          "end": 15.66
+        },
+        {
+          "raw": "of",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "raw": "puppet",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "raw": "useful",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "raw": "only",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "raw": "because",
+          "start": 16.76,
+          "end": 17.08
+        },
+        {
+          "raw": "he",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "raw": "had",
+          "start": 17.24,
+          "end": 17.4
+        },
+        {
+          "raw": "a",
+          "start": 17.4,
+          "end": 17.54
+        },
+        {
+          "raw": "Russian",
+          "start": 17.54,
+          "end": 17.82
+        },
+        {
+          "raw": "name.",
+          "start": 17.82,
+          "end": 18.16
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "only",
+        "did",
+        "his",
+        "contemporaries,",
+        "carried",
+        "away",
+        "by",
+        "their",
+        "passions,",
+        "talk",
+        "in",
+        "this",
+        "way,",
+        "but",
+        "posterity",
+        "and",
+        "history",
+        "have",
+        "acclaimed",
+        "Napoleon",
+        "as",
+        "grand,",
+        "while",
+        "Kutúzov",
+        "is",
+        "described",
+        "by",
+        "foreigners",
+        "as",
+        "a",
+        "crafty,",
+        "dissolute,",
+        "weak",
+        "old",
+        "courtier,",
+        "and",
+        "by",
+        "Russians",
+        "as",
+        "something",
+        "indefinite—a",
+        "sort",
+        "of",
+        "puppet",
+        "useful",
+        "only",
+        "because",
+        "he",
+        "had",
+        "a",
+        "Russian",
+        "name."
+      ],
+      "acoustic_expected_tokens": [
+        "Not",
+        "only",
+        "did",
+        "his",
+        "contemporaries,",
+        "carried",
+        "away",
+        "by",
+        "their",
+        "passions,",
+        "talk",
+        "in",
+        "this",
+        "way,",
+        "but",
+        "posterity",
+        "and",
+        "history",
+        "have",
+        "acclaimed",
+        "Napoleon",
+        "as",
+        "grand,",
+        "while",
+        "Kutúzov",
+        "is",
+        "described",
+        "by",
+        "foreigners",
+        "as",
+        "a",
+        "crafty,",
+        "dissolute,",
+        "weak",
+        "old",
+        "courtier,",
+        "and",
+        "by",
+        "Russians",
+        "as",
+        "something",
+        "indefinite—a",
+        "sort",
+        "of",
+        "puppet",
+        "useful",
+        "only",
+        "because",
+        "he",
+        "had",
+        "a",
+        "Russian",
+        "name."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          53,
+          0,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 0.4,
+          "end": 0.66,
+          "key": "only",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "contemporaries,",
+          "start": 1.08,
+          "end": 1.68,
+          "key": "contemporaries",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "carried",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "carried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.36,
+          "end": 2.66,
+          "key": "away",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "passions,",
+          "start": 3.08,
+          "end": 3.44,
+          "key": "passions",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "talk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 4.4,
+          "end": 4.72,
+          "key": "way",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.98,
+          "end": 5.12,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "posterity",
+          "start": 5.12,
+          "end": 5.76,
+          "key": "posterity",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 5.98,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "history",
+          "start": 5.98,
+          "end": 6.3,
+          "key": "history",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.3,
+          "end": 6.56,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "acclaimed",
+          "start": 6.56,
+          "end": 6.9,
+          "key": "acclaimed",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 6.9,
+          "end": 7.4,
+          "key": "napoleon",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.4,
+          "end": 7.62,
+          "key": "as",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "grand,",
+          "start": 7.62,
+          "end": 7.94,
+          "key": "grand",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 8.22,
+          "end": 8.44,
+          "key": "while",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 8.44,
+          "end": 9.0,
+          "key": "kutúzov",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.0,
+          "end": 9.18,
+          "key": "is",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "described",
+          "start": 9.18,
+          "end": 9.6,
+          "key": "described",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.6,
+          "end": 9.92,
+          "key": "by",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "foreigners",
+          "start": 9.92,
+          "end": 10.24,
+          "key": "foreigners",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.24,
+          "end": 10.54,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.54,
+          "end": 10.68,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "crafty,",
+          "start": 10.68,
+          "end": 11.1,
+          "key": "crafty",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "dissolute,",
+          "start": 11.3,
+          "end": 11.66,
+          "key": "dissolute",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "weak",
+          "start": 12.08,
+          "end": 12.2,
+          "key": "weak",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 12.2,
+          "end": 12.46,
+          "key": "old",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "courtier,",
+          "start": 12.46,
+          "end": 13.0,
+          "key": "courtier",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.3,
+          "end": 13.4,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 13.4,
+          "end": 13.62,
+          "key": "by",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Russians",
+          "start": 13.62,
+          "end": 13.9,
+          "key": "russians",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 13.9,
+          "end": 14.18,
+          "key": "as",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 14.18,
+          "end": 14.54,
+          "key": "something",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "indefinite—a",
+          "start": 14.54,
+          "end": 15.48,
+          "key": "indefinitea",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 15.48,
+          "end": 15.66,
+          "key": "sort",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.66,
+          "end": 15.84,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "puppet",
+          "start": 15.84,
+          "end": 16.06,
+          "key": "puppet",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "useful",
+          "start": 16.06,
+          "end": 16.44,
+          "key": "useful",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 16.44,
+          "end": 16.76,
+          "key": "only",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 16.76,
+          "end": 17.08,
+          "key": "because",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 17.08,
+          "end": 17.24,
+          "key": "he",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 17.24,
+          "end": 17.4,
+          "key": "had",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.4,
+          "end": 17.54,
+          "key": "a",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 17.54,
+          "end": 17.82,
+          "key": "russian",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 17.82,
+          "end": 18.16,
+          "key": "name",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "only",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "text": "did",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "text": "his",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "contemporaries,",
+          "start": 1.08,
+          "end": 1.68
+        },
+        {
+          "text": "carried",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "away",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "text": "by",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "their",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "passions,",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "text": "talk",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "in",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "this",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "way,",
+          "start": 4.4,
+          "end": 4.72
+        },
+        {
+          "text": "but",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "posterity",
+          "start": 5.12,
+          "end": 5.76
+        },
+        {
+          "text": "and",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "text": "history",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "text": "have",
+          "start": 6.3,
+          "end": 6.56
+        },
+        {
+          "text": "acclaimed",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "text": "Napoleon",
+          "start": 6.9,
+          "end": 7.4
+        },
+        {
+          "text": "as",
+          "start": 7.4,
+          "end": 7.62
+        },
+        {
+          "text": "grand,",
+          "start": 7.62,
+          "end": 7.94
+        },
+        {
+          "text": "while",
+          "start": 8.22,
+          "end": 8.44
+        },
+        {
+          "text": "Kutúzov",
+          "start": 8.44,
+          "end": 9.0
+        },
+        {
+          "text": "is",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "text": "described",
+          "start": 9.18,
+          "end": 9.6
+        },
+        {
+          "text": "by",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "text": "foreigners",
+          "start": 9.92,
+          "end": 10.24
+        },
+        {
+          "text": "as",
+          "start": 10.24,
+          "end": 10.54
+        },
+        {
+          "text": "a",
+          "start": 10.54,
+          "end": 10.68
+        },
+        {
+          "text": "crafty,",
+          "start": 10.68,
+          "end": 11.1
+        },
+        {
+          "text": "dissolute,",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "text": "weak",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "text": "old",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "text": "courtier,",
+          "start": 12.46,
+          "end": 13.0
+        },
+        {
+          "text": "and",
+          "start": 13.3,
+          "end": 13.4
+        },
+        {
+          "text": "by",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "text": "Russians",
+          "start": 13.62,
+          "end": 13.9
+        },
+        {
+          "text": "as",
+          "start": 13.9,
+          "end": 14.18
+        },
+        {
+          "text": "something",
+          "start": 14.18,
+          "end": 14.54
+        },
+        {
+          "text": "indefinite—a",
+          "start": 14.54,
+          "end": 15.48
+        },
+        {
+          "text": "sort",
+          "start": 15.48,
+          "end": 15.66
+        },
+        {
+          "text": "of",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "text": "puppet",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "text": "useful",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "text": "only",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "text": "because",
+          "start": 16.76,
+          "end": 17.08
+        },
+        {
+          "text": "he",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "text": "had",
+          "start": 17.24,
+          "end": 17.4
+        },
+        {
+          "text": "a",
+          "start": 17.4,
+          "end": 17.54
+        },
+        {
+          "text": "Russian",
+          "start": 17.54,
+          "end": 17.82
+        },
+        {
+          "text": "name.",
+          "start": 17.82,
+          "end": 18.16
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 53,
+        "matched_words": 53
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5786255737766623
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ddf9cd4cd2e56afbfc735981230ff4db6fd633cc5e6043bab82c02c9b521dfe1",
+  "selected_reasons": []
+}

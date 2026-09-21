@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "06ef9d5c3e01f7ef7e3cdb37a4d217451b9ed2176667087c30c63271563fc518",
+  "attempts": [
+    {
+      "asr_seconds": 0.21493130642920732,
+      "alignment_seconds": 0.0012065265327692032,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"When am I to receive the money, Count?\"",
+        "hotwords": "When, I, Count"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When am I to receive the money, Count?",
+          "start": 0.0,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " am",
+              "start": 0.38,
+              "end": 0.48,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 0.48,
+              "end": 0.64,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " to",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " receive",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " money,",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Count?",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.039520263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "am",
+          "start": 0.38,
+          "end": 0.48
+        },
+        {
+          "raw": "I",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "raw": "to",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "receive",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "money,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "Count?",
+          "start": 1.84,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "“When",
+        "am",
+        "I",
+        "to",
+        "receive",
+        "the",
+        "money,",
+        "Count?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"When",
+        "am",
+        "I",
+        "to",
+        "receive",
+        "the",
+        "money,",
+        "Count?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.38,
+          "end": 0.48,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.48,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "receive",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "receive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "money",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Count?",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "count",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“When",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "am",
+          "start": 0.38,
+          "end": 0.48
+        },
+        {
+          "text": "I",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "text": "to",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "receive",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "money,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "Count?”",
+          "start": 1.84,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2163050537928939
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e603b552c620663151d4990d625a69790d47e8edc3fe186d40c1da16b314b22",
+  "selected_reasons": []
+}

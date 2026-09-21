@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "8f6a80bd530ed233042f5d1ff55f7ea7ff847b7513e1c4f4af8281c1bbddde55",
+  "attempts": [
+    {
+      "asr_seconds": 0.14974102471023798,
+      "alignment_seconds": 0.0006860597059130669,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, not long....\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, not long....",
+          "start": 0.0,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " not",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " long....",
+              "start": 0.96,
+              "end": 2.26,
+              "probability": 0.4989306926727295
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "not",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "long....",
+          "start": 0.96,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "“No,",
+        "not",
+        "long....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No,",
+        "not",
+        "long....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "long....",
+          "start": 0.96,
+          "end": 2.26,
+          "key": "long",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“No,",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "not",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "long....”",
+          "start": 0.96,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1505249012261629
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16b6cd070894c6de32eed3e110ea7e80b82deea2dd0ba99dbdcb430fb97fbba3",
+  "selected_reasons": []
+}

@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "5c6f8b224bdcad2b11d22c3024df20aa91c85c4b764923d89a1396623f3583b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.21358397416770458,
+      "alignment_seconds": 0.0009468290954828262,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That is enough for me,\" said Sónya, blushing.",
+        "hotwords": "That, Sónya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is enough for me,\" said Sónya, blushing.",
+          "start": 0.0,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.07373046875
+            },
+            {
+              "text": " is",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " enough",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me,\"",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " said",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Sónya,",
+              "start": 1.52,
+              "end": 2.04,
+              "probability": 0.3766503930091858
+            },
+            {
+              "text": " blushing.",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.991943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "is",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "enough",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "for",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "raw": "said",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "Sónya,",
+          "start": 1.52,
+          "end": 2.04
+        },
+        {
+          "raw": "blushing.",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "“That",
+        "is",
+        "enough",
+        "for",
+        "me,”",
+        "said",
+        "Sónya,",
+        "blushing."
+      ],
+      "acoustic_expected_tokens": [
+        "\"That",
+        "is",
+        "enough",
+        "for",
+        "me,\"",
+        "said",
+        "Sónya,",
+        "blushing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.34,
+          "end": 0.5,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.94,
+          "end": 1.4,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Sónya,",
+          "start": 1.52,
+          "end": 2.04,
+          "key": "sónya",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blushing.",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "blushing",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“That",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "is",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "text": "enough",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "for",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "me,”",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "text": "said",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "Sónya,",
+          "start": 1.52,
+          "end": 2.04
+        },
+        {
+          "text": "blushing.",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21465516462922096
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0921d8c8d4cad0deacfc14d0adaf8e5cd091e9d1022ae0dfbca7b0499e2d4e4",
+  "selected_reasons": []
+}

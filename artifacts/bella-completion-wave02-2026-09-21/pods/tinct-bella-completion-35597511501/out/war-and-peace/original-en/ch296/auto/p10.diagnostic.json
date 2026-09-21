@@ -1,0 +1,849 @@
+{
+  "complete": true,
+  "signature": "faa1e8feabe451e9817e3c13ef950eeabd31d45de458d4c31e5757ec1232e3bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.37625368405133486,
+      "alignment_seconds": 0.002720220945775509,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "While a footman was lighting a candle, Toll communicated the substance of the news.",
+        "hotwords": "While, Toll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " While a footman was lighting a candle, Toll communicated the substance of the news.",
+          "start": 0.0,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " While",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " a",
+              "start": 0.44,
+              "end": 0.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " footman",
+              "start": 0.56,
+              "end": 0.88,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " was",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lighting",
+              "start": 1.08,
+              "end": 1.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " candle,",
+              "start": 1.62,
+              "end": 2.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Toll",
+              "start": 2.44,
+              "end": 2.46,
+              "probability": 0.154052734375
+            },
+            {
+              "text": " communicated",
+              "start": 2.46,
+              "end": 3.1,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 3.1,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " substance",
+              "start": 3.4,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " news.",
+              "start": 4.14,
+              "end": 4.46,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Toll While a footman was lighting a candle, Toll communicated the substance of the news.",
+          "start": 4.46,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Toll",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 1.4901161193847656e-06
+            },
+            {
+              "text": " While",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 2.3603439331054688e-05
+            },
+            {
+              "text": " a",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.0038166046142578125
+            },
+            {
+              "text": " footman",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.00011584162712097168
+            },
+            {
+              "text": " was",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.0150146484375
+            },
+            {
+              "text": " lighting",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.00012153387069702148
+            },
+            {
+              "text": " a",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.1156005859375
+            },
+            {
+              "text": " candle,",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.001979827880859375
+            },
+            {
+              "text": " Toll",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 5.3942203521728516e-05
+            },
+            {
+              "text": " communicated",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.043670654296875
+            },
+            {
+              "text": " substance",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.00015974044799804688
+            },
+            {
+              "text": " of",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.173095703125
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.2802734375
+            },
+            {
+              "text": " news.",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.00024259090423583984
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "While",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "a",
+          "start": 0.44,
+          "end": 0.56
+        },
+        {
+          "raw": "footman",
+          "start": 0.56,
+          "end": 0.88
+        },
+        {
+          "raw": "was",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "lighting",
+          "start": 1.08,
+          "end": 1.38
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "candle,",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "raw": "Toll",
+          "start": 2.44,
+          "end": 2.46
+        },
+        {
+          "raw": "communicated",
+          "start": 2.46,
+          "end": 3.1
+        },
+        {
+          "raw": "the",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "raw": "substance",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "raw": "of",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "news.",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "raw": "Toll",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "While",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "footman",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "was",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "lighting",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "candle,",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "Toll",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "communicated",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "substance",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "of",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "news.",
+          "start": 4.64,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "While",
+        "a",
+        "footman",
+        "was",
+        "lighting",
+        "a",
+        "candle,",
+        "Toll",
+        "communicated",
+        "the",
+        "substance",
+        "of",
+        "the",
+        "news."
+      ],
+      "acoustic_expected_tokens": [
+        "While",
+        "a",
+        "footman",
+        "was",
+        "lighting",
+        "a",
+        "candle,",
+        "Toll",
+        "communicated",
+        "the",
+        "substance",
+        "of",
+        "the",
+        "news."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "insert",
+          14,
+          14,
+          14,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          14,
+          14,
+          14,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "While",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "while",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.44,
+          "end": 0.56,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "footman",
+          "start": 0.56,
+          "end": 0.88,
+          "key": "footman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lighting",
+          "start": 1.08,
+          "end": 1.38,
+          "key": "lighting",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "candle,",
+          "start": 1.62,
+          "end": 2.06,
+          "key": "candle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Toll",
+          "start": 2.44,
+          "end": 2.46,
+          "key": "toll",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "communicated",
+          "start": 2.46,
+          "end": 3.1,
+          "key": "communicated",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.1,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 3.4,
+          "end": 3.76,
+          "key": "substance",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.76,
+          "end": 4.02,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 4.14,
+          "end": 4.46,
+          "key": "news",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Toll",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "toll",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "While",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "while",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "footman",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "footman",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "lighting",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "lighting",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "candle,",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "candle",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Toll",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "toll",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "communicated",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "communicated",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "substance",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "news",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "While",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "a",
+          "start": 0.44,
+          "end": 0.56
+        },
+        {
+          "text": "footman",
+          "start": 0.56,
+          "end": 0.88
+        },
+        {
+          "text": "was",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "lighting",
+          "start": 1.08,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "candle,",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "text": "Toll",
+          "start": 2.44,
+          "end": 2.46
+        },
+        {
+          "text": "communicated",
+          "start": 2.46,
+          "end": 3.1
+        },
+        {
+          "text": "the",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "text": "substance",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "text": "of",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "text": "the",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "news.",
+          "start": 4.14,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 29,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3796919174492359
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cab926307af529c9fd3fd146337871ea7671b98a0965fa21bfbcf0ddef3c214d",
+  "selected_reasons": []
+}

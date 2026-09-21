@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "c4d4b98131552cac9ab24b88da9d7e3f2f3e96d5cd1295a21f8b6aacb6d86812",
+  "attempts": [
+    {
+      "asr_seconds": 0.2910334784537554,
+      "alignment_seconds": 0.001103210262954235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I come, Master Shallow, I come, Master Shallow.",
+        "hotwords": "I, Master, Shallow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " False Deaf, I come, Master Shallow, I come, Master Shallow.",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " False",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " Deaf,",
+              "start": 0.64,
+              "end": 1.06,
+              "probability": 0.531768798828125
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " come,",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.880859375
+            },
+            {
+              "text": " Master",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Shallow,",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.920654296875
+            },
+            {
+              "text": " I",
+              "start": 2.5,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " come,",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Master",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Shallow.",
+              "start": 3.12,
+              "end": 3.56,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "False",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Deaf,",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "come,",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "Master",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "raw": "come,",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "Master",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "Shallow.",
+          "start": 3.12,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "FALSTAFF.",
+        "I",
+        "come,",
+        "Master",
+        "Shallow,",
+        "I",
+        "come,",
+        "Master",
+        "Shallow."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "come,",
+        "Master",
+        "Shallow,",
+        "I",
+        "come,",
+        "Master",
+        "Shallow."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          8,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "False",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "false",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deaf,",
+          "start": 0.64,
+          "end": 1.06,
+          "key": "deaf",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "shallow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "master",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Shallow.",
+          "start": 3.12,
+          "end": 3.56,
+          "key": "shallow",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "FALSTAFF.",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "come,",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "Master",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "text": "Shallow,",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "text": "come,",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "Master",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "text": "Shallow.",
+          "start": 3.12,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29232984129339457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a0ef0c9b3422885854aaf3639c28a794f9d8c95e8162dcfe3cf4277c9bfae03",
+  "selected_reasons": []
+}

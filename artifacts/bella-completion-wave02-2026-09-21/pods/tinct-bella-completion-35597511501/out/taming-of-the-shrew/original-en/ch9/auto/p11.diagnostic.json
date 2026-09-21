@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "27185958ec3c64b5d86224726b076532a26ee6f9e4ae983cc376c47fcc4ab08f",
+  "attempts": [
+    {
+      "asr_seconds": 0.212620560079813,
+      "alignment_seconds": 0.0007653124630451202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Baptista and Lucentio.",
+        "hotwords": "Enter, Baptista, Lucentio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Baptista and Lucentio.",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Baptista",
+              "start": 0.64,
+              "end": 1.22,
+              "probability": 0.694091796875
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Lucentio.",
+              "start": 1.54,
+              "end": 2.16,
+              "probability": 0.6993408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Baptista",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "Lucentio.",
+          "start": 1.54,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Baptista",
+        "and",
+        "Lucentio."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Baptista",
+        "and",
+        "Lucentio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Baptista",
+          "start": 0.64,
+          "end": 1.22,
+          "key": "baptista",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lucentio.",
+          "start": 1.54,
+          "end": 2.16,
+          "key": "lucentio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Baptista",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "Lucentio.",
+          "start": 1.54,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21349707432091236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51a73621061ffbb4fee775f52e324a395360b3a6420d8227789c91874f41e1e2",
+  "selected_reasons": []
+}

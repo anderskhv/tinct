@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "1790a534cccb20fe817afb2a6f255ac0a3b74f090e8c51ae529ffee260d7ff88",
+  "attempts": [
+    {
+      "asr_seconds": 0.13493917044252157,
+      "alignment_seconds": 0.00039888080209493637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who?\"",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who?",
+          "start": 0.0,
+          "end": 0.44,
+          "words": [
+            {
+              "text": " Who?",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.74853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who?",
+          "start": 0.0,
+          "end": 0.44
+        }
+      ],
+      "expected_tokens": [
+        "“Who?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Who?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who?",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Who?”",
+          "start": 0.0,
+          "end": 0.44
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13540573231875896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "141f7474861c0311e89fadecf575a72abd92a66c65c8d0faa42f61e4df5c4473",
+  "selected_reasons": []
+}

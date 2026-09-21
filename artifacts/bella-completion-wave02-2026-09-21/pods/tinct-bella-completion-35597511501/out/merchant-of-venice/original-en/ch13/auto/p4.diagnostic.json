@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "signature": "f9ef78ecb59f8e95c841fff45a33070bb01a419c77095466ae2dbbc318438965",
+  "attempts": [
+    {
+      "asr_seconds": 0.18902558740228415,
+      "alignment_seconds": 0.0004904521629214287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Come, the full stop.",
+        "hotwords": "Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salarino, come the full stop.",
+          "start": 0.08,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Salarino,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.7023111979166666
+            },
+            {
+              "text": " come",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " full",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " stop.",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salarino,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "come",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "full",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "stop.",
+          "start": 1.9,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "Come,",
+        "the",
+        "full",
+        "stop."
+      ],
+      "acoustic_expected_tokens": [
+        "Come,",
+        "the",
+        "full",
+        "stop."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salarino,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "salarino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "full",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stop.",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "stop",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "Come,",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "full",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "stop.",
+          "start": 1.9,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18962838780134916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d04d068c0858cc5ea5a2c4515ba7d1fd1ee4aa831ab3bd146778d70d77f4fd38",
+  "selected_reasons": []
+}

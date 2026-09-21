@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "f5d6efa22e4aed00aa7f4b78d302f6a713931963bcbe0dbea78871ab66ced07e",
+  "attempts": [
+    {
+      "asr_seconds": 0.29711408633738756,
+      "alignment_seconds": 0.0011932477355003357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guerrilla war (always successful, as history shows) directly infringes that rule.",
+        "hotwords": "Guerrilla"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guerrilla war, always successful, as history shows, directly infringes that rule.",
+          "start": 0.0,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " Guerrilla",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.700439453125
+            },
+            {
+              "text": " war,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " always",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " successful,",
+              "start": 1.54,
+              "end": 2.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " history",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " shows,",
+              "start": 2.94,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " directly",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " infringes",
+              "start": 4.04,
+              "end": 4.64,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " that",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rule.",
+              "start": 4.82,
+              "end": 5.12,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guerrilla",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "war,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "always",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "successful,",
+          "start": 1.54,
+          "end": 2.06
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "raw": "history",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "shows,",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "raw": "directly",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "infringes",
+          "start": 4.04,
+          "end": 4.64
+        },
+        {
+          "raw": "that",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "rule.",
+          "start": 4.82,
+          "end": 5.12
+        }
+      ],
+      "expected_tokens": [
+        "Guerrilla",
+        "war",
+        "(always",
+        "successful,",
+        "as",
+        "history",
+        "shows)",
+        "directly",
+        "infringes",
+        "that",
+        "rule."
+      ],
+      "acoustic_expected_tokens": [
+        "Guerrilla",
+        "war",
+        "(always",
+        "successful,",
+        "as",
+        "history",
+        "shows)",
+        "directly",
+        "infringes",
+        "that",
+        "rule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guerrilla",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "guerrilla",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "war,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "war",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "always",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "successful,",
+          "start": 1.54,
+          "end": 2.06,
+          "key": "successful",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "history",
+          "start": 2.62,
+          "end": 2.94,
+          "key": "history",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shows,",
+          "start": 2.94,
+          "end": 3.34,
+          "key": "shows",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "directly",
+          "start": 3.72,
+          "end": 4.04,
+          "key": "directly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "infringes",
+          "start": 4.04,
+          "end": 4.64,
+          "key": "infringes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.64,
+          "end": 4.82,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rule.",
+          "start": 4.82,
+          "end": 5.12,
+          "key": "rule",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Guerrilla",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "war",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "(always",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "successful,",
+          "start": 1.54,
+          "end": 2.06
+        },
+        {
+          "text": "as",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "text": "history",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "shows)",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "text": "directly",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "text": "infringes",
+          "start": 4.04,
+          "end": 4.64
+        },
+        {
+          "text": "that",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "rule.",
+          "start": 4.82,
+          "end": 5.12
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2984590819105506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8efed15500fcb55f997248770e81a6c66132fc0e8876393f47621788cbda7984",
+  "selected_reasons": []
+}

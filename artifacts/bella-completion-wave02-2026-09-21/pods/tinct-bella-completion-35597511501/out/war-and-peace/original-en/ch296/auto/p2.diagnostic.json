@@ -1,0 +1,2422 @@
+{
+  "complete": true,
+  "signature": "6902d4f6096298c906e583c6485b5f72080edd1310a2307b550aa8f3af07ae04",
+  "attempts": [
+    {
+      "asr_seconds": 0.5927390921860933,
+      "alignment_seconds": 0.005723007954657078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Since Bennigsen, who corresponded with the Emperor and had more influence than anyone else on the staff, had begun to avoid him, Kutúzov was more at ease as to the possibility of himself and his troops being obliged to take part in useless aggressive movements. The lesson of the Tarútino battle and of the day before it, which Kutúzov remembered with pain, must, he thought, have some effect on others too.",
+        "hotwords": "Since, Bennigsen, Emperor, Kutúzov, Tarútino"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Since Bennigsen, who corresponded with the Emperor and had more influence than anyone else on the staff, had begun to avoid him,",
+          "start": 0.0,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " Since",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Bennigsen,",
+              "start": 0.5,
+              "end": 0.98,
+              "probability": 0.5815836588541666
+            },
+            {
+              "text": " who",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " corresponded",
+              "start": 1.34,
+              "end": 2.02,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " with",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Emperor",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.436279296875
+            },
+            {
+              "text": " and",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " had",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " influence",
+              "start": 3.16,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " anyone",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " else",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " on",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.52,
+              "end": 4.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " staff,",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " had",
+              "start": 5.28,
+              "end": 5.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " begun",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 5.62,
+              "end": 5.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " avoid",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him,",
+              "start": 6.14,
+              "end": 6.42,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Kutúzov was more at ease as to the possibility of himself and his troops being obliged to take part in useless aggressive movements.",
+          "start": 6.8,
+          "end": 13.14,
+          "words": [
+            {
+              "text": " Kutúzov",
+              "start": 6.8,
+              "end": 7.16,
+              "probability": 0.5318605899810791
+            },
+            {
+              "text": " was",
+              "start": 7.16,
+              "end": 7.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 7.38,
+              "end": 7.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 7.64,
+              "end": 7.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ease",
+              "start": 7.78,
+              "end": 8.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 8.06,
+              "end": 8.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.22,
+              "end": 8.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.36,
+              "end": 8.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " possibility",
+              "start": 8.48,
+              "end": 8.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 8.88,
+              "end": 9.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " himself",
+              "start": 9.26,
+              "end": 9.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 9.6,
+              "end": 9.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 9.8,
+              "end": 9.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " troops",
+              "start": 9.98,
+              "end": 10.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " being",
+              "start": 10.24,
+              "end": 10.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " obliged",
+              "start": 10.54,
+              "end": 10.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 10.9,
+              "end": 11.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " take",
+              "start": 11.14,
+              "end": 11.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " part",
+              "start": 11.34,
+              "end": 11.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 11.6,
+              "end": 11.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " useless",
+              "start": 11.82,
+              "end": 12.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " aggressive",
+              "start": 12.16,
+              "end": 12.6,
+              "probability": 0.880859375
+            },
+            {
+              "text": " movements.",
+              "start": 12.6,
+              "end": 13.14,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " The lesson of the Tarútino battle and of the day before it, which Kutúzov remembered with pain, must, he thought, have some effect on others too.",
+          "start": 14.18,
+          "end": 21.96,
+          "words": [
+            {
+              "text": " The",
+              "start": 14.18,
+              "end": 14.38,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " lesson",
+              "start": 14.38,
+              "end": 14.62,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 14.62,
+              "end": 14.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 14.82,
+              "end": 15.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Tarútino",
+              "start": 15.04,
+              "end": 15.56,
+              "probability": 0.549832820892334
+            },
+            {
+              "text": " battle",
+              "start": 15.56,
+              "end": 15.82,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " and",
+              "start": 15.82,
+              "end": 16.1,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 16.1,
+              "end": 16.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 16.2,
+              "end": 16.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " day",
+              "start": 16.32,
+              "end": 16.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " before",
+              "start": 16.5,
+              "end": 16.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it,",
+              "start": 16.82,
+              "end": 17.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 17.28,
+              "end": 17.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kutúzov",
+              "start": 17.4,
+              "end": 18.0,
+              "probability": 0.9688720703125
+            },
+            {
+              "text": " remembered",
+              "start": 18.0,
+              "end": 18.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 18.36,
+              "end": 18.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pain,",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " must,",
+              "start": 19.28,
+              "end": 19.48,
+              "probability": 0.98046875
+            },
+            {
+              "text": " he",
+              "start": 19.8,
+              "end": 19.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thought,",
+              "start": 19.96,
+              "end": 20.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 20.58,
+              "end": 20.68,
+              "probability": 0.3330078125
+            },
+            {
+              "text": " some",
+              "start": 20.68,
+              "end": 20.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " effect",
+              "start": 20.86,
+              "end": 21.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " on",
+              "start": 21.14,
+              "end": 21.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " others",
+              "start": 21.4,
+              "end": 21.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too.",
+              "start": 21.58,
+              "end": 21.96,
+              "probability": 0.8720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Since",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Bennigsen,",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "raw": "who",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "corresponded",
+          "start": 1.34,
+          "end": 2.02
+        },
+        {
+          "raw": "with",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "Emperor",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "and",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "had",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "more",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "influence",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "raw": "than",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "anyone",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "else",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "on",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "the",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "raw": "staff,",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "had",
+          "start": 5.28,
+          "end": 5.34
+        },
+        {
+          "raw": "begun",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "raw": "to",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "raw": "avoid",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "him,",
+          "start": 6.14,
+          "end": 6.42
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 6.8,
+          "end": 7.16
+        },
+        {
+          "raw": "was",
+          "start": 7.16,
+          "end": 7.38
+        },
+        {
+          "raw": "more",
+          "start": 7.38,
+          "end": 7.64
+        },
+        {
+          "raw": "at",
+          "start": 7.64,
+          "end": 7.78
+        },
+        {
+          "raw": "ease",
+          "start": 7.78,
+          "end": 8.06
+        },
+        {
+          "raw": "as",
+          "start": 8.06,
+          "end": 8.22
+        },
+        {
+          "raw": "to",
+          "start": 8.22,
+          "end": 8.36
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "raw": "possibility",
+          "start": 8.48,
+          "end": 8.88
+        },
+        {
+          "raw": "of",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "raw": "himself",
+          "start": 9.26,
+          "end": 9.6
+        },
+        {
+          "raw": "and",
+          "start": 9.6,
+          "end": 9.8
+        },
+        {
+          "raw": "his",
+          "start": 9.8,
+          "end": 9.98
+        },
+        {
+          "raw": "troops",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "raw": "being",
+          "start": 10.24,
+          "end": 10.54
+        },
+        {
+          "raw": "obliged",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "raw": "to",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "raw": "take",
+          "start": 11.14,
+          "end": 11.34
+        },
+        {
+          "raw": "part",
+          "start": 11.34,
+          "end": 11.6
+        },
+        {
+          "raw": "in",
+          "start": 11.6,
+          "end": 11.82
+        },
+        {
+          "raw": "useless",
+          "start": 11.82,
+          "end": 12.16
+        },
+        {
+          "raw": "aggressive",
+          "start": 12.16,
+          "end": 12.6
+        },
+        {
+          "raw": "movements.",
+          "start": 12.6,
+          "end": 13.14
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.38
+        },
+        {
+          "raw": "lesson",
+          "start": 14.38,
+          "end": 14.62
+        },
+        {
+          "raw": "of",
+          "start": 14.62,
+          "end": 14.82
+        },
+        {
+          "raw": "the",
+          "start": 14.82,
+          "end": 15.04
+        },
+        {
+          "raw": "Tarútino",
+          "start": 15.04,
+          "end": 15.56
+        },
+        {
+          "raw": "battle",
+          "start": 15.56,
+          "end": 15.82
+        },
+        {
+          "raw": "and",
+          "start": 15.82,
+          "end": 16.1
+        },
+        {
+          "raw": "of",
+          "start": 16.1,
+          "end": 16.2
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.32
+        },
+        {
+          "raw": "day",
+          "start": 16.32,
+          "end": 16.5
+        },
+        {
+          "raw": "before",
+          "start": 16.5,
+          "end": 16.82
+        },
+        {
+          "raw": "it,",
+          "start": 16.82,
+          "end": 17.04
+        },
+        {
+          "raw": "which",
+          "start": 17.28,
+          "end": 17.4
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 17.4,
+          "end": 18.0
+        },
+        {
+          "raw": "remembered",
+          "start": 18.0,
+          "end": 18.36
+        },
+        {
+          "raw": "with",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "raw": "pain,",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "must,",
+          "start": 19.28,
+          "end": 19.48
+        },
+        {
+          "raw": "he",
+          "start": 19.8,
+          "end": 19.96
+        },
+        {
+          "raw": "thought,",
+          "start": 19.96,
+          "end": 20.24
+        },
+        {
+          "raw": "have",
+          "start": 20.58,
+          "end": 20.68
+        },
+        {
+          "raw": "some",
+          "start": 20.68,
+          "end": 20.86
+        },
+        {
+          "raw": "effect",
+          "start": 20.86,
+          "end": 21.14
+        },
+        {
+          "raw": "on",
+          "start": 21.14,
+          "end": 21.4
+        },
+        {
+          "raw": "others",
+          "start": 21.4,
+          "end": 21.58
+        },
+        {
+          "raw": "too.",
+          "start": 21.58,
+          "end": 21.96
+        }
+      ],
+      "expected_tokens": [
+        "Since",
+        "Bennigsen,",
+        "who",
+        "corresponded",
+        "with",
+        "the",
+        "Emperor",
+        "and",
+        "had",
+        "more",
+        "influence",
+        "than",
+        "anyone",
+        "else",
+        "on",
+        "the",
+        "staff,",
+        "had",
+        "begun",
+        "to",
+        "avoid",
+        "him,",
+        "Kutúzov",
+        "was",
+        "more",
+        "at",
+        "ease",
+        "as",
+        "to",
+        "the",
+        "possibility",
+        "of",
+        "himself",
+        "and",
+        "his",
+        "troops",
+        "being",
+        "obliged",
+        "to",
+        "take",
+        "part",
+        "in",
+        "useless",
+        "aggressive",
+        "movements.",
+        "The",
+        "lesson",
+        "of",
+        "the",
+        "Tarútino",
+        "battle",
+        "and",
+        "of",
+        "the",
+        "day",
+        "before",
+        "it,",
+        "which",
+        "Kutúzov",
+        "remembered",
+        "with",
+        "pain,",
+        "must,",
+        "he",
+        "thought,",
+        "have",
+        "some",
+        "effect",
+        "on",
+        "others",
+        "too."
+      ],
+      "acoustic_expected_tokens": [
+        "Since",
+        "Bennigsen,",
+        "who",
+        "corresponded",
+        "with",
+        "the",
+        "Emperor",
+        "and",
+        "had",
+        "more",
+        "influence",
+        "than",
+        "anyone",
+        "else",
+        "on",
+        "the",
+        "staff,",
+        "had",
+        "begun",
+        "to",
+        "avoid",
+        "him,",
+        "Kutúzov",
+        "was",
+        "more",
+        "at",
+        "ease",
+        "as",
+        "to",
+        "the",
+        "possibility",
+        "of",
+        "himself",
+        "and",
+        "his",
+        "troops",
+        "being",
+        "obliged",
+        "to",
+        "take",
+        "part",
+        "in",
+        "useless",
+        "aggressive",
+        "movements.",
+        "The",
+        "lesson",
+        "of",
+        "the",
+        "Tarútino",
+        "battle",
+        "and",
+        "of",
+        "the",
+        "day",
+        "before",
+        "it,",
+        "which",
+        "Kutúzov",
+        "remembered",
+        "with",
+        "pain,",
+        "must,",
+        "he",
+        "thought,",
+        "have",
+        "some",
+        "effect",
+        "on",
+        "others",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          71,
+          0,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Since",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "since",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bennigsen,",
+          "start": 0.5,
+          "end": 0.98,
+          "key": "bennigsen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "corresponded",
+          "start": 1.34,
+          "end": 2.02,
+          "key": "corresponded",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "emperor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "influence",
+          "start": 3.16,
+          "end": 3.54,
+          "key": "influence",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "than",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "anyone",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "anyone",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "else",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.52,
+          "end": 4.66,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "staff,",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "staff",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.28,
+          "end": 5.34,
+          "key": "had",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "begun",
+          "start": 5.34,
+          "end": 5.62,
+          "key": "begun",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.62,
+          "end": 5.84,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "avoid",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "avoid",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 6.14,
+          "end": 6.42,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 6.8,
+          "end": 7.16,
+          "key": "kutúzov",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.16,
+          "end": 7.38,
+          "key": "was",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.38,
+          "end": 7.64,
+          "key": "more",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 7.64,
+          "end": 7.78,
+          "key": "at",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "ease",
+          "start": 7.78,
+          "end": 8.06,
+          "key": "ease",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.06,
+          "end": 8.22,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.22,
+          "end": 8.36,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.48,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "possibility",
+          "start": 8.48,
+          "end": 8.88,
+          "key": "possibility",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.88,
+          "end": 9.26,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 9.26,
+          "end": 9.6,
+          "key": "himself",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.6,
+          "end": 9.8,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.8,
+          "end": 9.98,
+          "key": "his",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "troops",
+          "start": 9.98,
+          "end": 10.24,
+          "key": "troops",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 10.24,
+          "end": 10.54,
+          "key": "being",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "obliged",
+          "start": 10.54,
+          "end": 10.9,
+          "key": "obliged",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.9,
+          "end": 11.14,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 11.14,
+          "end": 11.34,
+          "key": "take",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 11.34,
+          "end": 11.6,
+          "key": "part",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.6,
+          "end": 11.82,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "useless",
+          "start": 11.82,
+          "end": 12.16,
+          "key": "useless",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "aggressive",
+          "start": 12.16,
+          "end": 12.6,
+          "key": "aggressive",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "movements.",
+          "start": 12.6,
+          "end": 13.14,
+          "key": "movements",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.38,
+          "key": "the",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "lesson",
+          "start": 14.38,
+          "end": 14.62,
+          "key": "lesson",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.62,
+          "end": 14.82,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.82,
+          "end": 15.04,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Tarútino",
+          "start": 15.04,
+          "end": 15.56,
+          "key": "tarútino",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 15.56,
+          "end": 15.82,
+          "key": "battle",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.82,
+          "end": 16.1,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.1,
+          "end": 16.2,
+          "key": "of",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.32,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 16.32,
+          "end": 16.5,
+          "key": "day",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 16.5,
+          "end": 16.82,
+          "key": "before",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 16.82,
+          "end": 17.04,
+          "key": "it",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 17.28,
+          "end": 17.4,
+          "key": "which",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 17.4,
+          "end": 18.0,
+          "key": "kutúzov",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "remembered",
+          "start": 18.0,
+          "end": 18.36,
+          "key": "remembered",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 18.36,
+          "end": 18.66,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "pain,",
+          "start": 18.66,
+          "end": 18.96,
+          "key": "pain",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "must,",
+          "start": 19.28,
+          "end": 19.48,
+          "key": "must",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 19.8,
+          "end": 19.96,
+          "key": "he",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 19.96,
+          "end": 20.24,
+          "key": "thought",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 20.58,
+          "end": 20.68,
+          "key": "have",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 20.68,
+          "end": 20.86,
+          "key": "some",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 20.86,
+          "end": 21.14,
+          "key": "effect",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 21.14,
+          "end": 21.4,
+          "key": "on",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 21.4,
+          "end": 21.58,
+          "key": "others",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 21.58,
+          "end": 21.96,
+          "key": "too",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Since",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Bennigsen,",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "text": "who",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "corresponded",
+          "start": 1.34,
+          "end": 2.02
+        },
+        {
+          "text": "with",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "Emperor",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "and",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "had",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "more",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "influence",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "text": "than",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "anyone",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "else",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "on",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "the",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "text": "staff,",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "had",
+          "start": 5.28,
+          "end": 5.34
+        },
+        {
+          "text": "begun",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "text": "to",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "text": "avoid",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "him,",
+          "start": 6.14,
+          "end": 6.42
+        },
+        {
+          "text": "Kutúzov",
+          "start": 6.8,
+          "end": 7.16
+        },
+        {
+          "text": "was",
+          "start": 7.16,
+          "end": 7.38
+        },
+        {
+          "text": "more",
+          "start": 7.38,
+          "end": 7.64
+        },
+        {
+          "text": "at",
+          "start": 7.64,
+          "end": 7.78
+        },
+        {
+          "text": "ease",
+          "start": 7.78,
+          "end": 8.06
+        },
+        {
+          "text": "as",
+          "start": 8.06,
+          "end": 8.22
+        },
+        {
+          "text": "to",
+          "start": 8.22,
+          "end": 8.36
+        },
+        {
+          "text": "the",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "text": "possibility",
+          "start": 8.48,
+          "end": 8.88
+        },
+        {
+          "text": "of",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "text": "himself",
+          "start": 9.26,
+          "end": 9.6
+        },
+        {
+          "text": "and",
+          "start": 9.6,
+          "end": 9.8
+        },
+        {
+          "text": "his",
+          "start": 9.8,
+          "end": 9.98
+        },
+        {
+          "text": "troops",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "text": "being",
+          "start": 10.24,
+          "end": 10.54
+        },
+        {
+          "text": "obliged",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "text": "to",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "text": "take",
+          "start": 11.14,
+          "end": 11.34
+        },
+        {
+          "text": "part",
+          "start": 11.34,
+          "end": 11.6
+        },
+        {
+          "text": "in",
+          "start": 11.6,
+          "end": 11.82
+        },
+        {
+          "text": "useless",
+          "start": 11.82,
+          "end": 12.16
+        },
+        {
+          "text": "aggressive",
+          "start": 12.16,
+          "end": 12.6
+        },
+        {
+          "text": "movements.",
+          "start": 12.6,
+          "end": 13.14
+        },
+        {
+          "text": "The",
+          "start": 14.18,
+          "end": 14.38
+        },
+        {
+          "text": "lesson",
+          "start": 14.38,
+          "end": 14.62
+        },
+        {
+          "text": "of",
+          "start": 14.62,
+          "end": 14.82
+        },
+        {
+          "text": "the",
+          "start": 14.82,
+          "end": 15.04
+        },
+        {
+          "text": "Tarútino",
+          "start": 15.04,
+          "end": 15.56
+        },
+        {
+          "text": "battle",
+          "start": 15.56,
+          "end": 15.82
+        },
+        {
+          "text": "and",
+          "start": 15.82,
+          "end": 16.1
+        },
+        {
+          "text": "of",
+          "start": 16.1,
+          "end": 16.2
+        },
+        {
+          "text": "the",
+          "start": 16.2,
+          "end": 16.32
+        },
+        {
+          "text": "day",
+          "start": 16.32,
+          "end": 16.5
+        },
+        {
+          "text": "before",
+          "start": 16.5,
+          "end": 16.82
+        },
+        {
+          "text": "it,",
+          "start": 16.82,
+          "end": 17.04
+        },
+        {
+          "text": "which",
+          "start": 17.28,
+          "end": 17.4
+        },
+        {
+          "text": "Kutúzov",
+          "start": 17.4,
+          "end": 18.0
+        },
+        {
+          "text": "remembered",
+          "start": 18.0,
+          "end": 18.36
+        },
+        {
+          "text": "with",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "text": "pain,",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "must,",
+          "start": 19.28,
+          "end": 19.48
+        },
+        {
+          "text": "he",
+          "start": 19.8,
+          "end": 19.96
+        },
+        {
+          "text": "thought,",
+          "start": 19.96,
+          "end": 20.24
+        },
+        {
+          "text": "have",
+          "start": 20.58,
+          "end": 20.68
+        },
+        {
+          "text": "some",
+          "start": 20.68,
+          "end": 20.86
+        },
+        {
+          "text": "effect",
+          "start": 20.86,
+          "end": 21.14
+        },
+        {
+          "text": "on",
+          "start": 21.14,
+          "end": 21.4
+        },
+        {
+          "text": "others",
+          "start": 21.4,
+          "end": 21.58
+        },
+        {
+          "text": "too.",
+          "start": 21.58,
+          "end": 21.96
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 71
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5989916641265154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ff922fc7bff1a5dd4c173e5b94b950a4e49f171eab6759c7eca279adb54d3e8",
+  "selected_reasons": []
+}

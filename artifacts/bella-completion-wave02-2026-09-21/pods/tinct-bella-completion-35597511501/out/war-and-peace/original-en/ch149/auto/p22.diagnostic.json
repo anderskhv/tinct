@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "1842526559ee38de462a31469006ea1b2efe1c6b20a98b0c59afa64ee9b8dfdf",
+  "attempts": [
+    {
+      "asr_seconds": 0.19720185175538063,
+      "alignment_seconds": 0.0018039876595139503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But without finishing what she was saying, Princess Mary burst into tears.",
+        "hotwords": "But, Princess, Mary"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But without finishing what she was saying, Princess Mary burst into tears.",
+          "start": 0.0,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " without",
+              "start": 0.32,
+              "end": 0.62,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " finishing",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 0.98,
+              "end": 1.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " saying,",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Princess",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Mary",
+              "start": 2.52,
+              "end": 2.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " burst",
+              "start": 2.94,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " into",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tears.",
+              "start": 3.68,
+              "end": 4.06,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "without",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "raw": "finishing",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "what",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "was",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "saying,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Princess",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "raw": "Mary",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "raw": "burst",
+          "start": 2.94,
+          "end": 3.36
+        },
+        {
+          "raw": "into",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "tears.",
+          "start": 3.68,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "without",
+        "finishing",
+        "what",
+        "she",
+        "was",
+        "saying,",
+        "Princess",
+        "Mary",
+        "burst",
+        "into",
+        "tears."
+      ],
+      "acoustic_expected_tokens": [
+        "But",
+        "without",
+        "finishing",
+        "what",
+        "she",
+        "was",
+        "saying,",
+        "Princess",
+        "Mary",
+        "burst",
+        "into",
+        "tears."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 0.32,
+          "end": 0.62,
+          "key": "without",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "finishing",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "finishing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.98,
+          "end": 1.24,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "saying,",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "saying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Princess",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "princess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 2.52,
+          "end": 2.94,
+          "key": "mary",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "burst",
+          "start": 2.94,
+          "end": 3.36,
+          "key": "burst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.36,
+          "end": 3.68,
+          "key": "into",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tears.",
+          "start": 3.68,
+          "end": 4.06,
+          "key": "tears",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "without",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "text": "finishing",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "text": "what",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "she",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "was",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "saying,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "Princess",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "text": "Mary",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "text": "burst",
+          "start": 2.94,
+          "end": 3.36
+        },
+        {
+          "text": "into",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "tears.",
+          "start": 3.68,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19927155040204525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a12ad51bcbe609187fd0ac54d7fae30f02ebc6fac848caa478753b027f3f6f79",
+  "selected_reasons": []
+}

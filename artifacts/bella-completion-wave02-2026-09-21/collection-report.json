@@ -1,0 +1,881 @@
+[
+ {
+  "key": "as-you-like-it/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9871287128712871,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/as-you-like-it/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "bible/web-en/ch413",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": null,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "processing_invariant_error"
+      ]
+     }
+    ],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "henry-iv-part-2/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9929676511954993,
+    "reasons": [
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/henry-iv-part-2/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9899497487437185,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/merchant-of-venice/original-en/ch12/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9899497487437185
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9952335557673975,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/merchant-of-venice/original-en/ch13/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9952335557673975
+ },
+ {
+  "key": "moby-dick/original-en/ch79",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9924487594390508,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/moby-dick/original-en/ch79/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9924487594390508
+ },
+ {
+  "key": "taming-of-the-shrew/original-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9938837920489296,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/taming-of-the-shrew/original-en/ch10/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9938837920489296
+ },
+ {
+  "key": "taming-of-the-shrew/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9777777777777777,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/taming-of-the-shrew/original-en/ch4/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "taming-of-the-shrew/original-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.988984088127295,
+    "reasons": [
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/taming-of-the-shrew/original-en/ch9/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch102",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.985632183908046,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch102/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.985632183908046
+ },
+ {
+  "key": "war-and-peace/original-en/ch108",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9990176817288802,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch108/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9990176817288802
+ },
+ {
+  "key": "war-and-peace/original-en/ch115",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9812775330396476,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch115/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch121",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.994408201304753,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch121/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch127",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9964125560538116,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch127/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9958677685950413,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch13/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9958677685950413
+ },
+ {
+  "key": "war-and-peace/original-en/ch135",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9953445065176909,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch135/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9953445065176909
+ },
+ {
+  "key": "war-and-peace/original-en/ch149",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9989384288747346,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch149/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9989384288747346
+ },
+ {
+  "key": "war-and-peace/original-en/ch156",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9945414847161572,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch156/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch159",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.999128160418483,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch159/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.999128160418483
+ },
+ {
+  "key": "war-and-peace/original-en/ch162",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9988649262202043,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch162/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9988649262202043
+ },
+ {
+  "key": "war-and-peace/original-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9985835694050992,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch17/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9985835694050992
+ },
+ {
+  "key": "war-and-peace/original-en/ch180",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9981818181818182,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch180/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9981818181818182
+ },
+ {
+  "key": "war-and-peace/original-en/ch193",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9979423868312757,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch193/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9979423868312757
+ },
+ {
+  "key": "war-and-peace/original-en/ch201",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch201/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch214",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9990503323836657,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch214/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9990503323836657
+ },
+ {
+  "key": "war-and-peace/original-en/ch219",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch219/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch237",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch237/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch243",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9981220657276996,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch243/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9981220657276996
+ },
+ {
+  "key": "war-and-peace/original-en/ch249",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9936034115138592,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch249/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9936034115138592
+ },
+ {
+  "key": "war-and-peace/original-en/ch251",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9988558352402745,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch251/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9988558352402745
+ },
+ {
+  "key": "war-and-peace/original-en/ch266",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9961277831558567,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch266/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch286",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch286/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch291",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9059266227657573,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch291/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch296",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9955156950672646,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch296/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9955156950672646
+ },
+ {
+  "key": "war-and-peace/original-en/ch300",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9921348314606742,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch300/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch301",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.995274102079395,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch301/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.995274102079395
+ },
+ {
+  "key": "war-and-peace/original-en/ch304",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9988558352402745,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch304/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9988558352402745
+ },
+ {
+  "key": "war-and-peace/original-en/ch306",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.987885462555066,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch306/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.987885462555066
+ },
+ {
+  "key": "war-and-peace/original-en/ch309",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch309/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch313",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9945054945054945,
+    "reasons": [
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch313/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch320",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9990176817288802,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch320/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9990176817288802
+ },
+ {
+  "key": "war-and-peace/original-en/ch321",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9991532599491956,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch321/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9991532599491956
+ },
+ {
+  "key": "war-and-peace/original-en/ch323",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.999083409715857,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch323/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.999083409715857
+ },
+ {
+  "key": "war-and-peace/original-en/ch326",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9897727272727272,
+    "reasons": [
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch326/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch333",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9989648033126294,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch333/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9989648033126294
+ },
+ {
+  "key": "war-and-peace/original-en/ch34",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9989395546129375,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch34/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9989395546129375
+ },
+ {
+  "key": "war-and-peace/original-en/ch39",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9942594718714122,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch39/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9980334316617503,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch7/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9980334316617503
+ },
+ {
+  "key": "war-and-peace/original-en/ch73",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.998805256869773,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch73/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.998805256869773
+ },
+ {
+  "key": "war-and-peace/original-en/ch79",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9967672413793104,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch79/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch82",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9944237918215614,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-wave02-2026-09-21/pods/tinct-bella-completion-35597511501/out/war-and-peace/original-en/ch82/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9944237918215614
+ }
+]

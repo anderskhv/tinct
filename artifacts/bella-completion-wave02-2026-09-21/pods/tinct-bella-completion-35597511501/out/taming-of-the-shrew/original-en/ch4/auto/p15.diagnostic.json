@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "1cc27c7947502bd59081995c33f4e77abad25cea0d9f2fe9d2d1d72f4a7df749",
+  "attempts": [
+    {
+      "asr_seconds": 0.1270213471725583,
+      "alignment_seconds": 0.0006466135382652283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Hortensio _plays.",
+        "hotwords": "Hortensio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hortensio plays.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Hortensio",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.9542643229166666
+            },
+            {
+              "text": " plays.",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.67626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "plays.",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "[Hortensio",
+        "_plays._]"
+      ],
+      "acoustic_expected_tokens": [
+        "[Hortensio",
+        "_plays."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plays.",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "plays",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[Hortensio",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "_plays._]",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12775298859924078
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2cd2d636252c057bf9546abac891b37b69341eb33e842a2e3d0c43918a767c15",
+  "selected_reasons": []
+}

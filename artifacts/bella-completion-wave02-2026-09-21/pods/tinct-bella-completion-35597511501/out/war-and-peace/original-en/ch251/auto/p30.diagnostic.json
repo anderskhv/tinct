@@ -1,0 +1,1022 @@
+{
+  "complete": true,
+  "signature": "3d3cbd617f51813a5d6d964bad85fd5f498a9f5717dba6b3e5619fa12f129db4",
+  "attempts": [
+    {
+      "asr_seconds": 0.32250119373202324,
+      "alignment_seconds": 0.0028355009853839874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Swaying his head and smiling as if amused at himself, the officer ran almost at a trot through the deserted streets toward the Yaúza bridge to overtake his regiment.",
+        "hotwords": "Swaying, Yaúza"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Swaying his head and smiling as if amused at himself, the officer ran almost at a trot through the deserted streets toward the Yaúza bridge to overtake his regiment.",
+          "start": 0.0,
+          "end": 8.46,
+          "words": [
+            {
+              "text": " Swaying",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.8517252604166666
+            },
+            {
+              "text": " his",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " smiling",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " amused",
+              "start": 1.82,
+              "end": 2.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " himself,",
+              "start": 2.34,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " officer",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " ran",
+              "start": 3.54,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " almost",
+              "start": 3.9,
+              "end": 4.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trot",
+              "start": 4.7,
+              "end": 4.96,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " through",
+              "start": 4.96,
+              "end": 5.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deserted",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " streets",
+              "start": 5.68,
+              "end": 6.14,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " toward",
+              "start": 6.14,
+              "end": 6.5,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Yaúza",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.01498641570409139
+            },
+            {
+              "text": " bridge",
+              "start": 7.0,
+              "end": 7.24,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " to",
+              "start": 7.24,
+              "end": 7.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " overtake",
+              "start": 7.52,
+              "end": 7.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 7.92,
+              "end": 8.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " regiment.",
+              "start": 8.14,
+              "end": 8.46,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Swaying",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "his",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "head",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "and",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "smiling",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "as",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "if",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "amused",
+          "start": 1.82,
+          "end": 2.14
+        },
+        {
+          "raw": "at",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "himself,",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "raw": "officer",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "raw": "ran",
+          "start": 3.54,
+          "end": 3.9
+        },
+        {
+          "raw": "almost",
+          "start": 3.9,
+          "end": 4.34
+        },
+        {
+          "raw": "at",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "trot",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "raw": "through",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "raw": "the",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "deserted",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "streets",
+          "start": 5.68,
+          "end": 6.14
+        },
+        {
+          "raw": "toward",
+          "start": 6.14,
+          "end": 6.5
+        },
+        {
+          "raw": "the",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "Yaúza",
+          "start": 6.7,
+          "end": 7.0
+        },
+        {
+          "raw": "bridge",
+          "start": 7.0,
+          "end": 7.24
+        },
+        {
+          "raw": "to",
+          "start": 7.24,
+          "end": 7.52
+        },
+        {
+          "raw": "overtake",
+          "start": 7.52,
+          "end": 7.92
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.14
+        },
+        {
+          "raw": "regiment.",
+          "start": 8.14,
+          "end": 8.46
+        }
+      ],
+      "expected_tokens": [
+        "Swaying",
+        "his",
+        "head",
+        "and",
+        "smiling",
+        "as",
+        "if",
+        "amused",
+        "at",
+        "himself,",
+        "the",
+        "officer",
+        "ran",
+        "almost",
+        "at",
+        "a",
+        "trot",
+        "through",
+        "the",
+        "deserted",
+        "streets",
+        "toward",
+        "the",
+        "Yaúza",
+        "bridge",
+        "to",
+        "overtake",
+        "his",
+        "regiment."
+      ],
+      "acoustic_expected_tokens": [
+        "Swaying",
+        "his",
+        "head",
+        "and",
+        "smiling",
+        "as",
+        "if",
+        "amused",
+        "at",
+        "himself,",
+        "the",
+        "officer",
+        "ran",
+        "almost",
+        "at",
+        "a",
+        "trot",
+        "through",
+        "the",
+        "deserted",
+        "streets",
+        "toward",
+        "the",
+        "Yaúza",
+        "bridge",
+        "to",
+        "overtake",
+        "his",
+        "regiment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Swaying",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "swaying",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "head",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "smiling",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "smiling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "amused",
+          "start": 1.82,
+          "end": 2.14,
+          "key": "amused",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.14,
+          "end": 2.34,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 2.34,
+          "end": 2.72,
+          "key": "himself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "officer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 3.54,
+          "end": 3.9,
+          "key": "ran",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.9,
+          "end": 4.34,
+          "key": "almost",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "trot",
+          "start": 4.7,
+          "end": 4.96,
+          "key": "trot",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.96,
+          "end": 5.14,
+          "key": "through",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "deserted",
+          "start": 5.3,
+          "end": 5.68,
+          "key": "deserted",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "streets",
+          "start": 5.68,
+          "end": 6.14,
+          "key": "streets",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 6.14,
+          "end": 6.5,
+          "key": "toward",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Yaúza",
+          "start": 6.7,
+          "end": 7.0,
+          "key": "yaúza",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bridge",
+          "start": 7.0,
+          "end": 7.24,
+          "key": "bridge",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.24,
+          "end": 7.52,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "overtake",
+          "start": 7.52,
+          "end": 7.92,
+          "key": "overtake",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.14,
+          "key": "his",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "regiment.",
+          "start": 8.14,
+          "end": 8.46,
+          "key": "regiment",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Swaying",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "his",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "head",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "and",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "smiling",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "as",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "if",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "amused",
+          "start": 1.82,
+          "end": 2.14
+        },
+        {
+          "text": "at",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "himself,",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "text": "officer",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "text": "ran",
+          "start": 3.54,
+          "end": 3.9
+        },
+        {
+          "text": "almost",
+          "start": 3.9,
+          "end": 4.34
+        },
+        {
+          "text": "at",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "a",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "trot",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "text": "through",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "text": "the",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "deserted",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "streets",
+          "start": 5.68,
+          "end": 6.14
+        },
+        {
+          "text": "toward",
+          "start": 6.14,
+          "end": 6.5
+        },
+        {
+          "text": "the",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "Yaúza",
+          "start": 6.7,
+          "end": 7.0
+        },
+        {
+          "text": "bridge",
+          "start": 7.0,
+          "end": 7.24
+        },
+        {
+          "text": "to",
+          "start": 7.24,
+          "end": 7.52
+        },
+        {
+          "text": "overtake",
+          "start": 7.52,
+          "end": 7.92
+        },
+        {
+          "text": "his",
+          "start": 7.92,
+          "end": 8.14
+        },
+        {
+          "text": "regiment.",
+          "start": 8.14,
+          "end": 8.46
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32567090075463057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82258c849cc2a83b102a10b6669a15ec1c6e678b548859efef88c8b802a564e9",
+  "selected_reasons": []
+}

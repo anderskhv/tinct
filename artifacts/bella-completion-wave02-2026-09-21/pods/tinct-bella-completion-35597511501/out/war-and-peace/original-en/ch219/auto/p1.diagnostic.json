@@ -1,0 +1,394 @@
+{
+  "complete": true,
+  "signature": "5296939474d070a6de9ae4e73671f1fe5d5a74624fed850b879893c65058d2b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20079130493104458,
+      "alignment_seconds": 0.0014252299442887306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The chessmen are set up, the game will begin tomorrow!\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The chessmen are set up, the game will begin tomorrow!",
+          "start": 0.0,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " chessmen",
+              "start": 0.3,
+              "end": 0.7,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " are",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " set",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " up,",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " game",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " begin",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tomorrow!",
+              "start": 2.46,
+              "end": 2.86,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "chessmen",
+          "start": 0.3,
+          "end": 0.7
+        },
+        {
+          "raw": "are",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "set",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "up,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "game",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "will",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "begin",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "tomorrow!",
+          "start": 2.46,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "chessmen",
+        "are",
+        "set",
+        "up,",
+        "the",
+        "game",
+        "will",
+        "begin",
+        "tomorrow!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "chessmen",
+        "are",
+        "set",
+        "up,",
+        "the",
+        "game",
+        "will",
+        "begin",
+        "tomorrow!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "chessmen",
+          "start": 0.3,
+          "end": 0.7,
+          "key": "chessmen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "set",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "game",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "game",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "begin",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tomorrow!",
+          "start": 2.46,
+          "end": 2.86,
+          "key": "tomorrow",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "chessmen",
+          "start": 0.3,
+          "end": 0.7
+        },
+        {
+          "text": "are",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "set",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "up,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "game",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "will",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "begin",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "tomorrow!”",
+          "start": 2.46,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20240444224327803
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e23282f035eae2288d381aad0b68e397d9ed87597de8d0fe4cfea94f8053a017",
+  "selected_reasons": []
+}

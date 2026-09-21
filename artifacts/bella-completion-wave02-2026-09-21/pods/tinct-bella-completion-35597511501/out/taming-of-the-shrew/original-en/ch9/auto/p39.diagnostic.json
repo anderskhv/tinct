@@ -1,0 +1,656 @@
+{
+  "complete": true,
+  "signature": "92f45b79df0cd4e3685adeca07967e7233022aa47a92e9672936f8109d95b1f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.176975735463202,
+      "alignment_seconds": 0.0006380099803209305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hear'st thou, Biondello?",
+        "hotwords": "Hear'st, Biondello"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucentio, here'st thou, Biondello?",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Lucentio,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.767578125
+            },
+            {
+              "text": " here'st",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.575579563776652
+            },
+            {
+              "text": " thou,",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.1929931640625
+            },
+            {
+              "text": " Biondello?",
+              "start": 2.05,
+              "end": 2.47,
+              "probability": 0.660919189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "here'st",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "thou,",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "Biondello?",
+          "start": 2.05,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "Hear’st",
+        "thou,",
+        "Biondello?"
+      ],
+      "acoustic_expected_tokens": [
+        "Hear'st",
+        "thou,",
+        "Biondello?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here'st",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "herest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Biondello?",
+          "start": 2.05,
+          "end": 2.47,
+          "key": "biondello",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Hear’st",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "thou,",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "Biondello?",
+          "start": 2.05,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1777154803276062
+    },
+    {
+      "asr_seconds": 0.1877188105136156,
+      "alignment_seconds": 0.0008474458009004593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hear'st, Biondello"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lucentio. Here'st thou, Biondello.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Lucentio.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.767578125
+            },
+            {
+              "text": " Here'st",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.6256983280181885
+            },
+            {
+              "text": " thou,",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.180419921875
+            },
+            {
+              "text": " Biondello.",
+              "start": 2.01,
+              "end": 2.47,
+              "probability": 0.66693115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Here'st",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "thou,",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "Biondello.",
+          "start": 2.01,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "Hear’st",
+        "thou,",
+        "Biondello?"
+      ],
+      "acoustic_expected_tokens": [
+        "Hear'st",
+        "thou,",
+        "Biondello?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here'st",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "herest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Biondello.",
+          "start": 2.01,
+          "end": 2.47,
+          "key": "biondello",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Hear’st",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "thou,",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "Biondello?",
+          "start": 2.01,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18868399038910866
+    },
+    {
+      "asr_seconds": 0.2232351303100586,
+      "alignment_seconds": 0.0008556637912988663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucentio, here's d'thou by Ondello.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Lucentio,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.767578125
+            },
+            {
+              "text": " here's",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.86328125
+            },
+            {
+              "text": " d",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.16015625
+            },
+            {
+              "text": "'thou",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.6407877604166666
+            },
+            {
+              "text": " by",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Ondello.",
+              "start": 2.11,
+              "end": 2.51,
+              "probability": 0.6551920572916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "here's",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "d",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "'thou",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "by",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "Ondello.",
+          "start": 2.11,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "Hear’st",
+        "thou,",
+        "Biondello?"
+      ],
+      "acoustic_expected_tokens": [
+        "Hear'st",
+        "thou,",
+        "Biondello?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          "replace",
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here's",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "heres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "d",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'thou",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ondello.",
+          "start": 2.11,
+          "end": 2.51,
+          "key": "ondello",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Hear’st",
+          "start": 0.0,
+          "end": 0.855
+        },
+        {
+          "text": "thou,",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "Biondello?",
+          "start": 1.93,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22422028984874487
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49817450fb4e150d7b364b072f2a06a96fac36b4c9f557b943bd1a244f91a436",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

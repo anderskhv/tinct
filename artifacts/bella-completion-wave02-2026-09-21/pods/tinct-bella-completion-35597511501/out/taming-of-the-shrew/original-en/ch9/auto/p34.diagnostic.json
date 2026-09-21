@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "91688a858695bd7a8f62afa965d4cf798f4c6cecd0baf6605b30600a0d2834f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.13080787379294634,
+      "alignment_seconds": 0.0005854098126292229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And then?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucentio. And then?",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Lucentio.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.752197265625
+            },
+            {
+              "text": " And",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.955078125
+            },
+            {
+              "text": " then?",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "And",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "then?",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "And",
+        "then?"
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "And",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "then?",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13149296306073666
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1713cd754b2e71be37c58ca8cbb5b4dd521b66991b502ca8c259f083b7e5865d",
+  "selected_reasons": []
+}

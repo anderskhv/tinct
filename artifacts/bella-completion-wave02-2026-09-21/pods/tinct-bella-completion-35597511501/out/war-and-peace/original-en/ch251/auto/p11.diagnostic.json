@@ -1,0 +1,352 @@
+{
+  "complete": true,
+  "signature": "938bc53edc66d0f72edf9df4a7d123f22e774e91956c27793b5f1e834db0cf0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3069524886086583,
+      "alignment_seconds": 0.000986292026937008,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The count—Count Ilyá Andréevich Rostóv.\"",
+        "hotwords": "The, Ilyá, Andréevich, Rostóv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The count—Count Ilyá Andréevich Rostóv",
+          "start": 0.0,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " count—Count",
+              "start": 0.32,
+              "end": 1.18,
+              "probability": 0.3684743245442708
+            },
+            {
+              "text": " Ilyá",
+              "start": 1.18,
+              "end": 1.54,
+              "probability": 0.24760156869888306
+            },
+            {
+              "text": " Andréevich",
+              "start": 1.54,
+              "end": 2.16,
+              "probability": 0.41853760182857513
+            },
+            {
+              "text": " Rostóv",
+              "start": 2.16,
+              "end": 2.8,
+              "probability": 0.5083414713541666
+            }
+          ]
+        },
+        {
+          "text": " The count—Count Ilyá Andréevich Rostóv",
+          "start": 2.8,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 2.8,
+              "end": 3.62,
+              "probability": 0.0066375732421875
+            },
+            {
+              "text": " count—Count",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 5.8492024739583336e-05
+            },
+            {
+              "text": " Ilyá",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 8.732080459594727e-06
+            },
+            {
+              "text": " Andréevich",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.01573847234249115
+            },
+            {
+              "text": " Rostóv",
+              "start": 3.62,
+              "end": 3.62,
+              "probability": 0.005798459053039551
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "count—Count",
+          "start": 0.32,
+          "end": 1.18
+        },
+        {
+          "raw": "Ilyá",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "raw": "Andréevich",
+          "start": 1.54,
+          "end": 2.16
+        },
+        {
+          "raw": "Rostóv",
+          "start": 2.16,
+          "end": 2.8
+        },
+        {
+          "raw": "The",
+          "start": 2.8,
+          "end": 3.62
+        },
+        {
+          "raw": "count—Count",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "Ilyá",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "Andréevich",
+          "start": 3.62,
+          "end": 3.62
+        },
+        {
+          "raw": "Rostóv",
+          "start": 3.62,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "count—Count",
+        "Ilyá",
+        "Andréevich",
+        "Rostóv.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "count—Count",
+        "Ilyá",
+        "Andréevich",
+        "Rostóv.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "count—Count",
+          "start": 0.32,
+          "end": 1.18,
+          "key": "countcount",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ilyá",
+          "start": 1.18,
+          "end": 1.54,
+          "key": "ilyá",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Andréevich",
+          "start": 1.54,
+          "end": 2.16,
+          "key": "andréevich",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rostóv",
+          "start": 2.16,
+          "end": 2.8,
+          "key": "rostóv",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.8,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "count—Count",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "countcount",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ilyá",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "ilyá",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Andréevich",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "andréevich",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Rostóv",
+          "start": 3.62,
+          "end": 3.62,
+          "key": "rostóv",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "count—Count",
+          "start": 0.32,
+          "end": 1.18
+        },
+        {
+          "text": "Ilyá",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "text": "Andréevich",
+          "start": 1.54,
+          "end": 2.16
+        },
+        {
+          "text": "Rostóv.”",
+          "start": 2.16,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3081341711804271
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b87145747ae5c3e13f5380f123e2c6f27fb64b60b0e48aa8099176689880f1fa",
+  "selected_reasons": []
+}

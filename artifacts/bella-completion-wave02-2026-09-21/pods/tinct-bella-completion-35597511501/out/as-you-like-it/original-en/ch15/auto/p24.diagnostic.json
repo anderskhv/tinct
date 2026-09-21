@@ -1,0 +1,1842 @@
+{
+  "complete": true,
+  "signature": "abab05f2c86a46f20d8ab4d6a8ea81722445cdcba62c57fb0d3e3a46f79bf4b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.28510555904358625,
+      "alignment_seconds": 0.002138471230864525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Youth, you have done me much ungentleness To show the letter that I writ to you.",
+        "hotwords": "Youth, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You have done me much ungentleness To show the letter that I writ to you.",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.0183563232421875
+            },
+            {
+              "text": " have",
+              "start": 0.72,
+              "end": 2.38,
+              "probability": 0.64453125
+            },
+            {
+              "text": " done",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " much",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ungentleness",
+              "start": 2.88,
+              "end": 3.52,
+              "probability": 0.8038736979166666
+            },
+            {
+              "text": " To",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.00428009033203125
+            },
+            {
+              "text": " show",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.984375
+            },
+            {
+              "text": " letter",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " that",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.794921875
+            },
+            {
+              "text": " I",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " writ",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " to",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you.",
+              "start": 5.02,
+              "end": 5.28,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 2.38
+        },
+        {
+          "raw": "done",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "raw": "ungentleness",
+          "start": 2.88,
+          "end": 3.52
+        },
+        {
+          "raw": "To",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "show",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "you.",
+          "start": 5.02,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "PHEBE.",
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          16,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 2.38,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ungentleness",
+          "start": 2.88,
+          "end": 3.52,
+          "key": "ungentleness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "show",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "letter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "writ",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.02,
+          "end": 5.28,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PHEBE.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Youth,",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "you",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "have",
+          "start": 0.72,
+          "end": 2.38
+        },
+        {
+          "text": "done",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "text": "ungentleness",
+          "start": 2.88,
+          "end": 3.52
+        },
+        {
+          "text": "To",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "show",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "writ",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "to",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "you.",
+          "start": 5.02,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.287504562176764
+    },
+    {
+      "asr_seconds": 0.28377806302160025,
+      "alignment_seconds": 0.00200602225959301,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Youth, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You have done me much ungentleness to show the letter that I writ to you",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.0183563232421875
+            },
+            {
+              "text": " have",
+              "start": 0.72,
+              "end": 2.38,
+              "probability": 0.64453125
+            },
+            {
+              "text": " done",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " much",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ungentleness",
+              "start": 2.88,
+              "end": 3.52,
+              "probability": 0.8038736979166666
+            },
+            {
+              "text": " to",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " show",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " letter",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " writ",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 5.02,
+              "end": 5.28,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 2.38
+        },
+        {
+          "raw": "done",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "raw": "ungentleness",
+          "start": 2.88,
+          "end": 3.52
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "show",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "PHEBE.",
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          16,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 2.38,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ungentleness",
+          "start": 2.88,
+          "end": 3.52,
+          "key": "ungentleness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.74,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 3.74,
+          "end": 3.94,
+          "key": "show",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "letter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.82,
+          "key": "writ",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.28,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PHEBE.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Youth,",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "you",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "have",
+          "start": 0.72,
+          "end": 2.38
+        },
+        {
+          "text": "done",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "text": "ungentleness",
+          "start": 2.88,
+          "end": 3.52
+        },
+        {
+          "text": "To",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "show",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "writ",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "you.",
+          "start": 5.02,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2859815713018179
+    },
+    {
+      "asr_seconds": 0.27805964834988117,
+      "alignment_seconds": 0.001890053041279316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Phoebe youth you have done me much on gentleness to show the letter that I writ to you",
+          "start": 0.9,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Phoebe",
+              "start": 0.9,
+              "end": 1.28,
+              "probability": 0.5997721354166666
+            },
+            {
+              "text": " youth",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.52734375
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 2.3,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " have",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " done",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " much",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 2.88,
+              "end": 3.06,
+              "probability": 0.352294921875
+            },
+            {
+              "text": " gentleness",
+              "start": 3.06,
+              "end": 3.52,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " to",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " show",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " letter",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " writ",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.484375
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Phoebe",
+          "start": 0.9,
+          "end": 1.28
+        },
+        {
+          "raw": "youth",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 2.3
+        },
+        {
+          "raw": "have",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "done",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "raw": "on",
+          "start": 2.88,
+          "end": 3.06
+        },
+        {
+          "raw": "gentleness",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "show",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.26
+        }
+      ],
+      "expected_tokens": [
+        "PHEBE.",
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "Youth,",
+        "you",
+        "have",
+        "done",
+        "me",
+        "much",
+        "ungentleness",
+        "To",
+        "show",
+        "the",
+        "letter",
+        "that",
+        "I",
+        "writ",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          9
+        ],
+        [
+          "equal",
+          7,
+          16,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Phoebe",
+          "start": 0.9,
+          "end": 1.28,
+          "key": "phoebe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "youth",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "youth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 2.3,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.68,
+          "end": 2.88,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.88,
+          "end": 3.06,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gentleness",
+          "start": 3.06,
+          "end": 3.52,
+          "key": "gentleness",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "show",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "letter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "writ",
+          "start": 4.64,
+          "end": 4.82,
+          "key": "writ",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PHEBE.",
+          "start": 1.28,
+          "end": 1.28
+        },
+        {
+          "text": "Youth,",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 2.3
+        },
+        {
+          "text": "have",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "done",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "me",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "much",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "text": "ungentleness",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "To",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "show",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "letter",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "that",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "I",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "writ",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "you.",
+          "start": 5.02,
+          "end": 5.26
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.280155923217535
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56aefeb6836a3a04dcdb613821eaa5cb13f41ae41b68be969b556b546507063d",
+  "selected_reasons": []
+}

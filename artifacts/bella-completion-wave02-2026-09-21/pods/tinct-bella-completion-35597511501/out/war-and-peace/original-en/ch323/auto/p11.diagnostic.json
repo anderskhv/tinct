@@ -1,0 +1,1541 @@
+{
+  "complete": true,
+  "signature": "084db38682040622ffd1ec91b7b369b8aa4c6079a3a4dd92d154cea061db158d",
+  "attempts": [
+    {
+      "asr_seconds": 0.45455336943268776,
+      "alignment_seconds": 0.0035977158695459366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Lower its head, lower it!\" he said to a soldier who had accidentally lowered the French eagle he was holding before the Preobrazhénsk standards. \"Lower, lower, that's it. Hurrah lads!\" he added, addressing the men with a rapid movement of his chin.",
+        "hotwords": "French, Preobrazhénsk, Hurrah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lower its head, lower it!\" he said to a soldier who had accidentally lowered the French eagle he was holding before the Preobrazhénsk standards.",
+          "start": 0.0,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " Lower",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.31103515625
+            },
+            {
+              "text": " its",
+              "start": 0.46,
+              "end": 0.64,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " head,",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lower",
+              "start": 1.28,
+              "end": 1.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "!\"",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.0227508544921875
+            },
+            {
+              "text": " he",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " said",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.28,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " soldier",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " who",
+              "start": 2.66,
+              "end": 2.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " had",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " accidentally",
+              "start": 3.1,
+              "end": 3.62,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " lowered",
+              "start": 3.62,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " French",
+              "start": 4.3,
+              "end": 4.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " eagle",
+              "start": 4.56,
+              "end": 4.9,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " he",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " holding",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " before",
+              "start": 5.56,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.98,
+              "end": 6.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Preobrazhénsk",
+              "start": 6.16,
+              "end": 7.02,
+              "probability": 0.35660604919706074
+            },
+            {
+              "text": " standards.",
+              "start": 7.02,
+              "end": 7.44,
+              "probability": 0.90771484375
+            }
+          ]
+        },
+        {
+          "text": " Lower, lower, that's it. Hurrah lads!\" he added, addressing the men with a rapid movement of his chin.",
+          "start": 8.62,
+          "end": 15.42,
+          "words": [
+            {
+              "text": " Lower,",
+              "start": 8.62,
+              "end": 8.88,
+              "probability": 0.10296630859375
+            },
+            {
+              "text": " lower,",
+              "start": 9.6,
+              "end": 9.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that's",
+              "start": 9.98,
+              "end": 10.18,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " it.",
+              "start": 10.18,
+              "end": 10.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Hurrah",
+              "start": 11.46,
+              "end": 11.66,
+              "probability": 0.44293212890625
+            },
+            {
+              "text": " lads",
+              "start": 11.66,
+              "end": 12.0,
+              "probability": 0.8544921875
+            },
+            {
+              "text": "!\"",
+              "start": 12.0,
+              "end": 12.28,
+              "probability": 0.004253387451171875
+            },
+            {
+              "text": " he",
+              "start": 12.28,
+              "end": 12.4,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " added,",
+              "start": 12.4,
+              "end": 12.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " addressing",
+              "start": 12.96,
+              "end": 13.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 13.3,
+              "end": 13.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men",
+              "start": 13.54,
+              "end": 13.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 13.72,
+              "end": 13.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 13.92,
+              "end": 14.04,
+              "probability": 0.984375
+            },
+            {
+              "text": " rapid",
+              "start": 14.04,
+              "end": 14.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " movement",
+              "start": 14.28,
+              "end": 14.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 14.76,
+              "end": 14.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 14.98,
+              "end": 15.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chin.",
+              "start": 15.12,
+              "end": 15.42,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lower",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "its",
+          "start": 0.46,
+          "end": 0.64
+        },
+        {
+          "raw": "head,",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "lower",
+          "start": 1.28,
+          "end": 1.3
+        },
+        {
+          "raw": "it",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "!\"",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "said",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "a",
+          "start": 2.28,
+          "end": 2.38
+        },
+        {
+          "raw": "soldier",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "who",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "raw": "had",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "accidentally",
+          "start": 3.1,
+          "end": 3.62
+        },
+        {
+          "raw": "lowered",
+          "start": 3.62,
+          "end": 4.12
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "French",
+          "start": 4.3,
+          "end": 4.56
+        },
+        {
+          "raw": "eagle",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "was",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "holding",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "raw": "before",
+          "start": 5.56,
+          "end": 5.98
+        },
+        {
+          "raw": "the",
+          "start": 5.98,
+          "end": 6.16
+        },
+        {
+          "raw": "Preobrazhénsk",
+          "start": 6.16,
+          "end": 7.02
+        },
+        {
+          "raw": "standards.",
+          "start": 7.02,
+          "end": 7.44
+        },
+        {
+          "raw": "Lower,",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "raw": "lower,",
+          "start": 9.6,
+          "end": 9.6
+        },
+        {
+          "raw": "that's",
+          "start": 9.98,
+          "end": 10.18
+        },
+        {
+          "raw": "it.",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "raw": "Hurrah",
+          "start": 11.46,
+          "end": 11.66
+        },
+        {
+          "raw": "lads",
+          "start": 11.66,
+          "end": 12.0
+        },
+        {
+          "raw": "!\"",
+          "start": 12.0,
+          "end": 12.28
+        },
+        {
+          "raw": "he",
+          "start": 12.28,
+          "end": 12.4
+        },
+        {
+          "raw": "added,",
+          "start": 12.4,
+          "end": 12.64
+        },
+        {
+          "raw": "addressing",
+          "start": 12.96,
+          "end": 13.3
+        },
+        {
+          "raw": "the",
+          "start": 13.3,
+          "end": 13.54
+        },
+        {
+          "raw": "men",
+          "start": 13.54,
+          "end": 13.72
+        },
+        {
+          "raw": "with",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "raw": "a",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "raw": "rapid",
+          "start": 14.04,
+          "end": 14.28
+        },
+        {
+          "raw": "movement",
+          "start": 14.28,
+          "end": 14.76
+        },
+        {
+          "raw": "of",
+          "start": 14.76,
+          "end": 14.98
+        },
+        {
+          "raw": "his",
+          "start": 14.98,
+          "end": 15.12
+        },
+        {
+          "raw": "chin.",
+          "start": 15.12,
+          "end": 15.42
+        }
+      ],
+      "expected_tokens": [
+        "“Lower",
+        "its",
+        "head,",
+        "lower",
+        "it!”",
+        "he",
+        "said",
+        "to",
+        "a",
+        "soldier",
+        "who",
+        "had",
+        "accidentally",
+        "lowered",
+        "the",
+        "French",
+        "eagle",
+        "he",
+        "was",
+        "holding",
+        "before",
+        "the",
+        "Preobrazhénsk",
+        "standards.",
+        "“Lower,",
+        "lower,",
+        "that’s",
+        "it.",
+        "Hurrah",
+        "lads!”",
+        "he",
+        "added,",
+        "addressing",
+        "the",
+        "men",
+        "with",
+        "a",
+        "rapid",
+        "movement",
+        "of",
+        "his",
+        "chin."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Lower",
+        "its",
+        "head,",
+        "lower",
+        "it!\"",
+        "he",
+        "said",
+        "to",
+        "a",
+        "soldier",
+        "who",
+        "had",
+        "accidentally",
+        "lowered",
+        "the",
+        "French",
+        "eagle",
+        "he",
+        "was",
+        "holding",
+        "before",
+        "the",
+        "Preobrazhénsk",
+        "standards.",
+        "\"Lower,",
+        "lower,",
+        "that's",
+        "it.",
+        "Hurrah",
+        "lads!\"",
+        "he",
+        "added,",
+        "addressing",
+        "the",
+        "men",
+        "with",
+        "a",
+        "rapid",
+        "movement",
+        "of",
+        "his",
+        "chin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          30,
+          6,
+          31
+        ],
+        [
+          "insert",
+          30,
+          30,
+          31,
+          32
+        ],
+        [
+          "equal",
+          30,
+          42,
+          32,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          "insert",
+          30,
+          30,
+          31,
+          32
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lower",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "lower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 0.46,
+          "end": 0.64,
+          "key": "its",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "head,",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "head",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 1.28,
+          "end": 1.3,
+          "key": "lower",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.28,
+          "end": 2.38,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "soldier",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.66,
+          "end": 2.96,
+          "key": "who",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "accidentally",
+          "start": 3.1,
+          "end": 3.62,
+          "key": "accidentally",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lowered",
+          "start": 3.62,
+          "end": 4.12,
+          "key": "lowered",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 4.3,
+          "end": 4.56,
+          "key": "french",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eagle",
+          "start": 4.56,
+          "end": 4.9,
+          "key": "eagle",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.1,
+          "end": 5.22,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "holding",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "holding",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 5.56,
+          "end": 5.98,
+          "key": "before",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.98,
+          "end": 6.16,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Preobrazhénsk",
+          "start": 6.16,
+          "end": 7.02,
+          "key": "preobrazhénsk",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "standards.",
+          "start": 7.02,
+          "end": 7.44,
+          "key": "standards",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Lower,",
+          "start": 8.62,
+          "end": 8.88,
+          "key": "lower",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "lower,",
+          "start": 9.6,
+          "end": 9.6,
+          "key": "lower",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 9.98,
+          "end": 10.18,
+          "key": "thats",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 10.18,
+          "end": 10.48,
+          "key": "it",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Hurrah",
+          "start": 11.46,
+          "end": 11.66,
+          "key": "hurrah",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lads",
+          "start": 11.66,
+          "end": 12.0,
+          "key": "lads",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 12.0,
+          "end": 12.28,
+          "key": "",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.28,
+          "end": 12.4,
+          "key": "he",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "added,",
+          "start": 12.4,
+          "end": 12.64,
+          "key": "added",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "addressing",
+          "start": 12.96,
+          "end": 13.3,
+          "key": "addressing",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.3,
+          "end": 13.54,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 13.54,
+          "end": 13.72,
+          "key": "men",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.72,
+          "end": 13.92,
+          "key": "with",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.92,
+          "end": 14.04,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "rapid",
+          "start": 14.04,
+          "end": 14.28,
+          "key": "rapid",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "movement",
+          "start": 14.28,
+          "end": 14.76,
+          "key": "movement",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.76,
+          "end": 14.98,
+          "key": "of",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.98,
+          "end": 15.12,
+          "key": "his",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "chin.",
+          "start": 15.12,
+          "end": 15.42,
+          "key": "chin",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Lower",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "its",
+          "start": 0.46,
+          "end": 0.64
+        },
+        {
+          "text": "head,",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "lower",
+          "start": 1.28,
+          "end": 1.3
+        },
+        {
+          "text": "it!”",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "said",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "to",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "a",
+          "start": 2.28,
+          "end": 2.38
+        },
+        {
+          "text": "soldier",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "who",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "text": "had",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "accidentally",
+          "start": 3.1,
+          "end": 3.62
+        },
+        {
+          "text": "lowered",
+          "start": 3.62,
+          "end": 4.12
+        },
+        {
+          "text": "the",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "French",
+          "start": 4.3,
+          "end": 4.56
+        },
+        {
+          "text": "eagle",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "text": "he",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "was",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "holding",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "text": "before",
+          "start": 5.56,
+          "end": 5.98
+        },
+        {
+          "text": "the",
+          "start": 5.98,
+          "end": 6.16
+        },
+        {
+          "text": "Preobrazhénsk",
+          "start": 6.16,
+          "end": 7.02
+        },
+        {
+          "text": "standards.",
+          "start": 7.02,
+          "end": 7.44
+        },
+        {
+          "text": "“Lower,",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "text": "lower,",
+          "start": 9.6,
+          "end": 9.6
+        },
+        {
+          "text": "that’s",
+          "start": 9.98,
+          "end": 10.18
+        },
+        {
+          "text": "it.",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "text": "Hurrah",
+          "start": 11.46,
+          "end": 11.66
+        },
+        {
+          "text": "lads!”",
+          "start": 11.66,
+          "end": 12.0
+        },
+        {
+          "text": "he",
+          "start": 12.28,
+          "end": 12.4
+        },
+        {
+          "text": "added,",
+          "start": 12.4,
+          "end": 12.64
+        },
+        {
+          "text": "addressing",
+          "start": 12.96,
+          "end": 13.3
+        },
+        {
+          "text": "the",
+          "start": 13.3,
+          "end": 13.54
+        },
+        {
+          "text": "men",
+          "start": 13.54,
+          "end": 13.72
+        },
+        {
+          "text": "with",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "text": "a",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "text": "rapid",
+          "start": 14.04,
+          "end": 14.28
+        },
+        {
+          "text": "movement",
+          "start": 14.28,
+          "end": 14.76
+        },
+        {
+          "text": "of",
+          "start": 14.76,
+          "end": 14.98
+        },
+        {
+          "text": "his",
+          "start": 14.98,
+          "end": 15.12
+        },
+        {
+          "text": "chin.",
+          "start": 15.12,
+          "end": 15.42
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 44,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4584987619891763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e46dfaec65687be9cc9746730f360e48ee825bf4e600f5153060726c14ff03ee",
+  "selected_reasons": []
+}

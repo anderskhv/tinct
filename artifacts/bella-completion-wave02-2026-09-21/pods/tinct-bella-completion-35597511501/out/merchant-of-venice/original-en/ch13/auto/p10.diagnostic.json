@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "02ab4ffc063591454ef713aa6eaa152f0ad12e486846c46d9a429f132cdeee5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.36645194329321384,
+      "alignment_seconds": 0.0016434378921985626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You knew, none so well, none so well as you, of my daughter's flight."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, you knew, none so well, none so well as you, of my daughter's flight.",
+          "start": 0.52,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " you",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " knew,",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " none",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " so",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " well,",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " none",
+              "start": 2.64,
+              "end": 2.72,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " so",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " well",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " you,",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " my",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " daughter's",
+              "start": 3.86,
+              "end": 4.3,
+              "probability": 0.933837890625
+            },
+            {
+              "text": " flight.",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "knew,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "none",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "so",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "well,",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "raw": "none",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "raw": "so",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "well",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "as",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "daughter's",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "raw": "flight.",
+          "start": 4.3,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "SHYLOCK.",
+        "You",
+        "knew,",
+        "none",
+        "so",
+        "well,",
+        "none",
+        "so",
+        "well",
+        "as",
+        "you,",
+        "of",
+        "my",
+        "daughter’s",
+        "flight."
+      ],
+      "acoustic_expected_tokens": [
+        "You",
+        "knew,",
+        "none",
+        "so",
+        "well,",
+        "none",
+        "so",
+        "well",
+        "as",
+        "you,",
+        "of",
+        "my",
+        "daughter's",
+        "flight."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          14,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "knew,",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "knew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "none",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 2.18,
+          "end": 2.46,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 2.64,
+          "end": 2.72,
+          "key": "none",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.7,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "daughter's",
+          "start": 3.86,
+          "end": 4.3,
+          "key": "daughters",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "flight.",
+          "start": 4.3,
+          "end": 4.54,
+          "key": "flight",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHYLOCK.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "You",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "knew,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "none",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "so",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "well,",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "text": "none",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "text": "so",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "well",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "as",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "you,",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "of",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "daughter’s",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "text": "flight.",
+          "start": 4.3,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36835924815386534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "163aefa0e506ea74f55e0ded9db75376a6341a8de39e98ee72b0c5e2e2744d6e",
+  "selected_reasons": []
+}

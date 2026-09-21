@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "eefa58499e9342253df78939de885c1987039d1305452273e89c737f74923b08",
+  "attempts": [
+    {
+      "asr_seconds": 0.20518977846950293,
+      "alignment_seconds": 0.001209653913974762,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You have observed that?\" said Princess Mary.",
+        "hotwords": "You, Princess, Mary"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You have observed that?\" said Princess Mary.",
+          "start": 0.0,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.165283203125
+            },
+            {
+              "text": " have",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " observed",
+              "start": 0.5,
+              "end": 0.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that?\"",
+              "start": 0.9,
+              "end": 1.52,
+              "probability": 0.5000696182250977
+            },
+            {
+              "text": " said",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Princess",
+              "start": 1.64,
+              "end": 2.02,
+              "probability": 0.96875
+            },
+            {
+              "text": " Mary.",
+              "start": 2.02,
+              "end": 2.46,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "have",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "observed",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "raw": "that?\"",
+          "start": 0.9,
+          "end": 1.52
+        },
+        {
+          "raw": "said",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "Princess",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "raw": "Mary.",
+          "start": 2.02,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "have",
+        "observed",
+        "that?”",
+        "said",
+        "Princess",
+        "Mary."
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "have",
+        "observed",
+        "that?\"",
+        "said",
+        "Princess",
+        "Mary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.34,
+          "end": 0.5,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 0.5,
+          "end": 0.9,
+          "key": "observed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that?\"",
+          "start": 0.9,
+          "end": 1.52,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Princess",
+          "start": 1.64,
+          "end": 2.02,
+          "key": "princess",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mary.",
+          "start": 2.02,
+          "end": 2.46,
+          "key": "mary",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "have",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "text": "observed",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "text": "that?”",
+          "start": 0.9,
+          "end": 1.52
+        },
+        {
+          "text": "said",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "Princess",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "text": "Mary.",
+          "start": 2.02,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20659829303622246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e69011c17be29189dbb2fc60538e71a283e3b811a5c258ba3f4d840a21d0ae7",
+  "selected_reasons": []
+}

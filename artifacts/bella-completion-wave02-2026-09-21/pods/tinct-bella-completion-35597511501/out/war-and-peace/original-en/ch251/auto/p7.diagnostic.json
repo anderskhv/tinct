@@ -1,0 +1,890 @@
+{
+  "complete": true,
+  "signature": "c80be2d9f8185cb810ff8a9bc5ef208bbc3c58ea833e8b63675bc2685e911e87",
+  "attempts": [
+    {
+      "asr_seconds": 0.34023310896009207,
+      "alignment_seconds": 0.0026611732318997383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mávra Kuzmínichna flicked the dust off the clavichord and closed it, and with a deep sigh left the drawing room and locked its main door.",
+        "hotwords": "Mávra, Kuzmínichna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mávra Kuzmínichna flicked the dust off the clavichord and closed it, and with a deep sigh left the drawing room and locked its main door.",
+          "start": 0.0,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " Mávra",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.15078353881835938
+            },
+            {
+              "text": " Kuzmínichna",
+              "start": 0.6,
+              "end": 1.18,
+              "probability": 0.23190816243489584
+            },
+            {
+              "text": " flicked",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dust",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " off",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " clavichord",
+              "start": 2.16,
+              "end": 2.6,
+              "probability": 0.8699951171875
+            },
+            {
+              "text": " and",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " closed",
+              "start": 2.76,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 3.02,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.5,
+              "end": 3.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 3.62,
+              "end": 3.74,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " deep",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sigh",
+              "start": 4.1,
+              "end": 4.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " left",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drawing",
+              "start": 4.72,
+              "end": 4.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " room",
+              "start": 4.98,
+              "end": 5.28,
+              "probability": 0.498779296875
+            },
+            {
+              "text": " and",
+              "start": 5.28,
+              "end": 5.5,
+              "probability": 0.98046875
+            },
+            {
+              "text": " locked",
+              "start": 5.5,
+              "end": 5.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " its",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " main",
+              "start": 5.9,
+              "end": 6.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " door.",
+              "start": 6.16,
+              "end": 6.48,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18
+        },
+        {
+          "raw": "flicked",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "dust",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "off",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "clavichord",
+          "start": 2.16,
+          "end": 2.6
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "closed",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "raw": "it,",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "raw": "with",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "raw": "a",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "deep",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "sigh",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "raw": "left",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "drawing",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "raw": "room",
+          "start": 4.98,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "raw": "locked",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "raw": "its",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "main",
+          "start": 5.9,
+          "end": 6.16
+        },
+        {
+          "raw": "door.",
+          "start": 6.16,
+          "end": 6.48
+        }
+      ],
+      "expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "flicked",
+        "the",
+        "dust",
+        "off",
+        "the",
+        "clavichord",
+        "and",
+        "closed",
+        "it,",
+        "and",
+        "with",
+        "a",
+        "deep",
+        "sigh",
+        "left",
+        "the",
+        "drawing",
+        "room",
+        "and",
+        "locked",
+        "its",
+        "main",
+        "door."
+      ],
+      "acoustic_expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "flicked",
+        "the",
+        "dust",
+        "off",
+        "the",
+        "clavichord",
+        "and",
+        "closed",
+        "it,",
+        "and",
+        "with",
+        "a",
+        "deep",
+        "sigh",
+        "left",
+        "the",
+        "drawing",
+        "room",
+        "and",
+        "locked",
+        "its",
+        "main",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "mávra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18,
+          "key": "kuzmínichna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flicked",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "flicked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dust",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "dust",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "off",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "clavichord",
+          "start": 2.16,
+          "end": 2.6,
+          "key": "clavichord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 2.76,
+          "end": 3.02,
+          "key": "closed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 3.02,
+          "end": 3.28,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.62,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.62,
+          "end": 3.74,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "deep",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sigh",
+          "start": 4.1,
+          "end": 4.3,
+          "key": "sigh",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 4.3,
+          "end": 4.54,
+          "key": "left",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.54,
+          "end": 4.72,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "drawing",
+          "start": 4.72,
+          "end": 4.98,
+          "key": "drawing",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 4.98,
+          "end": 5.28,
+          "key": "room",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.5,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "locked",
+          "start": 5.5,
+          "end": 5.7,
+          "key": "locked",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "its",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "main",
+          "start": 5.9,
+          "end": 6.16,
+          "key": "main",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 6.16,
+          "end": 6.48,
+          "key": "door",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18
+        },
+        {
+          "text": "flicked",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "dust",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "off",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "clavichord",
+          "start": 2.16,
+          "end": 2.6
+        },
+        {
+          "text": "and",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "closed",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "text": "it,",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "text": "and",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "text": "with",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "text": "a",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "deep",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "sigh",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "text": "left",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "drawing",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "text": "room",
+          "start": 4.98,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "text": "locked",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "its",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "main",
+          "start": 5.9,
+          "end": 6.16
+        },
+        {
+          "text": "door.",
+          "start": 6.16,
+          "end": 6.48
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34321162570267916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05ddda92057fc412fc2785a1bd7adb6d094eef4ef0d657477b9eb70f244906e8",
+  "selected_reasons": []
+}

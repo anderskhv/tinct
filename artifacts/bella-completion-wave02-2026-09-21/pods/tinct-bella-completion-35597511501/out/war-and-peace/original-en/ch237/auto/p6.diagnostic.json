@@ -1,0 +1,1392 @@
+{
+  "complete": true,
+  "signature": "4aeca62bc2bea3b0c5b6464e297dfb9cd95b23ed424cc0b997274eed978e504b",
+  "attempts": [
+    {
+      "asr_seconds": 0.4304698808118701,
+      "alignment_seconds": 0.003947948105633259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And who may you be?\" one of them suddenly asked Pierre, evidently meaning what Pierre himself had in mind, namely: \"If you want to eat we'll give you some food, only let us know whether you are an honest man.\"",
+        "hotwords": "And, Pierre, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And who may you be?\" one of them suddenly asked Pierre, evidently meaning what Pierre himself had in mind, namely,",
+          "start": 0.0,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " who",
+              "start": 0.36,
+              "end": 0.52,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " may",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " be?\"",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.5190582275390625
+            },
+            {
+              "text": " one",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " suddenly",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " asked",
+              "start": 2.0,
+              "end": 2.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Pierre,",
+              "start": 2.44,
+              "end": 2.84,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " evidently",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " meaning",
+              "start": 3.36,
+              "end": 3.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " what",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Pierre",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " himself",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mind,",
+              "start": 5.16,
+              "end": 5.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " namely,",
+              "start": 5.86,
+              "end": 6.06,
+              "probability": 0.658203125
+            }
+          ]
+        },
+        {
+          "text": " If you want to eat we'll give you some food, only let us know whether you are an honest man.",
+          "start": 6.56,
+          "end": 10.66,
+          "words": [
+            {
+              "text": " If",
+              "start": 6.56,
+              "end": 6.56,
+              "probability": 0.006847381591796875
+            },
+            {
+              "text": " you",
+              "start": 6.56,
+              "end": 6.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " want",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 6.82,
+              "end": 6.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " eat",
+              "start": 6.96,
+              "end": 7.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we'll",
+              "start": 7.08,
+              "end": 7.38,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " give",
+              "start": 7.38,
+              "end": 7.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 7.5,
+              "end": 7.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " some",
+              "start": 7.68,
+              "end": 7.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " food,",
+              "start": 7.86,
+              "end": 8.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " only",
+              "start": 8.5,
+              "end": 8.64,
+              "probability": 0.96875
+            },
+            {
+              "text": " let",
+              "start": 8.64,
+              "end": 8.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 8.9,
+              "end": 9.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 9.04,
+              "end": 9.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whether",
+              "start": 9.26,
+              "end": 9.46,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 9.46,
+              "end": 9.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 9.72,
+              "end": 9.9,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " an",
+              "start": 9.9,
+              "end": 10.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " honest",
+              "start": 10.04,
+              "end": 10.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man.",
+              "start": 10.28,
+              "end": 10.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "who",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "raw": "may",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "be?\"",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "raw": "one",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "them",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "suddenly",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "asked",
+          "start": 2.0,
+          "end": 2.44
+        },
+        {
+          "raw": "Pierre,",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "raw": "evidently",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "meaning",
+          "start": 3.36,
+          "end": 3.78
+        },
+        {
+          "raw": "what",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "Pierre",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "raw": "himself",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "raw": "had",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "in",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "mind,",
+          "start": 5.16,
+          "end": 5.42
+        },
+        {
+          "raw": "namely,",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "raw": "If",
+          "start": 6.56,
+          "end": 6.56
+        },
+        {
+          "raw": "you",
+          "start": 6.56,
+          "end": 6.66
+        },
+        {
+          "raw": "want",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "to",
+          "start": 6.82,
+          "end": 6.96
+        },
+        {
+          "raw": "eat",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "raw": "we'll",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "raw": "give",
+          "start": 7.38,
+          "end": 7.5
+        },
+        {
+          "raw": "you",
+          "start": 7.5,
+          "end": 7.68
+        },
+        {
+          "raw": "some",
+          "start": 7.68,
+          "end": 7.86
+        },
+        {
+          "raw": "food,",
+          "start": 7.86,
+          "end": 8.22
+        },
+        {
+          "raw": "only",
+          "start": 8.5,
+          "end": 8.64
+        },
+        {
+          "raw": "let",
+          "start": 8.64,
+          "end": 8.9
+        },
+        {
+          "raw": "us",
+          "start": 8.9,
+          "end": 9.04
+        },
+        {
+          "raw": "know",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "raw": "whether",
+          "start": 9.26,
+          "end": 9.46
+        },
+        {
+          "raw": "you",
+          "start": 9.46,
+          "end": 9.72
+        },
+        {
+          "raw": "are",
+          "start": 9.72,
+          "end": 9.9
+        },
+        {
+          "raw": "an",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "raw": "honest",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "raw": "man.",
+          "start": 10.28,
+          "end": 10.66
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "who",
+        "may",
+        "you",
+        "be?”",
+        "one",
+        "of",
+        "them",
+        "suddenly",
+        "asked",
+        "Pierre,",
+        "evidently",
+        "meaning",
+        "what",
+        "Pierre",
+        "himself",
+        "had",
+        "in",
+        "mind,",
+        "namely:",
+        "“If",
+        "you",
+        "want",
+        "to",
+        "eat",
+        "we’ll",
+        "give",
+        "you",
+        "some",
+        "food,",
+        "only",
+        "let",
+        "us",
+        "know",
+        "whether",
+        "you",
+        "are",
+        "an",
+        "honest",
+        "man.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "who",
+        "may",
+        "you",
+        "be?\"",
+        "one",
+        "of",
+        "them",
+        "suddenly",
+        "asked",
+        "Pierre,",
+        "evidently",
+        "meaning",
+        "what",
+        "Pierre",
+        "himself",
+        "had",
+        "in",
+        "mind,",
+        "namely:",
+        "\"If",
+        "you",
+        "want",
+        "to",
+        "eat",
+        "we'll",
+        "give",
+        "you",
+        "some",
+        "food,",
+        "only",
+        "let",
+        "us",
+        "know",
+        "whether",
+        "you",
+        "are",
+        "an",
+        "honest",
+        "man.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.36,
+          "end": 0.52,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be?\"",
+          "start": 0.94,
+          "end": 1.4,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "suddenly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.0,
+          "end": 2.44,
+          "key": "asked",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pierre,",
+          "start": 2.44,
+          "end": 2.84,
+          "key": "pierre",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "evidently",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "evidently",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 3.36,
+          "end": 3.78,
+          "key": "meaning",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "what",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "pierre",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "himself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.72,
+          "end": 5.0,
+          "key": "had",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mind,",
+          "start": 5.16,
+          "end": 5.42,
+          "key": "mind",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "namely,",
+          "start": 5.86,
+          "end": 6.06,
+          "key": "namely",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 6.56,
+          "end": 6.56,
+          "key": "if",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.56,
+          "end": 6.66,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 6.66,
+          "end": 6.82,
+          "key": "want",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.82,
+          "end": 6.96,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 6.96,
+          "end": 7.08,
+          "key": "eat",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 7.08,
+          "end": 7.38,
+          "key": "well",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 7.38,
+          "end": 7.5,
+          "key": "give",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.5,
+          "end": 7.68,
+          "key": "you",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 7.68,
+          "end": 7.86,
+          "key": "some",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "food,",
+          "start": 7.86,
+          "end": 8.22,
+          "key": "food",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 8.5,
+          "end": 8.64,
+          "key": "only",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 8.64,
+          "end": 8.9,
+          "key": "let",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 8.9,
+          "end": 9.04,
+          "key": "us",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 9.04,
+          "end": 9.26,
+          "key": "know",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 9.26,
+          "end": 9.46,
+          "key": "whether",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.46,
+          "end": 9.72,
+          "key": "you",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 9.72,
+          "end": 9.9,
+          "key": "are",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 9.9,
+          "end": 10.04,
+          "key": "an",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 10.04,
+          "end": 10.28,
+          "key": "honest",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 10.28,
+          "end": 10.66,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "who",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "text": "may",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "you",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "be?”",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "text": "one",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "them",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "suddenly",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "asked",
+          "start": 2.0,
+          "end": 2.44
+        },
+        {
+          "text": "Pierre,",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "text": "evidently",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "meaning",
+          "start": 3.36,
+          "end": 3.78
+        },
+        {
+          "text": "what",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "Pierre",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "text": "himself",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "text": "had",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "in",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "mind,",
+          "start": 5.16,
+          "end": 5.42
+        },
+        {
+          "text": "namely:",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "text": "“If",
+          "start": 6.56,
+          "end": 6.56
+        },
+        {
+          "text": "you",
+          "start": 6.56,
+          "end": 6.66
+        },
+        {
+          "text": "want",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "to",
+          "start": 6.82,
+          "end": 6.96
+        },
+        {
+          "text": "eat",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "text": "we’ll",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "text": "give",
+          "start": 7.38,
+          "end": 7.5
+        },
+        {
+          "text": "you",
+          "start": 7.5,
+          "end": 7.68
+        },
+        {
+          "text": "some",
+          "start": 7.68,
+          "end": 7.86
+        },
+        {
+          "text": "food,",
+          "start": 7.86,
+          "end": 8.22
+        },
+        {
+          "text": "only",
+          "start": 8.5,
+          "end": 8.64
+        },
+        {
+          "text": "let",
+          "start": 8.64,
+          "end": 8.9
+        },
+        {
+          "text": "us",
+          "start": 8.9,
+          "end": 9.04
+        },
+        {
+          "text": "know",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "text": "whether",
+          "start": 9.26,
+          "end": 9.46
+        },
+        {
+          "text": "you",
+          "start": 9.46,
+          "end": 9.72
+        },
+        {
+          "text": "are",
+          "start": 9.72,
+          "end": 9.9
+        },
+        {
+          "text": "an",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "text": "honest",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "text": "man.”",
+          "start": 10.28,
+          "end": 10.66
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4348200401291251
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34c98ab755341bb36b47c39c6b369bb205d594c8032ddd2ae271a067cba5dab7",
+  "selected_reasons": []
+}

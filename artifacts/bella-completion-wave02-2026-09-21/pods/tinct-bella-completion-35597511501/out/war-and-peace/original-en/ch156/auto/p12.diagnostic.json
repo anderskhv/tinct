@@ -1,0 +1,801 @@
+{
+  "complete": true,
+  "signature": "60dbbfa81ab2b6b62835f8113f6d5afe896f07cd2c0cef138da97b8e8b62bc42",
+  "attempts": [
+    {
+      "asr_seconds": 0.15791326202452183,
+      "alignment_seconds": 0.0010089538991451263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You'd better wait till she's married....\"",
+        "hotwords": "You'd"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You'd better wait till she's married....",
+          "start": 0.0,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " You'd",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.816650390625
+            },
+            {
+              "text": " better",
+              "start": 0.42,
+              "end": 0.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wait",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " till",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " she's",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " married....",
+              "start": 1.4,
+              "end": 2.0,
+              "probability": 0.49893927574157715
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You'd",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "better",
+          "start": 0.42,
+          "end": 0.58
+        },
+        {
+          "raw": "wait",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "married....",
+          "start": 1.4,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "“You’d",
+        "better",
+        "wait",
+        "till",
+        "she’s",
+        "married....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You'd",
+        "better",
+        "wait",
+        "till",
+        "she's",
+        "married....\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You'd",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "youd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.42,
+          "end": 0.58,
+          "key": "better",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "till",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "married....",
+          "start": 1.4,
+          "end": 2.0,
+          "key": "married",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You’d",
+          "start": 0.0,
+          "end": 0.21
+        },
+        {
+          "text": "better",
+          "start": 0.42,
+          "end": 0.58
+        },
+        {
+          "text": "wait",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "she’s",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "married....”",
+          "start": 1.4,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15906644333153963
+    },
+    {
+      "asr_seconds": 0.21773317083716393,
+      "alignment_seconds": 0.0010633906349539757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You'd"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " better wait till she's married.",
+          "start": 0.0,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " better",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.0006327629089355469
+            },
+            {
+              "text": " wait",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " till",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " she's",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.96875
+            },
+            {
+              "text": " married.",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "better",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "wait",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "raw": "married.",
+          "start": 1.42,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "“You’d",
+        "better",
+        "wait",
+        "till",
+        "she’s",
+        "married....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You'd",
+        "better",
+        "wait",
+        "till",
+        "she's",
+        "married....\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          6,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "better",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "better",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 0.52,
+          "end": 0.88,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "till",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "shes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "married.",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "married",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You’d",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "better",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "wait",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "she’s",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "text": "married....”",
+          "start": 1.42,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21892703510820866
+    },
+    {
+      "asr_seconds": 0.20168693270534277,
+      "alignment_seconds": 0.0010940395295619965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You'd better wait till she's married.",
+          "start": 0.0,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " You'd",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.816650390625
+            },
+            {
+              "text": " better",
+              "start": 0.42,
+              "end": 0.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wait",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " till",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " she's",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " married.",
+              "start": 1.4,
+              "end": 1.74,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You'd",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "better",
+          "start": 0.42,
+          "end": 0.58
+        },
+        {
+          "raw": "wait",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "married.",
+          "start": 1.4,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "“You’d",
+        "better",
+        "wait",
+        "till",
+        "she’s",
+        "married....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You'd",
+        "better",
+        "wait",
+        "till",
+        "she's",
+        "married....\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You'd",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "youd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.42,
+          "end": 0.58,
+          "key": "better",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "till",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "married.",
+          "start": 1.4,
+          "end": 1.74,
+          "key": "married",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You’d",
+          "start": 0.0,
+          "end": 0.21
+        },
+        {
+          "text": "better",
+          "start": 0.42,
+          "end": 0.58
+        },
+        {
+          "text": "wait",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "till",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "she’s",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "married....”",
+          "start": 1.4,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20292484108358622
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "964911725b57ef2f445fb7cc640ec61e20af7e722a994ac984b48a2641a741f5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

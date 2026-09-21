@@ -1,0 +1,1802 @@
+{
+  "complete": true,
+  "signature": "a992bb24f996cddae0ead519054e12136b734887acecc11fcfe564cec2fa7d62",
+  "attempts": [
+    {
+      "asr_seconds": 0.5354466587305069,
+      "alignment_seconds": 0.0034121209755539894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes,\" returned Pierre with a smile, \"and this young man now manages matters so that where there is a wealthy heiress there he is too. I can read him like a book. At present he is hesitating whom to lay siege to—you or Mademoiselle Julie Karágina. He is very attentive to her.\"",
+        "hotwords": "Yes, Pierre, I, At, Mademoiselle, Julie, Karágina"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, returned Pierre with a smile, and this young man now manages matters so that where",
+          "start": 0.0,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.37548828125
+            },
+            {
+              "text": " returned",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Pierre",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " with",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smile,",
+              "start": 1.74,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.32,
+              "end": 2.46,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " young",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " manages",
+              "start": 3.34,
+              "end": 3.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " matters",
+              "start": 3.72,
+              "end": 4.02,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " so",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " that",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " there is a wealthy heiress there he is too. I can read him like a book. At present he",
+          "start": 4.64,
+          "end": 10.52,
+          "words": [
+            {
+              "text": " there",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 4.8,
+              "end": 4.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wealthy",
+              "start": 5.08,
+              "end": 5.4,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " heiress",
+              "start": 5.4,
+              "end": 5.74,
+              "probability": 0.9542643229166666
+            },
+            {
+              "text": " there",
+              "start": 5.74,
+              "end": 5.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 5.98,
+              "end": 6.18,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " is",
+              "start": 6.18,
+              "end": 6.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too.",
+              "start": 6.36,
+              "end": 6.64,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " I",
+              "start": 7.62,
+              "end": 7.76,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " can",
+              "start": 7.76,
+              "end": 7.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " read",
+              "start": 7.9,
+              "end": 8.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 8.1,
+              "end": 8.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 8.28,
+              "end": 8.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 8.46,
+              "end": 8.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " book.",
+              "start": 8.6,
+              "end": 8.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " At",
+              "start": 9.88,
+              "end": 10.04,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " present",
+              "start": 10.04,
+              "end": 10.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 10.28,
+              "end": 10.52,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " is hesitating whom to lay siege to—you or Mademoiselle Julie Karágina. He is very attentive",
+          "start": 10.52,
+          "end": 16.46,
+          "words": [
+            {
+              "text": " is",
+              "start": 10.52,
+              "end": 10.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hesitating",
+              "start": 10.64,
+              "end": 11.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whom",
+              "start": 11.14,
+              "end": 11.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 11.44,
+              "end": 11.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lay",
+              "start": 11.66,
+              "end": 11.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " siege",
+              "start": 11.84,
+              "end": 12.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to—you",
+              "start": 12.06,
+              "end": 12.68,
+              "probability": 0.6446863810221354
+            },
+            {
+              "text": " or",
+              "start": 12.68,
+              "end": 12.88,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " Mademoiselle",
+              "start": 12.88,
+              "end": 13.42,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Julie",
+              "start": 13.42,
+              "end": 13.82,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " Karágina.",
+              "start": 13.82,
+              "end": 14.4,
+              "probability": 0.32631874084472656
+            },
+            {
+              "text": " He",
+              "start": 15.34,
+              "end": 15.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 15.68,
+              "end": 15.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " very",
+              "start": 15.82,
+              "end": 16.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " attentive",
+              "start": 16.12,
+              "end": 16.46,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " to her.\"",
+          "start": 16.46,
+          "end": 17.08,
+          "words": [
+            {
+              "text": " to",
+              "start": 16.46,
+              "end": 16.72,
+              "probability": 1.0
+            },
+            {
+              "text": " her.\"",
+              "start": 16.72,
+              "end": 17.08,
+              "probability": 0.618408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "returned",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "Pierre",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "with",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "smile,",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "young",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "man",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "now",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "manages",
+          "start": 3.34,
+          "end": 3.72
+        },
+        {
+          "raw": "matters",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "raw": "so",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "raw": "that",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "where",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "there",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "is",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "raw": "a",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "wealthy",
+          "start": 5.08,
+          "end": 5.4
+        },
+        {
+          "raw": "heiress",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "raw": "there",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "raw": "he",
+          "start": 5.98,
+          "end": 6.18
+        },
+        {
+          "raw": "is",
+          "start": 6.18,
+          "end": 6.36
+        },
+        {
+          "raw": "too.",
+          "start": 6.36,
+          "end": 6.64
+        },
+        {
+          "raw": "I",
+          "start": 7.62,
+          "end": 7.76
+        },
+        {
+          "raw": "can",
+          "start": 7.76,
+          "end": 7.9
+        },
+        {
+          "raw": "read",
+          "start": 7.9,
+          "end": 8.1
+        },
+        {
+          "raw": "him",
+          "start": 8.1,
+          "end": 8.28
+        },
+        {
+          "raw": "like",
+          "start": 8.28,
+          "end": 8.46
+        },
+        {
+          "raw": "a",
+          "start": 8.46,
+          "end": 8.6
+        },
+        {
+          "raw": "book.",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "raw": "At",
+          "start": 9.88,
+          "end": 10.04
+        },
+        {
+          "raw": "present",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "raw": "he",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "raw": "is",
+          "start": 10.52,
+          "end": 10.64
+        },
+        {
+          "raw": "hesitating",
+          "start": 10.64,
+          "end": 11.14
+        },
+        {
+          "raw": "whom",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "raw": "to",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "raw": "lay",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "raw": "siege",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "raw": "to—you",
+          "start": 12.06,
+          "end": 12.68
+        },
+        {
+          "raw": "or",
+          "start": 12.68,
+          "end": 12.88
+        },
+        {
+          "raw": "Mademoiselle",
+          "start": 12.88,
+          "end": 13.42
+        },
+        {
+          "raw": "Julie",
+          "start": 13.42,
+          "end": 13.82
+        },
+        {
+          "raw": "Karágina.",
+          "start": 13.82,
+          "end": 14.4
+        },
+        {
+          "raw": "He",
+          "start": 15.34,
+          "end": 15.68
+        },
+        {
+          "raw": "is",
+          "start": 15.68,
+          "end": 15.82
+        },
+        {
+          "raw": "very",
+          "start": 15.82,
+          "end": 16.12
+        },
+        {
+          "raw": "attentive",
+          "start": 16.12,
+          "end": 16.46
+        },
+        {
+          "raw": "to",
+          "start": 16.46,
+          "end": 16.72
+        },
+        {
+          "raw": "her.\"",
+          "start": 16.72,
+          "end": 17.08
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,”",
+        "returned",
+        "Pierre",
+        "with",
+        "a",
+        "smile,",
+        "“and",
+        "this",
+        "young",
+        "man",
+        "now",
+        "manages",
+        "matters",
+        "so",
+        "that",
+        "where",
+        "there",
+        "is",
+        "a",
+        "wealthy",
+        "heiress",
+        "there",
+        "he",
+        "is",
+        "too.",
+        "I",
+        "can",
+        "read",
+        "him",
+        "like",
+        "a",
+        "book.",
+        "At",
+        "present",
+        "he",
+        "is",
+        "hesitating",
+        "whom",
+        "to",
+        "lay",
+        "siege",
+        "to—you",
+        "or",
+        "Mademoiselle",
+        "Julie",
+        "Karágina.",
+        "He",
+        "is",
+        "very",
+        "attentive",
+        "to",
+        "her.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,\"",
+        "returned",
+        "Pierre",
+        "with",
+        "a",
+        "smile,",
+        "\"and",
+        "this",
+        "young",
+        "man",
+        "now",
+        "manages",
+        "matters",
+        "so",
+        "that",
+        "where",
+        "there",
+        "is",
+        "a",
+        "wealthy",
+        "heiress",
+        "there",
+        "he",
+        "is",
+        "too.",
+        "I",
+        "can",
+        "read",
+        "him",
+        "like",
+        "a",
+        "book.",
+        "At",
+        "present",
+        "he",
+        "is",
+        "hesitating",
+        "whom",
+        "to",
+        "lay",
+        "siege",
+        "to—you",
+        "or",
+        "Mademoiselle",
+        "Julie",
+        "Karágina.",
+        "He",
+        "is",
+        "very",
+        "attentive",
+        "to",
+        "her.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "returned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "pierre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smile,",
+          "start": 1.74,
+          "end": 2.06,
+          "key": "smile",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.46,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "young",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "now",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "manages",
+          "start": 3.34,
+          "end": 3.72,
+          "key": "manages",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "matters",
+          "start": 3.72,
+          "end": 4.02,
+          "key": "matters",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.02,
+          "end": 4.3,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "where",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "there",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.8,
+          "end": 4.94,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "wealthy",
+          "start": 5.08,
+          "end": 5.4,
+          "key": "wealthy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "heiress",
+          "start": 5.4,
+          "end": 5.74,
+          "key": "heiress",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 5.74,
+          "end": 5.98,
+          "key": "there",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.98,
+          "end": 6.18,
+          "key": "he",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.18,
+          "end": 6.36,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 6.36,
+          "end": 6.64,
+          "key": "too",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.62,
+          "end": 7.76,
+          "key": "i",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 7.76,
+          "end": 7.9,
+          "key": "can",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 7.9,
+          "end": 8.1,
+          "key": "read",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.1,
+          "end": 8.28,
+          "key": "him",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 8.28,
+          "end": 8.46,
+          "key": "like",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.46,
+          "end": 8.6,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 8.6,
+          "end": 8.86,
+          "key": "book",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 9.88,
+          "end": 10.04,
+          "key": "at",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 10.04,
+          "end": 10.28,
+          "key": "present",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.28,
+          "end": 10.52,
+          "key": "he",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 10.52,
+          "end": 10.64,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hesitating",
+          "start": 10.64,
+          "end": 11.14,
+          "key": "hesitating",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 11.14,
+          "end": 11.44,
+          "key": "whom",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.44,
+          "end": 11.66,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 11.66,
+          "end": 11.84,
+          "key": "lay",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "siege",
+          "start": 11.84,
+          "end": 12.06,
+          "key": "siege",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "to—you",
+          "start": 12.06,
+          "end": 12.68,
+          "key": "toyou",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 12.68,
+          "end": 12.88,
+          "key": "or",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Mademoiselle",
+          "start": 12.88,
+          "end": 13.42,
+          "key": "mademoiselle",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Julie",
+          "start": 13.42,
+          "end": 13.82,
+          "key": "julie",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Karágina.",
+          "start": 13.82,
+          "end": 14.4,
+          "key": "karágina",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 15.34,
+          "end": 15.68,
+          "key": "he",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.68,
+          "end": 15.82,
+          "key": "is",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 15.82,
+          "end": 16.12,
+          "key": "very",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "attentive",
+          "start": 16.12,
+          "end": 16.46,
+          "key": "attentive",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.46,
+          "end": 16.72,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "her.\"",
+          "start": 16.72,
+          "end": 17.08,
+          "key": "her",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,”",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "returned",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "Pierre",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "with",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "a",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "smile,",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "text": "“and",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "text": "this",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "young",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "man",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "now",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "manages",
+          "start": 3.34,
+          "end": 3.72
+        },
+        {
+          "text": "matters",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "text": "so",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "text": "that",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "where",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "text": "there",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "is",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "text": "a",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "wealthy",
+          "start": 5.08,
+          "end": 5.4
+        },
+        {
+          "text": "heiress",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "text": "there",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "text": "he",
+          "start": 5.98,
+          "end": 6.18
+        },
+        {
+          "text": "is",
+          "start": 6.18,
+          "end": 6.36
+        },
+        {
+          "text": "too.",
+          "start": 6.36,
+          "end": 6.64
+        },
+        {
+          "text": "I",
+          "start": 7.62,
+          "end": 7.76
+        },
+        {
+          "text": "can",
+          "start": 7.76,
+          "end": 7.9
+        },
+        {
+          "text": "read",
+          "start": 7.9,
+          "end": 8.1
+        },
+        {
+          "text": "him",
+          "start": 8.1,
+          "end": 8.28
+        },
+        {
+          "text": "like",
+          "start": 8.28,
+          "end": 8.46
+        },
+        {
+          "text": "a",
+          "start": 8.46,
+          "end": 8.6
+        },
+        {
+          "text": "book.",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "text": "At",
+          "start": 9.88,
+          "end": 10.04
+        },
+        {
+          "text": "present",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "text": "he",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "text": "is",
+          "start": 10.52,
+          "end": 10.64
+        },
+        {
+          "text": "hesitating",
+          "start": 10.64,
+          "end": 11.14
+        },
+        {
+          "text": "whom",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "text": "to",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "text": "lay",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "text": "siege",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "text": "to—you",
+          "start": 12.06,
+          "end": 12.68
+        },
+        {
+          "text": "or",
+          "start": 12.68,
+          "end": 12.88
+        },
+        {
+          "text": "Mademoiselle",
+          "start": 12.88,
+          "end": 13.42
+        },
+        {
+          "text": "Julie",
+          "start": 13.42,
+          "end": 13.82
+        },
+        {
+          "text": "Karágina.",
+          "start": 13.82,
+          "end": 14.4
+        },
+        {
+          "text": "He",
+          "start": 15.34,
+          "end": 15.68
+        },
+        {
+          "text": "is",
+          "start": 15.68,
+          "end": 15.82
+        },
+        {
+          "text": "very",
+          "start": 15.82,
+          "end": 16.12
+        },
+        {
+          "text": "attentive",
+          "start": 16.12,
+          "end": 16.46
+        },
+        {
+          "text": "to",
+          "start": 16.46,
+          "end": 16.72
+        },
+        {
+          "text": "her.”",
+          "start": 16.72,
+          "end": 17.08
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5391677329316735
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27e50622c09c3f8da427f12cac5df871536cc6524c885c3021a7de7f58dd4142",
+  "selected_reasons": []
+}

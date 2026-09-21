@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "2ed5a97bd24804d1337ae56aa89f4a25102a0bf5894d49b498a0704543f0aee5",
+  "attempts": [
+    {
+      "asr_seconds": 0.23618441075086594,
+      "alignment_seconds": 0.0020503299310803413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Denísov lay asleep on his bed with his head under the blanket, though it was nearly noon.",
+        "hotwords": "Denísov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Denísov lay asleep on his bed with his head under the blanket, though it was nearly noon.",
+          "start": 0.0,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Denísov",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.01056067148844401
+            },
+            {
+              "text": " lay",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " asleep",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bed",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " under",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blanket,",
+              "start": 2.76,
+              "end": 3.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " though",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nearly",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " noon.",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "lay",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "asleep",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "his",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "bed",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "with",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "his",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "head",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "under",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "blanket,",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "raw": "though",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "it",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "was",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "nearly",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "raw": "noon.",
+          "start": 4.12,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "Denísov",
+        "lay",
+        "asleep",
+        "on",
+        "his",
+        "bed",
+        "with",
+        "his",
+        "head",
+        "under",
+        "the",
+        "blanket,",
+        "though",
+        "it",
+        "was",
+        "nearly",
+        "noon."
+      ],
+      "acoustic_expected_tokens": [
+        "Denísov",
+        "lay",
+        "asleep",
+        "on",
+        "his",
+        "bed",
+        "with",
+        "his",
+        "head",
+        "under",
+        "the",
+        "blanket,",
+        "though",
+        "it",
+        "was",
+        "nearly",
+        "noon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "denísov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "lay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "asleep",
+          "start": 0.92,
+          "end": 1.26,
+          "key": "asleep",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "bed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "head",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "under",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "blanket,",
+          "start": 2.76,
+          "end": 3.12,
+          "key": "blanket",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "though",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "nearly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "noon.",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "noon",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "lay",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "asleep",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "on",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "his",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "bed",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "with",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "his",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "head",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "under",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "blanket,",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "text": "though",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "it",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "was",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "nearly",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "text": "noon.",
+          "start": 4.12,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23849457874894142
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "209f66b8410d97eacb86489b846614da2afb71758e1bca0d9c81c75936a47277",
+  "selected_reasons": []
+}

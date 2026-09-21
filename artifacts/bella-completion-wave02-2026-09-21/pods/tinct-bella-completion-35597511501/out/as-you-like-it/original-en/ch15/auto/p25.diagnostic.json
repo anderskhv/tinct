@@ -1,0 +1,2408 @@
+{
+  "complete": true,
+  "signature": "4976d87fc31522de7afd533ed733155c367047bada9b9da55a877ad0760e4567",
+  "attempts": [
+    {
+      "asr_seconds": 0.39147679321467876,
+      "alignment_seconds": 0.002873730845749378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I care not if I have. It is my study To seem despiteful and ungentle to you. You are there follow'd by a faithful shepherd; Look upon him, love him; he worships you.",
+        "hotwords": "I, It, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosalind, I care not if I have. It is my study To seem despiteful and ungentle to you. You are there follow'd by a faithful shepherd. Look upon him, love him, he worships you.",
+          "start": 0.57,
+          "end": 11.59,
+          "words": [
+            {
+              "text": " Rosalind,",
+              "start": 0.57,
+              "end": 1.05,
+              "probability": 0.7715657552083334
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.986328125
+            },
+            {
+              "text": " care",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " not",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have.",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " It",
+              "start": 3.15,
+              "end": 3.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.31,
+              "end": 3.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " study",
+              "start": 3.49,
+              "end": 3.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " To",
+              "start": 3.77,
+              "end": 4.01,
+              "probability": 0.00024509429931640625
+            },
+            {
+              "text": " seem",
+              "start": 4.01,
+              "end": 4.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " despiteful",
+              "start": 4.25,
+              "end": 4.97,
+              "probability": 0.822021484375
+            },
+            {
+              "text": " and",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.96484375
+            },
+            {
+              "text": " ungentle",
+              "start": 5.13,
+              "end": 5.75,
+              "probability": 0.9347330729166666
+            },
+            {
+              "text": " to",
+              "start": 5.75,
+              "end": 5.89,
+              "probability": 0.921875
+            },
+            {
+              "text": " you.",
+              "start": 5.89,
+              "end": 6.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " You",
+              "start": 6.67,
+              "end": 6.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " are",
+              "start": 6.77,
+              "end": 6.89,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " there",
+              "start": 6.89,
+              "end": 7.09,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " follow'd",
+              "start": 7.09,
+              "end": 7.53,
+              "probability": 0.3357820510864258
+            },
+            {
+              "text": " by",
+              "start": 7.53,
+              "end": 7.67,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " a",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " faithful",
+              "start": 7.89,
+              "end": 8.19,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " shepherd.",
+              "start": 8.19,
+              "end": 8.67,
+              "probability": 0.65185546875
+            },
+            {
+              "text": " Look",
+              "start": 9.13,
+              "end": 9.23,
+              "probability": 0.98046875
+            },
+            {
+              "text": " upon",
+              "start": 9.23,
+              "end": 9.49,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " him,",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " love",
+              "start": 9.99,
+              "end": 10.17,
+              "probability": 0.908203125
+            },
+            {
+              "text": " him,",
+              "start": 10.17,
+              "end": 10.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 10.79,
+              "end": 10.91,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " worships",
+              "start": 10.91,
+              "end": 11.31,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " you.",
+              "start": 11.31,
+              "end": 11.59,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "care",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "if",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "have.",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "It",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "my",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "raw": "study",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "raw": "To",
+          "start": 3.77,
+          "end": 4.01
+        },
+        {
+          "raw": "seem",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "raw": "despiteful",
+          "start": 4.25,
+          "end": 4.97
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "ungentle",
+          "start": 5.13,
+          "end": 5.75
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "raw": "you.",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "raw": "You",
+          "start": 6.67,
+          "end": 6.77
+        },
+        {
+          "raw": "are",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "raw": "there",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "raw": "follow'd",
+          "start": 7.09,
+          "end": 7.53
+        },
+        {
+          "raw": "by",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "raw": "a",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "faithful",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "raw": "shepherd.",
+          "start": 8.19,
+          "end": 8.67
+        },
+        {
+          "raw": "Look",
+          "start": 9.13,
+          "end": 9.23
+        },
+        {
+          "raw": "upon",
+          "start": 9.23,
+          "end": 9.49
+        },
+        {
+          "raw": "him,",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "love",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "raw": "him,",
+          "start": 10.17,
+          "end": 10.49
+        },
+        {
+          "raw": "he",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "raw": "worships",
+          "start": 10.91,
+          "end": 11.31
+        },
+        {
+          "raw": "you.",
+          "start": 11.31,
+          "end": 11.59
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "I",
+        "care",
+        "not",
+        "if",
+        "I",
+        "have.",
+        "It",
+        "is",
+        "my",
+        "study",
+        "To",
+        "seem",
+        "despiteful",
+        "and",
+        "ungentle",
+        "to",
+        "you.",
+        "You",
+        "are",
+        "there",
+        "follow'd",
+        "by",
+        "a",
+        "faithful",
+        "shepherd;",
+        "Look",
+        "upon",
+        "him,",
+        "love",
+        "him;",
+        "he",
+        "worships",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "care",
+        "not",
+        "if",
+        "I",
+        "have.",
+        "It",
+        "is",
+        "my",
+        "study",
+        "To",
+        "seem",
+        "despiteful",
+        "and",
+        "ungentle",
+        "to",
+        "you.",
+        "You",
+        "are",
+        "there",
+        "follow'd",
+        "by",
+        "a",
+        "faithful",
+        "shepherd;",
+        "Look",
+        "upon",
+        "him,",
+        "love",
+        "him;",
+        "he",
+        "worships",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          20,
+          1,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "equal",
+          21,
+          33,
+          22,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.57,
+          "end": 1.05,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "care",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 2.27,
+          "end": 2.61,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.15,
+          "end": 3.21,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.31,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.31,
+          "end": 3.49,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 3.49,
+          "end": 3.77,
+          "key": "study",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.77,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 4.01,
+          "end": 4.25,
+          "key": "seem",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "despiteful",
+          "start": 4.25,
+          "end": 4.97,
+          "key": "despiteful",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.13,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ungentle",
+          "start": 5.13,
+          "end": 5.75,
+          "key": "ungentle",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.89,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.89,
+          "end": 6.11,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.67,
+          "end": 6.77,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.77,
+          "end": 6.89,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 6.89,
+          "end": 7.09,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "follow'd",
+          "start": 7.09,
+          "end": 7.53,
+          "key": "followd",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.53,
+          "end": 7.67,
+          "key": "by",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "faithful",
+          "start": 7.89,
+          "end": 8.19,
+          "key": "faithful",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "shepherd.",
+          "start": 8.19,
+          "end": 8.67,
+          "key": "shepherd",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 9.13,
+          "end": 9.23,
+          "key": "look",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 9.23,
+          "end": 9.49,
+          "key": "upon",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "him",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 9.99,
+          "end": 10.17,
+          "key": "love",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 10.17,
+          "end": 10.49,
+          "key": "him",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.79,
+          "end": 10.91,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "worships",
+          "start": 10.91,
+          "end": 11.31,
+          "key": "worships",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 11.31,
+          "end": 11.59,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "care",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "not",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "if",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "have.",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "text": "It",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "text": "is",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "my",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "text": "study",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "text": "To",
+          "start": 3.77,
+          "end": 4.01
+        },
+        {
+          "text": "seem",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "text": "despiteful",
+          "start": 4.25,
+          "end": 4.97
+        },
+        {
+          "text": "and",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "ungentle",
+          "start": 5.13,
+          "end": 5.75
+        },
+        {
+          "text": "to",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "text": "you.",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "text": "You",
+          "start": 6.67,
+          "end": 6.77
+        },
+        {
+          "text": "are",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "text": "there",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "text": "follow'd",
+          "start": 7.09,
+          "end": 7.31
+        },
+        {
+          "text": "by",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "text": "a",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "faithful",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "text": "shepherd;",
+          "start": 8.19,
+          "end": 8.67
+        },
+        {
+          "text": "Look",
+          "start": 9.13,
+          "end": 9.23
+        },
+        {
+          "text": "upon",
+          "start": 9.23,
+          "end": 9.49
+        },
+        {
+          "text": "him,",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "love",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "text": "him;",
+          "start": 10.17,
+          "end": 10.49
+        },
+        {
+          "text": "he",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "text": "worships",
+          "start": 10.91,
+          "end": 11.31
+        },
+        {
+          "text": "you.",
+          "start": 11.31,
+          "end": 11.59
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 34,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.3946731025353074
+    },
+    {
+      "asr_seconds": 0.38887126464396715,
+      "alignment_seconds": 0.0024309931322932243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, It, Look"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Rosalind, I care not if I have. It is my study to seem despiteful and ungentle to you.",
+          "start": 0.57,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " Rosalind,",
+              "start": 0.57,
+              "end": 1.05,
+              "probability": 0.7715657552083334
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.986328125
+            },
+            {
+              "text": " care",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " not",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have.",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " It",
+              "start": 3.15,
+              "end": 3.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.31,
+              "end": 3.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " study",
+              "start": 3.49,
+              "end": 3.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.77,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seem",
+              "start": 4.01,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " despiteful",
+              "start": 4.25,
+              "end": 4.97,
+              "probability": 0.828125
+            },
+            {
+              "text": " and",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ungentle",
+              "start": 5.13,
+              "end": 5.73,
+              "probability": 0.9431966145833334
+            },
+            {
+              "text": " to",
+              "start": 5.73,
+              "end": 5.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 5.89,
+              "end": 6.09,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " You are there followed by a faithful shepherd. Look upon him. Love him. He worships you.",
+          "start": 6.65,
+          "end": 11.59,
+          "words": [
+            {
+              "text": " You",
+              "start": 6.65,
+              "end": 6.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " are",
+              "start": 6.75,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 6.89,
+              "end": 7.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " followed",
+              "start": 7.09,
+              "end": 7.41,
+              "probability": 0.85546875
+            },
+            {
+              "text": " by",
+              "start": 7.41,
+              "end": 7.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 7.67,
+              "end": 7.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faithful",
+              "start": 7.87,
+              "end": 8.23,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " shepherd.",
+              "start": 8.23,
+              "end": 8.65,
+              "probability": 0.794921875
+            },
+            {
+              "text": " Look",
+              "start": 9.13,
+              "end": 9.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " upon",
+              "start": 9.23,
+              "end": 9.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Love",
+              "start": 10.01,
+              "end": 10.17,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " him.",
+              "start": 10.17,
+              "end": 10.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " He",
+              "start": 10.81,
+              "end": 10.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " worships",
+              "start": 10.91,
+              "end": 11.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 11.31,
+              "end": 11.59,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "care",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "if",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "have.",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "It",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "my",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "raw": "study",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "raw": "to",
+          "start": 3.77,
+          "end": 4.01
+        },
+        {
+          "raw": "seem",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "raw": "despiteful",
+          "start": 4.25,
+          "end": 4.97
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "ungentle",
+          "start": 5.13,
+          "end": 5.73
+        },
+        {
+          "raw": "to",
+          "start": 5.73,
+          "end": 5.89
+        },
+        {
+          "raw": "you.",
+          "start": 5.89,
+          "end": 6.09
+        },
+        {
+          "raw": "You",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "raw": "are",
+          "start": 6.75,
+          "end": 6.89
+        },
+        {
+          "raw": "there",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "raw": "followed",
+          "start": 7.09,
+          "end": 7.41
+        },
+        {
+          "raw": "by",
+          "start": 7.41,
+          "end": 7.67
+        },
+        {
+          "raw": "a",
+          "start": 7.67,
+          "end": 7.87
+        },
+        {
+          "raw": "faithful",
+          "start": 7.87,
+          "end": 8.23
+        },
+        {
+          "raw": "shepherd.",
+          "start": 8.23,
+          "end": 8.65
+        },
+        {
+          "raw": "Look",
+          "start": 9.13,
+          "end": 9.23
+        },
+        {
+          "raw": "upon",
+          "start": 9.23,
+          "end": 9.49
+        },
+        {
+          "raw": "him.",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "Love",
+          "start": 10.01,
+          "end": 10.17
+        },
+        {
+          "raw": "him.",
+          "start": 10.17,
+          "end": 10.49
+        },
+        {
+          "raw": "He",
+          "start": 10.81,
+          "end": 10.91
+        },
+        {
+          "raw": "worships",
+          "start": 10.91,
+          "end": 11.31
+        },
+        {
+          "raw": "you.",
+          "start": 11.31,
+          "end": 11.59
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "I",
+        "care",
+        "not",
+        "if",
+        "I",
+        "have.",
+        "It",
+        "is",
+        "my",
+        "study",
+        "To",
+        "seem",
+        "despiteful",
+        "and",
+        "ungentle",
+        "to",
+        "you.",
+        "You",
+        "are",
+        "there",
+        "follow'd",
+        "by",
+        "a",
+        "faithful",
+        "shepherd;",
+        "Look",
+        "upon",
+        "him,",
+        "love",
+        "him;",
+        "he",
+        "worships",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "care",
+        "not",
+        "if",
+        "I",
+        "have.",
+        "It",
+        "is",
+        "my",
+        "study",
+        "To",
+        "seem",
+        "despiteful",
+        "and",
+        "ungentle",
+        "to",
+        "you.",
+        "You",
+        "are",
+        "there",
+        "follow'd",
+        "by",
+        "a",
+        "faithful",
+        "shepherd;",
+        "Look",
+        "upon",
+        "him,",
+        "love",
+        "him;",
+        "he",
+        "worships",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          33,
+          1,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.57,
+          "end": 1.05,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "care",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 2.27,
+          "end": 2.61,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.15,
+          "end": 3.21,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.31,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.31,
+          "end": 3.49,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 3.49,
+          "end": 3.77,
+          "key": "study",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.77,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 4.01,
+          "end": 4.25,
+          "key": "seem",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "despiteful",
+          "start": 4.25,
+          "end": 4.97,
+          "key": "despiteful",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.13,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ungentle",
+          "start": 5.13,
+          "end": 5.73,
+          "key": "ungentle",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.73,
+          "end": 5.89,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.89,
+          "end": 6.09,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.65,
+          "end": 6.75,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.75,
+          "end": 6.89,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 6.89,
+          "end": 7.09,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 7.09,
+          "end": 7.41,
+          "key": "followed",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.41,
+          "end": 7.67,
+          "key": "by",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.67,
+          "end": 7.87,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "faithful",
+          "start": 7.87,
+          "end": 8.23,
+          "key": "faithful",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "shepherd.",
+          "start": 8.23,
+          "end": 8.65,
+          "key": "shepherd",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 9.13,
+          "end": 9.23,
+          "key": "look",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 9.23,
+          "end": 9.49,
+          "key": "upon",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "him",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Love",
+          "start": 10.01,
+          "end": 10.17,
+          "key": "love",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 10.17,
+          "end": 10.49,
+          "key": "him",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 10.81,
+          "end": 10.91,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "worships",
+          "start": 10.91,
+          "end": 11.31,
+          "key": "worships",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 11.31,
+          "end": 11.59,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "care",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "not",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "if",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "have.",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "text": "It",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "text": "is",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "my",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "text": "study",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "text": "To",
+          "start": 3.77,
+          "end": 4.01
+        },
+        {
+          "text": "seem",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "text": "despiteful",
+          "start": 4.25,
+          "end": 4.97
+        },
+        {
+          "text": "and",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "ungentle",
+          "start": 5.13,
+          "end": 5.73
+        },
+        {
+          "text": "to",
+          "start": 5.73,
+          "end": 5.89
+        },
+        {
+          "text": "you.",
+          "start": 5.89,
+          "end": 6.09
+        },
+        {
+          "text": "You",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "text": "are",
+          "start": 6.75,
+          "end": 6.89
+        },
+        {
+          "text": "there",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "text": "follow'd",
+          "start": 7.09,
+          "end": 7.41
+        },
+        {
+          "text": "by",
+          "start": 7.41,
+          "end": 7.67
+        },
+        {
+          "text": "a",
+          "start": 7.67,
+          "end": 7.87
+        },
+        {
+          "text": "faithful",
+          "start": 7.87,
+          "end": 8.23
+        },
+        {
+          "text": "shepherd;",
+          "start": 8.23,
+          "end": 8.65
+        },
+        {
+          "text": "Look",
+          "start": 9.13,
+          "end": 9.23
+        },
+        {
+          "text": "upon",
+          "start": 9.23,
+          "end": 9.49
+        },
+        {
+          "text": "him,",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "love",
+          "start": 10.01,
+          "end": 10.17
+        },
+        {
+          "text": "him;",
+          "start": 10.17,
+          "end": 10.49
+        },
+        {
+          "text": "he",
+          "start": 10.81,
+          "end": 10.91
+        },
+        {
+          "text": "worships",
+          "start": 10.91,
+          "end": 11.31
+        },
+        {
+          "text": "you.",
+          "start": 11.31,
+          "end": 11.59
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 34,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3915796475484967
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "eb7b202caa0c74163a32a8888802013f5d50d1d950f763b64922f2e8f8ef7799",
+  "selected_reasons": []
+}

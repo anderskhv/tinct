@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "74036e04db5806a77f383a4572ca89fbec66f712f4290d1e65203c2248437f71",
+  "attempts": [
+    {
+      "asr_seconds": 0.2322037061676383,
+      "alignment_seconds": 0.0016693733632564545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He rode silently on his small gray horse, indolently answering suggestions that they should attack.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He rode silently on his small gray horse, indolently answering suggestions that they should attack.",
+          "start": 0.0,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " rode",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " silently",
+              "start": 0.58,
+              "end": 1.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " small",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gray",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.39892578125
+            },
+            {
+              "text": " horse,",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " indolently",
+              "start": 2.98,
+              "end": 3.32,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " answering",
+              "start": 3.32,
+              "end": 3.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " suggestions",
+              "start": 3.72,
+              "end": 4.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 4.2,
+              "end": 4.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " they",
+              "start": 4.52,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " should",
+              "start": 4.66,
+              "end": 4.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " attack.",
+              "start": 4.8,
+              "end": 5.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "rode",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "silently",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "raw": "on",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "his",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "small",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "gray",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "horse,",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "indolently",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "raw": "answering",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "raw": "suggestions",
+          "start": 3.72,
+          "end": 4.2
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "raw": "they",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "raw": "should",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "raw": "attack.",
+          "start": 4.8,
+          "end": 5.18
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "rode",
+        "silently",
+        "on",
+        "his",
+        "small",
+        "gray",
+        "horse,",
+        "indolently",
+        "answering",
+        "suggestions",
+        "that",
+        "they",
+        "should",
+        "attack."
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "rode",
+        "silently",
+        "on",
+        "his",
+        "small",
+        "gray",
+        "horse,",
+        "indolently",
+        "answering",
+        "suggestions",
+        "that",
+        "they",
+        "should",
+        "attack."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "rode",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "silently",
+          "start": 0.58,
+          "end": 1.06,
+          "key": "silently",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "small",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gray",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "gray",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "horse,",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "horse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "indolently",
+          "start": 2.98,
+          "end": 3.32,
+          "key": "indolently",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answering",
+          "start": 3.32,
+          "end": 3.72,
+          "key": "answering",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "suggestions",
+          "start": 3.72,
+          "end": 4.2,
+          "key": "suggestions",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.52,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.52,
+          "end": 4.66,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.66,
+          "end": 4.8,
+          "key": "should",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "attack.",
+          "start": 4.8,
+          "end": 5.18,
+          "key": "attack",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "rode",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "silently",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "text": "on",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "his",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "small",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "gray",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "horse,",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "indolently",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "text": "answering",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "text": "suggestions",
+          "start": 3.72,
+          "end": 4.2
+        },
+        {
+          "text": "that",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "text": "they",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "text": "should",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "text": "attack.",
+          "start": 4.8,
+          "end": 5.18
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23408329114317894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9c662adef23ae3b695aab2194731acbe2b71c1a08cb7ef6f4173ff8b81698de",
+  "selected_reasons": []
+}

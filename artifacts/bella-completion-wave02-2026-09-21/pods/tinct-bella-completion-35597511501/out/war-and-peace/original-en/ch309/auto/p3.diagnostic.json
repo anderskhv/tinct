@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "06845eabfd32b30f85f6a9ea1adbf19f7c661b98a0e7a20e634ceb0010ee3f55",
+  "attempts": [
+    {
+      "asr_seconds": 0.257273918017745,
+      "alignment_seconds": 0.0012058792635798454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Vasíli Dmítrich, entrust me with some commission! Please... for God's sake...!\" said he.",
+        "hotwords": "Vasíli, Dmítrich, Please, God's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Vasíli Dmítrich, entrust me with some commission! Please... for God's sake...! said he.",
+          "start": 0.0,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Vasíli",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.12772885958353677
+            },
+            {
+              "text": " Dmítrich,",
+              "start": 0.7,
+              "end": 1.22,
+              "probability": 0.27347412109375
+            },
+            {
+              "text": " entrust",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " me",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " with",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " some",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " commission!",
+              "start": 2.38,
+              "end": 2.76,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Please...",
+              "start": 3.86,
+              "end": 4.48,
+              "probability": 0.4081608057022095
+            },
+            {
+              "text": " for",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.45654296875
+            },
+            {
+              "text": " God's",
+              "start": 4.58,
+              "end": 4.98,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " sake...!",
+              "start": 4.98,
+              "end": 5.48,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " said",
+              "start": 5.58,
+              "end": 5.6,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " he.",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vasíli",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "Dmítrich,",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "raw": "entrust",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "with",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "some",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "commission!",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "raw": "Please...",
+          "start": 3.86,
+          "end": 4.48
+        },
+        {
+          "raw": "for",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "God's",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "raw": "sake...!",
+          "start": 4.98,
+          "end": 5.48
+        },
+        {
+          "raw": "said",
+          "start": 5.58,
+          "end": 5.6
+        },
+        {
+          "raw": "he.",
+          "start": 5.6,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "“Vasíli",
+        "Dmítrich,",
+        "entrust",
+        "me",
+        "with",
+        "some",
+        "commission!",
+        "Please...",
+        "for",
+        "God’s",
+        "sake...!”",
+        "said",
+        "he."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Vasíli",
+        "Dmítrich,",
+        "entrust",
+        "me",
+        "with",
+        "some",
+        "commission!",
+        "Please...",
+        "for",
+        "God's",
+        "sake...!\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Vasíli",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "vasíli",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dmítrich,",
+          "start": 0.7,
+          "end": 1.22,
+          "key": "dmítrich",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "entrust",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "entrust",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "commission!",
+          "start": 2.38,
+          "end": 2.76,
+          "key": "commission",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Please...",
+          "start": 3.86,
+          "end": 4.48,
+          "key": "please",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 4.58,
+          "end": 4.98,
+          "key": "gods",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sake...!",
+          "start": 4.98,
+          "end": 5.48,
+          "key": "sake",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.58,
+          "end": 5.6,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 5.6,
+          "end": 5.92,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Vasíli",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "Dmítrich,",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "text": "entrust",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "me",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "with",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "some",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "commission!",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "text": "Please...",
+          "start": 3.86,
+          "end": 4.48
+        },
+        {
+          "text": "for",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "God’s",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "text": "sake...!”",
+          "start": 4.98,
+          "end": 5.48
+        },
+        {
+          "text": "said",
+          "start": 5.58,
+          "end": 5.6
+        },
+        {
+          "text": "he.",
+          "start": 5.6,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2586242454126477
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "188fc420970f176663a536f46d7eee2334dc6af8bde2f483e3a19ea0612ed979",
+  "selected_reasons": []
+}

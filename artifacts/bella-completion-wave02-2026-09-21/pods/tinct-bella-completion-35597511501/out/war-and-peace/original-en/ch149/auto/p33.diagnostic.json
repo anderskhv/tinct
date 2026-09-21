@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "8636976959a2e6f5b39674a98ff748f0eccea1ae7ecfeeadf3c6c139e38f3a40",
+  "attempts": [
+    {
+      "asr_seconds": 0.12830996233969927,
+      "alignment_seconds": 0.0005296478047966957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pierre considered.",
+        "hotwords": "Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pierre considered.",
+          "start": 0.0,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Pierre",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.172119140625
+            },
+            {
+              "text": " considered.",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.5595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "considered.",
+          "start": 0.52,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Pierre",
+        "considered."
+      ],
+      "acoustic_expected_tokens": [
+        "Pierre",
+        "considered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "pierre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "considered.",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "considered",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Pierre",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "considered.",
+          "start": 0.52,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12892268411815166
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5764f50c8e5a595169e2f2db2c79b289fd9e29974e93beb0b73064c4424e4e5",
+  "selected_reasons": []
+}

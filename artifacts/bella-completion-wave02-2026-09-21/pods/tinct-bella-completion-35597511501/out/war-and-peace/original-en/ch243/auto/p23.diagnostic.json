@@ -1,0 +1,559 @@
+{
+  "complete": true,
+  "signature": "5b9c40e3d9f65e653bb6f9de80596e1a59f3d7d959f5c382f44a80e2d4e7f64c",
+  "attempts": [
+    {
+      "asr_seconds": 0.25845451559871435,
+      "alignment_seconds": 0.0018761446699500084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the old servant got down from the box and went up to the cart."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the old servant got down from the box and went up to the cart.",
+          "start": 0.0,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.34326171875
+            },
+            {
+              "text": " the",
+              "start": 0.34,
+              "end": 0.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " old",
+              "start": 0.46,
+              "end": 0.62,
+              "probability": 0.970703125
+            },
+            {
+              "text": " servant",
+              "start": 0.62,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " got",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " down",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " box",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " went",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cart.",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "the",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "raw": "old",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "raw": "servant",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "raw": "got",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "down",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "from",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "box",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "and",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "went",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "up",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "the",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "cart.",
+          "start": 2.8,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "old",
+        "servant",
+        "got",
+        "down",
+        "from",
+        "the",
+        "box",
+        "and",
+        "went",
+        "up",
+        "to",
+        "the",
+        "cart."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "the",
+        "old",
+        "servant",
+        "got",
+        "down",
+        "from",
+        "the",
+        "box",
+        "and",
+        "went",
+        "up",
+        "to",
+        "the",
+        "cart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.34,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.46,
+          "end": 0.62,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 0.62,
+          "end": 0.92,
+          "key": "servant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "got",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "box",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "box",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "went",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "up",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cart.",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "cart",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "the",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "text": "old",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "text": "servant",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "text": "got",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "down",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "from",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "box",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "and",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "went",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "up",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "to",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "text": "the",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "cart.",
+          "start": 2.8,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26058888155966997
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "048696f65b57028d8e8633bf6feb5102943b0539d312a6749d4f4eab6e3b0b8b",
+  "selected_reasons": []
+}

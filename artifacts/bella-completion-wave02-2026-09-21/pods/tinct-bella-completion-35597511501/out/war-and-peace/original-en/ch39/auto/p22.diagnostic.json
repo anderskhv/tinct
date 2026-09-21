@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "8c048ac4e06ee79a3ce4520ef5f94b5c949ebff0b08428f2086e612571244362",
+  "attempts": [
+    {
+      "asr_seconds": 0.10516389831900597,
+      "alignment_seconds": 0.00035264063626527786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where to?\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where to?",
+          "start": 0.0,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " to?",
+              "start": 0.4,
+              "end": 0.68,
+              "probability": 0.74658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "to?",
+          "start": 0.4,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "“Where",
+        "to?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Where",
+        "to?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to?",
+          "start": 0.4,
+          "end": 0.68,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Where",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "to?”",
+          "start": 0.4,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10559507738798857
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "221b860f56e1e646dc9c3e512192fcdc8d866923069038b5b682b09dd2e258d3",
+  "selected_reasons": []
+}

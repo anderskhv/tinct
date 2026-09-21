@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "9a432ce1b86e124506544d0414876c609913b5686c29bea5203041e9bf5b5c2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2246988471597433,
+      "alignment_seconds": 0.0013309353962540627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Plea...\" began Dólokhov, but could not at first pronounce the word.",
+        "hotwords": "Plea, Dólokhov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Plea began Dólokhov, but could not at first pronounce the word.",
+          "start": 0.0,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Plea",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.45611572265625
+            },
+            {
+              "text": " began",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " Dólokhov,",
+              "start": 0.96,
+              "end": 1.52,
+              "probability": 0.18044090270996094
+            },
+            {
+              "text": " but",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " could",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " first",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pronounce",
+              "start": 2.66,
+              "end": 3.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.06,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " word.",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Plea",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "began",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 0.96,
+          "end": 1.52
+        },
+        {
+          "raw": "but",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "could",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "not",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "at",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "first",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "raw": "word.",
+          "start": 3.28,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "“Plea...”",
+        "began",
+        "Dólokhov,",
+        "but",
+        "could",
+        "not",
+        "at",
+        "first",
+        "pronounce",
+        "the",
+        "word."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Plea...\"",
+        "began",
+        "Dólokhov,",
+        "but",
+        "could",
+        "not",
+        "at",
+        "first",
+        "pronounce",
+        "the",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Plea",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "plea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "began",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 0.96,
+          "end": 1.52,
+          "key": "dólokhov",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "could",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "first",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.66,
+          "end": 3.06,
+          "key": "pronounce",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.28,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "word",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Plea...”",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "began",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "Dólokhov,",
+          "start": 0.96,
+          "end": 1.52
+        },
+        {
+          "text": "but",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "could",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "not",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "at",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "first",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "text": "pronounce",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "text": "the",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "text": "word.",
+          "start": 3.28,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22619506064802408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "991adb42feb0b6c8ca7ad352bca69c7b358253ceac0d267b786aa7704a630f40",
+  "selected_reasons": []
+}

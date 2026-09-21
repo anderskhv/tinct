@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "9d6b918e0db08907af6aee9d54cdd019b9cbacdfdf19c001407f84a574700eae",
+  "attempts": [
+    {
+      "asr_seconds": 0.4058733945712447,
+      "alignment_seconds": 0.0017047403380274773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, au revoir, Bolkónski! Au revoir, Prince! Come back early to dinner,\" cried several voices. \"We'll take you in hand.\"",
+        "hotwords": "Well, Bolkónski, Prince, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, au revoir, Bolkónski! Au revoir, Prince! Come back early to dinner,\" cried several voices.",
+          "start": 0.0,
+          "end": 8.48,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.1397705078125
+            },
+            {
+              "text": " au",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.0099945068359375
+            },
+            {
+              "text": " revoir,",
+              "start": 1.0,
+              "end": 1.6,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " Bolkónski!",
+              "start": 1.92,
+              "end": 2.5,
+              "probability": 0.40823423862457275
+            },
+            {
+              "text": " Au",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.356201171875
+            },
+            {
+              "text": " revoir,",
+              "start": 3.78,
+              "end": 4.38,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " Prince!",
+              "start": 4.72,
+              "end": 4.78,
+              "probability": 0.403564453125
+            },
+            {
+              "text": " Come",
+              "start": 5.98,
+              "end": 6.14,
+              "probability": 0.849609375
+            },
+            {
+              "text": " back",
+              "start": 6.14,
+              "end": 6.36,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " early",
+              "start": 6.36,
+              "end": 6.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 6.56,
+              "end": 6.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dinner,\"",
+              "start": 6.82,
+              "end": 7.36,
+              "probability": 0.6192626953125
+            },
+            {
+              "text": " cried",
+              "start": 7.36,
+              "end": 7.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " several",
+              "start": 7.58,
+              "end": 8.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " voices.",
+              "start": 8.04,
+              "end": 8.48,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " We'll take you in hand.",
+          "start": 9.64,
+          "end": 10.72,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 9.64,
+              "end": 9.9,
+              "probability": 0.5061569213867188
+            },
+            {
+              "text": " take",
+              "start": 9.9,
+              "end": 10.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 10.06,
+              "end": 10.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 10.24,
+              "end": 10.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand.",
+              "start": 10.4,
+              "end": 10.72,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "au",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "revoir,",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "raw": "Bolkónski!",
+          "start": 1.92,
+          "end": 2.5
+        },
+        {
+          "raw": "Au",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "revoir,",
+          "start": 3.78,
+          "end": 4.38
+        },
+        {
+          "raw": "Prince!",
+          "start": 4.72,
+          "end": 4.78
+        },
+        {
+          "raw": "Come",
+          "start": 5.98,
+          "end": 6.14
+        },
+        {
+          "raw": "back",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "raw": "early",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "raw": "to",
+          "start": 6.56,
+          "end": 6.82
+        },
+        {
+          "raw": "dinner,\"",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "raw": "cried",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "raw": "several",
+          "start": 7.58,
+          "end": 8.04
+        },
+        {
+          "raw": "voices.",
+          "start": 8.04,
+          "end": 8.48
+        },
+        {
+          "raw": "We'll",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "raw": "take",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "raw": "you",
+          "start": 10.06,
+          "end": 10.24
+        },
+        {
+          "raw": "in",
+          "start": 10.24,
+          "end": 10.4
+        },
+        {
+          "raw": "hand.",
+          "start": 10.4,
+          "end": 10.72
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "au",
+        "revoir,",
+        "Bolkónski!",
+        "Au",
+        "revoir,",
+        "Prince!",
+        "Come",
+        "back",
+        "early",
+        "to",
+        "dinner,”",
+        "cried",
+        "several",
+        "voices.",
+        "“We’ll",
+        "take",
+        "you",
+        "in",
+        "hand.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "au",
+        "revoir,",
+        "Bolkónski!",
+        "Au",
+        "revoir,",
+        "Prince!",
+        "Come",
+        "back",
+        "early",
+        "to",
+        "dinner,\"",
+        "cried",
+        "several",
+        "voices.",
+        "\"We'll",
+        "take",
+        "you",
+        "in",
+        "hand.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "au",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "au",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "revoir,",
+          "start": 1.0,
+          "end": 1.6,
+          "key": "revoir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bolkónski!",
+          "start": 1.92,
+          "end": 2.5,
+          "key": "bolkónski",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Au",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "au",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "revoir,",
+          "start": 3.78,
+          "end": 4.38,
+          "key": "revoir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Prince!",
+          "start": 4.72,
+          "end": 4.78,
+          "key": "prince",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 5.98,
+          "end": 6.14,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 6.14,
+          "end": 6.36,
+          "key": "back",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "early",
+          "start": 6.36,
+          "end": 6.56,
+          "key": "early",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.56,
+          "end": 6.82,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dinner,\"",
+          "start": 6.82,
+          "end": 7.36,
+          "key": "dinner",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 7.36,
+          "end": 7.58,
+          "key": "cried",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 7.58,
+          "end": 8.04,
+          "key": "several",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "voices.",
+          "start": 8.04,
+          "end": 8.48,
+          "key": "voices",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 9.64,
+          "end": 9.9,
+          "key": "well",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 9.9,
+          "end": 10.06,
+          "key": "take",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.06,
+          "end": 10.24,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.24,
+          "end": 10.4,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 10.4,
+          "end": 10.72,
+          "key": "hand",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "au",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "revoir,",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "text": "Bolkónski!",
+          "start": 1.92,
+          "end": 2.5
+        },
+        {
+          "text": "Au",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "revoir,",
+          "start": 3.78,
+          "end": 4.38
+        },
+        {
+          "text": "Prince!",
+          "start": 4.72,
+          "end": 4.78
+        },
+        {
+          "text": "Come",
+          "start": 5.98,
+          "end": 6.14
+        },
+        {
+          "text": "back",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "text": "early",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "text": "to",
+          "start": 6.56,
+          "end": 6.82
+        },
+        {
+          "text": "dinner,”",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "text": "cried",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "text": "several",
+          "start": 7.58,
+          "end": 8.04
+        },
+        {
+          "text": "voices.",
+          "start": 8.04,
+          "end": 8.48
+        },
+        {
+          "text": "“We’ll",
+          "start": 9.64,
+          "end": 9.9
+        },
+        {
+          "text": "take",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "text": "you",
+          "start": 10.06,
+          "end": 10.24
+        },
+        {
+          "text": "in",
+          "start": 10.24,
+          "end": 10.4
+        },
+        {
+          "text": "hand.”",
+          "start": 10.4,
+          "end": 10.72
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40777662582695484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ca98977f9af9bef8171aae34bc8c50652fcd21304cccab4775198ea801c6861",
+  "selected_reasons": []
+}

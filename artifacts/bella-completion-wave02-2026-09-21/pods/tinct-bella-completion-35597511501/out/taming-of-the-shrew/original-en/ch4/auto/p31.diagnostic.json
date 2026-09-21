@@ -1,0 +1,1289 @@
+{
+  "complete": true,
+  "signature": "e95222748e2d9e982446f7cd028b2d5cce7280c3fd3c524a74f8d4c8baae3de2",
+  "attempts": [
+    {
+      "asr_seconds": 5.62383459508419,
+      "alignment_seconds": 0.0018569687381386757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aside And watch withal; for, but I be deceiv'd,",
+        "hotwords": "Aside, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside And watch withal, for, but I be deceiv'd,",
+          "start": 0.02,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.301025390625
+            },
+            {
+              "text": " And",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.0012216567993164062
+            },
+            {
+              "text": " watch",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " withal,",
+              "start": 1.22,
+              "end": 1.66,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " for,",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.630859375
+            },
+            {
+              "text": " but",
+              "start": 2.24,
+              "end": 2.26,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " be",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.970703125
+            },
+            {
+              "text": " deceiv'd,",
+              "start": 2.5,
+              "end": 3.1,
+              "probability": 0.3165791829427083
+            }
+          ]
+        },
+        {
+          "text": " But I be deceiv'd, but I be deceiv'd,",
+          "start": 3.1,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " But",
+              "start": 3.1,
+              "end": 3.6,
+              "probability": 0.0004582405090332031
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.096923828125
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 7.617473602294922e-05
+            },
+            {
+              "text": " deceiv'd,",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.0020588040351867676
+            },
+            {
+              "text": " but",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.0228118896484375
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.161376953125
+            },
+            {
+              "text": " deceiv'd,",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.66082763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "And",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "withal,",
+          "start": 1.22,
+          "end": 1.66
+        },
+        {
+          "raw": "for,",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "but",
+          "start": 2.24,
+          "end": 2.26
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 2.5,
+          "end": 3.1
+        },
+        {
+          "raw": "But",
+          "start": 3.1,
+          "end": 3.6
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "but",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 3.6,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_]",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv’d,"
+      ],
+      "acoustic_expected_tokens": [
+        "Aside",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv'd,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "watch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "withal,",
+          "start": 1.22,
+          "end": 1.66,
+          "key": "withal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for,",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.24,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 2.5,
+          "end": 3.1,
+          "key": "deceivd",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.1,
+          "end": 3.6,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "deceivd",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "deceiv'd,",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "deceivd",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_]",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "And",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "text": "watch",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "withal;",
+          "start": 1.22,
+          "end": 1.66
+        },
+        {
+          "text": "for,",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "but",
+          "start": 2.24,
+          "end": 2.26
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "deceiv’d,",
+          "start": 2.5,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 17,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 5.626000888645649
+    },
+    {
+      "asr_seconds": 0.24352276884019375,
+      "alignment_seconds": 0.001370452344417572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aside, And, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " aside and watch with all, for but I be deceived.",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " aside",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.2452392578125
+            },
+            {
+              "text": " and",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " watch",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " all,",
+              "start": 1.4,
+              "end": 1.7,
+              "probability": 0.307373046875
+            },
+            {
+              "text": " for",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " but",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " deceived.",
+              "start": 2.5,
+              "end": 2.88,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "raw": "with",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "all,",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "raw": "for",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "deceived.",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_]",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv’d,"
+      ],
+      "acoustic_expected_tokens": [
+        "Aside",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv'd,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.24,
+          "key": "watch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 1.4,
+          "end": 1.7,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deceived.",
+          "start": 2.5,
+          "end": 2.88,
+          "key": "deceived",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_]",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "And",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "watch",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "text": "withal;",
+          "start": 1.24,
+          "end": 1.63
+        },
+        {
+          "text": "for,",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "but",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "deceiv’d,",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.24508522357791662
+    },
+    {
+      "asr_seconds": 0.21077018603682518,
+      "alignment_seconds": 0.0013807723298668861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside and watch withal, for but I be deceived.",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.300537109375
+            },
+            {
+              "text": " and",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " watch",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " withal,",
+              "start": 1.24,
+              "end": 1.66,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " for",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " but",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " deceived.",
+              "start": 2.5,
+              "end": 2.88,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "and",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "raw": "withal,",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "raw": "for",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "deceived.",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_]",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv’d,"
+      ],
+      "acoustic_expected_tokens": [
+        "Aside",
+        "And",
+        "watch",
+        "withal;",
+        "for,",
+        "but",
+        "I",
+        "be",
+        "deceiv'd,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 1.0,
+          "end": 1.24,
+          "key": "watch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "withal,",
+          "start": 1.24,
+          "end": 1.66,
+          "key": "withal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deceived.",
+          "start": 2.5,
+          "end": 2.88,
+          "key": "deceived",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_]",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "And",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "text": "watch",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "text": "withal;",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "text": "for,",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "but",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "be",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "deceiv’d,",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21233055461198092
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdd6d396acc16bafee88a07020e938241f822f7ec1a98d429013d8e3c8a58255",
+  "selected_reasons": []
+}

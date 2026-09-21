@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "144ba2fdf396444e30b9813117a0d1df3e77687f9e51ab5063630afb5d61bfc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.25530171394348145,
+      "alignment_seconds": 0.0012893741950392723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"With my father and sister, remember,\" said Prince Andrew gently.",
+        "hotwords": "With, Prince, Andrew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " With my father and sister, remember,\" said Prince Andrew gently.",
+          "start": 0.02,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " With",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.1942138671875
+            },
+            {
+              "text": " my",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " father",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sister,",
+              "start": 1.24,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " remember,\"",
+              "start": 2.02,
+              "end": 2.68,
+              "probability": 0.783203125
+            },
+            {
+              "text": " said",
+              "start": 2.68,
+              "end": 3.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Prince",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Andrew",
+              "start": 3.3,
+              "end": 3.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gently.",
+              "start": 3.72,
+              "end": 4.08,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "my",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "father",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "sister,",
+          "start": 1.24,
+          "end": 1.64
+        },
+        {
+          "raw": "remember,\"",
+          "start": 2.02,
+          "end": 2.68
+        },
+        {
+          "raw": "said",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "raw": "Prince",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "raw": "Andrew",
+          "start": 3.3,
+          "end": 3.72
+        },
+        {
+          "raw": "gently.",
+          "start": 3.72,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "“With",
+        "my",
+        "father",
+        "and",
+        "sister,",
+        "remember,”",
+        "said",
+        "Prince",
+        "Andrew",
+        "gently."
+      ],
+      "acoustic_expected_tokens": [
+        "\"With",
+        "my",
+        "father",
+        "and",
+        "sister,",
+        "remember,\"",
+        "said",
+        "Prince",
+        "Andrew",
+        "gently."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "with",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 0.74,
+          "end": 1.02,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sister,",
+          "start": 1.24,
+          "end": 1.64,
+          "key": "sister",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "remember,\"",
+          "start": 2.02,
+          "end": 2.68,
+          "key": "remember",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.68,
+          "end": 3.02,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 3.02,
+          "end": 3.3,
+          "key": "prince",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 3.3,
+          "end": 3.72,
+          "key": "andrew",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gently.",
+          "start": 3.72,
+          "end": 4.08,
+          "key": "gently",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "my",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "father",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "and",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "sister,",
+          "start": 1.24,
+          "end": 1.64
+        },
+        {
+          "text": "remember,”",
+          "start": 2.02,
+          "end": 2.68
+        },
+        {
+          "text": "said",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "text": "Prince",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "text": "Andrew",
+          "start": 3.3,
+          "end": 3.72
+        },
+        {
+          "text": "gently.",
+          "start": 3.72,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25676355697214603
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "337271778190a3f012faf8b1e75ef01b708c3e79deb39519f72e6a27573c9834",
+  "selected_reasons": []
+}

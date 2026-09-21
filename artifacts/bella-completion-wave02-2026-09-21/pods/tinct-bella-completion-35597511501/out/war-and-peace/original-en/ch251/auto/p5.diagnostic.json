@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "3d5abc406edbed4bb03cf96fd7dcae1228393dc019ab3167839d9bc5f0f93209",
+  "attempts": [
+    {
+      "asr_seconds": 0.23232129868119955,
+      "alignment_seconds": 0.001181144267320633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Aunt, I did it gently,\" said the boy.",
+        "hotwords": "Aunt, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aunt, I did it gently,\" said the boy.",
+          "start": 0.0,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Aunt,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.057647705078125
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " did",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gently,\"",
+              "start": 1.18,
+              "end": 1.76,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " said",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " boy.",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aunt,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "did",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "it",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "gently,\"",
+          "start": 1.18,
+          "end": 1.76
+        },
+        {
+          "raw": "said",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "boy.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "“Aunt,",
+        "I",
+        "did",
+        "it",
+        "gently,”",
+        "said",
+        "the",
+        "boy."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Aunt,",
+        "I",
+        "did",
+        "it",
+        "gently,\"",
+        "said",
+        "the",
+        "boy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aunt,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "aunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.86,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gently,\"",
+          "start": 1.18,
+          "end": 1.76,
+          "key": "gently",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Aunt,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "did",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "it",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "gently,”",
+          "start": 1.18,
+          "end": 1.76
+        },
+        {
+          "text": "said",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "boy.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23366731964051723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "40de353c3cf83facb676d5fb990c19a7f264dd6a377967c1307f4a797296a0df",
+  "selected_reasons": []
+}

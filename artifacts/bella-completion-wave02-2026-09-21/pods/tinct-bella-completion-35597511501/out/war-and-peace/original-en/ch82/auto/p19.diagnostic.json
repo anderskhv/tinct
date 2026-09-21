@@ -1,0 +1,531 @@
+{
+  "complete": true,
+  "signature": "a571fda8ce93cdc4903f80bda327294082109e5f9b04864d7af185f83057b25f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2506260499358177,
+      "alignment_seconds": 0.0017482396215200424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I cannot pay it all immediately. Will you take an I.O.U.?\" he said.",
+        "hotwords": "I, Will, I.O.U"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I cannot pay it all immediately. Will you take an I.O.U?\" he said.",
+          "start": 0.0,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " cannot",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " pay",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " all",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " immediately.",
+              "start": 1.18,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Will",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " you",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " take",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " an",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " I",
+              "start": 3.4,
+              "end": 3.58,
+              "probability": 0.830078125
+            },
+            {
+              "text": ".O",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.6063232421875
+            },
+            {
+              "text": ".U?\"",
+              "start": 3.72,
+              "end": 4.36,
+              "probability": 0.6637776692708334
+            },
+            {
+              "text": " he",
+              "start": 4.36,
+              "end": 4.48,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " said.",
+              "start": 4.48,
+              "end": 4.84,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "cannot",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "pay",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "it",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "all",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "immediately.",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "raw": "Will",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "you",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "take",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "an",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "I",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "raw": ".O",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": ".U?\"",
+          "start": 3.72,
+          "end": 4.36
+        },
+        {
+          "raw": "he",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "raw": "said.",
+          "start": 4.48,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "cannot",
+        "pay",
+        "it",
+        "all",
+        "immediately.",
+        "Will",
+        "you",
+        "take",
+        "an",
+        "I.O.U.?”",
+        "he",
+        "said."
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "cannot",
+        "pay",
+        "it",
+        "all",
+        "immediately.",
+        "Will",
+        "you",
+        "take",
+        "an",
+        "I.O.U.?\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "cannot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "pay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "immediately.",
+          "start": 1.18,
+          "end": 1.66,
+          "key": "immediately",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "take",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.22,
+          "end": 3.4,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I .O .U?\"",
+          "start": 3.4,
+          "end": 4.36,
+          "key": "iou",
+          "pieces": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.36,
+          "end": 4.48,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 4.48,
+          "end": 4.84,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "I.O.U.?\"",
+          "heard": "I .O .U?\"",
+          "heard_indexes": [
+            10,
+            11,
+            12
+          ],
+          "start": 3.4,
+          "end": 4.36
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "cannot",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "pay",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "it",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "all",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "immediately.",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "text": "Will",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "you",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "text": "take",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "an",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "text": "I.O.U.?”",
+          "start": 3.4,
+          "end": 4.36
+        },
+        {
+          "text": "he",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "said.",
+          "start": 4.48,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2526053749024868
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "423ed966f5e147867fc916d4c583e606cdb058d60360172d22347c6122896d25",
+  "selected_reasons": []
+}

@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "770345ebc12962c35efbfc77b1338c6e3bb96cb0972f1061eed7914a0c20e49f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24829825945198536,
+      "alignment_seconds": 0.0006622700020670891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sónya, wait a bit—we'll pack everything into these,\" said Natásha.",
+        "hotwords": "Sónya, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sónya, wait a bit—we'll pack everything into these,\" said Natásha.",
+          "start": 0.0,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Sónya,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.3510730266571045
+            },
+            {
+              "text": " wait",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bit—we'll",
+              "start": 1.2,
+              "end": 1.96,
+              "probability": 0.7288017272949219
+            },
+            {
+              "text": " pack",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " everything",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " these,\"",
+              "start": 2.9,
+              "end": 3.6,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " said",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Natásha.",
+              "start": 3.74,
+              "end": 4.3,
+              "probability": 0.022402445475260418
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sónya,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "wait",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "bit—we'll",
+          "start": 1.2,
+          "end": 1.96
+        },
+        {
+          "raw": "pack",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "everything",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "raw": "into",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "these,\"",
+          "start": 2.9,
+          "end": 3.6
+        },
+        {
+          "raw": "said",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "Natásha.",
+          "start": 3.74,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "“Sónya,",
+        "wait",
+        "a",
+        "bit—we’ll",
+        "pack",
+        "everything",
+        "into",
+        "these,”",
+        "said",
+        "Natásha."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sónya,",
+        "wait",
+        "a",
+        "bit—we'll",
+        "pack",
+        "everything",
+        "into",
+        "these,\"",
+        "said",
+        "Natásha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sónya,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "sónya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bit—we'll",
+          "start": 1.2,
+          "end": 1.96,
+          "key": "bitwell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pack",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "pack",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "everything",
+          "start": 2.18,
+          "end": 2.54,
+          "key": "everything",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "into",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these,\"",
+          "start": 2.9,
+          "end": 3.6,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Natásha.",
+          "start": 3.74,
+          "end": 4.3,
+          "key": "natásha",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Sónya,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "wait",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "bit—we’ll",
+          "start": 1.2,
+          "end": 1.96
+        },
+        {
+          "text": "pack",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "everything",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "text": "into",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "these,”",
+          "start": 2.9,
+          "end": 3.6
+        },
+        {
+          "text": "said",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "Natásha.",
+          "start": 3.74,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24904200993478298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4dc2e68e92b5f80804c2e3f48361859194d8beb1d6d18825e27861dce225956",
+  "selected_reasons": []
+}

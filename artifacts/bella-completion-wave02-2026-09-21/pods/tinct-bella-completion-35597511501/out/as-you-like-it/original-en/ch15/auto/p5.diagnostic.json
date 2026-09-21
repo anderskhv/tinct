@@ -1,0 +1,147 @@
+{
+  "complete": true,
+  "signature": "5fa127ce8b6dd133939dd6b5e77d0dfa7cc494fe9eadd7c87139c8446f6e66ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.08388920314610004,
+      "alignment_seconds": 0.0003850683569908142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter ROSALIND",
+        "hotwords": "Enter, ROSALIND"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter ROSALIND",
+          "start": 0.21,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.21,
+              "end": 0.73,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " ROSALIND",
+              "start": 0.73,
+              "end": 1.35,
+              "probability": 0.3863811095555623
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.21,
+          "end": 0.73
+        },
+        {
+          "raw": "ROSALIND",
+          "start": 0.73,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "ROSALIND"
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "ROSALIND"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [
+        1
+      ],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.21,
+          "end": 0.73,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ROSALIND",
+          "start": 0.73,
+          "end": 1.35,
+          "key": "rosalind",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.21,
+          "end": 0.73
+        },
+        {
+          "text": "ROSALIND",
+          "start": 0.73,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08434068039059639
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06d7f76723a4d05c08f6d106f58a5064736286a0eb7fcb7f71d0368dcf16a8d4",
+  "selected_reasons": []
+}

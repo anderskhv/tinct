@@ -1,0 +1,795 @@
+{
+  "complete": true,
+  "signature": "ec630d9c5a84c73c714a00be404dc689e41eeffc3d9bcbe0cd3f504f3f7fee21",
+  "attempts": [
+    {
+      "asr_seconds": 0.34204643592238426,
+      "alignment_seconds": 0.0025288593024015427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Só-o-onya! Look here! How can you torture me and yourself like that, for a mere fancy?\" said Nicholas taking her hand.",
+        "hotwords": "Só-o-onya, Look, How, Nicholas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Só-o-onya, Look, Here, How can you torture me and yourself like that, for a mere fancy?\" said Nicholas taking her hand.",
+          "start": 0.11,
+          "end": 7.29,
+          "words": [
+            {
+              "text": " Só",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.0006725788116455078
+            },
+            {
+              "text": "-o",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.16930198669433594
+            },
+            {
+              "text": "-onya,",
+              "start": 0.79,
+              "end": 1.29,
+              "probability": 0.4865074157714844
+            },
+            {
+              "text": " Look,",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.0160980224609375
+            },
+            {
+              "text": " Here,",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.2178955078125
+            },
+            {
+              "text": " How",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.56640625
+            },
+            {
+              "text": " can",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " you",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " torture",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " me",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " and",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " yourself",
+              "start": 3.49,
+              "end": 3.73,
+              "probability": 0.744140625
+            },
+            {
+              "text": " like",
+              "start": 3.73,
+              "end": 4.05,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " that,",
+              "start": 4.05,
+              "end": 4.33,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " for",
+              "start": 4.47,
+              "end": 4.55,
+              "probability": 0.837890625
+            },
+            {
+              "text": " a",
+              "start": 4.55,
+              "end": 4.65,
+              "probability": 0.962890625
+            },
+            {
+              "text": " mere",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " fancy?\"",
+              "start": 4.75,
+              "end": 5.81,
+              "probability": 0.505859375
+            },
+            {
+              "text": " said",
+              "start": 5.81,
+              "end": 6.03,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Nicholas",
+              "start": 6.03,
+              "end": 6.39,
+              "probability": 0.693359375
+            },
+            {
+              "text": " taking",
+              "start": 6.39,
+              "end": 6.73,
+              "probability": 0.2357177734375
+            },
+            {
+              "text": " her",
+              "start": 6.73,
+              "end": 6.97,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " hand.",
+              "start": 6.97,
+              "end": 7.29,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Só",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "-o",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "-onya,",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "raw": "Look,",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "Here,",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "How",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "can",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "torture",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "me",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "yourself",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "raw": "like",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "raw": "that,",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "raw": "for",
+          "start": 4.47,
+          "end": 4.55
+        },
+        {
+          "raw": "a",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "raw": "mere",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "fancy?\"",
+          "start": 4.75,
+          "end": 5.81
+        },
+        {
+          "raw": "said",
+          "start": 5.81,
+          "end": 6.03
+        },
+        {
+          "raw": "Nicholas",
+          "start": 6.03,
+          "end": 6.39
+        },
+        {
+          "raw": "taking",
+          "start": 6.39,
+          "end": 6.73
+        },
+        {
+          "raw": "her",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "raw": "hand.",
+          "start": 6.97,
+          "end": 7.29
+        }
+      ],
+      "expected_tokens": [
+        "“Só-o-onya!",
+        "Look",
+        "here!",
+        "How",
+        "can",
+        "you",
+        "torture",
+        "me",
+        "and",
+        "yourself",
+        "like",
+        "that,",
+        "for",
+        "a",
+        "mere",
+        "fancy?”",
+        "said",
+        "Nicholas",
+        "taking",
+        "her",
+        "hand."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Só-o-onya!",
+        "Look",
+        "here!",
+        "How",
+        "can",
+        "you",
+        "torture",
+        "me",
+        "and",
+        "yourself",
+        "like",
+        "that,",
+        "for",
+        "a",
+        "mere",
+        "fancy?\"",
+        "said",
+        "Nicholas",
+        "taking",
+        "her",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Só -o -onya,",
+          "start": 0.11,
+          "end": 1.29,
+          "key": "sóoonya",
+          "pieces": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Look,",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "torture",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "torture",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.49,
+          "end": 3.73,
+          "key": "yourself",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.73,
+          "end": 4.05,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 4.05,
+          "end": 4.33,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.47,
+          "end": 4.55,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.55,
+          "end": 4.65,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "mere",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fancy?\"",
+          "start": 4.75,
+          "end": 5.81,
+          "key": "fancy",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.81,
+          "end": 6.03,
+          "key": "said",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 6.03,
+          "end": 6.39,
+          "key": "nicholas",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 6.39,
+          "end": 6.73,
+          "key": "taking",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 6.73,
+          "end": 6.97,
+          "key": "her",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 6.97,
+          "end": 7.29,
+          "key": "hand",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Só-o-onya!",
+          "heard": "Só -o -onya,",
+          "heard_indexes": [
+            0,
+            1,
+            2
+          ],
+          "start": 0.11,
+          "end": 1.29
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Só-o-onya!",
+          "start": 0.11,
+          "end": 1.29
+        },
+        {
+          "text": "Look",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "here!",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "How",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "can",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "you",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "torture",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "me",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "and",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "text": "yourself",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "text": "like",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "text": "that,",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "text": "for",
+          "start": 4.47,
+          "end": 4.55
+        },
+        {
+          "text": "a",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "text": "mere",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "fancy?”",
+          "start": 4.75,
+          "end": 5.81
+        },
+        {
+          "text": "said",
+          "start": 5.81,
+          "end": 6.03
+        },
+        {
+          "text": "Nicholas",
+          "start": 6.03,
+          "end": 6.39
+        },
+        {
+          "text": "taking",
+          "start": 6.39,
+          "end": 6.73
+        },
+        {
+          "text": "her",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "text": "hand.",
+          "start": 6.97,
+          "end": 7.29
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3448695233091712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "435930373f492b4072e361f9ff5e313a71a4f7a30a0c3e8789042001db3dace2",
+  "selected_reasons": []
+}

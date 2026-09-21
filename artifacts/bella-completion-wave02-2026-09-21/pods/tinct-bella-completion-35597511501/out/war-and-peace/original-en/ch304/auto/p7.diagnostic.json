@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "0d01767a2b782676318ac3506d7267b6c140ac4f4af2786b58b646bd181e7bad",
+  "attempts": [
+    {
+      "asr_seconds": 0.13408639281988144,
+      "alignment_seconds": 0.0006333831697702408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where is he?\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where is he?",
+          "start": 0.0,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " is",
+              "start": 0.4,
+              "end": 0.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " he?",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.58
+        },
+        {
+          "raw": "he?",
+          "start": 0.58,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "“Where",
+        "is",
+        "he?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Where",
+        "is",
+        "he?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.58,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Where",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "is",
+          "start": 0.4,
+          "end": 0.58
+        },
+        {
+          "text": "he?”",
+          "start": 0.58,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13480940833687782
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06072267e2c8462dc3d1674a5918a1b82ae62e9ec2b8e675b87bf298175d1e85",
+  "selected_reasons": []
+}

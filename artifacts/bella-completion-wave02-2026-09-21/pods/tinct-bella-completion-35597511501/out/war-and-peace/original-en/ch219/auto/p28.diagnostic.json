@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "d06491d99437e90cd7e7ba0e12d8b605079bf36b441fab61bfc8c9898ad65ca4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11401670053601265,
+      "alignment_seconds": 0.0003536613658070564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It has, Your Majesty.\"",
+        "hotwords": "It, Your, Majesty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It has, Your Majesty.",
+          "start": 0.0,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " has,",
+              "start": 0.32,
+              "end": 0.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Your",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.1527099609375
+            },
+            {
+              "text": " Majesty.",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "has,",
+          "start": 0.32,
+          "end": 0.58
+        },
+        {
+          "raw": "Your",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "Majesty.",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "“It",
+        "has,",
+        "Your",
+        "Majesty.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"It",
+        "has,",
+        "Your",
+        "Majesty.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has,",
+          "start": 0.32,
+          "end": 0.58,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Majesty.",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "majesty",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“It",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "has,",
+          "start": 0.32,
+          "end": 0.58
+        },
+        {
+          "text": "Your",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "text": "Majesty.”",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11442282609641552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d61c4dce71e47fd5301967d3620c6ff4aa21b2fc5fbded64af3394eb295bc5dc",
+  "selected_reasons": []
+}

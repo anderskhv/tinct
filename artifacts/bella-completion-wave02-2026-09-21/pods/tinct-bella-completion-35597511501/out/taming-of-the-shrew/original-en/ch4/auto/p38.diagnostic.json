@@ -1,0 +1,863 @@
+{
+  "complete": true,
+  "signature": "f8f5c609be9aa775abc5ac8dee94b1b1bd7e2e3e0a4dcb79ec77fc13bf8aa827",
+  "attempts": [
+    {
+      "asr_seconds": 0.3272823113948107,
+      "alignment_seconds": 0.0018153674900531769,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mistress, your father prays you leave your books, And help to dress your sister's chamber up: You know tomorrow is the wedding-day.",
+        "hotwords": "Mistress, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, Mistress, your father prays you leave your books, And help to dress your sister's chamber up.",
+          "start": 0.0,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.0,
+              "end": 0.92,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Mistress,",
+              "start": 1.32,
+              "end": 1.62,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " your",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " father",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.69140625
+            },
+            {
+              "text": " prays",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " leave",
+              "start": 3.1,
+              "end": 3.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 3.26,
+              "end": 3.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " books,",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " And",
+              "start": 3.98,
+              "end": 4.0,
+              "probability": 0.05072021484375
+            },
+            {
+              "text": " help",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " to",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dress",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sister's",
+              "start": 4.8,
+              "end": 5.26,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " chamber",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " up.",
+              "start": 5.48,
+              "end": 5.84,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " You know tomorrow is the wedding-day.",
+          "start": 6.38,
+          "end": 7.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 6.38,
+              "end": 6.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " know",
+              "start": 6.46,
+              "end": 6.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tomorrow",
+              "start": 6.6,
+              "end": 6.94,
+              "probability": 0.94140625
+            },
+            {
+              "text": " is",
+              "start": 6.94,
+              "end": 7.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 7.28,
+              "end": 7.44,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " wedding",
+              "start": 7.44,
+              "end": 7.62,
+              "probability": 0.97021484375
+            },
+            {
+              "text": "-day.",
+              "start": 7.62,
+              "end": 7.94,
+              "probability": 0.4913313388824463
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.0,
+          "end": 0.92
+        },
+        {
+          "raw": "Mistress,",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "raw": "your",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "father",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "raw": "prays",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "leave",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "raw": "your",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "raw": "books,",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "And",
+          "start": 3.98,
+          "end": 4.0
+        },
+        {
+          "raw": "help",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "to",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "dress",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "your",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "sister's",
+          "start": 4.8,
+          "end": 5.26
+        },
+        {
+          "raw": "chamber",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "up.",
+          "start": 5.48,
+          "end": 5.84
+        },
+        {
+          "raw": "You",
+          "start": 6.38,
+          "end": 6.46
+        },
+        {
+          "raw": "know",
+          "start": 6.46,
+          "end": 6.6
+        },
+        {
+          "raw": "tomorrow",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "raw": "the",
+          "start": 7.28,
+          "end": 7.44
+        },
+        {
+          "raw": "wedding",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "raw": "-day.",
+          "start": 7.62,
+          "end": 7.94
+        }
+      ],
+      "expected_tokens": [
+        "SERVANT.",
+        "Mistress,",
+        "your",
+        "father",
+        "prays",
+        "you",
+        "leave",
+        "your",
+        "books,",
+        "And",
+        "help",
+        "to",
+        "dress",
+        "your",
+        "sister’s",
+        "chamber",
+        "up:",
+        "You",
+        "know",
+        "tomorrow",
+        "is",
+        "the",
+        "wedding-day."
+      ],
+      "acoustic_expected_tokens": [
+        "Mistress,",
+        "your",
+        "father",
+        "prays",
+        "you",
+        "leave",
+        "your",
+        "books,",
+        "And",
+        "help",
+        "to",
+        "dress",
+        "your",
+        "sister's",
+        "chamber",
+        "up:",
+        "You",
+        "know",
+        "tomorrow",
+        "is",
+        "the",
+        "wedding-day."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          22,
+          1,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.0,
+          "end": 0.92,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mistress,",
+          "start": 1.32,
+          "end": 1.62,
+          "key": "mistress",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prays",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "prays",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 3.1,
+          "end": 3.26,
+          "key": "leave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.26,
+          "end": 3.42,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "books,",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "books",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.98,
+          "end": 4.0,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "help",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dress",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "dress",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sister's",
+          "start": 4.8,
+          "end": 5.26,
+          "key": "sisters",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "chamber",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "chamber",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 5.48,
+          "end": 5.84,
+          "key": "up",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.38,
+          "end": 6.46,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 6.46,
+          "end": 6.6,
+          "key": "know",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 6.6,
+          "end": 6.94,
+          "key": "tomorrow",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.28,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.28,
+          "end": 7.44,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "wedding -day.",
+          "start": 7.44,
+          "end": 7.94,
+          "key": "weddingday",
+          "pieces": [
+            22,
+            23
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 21,
+          "text": "wedding-day.",
+          "heard": "wedding -day.",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 7.44,
+          "end": 7.94
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SERVANT.",
+          "start": 1.32,
+          "end": 1.32
+        },
+        {
+          "text": "Mistress,",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "your",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "father",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "text": "prays",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "you",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "leave",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "text": "your",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "text": "books,",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "And",
+          "start": 3.98,
+          "end": 4.0
+        },
+        {
+          "text": "help",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "to",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "dress",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "your",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "sister’s",
+          "start": 4.8,
+          "end": 5.26
+        },
+        {
+          "text": "chamber",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "up:",
+          "start": 5.48,
+          "end": 5.84
+        },
+        {
+          "text": "You",
+          "start": 6.38,
+          "end": 6.46
+        },
+        {
+          "text": "know",
+          "start": 6.46,
+          "end": 6.6
+        },
+        {
+          "text": "tomorrow",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "text": "is",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "text": "the",
+          "start": 7.28,
+          "end": 7.44
+        },
+        {
+          "text": "wedding-day.",
+          "start": 7.44,
+          "end": 7.94
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32931175641715527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bee17623c881e3fb4abf4448403bde7a31b4567459b5149f86e3ec61de908da1",
+  "selected_reasons": []
+}

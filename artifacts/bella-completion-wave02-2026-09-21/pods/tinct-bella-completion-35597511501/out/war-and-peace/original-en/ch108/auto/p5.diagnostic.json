@@ -1,0 +1,2316 @@
+{
+  "complete": true,
+  "signature": "0b7a53bc6cb4f10e5d8d1613b9a9e6dd3547f0f36b1e22c13daf0a2abc867fec",
+  "attempts": [
+    {
+      "asr_seconds": 0.6212614504620433,
+      "alignment_seconds": 0.012064405716955662,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "During the dull day, in the course of which he was entertained by his elderly hosts and by the more important of the visitors (the old count's house was crowded on account of an approaching name day), Prince Andrew repeatedly glanced at Natásha, gay and laughing among the younger members of the company, and asked himself each time, \"What is she thinking about? Why is she so glad?\"",
+        "hotwords": "During, Prince, Andrew, Natásha, What, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " During the dull day, in the course of which he was entertained by his elderly hosts and by the more important of the visitors, the old count's house was crowded on account of an approaching name day, Prince Andrew repeatedly glanced at Natásha, gay and laughing among the younger members of the company, and asked himself each time,",
+          "start": 0.0,
+          "end": 16.54,
+          "words": [
+            {
+              "text": " During",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dull",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " day,",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " course",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " which",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 1.0
+            },
+            {
+              "text": " he",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entertained",
+              "start": 2.62,
+              "end": 3.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " elderly",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hosts",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.98828125
+            },
+            {
+              "text": " by",
+              "start": 4.52,
+              "end": 4.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.68,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 4.84,
+              "end": 5.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " important",
+              "start": 5.04,
+              "end": 5.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 5.48,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.68,
+              "end": 5.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " visitors,",
+              "start": 5.8,
+              "end": 6.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.54,
+              "end": 6.62,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " old",
+              "start": 6.62,
+              "end": 6.88,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " count's",
+              "start": 6.88,
+              "end": 7.26,
+              "probability": 0.53875732421875
+            },
+            {
+              "text": " house",
+              "start": 7.26,
+              "end": 7.46,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 7.46,
+              "end": 7.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " crowded",
+              "start": 7.68,
+              "end": 7.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 7.98,
+              "end": 8.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " account",
+              "start": 8.22,
+              "end": 8.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.5,
+              "end": 8.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 8.68,
+              "end": 8.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " approaching",
+              "start": 8.78,
+              "end": 9.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " name",
+              "start": 9.12,
+              "end": 9.46,
+              "probability": 0.12322998046875
+            },
+            {
+              "text": " day,",
+              "start": 9.46,
+              "end": 9.8,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Prince",
+              "start": 10.14,
+              "end": 10.2,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Andrew",
+              "start": 10.2,
+              "end": 10.62,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " repeatedly",
+              "start": 10.62,
+              "end": 11.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glanced",
+              "start": 11.12,
+              "end": 11.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 11.46,
+              "end": 11.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Natásha,",
+              "start": 11.7,
+              "end": 12.18,
+              "probability": 0.00874185562133789
+            },
+            {
+              "text": " gay",
+              "start": 12.44,
+              "end": 12.56,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 12.56,
+              "end": 12.8,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " laughing",
+              "start": 12.8,
+              "end": 13.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " among",
+              "start": 13.1,
+              "end": 13.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 13.4,
+              "end": 13.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " younger",
+              "start": 13.56,
+              "end": 13.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " members",
+              "start": 13.82,
+              "end": 14.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.12,
+              "end": 14.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.32,
+              "end": 14.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " company,",
+              "start": 14.42,
+              "end": 14.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 15.08,
+              "end": 15.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " asked",
+              "start": 15.22,
+              "end": 15.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 15.48,
+              "end": 15.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " each",
+              "start": 15.86,
+              "end": 16.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " time,",
+              "start": 16.16,
+              "end": 16.54,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " What is she thinking about? Why is she so glad?",
+          "start": 16.54,
+          "end": 20.04,
+          "words": [
+            {
+              "text": " What",
+              "start": 16.54,
+              "end": 16.92,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " is",
+              "start": 16.92,
+              "end": 17.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " she",
+              "start": 17.08,
+              "end": 17.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thinking",
+              "start": 17.24,
+              "end": 17.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " about?",
+              "start": 17.48,
+              "end": 17.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Why",
+              "start": 18.86,
+              "end": 19.18,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " is",
+              "start": 19.18,
+              "end": 19.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " she",
+              "start": 19.36,
+              "end": 19.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 19.5,
+              "end": 19.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glad?",
+              "start": 19.7,
+              "end": 20.04,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "During",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "dull",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "day,",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "raw": "in",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "course",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "which",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "was",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "entertained",
+          "start": 2.62,
+          "end": 3.04
+        },
+        {
+          "raw": "by",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "his",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "elderly",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "hosts",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "raw": "by",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "raw": "the",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "raw": "more",
+          "start": 4.84,
+          "end": 5.04
+        },
+        {
+          "raw": "important",
+          "start": 5.04,
+          "end": 5.48
+        },
+        {
+          "raw": "of",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "raw": "the",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "raw": "visitors,",
+          "start": 5.8,
+          "end": 6.12
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "raw": "old",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "raw": "count's",
+          "start": 6.88,
+          "end": 7.26
+        },
+        {
+          "raw": "house",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "raw": "was",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "raw": "crowded",
+          "start": 7.68,
+          "end": 7.98
+        },
+        {
+          "raw": "on",
+          "start": 7.98,
+          "end": 8.22
+        },
+        {
+          "raw": "account",
+          "start": 8.22,
+          "end": 8.5
+        },
+        {
+          "raw": "of",
+          "start": 8.5,
+          "end": 8.68
+        },
+        {
+          "raw": "an",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "raw": "approaching",
+          "start": 8.78,
+          "end": 9.12
+        },
+        {
+          "raw": "name",
+          "start": 9.12,
+          "end": 9.46
+        },
+        {
+          "raw": "day,",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "raw": "Prince",
+          "start": 10.14,
+          "end": 10.2
+        },
+        {
+          "raw": "Andrew",
+          "start": 10.2,
+          "end": 10.62
+        },
+        {
+          "raw": "repeatedly",
+          "start": 10.62,
+          "end": 11.12
+        },
+        {
+          "raw": "glanced",
+          "start": 11.12,
+          "end": 11.46
+        },
+        {
+          "raw": "at",
+          "start": 11.46,
+          "end": 11.7
+        },
+        {
+          "raw": "Natásha,",
+          "start": 11.7,
+          "end": 12.18
+        },
+        {
+          "raw": "gay",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.8
+        },
+        {
+          "raw": "laughing",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "raw": "among",
+          "start": 13.1,
+          "end": 13.4
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.56
+        },
+        {
+          "raw": "younger",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "raw": "members",
+          "start": 13.82,
+          "end": 14.12
+        },
+        {
+          "raw": "of",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.42
+        },
+        {
+          "raw": "company,",
+          "start": 14.42,
+          "end": 14.74
+        },
+        {
+          "raw": "and",
+          "start": 15.08,
+          "end": 15.22
+        },
+        {
+          "raw": "asked",
+          "start": 15.22,
+          "end": 15.48
+        },
+        {
+          "raw": "himself",
+          "start": 15.48,
+          "end": 15.86
+        },
+        {
+          "raw": "each",
+          "start": 15.86,
+          "end": 16.16
+        },
+        {
+          "raw": "time,",
+          "start": 16.16,
+          "end": 16.54
+        },
+        {
+          "raw": "What",
+          "start": 16.54,
+          "end": 16.92
+        },
+        {
+          "raw": "is",
+          "start": 16.92,
+          "end": 17.08
+        },
+        {
+          "raw": "she",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "raw": "thinking",
+          "start": 17.24,
+          "end": 17.48
+        },
+        {
+          "raw": "about?",
+          "start": 17.48,
+          "end": 17.88
+        },
+        {
+          "raw": "Why",
+          "start": 18.86,
+          "end": 19.18
+        },
+        {
+          "raw": "is",
+          "start": 19.18,
+          "end": 19.36
+        },
+        {
+          "raw": "she",
+          "start": 19.36,
+          "end": 19.5
+        },
+        {
+          "raw": "so",
+          "start": 19.5,
+          "end": 19.7
+        },
+        {
+          "raw": "glad?",
+          "start": 19.7,
+          "end": 20.04
+        }
+      ],
+      "expected_tokens": [
+        "During",
+        "the",
+        "dull",
+        "day,",
+        "in",
+        "the",
+        "course",
+        "of",
+        "which",
+        "he",
+        "was",
+        "entertained",
+        "by",
+        "his",
+        "elderly",
+        "hosts",
+        "and",
+        "by",
+        "the",
+        "more",
+        "important",
+        "of",
+        "the",
+        "visitors",
+        "(the",
+        "old",
+        "count’s",
+        "house",
+        "was",
+        "crowded",
+        "on",
+        "account",
+        "of",
+        "an",
+        "approaching",
+        "name",
+        "day),",
+        "Prince",
+        "Andrew",
+        "repeatedly",
+        "glanced",
+        "at",
+        "Natásha,",
+        "gay",
+        "and",
+        "laughing",
+        "among",
+        "the",
+        "younger",
+        "members",
+        "of",
+        "the",
+        "company,",
+        "and",
+        "asked",
+        "himself",
+        "each",
+        "time,",
+        "“What",
+        "is",
+        "she",
+        "thinking",
+        "about?",
+        "Why",
+        "is",
+        "she",
+        "so",
+        "glad?”"
+      ],
+      "acoustic_expected_tokens": [
+        "During",
+        "the",
+        "dull",
+        "day,",
+        "in",
+        "the",
+        "course",
+        "of",
+        "which",
+        "he",
+        "was",
+        "entertained",
+        "by",
+        "his",
+        "elderly",
+        "hosts",
+        "and",
+        "by",
+        "the",
+        "more",
+        "important",
+        "of",
+        "the",
+        "visitors",
+        "(the",
+        "old",
+        "count's",
+        "house",
+        "was",
+        "crowded",
+        "on",
+        "account",
+        "of",
+        "an",
+        "approaching",
+        "name",
+        "day),",
+        "Prince",
+        "Andrew",
+        "repeatedly",
+        "glanced",
+        "at",
+        "Natásha,",
+        "gay",
+        "and",
+        "laughing",
+        "among",
+        "the",
+        "younger",
+        "members",
+        "of",
+        "the",
+        "company,",
+        "and",
+        "asked",
+        "himself",
+        "each",
+        "time,",
+        "\"What",
+        "is",
+        "she",
+        "thinking",
+        "about?",
+        "Why",
+        "is",
+        "she",
+        "so",
+        "glad?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          68,
+          0,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "During",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "during",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dull",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "dull",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 0.9,
+          "end": 1.16,
+          "key": "day",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "entertained",
+          "start": 2.62,
+          "end": 3.04,
+          "key": "entertained",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.36,
+          "end": 3.6,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "elderly",
+          "start": 3.6,
+          "end": 3.9,
+          "key": "elderly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hosts",
+          "start": 3.9,
+          "end": 4.24,
+          "key": "hosts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.52,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.52,
+          "end": 4.68,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.68,
+          "end": 4.84,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.84,
+          "end": 5.04,
+          "key": "more",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "important",
+          "start": 5.04,
+          "end": 5.48,
+          "key": "important",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.48,
+          "end": 5.68,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.68,
+          "end": 5.8,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "visitors,",
+          "start": 5.8,
+          "end": 6.12,
+          "key": "visitors",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.62,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 6.62,
+          "end": 6.88,
+          "key": "old",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "count's",
+          "start": 6.88,
+          "end": 7.26,
+          "key": "counts",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 7.26,
+          "end": 7.46,
+          "key": "house",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.46,
+          "end": 7.68,
+          "key": "was",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "crowded",
+          "start": 7.68,
+          "end": 7.98,
+          "key": "crowded",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.98,
+          "end": 8.22,
+          "key": "on",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 8.22,
+          "end": 8.5,
+          "key": "account",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.5,
+          "end": 8.68,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 8.68,
+          "end": 8.78,
+          "key": "an",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "approaching",
+          "start": 8.78,
+          "end": 9.12,
+          "key": "approaching",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 9.12,
+          "end": 9.46,
+          "key": "name",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 9.46,
+          "end": 9.8,
+          "key": "day",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 10.14,
+          "end": 10.2,
+          "key": "prince",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 10.2,
+          "end": 10.62,
+          "key": "andrew",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "repeatedly",
+          "start": 10.62,
+          "end": 11.12,
+          "key": "repeatedly",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 11.12,
+          "end": 11.46,
+          "key": "glanced",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.46,
+          "end": 11.7,
+          "key": "at",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Natásha,",
+          "start": 11.7,
+          "end": 12.18,
+          "key": "natásha",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "gay",
+          "start": 12.44,
+          "end": 12.56,
+          "key": "gay",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.8,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "laughing",
+          "start": 12.8,
+          "end": 13.1,
+          "key": "laughing",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 13.1,
+          "end": 13.4,
+          "key": "among",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.56,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "younger",
+          "start": 13.56,
+          "end": 13.82,
+          "key": "younger",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "members",
+          "start": 13.82,
+          "end": 14.12,
+          "key": "members",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.12,
+          "end": 14.32,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.42,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "company,",
+          "start": 14.42,
+          "end": 14.74,
+          "key": "company",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.08,
+          "end": 15.22,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 15.22,
+          "end": 15.48,
+          "key": "asked",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 15.48,
+          "end": 15.86,
+          "key": "himself",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 15.86,
+          "end": 16.16,
+          "key": "each",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 16.16,
+          "end": 16.54,
+          "key": "time",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 16.54,
+          "end": 16.92,
+          "key": "what",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 16.92,
+          "end": 17.08,
+          "key": "is",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 17.08,
+          "end": 17.24,
+          "key": "she",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 17.24,
+          "end": 17.48,
+          "key": "thinking",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "about?",
+          "start": 17.48,
+          "end": 17.88,
+          "key": "about",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 18.86,
+          "end": 19.18,
+          "key": "why",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 19.18,
+          "end": 19.36,
+          "key": "is",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 19.36,
+          "end": 19.5,
+          "key": "she",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 19.5,
+          "end": 19.7,
+          "key": "so",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "glad?",
+          "start": 19.7,
+          "end": 20.04,
+          "key": "glad",
+          "pieces": [
+            67
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "During",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "dull",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "day,",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "text": "in",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "course",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "of",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "which",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "he",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "was",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "entertained",
+          "start": 2.62,
+          "end": 3.04
+        },
+        {
+          "text": "by",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "his",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "text": "elderly",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "hosts",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "text": "by",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "text": "the",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "text": "more",
+          "start": 4.84,
+          "end": 5.04
+        },
+        {
+          "text": "important",
+          "start": 5.04,
+          "end": 5.48
+        },
+        {
+          "text": "of",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "text": "the",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "text": "visitors",
+          "start": 5.8,
+          "end": 6.12
+        },
+        {
+          "text": "(the",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "text": "old",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "text": "count’s",
+          "start": 6.88,
+          "end": 7.26
+        },
+        {
+          "text": "house",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "text": "was",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "text": "crowded",
+          "start": 7.68,
+          "end": 7.98
+        },
+        {
+          "text": "on",
+          "start": 7.98,
+          "end": 8.22
+        },
+        {
+          "text": "account",
+          "start": 8.22,
+          "end": 8.5
+        },
+        {
+          "text": "of",
+          "start": 8.5,
+          "end": 8.68
+        },
+        {
+          "text": "an",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "text": "approaching",
+          "start": 8.78,
+          "end": 9.12
+        },
+        {
+          "text": "name",
+          "start": 9.12,
+          "end": 9.46
+        },
+        {
+          "text": "day),",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "text": "Prince",
+          "start": 10.14,
+          "end": 10.2
+        },
+        {
+          "text": "Andrew",
+          "start": 10.2,
+          "end": 10.62
+        },
+        {
+          "text": "repeatedly",
+          "start": 10.62,
+          "end": 11.12
+        },
+        {
+          "text": "glanced",
+          "start": 11.12,
+          "end": 11.46
+        },
+        {
+          "text": "at",
+          "start": 11.46,
+          "end": 11.7
+        },
+        {
+          "text": "Natásha,",
+          "start": 11.7,
+          "end": 12.18
+        },
+        {
+          "text": "gay",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "text": "and",
+          "start": 12.56,
+          "end": 12.8
+        },
+        {
+          "text": "laughing",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "text": "among",
+          "start": 13.1,
+          "end": 13.4
+        },
+        {
+          "text": "the",
+          "start": 13.4,
+          "end": 13.56
+        },
+        {
+          "text": "younger",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "text": "members",
+          "start": 13.82,
+          "end": 14.12
+        },
+        {
+          "text": "of",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "text": "the",
+          "start": 14.32,
+          "end": 14.42
+        },
+        {
+          "text": "company,",
+          "start": 14.42,
+          "end": 14.74
+        },
+        {
+          "text": "and",
+          "start": 15.08,
+          "end": 15.22
+        },
+        {
+          "text": "asked",
+          "start": 15.22,
+          "end": 15.48
+        },
+        {
+          "text": "himself",
+          "start": 15.48,
+          "end": 15.86
+        },
+        {
+          "text": "each",
+          "start": 15.86,
+          "end": 16.16
+        },
+        {
+          "text": "time,",
+          "start": 16.16,
+          "end": 16.54
+        },
+        {
+          "text": "“What",
+          "start": 16.54,
+          "end": 16.92
+        },
+        {
+          "text": "is",
+          "start": 16.92,
+          "end": 17.08
+        },
+        {
+          "text": "she",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "text": "thinking",
+          "start": 17.24,
+          "end": 17.48
+        },
+        {
+          "text": "about?",
+          "start": 17.48,
+          "end": 17.88
+        },
+        {
+          "text": "Why",
+          "start": 18.86,
+          "end": 19.18
+        },
+        {
+          "text": "is",
+          "start": 19.18,
+          "end": 19.36
+        },
+        {
+          "text": "she",
+          "start": 19.36,
+          "end": 19.5
+        },
+        {
+          "text": "so",
+          "start": 19.5,
+          "end": 19.7
+        },
+        {
+          "text": "glad?”",
+          "start": 19.7,
+          "end": 20.04
+        }
+      ],
+      "stats": {
+        "expected_words": 68,
+        "heard_words": 68,
+        "matched_words": 68
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6343115298077464
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d910de024a1cd7900c65d2aa9155985771cbd30ebfa3b7f446a9b3e7a453fcd4",
+  "selected_reasons": []
+}

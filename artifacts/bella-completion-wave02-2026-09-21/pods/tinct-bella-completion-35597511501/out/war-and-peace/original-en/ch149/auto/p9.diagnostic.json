@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "62e6298026d130e26be2238208c4d3b0cbc11d7a3b012253f2a1d95b5b25ee94",
+  "attempts": [
+    {
+      "asr_seconds": 0.11431505717337132,
+      "alignment_seconds": 0.0003285938873887062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you like him?\"",
+        "hotwords": "Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you like him?",
+          "start": 0.0,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " you",
+              "start": 0.32,
+              "end": 0.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " like",
+              "start": 0.44,
+              "end": 0.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him?",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "raw": "like",
+          "start": 0.44,
+          "end": 0.64
+        },
+        {
+          "raw": "him?",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "“Do",
+        "you",
+        "like",
+        "him?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Do",
+        "you",
+        "like",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.44,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.44,
+          "end": 0.64,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Do",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "you",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "text": "like",
+          "start": 0.44,
+          "end": 0.64
+        },
+        {
+          "text": "him?”",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1146939592435956
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39bc087a0d11257b3dd1357544f2c55daeb199df106900b8a4c5c57df09d59eb",
+  "selected_reasons": []
+}

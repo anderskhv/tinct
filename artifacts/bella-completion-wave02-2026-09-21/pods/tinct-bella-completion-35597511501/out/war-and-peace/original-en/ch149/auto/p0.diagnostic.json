@@ -1,0 +1,6361 @@
+{
+  "complete": true,
+  "signature": "571ac519f0822e80113950b09f8bef66843447359dc1fb1f32b820e8fd9ea1da",
+  "attempts": [
+    {
+      "asr_seconds": 0.5124767012894154,
+      "alignment_seconds": 0.005648712627589703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Princess Mary as she sat listening to the old men's talk and faultfinding, understood nothing of what she heard; she only wondered whether the guests had all observed her father's hostile attitude toward her. She did not even notice the special attentions and amiabilities shown her during dinner by Borís Drubetskóy, who was visiting them for the third time already.",
+        "hotwords": "Princess, Mary, Borís, Drubetskóy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Princess Mary as she sat listening to the old men's talk and faultfinding, understood nothing",
+          "start": 0.0,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Princess",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Mary",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " as",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.501953125
+            },
+            {
+              "text": " she",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sat",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " listening",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " old",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.970703125
+            },
+            {
+              "text": " men's",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " talk",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " faultfinding,",
+              "start": 3.14,
+              "end": 3.78,
+              "probability": 0.4913349151611328
+            },
+            {
+              "text": " understood",
+              "start": 4.06,
+              "end": 4.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nothing",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " of what she heard, she only wondered whether the guests had all observed her father's hostile",
+          "start": 4.68,
+          "end": 9.28,
+          "words": [
+            {
+              "text": " of",
+              "start": 4.68,
+              "end": 4.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " she",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard,",
+              "start": 5.26,
+              "end": 5.58,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " she",
+              "start": 5.88,
+              "end": 5.98,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " only",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wondered",
+              "start": 6.22,
+              "end": 6.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whether",
+              "start": 6.54,
+              "end": 6.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guests",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 7.22,
+              "end": 7.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 7.48,
+              "end": 7.76,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " observed",
+              "start": 7.76,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 8.14,
+              "end": 8.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " father's",
+              "start": 8.42,
+              "end": 8.84,
+              "probability": 0.974365234375
+            },
+            {
+              "text": " hostile",
+              "start": 8.84,
+              "end": 9.28,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " attitude toward her. She did not even notice the special attentions and amiabilities shown",
+          "start": 9.28,
+          "end": 14.7,
+          "words": [
+            {
+              "text": " attitude",
+              "start": 9.28,
+              "end": 9.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " toward",
+              "start": 9.82,
+              "end": 10.18,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " her.",
+              "start": 10.18,
+              "end": 10.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " She",
+              "start": 11.48,
+              "end": 11.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " did",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 11.78,
+              "end": 11.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " even",
+              "start": 11.94,
+              "end": 12.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " notice",
+              "start": 12.2,
+              "end": 12.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " special",
+              "start": 12.76,
+              "end": 13.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " attentions",
+              "start": 13.1,
+              "end": 13.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 13.64,
+              "end": 13.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " amiabilities",
+              "start": 13.8,
+              "end": 14.36,
+              "probability": 0.6031087239583334
+            },
+            {
+              "text": " shown",
+              "start": 14.36,
+              "end": 14.7,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " her during dinner by Boris Drubetskóy, who was visiting them for the third time already.",
+          "start": 14.7,
+          "end": 19.16,
+          "words": [
+            {
+              "text": " her",
+              "start": 14.7,
+              "end": 14.92,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " during",
+              "start": 14.92,
+              "end": 15.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dinner",
+              "start": 15.18,
+              "end": 15.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 15.44,
+              "end": 15.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Boris",
+              "start": 15.68,
+              "end": 16.06,
+              "probability": 0.15633082389831543
+            },
+            {
+              "text": " Drubetskóy,",
+              "start": 16.06,
+              "end": 16.8,
+              "probability": 0.2902995467185974
+            },
+            {
+              "text": " who",
+              "start": 17.0,
+              "end": 17.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 17.14,
+              "end": 17.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " visiting",
+              "start": 17.28,
+              "end": 17.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 17.64,
+              "end": 17.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 17.88,
+              "end": 18.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.02,
+              "end": 18.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " third",
+              "start": 18.18,
+              "end": 18.42,
+              "probability": 0.974609375
+            },
+            {
+              "text": " time",
+              "start": 18.42,
+              "end": 18.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " already.",
+              "start": 18.8,
+              "end": 19.16,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Mary",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "men's",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "raw": "talk",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "faultfinding,",
+          "start": 3.14,
+          "end": 3.78
+        },
+        {
+          "raw": "understood",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "raw": "she",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "raw": "father's",
+          "start": 8.42,
+          "end": 8.84
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.28
+        },
+        {
+          "raw": "attitude",
+          "start": 9.28,
+          "end": 9.82
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.56
+        },
+        {
+          "raw": "She",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "raw": "amiabilities",
+          "start": 13.8,
+          "end": 14.36
+        },
+        {
+          "raw": "shown",
+          "start": 14.36,
+          "end": 14.7
+        },
+        {
+          "raw": "her",
+          "start": 14.7,
+          "end": 14.92
+        },
+        {
+          "raw": "during",
+          "start": 14.92,
+          "end": 15.18
+        },
+        {
+          "raw": "dinner",
+          "start": 15.18,
+          "end": 15.44
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.06
+        },
+        {
+          "raw": "Drubetskóy,",
+          "start": 16.06,
+          "end": 16.8
+        },
+        {
+          "raw": "who",
+          "start": 17.0,
+          "end": 17.14
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "raw": "third",
+          "start": 18.18,
+          "end": 18.42
+        },
+        {
+          "raw": "time",
+          "start": 18.42,
+          "end": 18.8
+        },
+        {
+          "raw": "already.",
+          "start": 18.8,
+          "end": 19.16
+        }
+      ],
+      "expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men’s",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father’s",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "acoustic_expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men's",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father's",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          50
+        ],
+        [
+          "equal",
+          50,
+          60,
+          50,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          49,
+          50,
+          49,
+          50
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "princess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "sat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "listening",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "men's",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "mens",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "talk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "faultfinding,",
+          "start": 3.14,
+          "end": 3.78,
+          "key": "faultfinding",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 4.06,
+          "end": 4.4,
+          "key": "understood",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "nothing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "what",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "she",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58,
+          "key": "heard",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.88,
+          "end": 5.98,
+          "key": "she",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "only",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54,
+          "key": "wondered",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78,
+          "key": "whether",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "guests",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48,
+          "key": "had",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76,
+          "key": "all",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14,
+          "key": "observed",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42,
+          "key": "her",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 8.42,
+          "end": 8.84,
+          "key": "fathers",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.28,
+          "key": "hostile",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "attitude",
+          "start": 9.28,
+          "end": 9.82,
+          "key": "attitude",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18,
+          "key": "toward",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.56,
+          "key": "her",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 11.48,
+          "end": 11.64,
+          "key": "she",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "did",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94,
+          "key": "not",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2,
+          "key": "even",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54,
+          "key": "notice",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1,
+          "key": "special",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64,
+          "key": "attentions",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "amiabilities",
+          "start": 13.8,
+          "end": 14.36,
+          "key": "amiabilities",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "shown",
+          "start": 14.36,
+          "end": 14.7,
+          "key": "shown",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 14.7,
+          "end": 14.92,
+          "key": "her",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 14.92,
+          "end": 15.18,
+          "key": "during",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "dinner",
+          "start": 15.18,
+          "end": 15.44,
+          "key": "dinner",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68,
+          "key": "by",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.06,
+          "key": "boris",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Drubetskóy,",
+          "start": 16.06,
+          "end": 16.8,
+          "key": "drubetskóy",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 17.0,
+          "end": 17.14,
+          "key": "who",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28,
+          "key": "was",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64,
+          "key": "visiting",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88,
+          "key": "them",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02,
+          "key": "for",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.18,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 18.18,
+          "end": 18.42,
+          "key": "third",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 18.42,
+          "end": 18.8,
+          "key": "time",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 18.8,
+          "end": 19.16,
+          "key": "already",
+          "pieces": [
+            59
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Mary",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "as",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "men’s",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "text": "talk",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "and",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "faultfinding,",
+          "start": 3.14,
+          "end": 3.78
+        },
+        {
+          "text": "understood",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "text": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "text": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "heard;",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "text": "she",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "text": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "text": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "text": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "text": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "text": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "text": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "text": "father’s",
+          "start": 8.42,
+          "end": 8.84
+        },
+        {
+          "text": "hostile",
+          "start": 8.84,
+          "end": 9.28
+        },
+        {
+          "text": "attitude",
+          "start": 9.28,
+          "end": 9.82
+        },
+        {
+          "text": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "text": "her.",
+          "start": 10.18,
+          "end": 10.56
+        },
+        {
+          "text": "She",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "text": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "text": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "text": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "text": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "text": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "text": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "text": "amiabilities",
+          "start": 13.8,
+          "end": 14.36
+        },
+        {
+          "text": "shown",
+          "start": 14.36,
+          "end": 14.7
+        },
+        {
+          "text": "her",
+          "start": 14.7,
+          "end": 14.92
+        },
+        {
+          "text": "during",
+          "start": 14.92,
+          "end": 15.18
+        },
+        {
+          "text": "dinner",
+          "start": 15.18,
+          "end": 15.44
+        },
+        {
+          "text": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "text": "Borís",
+          "start": 15.68,
+          "end": 15.87
+        },
+        {
+          "text": "Drubetskóy,",
+          "start": 16.06,
+          "end": 16.8
+        },
+        {
+          "text": "who",
+          "start": 17.0,
+          "end": 17.14
+        },
+        {
+          "text": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "text": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "text": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "text": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "text": "the",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "text": "third",
+          "start": 18.18,
+          "end": 18.42
+        },
+        {
+          "text": "time",
+          "start": 18.42,
+          "end": 18.8
+        },
+        {
+          "text": "already.",
+          "start": 18.8,
+          "end": 19.16
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 60,
+        "matched_words": 59
+      },
+      "match_ratio": 0.9833333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.5185949634760618
+    },
+    {
+      "asr_seconds": 0.5297675738111138,
+      "alignment_seconds": 0.004471666179597378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Princess, Mary, Borís, Drubetskóy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Princess Mary, as she sat listening to the old menís talk and fault finding, understood nothing of what she heard, she only wondered whether the guests had all observed her fatherís hostile attitude toward her.",
+          "start": 0.0,
+          "end": 10.52,
+          "words": [
+            {
+              "text": " Princess",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Mary,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " as",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sat",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " listening",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " old",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " menís",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.4463610053062439
+            },
+            {
+              "text": " talk",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fault",
+              "start": 3.14,
+              "end": 3.38,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " finding,",
+              "start": 3.38,
+              "end": 3.78,
+              "probability": 0.533203125
+            },
+            {
+              "text": " understood",
+              "start": 4.04,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 4.68,
+              "end": 4.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " she",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard,",
+              "start": 5.26,
+              "end": 5.58,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " she",
+              "start": 5.86,
+              "end": 5.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " only",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wondered",
+              "start": 6.22,
+              "end": 6.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whether",
+              "start": 6.54,
+              "end": 6.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guests",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 7.22,
+              "end": 7.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 7.48,
+              "end": 7.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " observed",
+              "start": 7.76,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 8.14,
+              "end": 8.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fatherís",
+              "start": 8.42,
+              "end": 8.84,
+              "probability": 0.984375
+            },
+            {
+              "text": " hostile",
+              "start": 8.84,
+              "end": 9.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " attitude",
+              "start": 9.3,
+              "end": 9.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " toward",
+              "start": 9.82,
+              "end": 10.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " her.",
+              "start": 10.18,
+              "end": 10.52,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " She did not even notice the special attentions and amiability shown her during dinner by Boris Drubetskóy, who was visiting them for the third time already.",
+          "start": 11.44,
+          "end": 19.16,
+          "words": [
+            {
+              "text": " She",
+              "start": 11.44,
+              "end": 11.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " did",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 11.78,
+              "end": 11.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " even",
+              "start": 11.94,
+              "end": 12.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " notice",
+              "start": 12.2,
+              "end": 12.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " special",
+              "start": 12.76,
+              "end": 13.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " attentions",
+              "start": 13.1,
+              "end": 13.64,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " and",
+              "start": 13.64,
+              "end": 13.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " amiability",
+              "start": 13.8,
+              "end": 14.24,
+              "probability": 0.734375
+            },
+            {
+              "text": " shown",
+              "start": 14.24,
+              "end": 14.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 14.68,
+              "end": 14.92,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " during",
+              "start": 14.92,
+              "end": 15.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dinner",
+              "start": 15.18,
+              "end": 15.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " by",
+              "start": 15.44,
+              "end": 15.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Boris",
+              "start": 15.68,
+              "end": 16.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Drubetskóy,",
+              "start": 16.02,
+              "end": 16.78,
+              "probability": 0.3028730392456055
+            },
+            {
+              "text": " who",
+              "start": 16.98,
+              "end": 17.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 17.14,
+              "end": 17.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " visiting",
+              "start": 17.28,
+              "end": 17.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 17.64,
+              "end": 17.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 17.88,
+              "end": 18.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.02,
+              "end": 18.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " third",
+              "start": 18.16,
+              "end": 18.42,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " time",
+              "start": 18.42,
+              "end": 18.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " already.",
+              "start": 18.78,
+              "end": 19.16,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Mary,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "as",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "menís",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "raw": "talk",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "fault",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "raw": "finding,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "raw": "understood",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "raw": "she",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "raw": "fatherís",
+          "start": 8.42,
+          "end": 8.84
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.3
+        },
+        {
+          "raw": "attitude",
+          "start": 9.3,
+          "end": 9.82
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.52
+        },
+        {
+          "raw": "She",
+          "start": 11.44,
+          "end": 11.64
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "raw": "amiability",
+          "start": 13.8,
+          "end": 14.24
+        },
+        {
+          "raw": "shown",
+          "start": 14.24,
+          "end": 14.68
+        },
+        {
+          "raw": "her",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "raw": "during",
+          "start": 14.92,
+          "end": 15.18
+        },
+        {
+          "raw": "dinner",
+          "start": 15.18,
+          "end": 15.44
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.02
+        },
+        {
+          "raw": "Drubetskóy,",
+          "start": 16.02,
+          "end": 16.78
+        },
+        {
+          "raw": "who",
+          "start": 16.98,
+          "end": 17.14
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "raw": "third",
+          "start": 18.16,
+          "end": 18.42
+        },
+        {
+          "raw": "time",
+          "start": 18.42,
+          "end": 18.78
+        },
+        {
+          "raw": "already.",
+          "start": 18.78,
+          "end": 19.16
+        }
+      ],
+      "expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men’s",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father’s",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "acoustic_expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men's",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father's",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          29,
+          10,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "equal",
+          30,
+          43,
+          30,
+          43
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "equal",
+          44,
+          49,
+          44,
+          49
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          50
+        ],
+        [
+          "equal",
+          50,
+          60,
+          50,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          50
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "princess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "sat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "listening",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "menís",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "menís",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "talk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fault finding,",
+          "start": 3.14,
+          "end": 3.78,
+          "key": "faultfinding",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 4.04,
+          "end": 4.4,
+          "key": "understood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "nothing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "she",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58,
+          "key": "heard",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.86,
+          "end": 5.98,
+          "key": "she",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "only",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54,
+          "key": "wondered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78,
+          "key": "whether",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "guests",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48,
+          "key": "had",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76,
+          "key": "all",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14,
+          "key": "observed",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42,
+          "key": "her",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "fatherís",
+          "start": 8.42,
+          "end": 8.84,
+          "key": "fatherís",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.3,
+          "key": "hostile",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "attitude",
+          "start": 9.3,
+          "end": 9.82,
+          "key": "attitude",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18,
+          "key": "toward",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.52,
+          "key": "her",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 11.44,
+          "end": 11.64,
+          "key": "she",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "did",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2,
+          "key": "even",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54,
+          "key": "notice",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1,
+          "key": "special",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64,
+          "key": "attentions",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "amiability",
+          "start": 13.8,
+          "end": 14.24,
+          "key": "amiability",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "shown",
+          "start": 14.24,
+          "end": 14.68,
+          "key": "shown",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 14.68,
+          "end": 14.92,
+          "key": "her",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 14.92,
+          "end": 15.18,
+          "key": "during",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "dinner",
+          "start": 15.18,
+          "end": 15.44,
+          "key": "dinner",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68,
+          "key": "by",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.02,
+          "key": "boris",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Drubetskóy,",
+          "start": 16.02,
+          "end": 16.78,
+          "key": "drubetskóy",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 16.98,
+          "end": 17.14,
+          "key": "who",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28,
+          "key": "was",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64,
+          "key": "visiting",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88,
+          "key": "them",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02,
+          "key": "for",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.16,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 18.16,
+          "end": 18.42,
+          "key": "third",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 18.42,
+          "end": 18.78,
+          "key": "time",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 18.78,
+          "end": 19.16,
+          "key": "already",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "faultfinding,",
+          "heard": "fault finding,",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 3.14,
+          "end": 3.78
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Mary",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "as",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "men’s",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "talk",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "and",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "faultfinding,",
+          "start": 3.14,
+          "end": 3.78
+        },
+        {
+          "text": "understood",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "text": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "text": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "heard;",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "text": "she",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "text": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "text": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "text": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "text": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "text": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "text": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "text": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "text": "father’s",
+          "start": 8.42,
+          "end": 8.63
+        },
+        {
+          "text": "hostile",
+          "start": 8.84,
+          "end": 9.3
+        },
+        {
+          "text": "attitude",
+          "start": 9.3,
+          "end": 9.82
+        },
+        {
+          "text": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "text": "her.",
+          "start": 10.18,
+          "end": 10.52
+        },
+        {
+          "text": "She",
+          "start": 11.44,
+          "end": 11.64
+        },
+        {
+          "text": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "text": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "text": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "text": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "text": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "text": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "text": "amiabilities",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "text": "shown",
+          "start": 14.24,
+          "end": 14.68
+        },
+        {
+          "text": "her",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "text": "during",
+          "start": 14.92,
+          "end": 15.18
+        },
+        {
+          "text": "dinner",
+          "start": 15.18,
+          "end": 15.44
+        },
+        {
+          "text": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "text": "Borís",
+          "start": 15.68,
+          "end": 15.85
+        },
+        {
+          "text": "Drubetskóy,",
+          "start": 16.02,
+          "end": 16.78
+        },
+        {
+          "text": "who",
+          "start": 16.98,
+          "end": 17.14
+        },
+        {
+          "text": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "text": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "text": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "text": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "text": "the",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "text": "third",
+          "start": 18.16,
+          "end": 18.42
+        },
+        {
+          "text": "time",
+          "start": 18.42,
+          "end": 18.78
+        },
+        {
+          "text": "already.",
+          "start": 18.78,
+          "end": 19.16
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 60,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.5346004078164697
+    },
+    {
+      "asr_seconds": 0.6795971840620041,
+      "alignment_seconds": 0.010916330851614475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Princess Mary, as she sat listening to the old men's talk and fault finding, understood nothing",
+          "start": 0.0,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Princess",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Mary,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " as",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sat",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " listening",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " old",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " men's",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " talk",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.98828125
+            },
+            {
+              "text": " fault",
+              "start": 3.14,
+              "end": 3.38,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " finding,",
+              "start": 3.38,
+              "end": 3.78,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " understood",
+              "start": 4.06,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " of what she heard, she only wondered whether the guests had all observed her father's hostile",
+          "start": 4.68,
+          "end": 9.28,
+          "words": [
+            {
+              "text": " of",
+              "start": 4.68,
+              "end": 4.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " she",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard,",
+              "start": 5.26,
+              "end": 5.58,
+              "probability": 0.982421875
+            },
+            {
+              "text": " she",
+              "start": 5.88,
+              "end": 5.98,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " only",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wondered",
+              "start": 6.22,
+              "end": 6.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whether",
+              "start": 6.54,
+              "end": 6.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guests",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 7.22,
+              "end": 7.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 7.48,
+              "end": 7.76,
+              "probability": 0.984375
+            },
+            {
+              "text": " observed",
+              "start": 7.76,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 8.14,
+              "end": 8.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father's",
+              "start": 8.42,
+              "end": 8.84,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " hostile",
+              "start": 8.84,
+              "end": 9.28,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " attitude toward her. She did not even notice the special attentions and amiability shown",
+          "start": 9.28,
+          "end": 14.68,
+          "words": [
+            {
+              "text": " attitude",
+              "start": 9.28,
+              "end": 9.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " toward",
+              "start": 9.82,
+              "end": 10.18,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " her.",
+              "start": 10.18,
+              "end": 10.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " She",
+              "start": 11.48,
+              "end": 11.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " did",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 11.78,
+              "end": 11.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " even",
+              "start": 11.94,
+              "end": 12.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " notice",
+              "start": 12.2,
+              "end": 12.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " special",
+              "start": 12.76,
+              "end": 13.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " attentions",
+              "start": 13.1,
+              "end": 13.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 13.64,
+              "end": 13.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " amiability",
+              "start": 13.8,
+              "end": 14.24,
+              "probability": 0.746337890625
+            },
+            {
+              "text": " shown",
+              "start": 14.24,
+              "end": 14.68,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " her during dinner by Boris Drubitskoy, who was visiting them for the third time already.",
+          "start": 14.68,
+          "end": 19.14,
+          "words": [
+            {
+              "text": " her",
+              "start": 14.68,
+              "end": 14.9,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " during",
+              "start": 14.9,
+              "end": 15.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dinner",
+              "start": 15.2,
+              "end": 15.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 15.44,
+              "end": 15.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Boris",
+              "start": 15.68,
+              "end": 16.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Drubitskoy,",
+              "start": 16.02,
+              "end": 16.7,
+              "probability": 0.620947265625
+            },
+            {
+              "text": " who",
+              "start": 17.02,
+              "end": 17.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 17.14,
+              "end": 17.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " visiting",
+              "start": 17.28,
+              "end": 17.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 17.64,
+              "end": 17.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 17.88,
+              "end": 18.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 18.02,
+              "end": 18.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " third",
+              "start": 18.16,
+              "end": 18.4,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " time",
+              "start": 18.4,
+              "end": 18.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " already.",
+              "start": 18.78,
+              "end": 19.14,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Mary,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "as",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "men's",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "raw": "talk",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "fault",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "raw": "finding,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "raw": "understood",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "raw": "she",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "raw": "father's",
+          "start": 8.42,
+          "end": 8.84
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.28
+        },
+        {
+          "raw": "attitude",
+          "start": 9.28,
+          "end": 9.82
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.56
+        },
+        {
+          "raw": "She",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "raw": "amiability",
+          "start": 13.8,
+          "end": 14.24
+        },
+        {
+          "raw": "shown",
+          "start": 14.24,
+          "end": 14.68
+        },
+        {
+          "raw": "her",
+          "start": 14.68,
+          "end": 14.9
+        },
+        {
+          "raw": "during",
+          "start": 14.9,
+          "end": 15.2
+        },
+        {
+          "raw": "dinner",
+          "start": 15.2,
+          "end": 15.44
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.02
+        },
+        {
+          "raw": "Drubitskoy,",
+          "start": 16.02,
+          "end": 16.7
+        },
+        {
+          "raw": "who",
+          "start": 17.02,
+          "end": 17.14
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "raw": "third",
+          "start": 18.16,
+          "end": 18.4
+        },
+        {
+          "raw": "time",
+          "start": 18.4,
+          "end": 18.78
+        },
+        {
+          "raw": "already.",
+          "start": 18.78,
+          "end": 19.14
+        }
+      ],
+      "expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men’s",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father’s",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "acoustic_expected_tokens": [
+        "Princess",
+        "Mary",
+        "as",
+        "she",
+        "sat",
+        "listening",
+        "to",
+        "the",
+        "old",
+        "men's",
+        "talk",
+        "and",
+        "faultfinding,",
+        "understood",
+        "nothing",
+        "of",
+        "what",
+        "she",
+        "heard;",
+        "she",
+        "only",
+        "wondered",
+        "whether",
+        "the",
+        "guests",
+        "had",
+        "all",
+        "observed",
+        "her",
+        "father's",
+        "hostile",
+        "attitude",
+        "toward",
+        "her.",
+        "She",
+        "did",
+        "not",
+        "even",
+        "notice",
+        "the",
+        "special",
+        "attentions",
+        "and",
+        "amiabilities",
+        "shown",
+        "her",
+        "during",
+        "dinner",
+        "by",
+        "Borís",
+        "Drubetskóy,",
+        "who",
+        "was",
+        "visiting",
+        "them",
+        "for",
+        "the",
+        "third",
+        "time",
+        "already."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "equal",
+          44,
+          49,
+          44,
+          49
+        ],
+        [
+          "replace",
+          49,
+          51,
+          49,
+          51
+        ],
+        [
+          "equal",
+          51,
+          60,
+          51,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "replace",
+          49,
+          51,
+          49,
+          51
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Princess",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "princess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "sat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "listening",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "men's",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "mens",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "talk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fault finding,",
+          "start": 3.14,
+          "end": 3.78,
+          "key": "faultfinding",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 4.06,
+          "end": 4.4,
+          "key": "understood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "nothing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.68,
+          "end": 4.94,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "she",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "heard,",
+          "start": 5.26,
+          "end": 5.58,
+          "key": "heard",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.88,
+          "end": 5.98,
+          "key": "she",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "only",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "wondered",
+          "start": 6.22,
+          "end": 6.54,
+          "key": "wondered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 6.54,
+          "end": 6.78,
+          "key": "whether",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "guests",
+          "start": 6.98,
+          "end": 7.22,
+          "key": "guests",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.22,
+          "end": 7.48,
+          "key": "had",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 7.48,
+          "end": 7.76,
+          "key": "all",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 7.76,
+          "end": 8.14,
+          "key": "observed",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.14,
+          "end": 8.42,
+          "key": "her",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 8.42,
+          "end": 8.84,
+          "key": "fathers",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "hostile",
+          "start": 8.84,
+          "end": 9.28,
+          "key": "hostile",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "attitude",
+          "start": 9.28,
+          "end": 9.82,
+          "key": "attitude",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 9.82,
+          "end": 10.18,
+          "key": "toward",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 10.18,
+          "end": 10.56,
+          "key": "her",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 11.48,
+          "end": 11.64,
+          "key": "she",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "did",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.78,
+          "end": 11.94,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 11.94,
+          "end": 12.2,
+          "key": "even",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 12.2,
+          "end": 12.54,
+          "key": "notice",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.76,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 12.76,
+          "end": 13.1,
+          "key": "special",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "attentions",
+          "start": 13.1,
+          "end": 13.64,
+          "key": "attentions",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.64,
+          "end": 13.8,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "amiability",
+          "start": 13.8,
+          "end": 14.24,
+          "key": "amiability",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "shown",
+          "start": 14.24,
+          "end": 14.68,
+          "key": "shown",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 14.68,
+          "end": 14.9,
+          "key": "her",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 14.9,
+          "end": 15.2,
+          "key": "during",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "dinner",
+          "start": 15.2,
+          "end": 15.44,
+          "key": "dinner",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.44,
+          "end": 15.68,
+          "key": "by",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Boris",
+          "start": 15.68,
+          "end": 16.02,
+          "key": "boris",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Drubitskoy,",
+          "start": 16.02,
+          "end": 16.7,
+          "key": "drubitskoy",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 17.02,
+          "end": 17.14,
+          "key": "who",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 17.14,
+          "end": 17.28,
+          "key": "was",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "visiting",
+          "start": 17.28,
+          "end": 17.64,
+          "key": "visiting",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 17.64,
+          "end": 17.88,
+          "key": "them",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.88,
+          "end": 18.02,
+          "key": "for",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.02,
+          "end": 18.16,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 18.16,
+          "end": 18.4,
+          "key": "third",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 18.4,
+          "end": 18.78,
+          "key": "time",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 18.78,
+          "end": 19.14,
+          "key": "already",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "faultfinding,",
+          "heard": "fault finding,",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 3.14,
+          "end": 3.78
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Princess",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Mary",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "as",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "she",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "sat",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "listening",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "to",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "old",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "men’s",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "text": "talk",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "and",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "faultfinding,",
+          "start": 3.14,
+          "end": 3.78
+        },
+        {
+          "text": "understood",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "text": "nothing",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "of",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "text": "what",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "she",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "heard;",
+          "start": 5.26,
+          "end": 5.58
+        },
+        {
+          "text": "she",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "only",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "text": "wondered",
+          "start": 6.22,
+          "end": 6.54
+        },
+        {
+          "text": "whether",
+          "start": 6.54,
+          "end": 6.78
+        },
+        {
+          "text": "the",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "guests",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "text": "had",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "text": "all",
+          "start": 7.48,
+          "end": 7.76
+        },
+        {
+          "text": "observed",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "text": "her",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "text": "father’s",
+          "start": 8.42,
+          "end": 8.84
+        },
+        {
+          "text": "hostile",
+          "start": 8.84,
+          "end": 9.28
+        },
+        {
+          "text": "attitude",
+          "start": 9.28,
+          "end": 9.82
+        },
+        {
+          "text": "toward",
+          "start": 9.82,
+          "end": 10.18
+        },
+        {
+          "text": "her.",
+          "start": 10.18,
+          "end": 10.56
+        },
+        {
+          "text": "She",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "text": "did",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "not",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "text": "even",
+          "start": 11.94,
+          "end": 12.2
+        },
+        {
+          "text": "notice",
+          "start": 12.2,
+          "end": 12.54
+        },
+        {
+          "text": "the",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "special",
+          "start": 12.76,
+          "end": 13.1
+        },
+        {
+          "text": "attentions",
+          "start": 13.1,
+          "end": 13.64
+        },
+        {
+          "text": "and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "text": "amiabilities",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "text": "shown",
+          "start": 14.24,
+          "end": 14.68
+        },
+        {
+          "text": "her",
+          "start": 14.68,
+          "end": 14.9
+        },
+        {
+          "text": "during",
+          "start": 14.9,
+          "end": 15.2
+        },
+        {
+          "text": "dinner",
+          "start": 15.2,
+          "end": 15.44
+        },
+        {
+          "text": "by",
+          "start": 15.44,
+          "end": 15.68
+        },
+        {
+          "text": "Borís",
+          "start": 15.68,
+          "end": 16.35
+        },
+        {
+          "text": "Drubetskóy,",
+          "start": 16.35,
+          "end": 16.685
+        },
+        {
+          "text": "who",
+          "start": 17.02,
+          "end": 17.14
+        },
+        {
+          "text": "was",
+          "start": 17.14,
+          "end": 17.28
+        },
+        {
+          "text": "visiting",
+          "start": 17.28,
+          "end": 17.64
+        },
+        {
+          "text": "them",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "text": "for",
+          "start": 17.88,
+          "end": 18.02
+        },
+        {
+          "text": "the",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "text": "third",
+          "start": 18.16,
+          "end": 18.4
+        },
+        {
+          "text": "time",
+          "start": 18.4,
+          "end": 18.78
+        },
+        {
+          "text": "already.",
+          "start": 18.78,
+          "end": 19.14
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 60,
+        "matched_words": 57
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.6913901511579752
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d7e75a95fa57e6c241ae5248f39a2db71b3c8d1224069d1522b665c6687b6633",
+  "selected_reasons": []
+}

@@ -1,0 +1,890 @@
+{
+  "complete": true,
+  "signature": "ed711ebb6e86b4f71097e429294246ea370b9e9c721a964428704951e9d96db4",
+  "attempts": [
+    {
+      "asr_seconds": 0.43739080987870693,
+      "alignment_seconds": 0.0017707785591483116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, the Austrian prince who built that castle was no fool. It's a fine place! Why are you not eating anything, gentlemen?\" Nesvítski was saying.",
+        "hotwords": "Yes, Austrian, It's, Why, Nesvítski"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, the Austrian prince who built that castle was no fool. It's a fine place! Why are you not eating anything, gentlemen?\" Nesvítski was saying.",
+          "start": 0.0,
+          "end": 11.1,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.720703125
+            },
+            {
+              "text": " the",
+              "start": 0.86,
+              "end": 0.9,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Austrian",
+              "start": 0.9,
+              "end": 1.34,
+              "probability": 0.982421875
+            },
+            {
+              "text": " prince",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.919921875
+            },
+            {
+              "text": " who",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " built",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " castle",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " was",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " no",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fool.",
+              "start": 3.16,
+              "end": 3.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " It's",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.7178955078125
+            },
+            {
+              "text": " a",
+              "start": 4.74,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fine",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " place!",
+              "start": 5.1,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Why",
+              "start": 6.64,
+              "end": 6.86,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " are",
+              "start": 6.86,
+              "end": 7.0,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 7.0,
+              "end": 7.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 7.12,
+              "end": 7.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eating",
+              "start": 7.28,
+              "end": 7.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " anything,",
+              "start": 7.56,
+              "end": 7.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gentlemen?\"",
+              "start": 8.46,
+              "end": 9.88,
+              "probability": 0.5457763671875
+            },
+            {
+              "text": " Nesvítski",
+              "start": 9.88,
+              "end": 10.54,
+              "probability": 0.32716691493988037
+            },
+            {
+              "text": " was",
+              "start": 10.54,
+              "end": 10.7,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " saying.",
+              "start": 10.7,
+              "end": 11.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 0.9
+        },
+        {
+          "raw": "Austrian",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "raw": "prince",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "who",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "built",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "that",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "castle",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "was",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "no",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "raw": "fool.",
+          "start": 3.16,
+          "end": 3.48
+        },
+        {
+          "raw": "It's",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "a",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "raw": "fine",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "place!",
+          "start": 5.1,
+          "end": 5.46
+        },
+        {
+          "raw": "Why",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "raw": "are",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "raw": "you",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "raw": "not",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "raw": "eating",
+          "start": 7.28,
+          "end": 7.56
+        },
+        {
+          "raw": "anything,",
+          "start": 7.56,
+          "end": 7.98
+        },
+        {
+          "raw": "gentlemen?\"",
+          "start": 8.46,
+          "end": 9.88
+        },
+        {
+          "raw": "Nesvítski",
+          "start": 9.88,
+          "end": 10.54
+        },
+        {
+          "raw": "was",
+          "start": 10.54,
+          "end": 10.7
+        },
+        {
+          "raw": "saying.",
+          "start": 10.7,
+          "end": 11.1
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "the",
+        "Austrian",
+        "prince",
+        "who",
+        "built",
+        "that",
+        "castle",
+        "was",
+        "no",
+        "fool.",
+        "It’s",
+        "a",
+        "fine",
+        "place!",
+        "Why",
+        "are",
+        "you",
+        "not",
+        "eating",
+        "anything,",
+        "gentlemen?”",
+        "Nesvítski",
+        "was",
+        "saying."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "the",
+        "Austrian",
+        "prince",
+        "who",
+        "built",
+        "that",
+        "castle",
+        "was",
+        "no",
+        "fool.",
+        "It's",
+        "a",
+        "fine",
+        "place!",
+        "Why",
+        "are",
+        "you",
+        "not",
+        "eating",
+        "anything,",
+        "gentlemen?\"",
+        "Nesvítski",
+        "was",
+        "saying."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 0.9,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Austrian",
+          "start": 0.9,
+          "end": 1.34,
+          "key": "austrian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prince",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "prince",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "built",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "built",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "castle",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "castle",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 3.16,
+          "end": 3.48,
+          "key": "fool",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "its",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.74,
+          "end": 4.88,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 4.88,
+          "end": 5.1,
+          "key": "fine",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "place!",
+          "start": 5.1,
+          "end": 5.46,
+          "key": "place",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.64,
+          "end": 6.86,
+          "key": "why",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.86,
+          "end": 7.0,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.0,
+          "end": 7.12,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.12,
+          "end": 7.28,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "eating",
+          "start": 7.28,
+          "end": 7.56,
+          "key": "eating",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "anything,",
+          "start": 7.56,
+          "end": 7.98,
+          "key": "anything",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "gentlemen?\"",
+          "start": 8.46,
+          "end": 9.88,
+          "key": "gentlemen",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Nesvítski",
+          "start": 9.88,
+          "end": 10.54,
+          "key": "nesvítski",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 10.54,
+          "end": 10.7,
+          "key": "was",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "saying.",
+          "start": 10.7,
+          "end": 11.1,
+          "key": "saying",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "the",
+          "start": 0.86,
+          "end": 0.9
+        },
+        {
+          "text": "Austrian",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "text": "prince",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "who",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "built",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "that",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "castle",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "was",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "no",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "text": "fool.",
+          "start": 3.16,
+          "end": 3.48
+        },
+        {
+          "text": "It’s",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "a",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "text": "fine",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "place!",
+          "start": 5.1,
+          "end": 5.46
+        },
+        {
+          "text": "Why",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "text": "are",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "text": "you",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "text": "not",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "text": "eating",
+          "start": 7.28,
+          "end": 7.56
+        },
+        {
+          "text": "anything,",
+          "start": 7.56,
+          "end": 7.98
+        },
+        {
+          "text": "gentlemen?”",
+          "start": 8.46,
+          "end": 9.88
+        },
+        {
+          "text": "Nesvítski",
+          "start": 9.88,
+          "end": 10.54
+        },
+        {
+          "text": "was",
+          "start": 10.54,
+          "end": 10.7
+        },
+        {
+          "text": "saying.",
+          "start": 10.7,
+          "end": 11.1
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43938870541751385
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a122231c9ed49ea19f9e47564f1ce1da92b67a9445735b41f02be8a2aa603d8f",
+  "selected_reasons": []
+}

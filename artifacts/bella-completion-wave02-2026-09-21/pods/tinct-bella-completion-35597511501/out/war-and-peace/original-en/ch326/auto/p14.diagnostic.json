@@ -1,0 +1,1975 @@
+{
+  "complete": true,
+  "signature": "48b0bf7cfb29c76480b7102332d7c542e146bf326f29ad95335a18b4a13a7b1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.5256372150033712,
+      "alignment_seconds": 0.0021801749244332314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Vive Henri Quatre! Vive ce roi valiant!\" sang Morel, winking. \"Ce diable à quatre...\" *",
+        "hotwords": "Vive, Henri, Morel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Vive ce roi valiant!\" sang Morel, winking.",
+          "start": 2.0,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Vive",
+              "start": 2.0,
+              "end": 2.88,
+              "probability": 0.09780120849609375
+            },
+            {
+              "text": " ce",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 8.344650268554688e-06
+            },
+            {
+              "text": " roi",
+              "start": 3.08,
+              "end": 4.46,
+              "probability": 0.3870849609375
+            },
+            {
+              "text": " valiant",
+              "start": 4.46,
+              "end": 4.46,
+              "probability": 0.86572265625
+            },
+            {
+              "text": "!\"",
+              "start": 4.46,
+              "end": 4.9,
+              "probability": 2.1457672119140625e-06
+            },
+            {
+              "text": " sang",
+              "start": 4.9,
+              "end": 4.94,
+              "probability": 0.45166015625
+            },
+            {
+              "text": " Morel,",
+              "start": 4.94,
+              "end": 5.42,
+              "probability": 0.5140380859375
+            },
+            {
+              "text": " winking.",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.898681640625
+            }
+          ]
+        },
+        {
+          "text": " Ce diable à quatre...*.",
+          "start": 6.04,
+          "end": 9.6,
+          "words": [
+            {
+              "text": " Ce",
+              "start": 6.04,
+              "end": 7.62,
+              "probability": 0.04241943359375
+            },
+            {
+              "text": " diable",
+              "start": 7.62,
+              "end": 8.08,
+              "probability": 0.3629913330078125
+            },
+            {
+              "text": " à",
+              "start": 8.08,
+              "end": 8.26,
+              "probability": 0.00046944618225097656
+            },
+            {
+              "text": " quatre...*.",
+              "start": 8.26,
+              "end": 9.6,
+              "probability": 0.29526829719543457
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vive",
+          "start": 2.0,
+          "end": 2.88
+        },
+        {
+          "raw": "ce",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "roi",
+          "start": 3.08,
+          "end": 4.46
+        },
+        {
+          "raw": "valiant",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "raw": "!\"",
+          "start": 4.46,
+          "end": 4.9
+        },
+        {
+          "raw": "sang",
+          "start": 4.9,
+          "end": 4.94
+        },
+        {
+          "raw": "Morel,",
+          "start": 4.94,
+          "end": 5.42
+        },
+        {
+          "raw": "winking.",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "raw": "Ce",
+          "start": 6.04,
+          "end": 7.62
+        },
+        {
+          "raw": "diable",
+          "start": 7.62,
+          "end": 8.08
+        },
+        {
+          "raw": "à",
+          "start": 8.08,
+          "end": 8.26
+        },
+        {
+          "raw": "quatre...*.",
+          "start": 8.26,
+          "end": 9.6
+        }
+      ],
+      "expected_tokens": [
+        "“Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!”",
+        "sang",
+        "Morel,",
+        "winking.",
+        "“Ce",
+        "diable",
+        "à",
+        "quatre...”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!\"",
+        "sang",
+        "Morel,",
+        "winking.",
+        "\"Ce",
+        "diable",
+        "à",
+        "quatre...\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          7,
+          0,
+          4
+        ],
+        [
+          "insert",
+          7,
+          7,
+          4,
+          5
+        ],
+        [
+          "equal",
+          7,
+          14,
+          5,
+          12
+        ],
+        [
+          "delete",
+          14,
+          15,
+          12,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "insert",
+          7,
+          7,
+          4,
+          5
+        ],
+        [
+          "delete",
+          14,
+          15,
+          12,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Vive",
+          "start": 2.0,
+          "end": 2.88,
+          "key": "vive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ce",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "ce",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "roi",
+          "start": 3.08,
+          "end": 4.46,
+          "key": "roi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "valiant",
+          "start": 4.46,
+          "end": 4.46,
+          "key": "valiant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 4.46,
+          "end": 4.9,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sang",
+          "start": 4.9,
+          "end": 4.94,
+          "key": "sang",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Morel,",
+          "start": 4.94,
+          "end": 5.42,
+          "key": "morel",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "winking.",
+          "start": 5.74,
+          "end": 6.04,
+          "key": "winking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ce",
+          "start": 6.04,
+          "end": 7.62,
+          "key": "ce",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "diable",
+          "start": 7.62,
+          "end": 8.08,
+          "key": "diable",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "à",
+          "start": 8.08,
+          "end": 8.26,
+          "key": "à",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quatre...*.",
+          "start": 8.26,
+          "end": 9.6,
+          "key": "quatre",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Vive",
+          "start": 0.0,
+          "end": 1.0
+        },
+        {
+          "text": "Henri",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "text": "Quatre!",
+          "start": 1.5,
+          "end": 1.75
+        },
+        {
+          "text": "Vive",
+          "start": 2.0,
+          "end": 2.88
+        },
+        {
+          "text": "ce",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "roi",
+          "start": 3.08,
+          "end": 4.46
+        },
+        {
+          "text": "valiant!”",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "text": "sang",
+          "start": 4.9,
+          "end": 4.94
+        },
+        {
+          "text": "Morel,",
+          "start": 4.94,
+          "end": 5.42
+        },
+        {
+          "text": "winking.",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "text": "“Ce",
+          "start": 6.04,
+          "end": 7.62
+        },
+        {
+          "text": "diable",
+          "start": 7.62,
+          "end": 8.08
+        },
+        {
+          "text": "à",
+          "start": 8.08,
+          "end": 8.26
+        },
+        {
+          "text": "quatre...”",
+          "start": 8.26,
+          "end": 9.6
+        },
+        {
+          "text": "*",
+          "start": 9.6,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5280410712584853
+    },
+    {
+      "asr_seconds": 0.5069453176110983,
+      "alignment_seconds": 0.001545427367091179,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Vive, Henri, Morel"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Vive, Henri, Quatre",
+          "start": 0.0,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Vive,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.269775390625
+            },
+            {
+              "text": " Henri,",
+              "start": 0.78,
+              "end": 0.82,
+              "probability": 0.05926513671875
+            },
+            {
+              "text": " Quatre",
+              "start": 0.96,
+              "end": 1.34,
+              "probability": 0.60009765625
+            }
+          ]
+        },
+        {
+          "text": " Vive, C.E.R.O.I. Valiant, Sang, Morel, Winking",
+          "start": 2.24,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Vive,",
+              "start": 2.24,
+              "end": 2.8,
+              "probability": 0.190185546875
+            },
+            {
+              "text": " C",
+              "start": 3.08,
+              "end": 3.08,
+              "probability": 0.31982421875
+            },
+            {
+              "text": ".E",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.86962890625
+            },
+            {
+              "text": ".R",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.7275390625
+            },
+            {
+              "text": ".O",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.93798828125
+            },
+            {
+              "text": ".I.",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.922119140625
+            },
+            {
+              "text": " Valiant,",
+              "start": 4.18,
+              "end": 4.44,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " Sang,",
+              "start": 4.9,
+              "end": 4.96,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Morel,",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 0.602294921875
+            },
+            {
+              "text": " Winking",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.8701171875
+            }
+          ]
+        },
+        {
+          "text": " C.E. Diable, Aquatre, Asterisk",
+          "start": 6.76,
+          "end": 9.62,
+          "words": [
+            {
+              "text": " C",
+              "start": 6.76,
+              "end": 7.32,
+              "probability": 0.400634765625
+            },
+            {
+              "text": ".E.",
+              "start": 7.32,
+              "end": 7.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Diable,",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.5655517578125
+            },
+            {
+              "text": " Aquatre,",
+              "start": 8.22,
+              "end": 8.68,
+              "probability": 0.39013671875
+            },
+            {
+              "text": " Asterisk",
+              "start": 9.3,
+              "end": 9.62,
+              "probability": 0.529632568359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vive,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Henri,",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "raw": "Quatre",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "raw": "Vive,",
+          "start": 2.24,
+          "end": 2.8
+        },
+        {
+          "raw": "C",
+          "start": 3.08,
+          "end": 3.08
+        },
+        {
+          "raw": ".E",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": ".R",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": ".O",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": ".I.",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "Valiant,",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "raw": "Sang,",
+          "start": 4.9,
+          "end": 4.96
+        },
+        {
+          "raw": "Morel,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "Winking",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "C",
+          "start": 6.76,
+          "end": 7.32
+        },
+        {
+          "raw": ".E.",
+          "start": 7.32,
+          "end": 7.6
+        },
+        {
+          "raw": "Diable,",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "Aquatre,",
+          "start": 8.22,
+          "end": 8.68
+        },
+        {
+          "raw": "Asterisk",
+          "start": 9.3,
+          "end": 9.62
+        }
+      ],
+      "expected_tokens": [
+        "“Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!”",
+        "sang",
+        "Morel,",
+        "winking.",
+        "“Ce",
+        "diable",
+        "à",
+        "quatre...”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!\"",
+        "sang",
+        "Morel,",
+        "winking.",
+        "\"Ce",
+        "diable",
+        "à",
+        "quatre...\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          10,
+          6,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          "replace",
+          12,
+          15,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "replace",
+          12,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Vive,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "vive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henri,",
+          "start": 0.78,
+          "end": 0.82,
+          "key": "henri",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Quatre",
+          "start": 0.96,
+          "end": 1.34,
+          "key": "quatre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Vive,",
+          "start": 2.24,
+          "end": 2.8,
+          "key": "vive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 3.08,
+          "end": 3.08,
+          "key": "c",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".E",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "e",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".R .O .I.",
+          "start": 3.34,
+          "end": 4.1,
+          "key": "roi",
+          "pieces": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "Valiant,",
+          "start": 4.18,
+          "end": 4.44,
+          "key": "valiant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Sang,",
+          "start": 4.9,
+          "end": 4.96,
+          "key": "sang",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Morel,",
+          "start": 5.06,
+          "end": 5.42,
+          "key": "morel",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Winking",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "winking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 6.76,
+          "end": 7.32,
+          "key": "c",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ".E.",
+          "start": 7.32,
+          "end": 7.6,
+          "key": "e",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Diable,",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "diable",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Aquatre,",
+          "start": 8.22,
+          "end": 8.68,
+          "key": "aquatre",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 9.3,
+          "end": 9.62,
+          "key": "asterisk",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "roi",
+          "heard": ".R .O .I.",
+          "heard_indexes": [
+            6,
+            7,
+            8
+          ],
+          "start": 3.34,
+          "end": 4.1
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Vive",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Henri",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "text": "Quatre!",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "text": "Vive",
+          "start": 2.24,
+          "end": 2.8
+        },
+        {
+          "text": "ce",
+          "start": 2.8,
+          "end": 3.07
+        },
+        {
+          "text": "roi",
+          "start": 3.34,
+          "end": 4.1
+        },
+        {
+          "text": "valiant!”",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "sang",
+          "start": 4.9,
+          "end": 4.96
+        },
+        {
+          "text": "Morel,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "winking.",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "“Ce",
+          "start": 6.04,
+          "end": 6.92
+        },
+        {
+          "text": "diable",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "à",
+          "start": 8.04,
+          "end": 8.83
+        },
+        {
+          "text": "quatre...”",
+          "start": 8.83,
+          "end": 9.225
+        },
+        {
+          "text": "*",
+          "start": 9.225,
+          "end": 9.422
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 10
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.508665575645864
+    },
+    {
+      "asr_seconds": 0.4219417292624712,
+      "alignment_seconds": 0.001223074272274971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viv Unri Quatre",
+          "start": 0.0,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Viv",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.35595703125
+            },
+            {
+              "text": " Unri",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.53277587890625
+            },
+            {
+              "text": " Quatre",
+              "start": 0.86,
+              "end": 1.38,
+              "probability": 0.39202880859375
+            }
+          ]
+        },
+        {
+          "text": " Viv C.E.R.O.I Valiant, Sang Morel, Winking",
+          "start": 2.0,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " Viv",
+              "start": 2.0,
+              "end": 2.76,
+              "probability": 0.484130859375
+            },
+            {
+              "text": " C",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.27587890625
+            },
+            {
+              "text": ".E",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.83544921875
+            },
+            {
+              "text": ".R",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.918701171875
+            },
+            {
+              "text": ".O",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.943603515625
+            },
+            {
+              "text": ".I",
+              "start": 3.86,
+              "end": 4.46,
+              "probability": 0.877197265625
+            },
+            {
+              "text": " Valiant,",
+              "start": 4.46,
+              "end": 4.46,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " Sang",
+              "start": 4.88,
+              "end": 4.96,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Morel,",
+              "start": 4.96,
+              "end": 5.42,
+              "probability": 0.559326171875
+            },
+            {
+              "text": " Winking",
+              "start": 5.78,
+              "end": 6.06,
+              "probability": 0.8388671875
+            }
+          ]
+        },
+        {
+          "text": " C.E. Diable A Quatre, Asterisk",
+          "start": 6.06,
+          "end": 9.62,
+          "words": [
+            {
+              "text": " C",
+              "start": 6.06,
+              "end": 7.32,
+              "probability": 0.62939453125
+            },
+            {
+              "text": ".E.",
+              "start": 7.32,
+              "end": 7.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Diable",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.510009765625
+            },
+            {
+              "text": " A",
+              "start": 8.04,
+              "end": 8.24,
+              "probability": 0.2325439453125
+            },
+            {
+              "text": " Quatre,",
+              "start": 8.24,
+              "end": 8.78,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " Asterisk",
+              "start": 9.16,
+              "end": 9.62,
+              "probability": 0.5176849365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viv",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "Unri",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "Quatre",
+          "start": 0.86,
+          "end": 1.38
+        },
+        {
+          "raw": "Viv",
+          "start": 2.0,
+          "end": 2.76
+        },
+        {
+          "raw": "C",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "raw": ".E",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": ".R",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": ".O",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": ".I",
+          "start": 3.86,
+          "end": 4.46
+        },
+        {
+          "raw": "Valiant,",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "raw": "Sang",
+          "start": 4.88,
+          "end": 4.96
+        },
+        {
+          "raw": "Morel,",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "raw": "Winking",
+          "start": 5.78,
+          "end": 6.06
+        },
+        {
+          "raw": "C",
+          "start": 6.06,
+          "end": 7.32
+        },
+        {
+          "raw": ".E.",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "raw": "Diable",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "A",
+          "start": 8.04,
+          "end": 8.24
+        },
+        {
+          "raw": "Quatre,",
+          "start": 8.24,
+          "end": 8.78
+        },
+        {
+          "raw": "Asterisk",
+          "start": 9.16,
+          "end": 9.62
+        }
+      ],
+      "expected_tokens": [
+        "“Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!”",
+        "sang",
+        "Morel,",
+        "winking.",
+        "“Ce",
+        "diable",
+        "à",
+        "quatre...”",
+        "*"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Vive",
+        "Henri",
+        "Quatre!",
+        "Vive",
+        "ce",
+        "roi",
+        "valiant!\"",
+        "sang",
+        "Morel,",
+        "winking.",
+        "\"Ce",
+        "diable",
+        "à",
+        "quatre...\"",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ],
+        [
+          "equal",
+          5,
+          10,
+          6,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          "equal",
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viv",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "viv",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Unri",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "unri",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Quatre",
+          "start": 0.86,
+          "end": 1.38,
+          "key": "quatre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Viv",
+          "start": 2.0,
+          "end": 2.76,
+          "key": "viv",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "c",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".E",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "e",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".R .O .I",
+          "start": 3.34,
+          "end": 4.46,
+          "key": "roi",
+          "pieces": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "Valiant,",
+          "start": 4.46,
+          "end": 4.46,
+          "key": "valiant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Sang",
+          "start": 4.88,
+          "end": 4.96,
+          "key": "sang",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Morel,",
+          "start": 4.96,
+          "end": 5.42,
+          "key": "morel",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Winking",
+          "start": 5.78,
+          "end": 6.06,
+          "key": "winking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 6.06,
+          "end": 7.32,
+          "key": "c",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ".E.",
+          "start": 7.32,
+          "end": 7.62,
+          "key": "e",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Diable",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "diable",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 8.04,
+          "end": 8.24,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Quatre,",
+          "start": 8.24,
+          "end": 8.78,
+          "key": "quatre",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Asterisk",
+          "start": 9.16,
+          "end": 9.62,
+          "key": "asterisk",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "roi",
+          "heard": ".R .O .I",
+          "heard_indexes": [
+            6,
+            7,
+            8
+          ],
+          "start": 3.34,
+          "end": 4.46
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Vive",
+          "start": 0.0,
+          "end": 0.43
+        },
+        {
+          "text": "Henri",
+          "start": 0.43,
+          "end": 0.645
+        },
+        {
+          "text": "Quatre!",
+          "start": 0.86,
+          "end": 1.38
+        },
+        {
+          "text": "Vive",
+          "start": 1.38,
+          "end": 2.36
+        },
+        {
+          "text": "ce",
+          "start": 2.36,
+          "end": 2.85
+        },
+        {
+          "text": "roi",
+          "start": 3.34,
+          "end": 4.46
+        },
+        {
+          "text": "valiant!”",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "text": "sang",
+          "start": 4.88,
+          "end": 4.96
+        },
+        {
+          "text": "Morel,",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "text": "winking.",
+          "start": 5.78,
+          "end": 6.06
+        },
+        {
+          "text": "“Ce",
+          "start": 6.06,
+          "end": 6.93
+        },
+        {
+          "text": "diable",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "à",
+          "start": 8.04,
+          "end": 8.14
+        },
+        {
+          "text": "quatre...”",
+          "start": 8.24,
+          "end": 8.78
+        },
+        {
+          "text": "*",
+          "start": 8.78,
+          "end": 9.2
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 8
+      },
+      "match_ratio": 0.5333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.42330875527113676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96fcd5ad3fb63024882989d0d07f06bc9ec96b67680206c2fe8605fff02f445e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

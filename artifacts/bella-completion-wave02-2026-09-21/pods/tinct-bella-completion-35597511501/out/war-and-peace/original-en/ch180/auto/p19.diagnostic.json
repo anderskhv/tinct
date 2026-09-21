@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "f29564a329b12a0e1af0d7b6af55755e30b600605cd180ffd88157b458bdd334",
+  "attempts": [
+    {
+      "asr_seconds": 0.20718670170754194,
+      "alignment_seconds": 0.0008292151615023613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, but supposing Mary Hendríkhovna is 'King'?\" asked Ilyín.",
+        "hotwords": "Well, Mary, Hendríkhovna, King, Ilyín"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, but supposing Mary Hendríkhovna is King?\" asked Ilyín.",
+          "start": 0.0,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.277587890625
+            },
+            {
+              "text": " but",
+              "start": 0.78,
+              "end": 0.86,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " supposing",
+              "start": 0.86,
+              "end": 1.4,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Mary",
+              "start": 1.4,
+              "end": 1.76,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Hendríkhovna",
+              "start": 1.76,
+              "end": 2.48,
+              "probability": 0.3922068277994792
+            },
+            {
+              "text": " is",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " King?\"",
+              "start": 2.68,
+              "end": 3.24,
+              "probability": 0.020479440689086914
+            },
+            {
+              "text": " asked",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Ilyín.",
+              "start": 3.46,
+              "end": 3.9,
+              "probability": 0.0027561187744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "but",
+          "start": 0.78,
+          "end": 0.86
+        },
+        {
+          "raw": "supposing",
+          "start": 0.86,
+          "end": 1.4
+        },
+        {
+          "raw": "Mary",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "raw": "Hendríkhovna",
+          "start": 1.76,
+          "end": 2.48
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "King?\"",
+          "start": 2.68,
+          "end": 3.24
+        },
+        {
+          "raw": "asked",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "Ilyín.",
+          "start": 3.46,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "but",
+        "supposing",
+        "Mary",
+        "Hendríkhovna",
+        "is",
+        "‘King’?”",
+        "asked",
+        "Ilyín."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "but",
+        "supposing",
+        "Mary",
+        "Hendríkhovna",
+        "is",
+        "'King'?\"",
+        "asked",
+        "Ilyín."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.78,
+          "end": 0.86,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "supposing",
+          "start": 0.86,
+          "end": 1.4,
+          "key": "supposing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 1.4,
+          "end": 1.76,
+          "key": "mary",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hendríkhovna",
+          "start": 1.76,
+          "end": 2.48,
+          "key": "hendríkhovna",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "King?\"",
+          "start": 2.68,
+          "end": 3.24,
+          "key": "king",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ilyín.",
+          "start": 3.46,
+          "end": 3.9,
+          "key": "ilyín",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "but",
+          "start": 0.78,
+          "end": 0.86
+        },
+        {
+          "text": "supposing",
+          "start": 0.86,
+          "end": 1.4
+        },
+        {
+          "text": "Mary",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "text": "Hendríkhovna",
+          "start": 1.76,
+          "end": 2.48
+        },
+        {
+          "text": "is",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "‘King’?”",
+          "start": 2.68,
+          "end": 3.24
+        },
+        {
+          "text": "asked",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "Ilyín.",
+          "start": 3.46,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20812118332833052
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fede14d37a89d3b9404eac1723f60f70eb69164f7cb1d6f71a709e3cc3f542f5",
+  "selected_reasons": []
+}

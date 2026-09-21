@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "7f0d1e0b8eb163efad0867e4b7138afdc4d7bb778600fc35f8cb42276201030b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3288377830758691,
+      "alignment_seconds": 0.0021537654101848602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My cousin has nothing to do with this and it's not necessary to mention her!\" he exclaimed fiercely.",
+        "hotwords": "My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My cousin has nothing to do with this and it's not necessary to mention her,\" he exclaimed fiercely.",
+          "start": 0.0,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.05426025390625
+            },
+            {
+              "text": " cousin",
+              "start": 0.42,
+              "end": 0.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " has",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.94921875
+            },
+            {
+              "text": " it's",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " not",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " necessary",
+              "start": 2.4,
+              "end": 2.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mention",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her,\"",
+              "start": 3.32,
+              "end": 3.98,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " he",
+              "start": 3.98,
+              "end": 4.08,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " exclaimed",
+              "start": 4.08,
+              "end": 4.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fiercely.",
+              "start": 4.48,
+              "end": 5.02,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "cousin",
+          "start": 0.42,
+          "end": 0.66
+        },
+        {
+          "raw": "has",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "nothing",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "to",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "this",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "it's",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "not",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "necessary",
+          "start": 2.4,
+          "end": 2.88
+        },
+        {
+          "raw": "to",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "raw": "mention",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "raw": "her,\"",
+          "start": 3.32,
+          "end": 3.98
+        },
+        {
+          "raw": "he",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "raw": "exclaimed",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "raw": "fiercely.",
+          "start": 4.48,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "“My",
+        "cousin",
+        "has",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "this",
+        "and",
+        "it’s",
+        "not",
+        "necessary",
+        "to",
+        "mention",
+        "her!”",
+        "he",
+        "exclaimed",
+        "fiercely."
+      ],
+      "acoustic_expected_tokens": [
+        "\"My",
+        "cousin",
+        "has",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "this",
+        "and",
+        "it's",
+        "not",
+        "necessary",
+        "to",
+        "mention",
+        "her!\"",
+        "he",
+        "exclaimed",
+        "fiercely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 0.42,
+          "end": 0.66,
+          "key": "cousin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "nothing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "its",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 2.4,
+          "end": 2.88,
+          "key": "necessary",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.88,
+          "end": 3.14,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mention",
+          "start": 3.14,
+          "end": 3.32,
+          "key": "mention",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her,\"",
+          "start": 3.32,
+          "end": 3.98,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.98,
+          "end": 4.08,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 4.08,
+          "end": 4.48,
+          "key": "exclaimed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fiercely.",
+          "start": 4.48,
+          "end": 5.02,
+          "key": "fiercely",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“My",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "cousin",
+          "start": 0.42,
+          "end": 0.66
+        },
+        {
+          "text": "has",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "text": "nothing",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "to",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "do",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "with",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "this",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "and",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "it’s",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "not",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "necessary",
+          "start": 2.4,
+          "end": 2.88
+        },
+        {
+          "text": "to",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "text": "mention",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "text": "her!”",
+          "start": 3.32,
+          "end": 3.98
+        },
+        {
+          "text": "he",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "text": "exclaimed",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "text": "fiercely.",
+          "start": 4.48,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33125946670770645
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc971a06b05c62291df58c4d05a8e36095d633b665b6f8a8cf53293815b6e919",
+  "selected_reasons": []
+}

@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "e57ad2b615e16fdfba5c368a8917c89b69eac4d810340f3544aca6468cbb3e44",
+  "attempts": [
+    {
+      "asr_seconds": 0.37300125043839216,
+      "alignment_seconds": 0.0030586589127779007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You see?... What a wogue—it's just as I thought,\" said Denísov to the esaul. \"Why didn't you bwing that one?\"",
+        "hotwords": "What, I, Denísov, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You see?...What a wogue—it's just as I thought,\" said Denísov to the esaul.",
+          "start": 0.0,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.038055419921875
+            },
+            {
+              "text": " see",
+              "start": 0.36,
+              "end": 0.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": "?...What",
+              "start": 0.66,
+              "end": 1.92,
+              "probability": 0.15207513173421225
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " wogue—it's",
+              "start": 2.06,
+              "end": 2.72,
+              "probability": 0.50433349609375
+            },
+            {
+              "text": " just",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thought,\"",
+              "start": 3.22,
+              "end": 3.86,
+              "probability": 0.851318359375
+            },
+            {
+              "text": " said",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Denísov",
+              "start": 3.96,
+              "end": 4.44,
+              "probability": 0.015688578287760418
+            },
+            {
+              "text": " to",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.76,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " esaul.",
+              "start": 4.76,
+              "end": 5.24,
+              "probability": 0.0054128170013427734
+            }
+          ]
+        },
+        {
+          "text": " Why didn't you bwing that one?",
+          "start": 6.3,
+          "end": 7.52,
+          "words": [
+            {
+              "text": " Why",
+              "start": 6.3,
+              "end": 6.46,
+              "probability": 0.34765625
+            },
+            {
+              "text": " didn't",
+              "start": 6.46,
+              "end": 6.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 6.72,
+              "end": 6.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bwing",
+              "start": 6.86,
+              "end": 7.06,
+              "probability": 0.47896385192871094
+            },
+            {
+              "text": " that",
+              "start": 7.06,
+              "end": 7.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one?",
+              "start": 7.26,
+              "end": 7.52,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "see",
+          "start": 0.36,
+          "end": 0.66
+        },
+        {
+          "raw": "?...What",
+          "start": 0.66,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "wogue—it's",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "raw": "just",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "as",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "thought,\"",
+          "start": 3.22,
+          "end": 3.86
+        },
+        {
+          "raw": "said",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "Denísov",
+          "start": 3.96,
+          "end": 4.44
+        },
+        {
+          "raw": "to",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "raw": "esaul.",
+          "start": 4.76,
+          "end": 5.24
+        },
+        {
+          "raw": "Why",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "raw": "didn't",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "raw": "you",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "raw": "bwing",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "raw": "that",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "raw": "one?",
+          "start": 7.26,
+          "end": 7.52
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "see?...",
+        "What",
+        "a",
+        "wogue—it’s",
+        "just",
+        "as",
+        "I",
+        "thought,”",
+        "said",
+        "Denísov",
+        "to",
+        "the",
+        "esaul.",
+        "“Why",
+        "didn’t",
+        "you",
+        "bwing",
+        "that",
+        "one?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "see?...",
+        "What",
+        "a",
+        "wogue—it's",
+        "just",
+        "as",
+        "I",
+        "thought,\"",
+        "said",
+        "Denísov",
+        "to",
+        "the",
+        "esaul.",
+        "\"Why",
+        "didn't",
+        "you",
+        "bwing",
+        "that",
+        "one?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.36,
+          "end": 0.66,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "?...What",
+          "start": 0.66,
+          "end": 1.92,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wogue—it's",
+          "start": 2.06,
+          "end": 2.72,
+          "key": "wogueits",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.72,
+          "end": 2.9,
+          "key": "just",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thought,\"",
+          "start": 3.22,
+          "end": 3.86,
+          "key": "thought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Denísov",
+          "start": 3.96,
+          "end": 4.44,
+          "key": "denísov",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.76,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "esaul.",
+          "start": 4.76,
+          "end": 5.24,
+          "key": "esaul",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.3,
+          "end": 6.46,
+          "key": "why",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 6.46,
+          "end": 6.72,
+          "key": "didnt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.72,
+          "end": 6.86,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "bwing",
+          "start": 6.86,
+          "end": 7.06,
+          "key": "bwing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.06,
+          "end": 7.26,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "one?",
+          "start": 7.26,
+          "end": 7.52,
+          "key": "one",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "see?...",
+          "start": 0.36,
+          "end": 0.66
+        },
+        {
+          "text": "What",
+          "start": 0.66,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "wogue—it’s",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "text": "just",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "as",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "I",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "thought,”",
+          "start": 3.22,
+          "end": 3.86
+        },
+        {
+          "text": "said",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "Denísov",
+          "start": 3.96,
+          "end": 4.44
+        },
+        {
+          "text": "to",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "text": "esaul.",
+          "start": 4.76,
+          "end": 5.24
+        },
+        {
+          "text": "“Why",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "text": "didn’t",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "text": "you",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "text": "bwing",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "text": "that",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "text": "one?”",
+          "start": 7.26,
+          "end": 7.52
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37628179509192705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "383ce93b6ad712122cede8fdff7f894fcbc545bcd032083ce4c0816f7a3022af",
+  "selected_reasons": []
+}

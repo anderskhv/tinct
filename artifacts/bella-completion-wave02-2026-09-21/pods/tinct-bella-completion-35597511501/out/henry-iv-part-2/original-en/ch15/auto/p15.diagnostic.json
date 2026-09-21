@@ -1,0 +1,535 @@
+{
+  "complete": true,
+  "signature": "bfbc8daa53bf524a813120844eb01927615a57aace51b92c6c12ff94504757f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2788328202441335,
+      "alignment_seconds": 0.0007870299741625786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No worse than they are backbitten, sir, for they have marvellous foul linen.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Davy, no worse than they are backbitten, sir, for they have marvellous foul linen.",
+          "start": 0.05,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Davy,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " no",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.921875
+            },
+            {
+              "text": " worse",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " than",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " they",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " are",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " backbitten,",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.6866048177083334
+            },
+            {
+              "text": " sir,",
+              "start": 2.79,
+              "end": 2.81,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " for",
+              "start": 3.21,
+              "end": 3.27,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " they",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " marvellous",
+              "start": 3.57,
+              "end": 4.15,
+              "probability": 0.7838541666666666
+            },
+            {
+              "text": " foul",
+              "start": 4.15,
+              "end": 4.41,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " linen.",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Davy,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "no",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "raw": "worse",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "than",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "they",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "backbitten,",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "raw": "sir,",
+          "start": 2.79,
+          "end": 2.81
+        },
+        {
+          "raw": "for",
+          "start": 3.21,
+          "end": 3.27
+        },
+        {
+          "raw": "they",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "have",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "marvellous",
+          "start": 3.57,
+          "end": 4.15
+        },
+        {
+          "raw": "foul",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "raw": "linen.",
+          "start": 4.41,
+          "end": 4.69
+        }
+      ],
+      "expected_tokens": [
+        "DAVY.",
+        "No",
+        "worse",
+        "than",
+        "they",
+        "are",
+        "backbitten,",
+        "sir,",
+        "for",
+        "they",
+        "have",
+        "marvellous",
+        "foul",
+        "linen."
+      ],
+      "acoustic_expected_tokens": [
+        "No",
+        "worse",
+        "than",
+        "they",
+        "are",
+        "backbitten,",
+        "sir,",
+        "for",
+        "they",
+        "have",
+        "marvellous",
+        "foul",
+        "linen."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Davy,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "davy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "worse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "backbitten,",
+          "start": 2.05,
+          "end": 2.55,
+          "key": "backbitten",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.79,
+          "end": 2.81,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.21,
+          "end": 3.27,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.27,
+          "end": 3.39,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "marvellous",
+          "start": 3.57,
+          "end": 4.15,
+          "key": "marvellous",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 4.15,
+          "end": 4.41,
+          "key": "foul",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "linen.",
+          "start": 4.41,
+          "end": 4.69,
+          "key": "linen",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "DAVY.",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "text": "No",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "text": "worse",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "than",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "they",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "are",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "backbitten,",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "sir,",
+          "start": 2.79,
+          "end": 2.81
+        },
+        {
+          "text": "for",
+          "start": 3.21,
+          "end": 3.27
+        },
+        {
+          "text": "they",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "have",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "marvellous",
+          "start": 3.57,
+          "end": 4.15
+        },
+        {
+          "text": "foul",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "text": "linen.",
+          "start": 4.41,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2797529408708215
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "037bb4b25878087eac4b92cfacddbde5262ce28b61c8f5e5df7605d6bc16b281",
+  "selected_reasons": []
+}

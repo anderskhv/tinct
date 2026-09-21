@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "fcd3d5faef87decf3ddab566a4999f8b62b25c5b2094f4bf5cf54b9d382b35be",
+  "attempts": [
+    {
+      "asr_seconds": 0.10141189489513636,
+      "alignment_seconds": 0.00024926476180553436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here, sir.",
+        "hotwords": "Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Davy, here, sir.",
+          "start": 0.49,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Davy,",
+              "start": 0.49,
+              "end": 0.85,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " here,",
+              "start": 1.09,
+              "end": 1.13,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sir.",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Davy,",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "raw": "here,",
+          "start": 1.09,
+          "end": 1.13
+        },
+        {
+          "raw": "sir.",
+          "start": 1.25,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "DAVY.",
+        "Here,",
+        "sir."
+      ],
+      "acoustic_expected_tokens": [
+        "Here,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Davy,",
+          "start": 0.49,
+          "end": 0.85,
+          "key": "davy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 1.09,
+          "end": 1.13,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "DAVY.",
+          "start": 1.09,
+          "end": 1.09
+        },
+        {
+          "text": "Here,",
+          "start": 1.09,
+          "end": 1.13
+        },
+        {
+          "text": "sir.",
+          "start": 1.25,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10170027241110802
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92296662e1387a4bf819b94f429ee69c946a3af92a5b423322cb68b0d319d7cd",
+  "selected_reasons": []
+}

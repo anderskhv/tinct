@@ -1,0 +1,1564 @@
+{
+  "complete": true,
+  "signature": "73cb5108c8710561a352b9d20c9926acaf1e044f8ca86620c0e0061f0673de84",
+  "attempts": [
+    {
+      "asr_seconds": 0.4755028113722801,
+      "alignment_seconds": 0.004347531124949455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, but I must. It may be arrogant of me, but still it is best to say it. If you refuse him on my account, I must tell you the whole truth. I love you, and I think I love you more than anyone else....\"",
+        "hotwords": "No, I, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, but I must. It may be arrogant of me, but still it is best to say it. If you refuse",
+          "start": 0.0,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " but",
+              "start": 0.76,
+              "end": 0.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " I",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " must.",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " It",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " may",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " arrogant",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 3.72,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " still",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it",
+              "start": 4.06,
+              "end": 4.18,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " is",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " best",
+              "start": 4.34,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 4.74,
+              "end": 4.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " If",
+              "start": 6.1,
+              "end": 6.28,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 6.28,
+              "end": 6.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " refuse",
+              "start": 6.42,
+              "end": 6.74,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " him on my account, I must tell you the whole truth. I love you, and I think I love you",
+          "start": 6.74,
+          "end": 12.04,
+          "words": [
+            {
+              "text": " him",
+              "start": 6.74,
+              "end": 6.96,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " on",
+              "start": 6.96,
+              "end": 7.08,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " my",
+              "start": 7.08,
+              "end": 7.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " account,",
+              "start": 7.28,
+              "end": 7.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 7.96,
+              "end": 8.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 8.04,
+              "end": 8.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tell",
+              "start": 8.24,
+              "end": 8.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 8.44,
+              "end": 8.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.62,
+              "end": 8.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " whole",
+              "start": 8.74,
+              "end": 8.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " truth.",
+              "start": 8.98,
+              "end": 9.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 10.34,
+              "end": 10.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " love",
+              "start": 10.54,
+              "end": 10.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you,",
+              "start": 10.72,
+              "end": 11.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.16,
+              "end": 11.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 11.24,
+              "end": 11.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think",
+              "start": 11.38,
+              "end": 11.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 11.52,
+              "end": 11.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " love",
+              "start": 11.72,
+              "end": 11.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 11.88,
+              "end": 12.04,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " more than anyone else....",
+          "start": 12.04,
+          "end": 13.16,
+          "words": [
+            {
+              "text": " more",
+              "start": 12.04,
+              "end": 12.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 12.18,
+              "end": 12.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anyone",
+              "start": 12.34,
+              "end": 12.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " else....",
+              "start": 12.64,
+              "end": 13.16,
+              "probability": 0.4996159076690674
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "but",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "must.",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "It",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "may",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "be",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "arrogant",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "me,",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "but",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "raw": "still",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "it",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "raw": "is",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "best",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "raw": "to",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "say",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "raw": "it.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "If",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "raw": "you",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "raw": "refuse",
+          "start": 6.42,
+          "end": 6.74
+        },
+        {
+          "raw": "him",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "raw": "on",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "raw": "my",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "raw": "account,",
+          "start": 7.28,
+          "end": 7.6
+        },
+        {
+          "raw": "I",
+          "start": 7.96,
+          "end": 8.04
+        },
+        {
+          "raw": "must",
+          "start": 8.04,
+          "end": 8.24
+        },
+        {
+          "raw": "tell",
+          "start": 8.24,
+          "end": 8.44
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.62
+        },
+        {
+          "raw": "the",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "raw": "whole",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "raw": "truth.",
+          "start": 8.98,
+          "end": 9.28
+        },
+        {
+          "raw": "I",
+          "start": 10.34,
+          "end": 10.54
+        },
+        {
+          "raw": "love",
+          "start": 10.54,
+          "end": 10.72
+        },
+        {
+          "raw": "you,",
+          "start": 10.72,
+          "end": 11.0
+        },
+        {
+          "raw": "and",
+          "start": 11.16,
+          "end": 11.24
+        },
+        {
+          "raw": "I",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "raw": "think",
+          "start": 11.38,
+          "end": 11.52
+        },
+        {
+          "raw": "I",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "raw": "love",
+          "start": 11.72,
+          "end": 11.88
+        },
+        {
+          "raw": "you",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "raw": "more",
+          "start": 12.04,
+          "end": 12.18
+        },
+        {
+          "raw": "than",
+          "start": 12.18,
+          "end": 12.34
+        },
+        {
+          "raw": "anyone",
+          "start": 12.34,
+          "end": 12.64
+        },
+        {
+          "raw": "else....",
+          "start": 12.64,
+          "end": 13.16
+        }
+      ],
+      "expected_tokens": [
+        "“No,",
+        "but",
+        "I",
+        "must.",
+        "It",
+        "may",
+        "be",
+        "arrogant",
+        "of",
+        "me,",
+        "but",
+        "still",
+        "it",
+        "is",
+        "best",
+        "to",
+        "say",
+        "it.",
+        "If",
+        "you",
+        "refuse",
+        "him",
+        "on",
+        "my",
+        "account,",
+        "I",
+        "must",
+        "tell",
+        "you",
+        "the",
+        "whole",
+        "truth.",
+        "I",
+        "love",
+        "you,",
+        "and",
+        "I",
+        "think",
+        "I",
+        "love",
+        "you",
+        "more",
+        "than",
+        "anyone",
+        "else....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No,",
+        "but",
+        "I",
+        "must.",
+        "It",
+        "may",
+        "be",
+        "arrogant",
+        "of",
+        "me,",
+        "but",
+        "still",
+        "it",
+        "is",
+        "best",
+        "to",
+        "say",
+        "it.",
+        "If",
+        "you",
+        "refuse",
+        "him",
+        "on",
+        "my",
+        "account,",
+        "I",
+        "must",
+        "tell",
+        "you",
+        "the",
+        "whole",
+        "truth.",
+        "I",
+        "love",
+        "you,",
+        "and",
+        "I",
+        "think",
+        "I",
+        "love",
+        "you",
+        "more",
+        "than",
+        "anyone",
+        "else....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          45,
+          0,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.76,
+          "end": 0.84,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must.",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.62,
+          "end": 2.8,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "arrogant",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "arrogant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.72,
+          "end": 3.82,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "still",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.06,
+          "end": 4.18,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.34,
+          "end": 4.52,
+          "key": "best",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.74,
+          "end": 4.92,
+          "key": "say",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 6.1,
+          "end": 6.28,
+          "key": "if",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.28,
+          "end": 6.42,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "refuse",
+          "start": 6.42,
+          "end": 6.74,
+          "key": "refuse",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.74,
+          "end": 6.96,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.96,
+          "end": 7.08,
+          "key": "on",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.08,
+          "end": 7.28,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "account,",
+          "start": 7.28,
+          "end": 7.6,
+          "key": "account",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.96,
+          "end": 8.04,
+          "key": "i",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 8.04,
+          "end": 8.24,
+          "key": "must",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 8.24,
+          "end": 8.44,
+          "key": "tell",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.44,
+          "end": 8.62,
+          "key": "you",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.62,
+          "end": 8.74,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 8.74,
+          "end": 8.98,
+          "key": "whole",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 8.98,
+          "end": 9.28,
+          "key": "truth",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.34,
+          "end": 10.54,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 10.54,
+          "end": 10.72,
+          "key": "love",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 10.72,
+          "end": 11.0,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.16,
+          "end": 11.24,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.24,
+          "end": 11.38,
+          "key": "i",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 11.38,
+          "end": 11.52,
+          "key": "think",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.52,
+          "end": 11.72,
+          "key": "i",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 11.72,
+          "end": 11.88,
+          "key": "love",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.88,
+          "end": 12.04,
+          "key": "you",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 12.04,
+          "end": 12.18,
+          "key": "more",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 12.18,
+          "end": 12.34,
+          "key": "than",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "anyone",
+          "start": 12.34,
+          "end": 12.64,
+          "key": "anyone",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "else....",
+          "start": 12.64,
+          "end": 13.16,
+          "key": "else",
+          "pieces": [
+            44
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“No,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "but",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "must.",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "It",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "may",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "be",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "arrogant",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "of",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "me,",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "but",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "text": "still",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "it",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "text": "is",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "best",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "text": "to",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "say",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "it.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "If",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "text": "you",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "text": "refuse",
+          "start": 6.42,
+          "end": 6.74
+        },
+        {
+          "text": "him",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "text": "on",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "text": "my",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "text": "account,",
+          "start": 7.28,
+          "end": 7.6
+        },
+        {
+          "text": "I",
+          "start": 7.96,
+          "end": 8.04
+        },
+        {
+          "text": "must",
+          "start": 8.04,
+          "end": 8.24
+        },
+        {
+          "text": "tell",
+          "start": 8.24,
+          "end": 8.44
+        },
+        {
+          "text": "you",
+          "start": 8.44,
+          "end": 8.62
+        },
+        {
+          "text": "the",
+          "start": 8.62,
+          "end": 8.74
+        },
+        {
+          "text": "whole",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "text": "truth.",
+          "start": 8.98,
+          "end": 9.28
+        },
+        {
+          "text": "I",
+          "start": 10.34,
+          "end": 10.54
+        },
+        {
+          "text": "love",
+          "start": 10.54,
+          "end": 10.72
+        },
+        {
+          "text": "you,",
+          "start": 10.72,
+          "end": 11.0
+        },
+        {
+          "text": "and",
+          "start": 11.16,
+          "end": 11.24
+        },
+        {
+          "text": "I",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "text": "think",
+          "start": 11.38,
+          "end": 11.52
+        },
+        {
+          "text": "I",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "text": "love",
+          "start": 11.72,
+          "end": 11.88
+        },
+        {
+          "text": "you",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "text": "more",
+          "start": 12.04,
+          "end": 12.18
+        },
+        {
+          "text": "than",
+          "start": 12.18,
+          "end": 12.34
+        },
+        {
+          "text": "anyone",
+          "start": 12.34,
+          "end": 12.64
+        },
+        {
+          "text": "else....”",
+          "start": 12.64,
+          "end": 13.16
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 45,
+        "matched_words": 45
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4803385427221656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "354fd82cbdcff1ac6735f931aa86be66b2d44de8055406548590937c9da5c1ef",
+  "selected_reasons": []
+}

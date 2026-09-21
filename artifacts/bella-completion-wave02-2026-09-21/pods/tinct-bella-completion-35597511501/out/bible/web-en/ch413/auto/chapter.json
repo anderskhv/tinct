@@ -1,0 +1,20 @@
+{
+  "key": "bible/web-en/ch413",
+  "group": "alignment",
+  "mode": "auto",
+  "status": "rejected",
+  "reasons": [
+    {
+      "paragraph": 3,
+      "reasons": [
+        "processing_invariant_error"
+      ]
+    }
+  ],
+  "paragraphs": [],
+  "processing_error": {
+    "paragraph": 3,
+    "type": "ValueError",
+    "message": "source/acoustic token mapping changed at index 119: source='[they' acoustic='they'"
+  }
+}

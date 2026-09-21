@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "450c9cea78b48507f778fde326e6f1cd6e2f3b2cd29de276264520b3d175c564",
+  "attempts": [
+    {
+      "asr_seconds": 0.12521889712661505,
+      "alignment_seconds": 0.0009496184065937996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, I know what it is.\"",
+        "hotwords": "Ah, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, I know what it is.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.4599609375
+            },
+            {
+              "text": " I",
+              "start": 0.75,
+              "end": 0.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " know",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is.",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "I",
+          "start": 0.75,
+          "end": 0.83
+        },
+        {
+          "raw": "know",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "what",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "it",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "is.",
+          "start": 1.23,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "“Ah,",
+        "I",
+        "know",
+        "what",
+        "it",
+        "is.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah,",
+        "I",
+        "know",
+        "what",
+        "it",
+        "is.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.75,
+          "end": 0.83,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "I",
+          "start": 0.75,
+          "end": 0.83
+        },
+        {
+          "text": "know",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "what",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "it",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "is.”",
+          "start": 1.23,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12630837131291628
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7add73aca20659b3ffb687675dd5e49a805e24319dd8845b160129536acda97b",
+  "selected_reasons": []
+}

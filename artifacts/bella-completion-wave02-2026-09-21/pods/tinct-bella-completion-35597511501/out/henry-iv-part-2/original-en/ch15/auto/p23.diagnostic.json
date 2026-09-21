@@ -1,0 +1,958 @@
+{
+  "complete": true,
+  "signature": "14a5ac9100f218e7eed0be1fd6162d25b228f07ae0e377d67da06b4a00f20ea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19838341511785984,
+      "alignment_seconds": 0.0012344559654593468,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I am glad to see your worship.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bardolf, I'm glad to see your worship.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Bardolf,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.5333251953125
+            },
+            {
+              "text": " I'm",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.916015625
+            },
+            {
+              "text": " glad",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " worship.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bardolf,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "I'm",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "worship.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "BARDOLPH.",
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bardolf,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "bardolf",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "glad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worship.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "worship",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BARDOLPH.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "am",
+          "start": 0.7,
+          "end": 1.05
+        },
+        {
+          "text": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "see",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "worship.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19977068156003952
+    },
+    {
+      "asr_seconds": 0.23886616807430983,
+      "alignment_seconds": 0.0009810375049710274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Bart off. I'm glad to see your worship",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Bart",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.0760498046875
+            },
+            {
+              "text": " off.",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.007198333740234375
+            },
+            {
+              "text": " I'm",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " glad",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " see",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " your",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " worship",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bart",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "off.",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "I'm",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "worship",
+          "start": 2.0,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "BARDOLPH.",
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          7,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bart",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "bart",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "off",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "im",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "glad",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 2.0,
+          "end": 2.34,
+          "key": "worship",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BARDOLPH.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "am",
+          "start": 0.7,
+          "end": 1.05
+        },
+        {
+          "text": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "see",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "your",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "worship.",
+          "start": 2.0,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23999608494341373
+    },
+    {
+      "asr_seconds": 0.1627647653222084,
+      "alignment_seconds": 0.0009424211457371712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bardolph, I'm glad to see your worship.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Bardolph,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.5494384765625
+            },
+            {
+              "text": " I'm",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " glad",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " worship.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bardolph,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "I'm",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "worship.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "BARDOLPH.",
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "your",
+        "worship."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bardolph,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "bardolph",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "glad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worship.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "worship",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BARDOLPH.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "am",
+          "start": 0.7,
+          "end": 1.05
+        },
+        {
+          "text": "glad",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "see",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "worship.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16382051445543766
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ddd2f63930721d9c3fc40c9b591bd3d91153bf5e82a7d31773936a53a788e007",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

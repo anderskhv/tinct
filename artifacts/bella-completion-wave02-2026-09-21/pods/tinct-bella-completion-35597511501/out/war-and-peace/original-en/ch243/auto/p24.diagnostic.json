@@ -1,0 +1,272 @@
+{
+  "complete": true,
+  "signature": "a99ff4e484a1371f92b98787d82b71fd32540c87055c85d86207195759091e2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1887222733348608,
+      "alignment_seconds": 0.0009264266118407249,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"All right!\" said the doctor.",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All right!\" said the doctor.",
+          "start": 0.0,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.093994140625
+            },
+            {
+              "text": " right",
+              "start": 0.4,
+              "end": 0.66,
+              "probability": 0.96484375
+            },
+            {
+              "text": "!\"",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.02392578125
+            },
+            {
+              "text": " said",
+              "start": 1.1,
+              "end": 1.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doctor.",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "right",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "raw": "!\"",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "doctor.",
+          "start": 1.32,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "“All",
+        "right!”",
+        "said",
+        "the",
+        "doctor."
+      ],
+      "acoustic_expected_tokens": [
+        "\"All",
+        "right!\"",
+        "said",
+        "the",
+        "doctor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 0.4,
+          "end": 0.66,
+          "key": "right",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.14,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "doctor",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“All",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "right!”",
+          "start": 0.4,
+          "end": 0.66
+        },
+        {
+          "text": "said",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "text": "the",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "doctor.",
+          "start": 1.32,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18978744186460972
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966808cf1b10210fbd2b424a8e604d75022aa73213b4ca3f297e0e75551e612d",
+  "selected_reasons": []
+}

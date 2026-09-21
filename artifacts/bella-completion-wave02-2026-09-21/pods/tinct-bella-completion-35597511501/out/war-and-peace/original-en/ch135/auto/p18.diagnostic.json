@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "a5c8cef2c3d6d76ecada6b692250169dc7107e45f141c9c42b602d5ea30227e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2645189827308059,
+      "alignment_seconds": 0.0016031572595238686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But you can't. Mamma said you mustn't,\" said Nicholas to Natásha.",
+        "hotwords": "But, Mamma, Nicholas, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But you can't. Mamma said you mustn't,\" said Nicholas to Natásha.",
+          "start": 0.0,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.231201171875
+            },
+            {
+              "text": " you",
+              "start": 0.32,
+              "end": 0.48,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " can't.",
+              "start": 0.48,
+              "end": 1.14,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " Mamma",
+              "start": 1.96,
+              "end": 2.34,
+              "probability": 0.7188720703125
+            },
+            {
+              "text": " said",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " mustn't,\"",
+              "start": 2.68,
+              "end": 3.42,
+              "probability": 0.7550048828125
+            },
+            {
+              "text": " said",
+              "start": 3.42,
+              "end": 3.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Nicholas",
+              "start": 3.5,
+              "end": 3.9,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " to",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Natásha.",
+              "start": 4.1,
+              "end": 4.56,
+              "probability": 0.006852428118387858
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "raw": "can't.",
+          "start": 0.48,
+          "end": 1.14
+        },
+        {
+          "raw": "Mamma",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "raw": "said",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "mustn't,\"",
+          "start": 2.68,
+          "end": 3.42
+        },
+        {
+          "raw": "said",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "raw": "Nicholas",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "raw": "to",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "Natásha.",
+          "start": 4.1,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "you",
+        "can’t.",
+        "Mamma",
+        "said",
+        "you",
+        "mustn’t,”",
+        "said",
+        "Nicholas",
+        "to",
+        "Natásha."
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "you",
+        "can't.",
+        "Mamma",
+        "said",
+        "you",
+        "mustn't,\"",
+        "said",
+        "Nicholas",
+        "to",
+        "Natásha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.48,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can't.",
+          "start": 0.48,
+          "end": 1.14,
+          "key": "cant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mamma",
+          "start": 1.96,
+          "end": 2.34,
+          "key": "mamma",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mustn't,\"",
+          "start": 2.68,
+          "end": 3.42,
+          "key": "mustnt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.42,
+          "end": 3.5,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 3.5,
+          "end": 3.9,
+          "key": "nicholas",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Natásha.",
+          "start": 4.1,
+          "end": 4.56,
+          "key": "natásha",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "you",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "text": "can’t.",
+          "start": 0.48,
+          "end": 1.14
+        },
+        {
+          "text": "Mamma",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "text": "said",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "mustn’t,”",
+          "start": 2.68,
+          "end": 3.42
+        },
+        {
+          "text": "said",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "text": "Nicholas",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "text": "to",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "Natásha.",
+          "start": 4.1,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26632467098534107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a10126f6e2b7079292f30f036b37df0a2c3bd7a799fae41f52a69d3a9910557",
+  "selected_reasons": []
+}

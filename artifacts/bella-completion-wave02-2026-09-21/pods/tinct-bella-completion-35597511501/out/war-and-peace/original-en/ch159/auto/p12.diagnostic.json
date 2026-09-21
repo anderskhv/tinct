@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "44dc3cf1c5e564d530e22b6706ce9666c1fa67d3a62c0df816b1fc8f82df62aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.24048064649105072,
+      "alignment_seconds": 0.0011619972065091133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But she doesn't like me,\" said Natásha.",
+        "hotwords": "But, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But she doesn't like me,\" said Natásha.",
+          "start": 0.0,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.169677734375
+            },
+            {
+              "text": " she",
+              "start": 0.32,
+              "end": 0.5,
+              "probability": 0.982421875
+            },
+            {
+              "text": " doesn't",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " like",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,\"",
+              "start": 0.96,
+              "end": 1.42,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " said",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Natásha.",
+              "start": 1.54,
+              "end": 2.12,
+              "probability": 0.011178215344746908
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "she",
+          "start": 0.32,
+          "end": 0.5
+        },
+        {
+          "raw": "doesn't",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "like",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "raw": "said",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "Natásha.",
+          "start": 1.54,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "she",
+        "doesn’t",
+        "like",
+        "me,”",
+        "said",
+        "Natásha."
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "she",
+        "doesn't",
+        "like",
+        "me,\"",
+        "said",
+        "Natásha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.32,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "doesnt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.96,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Natásha.",
+          "start": 1.54,
+          "end": 2.12,
+          "key": "natásha",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "she",
+          "start": 0.32,
+          "end": 0.5
+        },
+        {
+          "text": "doesn’t",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "like",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "me,”",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "text": "said",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "Natásha.",
+          "start": 1.54,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24179966654628515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d0ea84f29414fb10bc36b0b984a5fbadab4cfe8b9c768650041c7fa51e482ea",
+  "selected_reasons": []
+}

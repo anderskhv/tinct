@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "7cddde2423368c65bd9308f4ae193f359105715998c427b3da21fe7b31b4e3e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2583404602482915,
+      "alignment_seconds": 0.0013511506840586662,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, how lovely! Now go to sleep, and there's an end of it.\"",
+        "hotwords": "Oh, Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, how lovely! Now go to sleep, and there's an end of it.",
+          "start": 0.0,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " how",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " lovely!",
+              "start": 0.82,
+              "end": 1.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Now",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " go",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.962890625
+            },
+            {
+              "text": " to",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sleep,",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.54,
+              "end": 3.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " there's",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " an",
+              "start": 3.82,
+              "end": 3.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " end",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " it.",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "how",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "lovely!",
+          "start": 0.82,
+          "end": 1.34
+        },
+        {
+          "raw": "Now",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "go",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "sleep,",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 3.64
+        },
+        {
+          "raw": "there's",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "an",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "raw": "end",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "of",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "it.",
+          "start": 4.22,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "“Oh,",
+        "how",
+        "lovely!",
+        "Now",
+        "go",
+        "to",
+        "sleep,",
+        "and",
+        "there’s",
+        "an",
+        "end",
+        "of",
+        "it.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh,",
+        "how",
+        "lovely!",
+        "Now",
+        "go",
+        "to",
+        "sleep,",
+        "and",
+        "there's",
+        "an",
+        "end",
+        "of",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lovely!",
+          "start": 0.82,
+          "end": 1.34,
+          "key": "lovely",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sleep,",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "sleep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 3.64,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "theres",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.82,
+          "end": 3.9,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "end",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "how",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "lovely!",
+          "start": 0.82,
+          "end": 1.34
+        },
+        {
+          "text": "Now",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "go",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "to",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "sleep,",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "and",
+          "start": 3.54,
+          "end": 3.64
+        },
+        {
+          "text": "there’s",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "an",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "text": "end",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "of",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "it.”",
+          "start": 4.22,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25987332221120596
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb542b157c1450af5b8a874031a0c821af697bb2f84a0807f12b88559e2e32db",
+  "selected_reasons": []
+}

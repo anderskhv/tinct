@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "2ea5edca804087c60cfaf9463ccc0b0fbe2c50d9f45a1b1472db42caf285558b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23469754867255688,
+      "alignment_seconds": 0.0013172421604394913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I thank God! I thank God! Is it true, is it true?",
+        "hotwords": "I, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, I thank God! I thank God! Is it true, is it true?",
+          "start": 0.48,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.0,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thank",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " God!",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " I",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " thank",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " God!",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Is",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " it",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " true,",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 3.28,
+              "end": 3.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " true?",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.0
+        },
+        {
+          "raw": "thank",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "God!",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "I",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "thank",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "God!",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "Is",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "it",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "true,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "raw": "is",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "raw": "it",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "true?",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "SHYLOCK.",
+        "I",
+        "thank",
+        "God!",
+        "I",
+        "thank",
+        "God!",
+        "Is",
+        "it",
+        "true,",
+        "is",
+        "it",
+        "true?"
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "thank",
+        "God!",
+        "I",
+        "thank",
+        "God!",
+        "Is",
+        "it",
+        "true,",
+        "is",
+        "it",
+        "true?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.0,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God!",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "thank",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "God!",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "god",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "true",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.28,
+          "end": 3.36,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "true?",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "true",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHYLOCK.",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.0
+        },
+        {
+          "text": "thank",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "God!",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "I",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "text": "thank",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "God!",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "Is",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "it",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "true,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "text": "is",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "text": "it",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "true?",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23621224705129862
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d365b7cfc9ce581bf4d25889c6e3c23e8f87cbdf55ef52a19dc91df67d9a5289",
+  "selected_reasons": []
+}

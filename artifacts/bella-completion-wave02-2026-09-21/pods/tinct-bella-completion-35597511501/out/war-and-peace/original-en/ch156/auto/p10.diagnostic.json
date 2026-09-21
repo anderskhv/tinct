@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "e47ad9b7793bbbbab8ed15fd198c745eacca48beaf1b4c6b0eb891be7e4d5135",
+  "attempts": [
+    {
+      "asr_seconds": 0.2950183944776654,
+      "alignment_seconds": 0.0013297917321324348,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She's first-rate, my dear fellow, but not for us,\" replied Dólokhov.",
+        "hotwords": "She's, Dólokhov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She's first-rate, my dear fellow, but not for us,\" replied Dólokhov.",
+          "start": 0.0,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " She's",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.512542724609375
+            },
+            {
+              "text": " first",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.95458984375
+            },
+            {
+              "text": "-rate,",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.734130859375
+            },
+            {
+              "text": " my",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " dear",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fellow,",
+              "start": 1.76,
+              "end": 2.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " but",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us,\"",
+              "start": 2.9,
+              "end": 3.4,
+              "probability": 0.812255859375
+            },
+            {
+              "text": " replied",
+              "start": 3.4,
+              "end": 3.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Dólokhov.",
+              "start": 3.7,
+              "end": 4.36,
+              "probability": 0.2136444091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She's",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "first",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "-rate,",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "dear",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "raw": "but",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "not",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "for",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "us,\"",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "raw": "replied",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "raw": "Dólokhov.",
+          "start": 3.7,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "“She’s",
+        "first-rate,",
+        "my",
+        "dear",
+        "fellow,",
+        "but",
+        "not",
+        "for",
+        "us,”",
+        "replied",
+        "Dólokhov."
+      ],
+      "acoustic_expected_tokens": [
+        "\"She's",
+        "first-rate,",
+        "my",
+        "dear",
+        "fellow,",
+        "but",
+        "not",
+        "for",
+        "us,\"",
+        "replied",
+        "Dólokhov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She's",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "shes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first -rate,",
+          "start": 0.52,
+          "end": 1.02,
+          "key": "firstrate",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "dear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.76,
+          "end": 2.06,
+          "key": "fellow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us,\"",
+          "start": 2.9,
+          "end": 3.4,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 3.4,
+          "end": 3.7,
+          "key": "replied",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Dólokhov.",
+          "start": 3.7,
+          "end": 4.36,
+          "key": "dólokhov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "first-rate,",
+          "heard": "first -rate,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.52,
+          "end": 1.02
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“She’s",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "first-rate,",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "text": "my",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "dear",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "fellow,",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "text": "but",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "not",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "for",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "us,”",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "replied",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "text": "Dólokhov.",
+          "start": 3.7,
+          "end": 4.36
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2965175975114107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df5b595c9cbebd448949b2167f5dda6a29d2cb509a6df9240680bbe1a59a51ba",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "0eca616b0ff9159e585bfd24ae7914f0e2e6ca17c72ccc5f891b3131e32a150e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1483242204412818,
+      "alignment_seconds": 0.0004419451579451561,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Drubetskóy.\"",
+        "hotwords": "Drubetskóy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drubetskóy.",
+          "start": 0.0,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Drubetskóy.",
+              "start": 0.0,
+              "end": 1.28,
+              "probability": 0.3094128012657166
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drubetskóy.",
+          "start": 0.0,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "“Drubetskóy.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Drubetskóy.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drubetskóy.",
+          "start": 0.0,
+          "end": 1.28,
+          "key": "drubetskóy",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Drubetskóy.”",
+          "start": 0.0,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1488408027216792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a24396884fdd6f0b549a22c32747c06e50a753bff42bb8371254d2881690ad15",
+  "selected_reasons": []
+}

@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "68400527ff4b185f3e4ed09e09da74cc0b16acf9dd19c3196bbb764e47687add",
+  "attempts": [
+    {
+      "asr_seconds": 0.2588948393240571,
+      "alignment_seconds": 0.0012508649379014969,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Fine! Just like the Frenchie! Oh, ho ho! Do you want some more to eat?\"",
+        "hotwords": "Fine, Just, Frenchie, Oh, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fine, Just like the Frenchie! Oh, ho ho! Do you want some more to eat?",
+          "start": 0.0,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " Fine,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.677734375
+            },
+            {
+              "text": " Just",
+              "start": 1.34,
+              "end": 1.88,
+              "probability": 0.0137786865234375
+            },
+            {
+              "text": " like",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Frenchie!",
+              "start": 2.26,
+              "end": 2.76,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Oh,",
+              "start": 3.84,
+              "end": 3.9,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " ho",
+              "start": 4.18,
+              "end": 4.26,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " ho!",
+              "start": 4.26,
+              "end": 4.6,
+              "probability": 0.654296875
+            },
+            {
+              "text": " Do",
+              "start": 5.5,
+              "end": 5.76,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " you",
+              "start": 5.76,
+              "end": 5.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " want",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " some",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " more",
+              "start": 6.22,
+              "end": 6.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 6.4,
+              "end": 6.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " eat?",
+              "start": 6.6,
+              "end": 6.86,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fine,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "Just",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "raw": "like",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "Frenchie!",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.84,
+          "end": 3.9
+        },
+        {
+          "raw": "ho",
+          "start": 4.18,
+          "end": 4.26
+        },
+        {
+          "raw": "ho!",
+          "start": 4.26,
+          "end": 4.6
+        },
+        {
+          "raw": "Do",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "raw": "you",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "raw": "want",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "some",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "more",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "raw": "to",
+          "start": 6.4,
+          "end": 6.6
+        },
+        {
+          "raw": "eat?",
+          "start": 6.6,
+          "end": 6.86
+        }
+      ],
+      "expected_tokens": [
+        "“Fine!",
+        "Just",
+        "like",
+        "the",
+        "Frenchie!",
+        "Oh,",
+        "ho",
+        "ho!",
+        "Do",
+        "you",
+        "want",
+        "some",
+        "more",
+        "to",
+        "eat?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Fine!",
+        "Just",
+        "like",
+        "the",
+        "Frenchie!",
+        "Oh,",
+        "ho",
+        "ho!",
+        "Do",
+        "you",
+        "want",
+        "some",
+        "more",
+        "to",
+        "eat?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fine,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "fine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Just",
+          "start": 1.34,
+          "end": 1.88,
+          "key": "just",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Frenchie!",
+          "start": 2.26,
+          "end": 2.76,
+          "key": "frenchie",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.84,
+          "end": 3.9,
+          "key": "oh",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ho",
+          "start": 4.18,
+          "end": 4.26,
+          "key": "ho",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 4.26,
+          "end": 4.6,
+          "key": "ho",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 5.5,
+          "end": 5.76,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.76,
+          "end": 5.88,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 5.88,
+          "end": 6.0,
+          "key": "want",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 6.0,
+          "end": 6.22,
+          "key": "some",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 6.22,
+          "end": 6.4,
+          "key": "more",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.4,
+          "end": 6.6,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eat?",
+          "start": 6.6,
+          "end": 6.86,
+          "key": "eat",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Fine!",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "Just",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "text": "like",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "Frenchie!",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "text": "Oh,",
+          "start": 3.84,
+          "end": 3.9
+        },
+        {
+          "text": "ho",
+          "start": 4.18,
+          "end": 4.26
+        },
+        {
+          "text": "ho!",
+          "start": 4.26,
+          "end": 4.6
+        },
+        {
+          "text": "Do",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "text": "you",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "text": "want",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "some",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "more",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "text": "to",
+          "start": 6.4,
+          "end": 6.6
+        },
+        {
+          "text": "eat?”",
+          "start": 6.6,
+          "end": 6.86
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26033227052539587
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2aa479c92e99ce0eccdaff691de1bfa453ad06a88b4d35d7d179357034010f6e",
+  "selected_reasons": []
+}

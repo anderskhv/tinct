@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "952de4a4946167d15de39bd325bc737338ffce518609582bb65b7d7653a6eab4",
+  "attempts": [
+    {
+      "asr_seconds": 0.31854507327079773,
+      "alignment_seconds": 0.0015947232022881508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"This is my cup,\" said he. \"Only dip your finger in it and I'll drink it all up.\"",
+        "hotwords": "This, Only, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This is my cup,\" said he. Only dip your finger in it and I'll drink it all up.",
+          "start": 0.0,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.22314453125
+            },
+            {
+              "text": " is",
+              "start": 0.4,
+              "end": 0.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cup,\"",
+              "start": 0.76,
+              "end": 1.28,
+              "probability": 0.6397705078125
+            },
+            {
+              "text": " said",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he.",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Only",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.156982421875
+            },
+            {
+              "text": " dip",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " finger",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.6,
+              "end": 3.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 3.84,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I'll",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " drink",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 4.38,
+              "end": 4.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 4.56,
+              "end": 4.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up.",
+              "start": 4.76,
+              "end": 5.04,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.54
+        },
+        {
+          "raw": "my",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "cup,\"",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "he.",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "Only",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "dip",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "your",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "finger",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "in",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "raw": "it",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "I'll",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "drink",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "it",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "raw": "all",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "raw": "up.",
+          "start": 4.76,
+          "end": 5.04
+        }
+      ],
+      "expected_tokens": [
+        "“This",
+        "is",
+        "my",
+        "cup,”",
+        "said",
+        "he.",
+        "“Only",
+        "dip",
+        "your",
+        "finger",
+        "in",
+        "it",
+        "and",
+        "I’ll",
+        "drink",
+        "it",
+        "all",
+        "up.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"This",
+        "is",
+        "my",
+        "cup,\"",
+        "said",
+        "he.",
+        "\"Only",
+        "dip",
+        "your",
+        "finger",
+        "in",
+        "it",
+        "and",
+        "I'll",
+        "drink",
+        "it",
+        "all",
+        "up.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.54,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cup,\"",
+          "start": 0.76,
+          "end": 1.28,
+          "key": "cup",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Only",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dip",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "dip",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 3.36,
+          "end": 3.6,
+          "key": "finger",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.6,
+          "end": 3.84,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.84,
+          "end": 3.96,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "drink",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.38,
+          "end": 4.56,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.56,
+          "end": 4.76,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 4.76,
+          "end": 5.04,
+          "key": "up",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“This",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "is",
+          "start": 0.4,
+          "end": 0.54
+        },
+        {
+          "text": "my",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "cup,”",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "he.",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "“Only",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "dip",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "your",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "finger",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "text": "in",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "text": "it",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "I’ll",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "drink",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "it",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "text": "all",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "text": "up.”",
+          "start": 4.76,
+          "end": 5.04
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3203440448269248
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a8fbd21988599d9b4b11d0893e20ea820afb4be3e73159d2ae5bf8653d43a99",
+  "selected_reasons": []
+}

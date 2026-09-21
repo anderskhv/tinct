@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "abacd6d947bc927234b239d0cc4d9c40c3c28ad71018175f2de589756e2b4429",
+  "attempts": [
+    {
+      "asr_seconds": 0.14675026945769787,
+      "alignment_seconds": 0.0008193133398890495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, I know him....\"",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I know him....",
+          "start": 0.0,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " I",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " know",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him....",
+              "start": 1.12,
+              "end": 2.26,
+              "probability": 0.4981515407562256
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "I",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "him....",
+          "start": 1.12,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "I",
+        "know",
+        "him....”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "I",
+        "know",
+        "him....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him....",
+          "start": 1.12,
+          "end": 2.26,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "I",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "know",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "him....”",
+          "start": 1.12,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1476794695481658
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9eaeeba99cb3372fbf94b3abc2967f2bc8dc6b62172d91db64bf61dcf59c9a91",
+  "selected_reasons": []
+}

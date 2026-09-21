@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "17570dd3073c29cf51d6f494518c599d5e7b8fddd931d9739844c374a0aa7241",
+  "attempts": [
+    {
+      "asr_seconds": 0.12067591864615679,
+      "alignment_seconds": 0.000515371561050415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Tubal.",
+        "hotwords": "Enter, Tubal"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Tubal.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Tubal.",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.57867431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Tubal.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Tubal."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Tubal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tubal.",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "tubal",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Tubal.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1212764848023653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11e9ed7eaa00cedeac2b329dd704fa376dca32d535b1eb1ce7db4e35c3c0948a",
+  "selected_reasons": []
+}

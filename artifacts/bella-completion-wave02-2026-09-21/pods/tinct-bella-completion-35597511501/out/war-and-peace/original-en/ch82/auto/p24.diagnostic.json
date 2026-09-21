@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "3a922092252f68c35a0a04d75f6661d6b966f6e5cc0061120ae6c5fd6892af59",
+  "attempts": [
+    {
+      "asr_seconds": 0.15068824496120214,
+      "alignment_seconds": 0.0010067997500300407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then when am I to have it?\"",
+        "hotwords": "Then, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then when am I to have it?",
+          "start": 0.0,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " when",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.931640625
+            },
+            {
+              "text": " am",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it?",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "when",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "am",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "“Then",
+        "when",
+        "am",
+        "I",
+        "to",
+        "have",
+        "it?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Then",
+        "when",
+        "am",
+        "I",
+        "to",
+        "have",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.86,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Then",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "when",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "am",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "it?”",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15186266042292118
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71c53f66eacae4a9a2a418cc06cd0cc703669657cefdf42b1e42171533da78bd",
+  "selected_reasons": []
+}

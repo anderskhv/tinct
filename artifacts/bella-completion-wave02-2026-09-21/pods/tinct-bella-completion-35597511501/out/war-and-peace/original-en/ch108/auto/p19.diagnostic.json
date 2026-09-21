@@ -1,0 +1,584 @@
+{
+  "complete": true,
+  "signature": "49a3134f042d68e38544ba2098d7a93b4628036ef3be30e10b8de5395184a431",
+  "attempts": [
+    {
+      "asr_seconds": 0.38837924785912037,
+      "alignment_seconds": 0.0023566512390971184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He heard the sound of a scuffle and Sónya's disapproving voice: \"It's past one o'clock.\"",
+        "hotwords": "He, Sónya's, It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He heard the sound of a scuffle and Sónya's disapproving voice, It's past one o'clock.",
+          "start": 0.0,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " heard",
+              "start": 0.34,
+              "end": 0.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sound",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " scuffle",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Sónya's",
+              "start": 1.76,
+              "end": 2.18,
+              "probability": 0.4522725582122803
+            },
+            {
+              "text": " disapproving",
+              "start": 2.18,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " voice,",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " It's",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.512420654296875
+            },
+            {
+              "text": " past",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " one",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " o",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "'clock.",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.983154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "heard",
+          "start": 0.34,
+          "end": 0.56
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "sound",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "scuffle",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "Sónya's",
+          "start": 1.76,
+          "end": 2.18
+        },
+        {
+          "raw": "disapproving",
+          "start": 2.18,
+          "end": 2.74
+        },
+        {
+          "raw": "voice,",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "raw": "It's",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "past",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "one",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "o",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "'clock.",
+          "start": 4.2,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "heard",
+        "the",
+        "sound",
+        "of",
+        "a",
+        "scuffle",
+        "and",
+        "Sónya’s",
+        "disapproving",
+        "voice:",
+        "“It’s",
+        "past",
+        "one",
+        "o’clock.”"
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "heard",
+        "the",
+        "sound",
+        "of",
+        "a",
+        "scuffle",
+        "and",
+        "Sónya's",
+        "disapproving",
+        "voice:",
+        "\"It's",
+        "past",
+        "one",
+        "o'clock.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.34,
+          "end": 0.56,
+          "key": "heard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "sound",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.08,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "scuffle",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "scuffle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sónya's",
+          "start": 1.76,
+          "end": 2.18,
+          "key": "sónyas",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "disapproving",
+          "start": 2.18,
+          "end": 2.74,
+          "key": "disapproving",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "voice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "its",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "past",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "o 'clock.",
+          "start": 4.08,
+          "end": 4.46,
+          "key": "oclock",
+          "pieces": [
+            14,
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "o'clock.\"",
+          "heard": "o 'clock.",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.08,
+          "end": 4.46
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "heard",
+          "start": 0.34,
+          "end": 0.56
+        },
+        {
+          "text": "the",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "sound",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "of",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "a",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "scuffle",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "Sónya’s",
+          "start": 1.76,
+          "end": 2.18
+        },
+        {
+          "text": "disapproving",
+          "start": 2.18,
+          "end": 2.74
+        },
+        {
+          "text": "voice:",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "text": "“It’s",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "past",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "one",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "o’clock.”",
+          "start": 4.08,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39098526537418365
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66b0f629b15cf88624fa01e923dbaded25ccab3475d7312a4b99649ecc311ba5",
+  "selected_reasons": []
+}

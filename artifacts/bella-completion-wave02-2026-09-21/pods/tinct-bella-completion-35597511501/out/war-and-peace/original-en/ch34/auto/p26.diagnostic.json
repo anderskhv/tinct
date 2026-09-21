@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "9b2addae82c4ee75ea5947634096ce4812d5cdba5dbb7178c3cd4a91059986f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.16198251117020845,
+      "alignment_seconds": 0.0007447479292750359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"One!\" came the command.",
+        "hotwords": "One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " One came the command.",
+          "start": 0.0,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.546875
+            },
+            {
+              "text": " came",
+              "start": 0.48,
+              "end": 1.0,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " command.",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "came",
+          "start": 0.48,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "command.",
+          "start": 1.2,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "“One!”",
+        "came",
+        "the",
+        "command."
+      ],
+      "acoustic_expected_tokens": [
+        "\"One!\"",
+        "came",
+        "the",
+        "command."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.48,
+          "end": 1.0,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "command.",
+          "start": 1.2,
+          "end": 1.6,
+          "key": "command",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“One!”",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "came",
+          "start": 0.48,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "command.",
+          "start": 1.2,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16282832995057106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a9322f459774e18018d0def28c6498c4be1d7785dc9779559875d1a0354ed1fe",
+  "selected_reasons": []
+}

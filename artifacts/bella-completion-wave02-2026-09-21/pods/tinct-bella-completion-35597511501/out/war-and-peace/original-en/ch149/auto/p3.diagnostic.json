@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "4e0fc73a0ee1c8aaceef3833e5e4a479c5cb253cf9607e55598ba732482d0b3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3590147029608488,
+      "alignment_seconds": 0.0014424081891775131,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh yes,\" she answered. \"You noticed nothing?\" her look asked.",
+        "hotwords": "Oh, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh yes,\" she answered.",
+          "start": 0.0,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.1343994140625
+            },
+            {
+              "text": " yes,\"",
+              "start": 0.38,
+              "end": 1.04,
+              "probability": 0.390625
+            },
+            {
+              "text": " she",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " answered.",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " You noticed nothing?\" her look asked.",
+          "start": 1.58,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " You",
+              "start": 1.58,
+              "end": 2.82,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " noticed",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.0738525390625
+            },
+            {
+              "text": " nothing?\"",
+              "start": 3.12,
+              "end": 3.94,
+              "probability": 0.4990959167480469
+            },
+            {
+              "text": " her",
+              "start": 3.94,
+              "end": 3.98,
+              "probability": 0.458984375
+            },
+            {
+              "text": " look",
+              "start": 3.98,
+              "end": 4.18,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " asked.",
+              "start": 4.18,
+              "end": 4.6,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "yes,\"",
+          "start": 0.38,
+          "end": 1.04
+        },
+        {
+          "raw": "she",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "answered.",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "You",
+          "start": 1.58,
+          "end": 2.82
+        },
+        {
+          "raw": "noticed",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "nothing?\"",
+          "start": 3.12,
+          "end": 3.94
+        },
+        {
+          "raw": "her",
+          "start": 3.94,
+          "end": 3.98
+        },
+        {
+          "raw": "look",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "raw": "asked.",
+          "start": 4.18,
+          "end": 4.6
+        }
+      ],
+      "expected_tokens": [
+        "“Oh",
+        "yes,”",
+        "she",
+        "answered.",
+        "“You",
+        "noticed",
+        "nothing?”",
+        "her",
+        "look",
+        "asked."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh",
+        "yes,\"",
+        "she",
+        "answered.",
+        "\"You",
+        "noticed",
+        "nothing?\"",
+        "her",
+        "look",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,\"",
+          "start": 0.38,
+          "end": 1.04,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "answered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.58,
+          "end": 2.82,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "noticed",
+          "start": 2.82,
+          "end": 3.12,
+          "key": "noticed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nothing?\"",
+          "start": 3.12,
+          "end": 3.94,
+          "key": "nothing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.94,
+          "end": 3.98,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.98,
+          "end": 4.18,
+          "key": "look",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 4.18,
+          "end": 4.6,
+          "key": "asked",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "yes,”",
+          "start": 0.38,
+          "end": 1.04
+        },
+        {
+          "text": "she",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "answered.",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "“You",
+          "start": 1.58,
+          "end": 2.82
+        },
+        {
+          "text": "noticed",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "text": "nothing?”",
+          "start": 3.12,
+          "end": 3.94
+        },
+        {
+          "text": "her",
+          "start": 3.94,
+          "end": 3.98
+        },
+        {
+          "text": "look",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "text": "asked.",
+          "start": 4.18,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36064830515533686
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44d47d48db39df1c3e5cddbf7b49ee280955b98299d92c3828c89d1076eba194",
+  "selected_reasons": []
+}

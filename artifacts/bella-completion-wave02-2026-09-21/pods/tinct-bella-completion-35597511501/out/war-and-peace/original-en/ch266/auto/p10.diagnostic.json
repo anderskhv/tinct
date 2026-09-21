@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "787b26df81004cfa80f3f8765cfdc7750ec3a35129b07a62f2ca1b4a1fcde603",
+  "attempts": [
+    {
+      "asr_seconds": 0.20632201433181763,
+      "alignment_seconds": 0.0008847778663039207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Emperor listened in silence, not looking at Michaud.",
+        "hotwords": "The, Emperor, Michaud"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Emperor listened in silence, not looking at Michaud.",
+          "start": 0.0,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Emperor",
+              "start": 0.34,
+              "end": 0.66,
+              "probability": 0.282958984375
+            },
+            {
+              "text": " listened",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silence,",
+              "start": 1.16,
+              "end": 1.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " looking",
+              "start": 2.08,
+              "end": 2.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Michaud.",
+              "start": 2.5,
+              "end": 2.88,
+              "probability": 0.683349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "Emperor",
+          "start": 0.34,
+          "end": 0.66
+        },
+        {
+          "raw": "listened",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "in",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "raw": "silence,",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "raw": "not",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "looking",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "raw": "at",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "Michaud.",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Emperor",
+        "listened",
+        "in",
+        "silence,",
+        "not",
+        "looking",
+        "at",
+        "Michaud."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "Emperor",
+        "listened",
+        "in",
+        "silence,",
+        "not",
+        "looking",
+        "at",
+        "Michaud."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 0.34,
+          "end": 0.66,
+          "key": "emperor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "listened",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.9,
+          "end": 1.16,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "silence,",
+          "start": 1.16,
+          "end": 1.58,
+          "key": "silence",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 2.08,
+          "end": 2.36,
+          "key": "looking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Michaud.",
+          "start": 2.5,
+          "end": 2.88,
+          "key": "michaud",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "Emperor",
+          "start": 0.34,
+          "end": 0.66
+        },
+        {
+          "text": "listened",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "text": "in",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "text": "silence,",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "text": "not",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "looking",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "text": "at",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "Michaud.",
+          "start": 2.5,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20735291112214327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c81bc99f7d1624bf9b1fce7b0cf168fd18878124d5e12ab335770b13fb1a675d",
+  "selected_reasons": []
+}

@@ -1,0 +1,501 @@
+{
+  "complete": true,
+  "signature": "92bda5453f9af0036122d2e74677421c84b9eea82948012c0982660bad1290c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2167073218151927,
+      "alignment_seconds": 0.0016729030758142471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A will make the man mad, to make a woman of him."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hortensio. A will make the man mad, to make a woman of him.",
+          "start": 0.79,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Hortensio.",
+              "start": 0.79,
+              "end": 1.17,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " A",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.0071868896484375
+            },
+            {
+              "text": " will",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " make",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " man",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " mad,",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.984375
+            },
+            {
+              "text": " make",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " woman",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 3.39,
+              "end": 3.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him.",
+              "start": 3.59,
+              "end": 3.79,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio.",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "raw": "A",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "will",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "make",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "man",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "mad,",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "make",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "a",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "woman",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "of",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "raw": "him.",
+          "start": 3.59,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "A",
+        "will",
+        "make",
+        "the",
+        "man",
+        "mad,",
+        "to",
+        "make",
+        "a",
+        "woman",
+        "of",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "A",
+        "will",
+        "make",
+        "the",
+        "man",
+        "mad,",
+        "to",
+        "make",
+        "a",
+        "woman",
+        "of",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio.",
+          "start": 0.79,
+          "end": 1.17,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "make",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mad,",
+          "start": 2.35,
+          "end": 2.69,
+          "key": "mad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "make",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "woman",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.39,
+          "end": 3.59,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.59,
+          "end": 3.79,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "A",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "will",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "text": "make",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "man",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "mad,",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "to",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "make",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "a",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "woman",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "of",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "text": "him.",
+          "start": 3.59,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21861932054162025
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b15bfc646fbd9655221c0cccecaa34f6f335ce9c7b3a64b71367b6625fd10aa7",
+  "selected_reasons": []
+}

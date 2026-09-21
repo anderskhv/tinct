@@ -1,0 +1,2427 @@
+{
+  "complete": true,
+  "signature": "8ef324f3d34bc67b22e4f8cfd9c2c396cdda45936e0d0797722541a33d8d17ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.7093541016802192,
+      "alignment_seconds": 0.003934057429432869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The score against him reached the fateful sum of forty-three thousand. Rostóv had just prepared a card, by bending the corner of which he meant to double the three thousand just put down to his score, when Dólokhov, slamming down the pack of cards, put it aside and began rapidly adding up the total of Rostóv's debt, breaking the chalk as he marked the figures in his clear, bold hand.",
+        "hotwords": "Rostóv, Dólokhov, Rostóv's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The score against him reached the fateful sum of forty-three thousand.",
+          "start": 0.0,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " score",
+              "start": 0.3,
+              "end": 0.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " against",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " reached",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fateful",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sum",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.444580078125
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forty",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.00879669189453125
+            },
+            {
+              "text": "-three",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.785400390625
+            },
+            {
+              "text": " thousand.",
+              "start": 2.86,
+              "end": 3.38,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Rostóv had just prepared a card, by bending the corner of which he meant to double the",
+          "start": 4.66,
+          "end": 8.58,
+          "words": [
+            {
+              "text": " Rostóv",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.3599858283996582
+            },
+            {
+              "text": " had",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " just",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " prepared",
+              "start": 5.38,
+              "end": 5.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " card,",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bending",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 7.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corner",
+              "start": 7.08,
+              "end": 7.34,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 7.34,
+              "end": 7.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " which",
+              "start": 7.52,
+              "end": 7.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 7.68,
+              "end": 7.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " meant",
+              "start": 7.86,
+              "end": 8.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.02,
+              "end": 8.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " double",
+              "start": 8.18,
+              "end": 8.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.4,
+              "end": 8.58,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " three thousand just put down to his score, when Dólokhov, slamming down the pack of cards,",
+          "start": 8.58,
+          "end": 13.28,
+          "words": [
+            {
+              "text": " three",
+              "start": 8.58,
+              "end": 8.8,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " thousand",
+              "start": 8.8,
+              "end": 9.12,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " just",
+              "start": 9.12,
+              "end": 9.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " put",
+              "start": 9.46,
+              "end": 9.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " down",
+              "start": 9.68,
+              "end": 9.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.92,
+              "end": 10.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 10.08,
+              "end": 10.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " score,",
+              "start": 10.24,
+              "end": 10.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Dólokhov,",
+              "start": 11.08,
+              "end": 11.58,
+              "probability": 0.24288330078125
+            },
+            {
+              "text": " slamming",
+              "start": 11.9,
+              "end": 12.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " down",
+              "start": 12.14,
+              "end": 12.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.46,
+              "end": 12.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pack",
+              "start": 12.62,
+              "end": 12.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 12.78,
+              "end": 12.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cards,",
+              "start": 12.92,
+              "end": 13.28,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " put it aside and began rapidly adding up the total of Rostóv's debt,",
+          "start": 13.7,
+          "end": 17.12,
+          "words": [
+            {
+              "text": " put",
+              "start": 13.7,
+              "end": 13.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 13.78,
+              "end": 13.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " aside",
+              "start": 13.9,
+              "end": 14.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 14.26,
+              "end": 14.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " began",
+              "start": 14.54,
+              "end": 14.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rapidly",
+              "start": 14.8,
+              "end": 15.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " adding",
+              "start": 15.28,
+              "end": 15.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " up",
+              "start": 15.54,
+              "end": 15.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 15.74,
+              "end": 15.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " total",
+              "start": 15.88,
+              "end": 16.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 16.16,
+              "end": 16.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Rostóv's",
+              "start": 16.36,
+              "end": 16.92,
+              "probability": 0.9361572265625
+            },
+            {
+              "text": " debt,",
+              "start": 16.92,
+              "end": 17.12,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " breaking the chalk as he marked the figures in his clear, bold hand.",
+          "start": 17.46,
+          "end": 20.48,
+          "words": [
+            {
+              "text": " breaking",
+              "start": 17.46,
+              "end": 17.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 17.64,
+              "end": 17.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " chalk",
+              "start": 17.88,
+              "end": 18.1,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " as",
+              "start": 18.1,
+              "end": 18.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 18.26,
+              "end": 18.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " marked",
+              "start": 18.42,
+              "end": 18.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 18.62,
+              "end": 18.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " figures",
+              "start": 18.82,
+              "end": 19.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 19.04,
+              "end": 19.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 19.24,
+              "end": 19.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clear,",
+              "start": 19.4,
+              "end": 19.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bold",
+              "start": 20.06,
+              "end": 20.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " hand.",
+              "start": 20.14,
+              "end": 20.48,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "score",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "raw": "against",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "raw": "him",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "reached",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "fateful",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "sum",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "forty",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "-three",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "thousand.",
+          "start": 2.86,
+          "end": 3.38
+        },
+        {
+          "raw": "Rostóv",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "raw": "had",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "just",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "prepared",
+          "start": 5.38,
+          "end": 5.72
+        },
+        {
+          "raw": "a",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "card,",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "by",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "bending",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "raw": "corner",
+          "start": 7.08,
+          "end": 7.34
+        },
+        {
+          "raw": "of",
+          "start": 7.34,
+          "end": 7.52
+        },
+        {
+          "raw": "which",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "raw": "he",
+          "start": 7.68,
+          "end": 7.86
+        },
+        {
+          "raw": "meant",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "raw": "to",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "raw": "double",
+          "start": 8.18,
+          "end": 8.4
+        },
+        {
+          "raw": "the",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "raw": "three",
+          "start": 8.58,
+          "end": 8.8
+        },
+        {
+          "raw": "thousand",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "raw": "just",
+          "start": 9.12,
+          "end": 9.46
+        },
+        {
+          "raw": "put",
+          "start": 9.46,
+          "end": 9.68
+        },
+        {
+          "raw": "down",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "raw": "to",
+          "start": 9.92,
+          "end": 10.08
+        },
+        {
+          "raw": "his",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "raw": "score,",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "raw": "when",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 11.08,
+          "end": 11.58
+        },
+        {
+          "raw": "slamming",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "raw": "down",
+          "start": 12.14,
+          "end": 12.46
+        },
+        {
+          "raw": "the",
+          "start": 12.46,
+          "end": 12.62
+        },
+        {
+          "raw": "pack",
+          "start": 12.62,
+          "end": 12.78
+        },
+        {
+          "raw": "of",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "raw": "cards,",
+          "start": 12.92,
+          "end": 13.28
+        },
+        {
+          "raw": "put",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "raw": "it",
+          "start": 13.78,
+          "end": 13.9
+        },
+        {
+          "raw": "aside",
+          "start": 13.9,
+          "end": 14.26
+        },
+        {
+          "raw": "and",
+          "start": 14.26,
+          "end": 14.54
+        },
+        {
+          "raw": "began",
+          "start": 14.54,
+          "end": 14.8
+        },
+        {
+          "raw": "rapidly",
+          "start": 14.8,
+          "end": 15.28
+        },
+        {
+          "raw": "adding",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "raw": "up",
+          "start": 15.54,
+          "end": 15.74
+        },
+        {
+          "raw": "the",
+          "start": 15.74,
+          "end": 15.88
+        },
+        {
+          "raw": "total",
+          "start": 15.88,
+          "end": 16.16
+        },
+        {
+          "raw": "of",
+          "start": 16.16,
+          "end": 16.36
+        },
+        {
+          "raw": "Rostóv's",
+          "start": 16.36,
+          "end": 16.92
+        },
+        {
+          "raw": "debt,",
+          "start": 16.92,
+          "end": 17.12
+        },
+        {
+          "raw": "breaking",
+          "start": 17.46,
+          "end": 17.64
+        },
+        {
+          "raw": "the",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "raw": "chalk",
+          "start": 17.88,
+          "end": 18.1
+        },
+        {
+          "raw": "as",
+          "start": 18.1,
+          "end": 18.26
+        },
+        {
+          "raw": "he",
+          "start": 18.26,
+          "end": 18.42
+        },
+        {
+          "raw": "marked",
+          "start": 18.42,
+          "end": 18.62
+        },
+        {
+          "raw": "the",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "raw": "figures",
+          "start": 18.82,
+          "end": 19.04
+        },
+        {
+          "raw": "in",
+          "start": 19.04,
+          "end": 19.24
+        },
+        {
+          "raw": "his",
+          "start": 19.24,
+          "end": 19.4
+        },
+        {
+          "raw": "clear,",
+          "start": 19.4,
+          "end": 19.8
+        },
+        {
+          "raw": "bold",
+          "start": 20.06,
+          "end": 20.14
+        },
+        {
+          "raw": "hand.",
+          "start": 20.14,
+          "end": 20.48
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "score",
+        "against",
+        "him",
+        "reached",
+        "the",
+        "fateful",
+        "sum",
+        "of",
+        "forty-three",
+        "thousand.",
+        "Rostóv",
+        "had",
+        "just",
+        "prepared",
+        "a",
+        "card,",
+        "by",
+        "bending",
+        "the",
+        "corner",
+        "of",
+        "which",
+        "he",
+        "meant",
+        "to",
+        "double",
+        "the",
+        "three",
+        "thousand",
+        "just",
+        "put",
+        "down",
+        "to",
+        "his",
+        "score,",
+        "when",
+        "Dólokhov,",
+        "slamming",
+        "down",
+        "the",
+        "pack",
+        "of",
+        "cards,",
+        "put",
+        "it",
+        "aside",
+        "and",
+        "began",
+        "rapidly",
+        "adding",
+        "up",
+        "the",
+        "total",
+        "of",
+        "Rostóv’s",
+        "debt,",
+        "breaking",
+        "the",
+        "chalk",
+        "as",
+        "he",
+        "marked",
+        "the",
+        "figures",
+        "in",
+        "his",
+        "clear,",
+        "bold",
+        "hand."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "score",
+        "against",
+        "him",
+        "reached",
+        "the",
+        "fateful",
+        "sum",
+        "of",
+        "forty-three",
+        "thousand.",
+        "Rostóv",
+        "had",
+        "just",
+        "prepared",
+        "a",
+        "card,",
+        "by",
+        "bending",
+        "the",
+        "corner",
+        "of",
+        "which",
+        "he",
+        "meant",
+        "to",
+        "double",
+        "the",
+        "three",
+        "thousand",
+        "just",
+        "put",
+        "down",
+        "to",
+        "his",
+        "score,",
+        "when",
+        "Dólokhov,",
+        "slamming",
+        "down",
+        "the",
+        "pack",
+        "of",
+        "cards,",
+        "put",
+        "it",
+        "aside",
+        "and",
+        "began",
+        "rapidly",
+        "adding",
+        "up",
+        "the",
+        "total",
+        "of",
+        "Rostóv's",
+        "debt,",
+        "breaking",
+        "the",
+        "chalk",
+        "as",
+        "he",
+        "marked",
+        "the",
+        "figures",
+        "in",
+        "his",
+        "clear,",
+        "bold",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          70,
+          0,
+          70
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "score",
+          "start": 0.3,
+          "end": 0.58,
+          "key": "score",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 0.58,
+          "end": 0.86,
+          "key": "against",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reached",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "reached",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fateful",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "fateful",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sum",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "sum",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forty -three",
+          "start": 2.32,
+          "end": 2.86,
+          "key": "fortythree",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "thousand.",
+          "start": 2.86,
+          "end": 3.38,
+          "key": "thousand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Rostóv",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "rostóv",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "had",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "just",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "prepared",
+          "start": 5.38,
+          "end": 5.72,
+          "key": "prepared",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "card,",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "card",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.44,
+          "end": 6.56,
+          "key": "by",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bending",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "bending",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.08,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "corner",
+          "start": 7.08,
+          "end": 7.34,
+          "key": "corner",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.34,
+          "end": 7.52,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.52,
+          "end": 7.68,
+          "key": "which",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.68,
+          "end": 7.86,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "meant",
+          "start": 7.86,
+          "end": 8.02,
+          "key": "meant",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.02,
+          "end": 8.18,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "double",
+          "start": 8.18,
+          "end": 8.4,
+          "key": "double",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.4,
+          "end": 8.58,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 8.58,
+          "end": 8.8,
+          "key": "three",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 8.8,
+          "end": 9.12,
+          "key": "thousand",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 9.12,
+          "end": 9.46,
+          "key": "just",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 9.46,
+          "end": 9.68,
+          "key": "put",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 9.68,
+          "end": 9.92,
+          "key": "down",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.92,
+          "end": 10.08,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.08,
+          "end": 10.24,
+          "key": "his",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "score,",
+          "start": 10.24,
+          "end": 10.64,
+          "key": "score",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 10.88,
+          "end": 11.08,
+          "key": "when",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 11.08,
+          "end": 11.58,
+          "key": "dólokhov",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "slamming",
+          "start": 11.9,
+          "end": 12.14,
+          "key": "slamming",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 12.14,
+          "end": 12.46,
+          "key": "down",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.46,
+          "end": 12.62,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "pack",
+          "start": 12.62,
+          "end": 12.78,
+          "key": "pack",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.78,
+          "end": 12.92,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "cards,",
+          "start": 12.92,
+          "end": 13.28,
+          "key": "cards",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 13.7,
+          "end": 13.78,
+          "key": "put",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 13.78,
+          "end": 13.9,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 13.9,
+          "end": 14.26,
+          "key": "aside",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.26,
+          "end": 14.54,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 14.54,
+          "end": 14.8,
+          "key": "began",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "rapidly",
+          "start": 14.8,
+          "end": 15.28,
+          "key": "rapidly",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "adding",
+          "start": 15.28,
+          "end": 15.54,
+          "key": "adding",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 15.54,
+          "end": 15.74,
+          "key": "up",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.74,
+          "end": 15.88,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "total",
+          "start": 15.88,
+          "end": 16.16,
+          "key": "total",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.16,
+          "end": 16.36,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Rostóv's",
+          "start": 16.36,
+          "end": 16.92,
+          "key": "rostóvs",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "debt,",
+          "start": 16.92,
+          "end": 17.12,
+          "key": "debt",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "breaking",
+          "start": 17.46,
+          "end": 17.64,
+          "key": "breaking",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.64,
+          "end": 17.88,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "chalk",
+          "start": 17.88,
+          "end": 18.1,
+          "key": "chalk",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 18.1,
+          "end": 18.26,
+          "key": "as",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 18.26,
+          "end": 18.42,
+          "key": "he",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "marked",
+          "start": 18.42,
+          "end": 18.62,
+          "key": "marked",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.62,
+          "end": 18.82,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "figures",
+          "start": 18.82,
+          "end": 19.04,
+          "key": "figures",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.04,
+          "end": 19.24,
+          "key": "in",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 19.24,
+          "end": 19.4,
+          "key": "his",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "clear,",
+          "start": 19.4,
+          "end": 19.8,
+          "key": "clear",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 20.06,
+          "end": 20.14,
+          "key": "bold",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 20.14,
+          "end": 20.48,
+          "key": "hand",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "forty-three",
+          "heard": "forty -three",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 2.32,
+          "end": 2.86
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "score",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "text": "against",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "text": "him",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "reached",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "fateful",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "sum",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "forty-three",
+          "start": 2.32,
+          "end": 2.86
+        },
+        {
+          "text": "thousand.",
+          "start": 2.86,
+          "end": 3.38
+        },
+        {
+          "text": "Rostóv",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "text": "had",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "just",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "prepared",
+          "start": 5.38,
+          "end": 5.72
+        },
+        {
+          "text": "a",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "card,",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "by",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "bending",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "text": "corner",
+          "start": 7.08,
+          "end": 7.34
+        },
+        {
+          "text": "of",
+          "start": 7.34,
+          "end": 7.52
+        },
+        {
+          "text": "which",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "text": "he",
+          "start": 7.68,
+          "end": 7.86
+        },
+        {
+          "text": "meant",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "text": "to",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "text": "double",
+          "start": 8.18,
+          "end": 8.4
+        },
+        {
+          "text": "the",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "text": "three",
+          "start": 8.58,
+          "end": 8.8
+        },
+        {
+          "text": "thousand",
+          "start": 8.8,
+          "end": 9.12
+        },
+        {
+          "text": "just",
+          "start": 9.12,
+          "end": 9.46
+        },
+        {
+          "text": "put",
+          "start": 9.46,
+          "end": 9.68
+        },
+        {
+          "text": "down",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "text": "to",
+          "start": 9.92,
+          "end": 10.08
+        },
+        {
+          "text": "his",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "text": "score,",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "text": "when",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "Dólokhov,",
+          "start": 11.08,
+          "end": 11.58
+        },
+        {
+          "text": "slamming",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "text": "down",
+          "start": 12.14,
+          "end": 12.46
+        },
+        {
+          "text": "the",
+          "start": 12.46,
+          "end": 12.62
+        },
+        {
+          "text": "pack",
+          "start": 12.62,
+          "end": 12.78
+        },
+        {
+          "text": "of",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "text": "cards,",
+          "start": 12.92,
+          "end": 13.28
+        },
+        {
+          "text": "put",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "text": "it",
+          "start": 13.78,
+          "end": 13.9
+        },
+        {
+          "text": "aside",
+          "start": 13.9,
+          "end": 14.26
+        },
+        {
+          "text": "and",
+          "start": 14.26,
+          "end": 14.54
+        },
+        {
+          "text": "began",
+          "start": 14.54,
+          "end": 14.8
+        },
+        {
+          "text": "rapidly",
+          "start": 14.8,
+          "end": 15.28
+        },
+        {
+          "text": "adding",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "text": "up",
+          "start": 15.54,
+          "end": 15.74
+        },
+        {
+          "text": "the",
+          "start": 15.74,
+          "end": 15.88
+        },
+        {
+          "text": "total",
+          "start": 15.88,
+          "end": 16.16
+        },
+        {
+          "text": "of",
+          "start": 16.16,
+          "end": 16.36
+        },
+        {
+          "text": "Rostóv’s",
+          "start": 16.36,
+          "end": 16.92
+        },
+        {
+          "text": "debt,",
+          "start": 16.92,
+          "end": 17.12
+        },
+        {
+          "text": "breaking",
+          "start": 17.46,
+          "end": 17.64
+        },
+        {
+          "text": "the",
+          "start": 17.64,
+          "end": 17.88
+        },
+        {
+          "text": "chalk",
+          "start": 17.88,
+          "end": 18.1
+        },
+        {
+          "text": "as",
+          "start": 18.1,
+          "end": 18.26
+        },
+        {
+          "text": "he",
+          "start": 18.26,
+          "end": 18.42
+        },
+        {
+          "text": "marked",
+          "start": 18.42,
+          "end": 18.62
+        },
+        {
+          "text": "the",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "text": "figures",
+          "start": 18.82,
+          "end": 19.04
+        },
+        {
+          "text": "in",
+          "start": 19.04,
+          "end": 19.24
+        },
+        {
+          "text": "his",
+          "start": 19.24,
+          "end": 19.4
+        },
+        {
+          "text": "clear,",
+          "start": 19.4,
+          "end": 19.8
+        },
+        {
+          "text": "bold",
+          "start": 20.06,
+          "end": 20.14
+        },
+        {
+          "text": "hand.",
+          "start": 20.14,
+          "end": 20.48
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 70,
+        "matched_words": 70
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7136057736352086
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "898995c3d1eef22810bcbae61b6440133103c4d917755d69ff07a6fd6ac3f11e",
+  "selected_reasons": []
+}

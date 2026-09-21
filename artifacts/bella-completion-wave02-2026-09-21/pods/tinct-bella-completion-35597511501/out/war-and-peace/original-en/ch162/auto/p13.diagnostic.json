@@ -1,0 +1,9081 @@
+{
+  "complete": true,
+  "signature": "fb50200f2964d2aedf959c0e55582d2e0758802e028f8a9d61e5fb076c82f984",
+  "attempts": [
+    {
+      "asr_seconds": 0.8045734027400613,
+      "alignment_seconds": 0.008773243986070156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And where's the fur cloak?\" asked Dólokhov. \"Hey, Ignátka! Go to Matrëna Matrévna and ask her for the sable cloak. I have heard what elopements are like,\" continued Dólokhov with a wink. \"Why, she'll rush out more dead than alive just in the things she is wearing; if you delay at all there'll be tears and 'Papa' and 'Mamma,' and she's frozen in a minute and must go back—but you wrap the fur cloak round her first thing and carry her to the sleigh.\"",
+        "hotwords": "Dólokhov, Hey, Ignátka, Matrëna, Matrévna, I, Why, Papa, Mamma"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And where's the fur cloak?\" asked Dólokhov.",
+          "start": 0.0,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.356689453125
+            },
+            {
+              "text": " where's",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fur",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.93359375
+            },
+            {
+              "text": " cloak?\"",
+              "start": 0.96,
+              "end": 1.62,
+              "probability": 0.47769927978515625
+            },
+            {
+              "text": " asked",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.10430908203125
+            },
+            {
+              "text": " Dólokhov.",
+              "start": 1.74,
+              "end": 2.34,
+              "probability": 0.21438522338867189
+            }
+          ]
+        },
+        {
+          "text": " Hey, Ignátka!",
+          "start": 3.64,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Hey,",
+              "start": 3.64,
+              "end": 4.12,
+              "probability": 0.001964569091796875
+            },
+            {
+              "text": " Ignátka!",
+              "start": 4.12,
+              "end": 4.6,
+              "probability": 0.4814300537109375
+            }
+          ]
+        },
+        {
+          "text": " Go to Matrëna Matrevna and ask her for the sable cloak.",
+          "start": 5.36,
+          "end": 8.32,
+          "words": [
+            {
+              "text": " Go",
+              "start": 5.36,
+              "end": 5.72,
+              "probability": 0.916015625
+            },
+            {
+              "text": " to",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Matrëna",
+              "start": 5.9,
+              "end": 6.28,
+              "probability": 0.5339543521404266
+            },
+            {
+              "text": " Matrevna",
+              "start": 6.28,
+              "end": 6.7,
+              "probability": 0.663330078125
+            },
+            {
+              "text": " and",
+              "start": 6.7,
+              "end": 6.92,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " ask",
+              "start": 6.92,
+              "end": 7.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 7.18,
+              "end": 7.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 7.4,
+              "end": 7.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.56,
+              "end": 7.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sable",
+              "start": 7.7,
+              "end": 8.0,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " cloak.",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " I have heard what elopements are like,\" continued Dólokhov with a wink.",
+          "start": 9.16,
+          "end": 12.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 9.16,
+              "end": 9.52,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " have",
+              "start": 9.52,
+              "end": 9.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heard",
+              "start": 9.66,
+              "end": 9.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " elopements",
+              "start": 10.1,
+              "end": 10.52,
+              "probability": 0.9539388020833334
+            },
+            {
+              "text": " are",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like,\"",
+              "start": 10.7,
+              "end": 11.64,
+              "probability": 0.5011806488037109
+            },
+            {
+              "text": " continued",
+              "start": 11.64,
+              "end": 11.64,
+              "probability": 0.4072265625
+            },
+            {
+              "text": " Dólokhov",
+              "start": 11.64,
+              "end": 12.26,
+              "probability": 0.97666015625
+            },
+            {
+              "text": " with",
+              "start": 12.26,
+              "end": 12.44,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " a",
+              "start": 12.44,
+              "end": 12.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wink.",
+              "start": 12.56,
+              "end": 12.74,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Why, she'll rush out more dead than alive just in the things she is wearing,",
+          "start": 13.82,
+          "end": 17.5,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 13.82,
+              "end": 14.16,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " she'll",
+              "start": 14.36,
+              "end": 14.66,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " rush",
+              "start": 14.66,
+              "end": 14.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " out",
+              "start": 14.92,
+              "end": 15.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 15.16,
+              "end": 15.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " dead",
+              "start": 15.4,
+              "end": 15.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 15.58,
+              "end": 15.74,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " alive",
+              "start": 15.74,
+              "end": 16.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 16.0,
+              "end": 16.26,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " in",
+              "start": 16.26,
+              "end": 16.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 16.46,
+              "end": 16.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " she",
+              "start": 16.76,
+              "end": 17.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 17.02,
+              "end": 17.16,
+              "probability": 0.978515625
+            },
+            {
+              "text": " wearing,",
+              "start": 17.16,
+              "end": 17.5,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " if you delay at all there'll be tears and a Papa and a Mamma, and she's frozen in a minute",
+          "start": 17.8,
+          "end": 22.0,
+          "words": [
+            {
+              "text": " if",
+              "start": 17.8,
+              "end": 17.96,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " you",
+              "start": 17.96,
+              "end": 18.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delay",
+              "start": 18.1,
+              "end": 18.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 18.36,
+              "end": 18.56,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " all",
+              "start": 18.56,
+              "end": 18.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there'll",
+              "start": 18.74,
+              "end": 19.02,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " be",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tears",
+              "start": 19.18,
+              "end": 19.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 19.48,
+              "end": 19.72,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " a",
+              "start": 19.72,
+              "end": 19.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Papa",
+              "start": 19.84,
+              "end": 20.0,
+              "probability": 0.056396484375
+            },
+            {
+              "text": " and",
+              "start": 20.0,
+              "end": 20.3,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " a",
+              "start": 20.3,
+              "end": 20.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Mamma,",
+              "start": 20.42,
+              "end": 20.68,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " and",
+              "start": 20.84,
+              "end": 21.0,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " she's",
+              "start": 21.0,
+              "end": 21.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " frozen",
+              "start": 21.28,
+              "end": 21.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 21.5,
+              "end": 21.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 21.74,
+              "end": 21.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " minute",
+              "start": 21.84,
+              "end": 22.0,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " and must go back—but you wrap the fur cloak round her first thing and carry her to the sleigh.\"",
+          "start": 22.0,
+          "end": 26.66,
+          "words": [
+            {
+              "text": " and",
+              "start": 22.0,
+              "end": 22.22,
+              "probability": 0.986328125
+            },
+            {
+              "text": " must",
+              "start": 22.22,
+              "end": 22.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " go",
+              "start": 22.4,
+              "end": 22.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back—but",
+              "start": 22.64,
+              "end": 23.28,
+              "probability": 0.6604156494140625
+            },
+            {
+              "text": " you",
+              "start": 23.28,
+              "end": 23.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wrap",
+              "start": 23.44,
+              "end": 23.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 23.62,
+              "end": 23.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fur",
+              "start": 23.82,
+              "end": 24.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cloak",
+              "start": 24.06,
+              "end": 24.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " round",
+              "start": 24.32,
+              "end": 24.58,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " her",
+              "start": 24.58,
+              "end": 24.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " first",
+              "start": 24.84,
+              "end": 25.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thing",
+              "start": 25.14,
+              "end": 25.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 25.42,
+              "end": 25.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " carry",
+              "start": 25.64,
+              "end": 25.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her",
+              "start": 25.86,
+              "end": 26.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 26.14,
+              "end": 26.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 26.26,
+              "end": 26.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sleigh.\"",
+              "start": 26.42,
+              "end": 26.66,
+              "probability": 0.91796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "cloak?\"",
+          "start": 0.96,
+          "end": 1.62
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "Dólokhov.",
+          "start": 1.74,
+          "end": 2.34
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.64,
+          "end": 4.12
+        },
+        {
+          "raw": "Ignátka!",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "raw": "Go",
+          "start": 5.36,
+          "end": 5.72
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "Matrëna",
+          "start": 5.9,
+          "end": 6.28
+        },
+        {
+          "raw": "Matrevna",
+          "start": 6.28,
+          "end": 6.7
+        },
+        {
+          "raw": "and",
+          "start": 6.7,
+          "end": 6.92
+        },
+        {
+          "raw": "ask",
+          "start": 6.92,
+          "end": 7.18
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "raw": "for",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "I",
+          "start": 9.16,
+          "end": 9.52
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "like,\"",
+          "start": 10.7,
+          "end": 11.64
+        },
+        {
+          "raw": "continued",
+          "start": 11.64,
+          "end": 11.64
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 11.64,
+          "end": 12.26
+        },
+        {
+          "raw": "with",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.74
+        },
+        {
+          "raw": "Why,",
+          "start": 13.82,
+          "end": 14.16
+        },
+        {
+          "raw": "she'll",
+          "start": 14.36,
+          "end": 14.66
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "raw": "if",
+          "start": 17.8,
+          "end": 17.96
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84
+        },
+        {
+          "raw": "Papa",
+          "start": 19.84,
+          "end": 20.0
+        },
+        {
+          "raw": "and",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "raw": "a",
+          "start": 20.3,
+          "end": 20.42
+        },
+        {
+          "raw": "Mamma,",
+          "start": 20.42,
+          "end": 20.68
+        },
+        {
+          "raw": "and",
+          "start": 20.84,
+          "end": 21.0
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.5
+        },
+        {
+          "raw": "in",
+          "start": 21.5,
+          "end": 21.74
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "raw": "back—but",
+          "start": 22.64,
+          "end": 23.28
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.32
+        },
+        {
+          "raw": "round",
+          "start": 24.32,
+          "end": 24.58
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.42
+        },
+        {
+          "raw": "sleigh.\"",
+          "start": 26.42,
+          "end": 26.66
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "where’s",
+        "the",
+        "fur",
+        "cloak?”",
+        "asked",
+        "Dólokhov.",
+        "“Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,”",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "“Why,",
+        "she’ll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there’ll",
+        "be",
+        "tears",
+        "and",
+        "‘Papa’",
+        "and",
+        "‘Mamma,’",
+        "and",
+        "she’s",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "where's",
+        "the",
+        "fur",
+        "cloak?\"",
+        "asked",
+        "Dólokhov.",
+        "\"Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,\"",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "\"Why,",
+        "she'll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there'll",
+        "be",
+        "tears",
+        "and",
+        "'Papa'",
+        "and",
+        "'Mamma,'",
+        "and",
+        "she's",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          56,
+          13,
+          56
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          58,
+          57,
+          59
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ],
+        [
+          "equal",
+          58,
+          84,
+          60,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "fur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cloak?\"",
+          "start": 0.96,
+          "end": 1.62,
+          "key": "cloak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dólokhov.",
+          "start": 1.74,
+          "end": 2.34,
+          "key": "dólokhov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.64,
+          "end": 4.12,
+          "key": "hey",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ignátka!",
+          "start": 4.12,
+          "end": 4.6,
+          "key": "ignátka",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 5.36,
+          "end": 5.72,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Matrëna",
+          "start": 5.9,
+          "end": 6.28,
+          "key": "matrëna",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Matrevna",
+          "start": 6.28,
+          "end": 6.7,
+          "key": "matrevna",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.7,
+          "end": 6.92,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.92,
+          "end": 7.18,
+          "key": "ask",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.4,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.4,
+          "end": 7.56,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0,
+          "key": "sable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "cloak",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.16,
+          "end": 9.52,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66,
+          "key": "have",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88,
+          "key": "heard",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "what",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52,
+          "key": "elopements",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "are",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "like,\"",
+          "start": 10.7,
+          "end": 11.64,
+          "key": "like",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 11.64,
+          "end": 11.64,
+          "key": "continued",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 11.64,
+          "end": 12.26,
+          "key": "dólokhov",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.26,
+          "end": 12.44,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.74,
+          "key": "wink",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 13.82,
+          "end": 14.16,
+          "key": "why",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 14.36,
+          "end": 14.66,
+          "key": "shell",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92,
+          "key": "rush",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16,
+          "key": "out",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4,
+          "key": "more",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74,
+          "key": "than",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0,
+          "key": "alive",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26,
+          "key": "just",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "things",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5,
+          "key": "wearing",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.8,
+          "end": 17.96,
+          "key": "if",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1,
+          "key": "you",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36,
+          "key": "delay",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56,
+          "key": "at",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74,
+          "key": "all",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02,
+          "key": "therell",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18,
+          "key": "be",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48,
+          "key": "tears",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Papa",
+          "start": 19.84,
+          "end": 20.0,
+          "key": "papa",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.0,
+          "end": 20.3,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.3,
+          "end": 20.42,
+          "key": "a",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Mamma,",
+          "start": 20.42,
+          "end": 20.68,
+          "key": "mamma",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.84,
+          "end": 21.0,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28,
+          "key": "shes",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.5,
+          "key": "frozen",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.5,
+          "end": 21.74,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84,
+          "key": "a",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0,
+          "key": "minute",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4,
+          "key": "must",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64,
+          "key": "go",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "back—but",
+          "start": 22.64,
+          "end": 23.28,
+          "key": "backbut",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44,
+          "key": "you",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62,
+          "key": "wrap",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06,
+          "key": "fur",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.32,
+          "key": "cloak",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 24.32,
+          "end": 24.58,
+          "key": "round",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84,
+          "key": "her",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14,
+          "key": "first",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42,
+          "key": "thing",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64,
+          "key": "and",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86,
+          "key": "carry",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14,
+          "key": "her",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26,
+          "key": "to",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.42,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "sleigh.\"",
+          "start": 26.42,
+          "end": 26.66,
+          "key": "sleigh",
+          "pieces": [
+            85
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "where’s",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "cloak?”",
+          "start": 0.96,
+          "end": 1.62
+        },
+        {
+          "text": "asked",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "Dólokhov.",
+          "start": 1.74,
+          "end": 2.34
+        },
+        {
+          "text": "“Hey,",
+          "start": 3.64,
+          "end": 4.12
+        },
+        {
+          "text": "Ignátka!",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "text": "Go",
+          "start": 5.36,
+          "end": 5.72
+        },
+        {
+          "text": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "Matrëna",
+          "start": 5.9,
+          "end": 6.28
+        },
+        {
+          "text": "Matrévna",
+          "start": 6.28,
+          "end": 6.49
+        },
+        {
+          "text": "and",
+          "start": 6.7,
+          "end": 6.92
+        },
+        {
+          "text": "ask",
+          "start": 6.92,
+          "end": 7.18
+        },
+        {
+          "text": "her",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "text": "for",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "text": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "text": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "text": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "I",
+          "start": 9.16,
+          "end": 9.52
+        },
+        {
+          "text": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "text": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "text": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "text": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "like,”",
+          "start": 10.7,
+          "end": 11.64
+        },
+        {
+          "text": "continued",
+          "start": 11.64,
+          "end": 11.64
+        },
+        {
+          "text": "Dólokhov",
+          "start": 11.64,
+          "end": 12.26
+        },
+        {
+          "text": "with",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "text": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "text": "wink.",
+          "start": 12.56,
+          "end": 12.74
+        },
+        {
+          "text": "“Why,",
+          "start": 13.82,
+          "end": 14.16
+        },
+        {
+          "text": "she’ll",
+          "start": 14.36,
+          "end": 14.66
+        },
+        {
+          "text": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "text": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "text": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "text": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "text": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "text": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "text": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "text": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "text": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "text": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "text": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "text": "wearing;",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "text": "if",
+          "start": 17.8,
+          "end": 17.96
+        },
+        {
+          "text": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "text": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "text": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "text": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "text": "there’ll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "text": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "text": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "text": "‘Papa’",
+          "start": 19.84,
+          "end": 20.0
+        },
+        {
+          "text": "and",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "text": "‘Mamma,’",
+          "start": 20.42,
+          "end": 20.68
+        },
+        {
+          "text": "and",
+          "start": 20.84,
+          "end": 21.0
+        },
+        {
+          "text": "she’s",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "text": "frozen",
+          "start": 21.28,
+          "end": 21.5
+        },
+        {
+          "text": "in",
+          "start": 21.5,
+          "end": 21.74
+        },
+        {
+          "text": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "text": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "text": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "text": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "text": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "text": "back—but",
+          "start": 22.64,
+          "end": 23.28
+        },
+        {
+          "text": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "text": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "text": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "text": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "text": "cloak",
+          "start": 24.06,
+          "end": 24.32
+        },
+        {
+          "text": "round",
+          "start": 24.32,
+          "end": 24.58
+        },
+        {
+          "text": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "text": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "text": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "text": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "text": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "text": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "text": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "text": "the",
+          "start": 26.26,
+          "end": 26.42
+        },
+        {
+          "text": "sleigh.”",
+          "start": 26.42,
+          "end": 26.66
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 86,
+        "matched_words": 83
+      },
+      "match_ratio": 0.9880952380952381,
+      "rejection_reasons": [],
+      "seconds": 0.8139758063480258
+    },
+    {
+      "asr_seconds": 0.9216342307627201,
+      "alignment_seconds": 0.017943253740668297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dólokhov, Hey, Ignátka, Matrëna, Matrévna, I, Why, Papa, Mamma"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " And where's the fur cloak, Barst Dólokhov, Hey, Ignátka,",
+          "start": 0.0,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.35791015625
+            },
+            {
+              "text": " where's",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fur",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.93359375
+            },
+            {
+              "text": " cloak,",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Barst",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.516387939453125
+            },
+            {
+              "text": " Dólokhov,",
+              "start": 1.82,
+              "end": 2.34,
+              "probability": 0.19554100036621094
+            },
+            {
+              "text": " Hey,",
+              "start": 2.92,
+              "end": 3.72,
+              "probability": 0.287109375
+            },
+            {
+              "text": " Ignátka,",
+              "start": 4.08,
+              "end": 4.6,
+              "probability": 0.48320770263671875
+            }
+          ]
+        },
+        {
+          "text": " Go to Matrëna, Matrevna, and ask her for the sable cloak.",
+          "start": 5.24,
+          "end": 8.32,
+          "words": [
+            {
+              "text": " Go",
+              "start": 5.24,
+              "end": 5.72,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " to",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 5.9,
+              "end": 6.28,
+              "probability": 0.5272969901561737
+            },
+            {
+              "text": " Matrevna,",
+              "start": 6.3,
+              "end": 6.72,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " and",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " ask",
+              "start": 6.94,
+              "end": 7.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " her",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 7.56,
+              "end": 7.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sable",
+              "start": 7.7,
+              "end": 8.0,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " cloak.",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " I have heard what elopements are like, continued Dólokhov with a wink.",
+          "start": 9.32,
+          "end": 12.76,
+          "words": [
+            {
+              "text": " I",
+              "start": 9.32,
+              "end": 9.52,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " have",
+              "start": 9.52,
+              "end": 9.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " heard",
+              "start": 9.66,
+              "end": 9.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " elopements",
+              "start": 10.1,
+              "end": 10.52,
+              "probability": 0.9539388020833334
+            },
+            {
+              "text": " are",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " like,",
+              "start": 10.7,
+              "end": 10.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " continued",
+              "start": 11.36,
+              "end": 11.64,
+              "probability": 0.303955078125
+            },
+            {
+              "text": " Dólokhov",
+              "start": 11.64,
+              "end": 12.24,
+              "probability": 0.9544921875
+            },
+            {
+              "text": " with",
+              "start": 12.24,
+              "end": 12.44,
+              "probability": 0.919921875
+            },
+            {
+              "text": " a",
+              "start": 12.44,
+              "end": 12.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wink.",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " Why, she'll rush out more dead than alive just in the things she is wearing, if you",
+          "start": 13.92,
+          "end": 18.1,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 13.92,
+              "end": 14.16,
+              "probability": 0.98828125
+            },
+            {
+              "text": " she'll",
+              "start": 14.4,
+              "end": 14.66,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " rush",
+              "start": 14.66,
+              "end": 14.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " out",
+              "start": 14.92,
+              "end": 15.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 15.16,
+              "end": 15.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dead",
+              "start": 15.4,
+              "end": 15.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 15.58,
+              "end": 15.74,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " alive",
+              "start": 15.74,
+              "end": 16.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 16.0,
+              "end": 16.26,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " in",
+              "start": 16.26,
+              "end": 16.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 16.46,
+              "end": 16.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " things",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " she",
+              "start": 16.76,
+              "end": 17.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 17.02,
+              "end": 17.16,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " wearing,",
+              "start": 17.16,
+              "end": 17.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 17.8,
+              "end": 17.96,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " you",
+              "start": 17.96,
+              "end": 18.1,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " delay at all there'll be tears and a papa and a mamma, and she's frozen in a minute",
+          "start": 18.1,
+          "end": 22.0,
+          "words": [
+            {
+              "text": " delay",
+              "start": 18.1,
+              "end": 18.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 18.36,
+              "end": 18.56,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " all",
+              "start": 18.56,
+              "end": 18.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there'll",
+              "start": 18.74,
+              "end": 19.02,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " be",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tears",
+              "start": 19.18,
+              "end": 19.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 19.48,
+              "end": 19.72,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " a",
+              "start": 19.72,
+              "end": 19.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " papa",
+              "start": 19.84,
+              "end": 20.1,
+              "probability": 0.631103515625
+            },
+            {
+              "text": " and",
+              "start": 20.1,
+              "end": 20.28,
+              "probability": 0.9765625
+            },
+            {
+              "text": " a",
+              "start": 20.28,
+              "end": 20.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " mamma,",
+              "start": 20.44,
+              "end": 20.7,
+              "probability": 0.8616536458333334
+            },
+            {
+              "text": " and",
+              "start": 20.88,
+              "end": 21.0,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " she's",
+              "start": 21.0,
+              "end": 21.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " frozen",
+              "start": 21.28,
+              "end": 21.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 21.52,
+              "end": 21.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 21.74,
+              "end": 21.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " minute",
+              "start": 21.84,
+              "end": 22.0,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and must go back, but you wrap the fur cloak round her first thing and carry her to the",
+          "start": 22.0,
+          "end": 26.5,
+          "words": [
+            {
+              "text": " and",
+              "start": 22.0,
+              "end": 22.22,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " must",
+              "start": 22.22,
+              "end": 22.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " go",
+              "start": 22.4,
+              "end": 22.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back,",
+              "start": 22.64,
+              "end": 22.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 23.2,
+              "end": 23.28,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " you",
+              "start": 23.28,
+              "end": 23.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wrap",
+              "start": 23.44,
+              "end": 23.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 23.62,
+              "end": 23.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fur",
+              "start": 23.82,
+              "end": 24.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cloak",
+              "start": 24.06,
+              "end": 24.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " round",
+              "start": 24.34,
+              "end": 24.58,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " her",
+              "start": 24.58,
+              "end": 24.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " first",
+              "start": 24.84,
+              "end": 25.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thing",
+              "start": 25.14,
+              "end": 25.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 25.42,
+              "end": 25.64,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " carry",
+              "start": 25.64,
+              "end": 25.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 25.86,
+              "end": 26.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 26.14,
+              "end": 26.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 26.26,
+              "end": 26.5,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " lay.",
+          "start": 26.5,
+          "end": 26.72,
+          "words": [
+            {
+              "text": " lay.",
+              "start": 26.5,
+              "end": 26.72,
+              "probability": 0.25146484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "cloak,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "Barst",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 1.82,
+          "end": 2.34
+        },
+        {
+          "raw": "Hey,",
+          "start": 2.92,
+          "end": 3.72
+        },
+        {
+          "raw": "Ignátka,",
+          "start": 4.08,
+          "end": 4.6
+        },
+        {
+          "raw": "Go",
+          "start": 5.24,
+          "end": 5.72
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 5.9,
+          "end": 6.28
+        },
+        {
+          "raw": "Matrevna,",
+          "start": 6.3,
+          "end": 6.72
+        },
+        {
+          "raw": "and",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "ask",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "for",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "I",
+          "start": 9.32,
+          "end": 9.52
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "like,",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "raw": "continued",
+          "start": 11.36,
+          "end": 11.64
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 11.64,
+          "end": 12.24
+        },
+        {
+          "raw": "with",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "Why,",
+          "start": 13.92,
+          "end": 14.16
+        },
+        {
+          "raw": "she'll",
+          "start": 14.4,
+          "end": 14.66
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "raw": "if",
+          "start": 17.8,
+          "end": 17.96
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84
+        },
+        {
+          "raw": "papa",
+          "start": 19.84,
+          "end": 20.1
+        },
+        {
+          "raw": "and",
+          "start": 20.1,
+          "end": 20.28
+        },
+        {
+          "raw": "a",
+          "start": 20.28,
+          "end": 20.44
+        },
+        {
+          "raw": "mamma,",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "raw": "and",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.52
+        },
+        {
+          "raw": "in",
+          "start": 21.52,
+          "end": 21.74
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "raw": "back,",
+          "start": 22.64,
+          "end": 22.9
+        },
+        {
+          "raw": "but",
+          "start": 23.2,
+          "end": 23.28
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.34
+        },
+        {
+          "raw": "round",
+          "start": 24.34,
+          "end": 24.58
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.5
+        },
+        {
+          "raw": "lay.",
+          "start": 26.5,
+          "end": 26.72
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "where’s",
+        "the",
+        "fur",
+        "cloak?”",
+        "asked",
+        "Dólokhov.",
+        "“Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,”",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "“Why,",
+        "she’ll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there’ll",
+        "be",
+        "tears",
+        "and",
+        "‘Papa’",
+        "and",
+        "‘Mamma,’",
+        "and",
+        "she’s",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "where's",
+        "the",
+        "fur",
+        "cloak?\"",
+        "asked",
+        "Dólokhov.",
+        "\"Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,\"",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "\"Why,",
+        "she'll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there'll",
+        "be",
+        "tears",
+        "and",
+        "'Papa'",
+        "and",
+        "'Mamma,'",
+        "and",
+        "she's",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          56,
+          13,
+          56
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          58,
+          57,
+          59
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ],
+        [
+          "equal",
+          58,
+          83,
+          60,
+          85
+        ],
+        [
+          "replace",
+          83,
+          84,
+          85,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ],
+        [
+          "replace",
+          83,
+          84,
+          85,
+          86
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "fur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cloak,",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "cloak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Barst",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "barst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dólokhov,",
+          "start": 1.82,
+          "end": 2.34,
+          "key": "dólokhov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 2.92,
+          "end": 3.72,
+          "key": "hey",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ignátka,",
+          "start": 4.08,
+          "end": 4.6,
+          "key": "ignátka",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 5.24,
+          "end": 5.72,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 5.9,
+          "end": 6.28,
+          "key": "matrëna",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Matrevna,",
+          "start": 6.3,
+          "end": 6.72,
+          "key": "matrevna",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.8,
+          "end": 6.94,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.94,
+          "end": 7.18,
+          "key": "ask",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.42,
+          "end": 7.56,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0,
+          "key": "sable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "cloak",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.32,
+          "end": 9.52,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66,
+          "key": "have",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88,
+          "key": "heard",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "what",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52,
+          "key": "elopements",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "are",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "like,",
+          "start": 10.7,
+          "end": 10.92,
+          "key": "like",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 11.36,
+          "end": 11.64,
+          "key": "continued",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 11.64,
+          "end": 12.24,
+          "key": "dólokhov",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.24,
+          "end": 12.44,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "wink",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 13.92,
+          "end": 14.16,
+          "key": "why",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 14.4,
+          "end": 14.66,
+          "key": "shell",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92,
+          "key": "rush",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16,
+          "key": "out",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4,
+          "key": "more",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74,
+          "key": "than",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0,
+          "key": "alive",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26,
+          "key": "just",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "things",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5,
+          "key": "wearing",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.8,
+          "end": 17.96,
+          "key": "if",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1,
+          "key": "you",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36,
+          "key": "delay",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56,
+          "key": "at",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74,
+          "key": "all",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02,
+          "key": "therell",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18,
+          "key": "be",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48,
+          "key": "tears",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "papa",
+          "start": 19.84,
+          "end": 20.1,
+          "key": "papa",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.1,
+          "end": 20.28,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.28,
+          "end": 20.44,
+          "key": "a",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "mamma,",
+          "start": 20.44,
+          "end": 20.7,
+          "key": "mamma",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.88,
+          "end": 21.0,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28,
+          "key": "shes",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.52,
+          "key": "frozen",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.52,
+          "end": 21.74,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84,
+          "key": "a",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0,
+          "key": "minute",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4,
+          "key": "must",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64,
+          "key": "go",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "back, but",
+          "start": 22.64,
+          "end": 23.28,
+          "key": "backbut",
+          "pieces": [
+            70,
+            71
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44,
+          "key": "you",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62,
+          "key": "wrap",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06,
+          "key": "fur",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.34,
+          "key": "cloak",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 24.34,
+          "end": 24.58,
+          "key": "round",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84,
+          "key": "her",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14,
+          "key": "first",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42,
+          "key": "thing",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64,
+          "key": "and",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86,
+          "key": "carry",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14,
+          "key": "her",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26,
+          "key": "to",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.5,
+          "key": "the",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "lay.",
+          "start": 26.5,
+          "end": 26.72,
+          "key": "lay",
+          "pieces": [
+            86
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 68,
+          "text": "back—but",
+          "heard": "back, but",
+          "heard_indexes": [
+            70,
+            71
+          ],
+          "start": 22.64,
+          "end": 23.28
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "where’s",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "cloak?”",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "asked",
+          "start": 1.28,
+          "end": 1.55
+        },
+        {
+          "text": "Dólokhov.",
+          "start": 1.82,
+          "end": 2.34
+        },
+        {
+          "text": "“Hey,",
+          "start": 2.92,
+          "end": 3.72
+        },
+        {
+          "text": "Ignátka!",
+          "start": 4.08,
+          "end": 4.6
+        },
+        {
+          "text": "Go",
+          "start": 5.24,
+          "end": 5.72
+        },
+        {
+          "text": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "Matrëna",
+          "start": 5.9,
+          "end": 6.28
+        },
+        {
+          "text": "Matrévna",
+          "start": 6.28,
+          "end": 6.54
+        },
+        {
+          "text": "and",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "ask",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "text": "her",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "for",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "text": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "text": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "I",
+          "start": 9.32,
+          "end": 9.52
+        },
+        {
+          "text": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "text": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "text": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "text": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "like,”",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "text": "continued",
+          "start": 11.36,
+          "end": 11.64
+        },
+        {
+          "text": "Dólokhov",
+          "start": 11.64,
+          "end": 12.24
+        },
+        {
+          "text": "with",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "text": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "text": "wink.",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "“Why,",
+          "start": 13.92,
+          "end": 14.16
+        },
+        {
+          "text": "she’ll",
+          "start": 14.4,
+          "end": 14.66
+        },
+        {
+          "text": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "text": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "text": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "text": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "text": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "text": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "text": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "text": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "text": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "text": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "text": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "text": "wearing;",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "text": "if",
+          "start": 17.8,
+          "end": 17.96
+        },
+        {
+          "text": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "text": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "text": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "text": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "text": "there’ll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "text": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "text": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "text": "‘Papa’",
+          "start": 19.84,
+          "end": 20.1
+        },
+        {
+          "text": "and",
+          "start": 20.1,
+          "end": 20.28
+        },
+        {
+          "text": "‘Mamma,’",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "text": "and",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "text": "she’s",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "text": "frozen",
+          "start": 21.28,
+          "end": 21.52
+        },
+        {
+          "text": "in",
+          "start": 21.52,
+          "end": 21.74
+        },
+        {
+          "text": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "text": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "text": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "text": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "text": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "text": "back—but",
+          "start": 22.64,
+          "end": 23.28
+        },
+        {
+          "text": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "text": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "text": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "text": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "text": "cloak",
+          "start": 24.06,
+          "end": 24.34
+        },
+        {
+          "text": "round",
+          "start": 24.34,
+          "end": 24.58
+        },
+        {
+          "text": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "text": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "text": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "text": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "text": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "text": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "text": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "text": "the",
+          "start": 26.26,
+          "end": 26.5
+        },
+        {
+          "text": "sleigh.”",
+          "start": 26.5,
+          "end": 26.61
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 86,
+        "matched_words": 81
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.9408312337473035
+    },
+    {
+      "asr_seconds": 0.8297969521954656,
+      "alignment_seconds": 0.007008562795817852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And where's the fur cloak, basked Dolokov?",
+          "start": 0.0,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.356689453125
+            },
+            {
+              "text": " where's",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fur",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.93359375
+            },
+            {
+              "text": " cloak,",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " basked",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.455078125
+            },
+            {
+              "text": " Dolokov?",
+              "start": 1.9,
+              "end": 2.34,
+              "probability": 0.5581868489583334
+            }
+          ]
+        },
+        {
+          "text": " Hey, Ignatka!",
+          "start": 3.66,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " Hey,",
+              "start": 3.66,
+              "end": 4.14,
+              "probability": 0.392333984375
+            },
+            {
+              "text": " Ignatka!",
+              "start": 4.14,
+              "end": 4.62,
+              "probability": 0.741943359375
+            }
+          ]
+        },
+        {
+          "text": " Go to Matrina Matrevna and ask her for the sable cloak.",
+          "start": 5.4,
+          "end": 8.32,
+          "words": [
+            {
+              "text": " Go",
+              "start": 5.4,
+              "end": 5.72,
+              "probability": 0.94140625
+            },
+            {
+              "text": " to",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Matrina",
+              "start": 5.9,
+              "end": 6.24,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Matrevna",
+              "start": 6.24,
+              "end": 6.72,
+              "probability": 0.5855305989583334
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 6.92,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " ask",
+              "start": 6.92,
+              "end": 7.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.56,
+              "end": 7.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sable",
+              "start": 7.7,
+              "end": 8.0,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " cloak.",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " I have heard what elopements are like, continued Dolokov with a wink.",
+          "start": 9.28,
+          "end": 12.76,
+          "words": [
+            {
+              "text": " I",
+              "start": 9.28,
+              "end": 9.52,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " have",
+              "start": 9.52,
+              "end": 9.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heard",
+              "start": 9.66,
+              "end": 9.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " elopements",
+              "start": 10.1,
+              "end": 10.52,
+              "probability": 0.9484049479166666
+            },
+            {
+              "text": " are",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " like,",
+              "start": 10.7,
+              "end": 10.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " continued",
+              "start": 11.34,
+              "end": 11.64,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Dolokov",
+              "start": 11.64,
+              "end": 12.26,
+              "probability": 0.9874674479166666
+            },
+            {
+              "text": " with",
+              "start": 12.26,
+              "end": 12.44,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " a",
+              "start": 12.44,
+              "end": 12.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wink.",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Why, she'll rush out more dead than alive just in the things she is wearing,",
+          "start": 13.9,
+          "end": 17.5,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 13.9,
+              "end": 14.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " she'll",
+              "start": 14.4,
+              "end": 14.66,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " rush",
+              "start": 14.66,
+              "end": 14.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " out",
+              "start": 14.92,
+              "end": 15.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 15.16,
+              "end": 15.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " dead",
+              "start": 15.4,
+              "end": 15.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 15.58,
+              "end": 15.74,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " alive",
+              "start": 15.74,
+              "end": 16.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 16.0,
+              "end": 16.26,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 16.26,
+              "end": 16.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 16.46,
+              "end": 16.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " she",
+              "start": 16.76,
+              "end": 17.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 17.02,
+              "end": 17.16,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " wearing,",
+              "start": 17.16,
+              "end": 17.5,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " if you delay at all there'll be tears and a papa and a mamma,",
+          "start": 17.82,
+          "end": 20.7,
+          "words": [
+            {
+              "text": " if",
+              "start": 17.82,
+              "end": 17.96,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " you",
+              "start": 17.96,
+              "end": 18.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " delay",
+              "start": 18.1,
+              "end": 18.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 18.36,
+              "end": 18.56,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " all",
+              "start": 18.56,
+              "end": 18.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there'll",
+              "start": 18.74,
+              "end": 19.02,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " be",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tears",
+              "start": 19.18,
+              "end": 19.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 19.48,
+              "end": 19.72,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " a",
+              "start": 19.72,
+              "end": 19.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " papa",
+              "start": 19.84,
+              "end": 20.12,
+              "probability": 0.6517333984375
+            },
+            {
+              "text": " and",
+              "start": 20.12,
+              "end": 20.28,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 20.28,
+              "end": 20.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mamma,",
+              "start": 20.42,
+              "end": 20.7,
+              "probability": 0.8590494791666666
+            }
+          ]
+        },
+        {
+          "text": " and she's frozen in a minute and must go back,",
+          "start": 20.88,
+          "end": 22.9,
+          "words": [
+            {
+              "text": " and",
+              "start": 20.88,
+              "end": 21.0,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " she's",
+              "start": 21.0,
+              "end": 21.28,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " frozen",
+              "start": 21.28,
+              "end": 21.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 21.52,
+              "end": 21.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 21.74,
+              "end": 21.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " minute",
+              "start": 21.84,
+              "end": 22.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 22.0,
+              "end": 22.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " must",
+              "start": 22.22,
+              "end": 22.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " go",
+              "start": 22.4,
+              "end": 22.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back,",
+              "start": 22.64,
+              "end": 22.9,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " but you wrap the fur cloak round her first thing and carry her to the sleigh.",
+          "start": 23.18,
+          "end": 26.72,
+          "words": [
+            {
+              "text": " but",
+              "start": 23.18,
+              "end": 23.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 23.28,
+              "end": 23.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wrap",
+              "start": 23.44,
+              "end": 23.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 23.62,
+              "end": 23.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fur",
+              "start": 23.82,
+              "end": 24.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cloak",
+              "start": 24.06,
+              "end": 24.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " round",
+              "start": 24.34,
+              "end": 24.58,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " her",
+              "start": 24.58,
+              "end": 24.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " first",
+              "start": 24.84,
+              "end": 25.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thing",
+              "start": 25.14,
+              "end": 25.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 25.42,
+              "end": 25.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " carry",
+              "start": 25.64,
+              "end": 25.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 25.86,
+              "end": 26.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 26.14,
+              "end": 26.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 26.26,
+              "end": 26.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sleigh.",
+              "start": 26.42,
+              "end": 26.72,
+              "probability": 0.970947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "cloak,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "basked",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "Dolokov?",
+          "start": 1.9,
+          "end": 2.34
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.66,
+          "end": 4.14
+        },
+        {
+          "raw": "Ignatka!",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "raw": "Go",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "Matrina",
+          "start": 5.9,
+          "end": 6.24
+        },
+        {
+          "raw": "Matrevna",
+          "start": 6.24,
+          "end": 6.72
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "raw": "ask",
+          "start": 6.92,
+          "end": 7.18
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "for",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "I",
+          "start": 9.28,
+          "end": 9.52
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "like,",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "raw": "continued",
+          "start": 11.34,
+          "end": 11.64
+        },
+        {
+          "raw": "Dolokov",
+          "start": 11.64,
+          "end": 12.26
+        },
+        {
+          "raw": "with",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "Why,",
+          "start": 13.9,
+          "end": 14.16
+        },
+        {
+          "raw": "she'll",
+          "start": 14.4,
+          "end": 14.66
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "raw": "if",
+          "start": 17.82,
+          "end": 17.96
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84
+        },
+        {
+          "raw": "papa",
+          "start": 19.84,
+          "end": 20.12
+        },
+        {
+          "raw": "and",
+          "start": 20.12,
+          "end": 20.28
+        },
+        {
+          "raw": "a",
+          "start": 20.28,
+          "end": 20.42
+        },
+        {
+          "raw": "mamma,",
+          "start": 20.42,
+          "end": 20.7
+        },
+        {
+          "raw": "and",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.52
+        },
+        {
+          "raw": "in",
+          "start": 21.52,
+          "end": 21.74
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "raw": "back,",
+          "start": 22.64,
+          "end": 22.9
+        },
+        {
+          "raw": "but",
+          "start": 23.18,
+          "end": 23.28
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.34
+        },
+        {
+          "raw": "round",
+          "start": 24.34,
+          "end": 24.58
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.42
+        },
+        {
+          "raw": "sleigh.",
+          "start": 26.42,
+          "end": 26.72
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "where’s",
+        "the",
+        "fur",
+        "cloak?”",
+        "asked",
+        "Dólokhov.",
+        "“Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,”",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "“Why,",
+        "she’ll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there’ll",
+        "be",
+        "tears",
+        "and",
+        "‘Papa’",
+        "and",
+        "‘Mamma,’",
+        "and",
+        "she’s",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "where's",
+        "the",
+        "fur",
+        "cloak?\"",
+        "asked",
+        "Dólokhov.",
+        "\"Hey,",
+        "Ignátka!",
+        "Go",
+        "to",
+        "Matrëna",
+        "Matrévna",
+        "and",
+        "ask",
+        "her",
+        "for",
+        "the",
+        "sable",
+        "cloak.",
+        "I",
+        "have",
+        "heard",
+        "what",
+        "elopements",
+        "are",
+        "like,\"",
+        "continued",
+        "Dólokhov",
+        "with",
+        "a",
+        "wink.",
+        "\"Why,",
+        "she'll",
+        "rush",
+        "out",
+        "more",
+        "dead",
+        "than",
+        "alive",
+        "just",
+        "in",
+        "the",
+        "things",
+        "she",
+        "is",
+        "wearing;",
+        "if",
+        "you",
+        "delay",
+        "at",
+        "all",
+        "there'll",
+        "be",
+        "tears",
+        "and",
+        "'Papa'",
+        "and",
+        "'Mamma,'",
+        "and",
+        "she's",
+        "frozen",
+        "in",
+        "a",
+        "minute",
+        "and",
+        "must",
+        "go",
+        "back—but",
+        "you",
+        "wrap",
+        "the",
+        "fur",
+        "cloak",
+        "round",
+        "her",
+        "first",
+        "thing",
+        "and",
+        "carry",
+        "her",
+        "to",
+        "the",
+        "sleigh.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "equal",
+          13,
+          28,
+          13,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "equal",
+          29,
+          56,
+          29,
+          56
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          58,
+          57,
+          59
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ],
+        [
+          "equal",
+          58,
+          84,
+          60,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "insert",
+          56,
+          56,
+          56,
+          57
+        ],
+        [
+          "insert",
+          58,
+          58,
+          59,
+          60
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "fur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cloak,",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "cloak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "basked",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "basked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dolokov?",
+          "start": 1.9,
+          "end": 2.34,
+          "key": "dolokov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.66,
+          "end": 4.14,
+          "key": "hey",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ignatka!",
+          "start": 4.14,
+          "end": 4.62,
+          "key": "ignatka",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 5.4,
+          "end": 5.72,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Matrina",
+          "start": 5.9,
+          "end": 6.24,
+          "key": "matrina",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Matrevna",
+          "start": 6.24,
+          "end": 6.72,
+          "key": "matrevna",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.92,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.92,
+          "end": 7.18,
+          "key": "ask",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.42,
+          "end": 7.56,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.56,
+          "end": 7.7,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 7.7,
+          "end": 8.0,
+          "key": "sable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cloak.",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "cloak",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.28,
+          "end": 9.52,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.52,
+          "end": 9.66,
+          "key": "have",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 9.66,
+          "end": 9.88,
+          "key": "heard",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "what",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "elopements",
+          "start": 10.1,
+          "end": 10.52,
+          "key": "elopements",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "are",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "like,",
+          "start": 10.7,
+          "end": 10.92,
+          "key": "like",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 11.34,
+          "end": 11.64,
+          "key": "continued",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Dolokov",
+          "start": 11.64,
+          "end": 12.26,
+          "key": "dolokov",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.26,
+          "end": 12.44,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.44,
+          "end": 12.56,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "wink.",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "wink",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 13.9,
+          "end": 14.16,
+          "key": "why",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 14.4,
+          "end": 14.66,
+          "key": "shell",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "rush",
+          "start": 14.66,
+          "end": 14.92,
+          "key": "rush",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.92,
+          "end": 15.16,
+          "key": "out",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 15.16,
+          "end": 15.4,
+          "key": "more",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 15.4,
+          "end": 15.58,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.58,
+          "end": 15.74,
+          "key": "than",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "alive",
+          "start": 15.74,
+          "end": 16.0,
+          "key": "alive",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 16.0,
+          "end": 16.26,
+          "key": "just",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.26,
+          "end": 16.46,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.46,
+          "end": 16.58,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "things",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 16.76,
+          "end": 17.02,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.02,
+          "end": 17.16,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wearing,",
+          "start": 17.16,
+          "end": 17.5,
+          "key": "wearing",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.82,
+          "end": 17.96,
+          "key": "if",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 17.96,
+          "end": 18.1,
+          "key": "you",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "delay",
+          "start": 18.1,
+          "end": 18.36,
+          "key": "delay",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.36,
+          "end": 18.56,
+          "key": "at",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 18.56,
+          "end": 18.74,
+          "key": "all",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "there'll",
+          "start": 18.74,
+          "end": 19.02,
+          "key": "therell",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.02,
+          "end": 19.18,
+          "key": "be",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 19.18,
+          "end": 19.48,
+          "key": "tears",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.48,
+          "end": 19.72,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.72,
+          "end": 19.84,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "papa",
+          "start": 19.84,
+          "end": 20.12,
+          "key": "papa",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.12,
+          "end": 20.28,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.28,
+          "end": 20.42,
+          "key": "a",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "mamma,",
+          "start": 20.42,
+          "end": 20.7,
+          "key": "mamma",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.88,
+          "end": 21.0,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 21.0,
+          "end": 21.28,
+          "key": "shes",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "frozen",
+          "start": 21.28,
+          "end": 21.52,
+          "key": "frozen",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.52,
+          "end": 21.74,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.74,
+          "end": 21.84,
+          "key": "a",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 21.84,
+          "end": 22.0,
+          "key": "minute",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.0,
+          "end": 22.22,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 22.22,
+          "end": 22.4,
+          "key": "must",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 22.4,
+          "end": 22.64,
+          "key": "go",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "back, but",
+          "start": 22.64,
+          "end": 23.28,
+          "key": "backbut",
+          "pieces": [
+            70,
+            71
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 23.28,
+          "end": 23.44,
+          "key": "you",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "wrap",
+          "start": 23.44,
+          "end": 23.62,
+          "key": "wrap",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.62,
+          "end": 23.82,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fur",
+          "start": 23.82,
+          "end": 24.06,
+          "key": "fur",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "cloak",
+          "start": 24.06,
+          "end": 24.34,
+          "key": "cloak",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 24.34,
+          "end": 24.58,
+          "key": "round",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.58,
+          "end": 24.84,
+          "key": "her",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 24.84,
+          "end": 25.14,
+          "key": "first",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 25.14,
+          "end": 25.42,
+          "key": "thing",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.42,
+          "end": 25.64,
+          "key": "and",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 25.64,
+          "end": 25.86,
+          "key": "carry",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 25.86,
+          "end": 26.14,
+          "key": "her",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.26,
+          "key": "to",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.26,
+          "end": 26.42,
+          "key": "the",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "sleigh.",
+          "start": 26.42,
+          "end": 26.72,
+          "key": "sleigh",
+          "pieces": [
+            86
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 68,
+          "text": "back—but",
+          "heard": "back, but",
+          "heard_indexes": [
+            70,
+            71
+          ],
+          "start": 22.64,
+          "end": 23.28
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "where’s",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "fur",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "cloak?”",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "asked",
+          "start": 1.28,
+          "end": 2.47
+        },
+        {
+          "text": "Dólokhov.",
+          "start": 2.47,
+          "end": 3.065
+        },
+        {
+          "text": "“Hey,",
+          "start": 3.66,
+          "end": 4.14
+        },
+        {
+          "text": "Ignátka!",
+          "start": 4.14,
+          "end": 4.77
+        },
+        {
+          "text": "Go",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "text": "to",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "Matrëna",
+          "start": 5.9,
+          "end": 6.31
+        },
+        {
+          "text": "Matrévna",
+          "start": 6.31,
+          "end": 6.515
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "text": "ask",
+          "start": 6.92,
+          "end": 7.18
+        },
+        {
+          "text": "her",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "for",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "the",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "text": "sable",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "text": "cloak.",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "I",
+          "start": 9.28,
+          "end": 9.52
+        },
+        {
+          "text": "have",
+          "start": 9.52,
+          "end": 9.66
+        },
+        {
+          "text": "heard",
+          "start": 9.66,
+          "end": 9.88
+        },
+        {
+          "text": "what",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "elopements",
+          "start": 10.1,
+          "end": 10.52
+        },
+        {
+          "text": "are",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "like,”",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "text": "continued",
+          "start": 11.34,
+          "end": 11.64
+        },
+        {
+          "text": "Dólokhov",
+          "start": 11.64,
+          "end": 11.95
+        },
+        {
+          "text": "with",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "text": "a",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "text": "wink.",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "“Why,",
+          "start": 13.9,
+          "end": 14.16
+        },
+        {
+          "text": "she’ll",
+          "start": 14.4,
+          "end": 14.66
+        },
+        {
+          "text": "rush",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "text": "out",
+          "start": 14.92,
+          "end": 15.16
+        },
+        {
+          "text": "more",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "text": "dead",
+          "start": 15.4,
+          "end": 15.58
+        },
+        {
+          "text": "than",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "text": "alive",
+          "start": 15.74,
+          "end": 16.0
+        },
+        {
+          "text": "just",
+          "start": 16.0,
+          "end": 16.26
+        },
+        {
+          "text": "in",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "text": "the",
+          "start": 16.46,
+          "end": 16.58
+        },
+        {
+          "text": "things",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "she",
+          "start": 16.76,
+          "end": 17.02
+        },
+        {
+          "text": "is",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "text": "wearing;",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "text": "if",
+          "start": 17.82,
+          "end": 17.96
+        },
+        {
+          "text": "you",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "text": "delay",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "text": "at",
+          "start": 18.36,
+          "end": 18.56
+        },
+        {
+          "text": "all",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "text": "there’ll",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "text": "be",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "tears",
+          "start": 19.18,
+          "end": 19.48
+        },
+        {
+          "text": "and",
+          "start": 19.48,
+          "end": 19.72
+        },
+        {
+          "text": "‘Papa’",
+          "start": 19.84,
+          "end": 20.12
+        },
+        {
+          "text": "and",
+          "start": 20.12,
+          "end": 20.28
+        },
+        {
+          "text": "‘Mamma,’",
+          "start": 20.42,
+          "end": 20.7
+        },
+        {
+          "text": "and",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "text": "she’s",
+          "start": 21.0,
+          "end": 21.28
+        },
+        {
+          "text": "frozen",
+          "start": 21.28,
+          "end": 21.52
+        },
+        {
+          "text": "in",
+          "start": 21.52,
+          "end": 21.74
+        },
+        {
+          "text": "a",
+          "start": 21.74,
+          "end": 21.84
+        },
+        {
+          "text": "minute",
+          "start": 21.84,
+          "end": 22.0
+        },
+        {
+          "text": "and",
+          "start": 22.0,
+          "end": 22.22
+        },
+        {
+          "text": "must",
+          "start": 22.22,
+          "end": 22.4
+        },
+        {
+          "text": "go",
+          "start": 22.4,
+          "end": 22.64
+        },
+        {
+          "text": "back—but",
+          "start": 22.64,
+          "end": 23.28
+        },
+        {
+          "text": "you",
+          "start": 23.28,
+          "end": 23.44
+        },
+        {
+          "text": "wrap",
+          "start": 23.44,
+          "end": 23.62
+        },
+        {
+          "text": "the",
+          "start": 23.62,
+          "end": 23.82
+        },
+        {
+          "text": "fur",
+          "start": 23.82,
+          "end": 24.06
+        },
+        {
+          "text": "cloak",
+          "start": 24.06,
+          "end": 24.34
+        },
+        {
+          "text": "round",
+          "start": 24.34,
+          "end": 24.58
+        },
+        {
+          "text": "her",
+          "start": 24.58,
+          "end": 24.84
+        },
+        {
+          "text": "first",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "text": "thing",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "text": "and",
+          "start": 25.42,
+          "end": 25.64
+        },
+        {
+          "text": "carry",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "text": "her",
+          "start": 25.86,
+          "end": 26.14
+        },
+        {
+          "text": "to",
+          "start": 26.14,
+          "end": 26.26
+        },
+        {
+          "text": "the",
+          "start": 26.26,
+          "end": 26.42
+        },
+        {
+          "text": "sleigh.”",
+          "start": 26.42,
+          "end": 26.72
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 86,
+        "matched_words": 78
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.8372997706755996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0dba0a423a9c1141212a7c30f3fb962569f49494a8deee0d39b32c335bf58fd7",
+  "selected_reasons": []
+}

@@ -1,0 +1,1418 @@
+{
+  "complete": true,
+  "signature": "3d8d6186c92af6e48f33da2f62830f638abe07a25cc378491413b89d7f5d154f",
+  "attempts": [
+    {
+      "asr_seconds": 0.4608462071046233,
+      "alignment_seconds": 0.001577836461365223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Just as before, they never mentioned him so as not to lower (as they thought) their exalted feelings by words; but this silence about him had the effect of making them gradually begin to forget him without being conscious of it.",
+        "hotwords": "Just"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Just as before, they never mentioned him so as not to lower, as they thought, their exalted feelings by words, but this silence about him had the effect of making them gradually begin to forget him without being conscious of it.",
+          "start": 0.0,
+          "end": 11.5,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " as",
+              "start": 0.4,
+              "end": 0.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " before,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " never",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mentioned",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " so",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lower,",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " as",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " they",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thought,",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 4.42,
+              "end": 4.6,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " exalted",
+              "start": 4.6,
+              "end": 4.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " feelings",
+              "start": 4.96,
+              "end": 5.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " by",
+              "start": 5.4,
+              "end": 5.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " words,",
+              "start": 5.7,
+              "end": 6.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 6.56,
+              "end": 6.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silence",
+              "start": 6.78,
+              "end": 7.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 7.1,
+              "end": 7.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 7.42,
+              "end": 7.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 7.62,
+              "end": 7.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.78,
+              "end": 7.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " effect",
+              "start": 7.94,
+              "end": 8.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 8.18,
+              "end": 8.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " making",
+              "start": 8.38,
+              "end": 8.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 8.58,
+              "end": 8.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gradually",
+              "start": 8.88,
+              "end": 9.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " begin",
+              "start": 9.18,
+              "end": 9.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 9.54,
+              "end": 9.74,
+              "probability": 1.0
+            },
+            {
+              "text": " forget",
+              "start": 9.74,
+              "end": 10.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 10.0,
+              "end": 10.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " without",
+              "start": 10.22,
+              "end": 10.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " being",
+              "start": 10.5,
+              "end": 10.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " conscious",
+              "start": 10.76,
+              "end": 11.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 11.12,
+              "end": 11.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 11.32,
+              "end": 11.5,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "as",
+          "start": 0.4,
+          "end": 0.52
+        },
+        {
+          "raw": "before,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "they",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "never",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "mentioned",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "him",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "so",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "raw": "as",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "not",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "lower,",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "as",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "they",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "thought,",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "their",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "raw": "exalted",
+          "start": 4.6,
+          "end": 4.96
+        },
+        {
+          "raw": "feelings",
+          "start": 4.96,
+          "end": 5.4
+        },
+        {
+          "raw": "by",
+          "start": 5.4,
+          "end": 5.7
+        },
+        {
+          "raw": "words,",
+          "start": 5.7,
+          "end": 6.08
+        },
+        {
+          "raw": "but",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "this",
+          "start": 6.56,
+          "end": 6.78
+        },
+        {
+          "raw": "silence",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "raw": "about",
+          "start": 7.1,
+          "end": 7.42
+        },
+        {
+          "raw": "him",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "raw": "had",
+          "start": 7.62,
+          "end": 7.78
+        },
+        {
+          "raw": "the",
+          "start": 7.78,
+          "end": 7.94
+        },
+        {
+          "raw": "effect",
+          "start": 7.94,
+          "end": 8.18
+        },
+        {
+          "raw": "of",
+          "start": 8.18,
+          "end": 8.38
+        },
+        {
+          "raw": "making",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "raw": "them",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "raw": "gradually",
+          "start": 8.88,
+          "end": 9.18
+        },
+        {
+          "raw": "begin",
+          "start": 9.18,
+          "end": 9.54
+        },
+        {
+          "raw": "to",
+          "start": 9.54,
+          "end": 9.74
+        },
+        {
+          "raw": "forget",
+          "start": 9.74,
+          "end": 10.0
+        },
+        {
+          "raw": "him",
+          "start": 10.0,
+          "end": 10.22
+        },
+        {
+          "raw": "without",
+          "start": 10.22,
+          "end": 10.5
+        },
+        {
+          "raw": "being",
+          "start": 10.5,
+          "end": 10.76
+        },
+        {
+          "raw": "conscious",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "raw": "of",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "raw": "it.",
+          "start": 11.32,
+          "end": 11.5
+        }
+      ],
+      "expected_tokens": [
+        "Just",
+        "as",
+        "before,",
+        "they",
+        "never",
+        "mentioned",
+        "him",
+        "so",
+        "as",
+        "not",
+        "to",
+        "lower",
+        "(as",
+        "they",
+        "thought)",
+        "their",
+        "exalted",
+        "feelings",
+        "by",
+        "words;",
+        "but",
+        "this",
+        "silence",
+        "about",
+        "him",
+        "had",
+        "the",
+        "effect",
+        "of",
+        "making",
+        "them",
+        "gradually",
+        "begin",
+        "to",
+        "forget",
+        "him",
+        "without",
+        "being",
+        "conscious",
+        "of",
+        "it."
+      ],
+      "acoustic_expected_tokens": [
+        "Just",
+        "as",
+        "before,",
+        "they",
+        "never",
+        "mentioned",
+        "him",
+        "so",
+        "as",
+        "not",
+        "to",
+        "lower",
+        "(as",
+        "they",
+        "thought)",
+        "their",
+        "exalted",
+        "feelings",
+        "by",
+        "words;",
+        "but",
+        "this",
+        "silence",
+        "about",
+        "him",
+        "had",
+        "the",
+        "effect",
+        "of",
+        "making",
+        "them",
+        "gradually",
+        "begin",
+        "to",
+        "forget",
+        "him",
+        "without",
+        "being",
+        "conscious",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Just",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "just",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.4,
+          "end": 0.52,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "before",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mentioned",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "mentioned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lower,",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "lower",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "thought",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.42,
+          "end": 4.6,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "exalted",
+          "start": 4.6,
+          "end": 4.96,
+          "key": "exalted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "feelings",
+          "start": 4.96,
+          "end": 5.4,
+          "key": "feelings",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.4,
+          "end": 5.7,
+          "key": "by",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 5.7,
+          "end": 6.08,
+          "key": "words",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.44,
+          "end": 6.56,
+          "key": "but",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.56,
+          "end": 6.78,
+          "key": "this",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "silence",
+          "start": 6.78,
+          "end": 7.1,
+          "key": "silence",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 7.1,
+          "end": 7.42,
+          "key": "about",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.42,
+          "end": 7.62,
+          "key": "him",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.62,
+          "end": 7.78,
+          "key": "had",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.78,
+          "end": 7.94,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 7.94,
+          "end": 8.18,
+          "key": "effect",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.18,
+          "end": 8.38,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 8.38,
+          "end": 8.58,
+          "key": "making",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 8.58,
+          "end": 8.88,
+          "key": "them",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "gradually",
+          "start": 8.88,
+          "end": 9.18,
+          "key": "gradually",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 9.18,
+          "end": 9.54,
+          "key": "begin",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.54,
+          "end": 9.74,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 9.74,
+          "end": 10.0,
+          "key": "forget",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 10.0,
+          "end": 10.22,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 10.22,
+          "end": 10.5,
+          "key": "without",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 10.5,
+          "end": 10.76,
+          "key": "being",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "conscious",
+          "start": 10.76,
+          "end": 11.12,
+          "key": "conscious",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.12,
+          "end": 11.32,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 11.32,
+          "end": 11.5,
+          "key": "it",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Just",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "as",
+          "start": 0.4,
+          "end": 0.52
+        },
+        {
+          "text": "before,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "they",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "never",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "mentioned",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "him",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "so",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "text": "as",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "not",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "to",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "lower",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "(as",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "they",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "thought)",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "their",
+          "start": 4.42,
+          "end": 4.6
+        },
+        {
+          "text": "exalted",
+          "start": 4.6,
+          "end": 4.96
+        },
+        {
+          "text": "feelings",
+          "start": 4.96,
+          "end": 5.4
+        },
+        {
+          "text": "by",
+          "start": 5.4,
+          "end": 5.7
+        },
+        {
+          "text": "words;",
+          "start": 5.7,
+          "end": 6.08
+        },
+        {
+          "text": "but",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "this",
+          "start": 6.56,
+          "end": 6.78
+        },
+        {
+          "text": "silence",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "text": "about",
+          "start": 7.1,
+          "end": 7.42
+        },
+        {
+          "text": "him",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "text": "had",
+          "start": 7.62,
+          "end": 7.78
+        },
+        {
+          "text": "the",
+          "start": 7.78,
+          "end": 7.94
+        },
+        {
+          "text": "effect",
+          "start": 7.94,
+          "end": 8.18
+        },
+        {
+          "text": "of",
+          "start": 8.18,
+          "end": 8.38
+        },
+        {
+          "text": "making",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "text": "them",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "text": "gradually",
+          "start": 8.88,
+          "end": 9.18
+        },
+        {
+          "text": "begin",
+          "start": 9.18,
+          "end": 9.54
+        },
+        {
+          "text": "to",
+          "start": 9.54,
+          "end": 9.74
+        },
+        {
+          "text": "forget",
+          "start": 9.74,
+          "end": 10.0
+        },
+        {
+          "text": "him",
+          "start": 10.0,
+          "end": 10.22
+        },
+        {
+          "text": "without",
+          "start": 10.22,
+          "end": 10.5
+        },
+        {
+          "text": "being",
+          "start": 10.5,
+          "end": 10.76
+        },
+        {
+          "text": "conscious",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "text": "of",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "text": "it.",
+          "start": 11.32,
+          "end": 11.5
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46260266192257404
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "135b03e3631307a07c7c7dfa0abf7ea026d151cf2f940520605ccc29f21a1cc1",
+  "selected_reasons": []
+}

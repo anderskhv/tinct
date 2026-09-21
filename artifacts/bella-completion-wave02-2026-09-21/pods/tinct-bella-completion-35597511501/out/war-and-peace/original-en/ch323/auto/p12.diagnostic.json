@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "8ffa2eb529b66ca47a705082092c66bd6f0f32967974d072155015a8a5e0f8f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.17937611509114504,
+      "alignment_seconds": 0.0010449504479765892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Hur-r-rah!\" roared thousands of voices.",
+        "hotwords": "Hur-r-rah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hur-r-rah roared thousands of voices.",
+          "start": 0.0,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Hur",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.00058746337890625
+            },
+            {
+              "text": "-r",
+              "start": 0.46,
+              "end": 0.64,
+              "probability": 0.0300750732421875
+            },
+            {
+              "text": "-rah",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.0966339111328125
+            },
+            {
+              "text": " roared",
+              "start": 0.76,
+              "end": 1.16,
+              "probability": 0.4609375
+            },
+            {
+              "text": " thousands",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " voices.",
+              "start": 1.82,
+              "end": 2.22,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hur",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "-r",
+          "start": 0.46,
+          "end": 0.64
+        },
+        {
+          "raw": "-rah",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "roared",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "raw": "thousands",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "voices.",
+          "start": 1.82,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "“Hur-r-rah!”",
+        "roared",
+        "thousands",
+        "of",
+        "voices."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Hur-r-rah!\"",
+        "roared",
+        "thousands",
+        "of",
+        "voices."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hur -r -rah",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "hurrrah",
+          "pieces": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "roared",
+          "start": 0.76,
+          "end": 1.16,
+          "key": "roared",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thousands",
+          "start": 1.16,
+          "end": 1.6,
+          "key": "thousands",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "voices.",
+          "start": 1.82,
+          "end": 2.22,
+          "key": "voices",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Hur-r-rah!\"",
+          "heard": "Hur -r -rah",
+          "heard_indexes": [
+            0,
+            1,
+            2
+          ],
+          "start": 0.0,
+          "end": 0.76
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Hur-r-rah!”",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "roared",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "text": "thousands",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "text": "of",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "voices.",
+          "start": 1.82,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1805720878764987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90a18413d6c4127710b695ce717260f7c7a79e9966aedc54782db61acc1f33a7",
+  "selected_reasons": []
+}

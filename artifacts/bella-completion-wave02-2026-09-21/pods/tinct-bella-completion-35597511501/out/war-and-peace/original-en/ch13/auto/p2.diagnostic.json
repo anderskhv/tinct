@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "aef3a98d13e7e95c5e2fdcd1d74df2040218effe77d738bf2b01f4290301cc62",
+  "attempts": [
+    {
+      "asr_seconds": 0.2556719947606325,
+      "alignment_seconds": 0.0011950042098760605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sónya, what is the matter with you? How can you?\" said he, running up to her.",
+        "hotwords": "Sónya, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sónya, What is the matter with you? How can you?\" said he, running up to her.",
+          "start": 0.57,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Sónya,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.3354155421257019
+            },
+            {
+              "text": " What",
+              "start": 1.05,
+              "end": 1.13,
+              "probability": 0.006183624267578125
+            },
+            {
+              "text": " is",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " matter",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " with",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you?",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " How",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " can",
+              "start": 2.51,
+              "end": 2.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you?\"",
+              "start": 2.69,
+              "end": 3.23,
+              "probability": 0.5144195556640625
+            },
+            {
+              "text": " said",
+              "start": 3.23,
+              "end": 3.49,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " he,",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " running",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.96875
+            },
+            {
+              "text": " up",
+              "start": 3.95,
+              "end": 4.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 4.31,
+              "end": 4.47,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sónya,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "raw": "is",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "matter",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "with",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "you?",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "How",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "can",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "raw": "you?\"",
+          "start": 2.69,
+          "end": 3.23
+        },
+        {
+          "raw": "said",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "raw": "he,",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "running",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "up",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "raw": "to",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "her.",
+          "start": 4.31,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "“Sónya,",
+        "what",
+        "is",
+        "the",
+        "matter",
+        "with",
+        "you?",
+        "How",
+        "can",
+        "you?”",
+        "said",
+        "he,",
+        "running",
+        "up",
+        "to",
+        "her."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sónya,",
+        "what",
+        "is",
+        "the",
+        "matter",
+        "with",
+        "you?",
+        "How",
+        "can",
+        "you?\"",
+        "said",
+        "he,",
+        "running",
+        "up",
+        "to",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sónya,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "sónya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.13,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.51,
+          "end": 2.69,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you?\"",
+          "start": 2.69,
+          "end": 3.23,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.23,
+          "end": 3.49,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "running",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.95,
+          "end": 4.17,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.31,
+          "end": 4.47,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Sónya,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "what",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "text": "is",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "matter",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "with",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "you?",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "How",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "can",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "text": "you?”",
+          "start": 2.69,
+          "end": 3.23
+        },
+        {
+          "text": "said",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "text": "he,",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "running",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "up",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "text": "to",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "text": "her.",
+          "start": 4.31,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2570094130933285
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "033878cb8b066e0ec2c755e1fe6282f95ac7f2ebac407fcbfbb148be83c2aabf",
+  "selected_reasons": []
+}

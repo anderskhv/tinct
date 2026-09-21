@@ -1,0 +1,503 @@
+{
+  "complete": true,
+  "signature": "abe7598d24d6457bf9487a8c7feaf99ff1a83f4549953e9cc7067348dff519e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.26448360830545425,
+      "alignment_seconds": 0.001553993672132492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Bravo! Ha, ha, ha!\" rose their rough, joyous laughter from all sides.",
+        "hotwords": "Bravo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bravo! Ha, ha, ha!\" rose their rough, joyous laughter from all sides.",
+          "start": 0.0,
+          "end": 6.14,
+          "words": [
+            {
+              "text": " Bravo!",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " Ha,",
+              "start": 2.0,
+              "end": 2.0,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " ha,",
+              "start": 2.54,
+              "end": 2.56,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " ha",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.974609375
+            },
+            {
+              "text": "!\"",
+              "start": 3.1,
+              "end": 3.6,
+              "probability": 0.00012230873107910156
+            },
+            {
+              "text": " rose",
+              "start": 3.6,
+              "end": 3.6,
+              "probability": 0.740234375
+            },
+            {
+              "text": " their",
+              "start": 3.6,
+              "end": 3.82,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " rough,",
+              "start": 3.82,
+              "end": 4.14,
+              "probability": 0.73046875
+            },
+            {
+              "text": " joyous",
+              "start": 4.58,
+              "end": 4.88,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " laughter",
+              "start": 4.88,
+              "end": 5.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " from",
+              "start": 5.22,
+              "end": 5.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " all",
+              "start": 5.46,
+              "end": 5.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sides.",
+              "start": 5.66,
+              "end": 6.14,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bravo!",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "Ha,",
+          "start": 2.0,
+          "end": 2.0
+        },
+        {
+          "raw": "ha,",
+          "start": 2.54,
+          "end": 2.56
+        },
+        {
+          "raw": "ha",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "!\"",
+          "start": 3.1,
+          "end": 3.6
+        },
+        {
+          "raw": "rose",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "raw": "their",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "raw": "rough,",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "raw": "joyous",
+          "start": 4.58,
+          "end": 4.88
+        },
+        {
+          "raw": "laughter",
+          "start": 4.88,
+          "end": 5.22
+        },
+        {
+          "raw": "from",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "raw": "all",
+          "start": 5.46,
+          "end": 5.66
+        },
+        {
+          "raw": "sides.",
+          "start": 5.66,
+          "end": 6.14
+        }
+      ],
+      "expected_tokens": [
+        "“Bravo!",
+        "Ha,",
+        "ha,",
+        "ha!”",
+        "rose",
+        "their",
+        "rough,",
+        "joyous",
+        "laughter",
+        "from",
+        "all",
+        "sides."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Bravo!",
+        "Ha,",
+        "ha,",
+        "ha!\"",
+        "rose",
+        "their",
+        "rough,",
+        "joyous",
+        "laughter",
+        "from",
+        "all",
+        "sides."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bravo!",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "bravo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha,",
+          "start": 2.0,
+          "end": 2.0,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 2.54,
+          "end": 2.56,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "ha",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.1,
+          "end": 3.6,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 3.6,
+          "end": 3.6,
+          "key": "rose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.6,
+          "end": 3.82,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rough,",
+          "start": 3.82,
+          "end": 4.14,
+          "key": "rough",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "joyous",
+          "start": 4.58,
+          "end": 4.88,
+          "key": "joyous",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "laughter",
+          "start": 4.88,
+          "end": 5.22,
+          "key": "laughter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.22,
+          "end": 5.46,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.46,
+          "end": 5.66,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sides.",
+          "start": 5.66,
+          "end": 6.14,
+          "key": "sides",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Bravo!",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Ha,",
+          "start": 2.0,
+          "end": 2.0
+        },
+        {
+          "text": "ha,",
+          "start": 2.54,
+          "end": 2.56
+        },
+        {
+          "text": "ha!”",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "text": "rose",
+          "start": 3.6,
+          "end": 3.6
+        },
+        {
+          "text": "their",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "text": "rough,",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "text": "joyous",
+          "start": 4.58,
+          "end": 4.88
+        },
+        {
+          "text": "laughter",
+          "start": 4.88,
+          "end": 5.22
+        },
+        {
+          "text": "from",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "text": "all",
+          "start": 5.46,
+          "end": 5.66
+        },
+        {
+          "text": "sides.",
+          "start": 5.66,
+          "end": 6.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26624421309679747
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb9349df9abe27b9c9ed8d29f4d886476eb911243bcfce2d4f2b33bba378559d",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "7cd45e4a53b405647c1ae3d6fca3f1185487c8634b2ad4b02347bf1aad1d76bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.16797518264502287,
+      "alignment_seconds": 0.0006811944767832756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You are tired—try to sleep.\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are tired—try to sleep.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " are",
+              "start": 0.34,
+              "end": 0.48,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " tired—try",
+              "start": 0.48,
+              "end": 1.36,
+              "probability": 0.6458514531453451
+            },
+            {
+              "text": " to",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sleep.",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "are",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "raw": "tired—try",
+          "start": 0.48,
+          "end": 1.36
+        },
+        {
+          "raw": "to",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "sleep.",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "are",
+        "tired—try",
+        "to",
+        "sleep.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "are",
+        "tired—try",
+        "to",
+        "sleep.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.34,
+          "end": 0.48,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tired—try",
+          "start": 0.48,
+          "end": 1.36,
+          "key": "tiredtry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sleep.",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "sleep",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "are",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "text": "tired—try",
+          "start": 0.48,
+          "end": 1.36
+        },
+        {
+          "text": "to",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "sleep.”",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16874763183295727
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47946dd9a953e4406536fead8f7c8fd11efd960f72090b0fdad5612971dde31b",
+  "selected_reasons": []
+}

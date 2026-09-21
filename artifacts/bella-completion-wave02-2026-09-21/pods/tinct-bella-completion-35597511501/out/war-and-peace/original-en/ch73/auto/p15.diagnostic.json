@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "a35b54a0dda09212a0458625e295624121c8b47e289f1ff3a362a3518c22abb1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3459230428561568,
+      "alignment_seconds": 0.0021655475720763206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pierre clutched his temples, and turning round went into the forest, trampling through the deep snow, and muttering incoherent words:",
+        "hotwords": "Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pierre clutched his temples, and turning round went into the forest, trampling through the deep snow, and muttering incoherent words.",
+          "start": 0.0,
+          "end": 7.46,
+          "words": [
+            {
+              "text": " Pierre",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.830078125
+            },
+            {
+              "text": " clutched",
+              "start": 0.54,
+              "end": 1.02,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " his",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " temples,",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turning",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.986328125
+            },
+            {
+              "text": " round",
+              "start": 2.38,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " went",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " into",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forest,",
+              "start": 3.42,
+              "end": 3.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trampling",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " through",
+              "start": 4.52,
+              "end": 4.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " deep",
+              "start": 4.96,
+              "end": 5.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " snow,",
+              "start": 5.16,
+              "end": 5.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 5.94,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " muttering",
+              "start": 6.08,
+              "end": 6.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " incoherent",
+              "start": 6.44,
+              "end": 7.04,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " words.",
+              "start": 7.04,
+              "end": 7.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "clutched",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "raw": "his",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "temples,",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "turning",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "round",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "raw": "went",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "into",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "forest,",
+          "start": 3.42,
+          "end": 3.76
+        },
+        {
+          "raw": "trampling",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "through",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "deep",
+          "start": 4.96,
+          "end": 5.16
+        },
+        {
+          "raw": "snow,",
+          "start": 5.16,
+          "end": 5.54
+        },
+        {
+          "raw": "and",
+          "start": 5.94,
+          "end": 6.08
+        },
+        {
+          "raw": "muttering",
+          "start": 6.08,
+          "end": 6.44
+        },
+        {
+          "raw": "incoherent",
+          "start": 6.44,
+          "end": 7.04
+        },
+        {
+          "raw": "words.",
+          "start": 7.04,
+          "end": 7.46
+        }
+      ],
+      "expected_tokens": [
+        "Pierre",
+        "clutched",
+        "his",
+        "temples,",
+        "and",
+        "turning",
+        "round",
+        "went",
+        "into",
+        "the",
+        "forest,",
+        "trampling",
+        "through",
+        "the",
+        "deep",
+        "snow,",
+        "and",
+        "muttering",
+        "incoherent",
+        "words:"
+      ],
+      "acoustic_expected_tokens": [
+        "Pierre",
+        "clutched",
+        "his",
+        "temples,",
+        "and",
+        "turning",
+        "round",
+        "went",
+        "into",
+        "the",
+        "forest,",
+        "trampling",
+        "through",
+        "the",
+        "deep",
+        "snow,",
+        "and",
+        "muttering",
+        "incoherent",
+        "words:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "pierre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 0.54,
+          "end": 1.02,
+          "key": "clutched",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "temples,",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "temples",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "turning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 2.38,
+          "end": 2.68,
+          "key": "round",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "went",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "forest,",
+          "start": 3.42,
+          "end": 3.76,
+          "key": "forest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trampling",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "trampling",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.52,
+          "end": 4.78,
+          "key": "through",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.96,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 4.96,
+          "end": 5.16,
+          "key": "deep",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "snow,",
+          "start": 5.16,
+          "end": 5.54,
+          "key": "snow",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.94,
+          "end": 6.08,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "muttering",
+          "start": 6.08,
+          "end": 6.44,
+          "key": "muttering",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "incoherent",
+          "start": 6.44,
+          "end": 7.04,
+          "key": "incoherent",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 7.04,
+          "end": 7.46,
+          "key": "words",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Pierre",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "clutched",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "text": "his",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "temples,",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "turning",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "round",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "text": "went",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "into",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "forest,",
+          "start": 3.42,
+          "end": 3.76
+        },
+        {
+          "text": "trampling",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "through",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "deep",
+          "start": 4.96,
+          "end": 5.16
+        },
+        {
+          "text": "snow,",
+          "start": 5.16,
+          "end": 5.54
+        },
+        {
+          "text": "and",
+          "start": 5.94,
+          "end": 6.08
+        },
+        {
+          "text": "muttering",
+          "start": 6.08,
+          "end": 6.44
+        },
+        {
+          "text": "incoherent",
+          "start": 6.44,
+          "end": 7.04
+        },
+        {
+          "text": "words:",
+          "start": 7.04,
+          "end": 7.46
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3484492264688015
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a8d5c1c0c3aaf460944a9bbf186f7c52fd3b23e8e883b8adc70cd19564b9254",
+  "selected_reasons": []
+}

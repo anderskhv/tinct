@@ -1,0 +1,1154 @@
+{
+  "complete": true,
+  "signature": "fac4a18286e1aa26cd13038138e5e096d7157a6aebacc94d34e68ab5422a5c7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.4049221845343709,
+      "alignment_seconds": 0.0033867424353957176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Going out into the yard she paused to consider where she should go next—to drink tea in the servants' wing with Vasílich, or into the storeroom to put away what still lay about.",
+        "hotwords": "Going, Vasílich"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Going out into the yard she paused to consider where she should go next—to drink tea in the servants' wing with Vasílich, or into the storeroom to put away what still lay about.",
+          "start": 0.0,
+          "end": 8.78,
+          "words": [
+            {
+              "text": " Going",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " out",
+              "start": 0.46,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yard",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.97265625
+            },
+            {
+              "text": " she",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.736328125
+            },
+            {
+              "text": " paused",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.818359375
+            },
+            {
+              "text": " to",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " consider",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " where",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " should",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " next—to",
+              "start": 3.2,
+              "end": 4.0,
+              "probability": 0.5473556518554688
+            },
+            {
+              "text": " drink",
+              "start": 4.0,
+              "end": 4.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tea",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.66,
+              "end": 4.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " servants'",
+              "start": 4.78,
+              "end": 5.08,
+              "probability": 0.187255859375
+            },
+            {
+              "text": " wing",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.986328125
+            },
+            {
+              "text": " with",
+              "start": 5.34,
+              "end": 5.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Vasílich,",
+              "start": 5.5,
+              "end": 5.9,
+              "probability": 0.0022036035855611167
+            },
+            {
+              "text": " or",
+              "start": 6.2,
+              "end": 6.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " into",
+              "start": 6.4,
+              "end": 6.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 6.62,
+              "end": 6.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " storeroom",
+              "start": 6.78,
+              "end": 7.18,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 7.18,
+              "end": 7.36,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " put",
+              "start": 7.36,
+              "end": 7.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 7.5,
+              "end": 7.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 7.74,
+              "end": 7.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 7.96,
+              "end": 8.24,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " lay",
+              "start": 8.24,
+              "end": 8.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " about.",
+              "start": 8.48,
+              "end": 8.78,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Going",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "out",
+          "start": 0.46,
+          "end": 0.68
+        },
+        {
+          "raw": "into",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "raw": "yard",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "she",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "paused",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "consider",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "where",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "she",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "should",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "go",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "next—to",
+          "start": 3.2,
+          "end": 4.0
+        },
+        {
+          "raw": "drink",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "raw": "tea",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "in",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "raw": "servants'",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "raw": "wing",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "with",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "raw": "Vasílich,",
+          "start": 5.5,
+          "end": 5.9
+        },
+        {
+          "raw": "or",
+          "start": 6.2,
+          "end": 6.4
+        },
+        {
+          "raw": "into",
+          "start": 6.4,
+          "end": 6.62
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "raw": "storeroom",
+          "start": 6.78,
+          "end": 7.18
+        },
+        {
+          "raw": "to",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "raw": "put",
+          "start": 7.36,
+          "end": 7.5
+        },
+        {
+          "raw": "away",
+          "start": 7.5,
+          "end": 7.74
+        },
+        {
+          "raw": "what",
+          "start": 7.74,
+          "end": 7.96
+        },
+        {
+          "raw": "still",
+          "start": 7.96,
+          "end": 8.24
+        },
+        {
+          "raw": "lay",
+          "start": 8.24,
+          "end": 8.48
+        },
+        {
+          "raw": "about.",
+          "start": 8.48,
+          "end": 8.78
+        }
+      ],
+      "expected_tokens": [
+        "Going",
+        "out",
+        "into",
+        "the",
+        "yard",
+        "she",
+        "paused",
+        "to",
+        "consider",
+        "where",
+        "she",
+        "should",
+        "go",
+        "next—to",
+        "drink",
+        "tea",
+        "in",
+        "the",
+        "servants’",
+        "wing",
+        "with",
+        "Vasílich,",
+        "or",
+        "into",
+        "the",
+        "storeroom",
+        "to",
+        "put",
+        "away",
+        "what",
+        "still",
+        "lay",
+        "about."
+      ],
+      "acoustic_expected_tokens": [
+        "Going",
+        "out",
+        "into",
+        "the",
+        "yard",
+        "she",
+        "paused",
+        "to",
+        "consider",
+        "where",
+        "she",
+        "should",
+        "go",
+        "next—to",
+        "drink",
+        "tea",
+        "in",
+        "the",
+        "servants'",
+        "wing",
+        "with",
+        "Vasílich,",
+        "or",
+        "into",
+        "the",
+        "storeroom",
+        "to",
+        "put",
+        "away",
+        "what",
+        "still",
+        "lay",
+        "about."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Going",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "going",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.46,
+          "end": 0.68,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "into",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.12,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yard",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "yard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "paused",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "paused",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "consider",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "consider",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "should",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "go",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "next—to",
+          "start": 3.2,
+          "end": 4.0,
+          "key": "nextto",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 4.0,
+          "end": 4.24,
+          "key": "drink",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "tea",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.48,
+          "end": 4.66,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.78,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "servants'",
+          "start": 4.78,
+          "end": 5.08,
+          "key": "servants",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "wing",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "wing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.34,
+          "end": 5.5,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Vasílich,",
+          "start": 5.5,
+          "end": 5.9,
+          "key": "vasílich",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.2,
+          "end": 6.4,
+          "key": "or",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 6.4,
+          "end": 6.62,
+          "key": "into",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.78,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "storeroom",
+          "start": 6.78,
+          "end": 7.18,
+          "key": "storeroom",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.18,
+          "end": 7.36,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 7.36,
+          "end": 7.5,
+          "key": "put",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 7.5,
+          "end": 7.74,
+          "key": "away",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 7.74,
+          "end": 7.96,
+          "key": "what",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 7.96,
+          "end": 8.24,
+          "key": "still",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 8.24,
+          "end": 8.48,
+          "key": "lay",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "about.",
+          "start": 8.48,
+          "end": 8.78,
+          "key": "about",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Going",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "out",
+          "start": 0.46,
+          "end": 0.68
+        },
+        {
+          "text": "into",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "yard",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "she",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "paused",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "to",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "consider",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "where",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "she",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "should",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "go",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "next—to",
+          "start": 3.2,
+          "end": 4.0
+        },
+        {
+          "text": "drink",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "text": "tea",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "in",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "text": "servants’",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "text": "wing",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "with",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "text": "Vasílich,",
+          "start": 5.5,
+          "end": 5.9
+        },
+        {
+          "text": "or",
+          "start": 6.2,
+          "end": 6.4
+        },
+        {
+          "text": "into",
+          "start": 6.4,
+          "end": 6.62
+        },
+        {
+          "text": "the",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "text": "storeroom",
+          "start": 6.78,
+          "end": 7.18
+        },
+        {
+          "text": "to",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "put",
+          "start": 7.36,
+          "end": 7.5
+        },
+        {
+          "text": "away",
+          "start": 7.5,
+          "end": 7.74
+        },
+        {
+          "text": "what",
+          "start": 7.74,
+          "end": 7.96
+        },
+        {
+          "text": "still",
+          "start": 7.96,
+          "end": 8.24
+        },
+        {
+          "text": "lay",
+          "start": 8.24,
+          "end": 8.48
+        },
+        {
+          "text": "about.",
+          "start": 8.48,
+          "end": 8.78
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40867245104163885
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0230252e738b56ea9b1aaf85c3b265624f86d6255d0b807aca1b3e2af25e4471",
+  "selected_reasons": []
+}

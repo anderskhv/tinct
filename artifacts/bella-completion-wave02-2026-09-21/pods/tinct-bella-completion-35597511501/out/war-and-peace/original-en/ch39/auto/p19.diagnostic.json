@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "b9e55521293dac95663fd6dd2fe596e101bec96bfb0d18cddb7338cdd7f444ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2976383911445737,
+      "alignment_seconds": 0.0015536602586507797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We must let him see Amelie, she's exquisite!\" said one of \"ours,\" kissing his finger tips.",
+        "hotwords": "We, Amelie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We must let him see Amelie, she's exquisite!\" said one of ours, kissing his finger tips.",
+          "start": 0.0,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.026031494140625
+            },
+            {
+              "text": " must",
+              "start": 0.36,
+              "end": 0.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " let",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " him",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 0.98,
+              "end": 1.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Amelie,",
+              "start": 1.24,
+              "end": 1.66,
+              "probability": 0.6310221354166666
+            },
+            {
+              "text": " she's",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " exquisite",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "!\"",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.05145263671875
+            },
+            {
+              "text": " said",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.984375
+            },
+            {
+              "text": " one",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.26,
+              "end": 3.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ours,",
+              "start": 3.42,
+              "end": 3.86,
+              "probability": 0.392578125
+            },
+            {
+              "text": " kissing",
+              "start": 4.12,
+              "end": 4.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " finger",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.0689697265625
+            },
+            {
+              "text": " tips.",
+              "start": 4.94,
+              "end": 5.4,
+              "probability": 0.354736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "must",
+          "start": 0.36,
+          "end": 0.56
+        },
+        {
+          "raw": "let",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "him",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "see",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "raw": "Amelie,",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "raw": "she's",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "exquisite",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "!\"",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "raw": "said",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "one",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "of",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "raw": "ours,",
+          "start": 3.42,
+          "end": 3.86
+        },
+        {
+          "raw": "kissing",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "raw": "his",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "finger",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "tips.",
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "“We",
+        "must",
+        "let",
+        "him",
+        "see",
+        "Amelie,",
+        "she’s",
+        "exquisite!”",
+        "said",
+        "one",
+        "of",
+        "“ours,”",
+        "kissing",
+        "his",
+        "finger",
+        "tips."
+      ],
+      "acoustic_expected_tokens": [
+        "\"We",
+        "must",
+        "let",
+        "him",
+        "see",
+        "Amelie,",
+        "she's",
+        "exquisite!\"",
+        "said",
+        "one",
+        "of",
+        "\"ours,\"",
+        "kissing",
+        "his",
+        "finger",
+        "tips."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          16,
+          9,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.36,
+          "end": 0.56,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.98,
+          "end": 1.24,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Amelie,",
+          "start": 1.24,
+          "end": 1.66,
+          "key": "amelie",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "shes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "exquisite",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "exquisite",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.26,
+          "end": 3.42,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ours,",
+          "start": 3.42,
+          "end": 3.86,
+          "key": "ours",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kissing",
+          "start": 4.12,
+          "end": 4.42,
+          "key": "kissing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 4.7,
+          "end": 4.94,
+          "key": "finger",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tips.",
+          "start": 4.94,
+          "end": 5.4,
+          "key": "tips",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“We",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "must",
+          "start": 0.36,
+          "end": 0.56
+        },
+        {
+          "text": "let",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "him",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "see",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "Amelie,",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "text": "she’s",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "exquisite!”",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "said",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "one",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "of",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "text": "“ours,”",
+          "start": 3.42,
+          "end": 3.86
+        },
+        {
+          "text": "kissing",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "text": "his",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "text": "finger",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "tips.",
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2993302959948778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6bb9ec94518f5b53986fb2c8538a5a487f7f52608e0de11cf4dcdf32830f8de1",
+  "selected_reasons": []
+}

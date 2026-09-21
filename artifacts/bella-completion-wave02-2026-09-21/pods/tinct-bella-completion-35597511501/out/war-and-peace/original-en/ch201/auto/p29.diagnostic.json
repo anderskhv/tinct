@@ -1,0 +1,989 @@
+{
+  "complete": true,
+  "signature": "6287f569f316a4a623672e85b02d31d2063540320e5d55e6e567286d71366fce",
+  "attempts": [
+    {
+      "asr_seconds": 0.36412614211440086,
+      "alignment_seconds": 0.00212653074413538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And again all the faces in that crowd bore an identical expression, though now it was certainly not an expression of curiosity or gratitude, but of angry resolve.",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And again all the faces in that crowd bore an identical expression, though now it was certainly not an expression of curiosity or gratitude, but of angry resolve.",
+          "start": 0.0,
+          "end": 8.52,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.74609375
+            },
+            {
+              "text": " again",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " all",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " faces",
+              "start": 0.98,
+              "end": 1.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " crowd",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bore",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " identical",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " expression,",
+              "start": 2.7,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " though",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " now",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " it",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " was",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " certainly",
+              "start": 4.38,
+              "end": 4.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 4.76,
+              "end": 5.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 5.08,
+              "end": 5.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " expression",
+              "start": 5.24,
+              "end": 5.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " curiosity",
+              "start": 5.88,
+              "end": 6.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 6.26,
+              "end": 6.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gratitude,",
+              "start": 6.74,
+              "end": 7.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 7.44,
+              "end": 7.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.66,
+              "end": 7.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " angry",
+              "start": 7.8,
+              "end": 8.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " resolve.",
+              "start": 8.08,
+              "end": 8.52,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "again",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "all",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "faces",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "raw": "in",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "that",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "crowd",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "raw": "bore",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "an",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "identical",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "raw": "expression,",
+          "start": 2.7,
+          "end": 3.32
+        },
+        {
+          "raw": "though",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "now",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "it",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "was",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "certainly",
+          "start": 4.38,
+          "end": 4.76
+        },
+        {
+          "raw": "not",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "raw": "an",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "raw": "expression",
+          "start": 5.24,
+          "end": 5.64
+        },
+        {
+          "raw": "of",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "curiosity",
+          "start": 5.88,
+          "end": 6.26
+        },
+        {
+          "raw": "or",
+          "start": 6.26,
+          "end": 6.74
+        },
+        {
+          "raw": "gratitude,",
+          "start": 6.74,
+          "end": 7.2
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.66
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "raw": "angry",
+          "start": 7.8,
+          "end": 8.08
+        },
+        {
+          "raw": "resolve.",
+          "start": 8.08,
+          "end": 8.52
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "again",
+        "all",
+        "the",
+        "faces",
+        "in",
+        "that",
+        "crowd",
+        "bore",
+        "an",
+        "identical",
+        "expression,",
+        "though",
+        "now",
+        "it",
+        "was",
+        "certainly",
+        "not",
+        "an",
+        "expression",
+        "of",
+        "curiosity",
+        "or",
+        "gratitude,",
+        "but",
+        "of",
+        "angry",
+        "resolve."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "again",
+        "all",
+        "the",
+        "faces",
+        "in",
+        "that",
+        "crowd",
+        "bore",
+        "an",
+        "identical",
+        "expression,",
+        "though",
+        "now",
+        "it",
+        "was",
+        "certainly",
+        "not",
+        "an",
+        "expression",
+        "of",
+        "curiosity",
+        "or",
+        "gratitude,",
+        "but",
+        "of",
+        "angry",
+        "resolve."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "again",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "faces",
+          "start": 0.98,
+          "end": 1.24,
+          "key": "faces",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "crowd",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "crowd",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bore",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "bore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "identical",
+          "start": 2.32,
+          "end": 2.7,
+          "key": "identical",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expression,",
+          "start": 2.7,
+          "end": 3.32,
+          "key": "expression",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "though",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "now",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 4.38,
+          "end": 4.76,
+          "key": "certainly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.76,
+          "end": 5.08,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.08,
+          "end": 5.24,
+          "key": "an",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 5.24,
+          "end": 5.64,
+          "key": "expression",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "curiosity",
+          "start": 5.88,
+          "end": 6.26,
+          "key": "curiosity",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.26,
+          "end": 6.74,
+          "key": "or",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "gratitude,",
+          "start": 6.74,
+          "end": 7.2,
+          "key": "gratitude",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.66,
+          "key": "but",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.8,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "angry",
+          "start": 7.8,
+          "end": 8.08,
+          "key": "angry",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "resolve.",
+          "start": 8.08,
+          "end": 8.52,
+          "key": "resolve",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "again",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "all",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "faces",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "in",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "that",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "crowd",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "text": "bore",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "an",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "identical",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "text": "expression,",
+          "start": 2.7,
+          "end": 3.32
+        },
+        {
+          "text": "though",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "now",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "it",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "was",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "certainly",
+          "start": 4.38,
+          "end": 4.76
+        },
+        {
+          "text": "not",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "text": "an",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "text": "expression",
+          "start": 5.24,
+          "end": 5.64
+        },
+        {
+          "text": "of",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "curiosity",
+          "start": 5.88,
+          "end": 6.26
+        },
+        {
+          "text": "or",
+          "start": 6.26,
+          "end": 6.74
+        },
+        {
+          "text": "gratitude,",
+          "start": 6.74,
+          "end": 7.2
+        },
+        {
+          "text": "but",
+          "start": 7.44,
+          "end": 7.66
+        },
+        {
+          "text": "of",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "text": "angry",
+          "start": 7.8,
+          "end": 8.08
+        },
+        {
+          "text": "resolve.",
+          "start": 8.08,
+          "end": 8.52
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3665127130225301
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06760b6756ffa43fc41c87e352105a59eba84524abf22282adb639b149984efa",
+  "selected_reasons": []
+}

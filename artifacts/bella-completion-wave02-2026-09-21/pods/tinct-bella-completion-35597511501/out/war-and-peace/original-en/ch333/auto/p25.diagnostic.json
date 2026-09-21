@@ -1,0 +1,1260 @@
+{
+  "complete": true,
+  "signature": "e6cec2aa13466d9090eddd25062669dc66d8ad1ba0126309088f46dab36bb842",
+  "attempts": [
+    {
+      "asr_seconds": 0.3511946201324463,
+      "alignment_seconds": 0.002204802818596363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She got up quickly just as Nicholas entered, almost ran to the door which was hidden by curtains, struck her head against it, and rushed from the room with a moan either of pain or sorrow.",
+        "hotwords": "She, Nicholas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She got up quickly just as Nicholas entered, almost ran to the door which was hidden by curtains,",
+          "start": 0.0,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.87890625
+            },
+            {
+              "text": " got",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quickly",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " as",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Nicholas",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " entered,",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " almost",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ran",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " door",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " which",
+              "start": 3.5,
+              "end": 3.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hidden",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " curtains,",
+              "start": 4.36,
+              "end": 4.78,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " struck her head against it, and rushed from the room with a moan either of pain or sorrow.",
+          "start": 5.24,
+          "end": 9.22,
+          "words": [
+            {
+              "text": " struck",
+              "start": 5.24,
+              "end": 5.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 5.36,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " against",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 6.48,
+              "end": 6.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rushed",
+              "start": 6.62,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 6.84,
+              "end": 7.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.08,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 7.4,
+              "end": 7.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 7.6,
+              "end": 7.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " moan",
+              "start": 7.7,
+              "end": 7.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " either",
+              "start": 7.9,
+              "end": 8.24,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 8.24,
+              "end": 8.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pain",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 8.68,
+              "end": 8.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sorrow.",
+              "start": 8.96,
+              "end": 9.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "got",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "up",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "quickly",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "just",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "as",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "entered,",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "raw": "almost",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "ran",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "to",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "door",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "which",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "raw": "was",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "hidden",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "raw": "curtains,",
+          "start": 4.36,
+          "end": 4.78
+        },
+        {
+          "raw": "struck",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "raw": "her",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "raw": "head",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "against",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "it,",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "and",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "raw": "rushed",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "raw": "from",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "raw": "the",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "raw": "room",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "with",
+          "start": 7.4,
+          "end": 7.6
+        },
+        {
+          "raw": "a",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "raw": "moan",
+          "start": 7.7,
+          "end": 7.9
+        },
+        {
+          "raw": "either",
+          "start": 7.9,
+          "end": 8.24
+        },
+        {
+          "raw": "of",
+          "start": 8.24,
+          "end": 8.44
+        },
+        {
+          "raw": "pain",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "raw": "or",
+          "start": 8.68,
+          "end": 8.96
+        },
+        {
+          "raw": "sorrow.",
+          "start": 8.96,
+          "end": 9.22
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "got",
+        "up",
+        "quickly",
+        "just",
+        "as",
+        "Nicholas",
+        "entered,",
+        "almost",
+        "ran",
+        "to",
+        "the",
+        "door",
+        "which",
+        "was",
+        "hidden",
+        "by",
+        "curtains,",
+        "struck",
+        "her",
+        "head",
+        "against",
+        "it,",
+        "and",
+        "rushed",
+        "from",
+        "the",
+        "room",
+        "with",
+        "a",
+        "moan",
+        "either",
+        "of",
+        "pain",
+        "or",
+        "sorrow."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "got",
+        "up",
+        "quickly",
+        "just",
+        "as",
+        "Nicholas",
+        "entered,",
+        "almost",
+        "ran",
+        "to",
+        "the",
+        "door",
+        "which",
+        "was",
+        "hidden",
+        "by",
+        "curtains,",
+        "struck",
+        "her",
+        "head",
+        "against",
+        "it,",
+        "and",
+        "rushed",
+        "from",
+        "the",
+        "room",
+        "with",
+        "a",
+        "moan",
+        "either",
+        "of",
+        "pain",
+        "or",
+        "sorrow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "got",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "quickly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "just",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "nicholas",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "entered,",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "entered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "almost",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 2.76,
+          "end": 3.04,
+          "key": "ran",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 3.32,
+          "end": 3.5,
+          "key": "door",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.5,
+          "end": 3.7,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.7,
+          "end": 3.88,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hidden",
+          "start": 3.88,
+          "end": 4.08,
+          "key": "hidden",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.36,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "curtains,",
+          "start": 4.36,
+          "end": 4.78,
+          "key": "curtains",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 5.24,
+          "end": 5.36,
+          "key": "struck",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.36,
+          "end": 5.6,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 5.6,
+          "end": 5.76,
+          "key": "head",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "against",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 6.02,
+          "end": 6.28,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.48,
+          "end": 6.62,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 6.62,
+          "end": 6.84,
+          "key": "rushed",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.84,
+          "end": 7.08,
+          "key": "from",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.08,
+          "end": 7.22,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 7.22,
+          "end": 7.4,
+          "key": "room",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.4,
+          "end": 7.6,
+          "key": "with",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.6,
+          "end": 7.7,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "moan",
+          "start": 7.7,
+          "end": 7.9,
+          "key": "moan",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 7.9,
+          "end": 8.24,
+          "key": "either",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.24,
+          "end": 8.44,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "pain",
+          "start": 8.44,
+          "end": 8.68,
+          "key": "pain",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 8.68,
+          "end": 8.96,
+          "key": "or",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "sorrow.",
+          "start": 8.96,
+          "end": 9.22,
+          "key": "sorrow",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "got",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "up",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "quickly",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "just",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "as",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "Nicholas",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "entered,",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "text": "almost",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "ran",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "text": "to",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "door",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "which",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "text": "was",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "hidden",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "by",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "text": "curtains,",
+          "start": 4.36,
+          "end": 4.78
+        },
+        {
+          "text": "struck",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "text": "her",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "text": "head",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "against",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "it,",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "and",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "text": "rushed",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "text": "from",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "text": "the",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "text": "room",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "with",
+          "start": 7.4,
+          "end": 7.6
+        },
+        {
+          "text": "a",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "text": "moan",
+          "start": 7.7,
+          "end": 7.9
+        },
+        {
+          "text": "either",
+          "start": 7.9,
+          "end": 8.24
+        },
+        {
+          "text": "of",
+          "start": 8.24,
+          "end": 8.44
+        },
+        {
+          "text": "pain",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "or",
+          "start": 8.68,
+          "end": 8.96
+        },
+        {
+          "text": "sorrow.",
+          "start": 8.96,
+          "end": 9.22
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35364180244505405
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f35b08cf8df126d2552411a4dc2a17f6beecb3249be8c20dfe2ed07c12144671",
+  "selected_reasons": []
+}

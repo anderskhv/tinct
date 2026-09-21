@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "be195acc0b58b5562b05dd9ec99be609e27da86e7ebe82f1fccd718f554acf60",
+  "attempts": [
+    {
+      "asr_seconds": 0.18984156288206577,
+      "alignment_seconds": 0.0007965872064232826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Vincentio, in a travelling dress.",
+        "hotwords": "Enter, Vincentio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Vincentio, in a travelling dress.",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Vincentio,",
+              "start": 0.64,
+              "end": 1.34,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " in",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " travelling",
+              "start": 1.86,
+              "end": 2.22,
+              "probability": 0.1910400390625
+            },
+            {
+              "text": " dress.",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Vincentio,",
+          "start": 0.64,
+          "end": 1.34
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "travelling",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "raw": "dress.",
+          "start": 2.22,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Vincentio,",
+        "in",
+        "a",
+        "travelling",
+        "dress."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Vincentio,",
+        "in",
+        "a",
+        "travelling",
+        "dress."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vincentio,",
+          "start": 0.64,
+          "end": 1.34,
+          "key": "vincentio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "travelling",
+          "start": 1.86,
+          "end": 2.22,
+          "key": "travelling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dress.",
+          "start": 2.22,
+          "end": 2.6,
+          "key": "dress",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Vincentio,",
+          "start": 0.64,
+          "end": 1.34
+        },
+        {
+          "text": "in",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "a",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "travelling",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "text": "dress.",
+          "start": 2.22,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19075090531259775
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c0dc9569fd81354a3a66f12823c9b3e286f103e93e0eb31394edda2476d1ed28",
+  "selected_reasons": []
+}

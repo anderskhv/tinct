@@ -1,0 +1,1902 @@
+{
+  "complete": true,
+  "signature": "322efb5922fbf2efe72a8f088f70e5bdd89a899a62307a541a5e6aefb8869c88",
+  "attempts": [
+    {
+      "asr_seconds": 0.2555618416517973,
+      "alignment_seconds": 0.001454697921872139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* Who had a triple talent For drinking, for fighting, And for being a gallant old boy...",
+        "hotwords": "Who, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Asterisk Who had a triple talent For drinking, for fighting, And for being a gallant old boy...",
+          "start": 0.0,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.6796875
+            },
+            {
+              "text": " Who",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.013641357421875
+            },
+            {
+              "text": " had",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.273681640625
+            },
+            {
+              "text": " a",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " triple",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.69140625
+            },
+            {
+              "text": " talent",
+              "start": 1.3,
+              "end": 1.66,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " For",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.00568389892578125
+            },
+            {
+              "text": " drinking,",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.8984375
+            },
+            {
+              "text": " for",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " fighting,",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.986328125
+            },
+            {
+              "text": " And",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.2236328125
+            },
+            {
+              "text": " for",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " being",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " gallant",
+              "start": 4.1,
+              "end": 4.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " old",
+              "start": 4.44,
+              "end": 4.62,
+              "probability": 0.953125
+            },
+            {
+              "text": " boy...",
+              "start": 4.62,
+              "end": 5.0,
+              "probability": 0.4953269958496094
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "Who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "a",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "triple",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "talent",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "raw": "For",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "drinking,",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "raw": "for",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "fighting,",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "raw": "And",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "for",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "being",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "gallant",
+          "start": 4.1,
+          "end": 4.44
+        },
+        {
+          "raw": "old",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "raw": "boy...",
+          "start": 4.62,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "triple",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "triple",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "talent",
+          "start": 1.3,
+          "end": 1.66,
+          "key": "talent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drinking,",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "drinking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fighting,",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "fighting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "being",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gallant",
+          "start": 4.1,
+          "end": 4.44,
+          "key": "gallant",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 4.44,
+          "end": 4.62,
+          "key": "old",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "boy...",
+          "start": 4.62,
+          "end": 5.0,
+          "key": "boy",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "Who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "had",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "a",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "triple",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "talent",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "text": "For",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "drinking,",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "text": "for",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "fighting,",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "text": "And",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "for",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "being",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "a",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "gallant",
+          "start": 4.1,
+          "end": 4.44
+        },
+        {
+          "text": "old",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "text": "boy...",
+          "start": 4.62,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2572190957143903
+    },
+    {
+      "asr_seconds": 0.2789724925532937,
+      "alignment_seconds": 0.0016198819503188133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Who, And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk Who Had A Triple Talent For Drinking, For Fighting, And For Being A Gallant Old Boy",
+          "start": 0.0,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " Who",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.01385498046875
+            },
+            {
+              "text": " Had",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.712890625
+            },
+            {
+              "text": " A",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " Triple",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Talent",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " For",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " Drinking,",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " For",
+              "start": 2.68,
+              "end": 2.74,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Fighting,",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " And",
+              "start": 3.54,
+              "end": 3.58,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " For",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Being",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " A",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Gallant",
+              "start": 4.1,
+              "end": 4.42,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " Old",
+              "start": 4.42,
+              "end": 4.62,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Boy",
+              "start": 4.62,
+              "end": 4.96,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "Who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "Had",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "A",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "Triple",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "Talent",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "For",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "Drinking,",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "For",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "raw": "Fighting,",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "And",
+          "start": 3.54,
+          "end": 3.58
+        },
+        {
+          "raw": "For",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "Being",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "A",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "Gallant",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "raw": "Old",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "raw": "Boy",
+          "start": 4.62,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Had",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Triple",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "triple",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Talent",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "talent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.62,
+          "end": 1.92,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Drinking,",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "drinking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 2.68,
+          "end": 2.74,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Fighting,",
+          "start": 2.74,
+          "end": 3.06,
+          "key": "fighting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.54,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Being",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "being",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Gallant",
+          "start": 4.1,
+          "end": 4.42,
+          "key": "gallant",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 4.42,
+          "end": 4.62,
+          "key": "old",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Boy",
+          "start": 4.62,
+          "end": 4.96,
+          "key": "boy",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "Who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "had",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "a",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "triple",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "talent",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "For",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "drinking,",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "for",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "text": "fighting,",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "And",
+          "start": 3.54,
+          "end": 3.58
+        },
+        {
+          "text": "for",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "being",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "a",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "gallant",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "text": "old",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "boy...",
+          "start": 4.62,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.28080306854099035
+    },
+    {
+      "asr_seconds": 0.2972151190042496,
+      "alignment_seconds": 0.001575445756316185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk who had a triple talent for drinking, for fighting, and for being a gallant old boy.",
+          "start": 0.0,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.6796875
+            },
+            {
+              "text": " who",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " had",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.98828125
+            },
+            {
+              "text": " triple",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " talent",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " for",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " drinking,",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " for",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " fighting,",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.52,
+              "end": 3.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " being",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gallant",
+              "start": 4.1,
+              "end": 4.42,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " old",
+              "start": 4.42,
+              "end": 4.62,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " boy.",
+              "start": 4.62,
+              "end": 4.98,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "triple",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "talent",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "for",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "drinking,",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "for",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "fighting,",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.58
+        },
+        {
+          "raw": "for",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "being",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "a",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "gallant",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "raw": "old",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "raw": "boy.",
+          "start": 4.62,
+          "end": 4.98
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Who",
+        "had",
+        "a",
+        "triple",
+        "talent",
+        "For",
+        "drinking,",
+        "for",
+        "fighting,",
+        "And",
+        "for",
+        "being",
+        "a",
+        "gallant",
+        "old",
+        "boy..."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "triple",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "triple",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "talent",
+          "start": 1.34,
+          "end": 1.66,
+          "key": "talent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drinking,",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "drinking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.66,
+          "end": 2.74,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fighting,",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "fighting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.58,
+          "end": 3.72,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "being",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gallant",
+          "start": 4.1,
+          "end": 4.42,
+          "key": "gallant",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 4.42,
+          "end": 4.62,
+          "key": "old",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 4.62,
+          "end": 4.98,
+          "key": "boy",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "Who",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "had",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "a",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "triple",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "talent",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "text": "For",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "drinking,",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "text": "for",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "fighting,",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "text": "And",
+          "start": 3.52,
+          "end": 3.58
+        },
+        {
+          "text": "for",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "being",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "a",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "gallant",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "text": "old",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "boy...",
+          "start": 4.62,
+          "end": 4.98
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.29899856448173523
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e03cd4fca559f0760411b217ce8d5f9ce750fed4baaa2eaa52fdfefde5c1c435",
+  "selected_reasons": []
+}

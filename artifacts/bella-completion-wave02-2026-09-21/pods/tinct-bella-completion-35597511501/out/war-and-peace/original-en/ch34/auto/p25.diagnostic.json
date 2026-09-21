@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "1d1552cfb08bc095181b8431bd21fa013106f832dca4d9dfdf01f30ecc116e72",
+  "attempts": [
+    {
+      "asr_seconds": 0.19987770821899176,
+      "alignment_seconds": 0.0014348849654197693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In a moment the men came running gaily from their campfires and began loading.",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In a moment the men came running gaily from their campfires and began loading.",
+          "start": 0.0,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " a",
+              "start": 0.32,
+              "end": 0.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " moment",
+              "start": 0.44,
+              "end": 0.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " men",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " came",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " running",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gaily",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " from",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " campfires",
+              "start": 2.28,
+              "end": 2.88,
+              "probability": 0.978759765625
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " began",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " loading.",
+              "start": 3.38,
+              "end": 3.8,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "a",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "raw": "moment",
+          "start": 0.44,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "men",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "came",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "running",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "gaily",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "from",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "their",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "campfires",
+          "start": 2.28,
+          "end": 2.88
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "began",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "loading.",
+          "start": 3.38,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "a",
+        "moment",
+        "the",
+        "men",
+        "came",
+        "running",
+        "gaily",
+        "from",
+        "their",
+        "campfires",
+        "and",
+        "began",
+        "loading."
+      ],
+      "acoustic_expected_tokens": [
+        "In",
+        "a",
+        "moment",
+        "the",
+        "men",
+        "came",
+        "running",
+        "gaily",
+        "from",
+        "their",
+        "campfires",
+        "and",
+        "began",
+        "loading."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.32,
+          "end": 0.44,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 0.44,
+          "end": 0.66,
+          "key": "moment",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "men",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "came",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "running",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gaily",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "gaily",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "their",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "campfires",
+          "start": 2.28,
+          "end": 2.88,
+          "key": "campfires",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "began",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "loading.",
+          "start": 3.38,
+          "end": 3.8,
+          "key": "loading",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "a",
+          "start": 0.32,
+          "end": 0.44
+        },
+        {
+          "text": "moment",
+          "start": 0.44,
+          "end": 0.66
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "men",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "came",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "running",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "gaily",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "from",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "their",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "campfires",
+          "start": 2.28,
+          "end": 2.88
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "began",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "loading.",
+          "start": 3.38,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20159623213112354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73746c247b60963516ceecb307145198a0b4b55f7de2743223f5251733179e1c",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ea7e8106b5f66c1ee17bf2a8a5c998f68ccf7ac8fa02581c87f75726b077394e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11048151925206184,
+      "alignment_seconds": 0.00042536109685897827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Retires.",
+        "hotwords": "Retires"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Retires.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Retires.",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.895263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Retires.",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "[_Retires._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Retires."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Retires.",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "retires",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Retires._]",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11098203994333744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ce50877d81a2b2fff9f4731b7d8352be8782bcafd98f74300e06de2e4858675",
+  "selected_reasons": []
+}

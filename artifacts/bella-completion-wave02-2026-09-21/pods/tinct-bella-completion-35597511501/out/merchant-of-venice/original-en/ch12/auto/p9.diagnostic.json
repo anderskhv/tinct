@@ -1,0 +1,6190 @@
+{
+  "complete": true,
+  "signature": "b7dd45fb5e67487741f5af2bcb6f9cbbc6d943d092edb32cd8603ae0bd144507",
+  "attempts": [
+    {
+      "asr_seconds": 0.5208486700430512,
+      "alignment_seconds": 0.010170063935220242,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What's here? The portrait of a blinking idiot Presenting me a schedule! I will read it. How much unlike art thou to Portia! How much unlike my hopes and my deservings! \"Who chooseth me shall have as much as he deserves.\" Did I deserve no more than a fool's head? Is that my prize? Are my deserts no better?",
+        "hotwords": "What's, The, Presenting, I, How, Portia, Who, Did, Is, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The portrait of a blinking idiot Presenting me a schedule! I will read it. How much unlike art thou to Portia! How much unlike my hopes and my deservings!",
+          "start": 1.34,
+          "end": 10.44,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.006114959716796875
+            },
+            {
+              "text": " portrait",
+              "start": 1.9,
+              "end": 2.46,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " of",
+              "start": 2.46,
+              "end": 2.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 2.68,
+              "end": 2.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " blinking",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " idiot",
+              "start": 3.02,
+              "end": 3.44,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Presenting",
+              "start": 3.44,
+              "end": 4.02,
+              "probability": 0.537384033203125
+            },
+            {
+              "text": " me",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.14,
+              "end": 4.26,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " schedule!",
+              "start": 4.26,
+              "end": 4.68,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 5.02,
+              "end": 5.12,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " will",
+              "start": 5.12,
+              "end": 5.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " read",
+              "start": 5.3,
+              "end": 5.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it.",
+              "start": 5.5,
+              "end": 5.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " How",
+              "start": 6.16,
+              "end": 6.26,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " much",
+              "start": 6.26,
+              "end": 6.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " unlike",
+              "start": 6.42,
+              "end": 6.76,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " art",
+              "start": 6.76,
+              "end": 7.08,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " thou",
+              "start": 7.08,
+              "end": 7.3,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " to",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " Portia!",
+              "start": 7.48,
+              "end": 7.92,
+              "probability": 0.684814453125
+            },
+            {
+              "text": " How",
+              "start": 8.38,
+              "end": 8.48,
+              "probability": 0.94921875
+            },
+            {
+              "text": " much",
+              "start": 8.48,
+              "end": 8.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " unlike",
+              "start": 8.64,
+              "end": 8.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 8.94,
+              "end": 9.22,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " hopes",
+              "start": 9.22,
+              "end": 9.52,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " and",
+              "start": 9.52,
+              "end": 9.74,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " my",
+              "start": 9.74,
+              "end": 9.88,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " deservings!",
+              "start": 9.88,
+              "end": 10.44,
+              "probability": 0.8680013020833334
+            }
+          ]
+        },
+        {
+          "text": " Who chooseth me shall have as much as he deserves. Did I deserve no more than a fool's head? Is that my prize? Are my deserts no better?",
+          "start": 10.44,
+          "end": 18.72,
+          "words": [
+            {
+              "text": " Who",
+              "start": 10.44,
+              "end": 11.1,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " chooseth",
+              "start": 11.1,
+              "end": 11.66,
+              "probability": 0.6746419270833334
+            },
+            {
+              "text": " me",
+              "start": 11.66,
+              "end": 11.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " shall",
+              "start": 11.8,
+              "end": 11.92,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " have",
+              "start": 11.92,
+              "end": 12.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 12.12,
+              "end": 12.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " much",
+              "start": 12.26,
+              "end": 12.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 12.44,
+              "end": 12.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 12.6,
+              "end": 12.72,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " deserves.",
+              "start": 12.72,
+              "end": 13.14,
+              "probability": 0.8125
+            },
+            {
+              "text": " Did",
+              "start": 13.88,
+              "end": 14.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 14.02,
+              "end": 14.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " deserve",
+              "start": 14.16,
+              "end": 14.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 14.48,
+              "end": 14.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 14.76,
+              "end": 14.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 14.96,
+              "end": 15.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 15.12,
+              "end": 15.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fool's",
+              "start": 15.24,
+              "end": 15.6,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " head?",
+              "start": 15.6,
+              "end": 15.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Is",
+              "start": 16.3,
+              "end": 16.38,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 16.38,
+              "end": 16.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " prize?",
+              "start": 16.76,
+              "end": 17.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Are",
+              "start": 17.66,
+              "end": 17.76,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " my",
+              "start": 17.76,
+              "end": 17.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deserts",
+              "start": 17.9,
+              "end": 18.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " no",
+              "start": 18.22,
+              "end": 18.5,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " better?",
+              "start": 18.5,
+              "end": 18.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "portrait",
+          "start": 1.9,
+          "end": 2.46
+        },
+        {
+          "raw": "of",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "raw": "blinking",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "raw": "Presenting",
+          "start": 3.44,
+          "end": 4.02
+        },
+        {
+          "raw": "me",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "a",
+          "start": 4.14,
+          "end": 4.26
+        },
+        {
+          "raw": "schedule!",
+          "start": 4.26,
+          "end": 4.68
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.12
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "raw": "read",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "Portia!",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "raw": "How",
+          "start": 8.38,
+          "end": 8.48
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "raw": "my",
+          "start": 8.94,
+          "end": 9.22
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "raw": "deservings!",
+          "start": 9.88,
+          "end": 10.44
+        },
+        {
+          "raw": "Who",
+          "start": 10.44,
+          "end": 11.1
+        },
+        {
+          "raw": "chooseth",
+          "start": 11.1,
+          "end": 11.66
+        },
+        {
+          "raw": "me",
+          "start": 11.66,
+          "end": 11.8
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "raw": "much",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "raw": "as",
+          "start": 12.44,
+          "end": 12.6
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.72
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.72,
+          "end": 13.14
+        },
+        {
+          "raw": "Did",
+          "start": 13.88,
+          "end": 14.02
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.16
+        },
+        {
+          "raw": "deserve",
+          "start": 14.16,
+          "end": 14.48
+        },
+        {
+          "raw": "no",
+          "start": 14.48,
+          "end": 14.76
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.6
+        },
+        {
+          "raw": "head?",
+          "start": 15.6,
+          "end": 15.8
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "raw": "Are",
+          "start": 17.66,
+          "end": 17.76
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.9
+        },
+        {
+          "raw": "deserts",
+          "start": 17.9,
+          "end": 18.22
+        },
+        {
+          "raw": "no",
+          "start": 18.22,
+          "end": 18.5
+        },
+        {
+          "raw": "better?",
+          "start": 18.5,
+          "end": 18.72
+        }
+      ],
+      "expected_tokens": [
+        "ARRAGON.",
+        "What’s",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "“Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.”",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool’s",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "\"Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.\"",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool's",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          59,
+          0,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "portrait",
+          "start": 1.9,
+          "end": 2.46,
+          "key": "portrait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.46,
+          "end": 2.68,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.78,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blinking",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "blinking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44,
+          "key": "idiot",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Presenting",
+          "start": 3.44,
+          "end": 4.02,
+          "key": "presenting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.14,
+          "end": 4.26,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "schedule!",
+          "start": 4.26,
+          "end": 4.68,
+          "key": "schedule",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.12,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.3,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 5.3,
+          "end": 5.5,
+          "key": "read",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26,
+          "key": "how",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76,
+          "key": "unlike",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08,
+          "key": "art",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3,
+          "key": "thou",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Portia!",
+          "start": 7.48,
+          "end": 7.92,
+          "key": "portia",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 8.38,
+          "end": 8.48,
+          "key": "how",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64,
+          "key": "much",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.94,
+          "key": "unlike",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.94,
+          "end": 9.22,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52,
+          "key": "hopes",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "deservings!",
+          "start": 9.88,
+          "end": 10.44,
+          "key": "deservings",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 10.44,
+          "end": 11.1,
+          "key": "who",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "chooseth",
+          "start": 11.1,
+          "end": 11.66,
+          "key": "chooseth",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 11.66,
+          "end": 11.8,
+          "key": "me",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92,
+          "key": "shall",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12,
+          "key": "have",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.26,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 12.26,
+          "end": 12.44,
+          "key": "much",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.44,
+          "end": 12.6,
+          "key": "as",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.72,
+          "key": "he",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.72,
+          "end": 13.14,
+          "key": "deserves",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 13.88,
+          "end": 14.02,
+          "key": "did",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.16,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 14.16,
+          "end": 14.48,
+          "key": "deserve",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.48,
+          "end": 14.76,
+          "key": "no",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96,
+          "key": "more",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12,
+          "key": "than",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.6,
+          "key": "fools",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "head?",
+          "start": 15.6,
+          "end": 15.8,
+          "key": "head",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58,
+          "key": "that",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12,
+          "key": "prize",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 17.66,
+          "end": 17.76,
+          "key": "are",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.9,
+          "key": "my",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "deserts",
+          "start": 17.9,
+          "end": 18.22,
+          "key": "deserts",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 18.22,
+          "end": 18.5,
+          "key": "no",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "better?",
+          "start": 18.5,
+          "end": 18.72,
+          "key": "better",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ARRAGON.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "What’s",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "here?",
+          "start": 0.67,
+          "end": 1.005
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "portrait",
+          "start": 1.9,
+          "end": 2.46
+        },
+        {
+          "text": "of",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "text": "blinking",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "text": "Presenting",
+          "start": 3.44,
+          "end": 4.02
+        },
+        {
+          "text": "me",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "a",
+          "start": 4.14,
+          "end": 4.26
+        },
+        {
+          "text": "schedule!",
+          "start": 4.26,
+          "end": 4.68
+        },
+        {
+          "text": "I",
+          "start": 5.02,
+          "end": 5.12
+        },
+        {
+          "text": "will",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "text": "read",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "text": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "text": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "text": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "text": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "text": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "text": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "text": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "Portia!",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "text": "How",
+          "start": 8.38,
+          "end": 8.48
+        },
+        {
+          "text": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "text": "unlike",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "text": "my",
+          "start": 8.94,
+          "end": 9.22
+        },
+        {
+          "text": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "text": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "text": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "text": "deservings!",
+          "start": 9.88,
+          "end": 10.44
+        },
+        {
+          "text": "“Who",
+          "start": 10.44,
+          "end": 11.1
+        },
+        {
+          "text": "chooseth",
+          "start": 11.1,
+          "end": 11.66
+        },
+        {
+          "text": "me",
+          "start": 11.66,
+          "end": 11.8
+        },
+        {
+          "text": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "text": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "text": "as",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "text": "much",
+          "start": 12.26,
+          "end": 12.44
+        },
+        {
+          "text": "as",
+          "start": 12.44,
+          "end": 12.6
+        },
+        {
+          "text": "he",
+          "start": 12.6,
+          "end": 12.72
+        },
+        {
+          "text": "deserves.”",
+          "start": 12.72,
+          "end": 13.14
+        },
+        {
+          "text": "Did",
+          "start": 13.88,
+          "end": 14.02
+        },
+        {
+          "text": "I",
+          "start": 14.02,
+          "end": 14.16
+        },
+        {
+          "text": "deserve",
+          "start": 14.16,
+          "end": 14.48
+        },
+        {
+          "text": "no",
+          "start": 14.48,
+          "end": 14.76
+        },
+        {
+          "text": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "text": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "text": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "text": "fool’s",
+          "start": 15.24,
+          "end": 15.6
+        },
+        {
+          "text": "head?",
+          "start": 15.6,
+          "end": 15.8
+        },
+        {
+          "text": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "text": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "text": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "text": "Are",
+          "start": 17.66,
+          "end": 17.76
+        },
+        {
+          "text": "my",
+          "start": 17.76,
+          "end": 17.9
+        },
+        {
+          "text": "deserts",
+          "start": 17.9,
+          "end": 18.22
+        },
+        {
+          "text": "no",
+          "start": 18.22,
+          "end": 18.5
+        },
+        {
+          "text": "better?",
+          "start": 18.5,
+          "end": 18.72
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 57,
+        "matched_words": 57
+      },
+      "match_ratio": 0.9661016949152542,
+      "rejection_reasons": [],
+      "seconds": 0.531850503757596
+    },
+    {
+      "asr_seconds": 0.6012706933543086,
+      "alignment_seconds": 0.0033627310767769814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What's, The, Presenting, I, How, Portia, Who, Did, Is, Are"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aragon, what's here? The portrait of a blinking idiot presenting me a schedule. I will read",
+          "start": 0.18,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Aragon,",
+              "start": 0.18,
+              "end": 0.92,
+              "probability": 0.4134521484375
+            },
+            {
+              "text": " what's",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.970703125
+            },
+            {
+              "text": " here?",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " portrait",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " blinking",
+              "start": 2.8,
+              "end": 3.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " idiot",
+              "start": 3.02,
+              "end": 3.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " presenting",
+              "start": 3.44,
+              "end": 3.84,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " me",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " schedule.",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.982421875
+            },
+            {
+              "text": " will",
+              "start": 5.12,
+              "end": 5.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " read",
+              "start": 5.28,
+              "end": 5.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " it. How much unlike art thou to Portia. How much unlike my hopes and my deservings. Who",
+          "start": 5.5,
+          "end": 11.12,
+          "words": [
+            {
+              "text": " it.",
+              "start": 5.5,
+              "end": 5.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " How",
+              "start": 6.16,
+              "end": 6.26,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " much",
+              "start": 6.26,
+              "end": 6.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " unlike",
+              "start": 6.42,
+              "end": 6.76,
+              "probability": 0.947265625
+            },
+            {
+              "text": " art",
+              "start": 6.76,
+              "end": 7.08,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " thou",
+              "start": 7.08,
+              "end": 7.3,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " Portia.",
+              "start": 7.48,
+              "end": 7.92,
+              "probability": 0.7374267578125
+            },
+            {
+              "text": " How",
+              "start": 8.36,
+              "end": 8.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " much",
+              "start": 8.48,
+              "end": 8.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unlike",
+              "start": 8.64,
+              "end": 8.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 8.96,
+              "end": 9.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hopes",
+              "start": 9.22,
+              "end": 9.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 9.52,
+              "end": 9.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " my",
+              "start": 9.74,
+              "end": 9.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deservings.",
+              "start": 9.88,
+              "end": 10.42,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Who",
+              "start": 11.0,
+              "end": 11.12,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " choosed me shall have as much as he deserves. Did I deserve no more than a fool's head?",
+          "start": 11.12,
+          "end": 15.8,
+          "words": [
+            {
+              "text": " choosed",
+              "start": 11.12,
+              "end": 11.54,
+              "probability": 0.6151123046875
+            },
+            {
+              "text": " me",
+              "start": 11.54,
+              "end": 11.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shall",
+              "start": 11.8,
+              "end": 11.92,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " have",
+              "start": 11.92,
+              "end": 12.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 12.12,
+              "end": 12.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 12.28,
+              "end": 12.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 12.42,
+              "end": 12.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 12.6,
+              "end": 12.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " deserves.",
+              "start": 12.7,
+              "end": 13.1,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Did",
+              "start": 13.9,
+              "end": 14.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 14.02,
+              "end": 14.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserve",
+              "start": 14.14,
+              "end": 14.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 14.5,
+              "end": 14.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 14.76,
+              "end": 14.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 14.96,
+              "end": 15.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 15.12,
+              "end": 15.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fool's",
+              "start": 15.24,
+              "end": 15.58,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " head?",
+              "start": 15.58,
+              "end": 15.8,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Is that my prize? Or my deserts no better?",
+          "start": 16.3,
+          "end": 18.74,
+          "words": [
+            {
+              "text": " Is",
+              "start": 16.3,
+              "end": 16.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 16.38,
+              "end": 16.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " prize?",
+              "start": 16.76,
+              "end": 17.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Or",
+              "start": 17.62,
+              "end": 17.76,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " my",
+              "start": 17.76,
+              "end": 17.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " deserts",
+              "start": 17.92,
+              "end": 18.2,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " no",
+              "start": 18.2,
+              "end": 18.52,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " better?",
+              "start": 18.52,
+              "end": 18.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aragon,",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "raw": "what's",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "here?",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "The",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "portrait",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "blinking",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "raw": "presenting",
+          "start": 3.44,
+          "end": 3.84
+        },
+        {
+          "raw": "me",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "schedule.",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "raw": "read",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "Portia.",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "raw": "How",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.22
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "raw": "deservings.",
+          "start": 9.88,
+          "end": 10.42
+        },
+        {
+          "raw": "Who",
+          "start": 11.0,
+          "end": 11.12
+        },
+        {
+          "raw": "choosed",
+          "start": 11.12,
+          "end": 11.54
+        },
+        {
+          "raw": "me",
+          "start": 11.54,
+          "end": 11.8
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.28
+        },
+        {
+          "raw": "much",
+          "start": 12.28,
+          "end": 12.42
+        },
+        {
+          "raw": "as",
+          "start": 12.42,
+          "end": 12.6
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.7,
+          "end": 13.1
+        },
+        {
+          "raw": "Did",
+          "start": 13.9,
+          "end": 14.02
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.14
+        },
+        {
+          "raw": "deserve",
+          "start": 14.14,
+          "end": 14.5
+        },
+        {
+          "raw": "no",
+          "start": 14.5,
+          "end": 14.76
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.58
+        },
+        {
+          "raw": "head?",
+          "start": 15.58,
+          "end": 15.8
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "raw": "Or",
+          "start": 17.62,
+          "end": 17.76
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.92
+        },
+        {
+          "raw": "deserts",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "raw": "no",
+          "start": 18.2,
+          "end": 18.52
+        },
+        {
+          "raw": "better?",
+          "start": 18.52,
+          "end": 18.74
+        }
+      ],
+      "expected_tokens": [
+        "ARRAGON.",
+        "What’s",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "“Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.”",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool’s",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "\"Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.\"",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool's",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          32,
+          1,
+          33
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ],
+        [
+          "equal",
+          33,
+          54,
+          34,
+          55
+        ],
+        [
+          "replace",
+          54,
+          55,
+          55,
+          56
+        ],
+        [
+          "equal",
+          55,
+          59,
+          56,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ],
+        [
+          "replace",
+          54,
+          55,
+          55,
+          56
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aragon,",
+          "start": 0.18,
+          "end": 0.92,
+          "key": "aragon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "portrait",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "portrait",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blinking",
+          "start": 2.8,
+          "end": 3.02,
+          "key": "blinking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44,
+          "key": "idiot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "presenting",
+          "start": 3.44,
+          "end": 3.84,
+          "key": "presenting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "schedule.",
+          "start": 4.28,
+          "end": 4.66,
+          "key": "schedule",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.28,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 5.28,
+          "end": 5.5,
+          "key": "read",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26,
+          "key": "how",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42,
+          "key": "much",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76,
+          "key": "unlike",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08,
+          "key": "art",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Portia.",
+          "start": 7.48,
+          "end": 7.92,
+          "key": "portia",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 8.36,
+          "end": 8.48,
+          "key": "how",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64,
+          "key": "much",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.96,
+          "key": "unlike",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.22,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52,
+          "key": "hopes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88,
+          "key": "my",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "deservings.",
+          "start": 9.88,
+          "end": 10.42,
+          "key": "deservings",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 11.0,
+          "end": 11.12,
+          "key": "who",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "choosed",
+          "start": 11.12,
+          "end": 11.54,
+          "key": "choosed",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 11.54,
+          "end": 11.8,
+          "key": "me",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92,
+          "key": "shall",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12,
+          "key": "have",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.28,
+          "key": "as",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 12.28,
+          "end": 12.42,
+          "key": "much",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.42,
+          "end": 12.6,
+          "key": "as",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.7,
+          "key": "he",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.7,
+          "end": 13.1,
+          "key": "deserves",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 13.9,
+          "end": 14.02,
+          "key": "did",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.14,
+          "key": "i",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 14.14,
+          "end": 14.5,
+          "key": "deserve",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.5,
+          "end": 14.76,
+          "key": "no",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96,
+          "key": "more",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12,
+          "key": "than",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.58,
+          "key": "fools",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "head?",
+          "start": 15.58,
+          "end": 15.8,
+          "key": "head",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38,
+          "key": "is",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58,
+          "key": "that",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "my",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12,
+          "key": "prize",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 17.62,
+          "end": 17.76,
+          "key": "or",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.92,
+          "key": "my",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "deserts",
+          "start": 17.92,
+          "end": 18.2,
+          "key": "deserts",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 18.2,
+          "end": 18.52,
+          "key": "no",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "better?",
+          "start": 18.52,
+          "end": 18.74,
+          "key": "better",
+          "pieces": [
+            59
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ARRAGON.",
+          "start": 1.1,
+          "end": 1.1
+        },
+        {
+          "text": "What’s",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "here?",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "The",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "portrait",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "blinking",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "text": "Presenting",
+          "start": 3.44,
+          "end": 3.84
+        },
+        {
+          "text": "me",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "a",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "schedule!",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "text": "I",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "text": "will",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "text": "read",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "text": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "text": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "text": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "text": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "text": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "text": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "text": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "Portia!",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "text": "How",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "text": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "text": "unlike",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 8.96,
+          "end": 9.22
+        },
+        {
+          "text": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "text": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "text": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "text": "deservings!",
+          "start": 9.88,
+          "end": 10.42
+        },
+        {
+          "text": "“Who",
+          "start": 11.0,
+          "end": 11.12
+        },
+        {
+          "text": "chooseth",
+          "start": 11.12,
+          "end": 11.33
+        },
+        {
+          "text": "me",
+          "start": 11.54,
+          "end": 11.8
+        },
+        {
+          "text": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "text": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "text": "as",
+          "start": 12.12,
+          "end": 12.28
+        },
+        {
+          "text": "much",
+          "start": 12.28,
+          "end": 12.42
+        },
+        {
+          "text": "as",
+          "start": 12.42,
+          "end": 12.6
+        },
+        {
+          "text": "he",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "text": "deserves.”",
+          "start": 12.7,
+          "end": 13.1
+        },
+        {
+          "text": "Did",
+          "start": 13.9,
+          "end": 14.02
+        },
+        {
+          "text": "I",
+          "start": 14.02,
+          "end": 14.14
+        },
+        {
+          "text": "deserve",
+          "start": 14.14,
+          "end": 14.5
+        },
+        {
+          "text": "no",
+          "start": 14.5,
+          "end": 14.76
+        },
+        {
+          "text": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "text": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "text": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "text": "fool’s",
+          "start": 15.24,
+          "end": 15.58
+        },
+        {
+          "text": "head?",
+          "start": 15.58,
+          "end": 15.8
+        },
+        {
+          "text": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "text": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "text": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "text": "Are",
+          "start": 17.12,
+          "end": 17.44
+        },
+        {
+          "text": "my",
+          "start": 17.76,
+          "end": 17.92
+        },
+        {
+          "text": "deserts",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "text": "no",
+          "start": 18.2,
+          "end": 18.52
+        },
+        {
+          "text": "better?",
+          "start": 18.52,
+          "end": 18.74
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 60,
+        "matched_words": 57
+      },
+      "match_ratio": 0.9661016949152542,
+      "rejection_reasons": [],
+      "seconds": 0.6049254639074206
+    },
+    {
+      "asr_seconds": 0.6597190173342824,
+      "alignment_seconds": 0.004534497857093811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aragon, what's here? The portrait of a blinking idiot presenting me a schedule. I will read",
+          "start": 0.18,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Aragon,",
+              "start": 0.18,
+              "end": 0.92,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " what's",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.970703125
+            },
+            {
+              "text": " here?",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.935546875
+            },
+            {
+              "text": " portrait",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " blinking",
+              "start": 2.8,
+              "end": 3.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " idiot",
+              "start": 3.02,
+              "end": 3.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " presenting",
+              "start": 3.44,
+              "end": 3.84,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " me",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " schedule.",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.982421875
+            },
+            {
+              "text": " will",
+              "start": 5.12,
+              "end": 5.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " read",
+              "start": 5.28,
+              "end": 5.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " it. How much unlike art thou to Portia. How much unlike my hopes and my deservings. Who",
+          "start": 5.5,
+          "end": 11.12,
+          "words": [
+            {
+              "text": " it.",
+              "start": 5.5,
+              "end": 5.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " How",
+              "start": 6.16,
+              "end": 6.26,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " much",
+              "start": 6.26,
+              "end": 6.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " unlike",
+              "start": 6.42,
+              "end": 6.76,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " art",
+              "start": 6.76,
+              "end": 7.08,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " thou",
+              "start": 7.08,
+              "end": 7.3,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " Portia.",
+              "start": 7.48,
+              "end": 7.92,
+              "probability": 0.7384033203125
+            },
+            {
+              "text": " How",
+              "start": 8.36,
+              "end": 8.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " much",
+              "start": 8.48,
+              "end": 8.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unlike",
+              "start": 8.64,
+              "end": 8.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 8.96,
+              "end": 9.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hopes",
+              "start": 9.22,
+              "end": 9.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 9.52,
+              "end": 9.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " my",
+              "start": 9.74,
+              "end": 9.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deservings.",
+              "start": 9.88,
+              "end": 10.42,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Who",
+              "start": 11.0,
+              "end": 11.12,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " chooseth me shall have as much as he deserves. Did I deserve no more than a fool's head?",
+          "start": 11.12,
+          "end": 15.8,
+          "words": [
+            {
+              "text": " chooseth",
+              "start": 11.12,
+              "end": 11.64,
+              "probability": 0.7425130208333334
+            },
+            {
+              "text": " me",
+              "start": 11.64,
+              "end": 11.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shall",
+              "start": 11.8,
+              "end": 11.92,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " have",
+              "start": 11.92,
+              "end": 12.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 12.12,
+              "end": 12.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 12.28,
+              "end": 12.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 12.42,
+              "end": 12.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 12.6,
+              "end": 12.7,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " deserves.",
+              "start": 12.7,
+              "end": 13.08,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Did",
+              "start": 13.9,
+              "end": 14.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 14.02,
+              "end": 14.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserve",
+              "start": 14.14,
+              "end": 14.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 14.5,
+              "end": 14.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 14.76,
+              "end": 14.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 14.96,
+              "end": 15.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 15.12,
+              "end": 15.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fool's",
+              "start": 15.24,
+              "end": 15.58,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " head?",
+              "start": 15.58,
+              "end": 15.8,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Is that my prize? Or my deserts no better?",
+          "start": 16.3,
+          "end": 18.74,
+          "words": [
+            {
+              "text": " Is",
+              "start": 16.3,
+              "end": 16.38,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 16.38,
+              "end": 16.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 16.58,
+              "end": 16.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " prize?",
+              "start": 16.76,
+              "end": 17.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Or",
+              "start": 17.64,
+              "end": 17.76,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " my",
+              "start": 17.76,
+              "end": 17.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " deserts",
+              "start": 17.92,
+              "end": 18.2,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " no",
+              "start": 18.2,
+              "end": 18.52,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " better?",
+              "start": 18.52,
+              "end": 18.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aragon,",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "raw": "what's",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "here?",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "The",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "portrait",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "blinking",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "raw": "presenting",
+          "start": 3.44,
+          "end": 3.84
+        },
+        {
+          "raw": "me",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "schedule.",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "raw": "read",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "Portia.",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "raw": "How",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.22
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "raw": "deservings.",
+          "start": 9.88,
+          "end": 10.42
+        },
+        {
+          "raw": "Who",
+          "start": 11.0,
+          "end": 11.12
+        },
+        {
+          "raw": "chooseth",
+          "start": 11.12,
+          "end": 11.64
+        },
+        {
+          "raw": "me",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.28
+        },
+        {
+          "raw": "much",
+          "start": 12.28,
+          "end": 12.42
+        },
+        {
+          "raw": "as",
+          "start": 12.42,
+          "end": 12.6
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.7,
+          "end": 13.08
+        },
+        {
+          "raw": "Did",
+          "start": 13.9,
+          "end": 14.02
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.14
+        },
+        {
+          "raw": "deserve",
+          "start": 14.14,
+          "end": 14.5
+        },
+        {
+          "raw": "no",
+          "start": 14.5,
+          "end": 14.76
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.58
+        },
+        {
+          "raw": "head?",
+          "start": 15.58,
+          "end": 15.8
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "raw": "Or",
+          "start": 17.64,
+          "end": 17.76
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.92
+        },
+        {
+          "raw": "deserts",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "raw": "no",
+          "start": 18.2,
+          "end": 18.52
+        },
+        {
+          "raw": "better?",
+          "start": 18.52,
+          "end": 18.74
+        }
+      ],
+      "expected_tokens": [
+        "ARRAGON.",
+        "What’s",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "“Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.”",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool’s",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "here?",
+        "The",
+        "portrait",
+        "of",
+        "a",
+        "blinking",
+        "idiot",
+        "Presenting",
+        "me",
+        "a",
+        "schedule!",
+        "I",
+        "will",
+        "read",
+        "it.",
+        "How",
+        "much",
+        "unlike",
+        "art",
+        "thou",
+        "to",
+        "Portia!",
+        "How",
+        "much",
+        "unlike",
+        "my",
+        "hopes",
+        "and",
+        "my",
+        "deservings!",
+        "\"Who",
+        "chooseth",
+        "me",
+        "shall",
+        "have",
+        "as",
+        "much",
+        "as",
+        "he",
+        "deserves.\"",
+        "Did",
+        "I",
+        "deserve",
+        "no",
+        "more",
+        "than",
+        "a",
+        "fool's",
+        "head?",
+        "Is",
+        "that",
+        "my",
+        "prize?",
+        "Are",
+        "my",
+        "deserts",
+        "no",
+        "better?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          54,
+          1,
+          55
+        ],
+        [
+          "replace",
+          54,
+          55,
+          55,
+          56
+        ],
+        [
+          "equal",
+          55,
+          59,
+          56,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          54,
+          55,
+          55,
+          56
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aragon,",
+          "start": 0.18,
+          "end": 0.92,
+          "key": "aragon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "portrait",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "portrait",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blinking",
+          "start": 2.8,
+          "end": 3.02,
+          "key": "blinking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "idiot",
+          "start": 3.02,
+          "end": 3.44,
+          "key": "idiot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "presenting",
+          "start": 3.44,
+          "end": 3.84,
+          "key": "presenting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "schedule.",
+          "start": 4.28,
+          "end": 4.66,
+          "key": "schedule",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.12,
+          "end": 5.28,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 5.28,
+          "end": 5.5,
+          "key": "read",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.5,
+          "end": 5.82,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.26,
+          "key": "how",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 6.26,
+          "end": 6.42,
+          "key": "much",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 6.42,
+          "end": 6.76,
+          "key": "unlike",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.76,
+          "end": 7.08,
+          "key": "art",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.08,
+          "end": 7.3,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.3,
+          "end": 7.48,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Portia.",
+          "start": 7.48,
+          "end": 7.92,
+          "key": "portia",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 8.36,
+          "end": 8.48,
+          "key": "how",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 8.48,
+          "end": 8.64,
+          "key": "much",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 8.64,
+          "end": 8.96,
+          "key": "unlike",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.22,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hopes",
+          "start": 9.22,
+          "end": 9.52,
+          "key": "hopes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.52,
+          "end": 9.74,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.74,
+          "end": 9.88,
+          "key": "my",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "deservings.",
+          "start": 9.88,
+          "end": 10.42,
+          "key": "deservings",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 11.0,
+          "end": 11.12,
+          "key": "who",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "chooseth",
+          "start": 11.12,
+          "end": 11.64,
+          "key": "chooseth",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 11.64,
+          "end": 11.8,
+          "key": "me",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.8,
+          "end": 11.92,
+          "key": "shall",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 11.92,
+          "end": 12.12,
+          "key": "have",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.12,
+          "end": 12.28,
+          "key": "as",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 12.28,
+          "end": 12.42,
+          "key": "much",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.42,
+          "end": 12.6,
+          "key": "as",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.6,
+          "end": 12.7,
+          "key": "he",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "deserves.",
+          "start": 12.7,
+          "end": 13.08,
+          "key": "deserves",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 13.9,
+          "end": 14.02,
+          "key": "did",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.02,
+          "end": 14.14,
+          "key": "i",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 14.14,
+          "end": 14.5,
+          "key": "deserve",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.5,
+          "end": 14.76,
+          "key": "no",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.76,
+          "end": 14.96,
+          "key": "more",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 14.96,
+          "end": 15.12,
+          "key": "than",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.12,
+          "end": 15.24,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "fool's",
+          "start": 15.24,
+          "end": 15.58,
+          "key": "fools",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "head?",
+          "start": 15.58,
+          "end": 15.8,
+          "key": "head",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 16.3,
+          "end": 16.38,
+          "key": "is",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.38,
+          "end": 16.58,
+          "key": "that",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.58,
+          "end": 16.76,
+          "key": "my",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "prize?",
+          "start": 16.76,
+          "end": 17.12,
+          "key": "prize",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 17.64,
+          "end": 17.76,
+          "key": "or",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.76,
+          "end": 17.92,
+          "key": "my",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "deserts",
+          "start": 17.92,
+          "end": 18.2,
+          "key": "deserts",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 18.2,
+          "end": 18.52,
+          "key": "no",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "better?",
+          "start": 18.52,
+          "end": 18.74,
+          "key": "better",
+          "pieces": [
+            59
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ARRAGON.",
+          "start": 1.1,
+          "end": 1.1
+        },
+        {
+          "text": "What’s",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "here?",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "The",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "portrait",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "blinking",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "idiot",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "text": "Presenting",
+          "start": 3.44,
+          "end": 3.84
+        },
+        {
+          "text": "me",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "a",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "schedule!",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "text": "I",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "text": "will",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "text": "read",
+          "start": 5.28,
+          "end": 5.5
+        },
+        {
+          "text": "it.",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "text": "How",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "text": "much",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "text": "unlike",
+          "start": 6.42,
+          "end": 6.76
+        },
+        {
+          "text": "art",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "text": "thou",
+          "start": 7.08,
+          "end": 7.3
+        },
+        {
+          "text": "to",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "Portia!",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "text": "How",
+          "start": 8.36,
+          "end": 8.48
+        },
+        {
+          "text": "much",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "text": "unlike",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 8.96,
+          "end": 9.22
+        },
+        {
+          "text": "hopes",
+          "start": 9.22,
+          "end": 9.52
+        },
+        {
+          "text": "and",
+          "start": 9.52,
+          "end": 9.74
+        },
+        {
+          "text": "my",
+          "start": 9.74,
+          "end": 9.88
+        },
+        {
+          "text": "deservings!",
+          "start": 9.88,
+          "end": 10.42
+        },
+        {
+          "text": "“Who",
+          "start": 11.0,
+          "end": 11.12
+        },
+        {
+          "text": "chooseth",
+          "start": 11.12,
+          "end": 11.64
+        },
+        {
+          "text": "me",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "text": "shall",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "text": "have",
+          "start": 11.92,
+          "end": 12.12
+        },
+        {
+          "text": "as",
+          "start": 12.12,
+          "end": 12.28
+        },
+        {
+          "text": "much",
+          "start": 12.28,
+          "end": 12.42
+        },
+        {
+          "text": "as",
+          "start": 12.42,
+          "end": 12.6
+        },
+        {
+          "text": "he",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "text": "deserves.”",
+          "start": 12.7,
+          "end": 13.08
+        },
+        {
+          "text": "Did",
+          "start": 13.9,
+          "end": 14.02
+        },
+        {
+          "text": "I",
+          "start": 14.02,
+          "end": 14.14
+        },
+        {
+          "text": "deserve",
+          "start": 14.14,
+          "end": 14.5
+        },
+        {
+          "text": "no",
+          "start": 14.5,
+          "end": 14.76
+        },
+        {
+          "text": "more",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "text": "than",
+          "start": 14.96,
+          "end": 15.12
+        },
+        {
+          "text": "a",
+          "start": 15.12,
+          "end": 15.24
+        },
+        {
+          "text": "fool’s",
+          "start": 15.24,
+          "end": 15.58
+        },
+        {
+          "text": "head?",
+          "start": 15.58,
+          "end": 15.8
+        },
+        {
+          "text": "Is",
+          "start": 16.3,
+          "end": 16.38
+        },
+        {
+          "text": "that",
+          "start": 16.38,
+          "end": 16.58
+        },
+        {
+          "text": "my",
+          "start": 16.58,
+          "end": 16.76
+        },
+        {
+          "text": "prize?",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "text": "Are",
+          "start": 17.12,
+          "end": 17.44
+        },
+        {
+          "text": "my",
+          "start": 17.76,
+          "end": 17.92
+        },
+        {
+          "text": "deserts",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "text": "no",
+          "start": 18.2,
+          "end": 18.52
+        },
+        {
+          "text": "better?",
+          "start": 18.52,
+          "end": 18.74
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 60,
+        "matched_words": 58
+      },
+      "match_ratio": 0.9830508474576272,
+      "rejection_reasons": [],
+      "seconds": 0.6645943867042661
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ee1783dc2ce3099503f3bef26013dcd8b9d99e7fdf29f6d5fb37d1ad972ba52",
+  "selected_reasons": []
+}

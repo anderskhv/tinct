@@ -1,0 +1,535 @@
+{
+  "complete": true,
+  "signature": "8262affcbf71dec1290fbff04abf808dc65d36296548b742040c884600195195",
+  "attempts": [
+    {
+      "asr_seconds": 0.25850334018468857,
+      "alignment_seconds": 0.000502011738717556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Let it be cast and paid. Sir John, you shall not be excused.",
+        "hotwords": "Let, Sir, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shallow, let it be cast and paid. Sir John, you shall not be excused.",
+          "start": 0.08,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Shallow,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.6817626953125
+            },
+            {
+              "text": " let",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " it",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cast",
+              "start": 1.36,
+              "end": 1.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " paid.",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sir",
+              "start": 2.8,
+              "end": 2.86,
+              "probability": 0.96484375
+            },
+            {
+              "text": " John,",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you",
+              "start": 3.34,
+              "end": 3.4,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " shall",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " excused.",
+              "start": 3.82,
+              "end": 4.46,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shallow,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "let",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "it",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "be",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "cast",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "paid.",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "raw": "Sir",
+          "start": 2.8,
+          "end": 2.86
+        },
+        {
+          "raw": "John,",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.4
+        },
+        {
+          "raw": "shall",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "be",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "excused.",
+          "start": 3.82,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW.",
+        "Let",
+        "it",
+        "be",
+        "cast",
+        "and",
+        "paid.",
+        "Sir",
+        "John,",
+        "you",
+        "shall",
+        "not",
+        "be",
+        "excused."
+      ],
+      "acoustic_expected_tokens": [
+        "Let",
+        "it",
+        "be",
+        "cast",
+        "and",
+        "paid.",
+        "Sir",
+        "John,",
+        "you",
+        "shall",
+        "not",
+        "be",
+        "excused."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shallow,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "shallow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 1.36,
+          "end": 1.64,
+          "key": "cast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "paid.",
+          "start": 1.86,
+          "end": 2.2,
+          "key": "paid",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.8,
+          "end": 2.86,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "John,",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "john",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.4,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.4,
+          "end": 3.52,
+          "key": "shall",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "excused.",
+          "start": 3.82,
+          "end": 4.46,
+          "key": "excused",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "Let",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "it",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "text": "be",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "cast",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "paid.",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "text": "Sir",
+          "start": 2.8,
+          "end": 2.86
+        },
+        {
+          "text": "John,",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "text": "you",
+          "start": 3.34,
+          "end": 3.4
+        },
+        {
+          "text": "shall",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "not",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "be",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "excused.",
+          "start": 3.82,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2590819066390395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c29ae19f1d0a06191d6ccdbd33237a3ecec63515ca4e052bf2cab45ef30027f",
+  "selected_reasons": []
+}

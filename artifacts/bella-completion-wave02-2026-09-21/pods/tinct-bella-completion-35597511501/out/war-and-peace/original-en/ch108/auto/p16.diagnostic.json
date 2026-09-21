@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "f4e645778b1a4e7818a1b07c110d66fcad41412bc0e4a3aad3e84c84aaf23baa",
+  "attempts": [
+    {
+      "asr_seconds": 0.22224658355116844,
+      "alignment_seconds": 0.0009533809497952461,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sónya made some reluctant reply.",
+        "hotwords": "Sónya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sónya made some reluctant reply.",
+          "start": 0.0,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Sónya",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.3444082736968994
+            },
+            {
+              "text": " made",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " some",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reluctant",
+              "start": 1.02,
+              "end": 1.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " reply.",
+              "start": 1.44,
+              "end": 1.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sónya",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "made",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "some",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "reluctant",
+          "start": 1.02,
+          "end": 1.44
+        },
+        {
+          "raw": "reply.",
+          "start": 1.44,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Sónya",
+        "made",
+        "some",
+        "reluctant",
+        "reply."
+      ],
+      "acoustic_expected_tokens": [
+        "Sónya",
+        "made",
+        "some",
+        "reluctant",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sónya",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "sónya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "made",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "some",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reluctant",
+          "start": 1.02,
+          "end": 1.44,
+          "key": "reluctant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 1.44,
+          "end": 1.94,
+          "key": "reply",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Sónya",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "made",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "some",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "reluctant",
+          "start": 1.02,
+          "end": 1.44
+        },
+        {
+          "text": "reply.",
+          "start": 1.44,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22337257117033005
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "186f32aa4745efb5b6b029a05470c737a6f51a7d254b24a0b23ffac5ef53428c",
+  "selected_reasons": []
+}

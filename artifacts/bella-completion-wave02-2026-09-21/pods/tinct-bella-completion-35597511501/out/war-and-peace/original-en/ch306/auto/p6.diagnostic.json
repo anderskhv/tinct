@@ -1,0 +1,404 @@
+{
+  "complete": true,
+  "signature": "a8d21976a63757eff6bcbc08bd6937d6a4260790e8e99faafd81a958a33eecfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.22337812185287476,
+      "alignment_seconds": 0.0014184275642037392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I like that!\" exclaimed Pétya. \"Why shouldn't I go?\"",
+        "hotwords": "I, Pétya, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I like that!\" exclaimed Pétya. Why shouldn't I go?",
+          "start": 0.0,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.19287109375
+            },
+            {
+              "text": " like",
+              "start": 0.32,
+              "end": 0.5,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " that",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "!\"",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.1649169921875
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.06,
+              "end": 1.4,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Pétya.",
+              "start": 1.4,
+              "end": 2.02,
+              "probability": 0.3096405267715454
+            },
+            {
+              "text": " Why",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.039947509765625
+            },
+            {
+              "text": " shouldn't",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " go?",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "like",
+          "start": 0.32,
+          "end": 0.5
+        },
+        {
+          "raw": "that",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "!\"",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.06,
+          "end": 1.4
+        },
+        {
+          "raw": "Pétya.",
+          "start": 1.4,
+          "end": 2.02
+        },
+        {
+          "raw": "Why",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "shouldn't",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "I",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "go?",
+          "start": 3.62,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "like",
+        "that!”",
+        "exclaimed",
+        "Pétya.",
+        "“Why",
+        "shouldn’t",
+        "I",
+        "go?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "like",
+        "that!\"",
+        "exclaimed",
+        "Pétya.",
+        "\"Why",
+        "shouldn't",
+        "I",
+        "go?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.32,
+          "end": 0.5,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.06,
+          "end": 1.4,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pétya.",
+          "start": 1.4,
+          "end": 2.02,
+          "key": "pétya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "why",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shouldn't",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "shouldnt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.46,
+          "end": 3.62,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "like",
+          "start": 0.32,
+          "end": 0.5
+        },
+        {
+          "text": "that!”",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.06,
+          "end": 1.4
+        },
+        {
+          "text": "Pétya.",
+          "start": 1.4,
+          "end": 2.02
+        },
+        {
+          "text": "“Why",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "shouldn’t",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "I",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "go?”",
+          "start": 3.62,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22499063052237034
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f79769091bee8dc5a7e91668aaf1ec8677759feaa95ed455781824ed36aec97c",
+  "selected_reasons": []
+}

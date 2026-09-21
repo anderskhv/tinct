@@ -1,0 +1,1095 @@
+{
+  "complete": true,
+  "signature": "526e66f44e93ce7c3dfecdb2f53892d73025b89522f05806c533e179a0d63d25",
+  "attempts": [
+    {
+      "asr_seconds": 0.37988896295428276,
+      "alignment_seconds": 0.0025614844635128975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ermólov screwed up his eyes and smiled faintly on hearing these words. He understood that for him the storm had blown over, and that Kutúzov would content himself with that hint.",
+        "hotwords": "Ermólov, He, Kutúzov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ermólov screwed up his eyes and smiled faintly on hearing these words. He understood that for",
+          "start": 0.0,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " Ermólov",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.48146846890449524
+            },
+            {
+              "text": " screwed",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " up",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " smiled",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " faintly",
+              "start": 2.16,
+              "end": 2.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hearing",
+              "start": 2.82,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " these",
+              "start": 3.06,
+              "end": 3.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " words.",
+              "start": 3.38,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 4.94,
+              "end": 5.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " understood",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 1.0
+            },
+            {
+              "text": " that",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 5.6,
+              "end": 5.74,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " him the storm had blown over, and that Kutúzov would content himself with that hint.",
+          "start": 5.74,
+          "end": 9.88,
+          "words": [
+            {
+              "text": " him",
+              "start": 5.74,
+              "end": 5.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " storm",
+              "start": 6.04,
+              "end": 6.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " had",
+              "start": 6.3,
+              "end": 6.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blown",
+              "start": 6.5,
+              "end": 6.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " over,",
+              "start": 6.76,
+              "end": 7.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.4,
+              "end": 7.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 7.56,
+              "end": 7.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kutúzov",
+              "start": 7.74,
+              "end": 8.32,
+              "probability": 0.44696132838726044
+            },
+            {
+              "text": " would",
+              "start": 8.32,
+              "end": 8.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " content",
+              "start": 8.5,
+              "end": 8.84,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " himself",
+              "start": 8.84,
+              "end": 9.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 9.24,
+              "end": 9.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 9.48,
+              "end": 9.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hint.",
+              "start": 9.64,
+              "end": 9.88,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ermólov",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "screwed",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "up",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "his",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "eyes",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "smiled",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "faintly",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "raw": "on",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "hearing",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "raw": "these",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "raw": "words.",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "raw": "He",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "raw": "understood",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "that",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "for",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "raw": "him",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "storm",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "raw": "had",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "raw": "blown",
+          "start": 6.5,
+          "end": 6.76
+        },
+        {
+          "raw": "over,",
+          "start": 6.76,
+          "end": 7.12
+        },
+        {
+          "raw": "and",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "raw": "that",
+          "start": 7.56,
+          "end": 7.74
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 7.74,
+          "end": 8.32
+        },
+        {
+          "raw": "would",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "raw": "content",
+          "start": 8.5,
+          "end": 8.84
+        },
+        {
+          "raw": "himself",
+          "start": 8.84,
+          "end": 9.24
+        },
+        {
+          "raw": "with",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "raw": "that",
+          "start": 9.48,
+          "end": 9.64
+        },
+        {
+          "raw": "hint.",
+          "start": 9.64,
+          "end": 9.88
+        }
+      ],
+      "expected_tokens": [
+        "Ermólov",
+        "screwed",
+        "up",
+        "his",
+        "eyes",
+        "and",
+        "smiled",
+        "faintly",
+        "on",
+        "hearing",
+        "these",
+        "words.",
+        "He",
+        "understood",
+        "that",
+        "for",
+        "him",
+        "the",
+        "storm",
+        "had",
+        "blown",
+        "over,",
+        "and",
+        "that",
+        "Kutúzov",
+        "would",
+        "content",
+        "himself",
+        "with",
+        "that",
+        "hint."
+      ],
+      "acoustic_expected_tokens": [
+        "Ermólov",
+        "screwed",
+        "up",
+        "his",
+        "eyes",
+        "and",
+        "smiled",
+        "faintly",
+        "on",
+        "hearing",
+        "these",
+        "words.",
+        "He",
+        "understood",
+        "that",
+        "for",
+        "him",
+        "the",
+        "storm",
+        "had",
+        "blown",
+        "over,",
+        "and",
+        "that",
+        "Kutúzov",
+        "would",
+        "content",
+        "himself",
+        "with",
+        "that",
+        "hint."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ermólov",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "ermólov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "screwed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "eyes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 1.82,
+          "end": 2.16,
+          "key": "smiled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "faintly",
+          "start": 2.16,
+          "end": 2.54,
+          "key": "faintly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hearing",
+          "start": 2.82,
+          "end": 3.06,
+          "key": "hearing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.06,
+          "end": 3.38,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 3.38,
+          "end": 3.74,
+          "key": "words",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.94,
+          "end": 5.06,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 5.06,
+          "end": 5.42,
+          "key": "understood",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.6,
+          "end": 5.74,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.74,
+          "end": 5.9,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "storm",
+          "start": 6.04,
+          "end": 6.3,
+          "key": "storm",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.3,
+          "end": 6.5,
+          "key": "had",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "blown",
+          "start": 6.5,
+          "end": 6.76,
+          "key": "blown",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "over,",
+          "start": 6.76,
+          "end": 7.12,
+          "key": "over",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.4,
+          "end": 7.56,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.56,
+          "end": 7.74,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 7.74,
+          "end": 8.32,
+          "key": "kutúzov",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 8.32,
+          "end": 8.5,
+          "key": "would",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 8.5,
+          "end": 8.84,
+          "key": "content",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 8.84,
+          "end": 9.24,
+          "key": "himself",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.24,
+          "end": 9.48,
+          "key": "with",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.48,
+          "end": 9.64,
+          "key": "that",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hint.",
+          "start": 9.64,
+          "end": 9.88,
+          "key": "hint",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Ermólov",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "screwed",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "up",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "his",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "eyes",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "smiled",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "faintly",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "text": "on",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "hearing",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "text": "these",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "text": "words.",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "text": "He",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "text": "understood",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "that",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "for",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "text": "him",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "text": "the",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "storm",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "text": "had",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "text": "blown",
+          "start": 6.5,
+          "end": 6.76
+        },
+        {
+          "text": "over,",
+          "start": 6.76,
+          "end": 7.12
+        },
+        {
+          "text": "and",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "text": "that",
+          "start": 7.56,
+          "end": 7.74
+        },
+        {
+          "text": "Kutúzov",
+          "start": 7.74,
+          "end": 8.32
+        },
+        {
+          "text": "would",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "text": "content",
+          "start": 8.5,
+          "end": 8.84
+        },
+        {
+          "text": "himself",
+          "start": 8.84,
+          "end": 9.24
+        },
+        {
+          "text": "with",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "text": "that",
+          "start": 9.48,
+          "end": 9.64
+        },
+        {
+          "text": "hint.",
+          "start": 9.64,
+          "end": 9.88
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38274925108999014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b9fbdf8aaa8fd5248f3ca88871e86a678e673aeaa5e33012cb00db69ed489de",
+  "selected_reasons": []
+}

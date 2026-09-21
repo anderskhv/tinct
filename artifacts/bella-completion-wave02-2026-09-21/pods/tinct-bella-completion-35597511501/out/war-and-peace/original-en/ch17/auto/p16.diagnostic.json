@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "ae76876564e302d655a8e137b04361628373b2ce143fd37005231d19d34c8f27",
+  "attempts": [
+    {
+      "asr_seconds": 0.20510989986360073,
+      "alignment_seconds": 0.0007575135678052902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, Dmítri, clean ones, please,\" said the countess, sighing deeply.",
+        "hotwords": "Yes, Dmítri"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, Dmítri, clean ones, please,\" said the countess, sighing deeply.",
+          "start": 0.05,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.037933349609375
+            },
+            {
+              "text": " Dmítri,",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.018443673849105835
+            },
+            {
+              "text": " clean",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " ones,",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " please,\"",
+              "start": 1.93,
+              "end": 2.65,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " said",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " countess,",
+              "start": 2.97,
+              "end": 3.43,
+              "probability": 0.556610107421875
+            },
+            {
+              "text": " sighing",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " deeply.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Dmítri,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "clean",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "ones,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "please,\"",
+          "start": 1.93,
+          "end": 2.65
+        },
+        {
+          "raw": "said",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "countess,",
+          "start": 2.97,
+          "end": 3.43
+        },
+        {
+          "raw": "sighing",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "raw": "deeply.",
+          "start": 3.83,
+          "end": 4.07
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "Dmítri,",
+        "clean",
+        "ones,",
+        "please,”",
+        "said",
+        "the",
+        "countess,",
+        "sighing",
+        "deeply."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "Dmítri,",
+        "clean",
+        "ones,",
+        "please,\"",
+        "said",
+        "the",
+        "countess,",
+        "sighing",
+        "deeply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dmítri,",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "dmítri",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "clean",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "clean",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ones,",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "ones",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "please,\"",
+          "start": 1.93,
+          "end": 2.65,
+          "key": "please",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "countess,",
+          "start": 2.97,
+          "end": 3.43,
+          "key": "countess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sighing",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "sighing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deeply.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "deeply",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Dmítri,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "clean",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "ones,",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "please,”",
+          "start": 1.93,
+          "end": 2.65
+        },
+        {
+          "text": "said",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "countess,",
+          "start": 2.97,
+          "end": 3.43
+        },
+        {
+          "text": "sighing",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "text": "deeply.",
+          "start": 3.83,
+          "end": 4.07
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20595993753522635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffb397f839656cd6aae232c2e21b2824dc77241bbc5e095928442d0e01d3cf11",
+  "selected_reasons": []
+}

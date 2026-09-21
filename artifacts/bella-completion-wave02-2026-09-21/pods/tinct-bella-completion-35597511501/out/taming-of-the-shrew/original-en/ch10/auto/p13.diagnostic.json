@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "946e3839a6547706890938dfd7ff0f2b55d2f2667a8a870bc9e513ac4cd10a50",
+  "attempts": [
+    {
+      "asr_seconds": 0.40313224121928215,
+      "alignment_seconds": 0.0020271195098757744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, forward, forward! thus the bowl should run, And not unluckily against the bias. But, soft! Company is coming here.",
+        "hotwords": "Well, And, But, Company"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Petrushio! Well, forward, forward! thus the bowl should run, And not unluckily against the bias. But, soft! Company is coming here.",
+          "start": 0.52,
+          "end": 8.68,
+          "words": [
+            {
+              "text": " Petrushio!",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.6627197265625
+            },
+            {
+              "text": " Well,",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " forward,",
+              "start": 1.72,
+              "end": 2.12,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " forward!",
+              "start": 2.34,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thus",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.0242919921875
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " bowl",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.059295654296875
+            },
+            {
+              "text": " should",
+              "start": 3.6,
+              "end": 3.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " run,",
+              "start": 3.82,
+              "end": 4.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " And",
+              "start": 4.34,
+              "end": 4.38,
+              "probability": 0.01300048828125
+            },
+            {
+              "text": " not",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " unluckily",
+              "start": 4.6,
+              "end": 5.14,
+              "probability": 0.9513346354166666
+            },
+            {
+              "text": " against",
+              "start": 5.14,
+              "end": 5.4,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " the",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bias.",
+              "start": 5.6,
+              "end": 5.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " But,",
+              "start": 6.54,
+              "end": 6.76,
+              "probability": 0.94140625
+            },
+            {
+              "text": " soft!",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Company",
+              "start": 7.66,
+              "end": 7.8,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " is",
+              "start": 7.8,
+              "end": 8.06,
+              "probability": 0.986328125
+            },
+            {
+              "text": " coming",
+              "start": 8.06,
+              "end": 8.28,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " here.",
+              "start": 8.28,
+              "end": 8.68,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Petrushio!",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "Well,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "forward,",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "raw": "forward!",
+          "start": 2.34,
+          "end": 2.56
+        },
+        {
+          "raw": "thus",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "bowl",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "should",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "raw": "run,",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "raw": "And",
+          "start": 4.34,
+          "end": 4.38
+        },
+        {
+          "raw": "not",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "unluckily",
+          "start": 4.6,
+          "end": 5.14
+        },
+        {
+          "raw": "against",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "raw": "the",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "bias.",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "raw": "But,",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "raw": "soft!",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "Company",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "raw": "is",
+          "start": 7.8,
+          "end": 8.06
+        },
+        {
+          "raw": "coming",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "raw": "here.",
+          "start": 8.28,
+          "end": 8.68
+        }
+      ],
+      "expected_tokens": [
+        "PETRUCHIO.",
+        "Well,",
+        "forward,",
+        "forward!",
+        "thus",
+        "the",
+        "bowl",
+        "should",
+        "run,",
+        "And",
+        "not",
+        "unluckily",
+        "against",
+        "the",
+        "bias.",
+        "But,",
+        "soft!",
+        "Company",
+        "is",
+        "coming",
+        "here."
+      ],
+      "acoustic_expected_tokens": [
+        "Well,",
+        "forward,",
+        "forward!",
+        "thus",
+        "the",
+        "bowl",
+        "should",
+        "run,",
+        "And",
+        "not",
+        "unluckily",
+        "against",
+        "the",
+        "bias.",
+        "But,",
+        "soft!",
+        "Company",
+        "is",
+        "coming",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          20,
+          1,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Petrushio!",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "petrushio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forward,",
+          "start": 1.72,
+          "end": 2.12,
+          "key": "forward",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forward!",
+          "start": 2.34,
+          "end": 2.56,
+          "key": "forward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 3.16,
+          "end": 3.26,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.46,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bowl",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "bowl",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.6,
+          "end": 3.82,
+          "key": "should",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "run,",
+          "start": 3.82,
+          "end": 4.14,
+          "key": "run",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.34,
+          "end": 4.38,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unluckily",
+          "start": 4.6,
+          "end": 5.14,
+          "key": "unluckily",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 5.14,
+          "end": 5.4,
+          "key": "against",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bias.",
+          "start": 5.6,
+          "end": 5.94,
+          "key": "bias",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 6.54,
+          "end": 6.76,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "soft!",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "soft",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Company",
+          "start": 7.66,
+          "end": 7.8,
+          "key": "company",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.8,
+          "end": 8.06,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 8.06,
+          "end": 8.28,
+          "key": "coming",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 8.28,
+          "end": 8.68,
+          "key": "here",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PETRUCHIO.",
+          "start": 1.44,
+          "end": 1.44
+        },
+        {
+          "text": "Well,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "forward,",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "text": "forward!",
+          "start": 2.34,
+          "end": 2.56
+        },
+        {
+          "text": "thus",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "bowl",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "should",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "text": "run,",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "text": "And",
+          "start": 4.34,
+          "end": 4.38
+        },
+        {
+          "text": "not",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "unluckily",
+          "start": 4.6,
+          "end": 5.14
+        },
+        {
+          "text": "against",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "text": "the",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "bias.",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "text": "But,",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "text": "soft!",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "Company",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "text": "is",
+          "start": 7.8,
+          "end": 8.06
+        },
+        {
+          "text": "coming",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "text": "here.",
+          "start": 8.28,
+          "end": 8.68
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4054651539772749
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "552ff98c3abb69bfb827d0f62a68f9310108d5aec648e0a95d8a089d4d926bec",
+  "selected_reasons": []
+}

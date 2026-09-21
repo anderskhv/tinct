@@ -1,0 +1,1811 @@
+{
+  "complete": true,
+  "signature": "5fc9bdb8a9a6b3a02b2d3fdb2bd3fe71ec6ea62e94cf0a86e6f4db809b67feab",
+  "attempts": [
+    {
+      "asr_seconds": 0.5730502689257264,
+      "alignment_seconds": 0.0061087580397725105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But I have cause to pry into this pedant: Methinks he looks as though he were in love. Yet if thy thoughts, Bianca, be so humble To cast thy wand'ring eyes on every stale, Seize thee that list: if once I find thee ranging, Hortensio will be quit with thee by changing.",
+        "hotwords": "But, I, Methinks, Yet, Bianca, Seize, Hortensio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But I have cause to pry into this pedant, Methinks he looks as though he were in love. Yet if thy thoughts, Bianca, Be so humble to cast thy wand'ring eyes on every stale, Seize thee that list. If once I find thee ranging, Hortensio will be quit with thee by changing.",
+          "start": 0.9,
+          "end": 17.22,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.9,
+              "end": 1.38,
+              "probability": 0.000659942626953125
+            },
+            {
+              "text": " I",
+              "start": 1.38,
+              "end": 1.86,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " have",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cause",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.061553955078125
+            },
+            {
+              "text": " to",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.728515625
+            },
+            {
+              "text": " pry",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " into",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " this",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " pedant,",
+              "start": 3.08,
+              "end": 3.5,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " Methinks",
+              "start": 3.94,
+              "end": 4.26,
+              "probability": 0.698486328125
+            },
+            {
+              "text": " he",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " looks",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 4.66,
+              "end": 4.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " though",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 5.08,
+              "end": 5.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " were",
+              "start": 5.24,
+              "end": 5.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 5.38,
+              "end": 5.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " love.",
+              "start": 5.56,
+              "end": 5.86,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Yet",
+              "start": 6.6,
+              "end": 6.7,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " if",
+              "start": 6.7,
+              "end": 6.86,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " thy",
+              "start": 6.86,
+              "end": 6.98,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " thoughts,",
+              "start": 6.98,
+              "end": 7.42,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Bianca,",
+              "start": 7.7,
+              "end": 8.06,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " Be",
+              "start": 8.42,
+              "end": 8.48,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " so",
+              "start": 8.48,
+              "end": 8.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " humble",
+              "start": 8.78,
+              "end": 9.04,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " to",
+              "start": 9.04,
+              "end": 9.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cast",
+              "start": 9.26,
+              "end": 9.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thy",
+              "start": 9.52,
+              "end": 9.76,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " wand",
+              "start": 9.76,
+              "end": 10.08,
+              "probability": 0.006267547607421875
+            },
+            {
+              "text": "'ring",
+              "start": 10.08,
+              "end": 10.3,
+              "probability": 0.833984375
+            },
+            {
+              "text": " eyes",
+              "start": 10.3,
+              "end": 10.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " on",
+              "start": 10.58,
+              "end": 10.84,
+              "probability": 0.6015625
+            },
+            {
+              "text": " every",
+              "start": 10.84,
+              "end": 11.18,
+              "probability": 0.96484375
+            },
+            {
+              "text": " stale,",
+              "start": 11.18,
+              "end": 11.62,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " Seize",
+              "start": 12.12,
+              "end": 12.4,
+              "probability": 0.898681640625
+            },
+            {
+              "text": " thee",
+              "start": 12.4,
+              "end": 12.5,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 12.5,
+              "end": 12.72,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " list.",
+              "start": 12.72,
+              "end": 13.0,
+              "probability": 0.859375
+            },
+            {
+              "text": " If",
+              "start": 13.56,
+              "end": 13.72,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " once",
+              "start": 13.72,
+              "end": 13.92,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " I",
+              "start": 13.92,
+              "end": 14.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " find",
+              "start": 14.1,
+              "end": 14.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thee",
+              "start": 14.3,
+              "end": 14.44,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " ranging,",
+              "start": 14.44,
+              "end": 14.86,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Hortensio",
+              "start": 15.2,
+              "end": 15.76,
+              "probability": 0.8972981770833334
+            },
+            {
+              "text": " will",
+              "start": 15.76,
+              "end": 15.94,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " be",
+              "start": 15.94,
+              "end": 16.1,
+              "probability": 0.978515625
+            },
+            {
+              "text": " quit",
+              "start": 16.1,
+              "end": 16.32,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " with",
+              "start": 16.32,
+              "end": 16.5,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " thee",
+              "start": 16.5,
+              "end": 16.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 16.64,
+              "end": 16.82,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " changing.",
+              "start": 16.82,
+              "end": 17.22,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.9,
+          "end": 1.38
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.86
+        },
+        {
+          "raw": "have",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "cause",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "pry",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "into",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "this",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "pedant,",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "raw": "Methinks",
+          "start": 3.94,
+          "end": 4.26
+        },
+        {
+          "raw": "he",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "raw": "looks",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "as",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "raw": "though",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "he",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "raw": "were",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.56
+        },
+        {
+          "raw": "love.",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "raw": "Yet",
+          "start": 6.6,
+          "end": 6.7
+        },
+        {
+          "raw": "if",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "raw": "thy",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "raw": "thoughts,",
+          "start": 6.98,
+          "end": 7.42
+        },
+        {
+          "raw": "Bianca,",
+          "start": 7.7,
+          "end": 8.06
+        },
+        {
+          "raw": "Be",
+          "start": 8.42,
+          "end": 8.48
+        },
+        {
+          "raw": "so",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "raw": "humble",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "raw": "to",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "raw": "cast",
+          "start": 9.26,
+          "end": 9.52
+        },
+        {
+          "raw": "thy",
+          "start": 9.52,
+          "end": 9.76
+        },
+        {
+          "raw": "wand",
+          "start": 9.76,
+          "end": 10.08
+        },
+        {
+          "raw": "'ring",
+          "start": 10.08,
+          "end": 10.3
+        },
+        {
+          "raw": "eyes",
+          "start": 10.3,
+          "end": 10.58
+        },
+        {
+          "raw": "on",
+          "start": 10.58,
+          "end": 10.84
+        },
+        {
+          "raw": "every",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "raw": "stale,",
+          "start": 11.18,
+          "end": 11.62
+        },
+        {
+          "raw": "Seize",
+          "start": 12.12,
+          "end": 12.4
+        },
+        {
+          "raw": "thee",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "raw": "that",
+          "start": 12.5,
+          "end": 12.72
+        },
+        {
+          "raw": "list.",
+          "start": 12.72,
+          "end": 13.0
+        },
+        {
+          "raw": "If",
+          "start": 13.56,
+          "end": 13.72
+        },
+        {
+          "raw": "once",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "raw": "I",
+          "start": 13.92,
+          "end": 14.1
+        },
+        {
+          "raw": "find",
+          "start": 14.1,
+          "end": 14.3
+        },
+        {
+          "raw": "thee",
+          "start": 14.3,
+          "end": 14.44
+        },
+        {
+          "raw": "ranging,",
+          "start": 14.44,
+          "end": 14.86
+        },
+        {
+          "raw": "Hortensio",
+          "start": 15.2,
+          "end": 15.76
+        },
+        {
+          "raw": "will",
+          "start": 15.76,
+          "end": 15.94
+        },
+        {
+          "raw": "be",
+          "start": 15.94,
+          "end": 16.1
+        },
+        {
+          "raw": "quit",
+          "start": 16.1,
+          "end": 16.32
+        },
+        {
+          "raw": "with",
+          "start": 16.32,
+          "end": 16.5
+        },
+        {
+          "raw": "thee",
+          "start": 16.5,
+          "end": 16.64
+        },
+        {
+          "raw": "by",
+          "start": 16.64,
+          "end": 16.82
+        },
+        {
+          "raw": "changing.",
+          "start": 16.82,
+          "end": 17.22
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "But",
+        "I",
+        "have",
+        "cause",
+        "to",
+        "pry",
+        "into",
+        "this",
+        "pedant:",
+        "Methinks",
+        "he",
+        "looks",
+        "as",
+        "though",
+        "he",
+        "were",
+        "in",
+        "love.",
+        "Yet",
+        "if",
+        "thy",
+        "thoughts,",
+        "Bianca,",
+        "be",
+        "so",
+        "humble",
+        "To",
+        "cast",
+        "thy",
+        "wand’ring",
+        "eyes",
+        "on",
+        "every",
+        "stale,",
+        "Seize",
+        "thee",
+        "that",
+        "list:",
+        "if",
+        "once",
+        "I",
+        "find",
+        "thee",
+        "ranging,",
+        "Hortensio",
+        "will",
+        "be",
+        "quit",
+        "with",
+        "thee",
+        "by",
+        "changing."
+      ],
+      "acoustic_expected_tokens": [
+        "But",
+        "I",
+        "have",
+        "cause",
+        "to",
+        "pry",
+        "into",
+        "this",
+        "pedant:",
+        "Methinks",
+        "he",
+        "looks",
+        "as",
+        "though",
+        "he",
+        "were",
+        "in",
+        "love.",
+        "Yet",
+        "if",
+        "thy",
+        "thoughts,",
+        "Bianca,",
+        "be",
+        "so",
+        "humble",
+        "To",
+        "cast",
+        "thy",
+        "wand'ring",
+        "eyes",
+        "on",
+        "every",
+        "stale,",
+        "Seize",
+        "thee",
+        "that",
+        "list:",
+        "if",
+        "once",
+        "I",
+        "find",
+        "thee",
+        "ranging,",
+        "Hortensio",
+        "will",
+        "be",
+        "quit",
+        "with",
+        "thee",
+        "by",
+        "changing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.9,
+          "end": 1.38,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cause",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "cause",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pry",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "pry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "into",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pedant,",
+          "start": 3.08,
+          "end": 3.5,
+          "key": "pedant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Methinks",
+          "start": 3.94,
+          "end": 4.26,
+          "key": "methinks",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.26,
+          "end": 4.48,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 4.48,
+          "end": 4.66,
+          "key": "looks",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.66,
+          "end": 4.9,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "though",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.08,
+          "end": 5.24,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.24,
+          "end": 5.38,
+          "key": "were",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.56,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 5.56,
+          "end": 5.86,
+          "key": "love",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 6.6,
+          "end": 6.7,
+          "key": "yet",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.7,
+          "end": 6.86,
+          "key": "if",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.86,
+          "end": 6.98,
+          "key": "thy",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thoughts,",
+          "start": 6.98,
+          "end": 7.42,
+          "key": "thoughts",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Bianca,",
+          "start": 7.7,
+          "end": 8.06,
+          "key": "bianca",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 8.42,
+          "end": 8.48,
+          "key": "be",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 8.48,
+          "end": 8.78,
+          "key": "so",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 8.78,
+          "end": 9.04,
+          "key": "humble",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.04,
+          "end": 9.26,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 9.26,
+          "end": 9.52,
+          "key": "cast",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 9.52,
+          "end": 9.76,
+          "key": "thy",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "wand 'ring",
+          "start": 9.76,
+          "end": 10.3,
+          "key": "wandring",
+          "pieces": [
+            29,
+            30
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 10.3,
+          "end": 10.58,
+          "key": "eyes",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 10.58,
+          "end": 10.84,
+          "key": "on",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 10.84,
+          "end": 11.18,
+          "key": "every",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "stale,",
+          "start": 11.18,
+          "end": 11.62,
+          "key": "stale",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Seize",
+          "start": 12.12,
+          "end": 12.4,
+          "key": "seize",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 12.4,
+          "end": 12.5,
+          "key": "thee",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.5,
+          "end": 12.72,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "list.",
+          "start": 12.72,
+          "end": 13.0,
+          "key": "list",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 13.56,
+          "end": 13.72,
+          "key": "if",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 13.72,
+          "end": 13.92,
+          "key": "once",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.92,
+          "end": 14.1,
+          "key": "i",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 14.1,
+          "end": 14.3,
+          "key": "find",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 14.3,
+          "end": 14.44,
+          "key": "thee",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "ranging,",
+          "start": 14.44,
+          "end": 14.86,
+          "key": "ranging",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Hortensio",
+          "start": 15.2,
+          "end": 15.76,
+          "key": "hortensio",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.76,
+          "end": 15.94,
+          "key": "will",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.94,
+          "end": 16.1,
+          "key": "be",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "quit",
+          "start": 16.1,
+          "end": 16.32,
+          "key": "quit",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.32,
+          "end": 16.5,
+          "key": "with",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 16.5,
+          "end": 16.64,
+          "key": "thee",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.64,
+          "end": 16.82,
+          "key": "by",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "changing.",
+          "start": 16.82,
+          "end": 17.22,
+          "key": "changing",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 29,
+          "text": "wand'ring",
+          "heard": "wand 'ring",
+          "heard_indexes": [
+            29,
+            30
+          ],
+          "start": 9.76,
+          "end": 10.3
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "But",
+          "start": 0.9,
+          "end": 1.38
+        },
+        {
+          "text": "I",
+          "start": 1.38,
+          "end": 1.86
+        },
+        {
+          "text": "have",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "cause",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "to",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "pry",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "into",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "this",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "pedant:",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "text": "Methinks",
+          "start": 3.94,
+          "end": 4.26
+        },
+        {
+          "text": "he",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "text": "looks",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "as",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "text": "though",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "he",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "text": "were",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "text": "in",
+          "start": 5.38,
+          "end": 5.56
+        },
+        {
+          "text": "love.",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "text": "Yet",
+          "start": 6.6,
+          "end": 6.7
+        },
+        {
+          "text": "if",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "text": "thy",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "text": "thoughts,",
+          "start": 6.98,
+          "end": 7.42
+        },
+        {
+          "text": "Bianca,",
+          "start": 7.7,
+          "end": 8.06
+        },
+        {
+          "text": "be",
+          "start": 8.42,
+          "end": 8.48
+        },
+        {
+          "text": "so",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "text": "humble",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "text": "To",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "text": "cast",
+          "start": 9.26,
+          "end": 9.52
+        },
+        {
+          "text": "thy",
+          "start": 9.52,
+          "end": 9.76
+        },
+        {
+          "text": "wand’ring",
+          "start": 9.76,
+          "end": 10.3
+        },
+        {
+          "text": "eyes",
+          "start": 10.3,
+          "end": 10.58
+        },
+        {
+          "text": "on",
+          "start": 10.58,
+          "end": 10.84
+        },
+        {
+          "text": "every",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "text": "stale,",
+          "start": 11.18,
+          "end": 11.62
+        },
+        {
+          "text": "Seize",
+          "start": 12.12,
+          "end": 12.4
+        },
+        {
+          "text": "thee",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "text": "that",
+          "start": 12.5,
+          "end": 12.72
+        },
+        {
+          "text": "list:",
+          "start": 12.72,
+          "end": 13.0
+        },
+        {
+          "text": "if",
+          "start": 13.56,
+          "end": 13.72
+        },
+        {
+          "text": "once",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "text": "I",
+          "start": 13.92,
+          "end": 14.1
+        },
+        {
+          "text": "find",
+          "start": 14.1,
+          "end": 14.3
+        },
+        {
+          "text": "thee",
+          "start": 14.3,
+          "end": 14.44
+        },
+        {
+          "text": "ranging,",
+          "start": 14.44,
+          "end": 14.86
+        },
+        {
+          "text": "Hortensio",
+          "start": 15.2,
+          "end": 15.76
+        },
+        {
+          "text": "will",
+          "start": 15.76,
+          "end": 15.94
+        },
+        {
+          "text": "be",
+          "start": 15.94,
+          "end": 16.1
+        },
+        {
+          "text": "quit",
+          "start": 16.1,
+          "end": 16.32
+        },
+        {
+          "text": "with",
+          "start": 16.32,
+          "end": 16.5
+        },
+        {
+          "text": "thee",
+          "start": 16.5,
+          "end": 16.64
+        },
+        {
+          "text": "by",
+          "start": 16.64,
+          "end": 16.82
+        },
+        {
+          "text": "changing.",
+          "start": 16.82,
+          "end": 17.22
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5796437785029411
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97c513746e27d4f4dab447f9413aacba987df4f992b5234bc6a93b6e6fa40ffa",
+  "selected_reasons": []
+}

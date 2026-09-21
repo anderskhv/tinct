@@ -1,0 +1,328 @@
+{
+  "complete": true,
+  "signature": "387eabd41c052f5200c1aa7bfbf3dffd7366036a11ca131b9ed2db67fcbcf6f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1721076276153326,
+      "alignment_seconds": 0.0010384833440184593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The adjutant in attendance came into the tent."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The adjutant in attendance came into the tent.",
+          "start": 0.0,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.798828125
+            },
+            {
+              "text": " adjutant",
+              "start": 0.32,
+              "end": 0.76,
+              "probability": 0.9747721354166666
+            },
+            {
+              "text": " in",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " attendance",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " came",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 1.58,
+              "end": 1.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tent.",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "adjutant",
+          "start": 0.32,
+          "end": 0.76
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "attendance",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "raw": "came",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "into",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "tent.",
+          "start": 2.02,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "adjutant",
+        "in",
+        "attendance",
+        "came",
+        "into",
+        "the",
+        "tent."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "adjutant",
+        "in",
+        "attendance",
+        "came",
+        "into",
+        "the",
+        "tent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "adjutant",
+          "start": 0.32,
+          "end": 0.76,
+          "key": "adjutant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.76,
+          "end": 0.86,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance",
+          "start": 0.86,
+          "end": 1.2,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "came",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.58,
+          "end": 1.88,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tent.",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "tent",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "adjutant",
+          "start": 0.32,
+          "end": 0.76
+        },
+        {
+          "text": "in",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "attendance",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "text": "came",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "into",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "tent.",
+          "start": 2.02,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17329094652086496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "36a91075425c104b0669cf6069d465a92e048df5d54985e35a4b82a3b8ba6a15",
+  "selected_reasons": []
+}

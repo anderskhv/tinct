@@ -1,0 +1,2234 @@
+{
+  "complete": true,
+  "signature": "a329754d055e147ba69891d259ad14fffcc47c37c545121571fd631607ad3ec8",
+  "attempts": [
+    {
+      "asr_seconds": 0.6001748396083713,
+      "alignment_seconds": 0.004054291173815727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When he heard these words and saw the expression of firm resolution in the Emperor's eyes, Michaud—quoique étranger, russe de cœur et d'âme,—at that solemn moment felt himself enraptured by all that he had heard (as he used afterwards to say), and gave expression to his own feelings and those of the Russian people whose representative he considered himself to be, in the following words:",
+        "hotwords": "When, Emperor's, Michaud—quoique, Russian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When he heard these words and saw the expression of firm resolution in the Emperor's eyes, Michaud—quoique étranger, russe de cœur et d'âme,—at that solemn moment felt himself enraptured by all that he had heard, as he used afterwards to say, and gave expression to his own feelings and those of the Russian people whose representative he considered himself to be, in the following words.",
+          "start": 0.0,
+          "end": 20.1,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " he",
+              "start": 0.36,
+              "end": 0.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heard",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " these",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " words",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.982421875
+            },
+            {
+              "text": " saw",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " expression",
+              "start": 1.98,
+              "end": 2.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " firm",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " resolution",
+              "start": 2.82,
+              "end": 3.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Emperor's",
+              "start": 3.66,
+              "end": 4.06,
+              "probability": 0.787841796875
+            },
+            {
+              "text": " eyes,",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Michaud—quoique",
+              "start": 4.66,
+              "end": 5.44,
+              "probability": 0.33935102820396423
+            },
+            {
+              "text": " étranger,",
+              "start": 5.44,
+              "end": 5.94,
+              "probability": 0.5726214249928793
+            },
+            {
+              "text": " russe",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.07341512044270833
+            },
+            {
+              "text": " de",
+              "start": 6.38,
+              "end": 6.5,
+              "probability": 0.794921875
+            },
+            {
+              "text": " cœur",
+              "start": 6.5,
+              "end": 6.72,
+              "probability": 0.22243976593017578
+            },
+            {
+              "text": " et",
+              "start": 6.72,
+              "end": 6.84,
+              "probability": 0.005115509033203125
+            },
+            {
+              "text": " d",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.70361328125
+            },
+            {
+              "text": "'âme,—at",
+              "start": 7.04,
+              "end": 7.92,
+              "probability": 0.33716275691986086
+            },
+            {
+              "text": " that",
+              "start": 7.92,
+              "end": 8.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " solemn",
+              "start": 8.12,
+              "end": 8.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " moment",
+              "start": 8.36,
+              "end": 8.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " felt",
+              "start": 8.76,
+              "end": 9.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " himself",
+              "start": 9.0,
+              "end": 9.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enraptured",
+              "start": 9.44,
+              "end": 10.02,
+              "probability": 0.9923095703125
+            },
+            {
+              "text": " by",
+              "start": 10.02,
+              "end": 10.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 10.24,
+              "end": 10.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 10.46,
+              "end": 10.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 10.6,
+              "end": 10.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 10.76,
+              "end": 10.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heard,",
+              "start": 10.9,
+              "end": 11.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 11.46,
+              "end": 11.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 11.58,
+              "end": 11.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " used",
+              "start": 11.7,
+              "end": 12.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " afterwards",
+              "start": 12.02,
+              "end": 12.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 12.38,
+              "end": 12.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say,",
+              "start": 12.68,
+              "end": 12.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 13.32,
+              "end": 13.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gave",
+              "start": 13.46,
+              "end": 13.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " expression",
+              "start": 13.62,
+              "end": 14.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.04,
+              "end": 14.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 14.3,
+              "end": 14.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " own",
+              "start": 14.44,
+              "end": 14.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feelings",
+              "start": 14.66,
+              "end": 15.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 15.02,
+              "end": 15.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " those",
+              "start": 15.34,
+              "end": 15.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 15.54,
+              "end": 15.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 15.68,
+              "end": 15.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Russian",
+              "start": 15.82,
+              "end": 16.06,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " people",
+              "start": 16.06,
+              "end": 16.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " whose",
+              "start": 16.44,
+              "end": 16.7,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " representative",
+              "start": 16.7,
+              "end": 17.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 17.26,
+              "end": 17.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " considered",
+              "start": 17.66,
+              "end": 18.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " himself",
+              "start": 18.04,
+              "end": 18.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 18.38,
+              "end": 18.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be,",
+              "start": 18.62,
+              "end": 18.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 19.02,
+              "end": 19.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 19.16,
+              "end": 19.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " following",
+              "start": 19.28,
+              "end": 19.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " words.",
+              "start": 19.54,
+              "end": 20.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "he",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "raw": "heard",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "these",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "words",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "saw",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "expression",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "firm",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "resolution",
+          "start": 2.82,
+          "end": 3.28
+        },
+        {
+          "raw": "in",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "the",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "Emperor's",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "raw": "eyes,",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "raw": "Michaud—quoique",
+          "start": 4.66,
+          "end": 5.44
+        },
+        {
+          "raw": "étranger,",
+          "start": 5.44,
+          "end": 5.94
+        },
+        {
+          "raw": "russe",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "raw": "de",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "raw": "cœur",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "raw": "et",
+          "start": 6.72,
+          "end": 6.84
+        },
+        {
+          "raw": "d",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "'âme,—at",
+          "start": 7.04,
+          "end": 7.92
+        },
+        {
+          "raw": "that",
+          "start": 7.92,
+          "end": 8.12
+        },
+        {
+          "raw": "solemn",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "raw": "moment",
+          "start": 8.36,
+          "end": 8.76
+        },
+        {
+          "raw": "felt",
+          "start": 8.76,
+          "end": 9.0
+        },
+        {
+          "raw": "himself",
+          "start": 9.0,
+          "end": 9.44
+        },
+        {
+          "raw": "enraptured",
+          "start": 9.44,
+          "end": 10.02
+        },
+        {
+          "raw": "by",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "raw": "all",
+          "start": 10.24,
+          "end": 10.46
+        },
+        {
+          "raw": "that",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "raw": "he",
+          "start": 10.6,
+          "end": 10.76
+        },
+        {
+          "raw": "had",
+          "start": 10.76,
+          "end": 10.9
+        },
+        {
+          "raw": "heard,",
+          "start": 10.9,
+          "end": 11.24
+        },
+        {
+          "raw": "as",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "raw": "he",
+          "start": 11.58,
+          "end": 11.7
+        },
+        {
+          "raw": "used",
+          "start": 11.7,
+          "end": 12.02
+        },
+        {
+          "raw": "afterwards",
+          "start": 12.02,
+          "end": 12.38
+        },
+        {
+          "raw": "to",
+          "start": 12.38,
+          "end": 12.68
+        },
+        {
+          "raw": "say,",
+          "start": 12.68,
+          "end": 12.96
+        },
+        {
+          "raw": "and",
+          "start": 13.32,
+          "end": 13.46
+        },
+        {
+          "raw": "gave",
+          "start": 13.46,
+          "end": 13.62
+        },
+        {
+          "raw": "expression",
+          "start": 13.62,
+          "end": 14.04
+        },
+        {
+          "raw": "to",
+          "start": 14.04,
+          "end": 14.3
+        },
+        {
+          "raw": "his",
+          "start": 14.3,
+          "end": 14.44
+        },
+        {
+          "raw": "own",
+          "start": 14.44,
+          "end": 14.66
+        },
+        {
+          "raw": "feelings",
+          "start": 14.66,
+          "end": 15.02
+        },
+        {
+          "raw": "and",
+          "start": 15.02,
+          "end": 15.34
+        },
+        {
+          "raw": "those",
+          "start": 15.34,
+          "end": 15.54
+        },
+        {
+          "raw": "of",
+          "start": 15.54,
+          "end": 15.68
+        },
+        {
+          "raw": "the",
+          "start": 15.68,
+          "end": 15.82
+        },
+        {
+          "raw": "Russian",
+          "start": 15.82,
+          "end": 16.06
+        },
+        {
+          "raw": "people",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "raw": "whose",
+          "start": 16.44,
+          "end": 16.7
+        },
+        {
+          "raw": "representative",
+          "start": 16.7,
+          "end": 17.26
+        },
+        {
+          "raw": "he",
+          "start": 17.26,
+          "end": 17.66
+        },
+        {
+          "raw": "considered",
+          "start": 17.66,
+          "end": 18.04
+        },
+        {
+          "raw": "himself",
+          "start": 18.04,
+          "end": 18.38
+        },
+        {
+          "raw": "to",
+          "start": 18.38,
+          "end": 18.62
+        },
+        {
+          "raw": "be,",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "raw": "in",
+          "start": 19.02,
+          "end": 19.16
+        },
+        {
+          "raw": "the",
+          "start": 19.16,
+          "end": 19.28
+        },
+        {
+          "raw": "following",
+          "start": 19.28,
+          "end": 19.54
+        },
+        {
+          "raw": "words.",
+          "start": 19.54,
+          "end": 20.1
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "he",
+        "heard",
+        "these",
+        "words",
+        "and",
+        "saw",
+        "the",
+        "expression",
+        "of",
+        "firm",
+        "resolution",
+        "in",
+        "the",
+        "Emperor’s",
+        "eyes,",
+        "Michaud—quoique",
+        "étranger,",
+        "russe",
+        "de",
+        "cœur",
+        "et",
+        "d’âme,—at",
+        "that",
+        "solemn",
+        "moment",
+        "felt",
+        "himself",
+        "enraptured",
+        "by",
+        "all",
+        "that",
+        "he",
+        "had",
+        "heard",
+        "(as",
+        "he",
+        "used",
+        "afterwards",
+        "to",
+        "say),",
+        "and",
+        "gave",
+        "expression",
+        "to",
+        "his",
+        "own",
+        "feelings",
+        "and",
+        "those",
+        "of",
+        "the",
+        "Russian",
+        "people",
+        "whose",
+        "representative",
+        "he",
+        "considered",
+        "himself",
+        "to",
+        "be,",
+        "in",
+        "the",
+        "following",
+        "words:"
+      ],
+      "acoustic_expected_tokens": [
+        "When",
+        "he",
+        "heard",
+        "these",
+        "words",
+        "and",
+        "saw",
+        "the",
+        "expression",
+        "of",
+        "firm",
+        "resolution",
+        "in",
+        "the",
+        "Emperor's",
+        "eyes,",
+        "Michaud—quoique",
+        "étranger,",
+        "russe",
+        "de",
+        "cœur",
+        "et",
+        "d'âme,—at",
+        "that",
+        "solemn",
+        "moment",
+        "felt",
+        "himself",
+        "enraptured",
+        "by",
+        "all",
+        "that",
+        "he",
+        "had",
+        "heard",
+        "(as",
+        "he",
+        "used",
+        "afterwards",
+        "to",
+        "say),",
+        "and",
+        "gave",
+        "expression",
+        "to",
+        "his",
+        "own",
+        "feelings",
+        "and",
+        "those",
+        "of",
+        "the",
+        "Russian",
+        "people",
+        "whose",
+        "representative",
+        "he",
+        "considered",
+        "himself",
+        "to",
+        "be,",
+        "in",
+        "the",
+        "following",
+        "words:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          65,
+          0,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.36,
+          "end": 0.52,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "heard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "words",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "saw",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 1.98,
+          "end": 2.38,
+          "key": "expression",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "firm",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "firm",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "resolution",
+          "start": 2.82,
+          "end": 3.28,
+          "key": "resolution",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Emperor's",
+          "start": 3.66,
+          "end": 4.06,
+          "key": "emperors",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 4.06,
+          "end": 4.26,
+          "key": "eyes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Michaud—quoique",
+          "start": 4.66,
+          "end": 5.44,
+          "key": "michaudquoique",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "étranger,",
+          "start": 5.44,
+          "end": 5.94,
+          "key": "étranger",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "russe",
+          "start": 6.18,
+          "end": 6.38,
+          "key": "russe",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 6.38,
+          "end": 6.5,
+          "key": "de",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cœur",
+          "start": 6.5,
+          "end": 6.72,
+          "key": "cœur",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 6.72,
+          "end": 6.84,
+          "key": "et",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "d 'âme,—at",
+          "start": 6.84,
+          "end": 7.92,
+          "key": "dâmeat",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.92,
+          "end": 8.12,
+          "key": "that",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "solemn",
+          "start": 8.12,
+          "end": 8.36,
+          "key": "solemn",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 8.36,
+          "end": 8.76,
+          "key": "moment",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 8.76,
+          "end": 9.0,
+          "key": "felt",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 9.0,
+          "end": 9.44,
+          "key": "himself",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "enraptured",
+          "start": 9.44,
+          "end": 10.02,
+          "key": "enraptured",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 10.02,
+          "end": 10.24,
+          "key": "by",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 10.24,
+          "end": 10.46,
+          "key": "all",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.46,
+          "end": 10.6,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.6,
+          "end": 10.76,
+          "key": "he",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 10.76,
+          "end": 10.9,
+          "key": "had",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "heard,",
+          "start": 10.9,
+          "end": 11.24,
+          "key": "heard",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.46,
+          "end": 11.58,
+          "key": "as",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 11.58,
+          "end": 11.7,
+          "key": "he",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "used",
+          "start": 11.7,
+          "end": 12.02,
+          "key": "used",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "afterwards",
+          "start": 12.02,
+          "end": 12.38,
+          "key": "afterwards",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.38,
+          "end": 12.68,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 12.68,
+          "end": 12.96,
+          "key": "say",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.32,
+          "end": 13.46,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 13.46,
+          "end": 13.62,
+          "key": "gave",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 13.62,
+          "end": 14.04,
+          "key": "expression",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.04,
+          "end": 14.3,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.3,
+          "end": 14.44,
+          "key": "his",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 14.44,
+          "end": 14.66,
+          "key": "own",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "feelings",
+          "start": 14.66,
+          "end": 15.02,
+          "key": "feelings",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.02,
+          "end": 15.34,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 15.34,
+          "end": 15.54,
+          "key": "those",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.54,
+          "end": 15.68,
+          "key": "of",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.68,
+          "end": 15.82,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 15.82,
+          "end": 16.06,
+          "key": "russian",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 16.06,
+          "end": 16.44,
+          "key": "people",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 16.44,
+          "end": 16.7,
+          "key": "whose",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "representative",
+          "start": 16.7,
+          "end": 17.26,
+          "key": "representative",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 17.26,
+          "end": 17.66,
+          "key": "he",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "considered",
+          "start": 17.66,
+          "end": 18.04,
+          "key": "considered",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 18.04,
+          "end": 18.38,
+          "key": "himself",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.38,
+          "end": 18.62,
+          "key": "to",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 18.62,
+          "end": 18.82,
+          "key": "be",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.02,
+          "end": 19.16,
+          "key": "in",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.16,
+          "end": 19.28,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "following",
+          "start": 19.28,
+          "end": 19.54,
+          "key": "following",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 19.54,
+          "end": 20.1,
+          "key": "words",
+          "pieces": [
+            65
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "d'âme,—at",
+          "heard": "d 'âme,—at",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 6.84,
+          "end": 7.92
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "he",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "text": "heard",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "these",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "words",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "and",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "saw",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "expression",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "firm",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "resolution",
+          "start": 2.82,
+          "end": 3.28
+        },
+        {
+          "text": "in",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "the",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "Emperor’s",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "text": "eyes,",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "text": "Michaud—quoique",
+          "start": 4.66,
+          "end": 5.44
+        },
+        {
+          "text": "étranger,",
+          "start": 5.44,
+          "end": 5.94
+        },
+        {
+          "text": "russe",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "text": "de",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "text": "cœur",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "text": "et",
+          "start": 6.72,
+          "end": 6.84
+        },
+        {
+          "text": "d’âme,—at",
+          "start": 6.84,
+          "end": 7.92
+        },
+        {
+          "text": "that",
+          "start": 7.92,
+          "end": 8.12
+        },
+        {
+          "text": "solemn",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "text": "moment",
+          "start": 8.36,
+          "end": 8.76
+        },
+        {
+          "text": "felt",
+          "start": 8.76,
+          "end": 9.0
+        },
+        {
+          "text": "himself",
+          "start": 9.0,
+          "end": 9.44
+        },
+        {
+          "text": "enraptured",
+          "start": 9.44,
+          "end": 10.02
+        },
+        {
+          "text": "by",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "text": "all",
+          "start": 10.24,
+          "end": 10.46
+        },
+        {
+          "text": "that",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "text": "he",
+          "start": 10.6,
+          "end": 10.76
+        },
+        {
+          "text": "had",
+          "start": 10.76,
+          "end": 10.9
+        },
+        {
+          "text": "heard",
+          "start": 10.9,
+          "end": 11.24
+        },
+        {
+          "text": "(as",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "text": "he",
+          "start": 11.58,
+          "end": 11.7
+        },
+        {
+          "text": "used",
+          "start": 11.7,
+          "end": 12.02
+        },
+        {
+          "text": "afterwards",
+          "start": 12.02,
+          "end": 12.38
+        },
+        {
+          "text": "to",
+          "start": 12.38,
+          "end": 12.68
+        },
+        {
+          "text": "say),",
+          "start": 12.68,
+          "end": 12.96
+        },
+        {
+          "text": "and",
+          "start": 13.32,
+          "end": 13.46
+        },
+        {
+          "text": "gave",
+          "start": 13.46,
+          "end": 13.62
+        },
+        {
+          "text": "expression",
+          "start": 13.62,
+          "end": 14.04
+        },
+        {
+          "text": "to",
+          "start": 14.04,
+          "end": 14.3
+        },
+        {
+          "text": "his",
+          "start": 14.3,
+          "end": 14.44
+        },
+        {
+          "text": "own",
+          "start": 14.44,
+          "end": 14.66
+        },
+        {
+          "text": "feelings",
+          "start": 14.66,
+          "end": 15.02
+        },
+        {
+          "text": "and",
+          "start": 15.02,
+          "end": 15.34
+        },
+        {
+          "text": "those",
+          "start": 15.34,
+          "end": 15.54
+        },
+        {
+          "text": "of",
+          "start": 15.54,
+          "end": 15.68
+        },
+        {
+          "text": "the",
+          "start": 15.68,
+          "end": 15.82
+        },
+        {
+          "text": "Russian",
+          "start": 15.82,
+          "end": 16.06
+        },
+        {
+          "text": "people",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "text": "whose",
+          "start": 16.44,
+          "end": 16.7
+        },
+        {
+          "text": "representative",
+          "start": 16.7,
+          "end": 17.26
+        },
+        {
+          "text": "he",
+          "start": 17.26,
+          "end": 17.66
+        },
+        {
+          "text": "considered",
+          "start": 17.66,
+          "end": 18.04
+        },
+        {
+          "text": "himself",
+          "start": 18.04,
+          "end": 18.38
+        },
+        {
+          "text": "to",
+          "start": 18.38,
+          "end": 18.62
+        },
+        {
+          "text": "be,",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "text": "in",
+          "start": 19.02,
+          "end": 19.16
+        },
+        {
+          "text": "the",
+          "start": 19.16,
+          "end": 19.28
+        },
+        {
+          "text": "following",
+          "start": 19.28,
+          "end": 19.54
+        },
+        {
+          "text": "words:",
+          "start": 19.54,
+          "end": 20.1
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 65
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6045468719676137
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f81a82e7f7a023e07076b104619a7b317099360f8e709aa701ca9467ace5a3a",
+  "selected_reasons": []
+}

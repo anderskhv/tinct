@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "ba704263b7eb715bafdd5f77260e56dc8b3fc3a37d14fdfbe375b8f8376fb3b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.26546713430434465,
+      "alignment_seconds": 0.0015123318880796432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O-ne! T-wo! Thwee!\" he shouted angrily and stepped aside.",
+        "hotwords": "O-ne, T-wo, Thwee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O-ne! T-wo! Thwee!\" he shouted angrily and stepped aside.",
+          "start": 0.0,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.03765869140625
+            },
+            {
+              "text": "-ne!",
+              "start": 0.38,
+              "end": 0.6,
+              "probability": 0.05672168731689453
+            },
+            {
+              "text": " T",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.133544921875
+            },
+            {
+              "text": "-wo!",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.6275634765625
+            },
+            {
+              "text": " Thwee",
+              "start": 3.26,
+              "end": 3.82,
+              "probability": 0.4720052083333333
+            },
+            {
+              "text": "!\"",
+              "start": 3.82,
+              "end": 3.84,
+              "probability": 0.019439697265625
+            },
+            {
+              "text": " he",
+              "start": 3.84,
+              "end": 3.94,
+              "probability": 0.912109375
+            },
+            {
+              "text": " shouted",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " angrily",
+              "start": 4.2,
+              "end": 4.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 4.7,
+              "end": 4.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " stepped",
+              "start": 4.98,
+              "end": 5.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " aside.",
+              "start": 5.26,
+              "end": 5.7,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "-ne!",
+          "start": 0.38,
+          "end": 0.6
+        },
+        {
+          "raw": "T",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "-wo!",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "Thwee",
+          "start": 3.26,
+          "end": 3.82
+        },
+        {
+          "raw": "!\"",
+          "start": 3.82,
+          "end": 3.84
+        },
+        {
+          "raw": "he",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "raw": "shouted",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "angrily",
+          "start": 4.2,
+          "end": 4.7
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "raw": "stepped",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "raw": "aside.",
+          "start": 5.26,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "“O-ne!",
+        "T-wo!",
+        "Thwee!”",
+        "he",
+        "shouted",
+        "angrily",
+        "and",
+        "stepped",
+        "aside."
+      ],
+      "acoustic_expected_tokens": [
+        "\"O-ne!",
+        "T-wo!",
+        "Thwee!\"",
+        "he",
+        "shouted",
+        "angrily",
+        "and",
+        "stepped",
+        "aside."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O -ne!",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "one",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "T -wo!",
+          "start": 1.66,
+          "end": 2.14,
+          "key": "two",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "Thwee",
+          "start": 3.26,
+          "end": 3.82,
+          "key": "thwee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.82,
+          "end": 3.84,
+          "key": "",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.84,
+          "end": 3.94,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "shouted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "angrily",
+          "start": 4.2,
+          "end": 4.7,
+          "key": "angrily",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 4.98,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stepped",
+          "start": 4.98,
+          "end": 5.26,
+          "key": "stepped",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "aside.",
+          "start": 5.26,
+          "end": 5.7,
+          "key": "aside",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"O-ne!",
+          "heard": "O -ne!",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "expected_index": 1,
+          "text": "T-wo!",
+          "heard": "T -wo!",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.66,
+          "end": 2.14
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“O-ne!",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "T-wo!",
+          "start": 1.66,
+          "end": 2.14
+        },
+        {
+          "text": "Thwee!”",
+          "start": 3.26,
+          "end": 3.82
+        },
+        {
+          "text": "he",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "text": "shouted",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "angrily",
+          "start": 4.2,
+          "end": 4.7
+        },
+        {
+          "text": "and",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "text": "stepped",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "aside.",
+          "start": 5.26,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26720609422773123
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1c4df70d652fec5362677b2ca7403cbe532fefa14a7868776b95a0a9c0a961f",
+  "selected_reasons": []
+}

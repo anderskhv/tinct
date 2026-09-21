@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "df4d8fb772ef30bb19ae7e8377bed09341958278cf92a09995e652ff259901af",
+  "attempts": [
+    {
+      "asr_seconds": 0.3545787436887622,
+      "alignment_seconds": 0.0011513736099004745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Denísov seemed to have forgotten Pétya's very existence. He turned to glance at him.",
+        "hotwords": "Denísov, Pétya's, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Denísov seemed to have forgotten Pétya's very existence. He turned to glance at him.",
+          "start": 0.0,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Denísov",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.012805938720703125
+            },
+            {
+              "text": " seemed",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " to",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 1.0
+            },
+            {
+              "text": " have",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forgotten",
+              "start": 1.24,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pétya's",
+              "start": 1.68,
+              "end": 2.18,
+              "probability": 0.465313720703125
+            },
+            {
+              "text": " very",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " existence.",
+              "start": 2.44,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 4.12,
+              "end": 4.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " turned",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.787109375
+            },
+            {
+              "text": " glance",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " at",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 1.0
+            },
+            {
+              "text": " him.",
+              "start": 5.12,
+              "end": 5.32,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "seemed",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "have",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "forgotten",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "raw": "Pétya's",
+          "start": 1.68,
+          "end": 2.18
+        },
+        {
+          "raw": "very",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "existence.",
+          "start": 2.44,
+          "end": 2.94
+        },
+        {
+          "raw": "He",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "raw": "turned",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "to",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "glance",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "at",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "him.",
+          "start": 5.12,
+          "end": 5.32
+        }
+      ],
+      "expected_tokens": [
+        "Denísov",
+        "seemed",
+        "to",
+        "have",
+        "forgotten",
+        "Pétya’s",
+        "very",
+        "existence.",
+        "He",
+        "turned",
+        "to",
+        "glance",
+        "at",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "Denísov",
+        "seemed",
+        "to",
+        "have",
+        "forgotten",
+        "Pétya's",
+        "very",
+        "existence.",
+        "He",
+        "turned",
+        "to",
+        "glance",
+        "at",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "denísov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "seemed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forgotten",
+          "start": 1.24,
+          "end": 1.68,
+          "key": "forgotten",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pétya's",
+          "start": 1.68,
+          "end": 2.18,
+          "key": "pétyas",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "existence.",
+          "start": 2.44,
+          "end": 2.94,
+          "key": "existence",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.12,
+          "end": 4.24,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "turned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "glance",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "glance",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.12,
+          "end": 5.32,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "seemed",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "to",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "have",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "forgotten",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "text": "Pétya’s",
+          "start": 1.68,
+          "end": 2.18
+        },
+        {
+          "text": "very",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "existence.",
+          "start": 2.44,
+          "end": 2.94
+        },
+        {
+          "text": "He",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "text": "turned",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "to",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "glance",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "at",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "him.",
+          "start": 5.12,
+          "end": 5.32
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35587451327592134
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76b872ff57ba9049c3483481b0b20745a6469644ad5a2ffa60d00e690ad68d32",
+  "selected_reasons": []
+}

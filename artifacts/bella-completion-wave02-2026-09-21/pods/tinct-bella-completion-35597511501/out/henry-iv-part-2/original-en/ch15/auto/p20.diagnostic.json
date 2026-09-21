@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "344f90762e884ec9021438b432835b5e370523ee2c3e84a0b906ee1932beaa23",
+  "attempts": [
+    {
+      "asr_seconds": 0.20367100834846497,
+      "alignment_seconds": 0.0006498731672763824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Go to; I say he shall have no wrong. Look about, Davy.",
+        "hotwords": "Go, I, Look, Davy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shallow, go to, I say he shall have no wrong. Look about, Davy.",
+          "start": 0.08,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " Shallow,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.823974609375
+            },
+            {
+              "text": " go",
+              "start": 0.98,
+              "end": 1.08,
+              "probability": 0.96484375
+            },
+            {
+              "text": " to,",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.9765625
+            },
+            {
+              "text": " say",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.984375
+            },
+            {
+              "text": " he",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.0024662017822265625
+            },
+            {
+              "text": " shall",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.970703125
+            },
+            {
+              "text": " have",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wrong.",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Look",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " about,",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Davy.",
+              "start": 3.58,
+              "end": 3.82,
+              "probability": 0.5758056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shallow,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "go",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "raw": "to,",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "say",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "shall",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "have",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "no",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "wrong.",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "Look",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "about,",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "Davy.",
+          "start": 3.58,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW.",
+        "Go",
+        "to;",
+        "I",
+        "say",
+        "he",
+        "shall",
+        "have",
+        "no",
+        "wrong.",
+        "Look",
+        "about,",
+        "Davy."
+      ],
+      "acoustic_expected_tokens": [
+        "Go",
+        "to;",
+        "I",
+        "say",
+        "he",
+        "shall",
+        "have",
+        "no",
+        "wrong.",
+        "Look",
+        "about,",
+        "Davy."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shallow,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "shallow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.98,
+          "end": 1.08,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "wrong",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "about,",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "about",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Davy.",
+          "start": 3.58,
+          "end": 3.82,
+          "key": "davy",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "Go",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "text": "to;",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "say",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "he",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "shall",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "have",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "no",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "wrong.",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "Look",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "about,",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "Davy.",
+          "start": 3.58,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20440787076950073
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "55e8f6b25dde0a2363ff0e6d40c1c3815e957a20c0e4eda59ba33ccf1f4bccf7",
+  "selected_reasons": []
+}

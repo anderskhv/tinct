@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "3955464472ad4e437f9b9ce5f4e66cb8115b823f8217c1c67035a5f0359b2e03",
+  "attempts": [
+    {
+      "asr_seconds": 0.2033493760973215,
+      "alignment_seconds": 0.000965057872235775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Returning. Madam, my instrument's in tune.",
+        "hotwords": "Returning, Madam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hortensio, returning. Madam, my instrument's in tune.",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Hortensio,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.9080403645833334
+            },
+            {
+              "text": " returning.",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Madam,",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " my",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " instrument's",
+              "start": 2.95,
+              "end": 3.47,
+              "probability": 0.5975341796875
+            },
+            {
+              "text": " in",
+              "start": 3.47,
+              "end": 3.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " tune.",
+              "start": 3.55,
+              "end": 3.83,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "returning.",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "my",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "instrument's",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "raw": "in",
+          "start": 3.47,
+          "end": 3.55
+        },
+        {
+          "raw": "tune.",
+          "start": 3.55,
+          "end": 3.83
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO.",
+        "[_Returning._]",
+        "Madam,",
+        "my",
+        "instrument’s",
+        "in",
+        "tune."
+      ],
+      "acoustic_expected_tokens": [
+        "Returning.",
+        "Madam,",
+        "my",
+        "instrument's",
+        "in",
+        "tune."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "returning.",
+          "start": 1.27,
+          "end": 1.65,
+          "key": "returning",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "instrument's",
+          "start": 2.95,
+          "end": 3.47,
+          "key": "instruments",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.47,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tune.",
+          "start": 3.55,
+          "end": 3.83,
+          "key": "tune",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 1.27,
+          "end": 1.27
+        },
+        {
+          "text": "[_Returning._]",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "text": "Madam,",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "my",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "instrument’s",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "text": "in",
+          "start": 3.47,
+          "end": 3.55
+        },
+        {
+          "text": "tune.",
+          "start": 3.55,
+          "end": 3.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20443943049758673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec077698aa93091bec77df4b76d9f6682622a019a8e0be43e66d10dcc42317a3",
+  "selected_reasons": []
+}

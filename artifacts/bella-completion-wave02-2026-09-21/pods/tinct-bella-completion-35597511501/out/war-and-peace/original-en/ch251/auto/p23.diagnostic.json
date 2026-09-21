@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "f1f5eb080daf74dcc5f96eefe2c25f9fa645f8ac7f6f20ac8f545e0c2fb96acd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1483822464942932,
+      "alignment_seconds": 0.0008238768205046654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mávra Kuzmínichna did not let him finish.",
+        "hotwords": "Mávra, Kuzmínichna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mávra Kuzmínichna did not let him finish.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Mávra",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.15085983276367188
+            },
+            {
+              "text": " Kuzmínichna",
+              "start": 0.6,
+              "end": 1.18,
+              "probability": 0.23395284016927084
+            },
+            {
+              "text": " did",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " let",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " finish.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18
+        },
+        {
+          "raw": "did",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "not",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "him",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "finish.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "did",
+        "not",
+        "let",
+        "him",
+        "finish."
+      ],
+      "acoustic_expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "did",
+        "not",
+        "let",
+        "him",
+        "finish."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "mávra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18,
+          "key": "kuzmínichna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "finish.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "finish",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.18
+        },
+        {
+          "text": "did",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "not",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "let",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "him",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "finish.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14931726828217506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d3dc855f4bfda42cf34e0489334e7208c0a4063d7010685218bb810551bd9ae",
+  "selected_reasons": []
+}

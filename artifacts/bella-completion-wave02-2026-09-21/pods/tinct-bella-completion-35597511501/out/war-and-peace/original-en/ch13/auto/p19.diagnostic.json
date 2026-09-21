@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "b56997d2e7d68f0c7bbedb608aefb0ac92eb38ce4189a2616a9cb6f04f5ebd53",
+  "attempts": [
+    {
+      "asr_seconds": 0.289138849824667,
+      "alignment_seconds": 0.0022576460614800453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She caught the young officer by his cuffs, and a look of solemnity and fear appeared on her flushed face.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She caught the young officer by his cuffs, and a look of solemnity and fear appeared on her flushed face.",
+          "start": 0.02,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " caught",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " young",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " officer",
+              "start": 1.04,
+              "end": 1.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cuffs,",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.5,
+              "end": 2.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " look",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " solemnity",
+              "start": 3.18,
+              "end": 3.78,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " and",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fear",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " appeared",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.84,
+              "end": 5.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " flushed",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " face.",
+              "start": 5.26,
+              "end": 5.64,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "caught",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "young",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "officer",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "raw": "by",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "cuffs,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "look",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "solemnity",
+          "start": 3.18,
+          "end": 3.78
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "fear",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "appeared",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "raw": "on",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "her",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "raw": "flushed",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "face.",
+          "start": 5.26,
+          "end": 5.64
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "caught",
+        "the",
+        "young",
+        "officer",
+        "by",
+        "his",
+        "cuffs,",
+        "and",
+        "a",
+        "look",
+        "of",
+        "solemnity",
+        "and",
+        "fear",
+        "appeared",
+        "on",
+        "her",
+        "flushed",
+        "face."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "caught",
+        "the",
+        "young",
+        "officer",
+        "by",
+        "his",
+        "cuffs,",
+        "and",
+        "a",
+        "look",
+        "of",
+        "solemnity",
+        "and",
+        "fear",
+        "appeared",
+        "on",
+        "her",
+        "flushed",
+        "face."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "caught",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "young",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 1.04,
+          "end": 1.44,
+          "key": "officer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cuffs,",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "cuffs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.84,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "solemnity",
+          "start": 3.18,
+          "end": 3.78,
+          "key": "solemnity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 3.98,
+          "end": 4.28,
+          "key": "fear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 4.28,
+          "end": 4.66,
+          "key": "appeared",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.84,
+          "end": 5.0,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "flushed",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "flushed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 5.26,
+          "end": 5.64,
+          "key": "face",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "caught",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "young",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "officer",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "text": "by",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "text": "his",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "cuffs,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "and",
+          "start": 2.5,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "look",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "of",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "solemnity",
+          "start": 3.18,
+          "end": 3.78
+        },
+        {
+          "text": "and",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "fear",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "appeared",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "text": "on",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "her",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "flushed",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "face.",
+          "start": 5.26,
+          "end": 5.64
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2917393185198307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aed833136ed13989ae84eed6a41b69f49cca2df03979d5d6b24f079ef2c960dd",
+  "selected_reasons": []
+}

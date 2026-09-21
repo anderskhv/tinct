@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "ff878a834c4067104464315fdf46b8ea4411253e9066a6ad708b931f2e15fb09",
+  "attempts": [
+    {
+      "asr_seconds": 0.3496521459892392,
+      "alignment_seconds": 0.00298207625746727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's all the same to him,\" he muttered, turning quickly to a soldier who stood behind him. \"Brigand! Get away!\"",
+        "hotwords": "It's, Brigand, Get"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's all the same to him,\" he muttered, turning quickly to a soldier who stood behind him.",
+          "start": 0.0,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.6756591796875
+            },
+            {
+              "text": " all",
+              "start": 0.4,
+              "end": 0.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " same",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,\"",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.7388916015625
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " muttered,",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turning",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quickly",
+              "start": 2.38,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " soldier",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " who",
+              "start": 3.34,
+              "end": 3.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stood",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " behind",
+              "start": 3.86,
+              "end": 4.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him.",
+              "start": 4.24,
+              "end": 4.62,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Brigand! Get away!",
+          "start": 5.38,
+          "end": 7.5,
+          "words": [
+            {
+              "text": " Brigand!",
+              "start": 5.38,
+              "end": 5.98,
+              "probability": 0.49249267578125
+            },
+            {
+              "text": " Get",
+              "start": 7.0,
+              "end": 7.18,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " away!",
+              "start": 7.18,
+              "end": 7.5,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "all",
+          "start": 0.4,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "same",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "muttered,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "turning",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "quickly",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "a",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "soldier",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "who",
+          "start": 3.34,
+          "end": 3.66
+        },
+        {
+          "raw": "stood",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "behind",
+          "start": 3.86,
+          "end": 4.24
+        },
+        {
+          "raw": "him.",
+          "start": 4.24,
+          "end": 4.62
+        },
+        {
+          "raw": "Brigand!",
+          "start": 5.38,
+          "end": 5.98
+        },
+        {
+          "raw": "Get",
+          "start": 7.0,
+          "end": 7.18
+        },
+        {
+          "raw": "away!",
+          "start": 7.18,
+          "end": 7.5
+        }
+      ],
+      "expected_tokens": [
+        "“It’s",
+        "all",
+        "the",
+        "same",
+        "to",
+        "him,”",
+        "he",
+        "muttered,",
+        "turning",
+        "quickly",
+        "to",
+        "a",
+        "soldier",
+        "who",
+        "stood",
+        "behind",
+        "him.",
+        "“Brigand!",
+        "Get",
+        "away!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"It's",
+        "all",
+        "the",
+        "same",
+        "to",
+        "him,\"",
+        "he",
+        "muttered,",
+        "turning",
+        "quickly",
+        "to",
+        "a",
+        "soldier",
+        "who",
+        "stood",
+        "behind",
+        "him.",
+        "\"Brigand!",
+        "Get",
+        "away!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.4,
+          "end": 0.52,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "same",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.04,
+          "end": 1.4,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "muttered,",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "muttered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "turning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 2.38,
+          "end": 2.7,
+          "key": "quickly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "soldier",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.34,
+          "end": 3.66,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "stood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 3.86,
+          "end": 4.24,
+          "key": "behind",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.24,
+          "end": 4.62,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Brigand!",
+          "start": 5.38,
+          "end": 5.98,
+          "key": "brigand",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Get",
+          "start": 7.0,
+          "end": 7.18,
+          "key": "get",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "away!",
+          "start": 7.18,
+          "end": 7.5,
+          "key": "away",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“It’s",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "all",
+          "start": 0.4,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "same",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "to",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "him,”",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "muttered,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "turning",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "quickly",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "text": "to",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "a",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "soldier",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "who",
+          "start": 3.34,
+          "end": 3.66
+        },
+        {
+          "text": "stood",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "behind",
+          "start": 3.86,
+          "end": 4.24
+        },
+        {
+          "text": "him.",
+          "start": 4.24,
+          "end": 4.62
+        },
+        {
+          "text": "“Brigand!",
+          "start": 5.38,
+          "end": 5.98
+        },
+        {
+          "text": "Get",
+          "start": 7.0,
+          "end": 7.18
+        },
+        {
+          "text": "away!”",
+          "start": 7.18,
+          "end": 7.5
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3528188103809953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac5027f59c134ea0ad53b333a540b81af4fbeef81f11b6a432d3df46a5e8d47b",
+  "selected_reasons": []
+}

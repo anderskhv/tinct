@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "2b0b0b92d8fc9012af2b5976cbc6da438fea7fade66caf40cbaa0a757a3ba648",
+  "attempts": [
+    {
+      "asr_seconds": 0.20945410057902336,
+      "alignment_seconds": 0.000788210891187191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But Antonio is certainly undone.",
+        "hotwords": "But, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tubal But Antonio is certainly undone.",
+          "start": 0.0,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Tubal",
+              "start": 0.0,
+              "end": 0.76,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " But",
+              "start": 0.76,
+              "end": 1.2,
+              "probability": 0.0035572052001953125
+            },
+            {
+              "text": " Antonio",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.962890625
+            },
+            {
+              "text": " is",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " certainly",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " undone.",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tubal",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "raw": "But",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "is",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "certainly",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "undone.",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "TUBAL.",
+        "But",
+        "Antonio",
+        "is",
+        "certainly",
+        "undone."
+      ],
+      "acoustic_expected_tokens": [
+        "But",
+        "Antonio",
+        "is",
+        "certainly",
+        "undone."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tubal",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "tubal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 0.76,
+          "end": 1.2,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "antonio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "certainly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "undone.",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "undone",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "TUBAL.",
+          "start": 0.76,
+          "end": 0.76
+        },
+        {
+          "text": "But",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "text": "Antonio",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "is",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "certainly",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "undone.",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2103595482185483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9531f3cae7cafffba885563099a33d2811aa580eef80a31199b4d183e3d4c7aa",
+  "selected_reasons": []
+}

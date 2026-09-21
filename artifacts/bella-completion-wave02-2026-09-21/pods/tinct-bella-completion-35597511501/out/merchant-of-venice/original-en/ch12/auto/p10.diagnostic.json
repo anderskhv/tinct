@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "c65ab6a547508d588d1bc1d0ec3137ed2ddb285861d6fdcd8e5dfb2d5d717b1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2736678821966052,
+      "alignment_seconds": 0.0006577577441930771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To offend and judge are distinct offices, And of opposed natures.",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia To offend and judge are distinct offices, And of opposed natures.",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " Portia",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.79296875
+            },
+            {
+              "text": " To",
+              "start": 0.85,
+              "end": 1.43,
+              "probability": 0.03070068359375
+            },
+            {
+              "text": " offend",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " and",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " judge",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.0061187744140625
+            },
+            {
+              "text": " distinct",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " offices,",
+              "start": 2.79,
+              "end": 3.35,
+              "probability": 0.865234375
+            },
+            {
+              "text": " And",
+              "start": 3.85,
+              "end": 3.97,
+              "probability": 0.04217529296875
+            },
+            {
+              "text": " of",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " opposed",
+              "start": 4.07,
+              "end": 4.47,
+              "probability": 0.978515625
+            },
+            {
+              "text": " natures.",
+              "start": 4.47,
+              "end": 4.95,
+              "probability": 0.952392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "To",
+          "start": 0.85,
+          "end": 1.43
+        },
+        {
+          "raw": "offend",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "judge",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "are",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "distinct",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "raw": "offices,",
+          "start": 2.79,
+          "end": 3.35
+        },
+        {
+          "raw": "And",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "opposed",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "raw": "natures.",
+          "start": 4.47,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "PORTIA.",
+        "To",
+        "offend",
+        "and",
+        "judge",
+        "are",
+        "distinct",
+        "offices,",
+        "And",
+        "of",
+        "opposed",
+        "natures."
+      ],
+      "acoustic_expected_tokens": [
+        "To",
+        "offend",
+        "and",
+        "judge",
+        "are",
+        "distinct",
+        "offices,",
+        "And",
+        "of",
+        "opposed",
+        "natures."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 0.85,
+          "end": 1.43,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "offend",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "judge",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "distinct",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "distinct",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "offices,",
+          "start": 2.79,
+          "end": 3.35,
+          "key": "offices",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.85,
+          "end": 3.97,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.07,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "opposed",
+          "start": 4.07,
+          "end": 4.47,
+          "key": "opposed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "natures.",
+          "start": 4.47,
+          "end": 4.95,
+          "key": "natures",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PORTIA.",
+          "start": 0.85,
+          "end": 0.85
+        },
+        {
+          "text": "To",
+          "start": 0.85,
+          "end": 1.43
+        },
+        {
+          "text": "offend",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "judge",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "are",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "distinct",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "text": "offices,",
+          "start": 2.79,
+          "end": 3.35
+        },
+        {
+          "text": "And",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "text": "of",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "opposed",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "text": "natures.",
+          "start": 4.47,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27441356517374516
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6945c1bd1e819a98cea97884c08317d86a85d8d6d6f4625e7bae083b4904fda0",
+  "selected_reasons": []
+}

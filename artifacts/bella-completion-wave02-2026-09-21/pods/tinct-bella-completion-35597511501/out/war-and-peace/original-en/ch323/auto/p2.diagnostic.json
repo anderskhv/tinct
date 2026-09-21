@@ -1,0 +1,1958 @@
+{
+  "complete": true,
+  "signature": "7384a515c3253982b67602676343fc7aeca4635f3cdb336b4cbb1d8c567f2813",
+  "attempts": [
+    {
+      "asr_seconds": 0.589383396320045,
+      "alignment_seconds": 0.005256610922515392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kutúzov seemed preoccupied and did not listen to what the general was saying. He screwed up his eyes with a dissatisfied look as he gazed attentively and fixedly at these prisoners, who presented a specially wretched appearance. Most of them were disfigured by frost-bitten noses and cheeks, and nearly all had red, swollen and festering eyes.",
+        "hotwords": "Kutúzov, Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kutúzov seemed preoccupied and did not listen to what the general was saying. He screwed up his",
+          "start": 0.0,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Kutúzov",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.24636869132518768
+            },
+            {
+              "text": " seemed",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " preoccupied",
+              "start": 1.02,
+              "end": 1.62,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " and",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " did",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " listen",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " general",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.5205078125
+            },
+            {
+              "text": " was",
+              "start": 3.34,
+              "end": 3.56,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " saying.",
+              "start": 3.56,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " screwed",
+              "start": 5.14,
+              "end": 5.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 5.44,
+              "end": 5.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 5.66,
+              "end": 5.84,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " eyes with a dissatisfied look as he gazed attentively and fixedly at these prisoners,",
+          "start": 5.84,
+          "end": 9.86,
+          "words": [
+            {
+              "text": " eyes",
+              "start": 5.84,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dissatisfied",
+              "start": 6.4,
+              "end": 6.84,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " look",
+              "start": 6.84,
+              "end": 7.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 7.32,
+              "end": 7.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 7.48,
+              "end": 7.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gazed",
+              "start": 7.62,
+              "end": 7.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " attentively",
+              "start": 7.82,
+              "end": 8.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 8.4,
+              "end": 8.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fixedly",
+              "start": 8.64,
+              "end": 9.12,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " at",
+              "start": 9.12,
+              "end": 9.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " these",
+              "start": 9.24,
+              "end": 9.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " prisoners,",
+              "start": 9.5,
+              "end": 9.86,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " who presented a specially wretched appearance. Most of them were disfigured by frost-bitten",
+          "start": 10.16,
+          "end": 15.06,
+          "words": [
+            {
+              "text": " who",
+              "start": 10.16,
+              "end": 10.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presented",
+              "start": 10.34,
+              "end": 10.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 10.7,
+              "end": 10.9,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " specially",
+              "start": 10.9,
+              "end": 11.32,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " wretched",
+              "start": 11.32,
+              "end": 11.62,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " appearance.",
+              "start": 11.62,
+              "end": 12.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Most",
+              "start": 13.28,
+              "end": 13.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 13.46,
+              "end": 13.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 13.64,
+              "end": 13.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " were",
+              "start": 13.74,
+              "end": 13.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disfigured",
+              "start": 13.9,
+              "end": 14.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 14.28,
+              "end": 14.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " frost",
+              "start": 14.54,
+              "end": 14.78,
+              "probability": 0.8681640625
+            },
+            {
+              "text": "-bitten",
+              "start": 14.78,
+              "end": 15.06,
+              "probability": 0.6592610677083334
+            }
+          ]
+        },
+        {
+          "text": " noses and cheeks, and nearly all had red, swollen and festering eyes.",
+          "start": 15.06,
+          "end": 19.12,
+          "words": [
+            {
+              "text": " noses",
+              "start": 15.06,
+              "end": 15.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 15.4,
+              "end": 15.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cheeks,",
+              "start": 15.66,
+              "end": 15.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.34,
+              "end": 16.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nearly",
+              "start": 16.5,
+              "end": 16.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 16.72,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 17.0,
+              "end": 17.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " red,",
+              "start": 17.18,
+              "end": 17.42,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " swollen",
+              "start": 18.06,
+              "end": 18.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 18.06,
+              "end": 18.36,
+              "probability": 0.369873046875
+            },
+            {
+              "text": " festering",
+              "start": 18.36,
+              "end": 18.86,
+              "probability": 0.9934895833333334
+            },
+            {
+              "text": " eyes.",
+              "start": 18.86,
+              "end": 19.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kutúzov",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "seemed",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "preoccupied",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "raw": "did",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "not",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "listen",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "what",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "general",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "was",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "raw": "saying.",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "raw": "He",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "screwed",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "raw": "up",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "raw": "his",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "raw": "eyes",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "raw": "with",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "a",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "dissatisfied",
+          "start": 6.4,
+          "end": 6.84
+        },
+        {
+          "raw": "look",
+          "start": 6.84,
+          "end": 7.32
+        },
+        {
+          "raw": "as",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "raw": "he",
+          "start": 7.48,
+          "end": 7.62
+        },
+        {
+          "raw": "gazed",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "raw": "attentively",
+          "start": 7.82,
+          "end": 8.4
+        },
+        {
+          "raw": "and",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "raw": "fixedly",
+          "start": 8.64,
+          "end": 9.12
+        },
+        {
+          "raw": "at",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "raw": "these",
+          "start": 9.24,
+          "end": 9.5
+        },
+        {
+          "raw": "prisoners,",
+          "start": 9.5,
+          "end": 9.86
+        },
+        {
+          "raw": "who",
+          "start": 10.16,
+          "end": 10.34
+        },
+        {
+          "raw": "presented",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "raw": "a",
+          "start": 10.7,
+          "end": 10.9
+        },
+        {
+          "raw": "specially",
+          "start": 10.9,
+          "end": 11.32
+        },
+        {
+          "raw": "wretched",
+          "start": 11.32,
+          "end": 11.62
+        },
+        {
+          "raw": "appearance.",
+          "start": 11.62,
+          "end": 12.12
+        },
+        {
+          "raw": "Most",
+          "start": 13.28,
+          "end": 13.46
+        },
+        {
+          "raw": "of",
+          "start": 13.46,
+          "end": 13.64
+        },
+        {
+          "raw": "them",
+          "start": 13.64,
+          "end": 13.74
+        },
+        {
+          "raw": "were",
+          "start": 13.74,
+          "end": 13.9
+        },
+        {
+          "raw": "disfigured",
+          "start": 13.9,
+          "end": 14.28
+        },
+        {
+          "raw": "by",
+          "start": 14.28,
+          "end": 14.54
+        },
+        {
+          "raw": "frost",
+          "start": 14.54,
+          "end": 14.78
+        },
+        {
+          "raw": "-bitten",
+          "start": 14.78,
+          "end": 15.06
+        },
+        {
+          "raw": "noses",
+          "start": 15.06,
+          "end": 15.4
+        },
+        {
+          "raw": "and",
+          "start": 15.4,
+          "end": 15.66
+        },
+        {
+          "raw": "cheeks,",
+          "start": 15.66,
+          "end": 15.98
+        },
+        {
+          "raw": "and",
+          "start": 16.34,
+          "end": 16.5
+        },
+        {
+          "raw": "nearly",
+          "start": 16.5,
+          "end": 16.72
+        },
+        {
+          "raw": "all",
+          "start": 16.72,
+          "end": 17.0
+        },
+        {
+          "raw": "had",
+          "start": 17.0,
+          "end": 17.18
+        },
+        {
+          "raw": "red,",
+          "start": 17.18,
+          "end": 17.42
+        },
+        {
+          "raw": "swollen",
+          "start": 18.06,
+          "end": 18.06
+        },
+        {
+          "raw": "and",
+          "start": 18.06,
+          "end": 18.36
+        },
+        {
+          "raw": "festering",
+          "start": 18.36,
+          "end": 18.86
+        },
+        {
+          "raw": "eyes.",
+          "start": 18.86,
+          "end": 19.12
+        }
+      ],
+      "expected_tokens": [
+        "Kutúzov",
+        "seemed",
+        "preoccupied",
+        "and",
+        "did",
+        "not",
+        "listen",
+        "to",
+        "what",
+        "the",
+        "general",
+        "was",
+        "saying.",
+        "He",
+        "screwed",
+        "up",
+        "his",
+        "eyes",
+        "with",
+        "a",
+        "dissatisfied",
+        "look",
+        "as",
+        "he",
+        "gazed",
+        "attentively",
+        "and",
+        "fixedly",
+        "at",
+        "these",
+        "prisoners,",
+        "who",
+        "presented",
+        "a",
+        "specially",
+        "wretched",
+        "appearance.",
+        "Most",
+        "of",
+        "them",
+        "were",
+        "disfigured",
+        "by",
+        "frost-bitten",
+        "noses",
+        "and",
+        "cheeks,",
+        "and",
+        "nearly",
+        "all",
+        "had",
+        "red,",
+        "swollen",
+        "and",
+        "festering",
+        "eyes."
+      ],
+      "acoustic_expected_tokens": [
+        "Kutúzov",
+        "seemed",
+        "preoccupied",
+        "and",
+        "did",
+        "not",
+        "listen",
+        "to",
+        "what",
+        "the",
+        "general",
+        "was",
+        "saying.",
+        "He",
+        "screwed",
+        "up",
+        "his",
+        "eyes",
+        "with",
+        "a",
+        "dissatisfied",
+        "look",
+        "as",
+        "he",
+        "gazed",
+        "attentively",
+        "and",
+        "fixedly",
+        "at",
+        "these",
+        "prisoners,",
+        "who",
+        "presented",
+        "a",
+        "specially",
+        "wretched",
+        "appearance.",
+        "Most",
+        "of",
+        "them",
+        "were",
+        "disfigured",
+        "by",
+        "frost-bitten",
+        "noses",
+        "and",
+        "cheeks,",
+        "and",
+        "nearly",
+        "all",
+        "had",
+        "red,",
+        "swollen",
+        "and",
+        "festering",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kutúzov",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "kutúzov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "seemed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "preoccupied",
+          "start": 1.02,
+          "end": 1.62,
+          "key": "preoccupied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "listen",
+          "start": 2.28,
+          "end": 2.56,
+          "key": "listen",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "general",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.34,
+          "end": 3.56,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "saying.",
+          "start": 3.56,
+          "end": 3.9,
+          "key": "saying",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.98,
+          "end": 5.14,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 5.14,
+          "end": 5.44,
+          "key": "screwed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.44,
+          "end": 5.66,
+          "key": "up",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.66,
+          "end": 5.84,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 5.84,
+          "end": 6.08,
+          "key": "eyes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.08,
+          "end": 6.26,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dissatisfied",
+          "start": 6.4,
+          "end": 6.84,
+          "key": "dissatisfied",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 6.84,
+          "end": 7.32,
+          "key": "look",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.32,
+          "end": 7.48,
+          "key": "as",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.48,
+          "end": 7.62,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "gazed",
+          "start": 7.62,
+          "end": 7.82,
+          "key": "gazed",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "attentively",
+          "start": 7.82,
+          "end": 8.4,
+          "key": "attentively",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.4,
+          "end": 8.64,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "fixedly",
+          "start": 8.64,
+          "end": 9.12,
+          "key": "fixedly",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 9.12,
+          "end": 9.24,
+          "key": "at",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 9.24,
+          "end": 9.5,
+          "key": "these",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "prisoners,",
+          "start": 9.5,
+          "end": 9.86,
+          "key": "prisoners",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 10.16,
+          "end": 10.34,
+          "key": "who",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "presented",
+          "start": 10.34,
+          "end": 10.7,
+          "key": "presented",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.7,
+          "end": 10.9,
+          "key": "a",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "specially",
+          "start": 10.9,
+          "end": 11.32,
+          "key": "specially",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "wretched",
+          "start": 11.32,
+          "end": 11.62,
+          "key": "wretched",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "appearance.",
+          "start": 11.62,
+          "end": 12.12,
+          "key": "appearance",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 13.28,
+          "end": 13.46,
+          "key": "most",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.46,
+          "end": 13.64,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 13.64,
+          "end": 13.74,
+          "key": "them",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 13.74,
+          "end": 13.9,
+          "key": "were",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "disfigured",
+          "start": 13.9,
+          "end": 14.28,
+          "key": "disfigured",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.28,
+          "end": 14.54,
+          "key": "by",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "frost -bitten",
+          "start": 14.54,
+          "end": 15.06,
+          "key": "frostbitten",
+          "pieces": [
+            43,
+            44
+          ]
+        },
+        {
+          "raw": "noses",
+          "start": 15.06,
+          "end": 15.4,
+          "key": "noses",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.4,
+          "end": 15.66,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "cheeks,",
+          "start": 15.66,
+          "end": 15.98,
+          "key": "cheeks",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.34,
+          "end": 16.5,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 16.5,
+          "end": 16.72,
+          "key": "nearly",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 16.72,
+          "end": 17.0,
+          "key": "all",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 17.0,
+          "end": 17.18,
+          "key": "had",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "red,",
+          "start": 17.18,
+          "end": 17.42,
+          "key": "red",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "swollen",
+          "start": 18.06,
+          "end": 18.06,
+          "key": "swollen",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.06,
+          "end": 18.36,
+          "key": "and",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "festering",
+          "start": 18.36,
+          "end": 18.86,
+          "key": "festering",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 18.86,
+          "end": 19.12,
+          "key": "eyes",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 43,
+          "text": "frost-bitten",
+          "heard": "frost -bitten",
+          "heard_indexes": [
+            43,
+            44
+          ],
+          "start": 14.54,
+          "end": 15.06
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Kutúzov",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "seemed",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "preoccupied",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "text": "and",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "text": "did",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "not",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "listen",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "to",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "what",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "general",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "was",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "text": "saying.",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "text": "He",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "screwed",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "text": "up",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "text": "his",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "text": "eyes",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "text": "with",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "text": "a",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "dissatisfied",
+          "start": 6.4,
+          "end": 6.84
+        },
+        {
+          "text": "look",
+          "start": 6.84,
+          "end": 7.32
+        },
+        {
+          "text": "as",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "text": "he",
+          "start": 7.48,
+          "end": 7.62
+        },
+        {
+          "text": "gazed",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "text": "attentively",
+          "start": 7.82,
+          "end": 8.4
+        },
+        {
+          "text": "and",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "text": "fixedly",
+          "start": 8.64,
+          "end": 9.12
+        },
+        {
+          "text": "at",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "text": "these",
+          "start": 9.24,
+          "end": 9.5
+        },
+        {
+          "text": "prisoners,",
+          "start": 9.5,
+          "end": 9.86
+        },
+        {
+          "text": "who",
+          "start": 10.16,
+          "end": 10.34
+        },
+        {
+          "text": "presented",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "text": "a",
+          "start": 10.7,
+          "end": 10.9
+        },
+        {
+          "text": "specially",
+          "start": 10.9,
+          "end": 11.32
+        },
+        {
+          "text": "wretched",
+          "start": 11.32,
+          "end": 11.62
+        },
+        {
+          "text": "appearance.",
+          "start": 11.62,
+          "end": 12.12
+        },
+        {
+          "text": "Most",
+          "start": 13.28,
+          "end": 13.46
+        },
+        {
+          "text": "of",
+          "start": 13.46,
+          "end": 13.64
+        },
+        {
+          "text": "them",
+          "start": 13.64,
+          "end": 13.74
+        },
+        {
+          "text": "were",
+          "start": 13.74,
+          "end": 13.9
+        },
+        {
+          "text": "disfigured",
+          "start": 13.9,
+          "end": 14.28
+        },
+        {
+          "text": "by",
+          "start": 14.28,
+          "end": 14.54
+        },
+        {
+          "text": "frost-bitten",
+          "start": 14.54,
+          "end": 15.06
+        },
+        {
+          "text": "noses",
+          "start": 15.06,
+          "end": 15.4
+        },
+        {
+          "text": "and",
+          "start": 15.4,
+          "end": 15.66
+        },
+        {
+          "text": "cheeks,",
+          "start": 15.66,
+          "end": 15.98
+        },
+        {
+          "text": "and",
+          "start": 16.34,
+          "end": 16.5
+        },
+        {
+          "text": "nearly",
+          "start": 16.5,
+          "end": 16.72
+        },
+        {
+          "text": "all",
+          "start": 16.72,
+          "end": 17.0
+        },
+        {
+          "text": "had",
+          "start": 17.0,
+          "end": 17.18
+        },
+        {
+          "text": "red,",
+          "start": 17.18,
+          "end": 17.42
+        },
+        {
+          "text": "swollen",
+          "start": 18.06,
+          "end": 18.06
+        },
+        {
+          "text": "and",
+          "start": 18.06,
+          "end": 18.36
+        },
+        {
+          "text": "festering",
+          "start": 18.36,
+          "end": 18.86
+        },
+        {
+          "text": "eyes.",
+          "start": 18.86,
+          "end": 19.12
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 56
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5951026240363717
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2294dc8e1b998244de6b619dfc0c14a308208cadcce37a7141a2689e1f841a46",
+  "selected_reasons": []
+}

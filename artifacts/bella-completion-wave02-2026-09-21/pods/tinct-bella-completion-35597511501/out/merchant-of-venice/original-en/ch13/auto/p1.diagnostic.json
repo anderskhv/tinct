@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "6c4bee03f62c3428658a88230cec1e74fab561daf39388d3f544e3a4a4079348",
+  "attempts": [
+    {
+      "asr_seconds": 0.22161253076046705,
+      "alignment_seconds": 0.0010338760912418365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now, what news on the Rialto?",
+        "hotwords": "Now, Rialto"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Selenio, now what news on the Rialto?",
+          "start": 0.54,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Selenio,",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.5976155598958334
+            },
+            {
+              "text": " now",
+              "start": 1.48,
+              "end": 1.52,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " what",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " news",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " on",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " Rialto?",
+              "start": 2.2,
+              "end": 2.68,
+              "probability": 0.7787272135416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Selenio,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "now",
+          "start": 1.48,
+          "end": 1.52
+        },
+        {
+          "raw": "what",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "news",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "on",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "Rialto?",
+          "start": 2.2,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "SOLANIO.",
+        "Now,",
+        "what",
+        "news",
+        "on",
+        "the",
+        "Rialto?"
+      ],
+      "acoustic_expected_tokens": [
+        "Now,",
+        "what",
+        "news",
+        "on",
+        "the",
+        "Rialto?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Selenio,",
+          "start": 0.54,
+          "end": 0.98,
+          "key": "selenio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.48,
+          "end": 1.52,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "news",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rialto?",
+          "start": 2.2,
+          "end": 2.68,
+          "key": "rialto",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SOLANIO.",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "Now,",
+          "start": 1.48,
+          "end": 1.52
+        },
+        {
+          "text": "what",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "news",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "on",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "Rialto?",
+          "start": 2.2,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.222796268761158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5027f7661fdd5d6ed24adca6caa1f8bcd7c3ace50612953270fa0b8e2bd3b6ca",
+  "selected_reasons": []
+}

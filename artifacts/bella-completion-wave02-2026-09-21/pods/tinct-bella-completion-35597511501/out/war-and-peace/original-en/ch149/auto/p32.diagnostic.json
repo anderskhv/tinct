@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "5162fd053e8c3297ed52de0f665661010e0c552189b0431232ad1d097fc453f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18745884206146002,
+      "alignment_seconds": 0.0007166499271988869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is she clever?\" she asked.",
+        "hotwords": "Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is she clever?\" she asked.",
+          "start": 0.0,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.35595703125
+            },
+            {
+              "text": " she",
+              "start": 0.34,
+              "end": 0.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " clever?\"",
+              "start": 0.48,
+              "end": 1.02,
+              "probability": 0.518707275390625
+            },
+            {
+              "text": " she",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " asked.",
+              "start": 1.18,
+              "end": 1.62,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "she",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "raw": "clever?\"",
+          "start": 0.48,
+          "end": 1.02
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "asked.",
+          "start": 1.18,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "“Is",
+        "she",
+        "clever?”",
+        "she",
+        "asked."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Is",
+        "she",
+        "clever?\"",
+        "she",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.34,
+          "end": 0.48,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "clever?\"",
+          "start": 0.48,
+          "end": 1.02,
+          "key": "clever",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.18,
+          "end": 1.62,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Is",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "she",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "text": "clever?”",
+          "start": 0.48,
+          "end": 1.02
+        },
+        {
+          "text": "she",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "asked.",
+          "start": 1.18,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1882851328700781
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08bace5b5d18c2e37836d920a4829e1ac43f67a2e1b333b35f2668afca3d8dae",
+  "selected_reasons": []
+}

@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "84dbce81feaf38f96c36a1daeaaa91bc1c38fc11dbf3b3f11784cc5378ec6187",
+  "attempts": [
+    {
+      "asr_seconds": 0.21412007976323366,
+      "alignment_seconds": 0.0028560906648635864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"If you are refusing for my sake, I am afraid that I...\"",
+        "hotwords": "If, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If you are refusing for my sake, I am afraid that I...\"",
+          "start": 0.0,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " you",
+              "start": 0.34,
+              "end": 0.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " refusing",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sake,",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " am",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " afraid",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I...\"",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.5053596496582031
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "raw": "are",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "refusing",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "for",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "sake,",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "I",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "am",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "afraid",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "I...\"",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "“If",
+        "you",
+        "are",
+        "refusing",
+        "for",
+        "my",
+        "sake,",
+        "I",
+        "am",
+        "afraid",
+        "that",
+        "I...”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"If",
+        "you",
+        "are",
+        "refusing",
+        "for",
+        "my",
+        "sake,",
+        "I",
+        "am",
+        "afraid",
+        "that",
+        "I...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.48,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "refusing",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "refusing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.94,
+          "end": 1.22,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sake,",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "sake",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "am",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "afraid",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I...\"",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“If",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "you",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "text": "are",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "refusing",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "for",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "my",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "sake,",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "text": "I",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "am",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "afraid",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "text": "that",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "I...”",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21737190801650286
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0eb7b7a261daa6f7083925190eeb3f64af80d91662d5a3529125e43526ab8334",
+  "selected_reasons": []
+}

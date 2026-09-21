@@ -1,0 +1,671 @@
+{
+  "complete": true,
+  "signature": "59e4efa2488c216b617f9d4da91f68e6fdfad7905823713c24fdc75b2a644bab",
+  "attempts": [
+    {
+      "asr_seconds": 3.2085297917947173,
+      "alignment_seconds": 0.0013114828616380692,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The coup de théâtre had not come off.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The coup de théâtre had not come off",
+          "start": 0.0,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " coup",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.013458251953125
+            },
+            {
+              "text": " de",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.8671875
+            },
+            {
+              "text": " théâtre",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.4021720886230469
+            },
+            {
+              "text": " had",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " off",
+              "start": 1.48,
+              "end": 1.82,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " The coup de théâtre had not come off. The coup de théâtre had not come off.",
+          "start": 1.82,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.82,
+              "end": 2.62,
+              "probability": 0.005802154541015625
+            },
+            {
+              "text": " coup",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 1.8477439880371094e-06
+            },
+            {
+              "text": " de",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.06585693359375
+            },
+            {
+              "text": " théâtre",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.07231083512306213
+            },
+            {
+              "text": " had",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.00237274169921875
+            },
+            {
+              "text": " not",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.02593994140625
+            },
+            {
+              "text": " come",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.00551605224609375
+            },
+            {
+              "text": " off.",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.0149078369140625
+            },
+            {
+              "text": " The",
+              "start": 2.62,
+              "end": 2.68,
+              "probability": 0.297607421875
+            },
+            {
+              "text": " coup",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.0799560546875
+            },
+            {
+              "text": " de",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " théâtre",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.7977294921875
+            },
+            {
+              "text": " had",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " not",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " come",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " off.",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "coup",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "de",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "théâtre",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "had",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "not",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "come",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "off",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "raw": "The",
+          "start": 1.82,
+          "end": 2.62
+        },
+        {
+          "raw": "coup",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "de",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "théâtre",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "not",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "come",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "off.",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "The",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "raw": "coup",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "de",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "théâtre",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "had",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "not",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "come",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "off.",
+          "start": 2.68,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "coup",
+        "de",
+        "théâtre",
+        "had",
+        "not",
+        "come",
+        "off."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "coup",
+        "de",
+        "théâtre",
+        "had",
+        "not",
+        "come",
+        "off."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "coup",
+          "start": 0.34,
+          "end": 0.5,
+          "key": "coup",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "de",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "théâtre",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "théâtre",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 1.48,
+          "end": 1.82,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.82,
+          "end": 2.62,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "coup",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "coup",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "de",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "théâtre",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "théâtre",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "off",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.62,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "coup",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "coup",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "de",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "théâtre",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "théâtre",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "had",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "off",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "coup",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "text": "de",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "théâtre",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "had",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "not",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "come",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "off.",
+          "start": 1.48,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 24,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.210232707671821
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c522133f1edf6b2d7fa9135ebbf38728956731028bdf4393e6cfa0c61c922e4e",
+  "selected_reasons": []
+}

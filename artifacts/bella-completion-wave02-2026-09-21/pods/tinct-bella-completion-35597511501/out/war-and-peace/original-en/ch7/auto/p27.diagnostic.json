@@ -1,0 +1,791 @@
+{
+  "complete": true,
+  "signature": "de9237d5769ab20434ce6fd6720108521ccdb8a7569a11dfdde9e39e01637069",
+  "attempts": [
+    {
+      "asr_seconds": 0.2944713868200779,
+      "alignment_seconds": 0.0018722983077168465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, wait, Pierre! The princess is too kind to wish to deprive me of the pleasure of spending the evening with you.\"",
+        "hotwords": "No, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, wait, Pierre. The princess is too kind to wish to deprive me of the pleasure of spending the evening with you.",
+          "start": 0.05,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " wait,",
+              "start": 1.01,
+              "end": 1.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Pierre.",
+              "start": 1.67,
+              "end": 1.67,
+              "probability": 0.1409912109375
+            },
+            {
+              "text": " The",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " princess",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.40283203125
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 3.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " too",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kind",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.55,
+              "end": 3.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wish",
+              "start": 3.73,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deprive",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.37,
+              "end": 4.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 4.61,
+              "end": 4.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.73,
+              "end": 4.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pleasure",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.15,
+              "end": 5.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spending",
+              "start": 5.35,
+              "end": 5.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " evening",
+              "start": 5.85,
+              "end": 6.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 6.09,
+              "end": 6.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you.",
+              "start": 6.33,
+              "end": 6.57,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "wait,",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "raw": "Pierre.",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "raw": "The",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "princess",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "raw": "too",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "kind",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "raw": "wish",
+          "start": 3.73,
+          "end": 3.87
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "deprive",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "raw": "of",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "raw": "pleasure",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "raw": "of",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "raw": "spending",
+          "start": 5.35,
+          "end": 5.61
+        },
+        {
+          "raw": "the",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "raw": "evening",
+          "start": 5.85,
+          "end": 6.09
+        },
+        {
+          "raw": "with",
+          "start": 6.09,
+          "end": 6.33
+        },
+        {
+          "raw": "you.",
+          "start": 6.33,
+          "end": 6.57
+        }
+      ],
+      "expected_tokens": [
+        "“No,",
+        "wait,",
+        "Pierre!",
+        "The",
+        "princess",
+        "is",
+        "too",
+        "kind",
+        "to",
+        "wish",
+        "to",
+        "deprive",
+        "me",
+        "of",
+        "the",
+        "pleasure",
+        "of",
+        "spending",
+        "the",
+        "evening",
+        "with",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No,",
+        "wait,",
+        "Pierre!",
+        "The",
+        "princess",
+        "is",
+        "too",
+        "kind",
+        "to",
+        "wish",
+        "to",
+        "deprive",
+        "me",
+        "of",
+        "the",
+        "pleasure",
+        "of",
+        "spending",
+        "the",
+        "evening",
+        "with",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait,",
+          "start": 1.01,
+          "end": 1.21,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pierre.",
+          "start": 1.67,
+          "end": 1.67,
+          "key": "pierre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.37,
+          "end": 2.47,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "princess",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "princess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 3.03,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 3.25,
+          "end": 3.55,
+          "key": "kind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.73,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 3.73,
+          "end": 3.87,
+          "key": "wish",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deprive",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "deprive",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.61,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.61,
+          "end": 4.73,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.83,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "pleasure",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.15,
+          "end": 5.35,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "spending",
+          "start": 5.35,
+          "end": 5.61,
+          "key": "spending",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.61,
+          "end": 5.85,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "evening",
+          "start": 5.85,
+          "end": 6.09,
+          "key": "evening",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.09,
+          "end": 6.33,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 6.33,
+          "end": 6.57,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "wait,",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "Pierre!",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "text": "The",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "princess",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "text": "too",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "kind",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "text": "to",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "text": "wish",
+          "start": 3.73,
+          "end": 3.87
+        },
+        {
+          "text": "to",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "deprive",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "me",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "text": "of",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "text": "the",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "text": "pleasure",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "text": "of",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "text": "spending",
+          "start": 5.35,
+          "end": 5.61
+        },
+        {
+          "text": "the",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "text": "evening",
+          "start": 5.85,
+          "end": 6.09
+        },
+        {
+          "text": "with",
+          "start": 6.09,
+          "end": 6.33
+        },
+        {
+          "text": "you.”",
+          "start": 6.33,
+          "end": 6.57
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29657608829438686
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbb58abf4c6288ab66f6a04450fd99d41413f3d12926ec67e7b2c792b5bc4d6e",
+  "selected_reasons": []
+}

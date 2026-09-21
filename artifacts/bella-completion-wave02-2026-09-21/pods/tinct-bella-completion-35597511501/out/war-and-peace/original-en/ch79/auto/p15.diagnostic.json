@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "87efd11e44c1df5213d3ac439004983fee44a5ea29bb6ac5a28940374769ef31",
+  "attempts": [
+    {
+      "asr_seconds": 0.206300457008183,
+      "alignment_seconds": 0.001018325798213482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And Mamma pressed her!\" said Nicholas reproachfully.",
+        "hotwords": "And, Mamma, Nicholas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Mamma pressed her, said Nicholas reproachfully.",
+          "start": 0.0,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.1712646484375
+            },
+            {
+              "text": " Mamma",
+              "start": 0.36,
+              "end": 0.7,
+              "probability": 0.4593505859375
+            },
+            {
+              "text": " pressed",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.8828125
+            },
+            {
+              "text": " her,",
+              "start": 0.88,
+              "end": 1.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Nicholas",
+              "start": 1.5,
+              "end": 1.92,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " reproachfully.",
+              "start": 1.92,
+              "end": 2.66,
+              "probability": 0.9685872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "Mamma",
+          "start": 0.36,
+          "end": 0.7
+        },
+        {
+          "raw": "pressed",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "her,",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "raw": "said",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "raw": "reproachfully.",
+          "start": 1.92,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "Mamma",
+        "pressed",
+        "her!”",
+        "said",
+        "Nicholas",
+        "reproachfully."
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "Mamma",
+        "pressed",
+        "her!\"",
+        "said",
+        "Nicholas",
+        "reproachfully."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mamma",
+          "start": 0.36,
+          "end": 0.7,
+          "key": "mamma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pressed",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "pressed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 0.88,
+          "end": 1.18,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.5,
+          "end": 1.92,
+          "key": "nicholas",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reproachfully.",
+          "start": 1.92,
+          "end": 2.66,
+          "key": "reproachfully",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Mamma",
+          "start": 0.36,
+          "end": 0.7
+        },
+        {
+          "text": "pressed",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "her!”",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "text": "said",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "Nicholas",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "text": "reproachfully.",
+          "start": 1.92,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.207470016553998
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "87d392a521b83df89999da6e55806c64e58f1827bfb6bbe7c2a975c979ca73a9",
+  "selected_reasons": []
+}

@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "55121ef0da90770fcc5f13f5f0dd6451f6fe680724905c61f18235f65c4d6c56",
+  "attempts": [
+    {
+      "asr_seconds": 0.24885363038629293,
+      "alignment_seconds": 0.0012658126652240753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, little countess!\" ... and the count began bustling to get out his pocketbook.",
+        "hotwords": "Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, little countess! ... and the count began bustling to get out his pocketbook.",
+          "start": 0.02,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " little",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " countess!",
+              "start": 1.02,
+              "end": 1.62,
+              "probability": 0.5175933837890625
+            },
+            {
+              "text": " ...",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.01288604736328125
+            },
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.34,
+              "probability": 0.2027587890625
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.9921875
+            },
+            {
+              "text": " count",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.359375
+            },
+            {
+              "text": " began",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bustling",
+              "start": 3.08,
+              "end": 3.52,
+              "probability": 0.962890625
+            },
+            {
+              "text": " to",
+              "start": 3.52,
+              "end": 3.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " get",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 4.08,
+              "end": 4.24,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " pocketbook.",
+              "start": 4.24,
+              "end": 4.82,
+              "probability": 0.829833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "little",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "countess!",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "raw": "...",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "count",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "began",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "bustling",
+          "start": 3.08,
+          "end": 3.52
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.8
+        },
+        {
+          "raw": "get",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "out",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "his",
+          "start": 4.08,
+          "end": 4.24
+        },
+        {
+          "raw": "pocketbook.",
+          "start": 4.24,
+          "end": 4.82
+        }
+      ],
+      "expected_tokens": [
+        "“Oh,",
+        "little",
+        "countess!”",
+        "...",
+        "and",
+        "the",
+        "count",
+        "began",
+        "bustling",
+        "to",
+        "get",
+        "out",
+        "his",
+        "pocketbook."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh,",
+        "little",
+        "countess!\"",
+        "...",
+        "and",
+        "the",
+        "count",
+        "began",
+        "bustling",
+        "to",
+        "get",
+        "out",
+        "his",
+        "pocketbook."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "countess!",
+          "start": 1.02,
+          "end": 1.62,
+          "key": "countess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.34,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 2.46,
+          "end": 2.72,
+          "key": "count",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 2.72,
+          "end": 3.08,
+          "key": "began",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bustling",
+          "start": 3.08,
+          "end": 3.52,
+          "key": "bustling",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.8,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "get",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.08,
+          "end": 4.24,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pocketbook.",
+          "start": 4.24,
+          "end": 4.82,
+          "key": "pocketbook",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "little",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "countess!”",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "text": "...",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "count",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "began",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "bustling",
+          "start": 3.08,
+          "end": 3.52
+        },
+        {
+          "text": "to",
+          "start": 3.52,
+          "end": 3.8
+        },
+        {
+          "text": "get",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "text": "out",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "his",
+          "start": 4.08,
+          "end": 4.24
+        },
+        {
+          "text": "pocketbook.",
+          "start": 4.24,
+          "end": 4.82
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.250285885296762
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a506d2da2068c7d2c3cf66df6edc611ea52f4cfe8c554d39a4ee6f6c773d5882",
+  "selected_reasons": []
+}

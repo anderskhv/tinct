@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "b48efbbc4d9a891f2cc4d1224611748e9dd3d17922845f87070918cc770954c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1552425380796194,
+      "alignment_seconds": 0.001192418858408928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The valet brought a woman's fox-lined cloak.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The valet brought a woman's fox-lined cloak.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " valet",
+              "start": 0.32,
+              "end": 0.62,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " brought",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " woman's",
+              "start": 0.98,
+              "end": 1.36,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " fox",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.80712890625
+            },
+            {
+              "text": "-lined",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.808837890625
+            },
+            {
+              "text": " cloak.",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "valet",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "raw": "brought",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "a",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "woman's",
+          "start": 0.98,
+          "end": 1.36
+        },
+        {
+          "raw": "fox",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "-lined",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "cloak.",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "valet",
+        "brought",
+        "a",
+        "woman’s",
+        "fox-lined",
+        "cloak."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "valet",
+        "brought",
+        "a",
+        "woman's",
+        "fox-lined",
+        "cloak."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "valet",
+          "start": 0.32,
+          "end": 0.62,
+          "key": "valet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 0.62,
+          "end": 0.78,
+          "key": "brought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "woman's",
+          "start": 0.98,
+          "end": 1.36,
+          "key": "womans",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fox -lined",
+          "start": 1.36,
+          "end": 1.86,
+          "key": "foxlined",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "cloak.",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "cloak",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "fox-lined",
+          "heard": "fox -lined",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.36,
+          "end": 1.86
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "valet",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "text": "brought",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "a",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "woman’s",
+          "start": 0.98,
+          "end": 1.36
+        },
+        {
+          "text": "fox-lined",
+          "start": 1.36,
+          "end": 1.86
+        },
+        {
+          "text": "cloak.",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15657394099980593
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "071f8616f9ef6456a76771f1cfa4a1b8537f4b39cfba59428df6d7c50b620ca1",
+  "selected_reasons": []
+}

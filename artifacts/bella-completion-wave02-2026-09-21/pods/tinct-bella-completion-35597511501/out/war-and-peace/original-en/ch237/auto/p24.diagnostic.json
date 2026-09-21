@@ -1,0 +1,558 @@
+{
+  "complete": true,
+  "signature": "bf682199d2ad8491f4d3aa859c00b10f3a52143a7cde3cf17de7a03de14ba221",
+  "attempts": [
+    {
+      "asr_seconds": 0.33534849155694246,
+      "alignment_seconds": 0.0017501171678304672,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"So you've found your folk?\" said one of them. \"Well, good-by, Peter Kirílych—isn't it?\"",
+        "hotwords": "So, Well, Peter, Kirílych—isn't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So you've found your folk?\" said one of them.",
+          "start": 0.0,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.342041015625
+            },
+            {
+              "text": " you've",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.56036376953125
+            },
+            {
+              "text": " found",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " folk?\"",
+              "start": 1.04,
+              "end": 1.64,
+              "probability": 0.49573516845703125
+            },
+            {
+              "text": " said",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " one",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them.",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Well, good-by, Peter Kirílych—isn't it?",
+          "start": 3.36,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.250732421875
+            },
+            {
+              "text": " good",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.12158203125
+            },
+            {
+              "text": "-by,",
+              "start": 4.02,
+              "end": 4.32,
+              "probability": 0.4180145263671875
+            },
+            {
+              "text": " Peter",
+              "start": 4.74,
+              "end": 4.96,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Kirílych—isn't",
+              "start": 4.96,
+              "end": 5.96,
+              "probability": 0.4820447787642479
+            },
+            {
+              "text": " it?",
+              "start": 5.96,
+              "end": 6.16,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "you've",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "found",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "your",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "folk?\"",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "raw": "said",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "one",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "them.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "raw": "Well,",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "good",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "-by,",
+          "start": 4.02,
+          "end": 4.32
+        },
+        {
+          "raw": "Peter",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "raw": "Kirílych—isn't",
+          "start": 4.96,
+          "end": 5.96
+        },
+        {
+          "raw": "it?",
+          "start": 5.96,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "“So",
+        "you’ve",
+        "found",
+        "your",
+        "folk?”",
+        "said",
+        "one",
+        "of",
+        "them.",
+        "“Well,",
+        "good-by,",
+        "Peter",
+        "Kirílych—isn’t",
+        "it?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"So",
+        "you've",
+        "found",
+        "your",
+        "folk?\"",
+        "said",
+        "one",
+        "of",
+        "them.",
+        "\"Well,",
+        "good-by,",
+        "Peter",
+        "Kirílych—isn't",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you've",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "youve",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "found",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "folk?\"",
+          "start": 1.04,
+          "end": 1.64,
+          "key": "folk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.64,
+          "end": 1.74,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "good -by,",
+          "start": 3.92,
+          "end": 4.32,
+          "key": "goodby",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "Peter",
+          "start": 4.74,
+          "end": 4.96,
+          "key": "peter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kirílych—isn't",
+          "start": 4.96,
+          "end": 5.96,
+          "key": "kirílychisnt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 5.96,
+          "end": 6.16,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "good-by,",
+          "heard": "good -by,",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.92,
+          "end": 4.32
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“So",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "you’ve",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "found",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "your",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "folk?”",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "text": "said",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "one",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "of",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "them.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "text": "“Well,",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "good-by,",
+          "start": 3.92,
+          "end": 4.32
+        },
+        {
+          "text": "Peter",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "text": "Kirílych—isn’t",
+          "start": 4.96,
+          "end": 5.96
+        },
+        {
+          "text": "it?”",
+          "start": 5.96,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3373075583949685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "668404089683c35d1968623d8ba71a0732b8ad1b45232be61a3b32f156be5d8b",
+  "selected_reasons": []
+}

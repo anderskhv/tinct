@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "550da4434ce7b6e70fbe5d28fc7f323fefff7e73dd9e6672a4fb093761434a09",
+  "attempts": [
+    {
+      "asr_seconds": 0.26646558847278357,
+      "alignment_seconds": 0.0010078763589262962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It goes smoothly, too. Well, now, Zaletáev!\"",
+        "hotwords": "It, Well, Zaletáev"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It goes smoothly, too. Well, now, Zaletáev!",
+          "start": 0.0,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " goes",
+              "start": 0.34,
+              "end": 0.54,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " smoothly,",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too.",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Well,",
+              "start": 2.88,
+              "end": 2.94,
+              "probability": 0.96484375
+            },
+            {
+              "text": " now,",
+              "start": 3.24,
+              "end": 3.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " Zaletáev!",
+              "start": 4.08,
+              "end": 4.72,
+              "probability": 0.31589722633361816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "goes",
+          "start": 0.34,
+          "end": 0.54
+        },
+        {
+          "raw": "smoothly,",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "too.",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "Well,",
+          "start": 2.88,
+          "end": 2.94
+        },
+        {
+          "raw": "now,",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "raw": "Zaletáev!",
+          "start": 4.08,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "“It",
+        "goes",
+        "smoothly,",
+        "too.",
+        "Well,",
+        "now,",
+        "Zaletáev!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"It",
+        "goes",
+        "smoothly,",
+        "too.",
+        "Well,",
+        "now,",
+        "Zaletáev!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 0.34,
+          "end": 0.54,
+          "key": "goes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "smoothly,",
+          "start": 0.54,
+          "end": 1.06,
+          "key": "smoothly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 2.88,
+          "end": 2.94,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 3.24,
+          "end": 3.6,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Zaletáev!",
+          "start": 4.08,
+          "end": 4.72,
+          "key": "zaletáev",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“It",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "goes",
+          "start": 0.34,
+          "end": 0.54
+        },
+        {
+          "text": "smoothly,",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "too.",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "Well,",
+          "start": 2.88,
+          "end": 2.94
+        },
+        {
+          "text": "now,",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "text": "Zaletáev!”",
+          "start": 4.08,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26761891692876816
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80d1884854d594fb2422dc705117282aa453196b3e72e45864b9c9e8d91784ac",
+  "selected_reasons": []
+}

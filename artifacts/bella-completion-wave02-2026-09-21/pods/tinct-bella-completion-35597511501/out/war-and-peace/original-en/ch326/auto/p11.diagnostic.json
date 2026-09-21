@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "2c5b93bcb6e1de2dd45c28f9e40008ad2a4c9a33138a7fcda90fc81c9e957c21",
+  "attempts": [
+    {
+      "asr_seconds": 0.2681321110576391,
+      "alignment_seconds": 0.0017201965674757957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Meanwhile Morel was sitting in the best place by the fire, surrounded by the soldiers.",
+        "hotwords": "Meanwhile, Morel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Meanwhile Morel was sitting in the best place by the fire, surrounded by the soldiers.",
+          "start": 0.0,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " Meanwhile",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Morel",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.3695068359375
+            },
+            {
+              "text": " was",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " sitting",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 1.8,
+              "end": 2.02,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " place",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " by",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fire,",
+              "start": 2.68,
+              "end": 3.04,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " surrounded",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " soldiers.",
+              "start": 4.1,
+              "end": 4.42,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "Morel",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "was",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "sitting",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "best",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "raw": "place",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "raw": "by",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "fire,",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "raw": "surrounded",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "by",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "soldiers.",
+          "start": 4.1,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "Meanwhile",
+        "Morel",
+        "was",
+        "sitting",
+        "in",
+        "the",
+        "best",
+        "place",
+        "by",
+        "the",
+        "fire,",
+        "surrounded",
+        "by",
+        "the",
+        "soldiers."
+      ],
+      "acoustic_expected_tokens": [
+        "Meanwhile",
+        "Morel",
+        "was",
+        "sitting",
+        "in",
+        "the",
+        "best",
+        "place",
+        "by",
+        "the",
+        "fire,",
+        "surrounded",
+        "by",
+        "the",
+        "soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "meanwhile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Morel",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "morel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "sitting",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 1.8,
+          "end": 2.02,
+          "key": "best",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "place",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fire,",
+          "start": 2.68,
+          "end": 3.04,
+          "key": "fire",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "surrounded",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "surrounded",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 4.1,
+          "end": 4.42,
+          "key": "soldiers",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Meanwhile",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "Morel",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "text": "was",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "sitting",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "in",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "the",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "best",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "text": "place",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "text": "by",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "fire,",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "text": "surrounded",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "by",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "soldiers.",
+          "start": 4.1,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2700921166688204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4659bea268fdc0ef6b6ab1e7d573704f50faa01ae7880746c0c8ffea3a0ff6e",
+  "selected_reasons": []
+}

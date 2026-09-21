@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "f4cc7066747d9370bb5a96063ed103f84e55656bdab3c17f795da14711b23c7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14297359064221382,
+      "alignment_seconds": 0.0007552411407232285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Napoleon looked at him.",
+        "hotwords": "Napoleon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Napoleon looked at him.",
+          "start": 0.0,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Napoleon",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.912109375
+            },
+            {
+              "text": " looked",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Napoleon",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "looked",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "at",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "him.",
+          "start": 1.16,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Napoleon",
+        "looked",
+        "at",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "Napoleon",
+        "looked",
+        "at",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Napoleon",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "napoleon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Napoleon",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "looked",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "at",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "him.",
+          "start": 1.16,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14383935648947954
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b2a4b26ea04560ebeffba4d6c304ca87116c979b507b214bce46a370c9fe84de",
+  "selected_reasons": []
+}

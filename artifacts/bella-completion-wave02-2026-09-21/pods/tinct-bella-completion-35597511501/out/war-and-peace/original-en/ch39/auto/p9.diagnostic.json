@@ -1,0 +1,782 @@
+{
+  "complete": true,
+  "signature": "9a2f1413695a1ee23efa3bad71da83882add4bda8ea4c4acff9d709f933a7637",
+  "attempts": [
+    {
+      "asr_seconds": 0.30028132256120443,
+      "alignment_seconds": 0.0023904554545879364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"La femme est la compagne de l'homme,\" * announced Prince Hippolyte, and began looking through a lorgnette at his elevated legs.",
+        "hotwords": "Prince, Hippolyte"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " La femme est la compagne de l'homme, ** announced Prince Hippolyte, and began looking through a lorgnette at his elevated legs.",
+          "start": 0.0,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " La",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.25048828125
+            },
+            {
+              "text": " femme",
+              "start": 0.4,
+              "end": 0.74,
+              "probability": 0.4462928771972656
+            },
+            {
+              "text": " est",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.061737060546875
+            },
+            {
+              "text": " la",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " compagne",
+              "start": 1.14,
+              "end": 1.54,
+              "probability": 0.149993896484375
+            },
+            {
+              "text": " de",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " l",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.0007157325744628906
+            },
+            {
+              "text": "'homme,",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.6609789530436198
+            },
+            {
+              "text": " **",
+              "start": 2.5,
+              "end": 2.5,
+              "probability": 0.003047943115234375
+            },
+            {
+              "text": " announced",
+              "start": 2.5,
+              "end": 2.98,
+              "probability": 0.10467529296875
+            },
+            {
+              "text": " Prince",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Hippolyte,",
+              "start": 3.3,
+              "end": 3.9,
+              "probability": 0.9226888020833334
+            },
+            {
+              "text": " and",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " began",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " looking",
+              "start": 4.48,
+              "end": 4.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " through",
+              "start": 4.76,
+              "end": 5.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 5.06,
+              "end": 5.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lorgnette",
+              "start": 5.2,
+              "end": 5.54,
+              "probability": 0.302768071492513
+            },
+            {
+              "text": " at",
+              "start": 5.54,
+              "end": 5.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 5.68,
+              "end": 5.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " elevated",
+              "start": 5.82,
+              "end": 6.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " legs.",
+              "start": 6.14,
+              "end": 6.6,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "La",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "femme",
+          "start": 0.4,
+          "end": 0.74
+        },
+        {
+          "raw": "est",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "la",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "compagne",
+          "start": 1.14,
+          "end": 1.54
+        },
+        {
+          "raw": "de",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "l",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "'homme,",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "**",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "raw": "announced",
+          "start": 2.5,
+          "end": 2.98
+        },
+        {
+          "raw": "Prince",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "Hippolyte,",
+          "start": 3.3,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "began",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "looking",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "raw": "through",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "raw": "a",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "raw": "lorgnette",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "raw": "at",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "raw": "his",
+          "start": 5.68,
+          "end": 5.82
+        },
+        {
+          "raw": "elevated",
+          "start": 5.82,
+          "end": 6.14
+        },
+        {
+          "raw": "legs.",
+          "start": 6.14,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "“La",
+        "femme",
+        "est",
+        "la",
+        "compagne",
+        "de",
+        "l’homme,”",
+        "*",
+        "announced",
+        "Prince",
+        "Hippolyte,",
+        "and",
+        "began",
+        "looking",
+        "through",
+        "a",
+        "lorgnette",
+        "at",
+        "his",
+        "elevated",
+        "legs."
+      ],
+      "acoustic_expected_tokens": [
+        "\"La",
+        "femme",
+        "est",
+        "la",
+        "compagne",
+        "de",
+        "l'homme,\"",
+        "*",
+        "announced",
+        "Prince",
+        "Hippolyte,",
+        "and",
+        "began",
+        "looking",
+        "through",
+        "a",
+        "lorgnette",
+        "at",
+        "his",
+        "elevated",
+        "legs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "La",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "la",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "femme",
+          "start": 0.4,
+          "end": 0.74,
+          "key": "femme",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "est",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "la",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "compagne",
+          "start": 1.14,
+          "end": 1.54,
+          "key": "compagne",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "l 'homme,",
+          "start": 1.68,
+          "end": 2.16,
+          "key": "lhomme",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "**",
+          "start": 2.5,
+          "end": 2.5,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "announced",
+          "start": 2.5,
+          "end": 2.98,
+          "key": "announced",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "prince",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Hippolyte,",
+          "start": 3.3,
+          "end": 3.9,
+          "key": "hippolyte",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "began",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 4.48,
+          "end": 4.76,
+          "key": "looking",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.76,
+          "end": 5.06,
+          "key": "through",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.06,
+          "end": 5.2,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lorgnette",
+          "start": 5.2,
+          "end": 5.54,
+          "key": "lorgnette",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.54,
+          "end": 5.68,
+          "key": "at",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.68,
+          "end": 5.82,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "elevated",
+          "start": 5.82,
+          "end": 6.14,
+          "key": "elevated",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "legs.",
+          "start": 6.14,
+          "end": 6.6,
+          "key": "legs",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "l'homme,\"",
+          "heard": "l 'homme,",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.68,
+          "end": 2.16
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“La",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "femme",
+          "start": 0.4,
+          "end": 0.74
+        },
+        {
+          "text": "est",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "la",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "compagne",
+          "start": 1.14,
+          "end": 1.54
+        },
+        {
+          "text": "de",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "l’homme,”",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "text": "*",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "text": "announced",
+          "start": 2.5,
+          "end": 2.98
+        },
+        {
+          "text": "Prince",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "Hippolyte,",
+          "start": 3.3,
+          "end": 3.9
+        },
+        {
+          "text": "and",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "began",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "text": "looking",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "text": "through",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "text": "a",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "text": "lorgnette",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "text": "at",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "text": "his",
+          "start": 5.68,
+          "end": 5.82
+        },
+        {
+          "text": "elevated",
+          "start": 5.82,
+          "end": 6.14
+        },
+        {
+          "text": "legs.",
+          "start": 6.14,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30292688123881817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4580f51fd29a025f9399c02ff16914ad804569046e6467f7d48dc364bfcf9b5d",
+  "selected_reasons": []
+}

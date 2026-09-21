@@ -1,0 +1,899 @@
+{
+  "complete": true,
+  "signature": "ee7efb088cd811799d46988b18ac869ed65acab32c770ac39845209978d5d822",
+  "attempts": [
+    {
+      "asr_seconds": 0.1475493097677827,
+      "alignment_seconds": 0.0007386673241853714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ay, and greater wonders than that.",
+        "hotwords": "Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orlando. I, and greater wonders than that.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Orlando.",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.802734375
+            },
+            {
+              "text": " I,",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " greater",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.95703125
+            },
+            {
+              "text": " wonders",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " than",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " that.",
+              "start": 2.75,
+              "end": 3.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orlando.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I,",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "greater",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "raw": "than",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "raw": "that.",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "ORLANDO.",
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orlando.",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "orlando",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "greater",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "wonders",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "than",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.75,
+          "end": 3.05,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ORLANDO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.895
+        },
+        {
+          "text": "and",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "greater",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "wonders",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "text": "than",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "text": "that.",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1484120450913906
+    },
+    {
+      "asr_seconds": 0.1999055678024888,
+      "alignment_seconds": 0.0010575195774435997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ay"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Orlando I and greater wonders than that",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Orlando",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.802734375
+            },
+            {
+              "text": " I",
+              "start": 0.79,
+              "end": 1.61,
+              "probability": 0.09710693359375
+            },
+            {
+              "text": " and",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " greater",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.94140625
+            },
+            {
+              "text": " wonders",
+              "start": 2.11,
+              "end": 2.49,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " than",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that",
+              "start": 2.75,
+              "end": 3.11,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orlando",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "greater",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "raw": "than",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "that",
+          "start": 2.75,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "ORLANDO.",
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orlando",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "orlando",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "greater",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.49,
+          "key": "wonders",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "than",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.75,
+          "end": 3.11,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ORLANDO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "and",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "greater",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "wonders",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "text": "than",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "that.",
+          "start": 2.75,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20111378654837608
+    },
+    {
+      "asr_seconds": 0.18339359480887651,
+      "alignment_seconds": 0.001060311682522297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orlando, I am greater wonders than that.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Orlando,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.802734375
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " am",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " greater",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.978515625
+            },
+            {
+              "text": " wonders",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " than",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that.",
+              "start": 2.75,
+              "end": 3.05,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orlando,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "am",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "raw": "greater",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "raw": "than",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "raw": "that.",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "ORLANDO.",
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "and",
+        "greater",
+        "wonders",
+        "than",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orlando,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "orlando",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.61,
+          "end": 1.91,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "greater",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wonders",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "wonders",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "than",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.75,
+          "end": 3.05,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ORLANDO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.955
+        },
+        {
+          "text": "and",
+          "start": 0.955,
+          "end": 1.432
+        },
+        {
+          "text": "greater",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "wonders",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "text": "than",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "text": "that.",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18459333293139935
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d0b5e258a15bfb3e79240544b954b78dc26ad043655e7f14ef87c6991dee721",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

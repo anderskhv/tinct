@@ -1,0 +1,371 @@
+{
+  "complete": true,
+  "signature": "3ca906020561aa9a49caea44237b85cb459c2490cdd9bc5d8499cfe221415224",
+  "attempts": [
+    {
+      "asr_seconds": 0.20044785644859076,
+      "alignment_seconds": 0.0012579644098877907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I'll stand guard on it myself!\" said Ilyín.",
+        "hotwords": "I'll, Ilyín"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I'll stand guard on it myself!\" said Ilyín.",
+          "start": 0.0,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.638427734375
+            },
+            {
+              "text": " stand",
+              "start": 0.36,
+              "end": 0.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " guard",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " myself",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": "!\"",
+              "start": 1.6,
+              "end": 1.96,
+              "probability": 0.0011034011840820312
+            },
+            {
+              "text": " said",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Ilyín.",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.003119230270385742
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "stand",
+          "start": 0.36,
+          "end": 0.6
+        },
+        {
+          "raw": "guard",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "on",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "it",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "myself",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "raw": "!\"",
+          "start": 1.6,
+          "end": 1.96
+        },
+        {
+          "raw": "said",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "Ilyín.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "“I’ll",
+        "stand",
+        "guard",
+        "on",
+        "it",
+        "myself!”",
+        "said",
+        "Ilyín."
+      ],
+      "acoustic_expected_tokens": [
+        "\"I'll",
+        "stand",
+        "guard",
+        "on",
+        "it",
+        "myself!\"",
+        "said",
+        "Ilyín."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 0.36,
+          "end": 0.6,
+          "key": "stand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "guard",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "guard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "myself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.6,
+          "end": 1.96,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ilyín.",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "ilyín",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I’ll",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "stand",
+          "start": 0.36,
+          "end": 0.6
+        },
+        {
+          "text": "guard",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "on",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "it",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "myself!”",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "text": "said",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "Ilyín.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2018835674971342
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f50d6bcb77b8025c664a280da18587db627858e4debeb217b39a16e80621609",
+  "selected_reasons": []
+}

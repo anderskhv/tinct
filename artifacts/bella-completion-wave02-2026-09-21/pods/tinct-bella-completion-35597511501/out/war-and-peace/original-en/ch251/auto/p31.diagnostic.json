@@ -1,0 +1,1154 @@
+{
+  "complete": true,
+  "signature": "ad46091561f12ebd92707e8240ec580f1384024ff5993a0a0f66ae7190ef9891",
+  "attempts": [
+    {
+      "asr_seconds": 0.44309338368475437,
+      "alignment_seconds": 0.0019599245861172676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But Mávra Kuzmínichna stood at the closed gate for some time with moist eyes, pensively swaying her head and feeling an unexpected flow of motherly tenderness and pity for the unknown young officer.",
+        "hotwords": "But, Mávra, Kuzmínichna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But Mávra Kuzmínichna stood at the closed gate for some time with moist eyes, pensively swaying her head and feeling an unexpected flow of motherly tenderness and pity for the unknown young officer.",
+          "start": 0.0,
+          "end": 9.34,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " Mávra",
+              "start": 0.32,
+              "end": 0.68,
+              "probability": 0.2046966552734375
+            },
+            {
+              "text": " Kuzmínichna",
+              "start": 0.68,
+              "end": 1.24,
+              "probability": 0.2104365030924479
+            },
+            {
+              "text": " stood",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " closed",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gate",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " time",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " moist",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " eyes,",
+              "start": 3.3,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pensively",
+              "start": 4.08,
+              "end": 4.46,
+              "probability": 0.9798177083333334
+            },
+            {
+              "text": " swaying",
+              "start": 4.46,
+              "end": 4.88,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " her",
+              "start": 4.88,
+              "end": 5.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " feeling",
+              "start": 5.44,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 5.68,
+              "end": 5.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unexpected",
+              "start": 5.9,
+              "end": 6.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flow",
+              "start": 6.32,
+              "end": 6.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.74,
+              "end": 6.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " motherly",
+              "start": 6.92,
+              "end": 7.26,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " tenderness",
+              "start": 7.26,
+              "end": 7.66,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " and",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pity",
+              "start": 7.84,
+              "end": 8.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 8.02,
+              "end": 8.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.24,
+              "end": 8.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unknown",
+              "start": 8.36,
+              "end": 8.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " young",
+              "start": 8.72,
+              "end": 9.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " officer.",
+              "start": 9.0,
+              "end": 9.34,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "Mávra",
+          "start": 0.32,
+          "end": 0.68
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.68,
+          "end": 1.24
+        },
+        {
+          "raw": "stood",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "at",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "closed",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "gate",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "for",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "some",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "time",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "with",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "moist",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "eyes,",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "raw": "pensively",
+          "start": 4.08,
+          "end": 4.46
+        },
+        {
+          "raw": "swaying",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "raw": "her",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "raw": "head",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "feeling",
+          "start": 5.44,
+          "end": 5.68
+        },
+        {
+          "raw": "an",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "raw": "unexpected",
+          "start": 5.9,
+          "end": 6.32
+        },
+        {
+          "raw": "flow",
+          "start": 6.32,
+          "end": 6.74
+        },
+        {
+          "raw": "of",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "raw": "motherly",
+          "start": 6.92,
+          "end": 7.26
+        },
+        {
+          "raw": "tenderness",
+          "start": 7.26,
+          "end": 7.66
+        },
+        {
+          "raw": "and",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "pity",
+          "start": 7.84,
+          "end": 8.02
+        },
+        {
+          "raw": "for",
+          "start": 8.02,
+          "end": 8.24
+        },
+        {
+          "raw": "the",
+          "start": 8.24,
+          "end": 8.36
+        },
+        {
+          "raw": "unknown",
+          "start": 8.36,
+          "end": 8.72
+        },
+        {
+          "raw": "young",
+          "start": 8.72,
+          "end": 9.0
+        },
+        {
+          "raw": "officer.",
+          "start": 9.0,
+          "end": 9.34
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "Mávra",
+        "Kuzmínichna",
+        "stood",
+        "at",
+        "the",
+        "closed",
+        "gate",
+        "for",
+        "some",
+        "time",
+        "with",
+        "moist",
+        "eyes,",
+        "pensively",
+        "swaying",
+        "her",
+        "head",
+        "and",
+        "feeling",
+        "an",
+        "unexpected",
+        "flow",
+        "of",
+        "motherly",
+        "tenderness",
+        "and",
+        "pity",
+        "for",
+        "the",
+        "unknown",
+        "young",
+        "officer."
+      ],
+      "acoustic_expected_tokens": [
+        "But",
+        "Mávra",
+        "Kuzmínichna",
+        "stood",
+        "at",
+        "the",
+        "closed",
+        "gate",
+        "for",
+        "some",
+        "time",
+        "with",
+        "moist",
+        "eyes,",
+        "pensively",
+        "swaying",
+        "her",
+        "head",
+        "and",
+        "feeling",
+        "an",
+        "unexpected",
+        "flow",
+        "of",
+        "motherly",
+        "tenderness",
+        "and",
+        "pity",
+        "for",
+        "the",
+        "unknown",
+        "young",
+        "officer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mávra",
+          "start": 0.32,
+          "end": 0.68,
+          "key": "mávra",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.68,
+          "end": 1.24,
+          "key": "kuzmínichna",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "stood",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "closed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "gate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "some",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "time",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "moist",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "moist",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 3.3,
+          "end": 3.74,
+          "key": "eyes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pensively",
+          "start": 4.08,
+          "end": 4.46,
+          "key": "pensively",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "swaying",
+          "start": 4.46,
+          "end": 4.88,
+          "key": "swaying",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.88,
+          "end": 5.0,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "head",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.44,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 5.44,
+          "end": 5.68,
+          "key": "feeling",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.68,
+          "end": 5.9,
+          "key": "an",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "unexpected",
+          "start": 5.9,
+          "end": 6.32,
+          "key": "unexpected",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "flow",
+          "start": 6.32,
+          "end": 6.74,
+          "key": "flow",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.74,
+          "end": 6.92,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "motherly",
+          "start": 6.92,
+          "end": 7.26,
+          "key": "motherly",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "tenderness",
+          "start": 7.26,
+          "end": 7.66,
+          "key": "tenderness",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.66,
+          "end": 7.84,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "pity",
+          "start": 7.84,
+          "end": 8.02,
+          "key": "pity",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.02,
+          "end": 8.24,
+          "key": "for",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.24,
+          "end": 8.36,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "unknown",
+          "start": 8.36,
+          "end": 8.72,
+          "key": "unknown",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 8.72,
+          "end": 9.0,
+          "key": "young",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "officer.",
+          "start": 9.0,
+          "end": 9.34,
+          "key": "officer",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Mávra",
+          "start": 0.32,
+          "end": 0.68
+        },
+        {
+          "text": "Kuzmínichna",
+          "start": 0.68,
+          "end": 1.24
+        },
+        {
+          "text": "stood",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "at",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "closed",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "gate",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "text": "for",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "some",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "time",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "with",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "moist",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "eyes,",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "text": "pensively",
+          "start": 4.08,
+          "end": 4.46
+        },
+        {
+          "text": "swaying",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "text": "her",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "text": "head",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "and",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "feeling",
+          "start": 5.44,
+          "end": 5.68
+        },
+        {
+          "text": "an",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "text": "unexpected",
+          "start": 5.9,
+          "end": 6.32
+        },
+        {
+          "text": "flow",
+          "start": 6.32,
+          "end": 6.74
+        },
+        {
+          "text": "of",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "text": "motherly",
+          "start": 6.92,
+          "end": 7.26
+        },
+        {
+          "text": "tenderness",
+          "start": 7.26,
+          "end": 7.66
+        },
+        {
+          "text": "and",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "text": "pity",
+          "start": 7.84,
+          "end": 8.02
+        },
+        {
+          "text": "for",
+          "start": 8.02,
+          "end": 8.24
+        },
+        {
+          "text": "the",
+          "start": 8.24,
+          "end": 8.36
+        },
+        {
+          "text": "unknown",
+          "start": 8.36,
+          "end": 8.72
+        },
+        {
+          "text": "young",
+          "start": 8.72,
+          "end": 9.0
+        },
+        {
+          "text": "officer.",
+          "start": 9.0,
+          "end": 9.34
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4452736917883158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "67e9a173be766f7e9f5a55c669c4d903bce48b586e2728244227596f2d884975",
+  "selected_reasons": []
+}

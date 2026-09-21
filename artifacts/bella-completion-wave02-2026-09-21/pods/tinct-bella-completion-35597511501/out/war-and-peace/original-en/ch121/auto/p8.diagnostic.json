@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "af8d7b4fd9ef1ef5a1078571b49e4db7d7acdeaf77400441aa14d512544f7d1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23623293917626143,
+      "alignment_seconds": 0.0015083160251379013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perónskaya was pointing out to the countess the most important people at the ball.",
+        "hotwords": "Perónskaya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perónskaya was pointing out to the countess the most important people at the ball.",
+          "start": 0.0,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Perónskaya",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.4120631814002991
+            },
+            {
+              "text": " was",
+              "start": 0.8,
+              "end": 1.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " pointing",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " out",
+              "start": 1.32,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " countess",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " the",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " most",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " important",
+              "start": 2.66,
+              "end": 3.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " people",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ball.",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perónskaya",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "was",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "raw": "pointing",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "out",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "countess",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "the",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "most",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "important",
+          "start": 2.66,
+          "end": 3.1
+        },
+        {
+          "raw": "people",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "at",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "ball.",
+          "start": 3.76,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "Perónskaya",
+        "was",
+        "pointing",
+        "out",
+        "to",
+        "the",
+        "countess",
+        "the",
+        "most",
+        "important",
+        "people",
+        "at",
+        "the",
+        "ball."
+      ],
+      "acoustic_expected_tokens": [
+        "Perónskaya",
+        "was",
+        "pointing",
+        "out",
+        "to",
+        "the",
+        "countess",
+        "the",
+        "most",
+        "important",
+        "people",
+        "at",
+        "the",
+        "ball."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perónskaya",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "perónskaya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.8,
+          "end": 1.04,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pointing",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "pointing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.32,
+          "end": 1.62,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "countess",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "countess",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "most",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "important",
+          "start": 2.66,
+          "end": 3.1,
+          "key": "important",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 3.1,
+          "end": 3.44,
+          "key": "people",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ball.",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "ball",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Perónskaya",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "was",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "text": "pointing",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "out",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "the",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "countess",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "the",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "most",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "important",
+          "start": 2.66,
+          "end": 3.1
+        },
+        {
+          "text": "people",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "text": "at",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "the",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "ball.",
+          "start": 3.76,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2379392869770527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82509ba86f2d41bcd6d60b592f5ede5aea689a056fc1080ac20b6a05ef4eeb1a",
+  "selected_reasons": []
+}

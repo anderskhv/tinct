@@ -1,0 +1,599 @@
+{
+  "complete": true,
+  "signature": "6f0f773352fa3e1a4ba0a0b2e35fba093c365633709c916b2ae9685a71b58b37",
+  "attempts": [
+    {
+      "asr_seconds": 0.29538085870444775,
+      "alignment_seconds": 0.0014789840206503868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I beseech you, sir, to countenance William Visor of Woncot against Clement Perkes o' th' hill.",
+        "hotwords": "I, William, Visor, Woncot, Clement, Perkes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I beseech you, sir, to countenance William Visor of Woncot against Clement Perkes o' th' hill.",
+          "start": 0.05,
+          "end": 6.87,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.0130767822265625
+            },
+            {
+              "text": " beseech",
+              "start": 0.79,
+              "end": 1.75,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " you,",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sir,",
+              "start": 2.11,
+              "end": 2.11,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " to",
+              "start": 2.51,
+              "end": 2.59,
+              "probability": 0.9140625
+            },
+            {
+              "text": " countenance",
+              "start": 2.59,
+              "end": 3.09,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " William",
+              "start": 3.09,
+              "end": 3.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Visor",
+              "start": 3.47,
+              "end": 3.93,
+              "probability": 0.6717529296875
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.05,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Woncot",
+              "start": 4.05,
+              "end": 4.47,
+              "probability": 0.22576904296875
+            },
+            {
+              "text": " against",
+              "start": 4.47,
+              "end": 4.81,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Clement",
+              "start": 4.81,
+              "end": 5.17,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Perkes",
+              "start": 5.17,
+              "end": 5.69,
+              "probability": 0.428802490234375
+            },
+            {
+              "text": " o'",
+              "start": 5.69,
+              "end": 5.99,
+              "probability": 0.008697509765625
+            },
+            {
+              "text": " th'",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.059722900390625
+            },
+            {
+              "text": " hill.",
+              "start": 6.77,
+              "end": 6.87,
+              "probability": 0.5517578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "beseech",
+          "start": 0.79,
+          "end": 1.75
+        },
+        {
+          "raw": "you,",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "sir,",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "raw": "countenance",
+          "start": 2.59,
+          "end": 3.09
+        },
+        {
+          "raw": "William",
+          "start": 3.09,
+          "end": 3.47
+        },
+        {
+          "raw": "Visor",
+          "start": 3.47,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "raw": "Woncot",
+          "start": 4.05,
+          "end": 4.47
+        },
+        {
+          "raw": "against",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "raw": "Clement",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "raw": "Perkes",
+          "start": 5.17,
+          "end": 5.69
+        },
+        {
+          "raw": "o'",
+          "start": 5.69,
+          "end": 5.99
+        },
+        {
+          "raw": "th'",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "raw": "hill.",
+          "start": 6.77,
+          "end": 6.87
+        }
+      ],
+      "expected_tokens": [
+        "DAVY.",
+        "I",
+        "beseech",
+        "you,",
+        "sir,",
+        "to",
+        "countenance",
+        "William",
+        "Visor",
+        "of",
+        "Woncot",
+        "against",
+        "Clement",
+        "Perkes",
+        "o’",
+        "th’",
+        "hill."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "beseech",
+        "you,",
+        "sir,",
+        "to",
+        "countenance",
+        "William",
+        "Visor",
+        "of",
+        "Woncot",
+        "against",
+        "Clement",
+        "Perkes",
+        "o'",
+        "th'",
+        "hill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 0.79,
+          "end": 1.75,
+          "key": "beseech",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.11,
+          "end": 2.11,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.59,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "countenance",
+          "start": 2.59,
+          "end": 3.09,
+          "key": "countenance",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "William",
+          "start": 3.09,
+          "end": 3.47,
+          "key": "william",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Visor",
+          "start": 3.47,
+          "end": 3.93,
+          "key": "visor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.05,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Woncot",
+          "start": 4.05,
+          "end": 4.47,
+          "key": "woncot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.47,
+          "end": 4.81,
+          "key": "against",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Clement",
+          "start": 4.81,
+          "end": 5.17,
+          "key": "clement",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Perkes",
+          "start": 5.17,
+          "end": 5.69,
+          "key": "perkes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 5.69,
+          "end": 5.99,
+          "key": "o",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 6.19,
+          "end": 6.41,
+          "key": "th",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hill.",
+          "start": 6.77,
+          "end": 6.87,
+          "key": "hill",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "DAVY.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "beseech",
+          "start": 0.79,
+          "end": 1.75
+        },
+        {
+          "text": "you,",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "sir,",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "text": "countenance",
+          "start": 2.59,
+          "end": 3.09
+        },
+        {
+          "text": "William",
+          "start": 3.09,
+          "end": 3.47
+        },
+        {
+          "text": "Visor",
+          "start": 3.47,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "text": "Woncot",
+          "start": 4.05,
+          "end": 4.47
+        },
+        {
+          "text": "against",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "text": "Clement",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "text": "Perkes",
+          "start": 5.17,
+          "end": 5.69
+        },
+        {
+          "text": "o’",
+          "start": 5.69,
+          "end": 5.99
+        },
+        {
+          "text": "th’",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "text": "hill.",
+          "start": 6.77,
+          "end": 6.87
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2971199471503496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d2e182b7b09e87949c1d160ae3aaa66022a29c0e8516e5f1c3587228cfcedaa",
+  "selected_reasons": []
+}

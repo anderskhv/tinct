@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "13fb280188f4524ae20e37f666711b72baf72065d9362a0887b615a215392694",
+  "attempts": [
+    {
+      "asr_seconds": 0.21288918796926737,
+      "alignment_seconds": 0.0017967475578188896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Give him some porridge: it takes a long time to get filled up after starving.\"",
+        "hotwords": "Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Give him some porridge, it takes a long time to get filled up after starving.",
+          "start": 0.0,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Give",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " him",
+              "start": 0.36,
+              "end": 0.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " some",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " porridge,",
+              "start": 0.74,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " takes",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " long",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time",
+              "start": 2.04,
+              "end": 2.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " get",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " filled",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " up",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " after",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " starving.",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Give",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "him",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "raw": "some",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "porridge,",
+          "start": 0.74,
+          "end": 1.16
+        },
+        {
+          "raw": "it",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "takes",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "long",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "time",
+          "start": 2.04,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "get",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "filled",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "up",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "after",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "starving.",
+          "start": 3.46,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "“Give",
+        "him",
+        "some",
+        "porridge:",
+        "it",
+        "takes",
+        "a",
+        "long",
+        "time",
+        "to",
+        "get",
+        "filled",
+        "up",
+        "after",
+        "starving.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Give",
+        "him",
+        "some",
+        "porridge:",
+        "it",
+        "takes",
+        "a",
+        "long",
+        "time",
+        "to",
+        "get",
+        "filled",
+        "up",
+        "after",
+        "starving.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Give",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "give",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.36,
+          "end": 0.52,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "some",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "porridge,",
+          "start": 0.74,
+          "end": 1.16,
+          "key": "porridge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "takes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 2.04,
+          "end": 2.36,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "get",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "filled",
+          "start": 2.7,
+          "end": 2.96,
+          "key": "filled",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.96,
+          "end": 3.18,
+          "key": "up",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "after",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "starving.",
+          "start": 3.46,
+          "end": 3.86,
+          "key": "starving",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Give",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "him",
+          "start": 0.36,
+          "end": 0.52
+        },
+        {
+          "text": "some",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "porridge:",
+          "start": 0.74,
+          "end": 1.16
+        },
+        {
+          "text": "it",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "takes",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "a",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "long",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "time",
+          "start": 2.04,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "get",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "filled",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "text": "up",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "after",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "starving.”",
+          "start": 3.46,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21491515543311834
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bb55c0ea17e77587114fb21dfbadb7fc8be14a83977ed901163e205d39d3d18",
+  "selected_reasons": []
+}

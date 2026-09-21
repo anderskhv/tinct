@@ -1,0 +1,634 @@
+{
+  "complete": true,
+  "signature": "f8b97868d0fe52a1c4ec6cd996fd085c69af63313cd2350c675f5c9ff2706606",
+  "attempts": [
+    {
+      "asr_seconds": 0.2882558284327388,
+      "alignment_seconds": 0.0020546577870845795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That's certain, I, for my part, knew the tailor that made the wings she flew withal.",
+        "hotwords": "That's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salarino. That's certain, I, for my part, knew the tailor that made the wings she flew withal.",
+          "start": 0.62,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Salarino.",
+              "start": 0.62,
+              "end": 1.06,
+              "probability": 0.7908528645833334
+            },
+            {
+              "text": " That's",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.522430419921875
+            },
+            {
+              "text": " certain,",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I,",
+              "start": 2.44,
+              "end": 2.48,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " for",
+              "start": 2.56,
+              "end": 2.6,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " part,",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " knew",
+              "start": 3.36,
+              "end": 3.44,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " the",
+              "start": 3.44,
+              "end": 3.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tailor",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.904296875
+            },
+            {
+              "text": " that",
+              "start": 3.92,
+              "end": 4.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " made",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wings",
+              "start": 4.44,
+              "end": 4.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " she",
+              "start": 4.74,
+              "end": 5.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flew",
+              "start": 5.0,
+              "end": 5.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " withal.",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salarino.",
+          "start": 0.62,
+          "end": 1.06
+        },
+        {
+          "raw": "That's",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "raw": "certain,",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "I,",
+          "start": 2.44,
+          "end": 2.48
+        },
+        {
+          "raw": "for",
+          "start": 2.56,
+          "end": 2.6
+        },
+        {
+          "raw": "my",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "part,",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "knew",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "raw": "tailor",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "that",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "raw": "made",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "wings",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "raw": "she",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "raw": "flew",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "raw": "withal.",
+          "start": 5.2,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "That’s",
+        "certain,",
+        "I,",
+        "for",
+        "my",
+        "part,",
+        "knew",
+        "the",
+        "tailor",
+        "that",
+        "made",
+        "the",
+        "wings",
+        "she",
+        "flew",
+        "withal."
+      ],
+      "acoustic_expected_tokens": [
+        "That's",
+        "certain,",
+        "I,",
+        "for",
+        "my",
+        "part,",
+        "knew",
+        "the",
+        "tailor",
+        "that",
+        "made",
+        "the",
+        "wings",
+        "she",
+        "flew",
+        "withal."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salarino.",
+          "start": 0.62,
+          "end": 1.06,
+          "key": "salarino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.66,
+          "end": 2.08,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "certain,",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "certain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.44,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.56,
+          "end": 2.6,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "part",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 3.36,
+          "end": 3.44,
+          "key": "knew",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tailor",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "tailor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.92,
+          "end": 4.14,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 4.14,
+          "end": 4.28,
+          "key": "made",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wings",
+          "start": 4.44,
+          "end": 4.74,
+          "key": "wings",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.74,
+          "end": 5.0,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "flew",
+          "start": 5.0,
+          "end": 5.2,
+          "key": "flew",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "withal.",
+          "start": 5.2,
+          "end": 5.62,
+          "key": "withal",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "That’s",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "text": "certain,",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "I,",
+          "start": 2.44,
+          "end": 2.48
+        },
+        {
+          "text": "for",
+          "start": 2.56,
+          "end": 2.6
+        },
+        {
+          "text": "my",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "part,",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "knew",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "text": "tailor",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "that",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "text": "made",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "text": "the",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "wings",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "text": "she",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "text": "flew",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "text": "withal.",
+          "start": 5.2,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29057380463927984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a8f7365f90e70b49c0dd8d15ecf47f3c701d03e10ba8ae030d43eb40149ea7f",
+  "selected_reasons": []
+}

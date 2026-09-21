@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "4deba82e2c057821a35fc19f551aac252e3b190ebfb0a8f4ecee939bf93f8f50",
+  "attempts": [
+    {
+      "asr_seconds": 0.22522480692714453,
+      "alignment_seconds": 0.001019774004817009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, my Sónya could not have done otherwise!\" thought Nicholas.",
+        "hotwords": "Yes, Sónya, Nicholas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, my Sónya could not have done otherwise!\" thought Nicholas.",
+          "start": 0.0,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.156982421875
+            },
+            {
+              "text": " my",
+              "start": 0.94,
+              "end": 1.0,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Sónya",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.36771297454833984
+            },
+            {
+              "text": " could",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " done",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " otherwise",
+              "start": 2.06,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": "!\"",
+              "start": 2.5,
+              "end": 2.94,
+              "probability": 0.01031494140625
+            },
+            {
+              "text": " thought",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Nicholas.",
+              "start": 3.06,
+              "end": 3.4,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "my",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "raw": "Sónya",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "raw": "could",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "not",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "have",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "done",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "otherwise",
+          "start": 2.06,
+          "end": 2.5
+        },
+        {
+          "raw": "!\"",
+          "start": 2.5,
+          "end": 2.94
+        },
+        {
+          "raw": "thought",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "Nicholas.",
+          "start": 3.06,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "“Yes,",
+        "my",
+        "Sónya",
+        "could",
+        "not",
+        "have",
+        "done",
+        "otherwise!”",
+        "thought",
+        "Nicholas."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Yes,",
+        "my",
+        "Sónya",
+        "could",
+        "not",
+        "have",
+        "done",
+        "otherwise!\"",
+        "thought",
+        "Nicholas."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.94,
+          "end": 1.0,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sónya",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "sónya",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "could",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "done",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "otherwise",
+          "start": 2.06,
+          "end": 2.5,
+          "key": "otherwise",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.5,
+          "end": 2.94,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Nicholas.",
+          "start": 3.06,
+          "end": 3.4,
+          "key": "nicholas",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Yes,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "my",
+          "start": 0.94,
+          "end": 1.0
+        },
+        {
+          "text": "Sónya",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "text": "could",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "not",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "have",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "done",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "otherwise!”",
+          "start": 2.06,
+          "end": 2.5
+        },
+        {
+          "text": "thought",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "Nicholas.",
+          "start": 3.06,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22638670355081558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "394c7c43962ae494a27aa240183324350c2ba789812fd1f45b2bc116d3ea0bab",
+  "selected_reasons": []
+}

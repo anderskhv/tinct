@@ -1,0 +1,1366 @@
+{
+  "complete": true,
+  "signature": "e2ee080c215f01d0756e69d5c787ea4afd821e3ee9b55084881b9f1b9ae6d28d",
+  "attempts": [
+    {
+      "asr_seconds": 0.5802400512620807,
+      "alignment_seconds": 0.005865246988832951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The auditor wrote out a petition for you,\" continued Túshin, \"and you ought to sign it and ask this gentleman to take it. No doubt he\" (indicating Rostóv) \"has connections on the staff. You won't find a better opportunity.\"",
+        "hotwords": "Túshin, No, Rostóv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The auditor wrote out a petition for you,\" continued Túshin,",
+          "start": 0.0,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " auditor",
+              "start": 0.34,
+              "end": 0.6,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " wrote",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " petition",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you,\"",
+              "start": 1.8,
+              "end": 2.72,
+              "probability": 0.4995994567871094
+            },
+            {
+              "text": " continued",
+              "start": 2.72,
+              "end": 2.72,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Túshin,",
+              "start": 2.72,
+              "end": 3.12,
+              "probability": 0.29864761233329773
+            }
+          ]
+        },
+        {
+          "text": " and you ought to sign it and ask this gentleman to take it. No doubt he,\" indicating Rostóv,",
+          "start": 3.3,
+          "end": 9.18,
+          "words": [
+            {
+              "text": " and",
+              "start": 3.3,
+              "end": 3.52,
+              "probability": 0.1270751953125
+            },
+            {
+              "text": " you",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " ought",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sign",
+              "start": 3.98,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 4.18,
+              "end": 4.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.32,
+              "end": 4.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " ask",
+              "start": 4.44,
+              "end": 4.68,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " this",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gentleman",
+              "start": 4.96,
+              "end": 5.34,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " take",
+              "start": 5.66,
+              "end": 5.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 5.86,
+              "end": 6.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " No",
+              "start": 7.0,
+              "end": 7.3,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " doubt",
+              "start": 7.3,
+              "end": 7.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he,\"",
+              "start": 7.52,
+              "end": 8.0,
+              "probability": 0.531280517578125
+            },
+            {
+              "text": " indicating",
+              "start": 8.0,
+              "end": 8.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Rostóv,",
+              "start": 8.44,
+              "end": 9.18,
+              "probability": 0.3655376434326172
+            }
+          ]
+        },
+        {
+          "text": " has connections on the staff. You won't find a better opportunity.\"",
+          "start": 9.18,
+          "end": 13.5,
+          "words": [
+            {
+              "text": " has",
+              "start": 9.18,
+              "end": 9.5,
+              "probability": 0.8046875
+            },
+            {
+              "text": " connections",
+              "start": 9.5,
+              "end": 9.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 9.98,
+              "end": 10.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 10.22,
+              "end": 10.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " staff.",
+              "start": 10.34,
+              "end": 10.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You",
+              "start": 11.76,
+              "end": 11.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " won't",
+              "start": 11.96,
+              "end": 12.2,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " find",
+              "start": 12.2,
+              "end": 12.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 12.4,
+              "end": 12.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " better",
+              "start": 12.56,
+              "end": 12.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " opportunity.\"",
+              "start": 12.72,
+              "end": 13.5,
+              "probability": 0.5042686462402344
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "auditor",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "raw": "wrote",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "out",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "petition",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "for",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.8,
+          "end": 2.72
+        },
+        {
+          "raw": "continued",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "raw": "Túshin,",
+          "start": 2.72,
+          "end": 3.12
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "ought",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "to",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "sign",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "raw": "it",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "raw": "and",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "raw": "ask",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "raw": "this",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "gentleman",
+          "start": 4.96,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.66
+        },
+        {
+          "raw": "take",
+          "start": 5.66,
+          "end": 5.86
+        },
+        {
+          "raw": "it.",
+          "start": 5.86,
+          "end": 6.18
+        },
+        {
+          "raw": "No",
+          "start": 7.0,
+          "end": 7.3
+        },
+        {
+          "raw": "doubt",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "raw": "he,\"",
+          "start": 7.52,
+          "end": 8.0
+        },
+        {
+          "raw": "indicating",
+          "start": 8.0,
+          "end": 8.44
+        },
+        {
+          "raw": "Rostóv,",
+          "start": 8.44,
+          "end": 9.18
+        },
+        {
+          "raw": "has",
+          "start": 9.18,
+          "end": 9.5
+        },
+        {
+          "raw": "connections",
+          "start": 9.5,
+          "end": 9.98
+        },
+        {
+          "raw": "on",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "raw": "staff.",
+          "start": 10.34,
+          "end": 10.72
+        },
+        {
+          "raw": "You",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "raw": "won't",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "raw": "find",
+          "start": 12.2,
+          "end": 12.4
+        },
+        {
+          "raw": "a",
+          "start": 12.4,
+          "end": 12.56
+        },
+        {
+          "raw": "better",
+          "start": 12.56,
+          "end": 12.72
+        },
+        {
+          "raw": "opportunity.\"",
+          "start": 12.72,
+          "end": 13.5
+        }
+      ],
+      "expected_tokens": [
+        "“The",
+        "auditor",
+        "wrote",
+        "out",
+        "a",
+        "petition",
+        "for",
+        "you,”",
+        "continued",
+        "Túshin,",
+        "“and",
+        "you",
+        "ought",
+        "to",
+        "sign",
+        "it",
+        "and",
+        "ask",
+        "this",
+        "gentleman",
+        "to",
+        "take",
+        "it.",
+        "No",
+        "doubt",
+        "he”",
+        "(indicating",
+        "Rostóv)",
+        "“has",
+        "connections",
+        "on",
+        "the",
+        "staff.",
+        "You",
+        "won’t",
+        "find",
+        "a",
+        "better",
+        "opportunity.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"The",
+        "auditor",
+        "wrote",
+        "out",
+        "a",
+        "petition",
+        "for",
+        "you,\"",
+        "continued",
+        "Túshin,",
+        "\"and",
+        "you",
+        "ought",
+        "to",
+        "sign",
+        "it",
+        "and",
+        "ask",
+        "this",
+        "gentleman",
+        "to",
+        "take",
+        "it.",
+        "No",
+        "doubt",
+        "he\"",
+        "(indicating",
+        "Rostóv)",
+        "\"has",
+        "connections",
+        "on",
+        "the",
+        "staff.",
+        "You",
+        "won't",
+        "find",
+        "a",
+        "better",
+        "opportunity.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "auditor",
+          "start": 0.34,
+          "end": 0.6,
+          "key": "auditor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "wrote",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "petition",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "petition",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.8,
+          "end": 2.72,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 2.72,
+          "end": 2.72,
+          "key": "continued",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Túshin,",
+          "start": 2.72,
+          "end": 3.12,
+          "key": "túshin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 3.66,
+          "end": 3.82,
+          "key": "ought",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.82,
+          "end": 3.98,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sign",
+          "start": 3.98,
+          "end": 4.18,
+          "key": "sign",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.18,
+          "end": 4.32,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.32,
+          "end": 4.44,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 4.44,
+          "end": 4.68,
+          "key": "ask",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "this",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 4.96,
+          "end": 5.34,
+          "key": "gentleman",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.66,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 5.66,
+          "end": 5.86,
+          "key": "take",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.86,
+          "end": 6.18,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 7.0,
+          "end": 7.3,
+          "key": "no",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "doubt",
+          "start": 7.3,
+          "end": 7.52,
+          "key": "doubt",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "he,\"",
+          "start": 7.52,
+          "end": 8.0,
+          "key": "he",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "indicating",
+          "start": 8.0,
+          "end": 8.44,
+          "key": "indicating",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Rostóv,",
+          "start": 8.44,
+          "end": 9.18,
+          "key": "rostóv",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 9.18,
+          "end": 9.5,
+          "key": "has",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "connections",
+          "start": 9.5,
+          "end": 9.98,
+          "key": "connections",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 9.98,
+          "end": 10.22,
+          "key": "on",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.34,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "staff.",
+          "start": 10.34,
+          "end": 10.72,
+          "key": "staff",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 11.76,
+          "end": 11.96,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 11.96,
+          "end": 12.2,
+          "key": "wont",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 12.2,
+          "end": 12.4,
+          "key": "find",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.4,
+          "end": 12.56,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 12.56,
+          "end": 12.72,
+          "key": "better",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "opportunity.\"",
+          "start": 12.72,
+          "end": 13.5,
+          "key": "opportunity",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "auditor",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "text": "wrote",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "out",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "a",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "petition",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "for",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "you,”",
+          "start": 1.8,
+          "end": 2.72
+        },
+        {
+          "text": "continued",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "Túshin,",
+          "start": 2.72,
+          "end": 3.12
+        },
+        {
+          "text": "“and",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "text": "you",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "ought",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "to",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "sign",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "text": "it",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "text": "and",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "text": "ask",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "text": "this",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "gentleman",
+          "start": 4.96,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.66
+        },
+        {
+          "text": "take",
+          "start": 5.66,
+          "end": 5.86
+        },
+        {
+          "text": "it.",
+          "start": 5.86,
+          "end": 6.18
+        },
+        {
+          "text": "No",
+          "start": 7.0,
+          "end": 7.3
+        },
+        {
+          "text": "doubt",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "text": "he”",
+          "start": 7.52,
+          "end": 8.0
+        },
+        {
+          "text": "(indicating",
+          "start": 8.0,
+          "end": 8.44
+        },
+        {
+          "text": "Rostóv)",
+          "start": 8.44,
+          "end": 9.18
+        },
+        {
+          "text": "“has",
+          "start": 9.18,
+          "end": 9.5
+        },
+        {
+          "text": "connections",
+          "start": 9.5,
+          "end": 9.98
+        },
+        {
+          "text": "on",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "text": "the",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "text": "staff.",
+          "start": 10.34,
+          "end": 10.72
+        },
+        {
+          "text": "You",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "text": "won’t",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "text": "find",
+          "start": 12.2,
+          "end": 12.4
+        },
+        {
+          "text": "a",
+          "start": 12.4,
+          "end": 12.56
+        },
+        {
+          "text": "better",
+          "start": 12.56,
+          "end": 12.72
+        },
+        {
+          "text": "opportunity.”",
+          "start": 12.72,
+          "end": 13.5
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5866974489763379
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f40179ad3851cf716aa1270cbe3881625aa0b66ef74c1917cdd1e35dff85568",
+  "selected_reasons": []
+}

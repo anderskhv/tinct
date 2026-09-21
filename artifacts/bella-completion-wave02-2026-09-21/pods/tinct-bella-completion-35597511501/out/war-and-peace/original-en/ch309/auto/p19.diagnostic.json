@@ -1,0 +1,954 @@
+{
+  "complete": true,
+  "signature": "3c1d67ec209b5754a0cacf82429b2b76ec65c64c697b1aa38b2528b186e3fe4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4279949823394418,
+      "alignment_seconds": 0.0021575884893536568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Denísov did not reply; he rode up to Pétya, dismounted, and with trembling hands turned toward himself the bloodstained, mud-bespattered face which had already gone white.",
+        "hotwords": "Denísov, Pétya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Denísov did not reply, he rode up to Pétya, dismounted, and with trembling hands turned toward",
+          "start": 0.0,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " Denísov",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.020823160807291668
+            },
+            {
+              "text": " did",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reply,",
+              "start": 1.06,
+              "end": 1.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " rode",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " up",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Pétya,",
+              "start": 2.4,
+              "end": 2.82,
+              "probability": 0.3370094299316406
+            },
+            {
+              "text": " dismounted,",
+              "start": 3.08,
+              "end": 3.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " trembling",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hands",
+              "start": 4.48,
+              "end": 4.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turned",
+              "start": 4.94,
+              "end": 5.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " toward",
+              "start": 5.22,
+              "end": 5.52,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " himself the bloodstained, mud-bespattered face which had already gone white.",
+          "start": 5.52,
+          "end": 9.18,
+          "words": [
+            {
+              "text": " himself",
+              "start": 5.52,
+              "end": 5.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bloodstained,",
+              "start": 6.14,
+              "end": 6.64,
+              "probability": 0.5941162109375
+            },
+            {
+              "text": " mud",
+              "start": 7.04,
+              "end": 7.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": "-bespattered",
+              "start": 7.1,
+              "end": 7.6,
+              "probability": 0.285614013671875
+            },
+            {
+              "text": " face",
+              "start": 7.6,
+              "end": 7.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.82,
+              "end": 8.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 8.08,
+              "end": 8.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " already",
+              "start": 8.22,
+              "end": 8.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gone",
+              "start": 8.58,
+              "end": 8.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " white.",
+              "start": 8.84,
+              "end": 9.18,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "did",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "not",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "reply,",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "raw": "he",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "rode",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "up",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "Pétya,",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "raw": "dismounted,",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "with",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "trembling",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "hands",
+          "start": 4.48,
+          "end": 4.94
+        },
+        {
+          "raw": "turned",
+          "start": 4.94,
+          "end": 5.22
+        },
+        {
+          "raw": "toward",
+          "start": 5.22,
+          "end": 5.52
+        },
+        {
+          "raw": "himself",
+          "start": 5.52,
+          "end": 5.94
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "bloodstained,",
+          "start": 6.14,
+          "end": 6.64
+        },
+        {
+          "raw": "mud",
+          "start": 7.04,
+          "end": 7.1
+        },
+        {
+          "raw": "-bespattered",
+          "start": 7.1,
+          "end": 7.6
+        },
+        {
+          "raw": "face",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "raw": "which",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "raw": "had",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "raw": "already",
+          "start": 8.22,
+          "end": 8.58
+        },
+        {
+          "raw": "gone",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "raw": "white.",
+          "start": 8.84,
+          "end": 9.18
+        }
+      ],
+      "expected_tokens": [
+        "Denísov",
+        "did",
+        "not",
+        "reply;",
+        "he",
+        "rode",
+        "up",
+        "to",
+        "Pétya,",
+        "dismounted,",
+        "and",
+        "with",
+        "trembling",
+        "hands",
+        "turned",
+        "toward",
+        "himself",
+        "the",
+        "bloodstained,",
+        "mud-bespattered",
+        "face",
+        "which",
+        "had",
+        "already",
+        "gone",
+        "white."
+      ],
+      "acoustic_expected_tokens": [
+        "Denísov",
+        "did",
+        "not",
+        "reply;",
+        "he",
+        "rode",
+        "up",
+        "to",
+        "Pétya,",
+        "dismounted,",
+        "and",
+        "with",
+        "trembling",
+        "hands",
+        "turned",
+        "toward",
+        "himself",
+        "the",
+        "bloodstained,",
+        "mud-bespattered",
+        "face",
+        "which",
+        "had",
+        "already",
+        "gone",
+        "white."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Denísov",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "denísov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reply,",
+          "start": 1.06,
+          "end": 1.46,
+          "key": "reply",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "rode",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "up",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pétya,",
+          "start": 2.4,
+          "end": 2.82,
+          "key": "pétya",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dismounted,",
+          "start": 3.08,
+          "end": 3.5,
+          "key": "dismounted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.02,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.02,
+          "end": 4.16,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "trembling",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "trembling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 4.48,
+          "end": 4.94,
+          "key": "hands",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.94,
+          "end": 5.22,
+          "key": "turned",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 5.22,
+          "end": 5.52,
+          "key": "toward",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 5.52,
+          "end": 5.94,
+          "key": "himself",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "bloodstained,",
+          "start": 6.14,
+          "end": 6.64,
+          "key": "bloodstained",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mud -bespattered",
+          "start": 7.04,
+          "end": 7.6,
+          "key": "mudbespattered",
+          "pieces": [
+            19,
+            20
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 7.6,
+          "end": 7.82,
+          "key": "face",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.82,
+          "end": 8.08,
+          "key": "which",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.08,
+          "end": 8.22,
+          "key": "had",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 8.22,
+          "end": 8.58,
+          "key": "already",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 8.58,
+          "end": 8.84,
+          "key": "gone",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "white.",
+          "start": 8.84,
+          "end": 9.18,
+          "key": "white",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "mud-bespattered",
+          "heard": "mud -bespattered",
+          "heard_indexes": [
+            19,
+            20
+          ],
+          "start": 7.04,
+          "end": 7.6
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Denísov",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "did",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "not",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "reply;",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "text": "he",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "rode",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "up",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "to",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "Pétya,",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "text": "dismounted,",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "text": "and",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "with",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "trembling",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "hands",
+          "start": 4.48,
+          "end": 4.94
+        },
+        {
+          "text": "turned",
+          "start": 4.94,
+          "end": 5.22
+        },
+        {
+          "text": "toward",
+          "start": 5.22,
+          "end": 5.52
+        },
+        {
+          "text": "himself",
+          "start": 5.52,
+          "end": 5.94
+        },
+        {
+          "text": "the",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "bloodstained,",
+          "start": 6.14,
+          "end": 6.64
+        },
+        {
+          "text": "mud-bespattered",
+          "start": 7.04,
+          "end": 7.6
+        },
+        {
+          "text": "face",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "text": "which",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "text": "had",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "text": "already",
+          "start": 8.22,
+          "end": 8.58
+        },
+        {
+          "text": "gone",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "text": "white.",
+          "start": 8.84,
+          "end": 9.18
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4303956404328346
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10132e1e89920372b1d3f3aa0c2d3f9b9c8bdd4349401875085e80d2e180a983",
+  "selected_reasons": []
+}

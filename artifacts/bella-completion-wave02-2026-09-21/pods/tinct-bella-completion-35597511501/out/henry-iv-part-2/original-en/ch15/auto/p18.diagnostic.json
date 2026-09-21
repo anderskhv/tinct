@@ -1,0 +1,667 @@
+{
+  "complete": true,
+  "signature": "09886c7363f8bc70c9a9dc73c2c6e967a3822267a8c9661224e5b75bb7b5fbda",
+  "attempts": [
+    {
+      "asr_seconds": 0.30483600683510303,
+      "alignment_seconds": 0.0010216152295470238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There is many complaints, Davy, against that Visor. That Visor is an arrant knave, on my knowledge.",
+        "hotwords": "There, Davy, Visor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shallow, there is many complaints, Davy, against that Visor. That Visor is an arrant knave, on my knowledge.",
+          "start": 0.02,
+          "end": 6.62,
+          "words": [
+            {
+              "text": " Shallow,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.703369140625
+            },
+            {
+              "text": " there",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " many",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " complaints,",
+              "start": 1.54,
+              "end": 2.02,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Davy,",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " against",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Visor.",
+              "start": 3.36,
+              "end": 3.82,
+              "probability": 0.6002197265625
+            },
+            {
+              "text": " That",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Visor",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " is",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " arrant",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.4955635070800781
+            },
+            {
+              "text": " knave,",
+              "start": 5.56,
+              "end": 5.96,
+              "probability": 0.8046875
+            },
+            {
+              "text": " on",
+              "start": 6.04,
+              "end": 6.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 6.16,
+              "end": 6.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knowledge.",
+              "start": 6.32,
+              "end": 6.62,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shallow,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "there",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "many",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "complaints,",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "raw": "Davy,",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "against",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "that",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "Visor.",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "raw": "That",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "Visor",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "is",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "an",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "arrant",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "knave,",
+          "start": 5.56,
+          "end": 5.96
+        },
+        {
+          "raw": "on",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "raw": "my",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "raw": "knowledge.",
+          "start": 6.32,
+          "end": 6.62
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW.",
+        "There",
+        "is",
+        "many",
+        "complaints,",
+        "Davy,",
+        "against",
+        "that",
+        "Visor.",
+        "That",
+        "Visor",
+        "is",
+        "an",
+        "arrant",
+        "knave,",
+        "on",
+        "my",
+        "knowledge."
+      ],
+      "acoustic_expected_tokens": [
+        "There",
+        "is",
+        "many",
+        "complaints,",
+        "Davy,",
+        "against",
+        "that",
+        "Visor.",
+        "That",
+        "Visor",
+        "is",
+        "an",
+        "arrant",
+        "knave,",
+        "on",
+        "my",
+        "knowledge."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shallow,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "shallow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "many",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "complaints,",
+          "start": 1.54,
+          "end": 2.02,
+          "key": "complaints",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Davy,",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "davy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "against",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Visor.",
+          "start": 3.36,
+          "end": 3.82,
+          "key": "visor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Visor",
+          "start": 4.58,
+          "end": 5.0,
+          "key": "visor",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.0,
+          "end": 5.14,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "arrant",
+          "start": 5.3,
+          "end": 5.56,
+          "key": "arrant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 5.56,
+          "end": 5.96,
+          "key": "knave",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.04,
+          "end": 6.16,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.16,
+          "end": 6.32,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "knowledge.",
+          "start": 6.32,
+          "end": 6.62,
+          "key": "knowledge",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 1.08,
+          "end": 1.08
+        },
+        {
+          "text": "There",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "is",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "many",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "complaints,",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "text": "Davy,",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "against",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "that",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "Visor.",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "text": "That",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "Visor",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "text": "is",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "an",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "arrant",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "knave,",
+          "start": 5.56,
+          "end": 5.96
+        },
+        {
+          "text": "on",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "text": "my",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "text": "knowledge.",
+          "start": 6.32,
+          "end": 6.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30601105745881796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf2543d8e3aa3b289bcfd1b5555f7d6c706eb04ec58ad28bf9b746379dc5f128",
+  "selected_reasons": []
+}

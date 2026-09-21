@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "e53f886d911bbfcd26072657d369a38fbb380148a45606bd338f28c86b50d8c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09480625204741955,
+      "alignment_seconds": 0.0002393880859017372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Davy.",
+        "hotwords": "Enter, Davy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Davy.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Davy.",
+              "start": 0.68,
+              "end": 1.22,
+              "probability": 0.505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Davy.",
+          "start": 0.68,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Davy."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Davy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Davy.",
+          "start": 0.68,
+          "end": 1.22,
+          "key": "davy",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Davy.",
+          "start": 0.68,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09508515428751707
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5bbce1915df2e060200be111b0f98a8b68e2c91ea5de049096b5170c16423d5",
+  "selected_reasons": []
+}

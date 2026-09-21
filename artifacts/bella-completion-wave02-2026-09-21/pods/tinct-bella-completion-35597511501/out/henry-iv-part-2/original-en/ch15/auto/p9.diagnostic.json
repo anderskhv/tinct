@@ -1,0 +1,526 @@
+{
+  "complete": true,
+  "signature": "b1542f2b935d0f474844a31aa09b4a4ae241507265f2d28b9856ae70f2040211",
+  "attempts": [
+    {
+      "asr_seconds": 0.29336627572774887,
+      "alignment_seconds": 0.0026286588981747627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, sir. Here is now the smith's note for shoeing and plough-irons.",
+        "hotwords": "Yes, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Davy, Yes, sir. Here is now the smith's note for shoeing and plough-irons.",
+          "start": 0.08,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Davy,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.502197265625
+            },
+            {
+              "text": " Yes,",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.0477294921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.64,
+              "end": 1.7,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " Here",
+              "start": 2.22,
+              "end": 2.3,
+              "probability": 0.966796875
+            },
+            {
+              "text": " is",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " now",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " smith's",
+              "start": 2.72,
+              "end": 3.16,
+              "probability": 0.5630086263020834
+            },
+            {
+              "text": " note",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " for",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " shoeing",
+              "start": 3.48,
+              "end": 3.92,
+              "probability": 0.6099853515625
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.04,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " plough",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.56500244140625
+            },
+            {
+              "text": "-irons.",
+              "start": 4.3,
+              "end": 4.76,
+              "probability": 0.602508544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Davy,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "sir.",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "raw": "Here",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "now",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "smith's",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "raw": "note",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "shoeing",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "raw": "plough",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "-irons.",
+          "start": 4.3,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "DAVY.",
+        "Yes,",
+        "sir.",
+        "Here",
+        "is",
+        "now",
+        "the",
+        "smith’s",
+        "note",
+        "for",
+        "shoeing",
+        "and",
+        "plough-irons."
+      ],
+      "acoustic_expected_tokens": [
+        "Yes,",
+        "sir.",
+        "Here",
+        "is",
+        "now",
+        "the",
+        "smith's",
+        "note",
+        "for",
+        "shoeing",
+        "and",
+        "plough-irons."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Davy,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "davy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.64,
+          "end": 1.7,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 2.22,
+          "end": 2.3,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "smith's",
+          "start": 2.72,
+          "end": 3.16,
+          "key": "smiths",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "note",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shoeing",
+          "start": 3.48,
+          "end": 3.92,
+          "key": "shoeing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "plough -irons.",
+          "start": 4.04,
+          "end": 4.76,
+          "key": "ploughirons",
+          "pieces": [
+            12,
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "plough-irons.",
+          "heard": "plough -irons.",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 4.04,
+          "end": 4.76
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "DAVY.",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "Yes,",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "text": "sir.",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "Here",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "now",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "smith’s",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "text": "note",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "for",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "shoeing",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "text": "plough-irons.",
+          "start": 4.04,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29627223405987024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba371f8bb09c6aac507382ac32a2bd5fc3b16421848e3c226a6f25cdec430dc3",
+  "selected_reasons": []
+}

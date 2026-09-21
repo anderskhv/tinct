@@ -1,0 +1,569 @@
+{
+  "complete": true,
+  "signature": "d8c46681044f44db2c4dd48c5f28e74f4c595c8db97ab63c316cbcb8cc58d5ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.29343429394066334,
+      "alignment_seconds": 0.0018023261800408363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, Prince, may God give you great luck!\" said Matrëna in her gypsy accent.",
+        "hotwords": "Well, Prince, God, Matrëna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, Prince, may God give you great luck!\" said Matrëna in her gypsy accent.",
+          "start": 0.0,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.058563232421875
+            },
+            {
+              "text": " Prince,",
+              "start": 0.98,
+              "end": 0.98,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " may",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9765625
+            },
+            {
+              "text": " God",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " give",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 2.04,
+              "end": 2.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " luck",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": "!\"",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.040557861328125
+            },
+            {
+              "text": " said",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Matrëna",
+              "start": 3.02,
+              "end": 3.54,
+              "probability": 0.48048609495162964
+            },
+            {
+              "text": " in",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gypsy",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.7293701171875
+            },
+            {
+              "text": " accent.",
+              "start": 4.28,
+              "end": 4.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Prince,",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "raw": "may",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "God",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "give",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "you",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "great",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "raw": "luck",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "!\"",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "said",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "Matrëna",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "raw": "in",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "her",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "gypsy",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "raw": "accent.",
+          "start": 4.28,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "Prince,",
+        "may",
+        "God",
+        "give",
+        "you",
+        "great",
+        "luck!”",
+        "said",
+        "Matrëna",
+        "in",
+        "her",
+        "gypsy",
+        "accent."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "Prince,",
+        "may",
+        "God",
+        "give",
+        "you",
+        "great",
+        "luck!\"",
+        "said",
+        "Matrëna",
+        "in",
+        "her",
+        "gypsy",
+        "accent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          14,
+          9,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prince,",
+          "start": 0.98,
+          "end": 0.98,
+          "key": "prince",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.04,
+          "end": 2.28,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "luck",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "luck",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Matrëna",
+          "start": 3.02,
+          "end": 3.54,
+          "key": "matrëna",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gypsy",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "gypsy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "accent.",
+          "start": 4.28,
+          "end": 4.64,
+          "key": "accent",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Prince,",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "may",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "God",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "give",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "you",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "great",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "text": "luck!”",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "said",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "Matrëna",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "text": "in",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "her",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "gypsy",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "text": "accent.",
+          "start": 4.28,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29547214694321156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d953ffb1a6801875e9281e44af1d0787d1dff185284c44fd037fa6668e6b5fe",
+  "selected_reasons": []
+}

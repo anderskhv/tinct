@@ -1,0 +1,995 @@
+{
+  "complete": true,
+  "signature": "46e3db2b36b1abe49fc67d66b4d00eb234a13c89cc41ebae6be4ccefd906e6e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4203301100060344,
+      "alignment_seconds": 0.002818020060658455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But after all who asked them here? Serves them right, the bloody bastards!\" he cried, suddenly lifting his head.",
+        "hotwords": "But, Serves"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But after all who asked them here? Serves them right, the bloody bastards!\" he cried, suddenly lifting his head.",
+          "start": 0.0,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " after",
+              "start": 0.3,
+              "end": 0.56,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " all",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " who",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " asked",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " them",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " here?",
+              "start": 1.44,
+              "end": 1.8,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Serves",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.59246826171875
+            },
+            {
+              "text": " them",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " right,",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.9765625
+            },
+            {
+              "text": " bloody",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " bastards",
+              "start": 4.26,
+              "end": 4.82,
+              "probability": 0.993896484375
+            },
+            {
+              "text": "!\"",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.05462646484375
+            },
+            {
+              "text": " he",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " cried,",
+              "start": 5.18,
+              "end": 5.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly",
+              "start": 5.92,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lifting",
+              "start": 6.1,
+              "end": 6.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 6.44,
+              "end": 6.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head.",
+              "start": 6.72,
+              "end": 7.02,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Serves them right, the bloody bastards! Serves them right, the bloody bastards!",
+          "start": 7.02,
+          "end": 7.48,
+          "words": [
+            {
+              "text": " Serves",
+              "start": 7.02,
+              "end": 7.16,
+              "probability": 0.02710247039794922
+            },
+            {
+              "text": " them",
+              "start": 7.16,
+              "end": 7.16,
+              "probability": 0.007266998291015625
+            },
+            {
+              "text": " right,",
+              "start": 7.16,
+              "end": 7.16,
+              "probability": 0.0032520294189453125
+            },
+            {
+              "text": " the",
+              "start": 7.16,
+              "end": 7.48,
+              "probability": 0.025054931640625
+            },
+            {
+              "text": " bloody",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 3.838539123535156e-05
+            },
+            {
+              "text": " bastards!",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.4812641143798828
+            },
+            {
+              "text": " Serves",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.4917195737361908
+            },
+            {
+              "text": " them",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.6328125
+            },
+            {
+              "text": " right,",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " the",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.7890625
+            },
+            {
+              "text": " bloody",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.669921875
+            },
+            {
+              "text": " bastards!",
+              "start": 7.48,
+              "end": 7.48,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "after",
+          "start": 0.3,
+          "end": 0.56
+        },
+        {
+          "raw": "all",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "who",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "asked",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "them",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "here?",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "raw": "Serves",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "them",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "right,",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "the",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "bloody",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "bastards",
+          "start": 4.26,
+          "end": 4.82
+        },
+        {
+          "raw": "!\"",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "he",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "cried,",
+          "start": 5.18,
+          "end": 5.56
+        },
+        {
+          "raw": "suddenly",
+          "start": 5.92,
+          "end": 6.1
+        },
+        {
+          "raw": "lifting",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "raw": "his",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "raw": "head.",
+          "start": 6.72,
+          "end": 7.02
+        },
+        {
+          "raw": "Serves",
+          "start": 7.02,
+          "end": 7.16
+        },
+        {
+          "raw": "them",
+          "start": 7.16,
+          "end": 7.16
+        },
+        {
+          "raw": "right,",
+          "start": 7.16,
+          "end": 7.16
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.48
+        },
+        {
+          "raw": "bloody",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "bastards!",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "Serves",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "them",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "right,",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "bloody",
+          "start": 7.48,
+          "end": 7.48
+        },
+        {
+          "raw": "bastards!",
+          "start": 7.48,
+          "end": 7.48
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "after",
+        "all",
+        "who",
+        "asked",
+        "them",
+        "here?",
+        "Serves",
+        "them",
+        "right,",
+        "the",
+        "bloody",
+        "bastards!”",
+        "he",
+        "cried,",
+        "suddenly",
+        "lifting",
+        "his",
+        "head."
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "after",
+        "all",
+        "who",
+        "asked",
+        "them",
+        "here?",
+        "Serves",
+        "them",
+        "right,",
+        "the",
+        "bloody",
+        "bastards!\"",
+        "he",
+        "cried,",
+        "suddenly",
+        "lifting",
+        "his",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          19,
+          14,
+          20
+        ],
+        [
+          "insert",
+          19,
+          19,
+          20,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ],
+        [
+          "insert",
+          19,
+          19,
+          20,
+          32
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 0.3,
+          "end": 0.56,
+          "key": "after",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.44,
+          "end": 1.8,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Serves",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "serves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "right",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 3.98,
+          "end": 4.26,
+          "key": "bloody",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bastards",
+          "start": 4.26,
+          "end": 4.82,
+          "key": "bastards",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 5.18,
+          "end": 5.56,
+          "key": "cried",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 5.92,
+          "end": 6.1,
+          "key": "suddenly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lifting",
+          "start": 6.1,
+          "end": 6.44,
+          "key": "lifting",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.44,
+          "end": 6.72,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 6.72,
+          "end": 7.02,
+          "key": "head",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Serves",
+          "start": 7.02,
+          "end": 7.16,
+          "key": "serves",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 7.16,
+          "end": 7.16,
+          "key": "them",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 7.16,
+          "end": 7.16,
+          "key": "right",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.48,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "bloody",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bastards!",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "bastards",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Serves",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "serves",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "them",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "right",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "bloody",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "bastards!",
+          "start": 7.48,
+          "end": 7.48,
+          "key": "bastards",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "after",
+          "start": 0.3,
+          "end": 0.56
+        },
+        {
+          "text": "all",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "who",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "asked",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "them",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "here?",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "text": "Serves",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "them",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "right,",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "text": "the",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "bloody",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "bastards!”",
+          "start": 4.26,
+          "end": 4.82
+        },
+        {
+          "text": "he",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "cried,",
+          "start": 5.18,
+          "end": 5.56
+        },
+        {
+          "text": "suddenly",
+          "start": 5.92,
+          "end": 6.1
+        },
+        {
+          "text": "lifting",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "text": "his",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "text": "head.",
+          "start": 6.72,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 32,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4236293528228998
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71b8190085c9591269bce85f62e0876343ba79df34f0fff68ca2afb272a47022",
+  "selected_reasons": []
+}

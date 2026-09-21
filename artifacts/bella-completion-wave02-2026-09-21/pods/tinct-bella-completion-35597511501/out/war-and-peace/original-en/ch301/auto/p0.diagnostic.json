@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "8b05a62afe39daf09d3941a3702faa1a8e8ba1643180db40198a1ad37fd3877d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20132282376289368,
+      "alignment_seconds": 0.001537194475531578,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The so-called partisan war began with the entry of the French into Smolénsk.",
+        "hotwords": "French, Smolénsk"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The so-called partisan war began with the entry of the French into Smolénsk.",
+          "start": 0.0,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.865234375
+            },
+            {
+              "text": " so",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-called",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " partisan",
+              "start": 0.8,
+              "end": 1.32,
+              "probability": 0.1932373046875
+            },
+            {
+              "text": " war",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " began",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entry",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " French",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " into",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Smolénsk.",
+              "start": 3.36,
+              "end": 4.12,
+              "probability": 0.7652343869209289
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "so",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "-called",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "partisan",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "raw": "war",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "began",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "with",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "entry",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "the",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "French",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "raw": "into",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "Smolénsk.",
+          "start": 3.36,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "so-called",
+        "partisan",
+        "war",
+        "began",
+        "with",
+        "the",
+        "entry",
+        "of",
+        "the",
+        "French",
+        "into",
+        "Smolénsk."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "so-called",
+        "partisan",
+        "war",
+        "began",
+        "with",
+        "the",
+        "entry",
+        "of",
+        "the",
+        "French",
+        "into",
+        "Smolénsk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so -called",
+          "start": 0.34,
+          "end": 0.8,
+          "key": "socalled",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "partisan",
+          "start": 0.8,
+          "end": 1.32,
+          "key": "partisan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "war",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "began",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "entry",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "entry",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 2.8,
+          "end": 3.04,
+          "key": "french",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "into",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Smolénsk.",
+          "start": 3.36,
+          "end": 4.12,
+          "key": "smolénsk",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "so-called",
+          "heard": "so -called",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.34,
+          "end": 0.8
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "so-called",
+          "start": 0.34,
+          "end": 0.8
+        },
+        {
+          "text": "partisan",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "text": "war",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "text": "began",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "with",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "entry",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "the",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "French",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "into",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "Smolénsk.",
+          "start": 3.36,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2030655611306429
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c90f88b205b1c6c84e247fe206b31b257239728a0aa46750c137db246e1a2649",
+  "selected_reasons": []
+}

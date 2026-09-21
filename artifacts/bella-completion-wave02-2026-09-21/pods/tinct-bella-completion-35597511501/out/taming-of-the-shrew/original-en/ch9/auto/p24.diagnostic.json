@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "0ae6e9629d464f242002f082205433fef3a40ba8433571ded89ae400a91e076d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20505814161151648,
+      "alignment_seconds": 0.0008795037865638733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt Tranio, Pedant and Baptista.",
+        "hotwords": "Exeunt, Tranio, Pedant, Baptista"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Tranio, Pedant and Baptista.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6120198567708334
+            },
+            {
+              "text": " Tranio,",
+              "start": 0.77,
+              "end": 1.27,
+              "probability": 0.63861083984375
+            },
+            {
+              "text": " Pedant",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.307159423828125
+            },
+            {
+              "text": " and",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " Baptista.",
+              "start": 2.07,
+              "end": 2.61,
+              "probability": 0.759521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Tranio,",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "raw": "Pedant",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "Baptista.",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Tranio,",
+        "Pedant",
+        "and",
+        "Baptista._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "Tranio,",
+        "Pedant",
+        "and",
+        "Baptista."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 0.77,
+          "end": 1.27,
+          "key": "tranio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pedant",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "pedant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Baptista.",
+          "start": 2.07,
+          "end": 2.61,
+          "key": "baptista",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Tranio,",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "text": "Pedant",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "and",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "Baptista._]",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2060635695233941
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10a8a4b6e739c6a1b710815b79aaa0e54029fec41e4ea353fa344cee7ec0f249",
+  "selected_reasons": []
+}

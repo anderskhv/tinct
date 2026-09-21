@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "281d797edad150ce6a039b9336cd38793b63f714feda146c168849dc4ab82d36",
+  "attempts": [
+    {
+      "asr_seconds": 0.19804461300373077,
+      "alignment_seconds": 0.001052328385412693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Daniel did not answer, but winked instead.",
+        "hotwords": "Daniel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Daniel Daniel did not answer, but winked instead.",
+          "start": 0.0,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Daniel",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Daniel",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 4.231929779052734e-06
+            },
+            {
+              "text": " did",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " not",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " answer,",
+              "start": 0.88,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " winked",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " instead.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Daniel",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Daniel",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "did",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "not",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "answer,",
+          "start": 0.88,
+          "end": 1.34
+        },
+        {
+          "raw": "but",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "winked",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "instead.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "Daniel",
+        "did",
+        "not",
+        "answer,",
+        "but",
+        "winked",
+        "instead."
+      ],
+      "acoustic_expected_tokens": [
+        "Daniel",
+        "did",
+        "not",
+        "answer,",
+        "but",
+        "winked",
+        "instead."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Daniel",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "daniel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daniel",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "daniel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.6,
+          "end": 0.68,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 0.88,
+          "end": 1.34,
+          "key": "answer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "winked",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "winked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "instead.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "instead",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Daniel",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "did",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "not",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "answer,",
+          "start": 0.88,
+          "end": 1.34
+        },
+        {
+          "text": "but",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "winked",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "instead.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19927860517054796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac587a5587da65a881643ffc99e9c3db686541b6e794c474cba123bc03a2c044",
+  "selected_reasons": []
+}

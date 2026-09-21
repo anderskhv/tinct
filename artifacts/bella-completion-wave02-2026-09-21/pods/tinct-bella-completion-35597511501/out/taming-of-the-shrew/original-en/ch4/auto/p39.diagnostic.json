@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "bd345a97e1c5ae3265d2af36c60b76e6088eead9d669a72df9a29c504ed91d16",
+  "attempts": [
+    {
+      "asr_seconds": 0.18871039897203445,
+      "alignment_seconds": 0.0007448755204677582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Farewell, sweet masters, both: I must be gone.",
+        "hotwords": "Farewell, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bianca, Farewell, sweet masters, both. I must be gone.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.41,
+              "end": 1.71,
+              "probability": 0.53302001953125
+            },
+            {
+              "text": " sweet",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.291015625
+            },
+            {
+              "text": " masters,",
+              "start": 2.01,
+              "end": 2.45,
+              "probability": 0.8359375
+            },
+            {
+              "text": " both.",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.943359375
+            },
+            {
+              "text": " I",
+              "start": 3.31,
+              "end": 3.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " must",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gone.",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "raw": "sweet",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "masters,",
+          "start": 2.01,
+          "end": 2.45
+        },
+        {
+          "raw": "both.",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "I",
+          "start": 3.31,
+          "end": 3.33
+        },
+        {
+          "raw": "must",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "be",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "gone.",
+          "start": 3.67,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "BIANCA.",
+        "Farewell,",
+        "sweet",
+        "masters,",
+        "both:",
+        "I",
+        "must",
+        "be",
+        "gone."
+      ],
+      "acoustic_expected_tokens": [
+        "Farewell,",
+        "sweet",
+        "masters,",
+        "both:",
+        "I",
+        "must",
+        "be",
+        "gone."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          8,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.41,
+          "end": 1.71,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "sweet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "masters,",
+          "start": 2.01,
+          "end": 2.45,
+          "key": "masters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "both",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.31,
+          "end": 3.33,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 3.67,
+          "end": 3.95,
+          "key": "gone",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIANCA.",
+          "start": 1.41,
+          "end": 1.41
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "text": "sweet",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "masters,",
+          "start": 2.01,
+          "end": 2.45
+        },
+        {
+          "text": "both:",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "I",
+          "start": 3.31,
+          "end": 3.33
+        },
+        {
+          "text": "must",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "be",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "gone.",
+          "start": 3.67,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18955540657043457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d8c9a193dddefb4f8821c62cba9651ed0cfdbb0c8f2dc6846867054f2e44231",
+  "selected_reasons": []
+}

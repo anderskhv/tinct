@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "dcc25c634587185f85920075b409628115ab9e7d72035b4f82b9d7deb4bbc9aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.11116912309080362,
+      "alignment_seconds": 0.0005716709420084953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt all but Hortensio.",
+        "hotwords": "Exeunt, Hortensio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt all but Hortensio.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.6258443196614584
+            },
+            {
+              "text": " all",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.62109375
+            },
+            {
+              "text": " but",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Hortensio.",
+              "start": 1.23,
+              "end": 1.89,
+              "probability": 0.9558919270833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "raw": "but",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "Hortensio.",
+          "start": 1.23,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "all",
+        "but",
+        "Hortensio._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "all",
+        "but",
+        "Hortensio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 1.07,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hortensio.",
+          "start": 1.23,
+          "end": 1.89,
+          "key": "hortensio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "all",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "but",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "Hortensio._]",
+          "start": 1.23,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11182439979165792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed7dbf8a30fa1a9523e45f7a150d9d2284284052bd4057d617dd1eb39c76f9e3",
+  "selected_reasons": []
+}

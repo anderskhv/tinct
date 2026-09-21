@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "8dbaf79fe8a900e54c7919d23be1f36ce18524543ea3c05109d31bef6256a8d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12108911853283644,
+      "alignment_seconds": 0.0007059499621391296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"About Prince Michael...\"",
+        "hotwords": "About, Prince, Michael"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " About, Prince, Michael",
+          "start": 0.0,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " About,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.37158203125
+            },
+            {
+              "text": " Prince,",
+              "start": 0.46,
+              "end": 0.76,
+              "probability": 0.6484375
+            },
+            {
+              "text": " Michael",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "About,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "Prince,",
+          "start": 0.46,
+          "end": 0.76
+        },
+        {
+          "raw": "Michael",
+          "start": 0.86,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "“About",
+        "Prince",
+        "Michael...”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"About",
+        "Prince",
+        "Michael...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "About,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "about",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prince,",
+          "start": 0.46,
+          "end": 0.76,
+          "key": "prince",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Michael",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "michael",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“About",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "Prince",
+          "start": 0.46,
+          "end": 0.76
+        },
+        {
+          "text": "Michael...”",
+          "start": 0.86,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12189349997788668
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1983d4371fdb0301bbf51200330d3fe9e697690495a39a0235e9a9723a8f4eee",
+  "selected_reasons": []
+}

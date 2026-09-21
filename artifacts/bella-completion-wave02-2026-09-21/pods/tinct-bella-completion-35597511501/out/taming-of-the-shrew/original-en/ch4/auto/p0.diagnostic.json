@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "a397699eba71e18deb2a717e636b4a58f85910d289d0b211f3059e108340aa59",
+  "attempts": [
+    {
+      "asr_seconds": 0.18005144596099854,
+      "alignment_seconds": 0.0006266161799430847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Lucentio, Hortensio and Bianca.",
+        "hotwords": "Enter, Lucentio, Hortensio, Bianca"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Lucentio, Hortensio and Bianca.",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Lucentio,",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.7139485677083334
+            },
+            {
+              "text": " Hortensio",
+              "start": 1.65,
+              "end": 2.13,
+              "probability": 0.9532877604166666
+            },
+            {
+              "text": " and",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.5703125
+            },
+            {
+              "text": " Bianca.",
+              "start": 2.29,
+              "end": 2.75,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "raw": "Hortensio",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "Bianca.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lucentio,",
+        "Hortensio",
+        "and",
+        "Bianca."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Lucentio,",
+        "Hortensio",
+        "and",
+        "Bianca."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 0.65,
+          "end": 1.27,
+          "key": "lucentio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hortensio",
+          "start": 1.65,
+          "end": 2.13,
+          "key": "hortensio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bianca.",
+          "start": 2.29,
+          "end": 2.75,
+          "key": "bianca",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Lucentio,",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "text": "Hortensio",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "text": "and",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "Bianca.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18075028620660305
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "009daf060f155589ea2aabf1f51d659f238c98d7cb58750c1f19d35e860e6223",
+  "selected_reasons": []
+}

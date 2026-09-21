@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "b6de6a376f8f45d9c522c496ff6288d90d5fd1b69ac29b355efbcc1de72d3d64",
+  "attempts": [
+    {
+      "asr_seconds": 0.12143931910395622,
+      "alignment_seconds": 0.0008011925965547562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And what's your name?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And what's your name?",
+          "start": 0.0,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.8046875
+            },
+            {
+              "text": " what's",
+              "start": 0.38,
+              "end": 0.66,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " your",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " name?",
+              "start": 0.78,
+              "end": 1.1,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "what's",
+          "start": 0.38,
+          "end": 0.66
+        },
+        {
+          "raw": "your",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "name?",
+          "start": 0.78,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "“And",
+        "what’s",
+        "your",
+        "name?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"And",
+        "what's",
+        "your",
+        "name?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 0.38,
+          "end": 0.66,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 0.78,
+          "end": 1.1,
+          "key": "name",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“And",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "what’s",
+          "start": 0.38,
+          "end": 0.66
+        },
+        {
+          "text": "your",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "name?”",
+          "start": 0.78,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12235249392688274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "206be81b2c37ae10bc72225d96b8d545280b187d3a2246972ce773bdd908fb4d",
+  "selected_reasons": []
+}

@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "9d062e28beb6e555d639f4af84e1fdc3c73f1becdbec5dbbc82eb34f526ed61c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12246911320835352,
+      "alignment_seconds": 5.984213203191757e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hortensio",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Hortensio",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.9427083333333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hortensio",
+          "start": 0.05,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "HORTENSIO."
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hortensio",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "hortensio",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "HORTENSIO.",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12258576601743698
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f9b6f9f3fe5fa524810dd70d8bb0dc84f5b5e363c5694f2cf2bd9a1658db21c",
+  "selected_reasons": []
+}

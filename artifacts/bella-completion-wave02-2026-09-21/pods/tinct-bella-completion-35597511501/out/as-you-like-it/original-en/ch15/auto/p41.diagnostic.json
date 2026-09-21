@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "a907db22448237d14cd6d6fb5cd5c949b97c41f2bfb2d5d996b73f2f5e021f14",
+  "attempts": [
+    {
+      "asr_seconds": 0.19677895959466696,
+      "alignment_seconds": 0.0008511831983923912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "If this be so, why blame you me to love you?",
+        "hotwords": "If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orlando, if this be so, why blame you me to love you?",
+          "start": 0.11,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Orlando,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " if",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.955078125
+            },
+            {
+              "text": " this",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " so,",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " why",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " blame",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.67,
+              "end": 2.77,
+              "probability": 0.958984375
+            },
+            {
+              "text": " me",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " to",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " love",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you?",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orlando,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "if",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "this",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "so,",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "why",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "blame",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "you",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "raw": "me",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "to",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "love",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "you?",
+          "start": 3.17,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "ORLANDO.",
+        "If",
+        "this",
+        "be",
+        "so,",
+        "why",
+        "blame",
+        "you",
+        "me",
+        "to",
+        "love",
+        "you?"
+      ],
+      "acoustic_expected_tokens": [
+        "If",
+        "this",
+        "be",
+        "so,",
+        "why",
+        "blame",
+        "you",
+        "me",
+        "to",
+        "love",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orlando,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "orlando",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blame",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "blame",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.67,
+          "end": 2.77,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.87,
+          "end": 2.99,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "love",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ORLANDO.",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "If",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "this",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "be",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "so,",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "text": "why",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "blame",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "you",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "text": "me",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "to",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "love",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "you?",
+          "start": 3.17,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19774601329118013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f88717df852afe6bd4dfeac1b42df51a1f121381baa7b439b9c0c473cfa715de",
+  "selected_reasons": []
+}

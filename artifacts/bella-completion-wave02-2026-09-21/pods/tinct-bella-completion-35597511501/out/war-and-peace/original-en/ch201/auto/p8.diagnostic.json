@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "cd643dcd61ac6637f20da76853df0025b2258235c673371f45a3376eac95c366",
+  "attempts": [
+    {
+      "asr_seconds": 0.1877764342352748,
+      "alignment_seconds": 0.00099253561347723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dron only sighed in reply.",
+        "hotwords": "Dron"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dron only sighed in reply.",
+          "start": 0.0,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Dron",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.01535797119140625
+            },
+            {
+              "text": " only",
+              "start": 0.46,
+              "end": 0.78,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " sighed",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.0009188652038574219
+            },
+            {
+              "text": " in",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reply.",
+              "start": 1.26,
+              "end": 1.64,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dron",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "only",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "raw": "sighed",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "reply.",
+          "start": 1.26,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Dron",
+        "only",
+        "sighed",
+        "in",
+        "reply."
+      ],
+      "acoustic_expected_tokens": [
+        "Dron",
+        "only",
+        "sighed",
+        "in",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dron",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "dron",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 0.46,
+          "end": 0.78,
+          "key": "only",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sighed",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "sighed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 1.26,
+          "end": 1.64,
+          "key": "reply",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Dron",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "only",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "text": "sighed",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "in",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "reply.",
+          "start": 1.26,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18889875058084726
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "305e76786825ab66d897209e43502f234e425e5d91e96013c363208a7e573e18",
+  "selected_reasons": []
+}

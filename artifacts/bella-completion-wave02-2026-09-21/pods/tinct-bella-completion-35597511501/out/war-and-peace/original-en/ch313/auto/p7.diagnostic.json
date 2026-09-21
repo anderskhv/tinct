@@ -1,0 +1,1769 @@
+{
+  "complete": true,
+  "signature": "1d13f585c76637ec48f94986a19dc78ef38c89b1dde0f1bc88094524bddb396e",
+  "attempts": [
+    {
+      "asr_seconds": 0.6471439655870199,
+      "alignment_seconds": 0.003323613665997982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"God is in the midst, and each drop tries to expand so as to reflect Him to the greatest extent. And it grows, merges, disappears from the surface, sinks to the depths, and again emerges. There now, Karatáev has spread out and disappeared. Do you understand, my child?\" said the teacher.",
+        "hotwords": "God, Him, There, Karatáev, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " God is in the midst, and each drop tries to expand so as to reflect Him to the greatest extent.",
+          "start": 0.0,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " God",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " is",
+              "start": 0.4,
+              "end": 0.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " midst,",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " each",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drop",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tries",
+              "start": 1.88,
+              "end": 2.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expand",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reflect",
+              "start": 3.28,
+              "end": 3.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Him",
+              "start": 3.64,
+              "end": 3.84,
+              "probability": 0.483154296875
+            },
+            {
+              "text": " to",
+              "start": 3.84,
+              "end": 3.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " greatest",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " extent.",
+              "start": 4.4,
+              "end": 4.88,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " And it grows, merges, disappears from the surface, sinks to the depths, and again emerges.",
+          "start": 5.96,
+          "end": 11.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.96,
+              "end": 6.16,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " it",
+              "start": 6.16,
+              "end": 6.28,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " grows,",
+              "start": 6.28,
+              "end": 6.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " merges,",
+              "start": 6.96,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " disappears",
+              "start": 7.7,
+              "end": 8.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 8.1,
+              "end": 8.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 8.36,
+              "end": 8.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " surface,",
+              "start": 8.52,
+              "end": 8.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sinks",
+              "start": 9.28,
+              "end": 9.38,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " to",
+              "start": 9.38,
+              "end": 9.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.58,
+              "end": 9.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " depths,",
+              "start": 9.7,
+              "end": 9.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.38,
+              "end": 10.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again",
+              "start": 10.48,
+              "end": 10.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " emerges.",
+              "start": 10.72,
+              "end": 11.18,
+              "probability": 0.966796875
+            }
+          ]
+        },
+        {
+          "text": " There now, Karatáev has spread out and disappeared.",
+          "start": 12.34,
+          "end": 15.08,
+          "words": [
+            {
+              "text": " There",
+              "start": 12.34,
+              "end": 12.56,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " now,",
+              "start": 12.56,
+              "end": 12.92,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Karatáev",
+              "start": 13.36,
+              "end": 13.78,
+              "probability": 0.2727643847465515
+            },
+            {
+              "text": " has",
+              "start": 13.78,
+              "end": 13.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " spread",
+              "start": 13.94,
+              "end": 14.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 14.22,
+              "end": 14.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 14.44,
+              "end": 14.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " disappeared.",
+              "start": 14.62,
+              "end": 15.08,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Do you understand, my child?\" said the teacher.",
+          "start": 16.14,
+          "end": 18.88,
+          "words": [
+            {
+              "text": " Do",
+              "start": 16.14,
+              "end": 16.38,
+              "probability": 0.18017578125
+            },
+            {
+              "text": " you",
+              "start": 16.38,
+              "end": 16.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " understand,",
+              "start": 16.52,
+              "end": 16.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 17.38,
+              "end": 17.54,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " child?\"",
+              "start": 17.54,
+              "end": 18.32,
+              "probability": 0.547088623046875
+            },
+            {
+              "text": " said",
+              "start": 18.32,
+              "end": 18.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 18.42,
+              "end": 18.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " teacher.",
+              "start": 18.58,
+              "end": 18.88,
+              "probability": 0.6416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "God",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.56
+        },
+        {
+          "raw": "in",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "midst,",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "raw": "each",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "drop",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "tries",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "raw": "to",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "expand",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "raw": "so",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "as",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "to",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "reflect",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "raw": "Him",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "raw": "to",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "greatest",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "extent.",
+          "start": 4.4,
+          "end": 4.88
+        },
+        {
+          "raw": "And",
+          "start": 5.96,
+          "end": 6.16
+        },
+        {
+          "raw": "it",
+          "start": 6.16,
+          "end": 6.28
+        },
+        {
+          "raw": "grows,",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "raw": "merges,",
+          "start": 6.96,
+          "end": 7.42
+        },
+        {
+          "raw": "disappears",
+          "start": 7.7,
+          "end": 8.1
+        },
+        {
+          "raw": "from",
+          "start": 8.1,
+          "end": 8.36
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.52
+        },
+        {
+          "raw": "surface,",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "raw": "sinks",
+          "start": 9.28,
+          "end": 9.38
+        },
+        {
+          "raw": "to",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "raw": "the",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "raw": "depths,",
+          "start": 9.7,
+          "end": 9.98
+        },
+        {
+          "raw": "and",
+          "start": 10.38,
+          "end": 10.48
+        },
+        {
+          "raw": "again",
+          "start": 10.48,
+          "end": 10.72
+        },
+        {
+          "raw": "emerges.",
+          "start": 10.72,
+          "end": 11.18
+        },
+        {
+          "raw": "There",
+          "start": 12.34,
+          "end": 12.56
+        },
+        {
+          "raw": "now,",
+          "start": 12.56,
+          "end": 12.92
+        },
+        {
+          "raw": "Karatáev",
+          "start": 13.36,
+          "end": 13.78
+        },
+        {
+          "raw": "has",
+          "start": 13.78,
+          "end": 13.94
+        },
+        {
+          "raw": "spread",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "raw": "out",
+          "start": 14.22,
+          "end": 14.44
+        },
+        {
+          "raw": "and",
+          "start": 14.44,
+          "end": 14.62
+        },
+        {
+          "raw": "disappeared.",
+          "start": 14.62,
+          "end": 15.08
+        },
+        {
+          "raw": "Do",
+          "start": 16.14,
+          "end": 16.38
+        },
+        {
+          "raw": "you",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "raw": "understand,",
+          "start": 16.52,
+          "end": 16.98
+        },
+        {
+          "raw": "my",
+          "start": 17.38,
+          "end": 17.54
+        },
+        {
+          "raw": "child?\"",
+          "start": 17.54,
+          "end": 18.32
+        },
+        {
+          "raw": "said",
+          "start": 18.32,
+          "end": 18.42
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.58
+        },
+        {
+          "raw": "teacher.",
+          "start": 18.58,
+          "end": 18.88
+        }
+      ],
+      "expected_tokens": [
+        "“God",
+        "is",
+        "in",
+        "the",
+        "midst,",
+        "and",
+        "each",
+        "drop",
+        "tries",
+        "to",
+        "expand",
+        "so",
+        "as",
+        "to",
+        "reflect",
+        "Him",
+        "to",
+        "the",
+        "greatest",
+        "extent.",
+        "And",
+        "it",
+        "grows,",
+        "merges,",
+        "disappears",
+        "from",
+        "the",
+        "surface,",
+        "sinks",
+        "to",
+        "the",
+        "depths,",
+        "and",
+        "again",
+        "emerges.",
+        "There",
+        "now,",
+        "Karatáev",
+        "has",
+        "spread",
+        "out",
+        "and",
+        "disappeared.",
+        "Do",
+        "you",
+        "understand,",
+        "my",
+        "child?”",
+        "said",
+        "the",
+        "teacher."
+      ],
+      "acoustic_expected_tokens": [
+        "\"God",
+        "is",
+        "in",
+        "the",
+        "midst,",
+        "and",
+        "each",
+        "drop",
+        "tries",
+        "to",
+        "expand",
+        "so",
+        "as",
+        "to",
+        "reflect",
+        "Him",
+        "to",
+        "the",
+        "greatest",
+        "extent.",
+        "And",
+        "it",
+        "grows,",
+        "merges,",
+        "disappears",
+        "from",
+        "the",
+        "surface,",
+        "sinks",
+        "to",
+        "the",
+        "depths,",
+        "and",
+        "again",
+        "emerges.",
+        "There",
+        "now,",
+        "Karatáev",
+        "has",
+        "spread",
+        "out",
+        "and",
+        "disappeared.",
+        "Do",
+        "you",
+        "understand,",
+        "my",
+        "child?\"",
+        "said",
+        "the",
+        "teacher."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "God",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "god",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.4,
+          "end": 0.56,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "midst,",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "midst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "each",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drop",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "drop",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tries",
+          "start": 1.88,
+          "end": 2.16,
+          "key": "tries",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "expand",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "expand",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "reflect",
+          "start": 3.28,
+          "end": 3.64,
+          "key": "reflect",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 3.64,
+          "end": 3.84,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.84,
+          "end": 3.96,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 4.12,
+          "end": 4.4,
+          "key": "greatest",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "extent.",
+          "start": 4.4,
+          "end": 4.88,
+          "key": "extent",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.96,
+          "end": 6.16,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.16,
+          "end": 6.28,
+          "key": "it",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "grows,",
+          "start": 6.28,
+          "end": 6.6,
+          "key": "grows",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "merges,",
+          "start": 6.96,
+          "end": 7.42,
+          "key": "merges",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "disappears",
+          "start": 7.7,
+          "end": 8.1,
+          "key": "disappears",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.1,
+          "end": 8.36,
+          "key": "from",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.52,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "surface,",
+          "start": 8.52,
+          "end": 8.9,
+          "key": "surface",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sinks",
+          "start": 9.28,
+          "end": 9.38,
+          "key": "sinks",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.38,
+          "end": 9.58,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.58,
+          "end": 9.7,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "depths,",
+          "start": 9.7,
+          "end": 9.98,
+          "key": "depths",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.38,
+          "end": 10.48,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 10.48,
+          "end": 10.72,
+          "key": "again",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "emerges.",
+          "start": 10.72,
+          "end": 11.18,
+          "key": "emerges",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 12.34,
+          "end": 12.56,
+          "key": "there",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 12.56,
+          "end": 12.92,
+          "key": "now",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Karatáev",
+          "start": 13.36,
+          "end": 13.78,
+          "key": "karatáev",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 13.78,
+          "end": 13.94,
+          "key": "has",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "spread",
+          "start": 13.94,
+          "end": 14.22,
+          "key": "spread",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.22,
+          "end": 14.44,
+          "key": "out",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.44,
+          "end": 14.62,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "disappeared.",
+          "start": 14.62,
+          "end": 15.08,
+          "key": "disappeared",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 16.14,
+          "end": 16.38,
+          "key": "do",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 16.38,
+          "end": 16.52,
+          "key": "you",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "understand,",
+          "start": 16.52,
+          "end": 16.98,
+          "key": "understand",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.38,
+          "end": 17.54,
+          "key": "my",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "child?\"",
+          "start": 17.54,
+          "end": 18.32,
+          "key": "child",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 18.32,
+          "end": 18.42,
+          "key": "said",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.58,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "teacher.",
+          "start": 18.58,
+          "end": 18.88,
+          "key": "teacher",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“God",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "is",
+          "start": 0.4,
+          "end": 0.56
+        },
+        {
+          "text": "in",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "text": "midst,",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "text": "each",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "drop",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "tries",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "text": "to",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "expand",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "text": "so",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "as",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "to",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "reflect",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "text": "Him",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "text": "to",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "greatest",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "extent.",
+          "start": 4.4,
+          "end": 4.88
+        },
+        {
+          "text": "And",
+          "start": 5.96,
+          "end": 6.16
+        },
+        {
+          "text": "it",
+          "start": 6.16,
+          "end": 6.28
+        },
+        {
+          "text": "grows,",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "text": "merges,",
+          "start": 6.96,
+          "end": 7.42
+        },
+        {
+          "text": "disappears",
+          "start": 7.7,
+          "end": 8.1
+        },
+        {
+          "text": "from",
+          "start": 8.1,
+          "end": 8.36
+        },
+        {
+          "text": "the",
+          "start": 8.36,
+          "end": 8.52
+        },
+        {
+          "text": "surface,",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "text": "sinks",
+          "start": 9.28,
+          "end": 9.38
+        },
+        {
+          "text": "to",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "text": "the",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "text": "depths,",
+          "start": 9.7,
+          "end": 9.98
+        },
+        {
+          "text": "and",
+          "start": 10.38,
+          "end": 10.48
+        },
+        {
+          "text": "again",
+          "start": 10.48,
+          "end": 10.72
+        },
+        {
+          "text": "emerges.",
+          "start": 10.72,
+          "end": 11.18
+        },
+        {
+          "text": "There",
+          "start": 12.34,
+          "end": 12.56
+        },
+        {
+          "text": "now,",
+          "start": 12.56,
+          "end": 12.92
+        },
+        {
+          "text": "Karatáev",
+          "start": 13.36,
+          "end": 13.78
+        },
+        {
+          "text": "has",
+          "start": 13.78,
+          "end": 13.94
+        },
+        {
+          "text": "spread",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "text": "out",
+          "start": 14.22,
+          "end": 14.44
+        },
+        {
+          "text": "and",
+          "start": 14.44,
+          "end": 14.62
+        },
+        {
+          "text": "disappeared.",
+          "start": 14.62,
+          "end": 15.08
+        },
+        {
+          "text": "Do",
+          "start": 16.14,
+          "end": 16.38
+        },
+        {
+          "text": "you",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "text": "understand,",
+          "start": 16.52,
+          "end": 16.98
+        },
+        {
+          "text": "my",
+          "start": 17.38,
+          "end": 17.54
+        },
+        {
+          "text": "child?”",
+          "start": 17.54,
+          "end": 18.32
+        },
+        {
+          "text": "said",
+          "start": 18.32,
+          "end": 18.42
+        },
+        {
+          "text": "the",
+          "start": 18.42,
+          "end": 18.58
+        },
+        {
+          "text": "teacher.",
+          "start": 18.58,
+          "end": 18.88
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6507770763710141
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "736a9d2514abf7cd78aa483aa182fdbf5e352b79b1219dc40652cde5e900b185",
+  "selected_reasons": []
+}

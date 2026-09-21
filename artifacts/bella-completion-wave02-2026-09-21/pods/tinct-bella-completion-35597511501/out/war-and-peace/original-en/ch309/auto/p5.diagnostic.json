@@ -1,0 +1,1980 @@
+{
+  "complete": true,
+  "signature": "cf8af4d5ea1a4da95f514ec47f198ed6c05cfd70b53036069ddacec3d99bbca1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2451576655730605,
+      "alignment_seconds": 0.0014341827481985092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I ask one thing of you,\" he said sternly, \"to obey me and not shove yourself forward anywhere.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I asked one thing of you,\" he said sternly,",
+          "start": 0.0,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " asked",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.180908203125
+            },
+            {
+              "text": " one",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,\"",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " he",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.978515625
+            },
+            {
+              "text": " said",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sternly,",
+              "start": 1.9,
+              "end": 2.42,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " to obey me and not shove yourself forward anywhere.",
+          "start": 2.64,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " to",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.00838470458984375
+            },
+            {
+              "text": " obey",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.489990234375
+            },
+            {
+              "text": " me",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " shove",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yourself",
+              "start": 3.96,
+              "end": 4.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forward",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " anywhere.",
+              "start": 4.68,
+              "end": 5.16,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "asked",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "sternly,",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "me",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "yourself",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "raw": "forward",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "anywhere.",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,”",
+        "he",
+        "said",
+        "sternly,",
+        "“to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,\"",
+        "he",
+        "said",
+        "sternly,",
+        "\"to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          18,
+          2,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "asked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "thing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sternly,",
+          "start": 1.9,
+          "end": 2.42,
+          "key": "sternly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "obey",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "shove",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.96,
+          "end": 4.34,
+          "key": "yourself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "forward",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "anywhere.",
+          "start": 4.68,
+          "end": 5.16,
+          "key": "anywhere",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "ask",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "text": "one",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "you,”",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "sternly,",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "text": "“to",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "obey",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "me",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "not",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "shove",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "yourself",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "text": "forward",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "anywhere.”",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.2467631222680211
+    },
+    {
+      "asr_seconds": 0.2772560426965356,
+      "alignment_seconds": 0.0012450385838747025,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ask one thing of you he said sternly to obey me and not shove yourself forward anywhere",
+          "start": 0.0,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Ask",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.0004968643188476562
+            },
+            {
+              "text": " one",
+              "start": 0.5,
+              "end": 0.84,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " thing",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " said",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sternly",
+              "start": 1.9,
+              "end": 2.44,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " to",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " obey",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " me",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 3.5,
+              "end": 3.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shove",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " yourself",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forward",
+              "start": 4.32,
+              "end": 4.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " anywhere",
+              "start": 4.7,
+              "end": 5.16,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ask",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "one",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "you",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "sternly",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "me",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "not",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "yourself",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "forward",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "raw": "anywhere",
+          "start": 4.7,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,”",
+        "he",
+        "said",
+        "sternly,",
+        "“to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,\"",
+        "he",
+        "said",
+        "sternly,",
+        "\"to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          18,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ask",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "ask",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.5,
+          "end": 0.84,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "thing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sternly",
+          "start": 1.9,
+          "end": 2.44,
+          "key": "sternly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "obey",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.5,
+          "end": 3.7,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.98,
+          "key": "shove",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "yourself",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 4.32,
+          "end": 4.7,
+          "key": "forward",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "anywhere",
+          "start": 4.7,
+          "end": 5.16,
+          "key": "anywhere",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ask",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "one",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "text": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "you,”",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "text": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "sternly,",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "text": "“to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "obey",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "me",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "not",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "text": "shove",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "yourself",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "forward",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "text": "anywhere.”",
+          "start": 4.7,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.27865599282085896
+    },
+    {
+      "asr_seconds": 0.2871366227045655,
+      "alignment_seconds": 0.0021503064781427383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I ask one thing of you, he said sternly, to obey me and not shove yourself forward anywhere.",
+          "start": 0.0,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " ask",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " one",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thing",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " said",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sternly,",
+              "start": 1.9,
+              "end": 2.44,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " to",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " obey",
+              "start": 2.76,
+              "end": 3.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " me",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " not",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shove",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yourself",
+              "start": 3.98,
+              "end": 4.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forward",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " anywhere.",
+              "start": 4.68,
+              "end": 5.16,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "ask",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "sternly,",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "raw": "me",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "yourself",
+          "start": 3.98,
+          "end": 4.34
+        },
+        {
+          "raw": "forward",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "anywhere.",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,”",
+        "he",
+        "said",
+        "sternly,",
+        "“to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "ask",
+        "one",
+        "thing",
+        "of",
+        "you,\"",
+        "he",
+        "said",
+        "sternly,",
+        "\"to",
+        "obey",
+        "me",
+        "and",
+        "not",
+        "shove",
+        "yourself",
+        "forward",
+        "anywhere.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "ask",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "thing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sternly,",
+          "start": 1.9,
+          "end": 2.44,
+          "key": "sternly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 2.76,
+          "end": 3.12,
+          "key": "obey",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.12,
+          "end": 3.36,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shove",
+          "start": 3.7,
+          "end": 3.98,
+          "key": "shove",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.98,
+          "end": 4.34,
+          "key": "yourself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "forward",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "anywhere.",
+          "start": 4.68,
+          "end": 5.16,
+          "key": "anywhere",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "ask",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "one",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "thing",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "you,”",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "said",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "sternly,",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "text": "“to",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "obey",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "text": "me",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "not",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "shove",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "yourself",
+          "start": 3.98,
+          "end": 4.34
+        },
+        {
+          "text": "forward",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "anywhere.”",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28955346811562777
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "758077ca4a399b937c48f6657898f6d942a1023a1419a5ba7fc101613f39dc20",
+  "selected_reasons": []
+}

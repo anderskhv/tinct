@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "f42519dadec2bb8014bf236259839e514291fe69eccdab126280a40bcfadd373",
+  "attempts": [
+    {
+      "asr_seconds": 0.22355525568127632,
+      "alignment_seconds": 0.0008302181959152222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you understand, damn you?\" shouted a voice, and Pierre woke up.",
+        "hotwords": "Do, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you understand, damn you?\" shouted a voice, and Pierre woke up.",
+          "start": 0.0,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.53515625
+            },
+            {
+              "text": " you",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " understand,",
+              "start": 0.46,
+              "end": 0.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " damn",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " you?\"",
+              "start": 1.48,
+              "end": 2.12,
+              "probability": 0.4998626708984375
+            },
+            {
+              "text": " shouted",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " voice,",
+              "start": 2.48,
+              "end": 2.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Pierre",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " woke",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up.",
+              "start": 3.9,
+              "end": 4.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "understand,",
+          "start": 0.46,
+          "end": 0.92
+        },
+        {
+          "raw": "damn",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "you?\"",
+          "start": 1.48,
+          "end": 2.12
+        },
+        {
+          "raw": "shouted",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "voice,",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "raw": "and",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "woke",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "up.",
+          "start": 3.9,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "“Do",
+        "you",
+        "understand,",
+        "damn",
+        "you?”",
+        "shouted",
+        "a",
+        "voice,",
+        "and",
+        "Pierre",
+        "woke",
+        "up."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Do",
+        "you",
+        "understand,",
+        "damn",
+        "you?\"",
+        "shouted",
+        "a",
+        "voice,",
+        "and",
+        "Pierre",
+        "woke",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "understand,",
+          "start": 0.46,
+          "end": 0.92,
+          "key": "understand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "damn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you?\"",
+          "start": 1.48,
+          "end": 2.12,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "shouted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 2.48,
+          "end": 2.84,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "pierre",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "woke",
+          "start": 3.6,
+          "end": 3.9,
+          "key": "woke",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 3.9,
+          "end": 4.22,
+          "key": "up",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Do",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "you",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "understand,",
+          "start": 0.46,
+          "end": 0.92
+        },
+        {
+          "text": "damn",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "you?”",
+          "start": 1.48,
+          "end": 2.12
+        },
+        {
+          "text": "shouted",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "voice,",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "Pierre",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "woke",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "up.",
+          "start": 3.9,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22449019271880388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "694c0756a1da2b8b230e37206c7d71ea99937302cd36c5d55cf770fc81f3320a",
+  "selected_reasons": []
+}

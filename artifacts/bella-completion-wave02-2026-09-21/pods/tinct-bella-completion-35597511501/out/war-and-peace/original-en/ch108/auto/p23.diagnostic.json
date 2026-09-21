@@ -1,0 +1,1507 @@
+{
+  "complete": true,
+  "signature": "248bd4cd25ac9e89c7a96f50ef3108eabdbc6cca4534056f5c7d04de4ee5ccc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4592420468106866,
+      "alignment_seconds": 0.003998405300080776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"For her I might as well not exist!\" thought Prince Andrew while he listened to her voice, for some reason expecting yet fearing that she might say something about him. \"There she is again! As if it were on purpose,\" thought he.",
+        "hotwords": "I, Prince, Andrew, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For her I might as well not exist!\" thought Prince Andrew while he listened to her voice,",
+          "start": 0.0,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " her",
+              "start": 0.34,
+              "end": 0.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " might",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " well",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " exist",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "!\"",
+              "start": 1.82,
+              "end": 2.34,
+              "probability": 0.005069732666015625
+            },
+            {
+              "text": " thought",
+              "start": 2.34,
+              "end": 2.4,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Prince",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Andrew",
+              "start": 2.7,
+              "end": 3.1,
+              "probability": 0.98828125
+            },
+            {
+              "text": " while",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " he",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " listened",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " voice,",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " for some reason expecting yet fearing that she might say something about him.",
+          "start": 4.76,
+          "end": 8.12,
+          "words": [
+            {
+              "text": " for",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " some",
+              "start": 4.86,
+              "end": 5.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reason",
+              "start": 5.08,
+              "end": 5.32,
+              "probability": 1.0
+            },
+            {
+              "text": " expecting",
+              "start": 5.32,
+              "end": 5.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yet",
+              "start": 5.72,
+              "end": 6.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " fearing",
+              "start": 6.06,
+              "end": 6.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 6.34,
+              "end": 6.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 6.56,
+              "end": 6.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " might",
+              "start": 6.72,
+              "end": 6.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say",
+              "start": 6.9,
+              "end": 7.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " something",
+              "start": 7.18,
+              "end": 7.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " about",
+              "start": 7.52,
+              "end": 7.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him.",
+              "start": 7.84,
+              "end": 8.12,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " There she is again! As if it were on purpose,\" thought he.",
+          "start": 9.18,
+          "end": 13.0,
+          "words": [
+            {
+              "text": " There",
+              "start": 9.18,
+              "end": 9.34,
+              "probability": 0.1744384765625
+            },
+            {
+              "text": " she",
+              "start": 9.34,
+              "end": 9.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again!",
+              "start": 9.68,
+              "end": 10.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " As",
+              "start": 11.1,
+              "end": 11.22,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " if",
+              "start": 11.22,
+              "end": 11.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 11.34,
+              "end": 11.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 11.46,
+              "end": 11.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 11.58,
+              "end": 11.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " purpose,\"",
+              "start": 11.74,
+              "end": 12.66,
+              "probability": 0.4999065399169922
+            },
+            {
+              "text": " thought",
+              "start": 12.66,
+              "end": 12.7,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " he.",
+              "start": 12.7,
+              "end": 13.0,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "her",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "as",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "well",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "exist",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "raw": "!\"",
+          "start": 1.82,
+          "end": 2.34
+        },
+        {
+          "raw": "thought",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "raw": "Prince",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "Andrew",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "raw": "while",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "he",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "listened",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "raw": "her",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "voice,",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "raw": "for",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "some",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "raw": "reason",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "raw": "expecting",
+          "start": 5.32,
+          "end": 5.72
+        },
+        {
+          "raw": "yet",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "raw": "fearing",
+          "start": 6.06,
+          "end": 6.34
+        },
+        {
+          "raw": "that",
+          "start": 6.34,
+          "end": 6.56
+        },
+        {
+          "raw": "she",
+          "start": 6.56,
+          "end": 6.72
+        },
+        {
+          "raw": "might",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "raw": "say",
+          "start": 6.9,
+          "end": 7.18
+        },
+        {
+          "raw": "something",
+          "start": 7.18,
+          "end": 7.52
+        },
+        {
+          "raw": "about",
+          "start": 7.52,
+          "end": 7.84
+        },
+        {
+          "raw": "him.",
+          "start": 7.84,
+          "end": 8.12
+        },
+        {
+          "raw": "There",
+          "start": 9.18,
+          "end": 9.34
+        },
+        {
+          "raw": "she",
+          "start": 9.34,
+          "end": 9.52
+        },
+        {
+          "raw": "is",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "again!",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "raw": "As",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "raw": "if",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "raw": "it",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "raw": "were",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "raw": "on",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "raw": "purpose,\"",
+          "start": 11.74,
+          "end": 12.66
+        },
+        {
+          "raw": "thought",
+          "start": 12.66,
+          "end": 12.7
+        },
+        {
+          "raw": "he.",
+          "start": 12.7,
+          "end": 13.0
+        }
+      ],
+      "expected_tokens": [
+        "“For",
+        "her",
+        "I",
+        "might",
+        "as",
+        "well",
+        "not",
+        "exist!”",
+        "thought",
+        "Prince",
+        "Andrew",
+        "while",
+        "he",
+        "listened",
+        "to",
+        "her",
+        "voice,",
+        "for",
+        "some",
+        "reason",
+        "expecting",
+        "yet",
+        "fearing",
+        "that",
+        "she",
+        "might",
+        "say",
+        "something",
+        "about",
+        "him.",
+        "“There",
+        "she",
+        "is",
+        "again!",
+        "As",
+        "if",
+        "it",
+        "were",
+        "on",
+        "purpose,”",
+        "thought",
+        "he."
+      ],
+      "acoustic_expected_tokens": [
+        "\"For",
+        "her",
+        "I",
+        "might",
+        "as",
+        "well",
+        "not",
+        "exist!\"",
+        "thought",
+        "Prince",
+        "Andrew",
+        "while",
+        "he",
+        "listened",
+        "to",
+        "her",
+        "voice,",
+        "for",
+        "some",
+        "reason",
+        "expecting",
+        "yet",
+        "fearing",
+        "that",
+        "she",
+        "might",
+        "say",
+        "something",
+        "about",
+        "him.",
+        "\"There",
+        "she",
+        "is",
+        "again!",
+        "As",
+        "if",
+        "it",
+        "were",
+        "on",
+        "purpose,\"",
+        "thought",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          42,
+          9,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.34,
+          "end": 0.52,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "might",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.0,
+          "end": 1.24,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "exist",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "exist",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.82,
+          "end": 2.34,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.34,
+          "end": 2.4,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 2.4,
+          "end": 2.7,
+          "key": "prince",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 2.7,
+          "end": 3.1,
+          "key": "andrew",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "while",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 3.46,
+          "end": 3.68,
+          "key": "listened",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 4.08,
+          "end": 4.36,
+          "key": "voice",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.86,
+          "end": 5.08,
+          "key": "some",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 5.08,
+          "end": 5.32,
+          "key": "reason",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "expecting",
+          "start": 5.32,
+          "end": 5.72,
+          "key": "expecting",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 5.72,
+          "end": 6.06,
+          "key": "yet",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "fearing",
+          "start": 6.06,
+          "end": 6.34,
+          "key": "fearing",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.34,
+          "end": 6.56,
+          "key": "that",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.56,
+          "end": 6.72,
+          "key": "she",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 6.72,
+          "end": 6.9,
+          "key": "might",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 6.9,
+          "end": 7.18,
+          "key": "say",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 7.18,
+          "end": 7.52,
+          "key": "something",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 7.52,
+          "end": 7.84,
+          "key": "about",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 7.84,
+          "end": 8.12,
+          "key": "him",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 9.18,
+          "end": 9.34,
+          "key": "there",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.34,
+          "end": 9.52,
+          "key": "she",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.52,
+          "end": 9.68,
+          "key": "is",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "again!",
+          "start": 9.68,
+          "end": 10.02,
+          "key": "again",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 11.1,
+          "end": 11.22,
+          "key": "as",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 11.22,
+          "end": 11.34,
+          "key": "if",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 11.34,
+          "end": 11.46,
+          "key": "it",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 11.46,
+          "end": 11.58,
+          "key": "were",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.58,
+          "end": 11.74,
+          "key": "on",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "purpose,\"",
+          "start": 11.74,
+          "end": 12.66,
+          "key": "purpose",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 12.66,
+          "end": 12.7,
+          "key": "thought",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 12.7,
+          "end": 13.0,
+          "key": "he",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“For",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "her",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "might",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "as",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "well",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "text": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "exist!”",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "text": "thought",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "text": "Prince",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "Andrew",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "text": "while",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "he",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "listened",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "to",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "text": "her",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "voice,",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "text": "for",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "some",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "text": "reason",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "text": "expecting",
+          "start": 5.32,
+          "end": 5.72
+        },
+        {
+          "text": "yet",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "text": "fearing",
+          "start": 6.06,
+          "end": 6.34
+        },
+        {
+          "text": "that",
+          "start": 6.34,
+          "end": 6.56
+        },
+        {
+          "text": "she",
+          "start": 6.56,
+          "end": 6.72
+        },
+        {
+          "text": "might",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "text": "say",
+          "start": 6.9,
+          "end": 7.18
+        },
+        {
+          "text": "something",
+          "start": 7.18,
+          "end": 7.52
+        },
+        {
+          "text": "about",
+          "start": 7.52,
+          "end": 7.84
+        },
+        {
+          "text": "him.",
+          "start": 7.84,
+          "end": 8.12
+        },
+        {
+          "text": "“There",
+          "start": 9.18,
+          "end": 9.34
+        },
+        {
+          "text": "she",
+          "start": 9.34,
+          "end": 9.52
+        },
+        {
+          "text": "is",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "again!",
+          "start": 9.68,
+          "end": 10.02
+        },
+        {
+          "text": "As",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "text": "if",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "text": "it",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "text": "were",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "text": "on",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "text": "purpose,”",
+          "start": 11.74,
+          "end": 12.66
+        },
+        {
+          "text": "thought",
+          "start": 12.66,
+          "end": 12.7
+        },
+        {
+          "text": "he.",
+          "start": 12.7,
+          "end": 13.0
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 43,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46365652419626713
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a48f6c8c161efe1c945c6bd4afc4252c28a9cfea4e43a0573d495dcafe98c40",
+  "selected_reasons": []
+}

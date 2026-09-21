@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "c6bfdc28f9663a33d6057c30fed8d61b5997dee3e1483d879b4aecd13c939164",
+  "attempts": [
+    {
+      "asr_seconds": 0.28146176505833864,
+      "alignment_seconds": 0.0013987375423312187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sire!\" said he, \"Your Majesty is at this moment signing the glory of the nation and the salvation of Europe!\"",
+        "hotwords": "Sire, Your, Majesty, Europe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sire, said he, Your Majesty is at this moment signing the glory of the nation and the salvation of Europe!",
+          "start": 0.0,
+          "end": 5.8,
+          "words": [
+            {
+              "text": " Sire,",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.622802734375
+            },
+            {
+              "text": " said",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " he,",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Your",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.10455322265625
+            },
+            {
+              "text": " Majesty",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " is",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.953125
+            },
+            {
+              "text": " at",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " this",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " moment",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " signing",
+              "start": 3.0,
+              "end": 3.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " glory",
+              "start": 3.64,
+              "end": 3.86,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 3.86,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.9453125
+            },
+            {
+              "text": " nation",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.9375
+            },
+            {
+              "text": " and",
+              "start": 4.4,
+              "end": 4.66,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 4.66,
+              "end": 4.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " salvation",
+              "start": 4.8,
+              "end": 5.16,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " of",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Europe!",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sire,",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "said",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "he,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "Your",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "Majesty",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "is",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "raw": "at",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "this",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "moment",
+          "start": 2.72,
+          "end": 3.0
+        },
+        {
+          "raw": "signing",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "glory",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "nation",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "and",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "raw": "salvation",
+          "start": 4.8,
+          "end": 5.16
+        },
+        {
+          "raw": "of",
+          "start": 5.16,
+          "end": 5.48
+        },
+        {
+          "raw": "Europe!",
+          "start": 5.48,
+          "end": 5.8
+        }
+      ],
+      "expected_tokens": [
+        "“Sire!”",
+        "said",
+        "he,",
+        "“Your",
+        "Majesty",
+        "is",
+        "at",
+        "this",
+        "moment",
+        "signing",
+        "the",
+        "glory",
+        "of",
+        "the",
+        "nation",
+        "and",
+        "the",
+        "salvation",
+        "of",
+        "Europe!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sire!\"",
+        "said",
+        "he,",
+        "\"Your",
+        "Majesty",
+        "is",
+        "at",
+        "this",
+        "moment",
+        "signing",
+        "the",
+        "glory",
+        "of",
+        "the",
+        "nation",
+        "and",
+        "the",
+        "salvation",
+        "of",
+        "Europe!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sire,",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "sire",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Majesty",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "majesty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.48,
+          "end": 2.72,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 2.72,
+          "end": 3.0,
+          "key": "moment",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "signing",
+          "start": 3.0,
+          "end": 3.4,
+          "key": "signing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "glory",
+          "start": 3.64,
+          "end": 3.86,
+          "key": "glory",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.08,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nation",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "nation",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.4,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.8,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "salvation",
+          "start": 4.8,
+          "end": 5.16,
+          "key": "salvation",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.16,
+          "end": 5.48,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Europe!",
+          "start": 5.48,
+          "end": 5.8,
+          "key": "europe",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Sire!”",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "said",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "he,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "“Your",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "Majesty",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "is",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "text": "at",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "this",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "moment",
+          "start": 2.72,
+          "end": 3.0
+        },
+        {
+          "text": "signing",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "text": "the",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "glory",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "text": "of",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "text": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "nation",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "and",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "text": "salvation",
+          "start": 4.8,
+          "end": 5.16
+        },
+        {
+          "text": "of",
+          "start": 5.16,
+          "end": 5.48
+        },
+        {
+          "text": "Europe!”",
+          "start": 5.48,
+          "end": 5.8
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.283055211417377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f42387093ee0809bd7ad7ae83728aef23ce94e15c22be9483c7a9ce0a8da402c",
+  "selected_reasons": []
+}

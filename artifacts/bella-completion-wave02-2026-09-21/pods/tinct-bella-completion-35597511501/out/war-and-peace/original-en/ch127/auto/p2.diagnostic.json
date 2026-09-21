@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "19358a0714faf1f47c0cba500de73cfad166fcf2c0535553d2a1c7229e3d22df",
+  "attempts": [
+    {
+      "asr_seconds": 0.14843819476664066,
+      "alignment_seconds": 0.0008092010393738747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What has happened to her?\" he asked himself with still greater surprise.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What has happened to her?\" he asked himself with still greater surprise.",
+          "start": 0.0,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.5546875
+            },
+            {
+              "text": " has",
+              "start": 0.34,
+              "end": 0.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " happened",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her?\"",
+              "start": 0.94,
+              "end": 1.38,
+              "probability": 0.5287322998046875
+            },
+            {
+              "text": " he",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " asked",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " himself",
+              "start": 1.78,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " still",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " greater",
+              "start": 2.66,
+              "end": 3.0,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " surprise.",
+              "start": 3.0,
+              "end": 3.56,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "has",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "raw": "happened",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "her?\"",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "asked",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "himself",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "still",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "greater",
+          "start": 2.66,
+          "end": 3.0
+        },
+        {
+          "raw": "surprise.",
+          "start": 3.0,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "“What",
+        "has",
+        "happened",
+        "to",
+        "her?”",
+        "he",
+        "asked",
+        "himself",
+        "with",
+        "still",
+        "greater",
+        "surprise."
+      ],
+      "acoustic_expected_tokens": [
+        "\"What",
+        "has",
+        "happened",
+        "to",
+        "her?\"",
+        "he",
+        "asked",
+        "himself",
+        "with",
+        "still",
+        "greater",
+        "surprise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.34,
+          "end": 0.5,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "happened",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her?\"",
+          "start": 0.94,
+          "end": 1.38,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.78,
+          "end": 2.18,
+          "key": "himself",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "still",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 2.66,
+          "end": 3.0,
+          "key": "greater",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "surprise.",
+          "start": 3.0,
+          "end": 3.56,
+          "key": "surprise",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“What",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "has",
+          "start": 0.34,
+          "end": 0.5
+        },
+        {
+          "text": "happened",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "her?”",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "text": "he",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "asked",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "himself",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "text": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "still",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "greater",
+          "start": 2.66,
+          "end": 3.0
+        },
+        {
+          "text": "surprise.",
+          "start": 3.0,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14942006394267082
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd89d487fd81bc9563f2631694dec68b756ca3b38645ab9a96aed090f6ac141c",
+  "selected_reasons": []
+}

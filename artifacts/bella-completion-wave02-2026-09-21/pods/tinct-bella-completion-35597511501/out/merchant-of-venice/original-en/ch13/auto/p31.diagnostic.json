@@ -1,0 +1,500 @@
+{
+  "complete": true,
+  "signature": "998b553c7f8fa0c05838fa164390efe7ad2082662b3d0c851a81d8a95fe6142c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2622770266607404,
+      "alignment_seconds": 0.001626649871468544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, other men have ill luck too. Antonio, as I heard in Genoa—",
+        "hotwords": "Yes, Antonio, I, Genoa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, other men have ill luck too. Antonio, as I heard in Genoa—",
+          "start": 0.0,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.0030078887939453125
+            },
+            {
+              "text": " other",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " men",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ill",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " luck",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " too.",
+              "start": 2.36,
+              "end": 2.68,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " Antonio,",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " as",
+              "start": 3.94,
+              "end": 4.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " heard",
+              "start": 4.14,
+              "end": 4.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Genoa—",
+              "start": 4.48,
+              "end": 5.58,
+              "probability": 0.6030044555664062
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "other",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "men",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "have",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "ill",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "luck",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "too.",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "raw": "Antonio,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "as",
+          "start": 3.94,
+          "end": 4.0
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "heard",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "raw": "in",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "Genoa—",
+          "start": 4.48,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "TUBAL.",
+        "Yes,",
+        "other",
+        "men",
+        "have",
+        "ill",
+        "luck",
+        "too.",
+        "Antonio,",
+        "as",
+        "I",
+        "heard",
+        "in",
+        "Genoa—"
+      ],
+      "acoustic_expected_tokens": [
+        "Yes,",
+        "other",
+        "men",
+        "have",
+        "ill",
+        "luck",
+        "too.",
+        "Antonio,",
+        "as",
+        "I",
+        "heard",
+        "in",
+        "Genoa—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "other",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "men",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "luck",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "luck",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.36,
+          "end": 2.68,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "antonio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.94,
+          "end": 4.0,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.14,
+          "end": 4.34,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Genoa—",
+          "start": 4.48,
+          "end": 5.58,
+          "key": "genoa",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "TUBAL.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Yes,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "other",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "men",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "have",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "ill",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "luck",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "too.",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "text": "Antonio,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "as",
+          "start": 3.94,
+          "end": 4.0
+        },
+        {
+          "text": "I",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "heard",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "in",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "Genoa—",
+          "start": 4.48,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26411424577236176
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6fa39a088ed41bb79c0653d406da96276dd39a3ad690a1173709f3e7461928ba",
+  "selected_reasons": []
+}

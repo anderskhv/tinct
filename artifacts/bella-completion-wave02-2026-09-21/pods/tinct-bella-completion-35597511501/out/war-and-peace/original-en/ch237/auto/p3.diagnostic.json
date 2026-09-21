@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "29de08a81fb749a9d1d3be7ccbc175751bfae05858229e48c5fb1b077f1380cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.275593139231205,
+      "alignment_seconds": 0.0016921227797865868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Having gone a couple of miles along the Mozháysk road, Pierre sat down by the roadside.",
+        "hotwords": "Having, Mozháysk, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Having gone a couple of miles along the Mozháysk road, Pierre sat down by the roadside.",
+          "start": 0.0,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " Having",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " gone",
+              "start": 0.42,
+              "end": 0.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " couple",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " miles",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " along",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mozháysk",
+              "start": 1.86,
+              "end": 2.38,
+              "probability": 0.3239162445068359
+            },
+            {
+              "text": " road,",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.40966796875
+            },
+            {
+              "text": " Pierre",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.322021484375
+            },
+            {
+              "text": " sat",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " down",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " roadside.",
+              "start": 4.26,
+              "end": 4.66,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Having",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "gone",
+          "start": 0.42,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "couple",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "of",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "miles",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "along",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "Mozháysk",
+          "start": 1.86,
+          "end": 2.38
+        },
+        {
+          "raw": "road,",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "sat",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "down",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "by",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "roadside.",
+          "start": 4.26,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "Having",
+        "gone",
+        "a",
+        "couple",
+        "of",
+        "miles",
+        "along",
+        "the",
+        "Mozháysk",
+        "road,",
+        "Pierre",
+        "sat",
+        "down",
+        "by",
+        "the",
+        "roadside."
+      ],
+      "acoustic_expected_tokens": [
+        "Having",
+        "gone",
+        "a",
+        "couple",
+        "of",
+        "miles",
+        "along",
+        "the",
+        "Mozháysk",
+        "road,",
+        "Pierre",
+        "sat",
+        "down",
+        "by",
+        "the",
+        "roadside."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Having",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "having",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 0.42,
+          "end": 0.6,
+          "key": "gone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "couple",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "couple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "miles",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "miles",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "along",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mozháysk",
+          "start": 1.86,
+          "end": 2.38,
+          "key": "mozháysk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "road,",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "road",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "pierre",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 3.2,
+          "end": 3.58,
+          "key": "sat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 3.58,
+          "end": 3.88,
+          "key": "down",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "roadside.",
+          "start": 4.26,
+          "end": 4.66,
+          "key": "roadside",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Having",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "gone",
+          "start": 0.42,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "couple",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "of",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "miles",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "along",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "Mozháysk",
+          "start": 1.86,
+          "end": 2.38
+        },
+        {
+          "text": "road,",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "Pierre",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "sat",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "down",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "by",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "roadside.",
+          "start": 4.26,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2775052431970835
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8800a6053f025cf36f7b6f42455f002277180ec493f1479eabfe2fd6276520e9",
+  "selected_reasons": []
+}

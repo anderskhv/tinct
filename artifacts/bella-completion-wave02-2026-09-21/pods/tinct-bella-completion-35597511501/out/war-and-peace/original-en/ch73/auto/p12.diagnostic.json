@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "b37c72cecae2cd9426e521bfdfe3ade7985c895aabd3c0bb377199ffdd475a68",
+  "attempts": [
+    {
+      "asr_seconds": 0.21501010097563267,
+      "alignment_seconds": 0.0005690772086381912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Cover yourself!\" even Denísov cried to his adversary.",
+        "hotwords": "Cover, Denísov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cover yourself, even Denísov cried to his adversary.",
+          "start": 0.0,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Cover",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " yourself,",
+              "start": 0.42,
+              "end": 0.78,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " even",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Denísov",
+              "start": 1.38,
+              "end": 1.9,
+              "probability": 0.009732246398925781
+            },
+            {
+              "text": " cried",
+              "start": 1.9,
+              "end": 2.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " adversary.",
+              "start": 2.68,
+              "end": 3.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cover",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "yourself,",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "raw": "even",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "Denísov",
+          "start": 1.38,
+          "end": 1.9
+        },
+        {
+          "raw": "cried",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "his",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "adversary.",
+          "start": 2.68,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "“Cover",
+        "yourself!”",
+        "even",
+        "Denísov",
+        "cried",
+        "to",
+        "his",
+        "adversary."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Cover",
+        "yourself!\"",
+        "even",
+        "Denísov",
+        "cried",
+        "to",
+        "his",
+        "adversary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cover",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "cover",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yourself,",
+          "start": 0.42,
+          "end": 0.78,
+          "key": "yourself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "even",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Denísov",
+          "start": 1.38,
+          "end": 1.9,
+          "key": "denísov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.9,
+          "end": 2.24,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "adversary.",
+          "start": 2.68,
+          "end": 3.08,
+          "key": "adversary",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Cover",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "yourself!”",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "text": "even",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "Denísov",
+          "start": 1.38,
+          "end": 1.9
+        },
+        {
+          "text": "cried",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "text": "to",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "his",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "adversary.",
+          "start": 2.68,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21564272418618202
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "26964284a3d549daf27a7c9d9f4ead0628975c61ef7ae3fafea3c3f21ecfb60c",
+  "selected_reasons": []
+}

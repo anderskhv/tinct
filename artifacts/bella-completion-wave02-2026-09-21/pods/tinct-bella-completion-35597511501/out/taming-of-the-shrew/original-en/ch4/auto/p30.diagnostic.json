@@ -1,0 +1,403 @@
+{
+  "complete": true,
+  "signature": "96d5166c4bcb9faa2aef55653eac84159e15bd64688b33d3f4d7193b94d9d043",
+  "attempts": [
+    {
+      "asr_seconds": 0.2265418255701661,
+      "alignment_seconds": 0.0012806328013539314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Are you so formal, sir? Well, I must wait,",
+        "hotwords": "Are, Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucentio, Are you so formal, sir? Well, I must wait,",
+          "start": 0.63,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Lucentio,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.7437337239583334
+            },
+            {
+              "text": " Are",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.00933074951171875
+            },
+            {
+              "text": " you",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.974609375
+            },
+            {
+              "text": " so",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " formal,",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sir?",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Well,",
+              "start": 2.81,
+              "end": 2.91,
+              "probability": 0.93359375
+            },
+            {
+              "text": " I",
+              "start": 2.97,
+              "end": 3.03,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " must",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wait,",
+              "start": 3.15,
+              "end": 3.47,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "Are",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "so",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "formal,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "sir?",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "Well,",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "raw": "must",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "wait,",
+          "start": 3.15,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "Are",
+        "you",
+        "so",
+        "formal,",
+        "sir?",
+        "Well,",
+        "I",
+        "must",
+        "wait,"
+      ],
+      "acoustic_expected_tokens": [
+        "Are",
+        "you",
+        "so",
+        "formal,",
+        "sir?",
+        "Well,",
+        "I",
+        "must",
+        "wait,"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          9,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "formal,",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "formal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.25,
+          "end": 2.33,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 2.81,
+          "end": 2.91,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.03,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wait,",
+          "start": 3.15,
+          "end": 3.47,
+          "key": "wait",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.31,
+          "end": 1.31
+        },
+        {
+          "text": "Are",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "you",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "so",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "formal,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "sir?",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "Well,",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "text": "I",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "text": "must",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "wait,",
+          "start": 3.15,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2280166745185852
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d31cb7772a2c26fd2d6aa2d3d3520f577863d70ff33b324f5604fcd7d07d106",
+  "selected_reasons": []
+}

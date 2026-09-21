@@ -1,0 +1,833 @@
+{
+  "complete": true,
+  "signature": "90363e4b878bf72ddb7de4fa8eb8f80c404fd462161c3fa9d8d5a77091e4484a",
+  "attempts": [
+    {
+      "asr_seconds": 0.29084353148937225,
+      "alignment_seconds": 0.0022106794640421867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, you fool! Why talk rubbish, lout that you are—a real peasant!\" came rebukes from all sides addressed to the jesting soldier.",
+        "hotwords": "Oh, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, you fool! Why talk rubbish, lout that you are—a real peasant!\" came rebukes from all sides addressed to the jesting soldier.",
+          "start": 0.0,
+          "end": 8.12,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.315185546875
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " fool!",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Why",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.921875
+            },
+            {
+              "text": " talk",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.953125
+            },
+            {
+              "text": " rubbish,",
+              "start": 2.76,
+              "end": 3.12,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " lout",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.298370361328125
+            },
+            {
+              "text": " that",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are—a",
+              "start": 3.84,
+              "end": 4.38,
+              "probability": 0.6608479817708334
+            },
+            {
+              "text": " real",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " peasant",
+              "start": 4.64,
+              "end": 4.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": "!\"",
+              "start": 4.96,
+              "end": 5.46,
+              "probability": 0.0007905960083007812
+            },
+            {
+              "text": " came",
+              "start": 5.46,
+              "end": 5.54,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " rebukes",
+              "start": 5.54,
+              "end": 5.94,
+              "probability": 0.919189453125
+            },
+            {
+              "text": " from",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all",
+              "start": 6.14,
+              "end": 6.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sides",
+              "start": 6.36,
+              "end": 6.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " addressed",
+              "start": 6.72,
+              "end": 7.02,
+              "probability": 0.83203125
+            },
+            {
+              "text": " to",
+              "start": 7.02,
+              "end": 7.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.26,
+              "end": 7.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " jesting",
+              "start": 7.38,
+              "end": 7.72,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " soldier.",
+              "start": 7.72,
+              "end": 8.12,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "fool!",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "raw": "Why",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "talk",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "raw": "rubbish,",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "raw": "lout",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "that",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "raw": "you",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "are—a",
+          "start": 3.84,
+          "end": 4.38
+        },
+        {
+          "raw": "real",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "peasant",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "raw": "!\"",
+          "start": 4.96,
+          "end": 5.46
+        },
+        {
+          "raw": "came",
+          "start": 5.46,
+          "end": 5.54
+        },
+        {
+          "raw": "rebukes",
+          "start": 5.54,
+          "end": 5.94
+        },
+        {
+          "raw": "from",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "all",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "raw": "sides",
+          "start": 6.36,
+          "end": 6.72
+        },
+        {
+          "raw": "addressed",
+          "start": 6.72,
+          "end": 7.02
+        },
+        {
+          "raw": "to",
+          "start": 7.02,
+          "end": 7.26
+        },
+        {
+          "raw": "the",
+          "start": 7.26,
+          "end": 7.38
+        },
+        {
+          "raw": "jesting",
+          "start": 7.38,
+          "end": 7.72
+        },
+        {
+          "raw": "soldier.",
+          "start": 7.72,
+          "end": 8.12
+        }
+      ],
+      "expected_tokens": [
+        "“Oh,",
+        "you",
+        "fool!",
+        "Why",
+        "talk",
+        "rubbish,",
+        "lout",
+        "that",
+        "you",
+        "are—a",
+        "real",
+        "peasant!”",
+        "came",
+        "rebukes",
+        "from",
+        "all",
+        "sides",
+        "addressed",
+        "to",
+        "the",
+        "jesting",
+        "soldier."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh,",
+        "you",
+        "fool!",
+        "Why",
+        "talk",
+        "rubbish,",
+        "lout",
+        "that",
+        "you",
+        "are—a",
+        "real",
+        "peasant!\"",
+        "came",
+        "rebukes",
+        "from",
+        "all",
+        "sides",
+        "addressed",
+        "to",
+        "the",
+        "jesting",
+        "soldier."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          22,
+          13,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fool!",
+          "start": 0.86,
+          "end": 1.2,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.48,
+          "end": 2.76,
+          "key": "talk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rubbish,",
+          "start": 2.76,
+          "end": 3.12,
+          "key": "rubbish",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lout",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "lout",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are—a",
+          "start": 3.84,
+          "end": 4.38,
+          "key": "area",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "real",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "peasant",
+          "start": 4.64,
+          "end": 4.96,
+          "key": "peasant",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 4.96,
+          "end": 5.46,
+          "key": "",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 5.46,
+          "end": 5.54,
+          "key": "came",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "rebukes",
+          "start": 5.54,
+          "end": 5.94,
+          "key": "rebukes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "from",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.14,
+          "end": 6.36,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sides",
+          "start": 6.36,
+          "end": 6.72,
+          "key": "sides",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 6.72,
+          "end": 7.02,
+          "key": "addressed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.02,
+          "end": 7.26,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.26,
+          "end": 7.38,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "jesting",
+          "start": 7.38,
+          "end": 7.72,
+          "key": "jesting",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "soldier.",
+          "start": 7.72,
+          "end": 8.12,
+          "key": "soldier",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh,",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "fool!",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "text": "Why",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "talk",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "text": "rubbish,",
+          "start": 2.76,
+          "end": 3.12
+        },
+        {
+          "text": "lout",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "text": "that",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "text": "you",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "are—a",
+          "start": 3.84,
+          "end": 4.38
+        },
+        {
+          "text": "real",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "peasant!”",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "text": "came",
+          "start": 5.46,
+          "end": 5.54
+        },
+        {
+          "text": "rebukes",
+          "start": 5.54,
+          "end": 5.94
+        },
+        {
+          "text": "from",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "all",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "text": "sides",
+          "start": 6.36,
+          "end": 6.72
+        },
+        {
+          "text": "addressed",
+          "start": 6.72,
+          "end": 7.02
+        },
+        {
+          "text": "to",
+          "start": 7.02,
+          "end": 7.26
+        },
+        {
+          "text": "the",
+          "start": 7.26,
+          "end": 7.38
+        },
+        {
+          "text": "jesting",
+          "start": 7.38,
+          "end": 7.72
+        },
+        {
+          "text": "soldier.",
+          "start": 7.72,
+          "end": 8.12
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2933352328836918
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1bdbdb9c9438aa25d8b66ab5f0b5aa35f4d403b4e1a0a72060c9e5571b16ce9",
+  "selected_reasons": []
+}

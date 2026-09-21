@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "3bf15fc4f75a6255c703a5b3f1ee7db522d7189193ebcb67054dd08d6b1dd07b",
+  "attempts": [
+    {
+      "asr_seconds": 0.08476110082119703,
+      "alignment_seconds": 0.0006050653755664825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The soldiers stopped.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The soldiers stopped.",
+          "start": 0.0,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " soldiers",
+              "start": 0.32,
+              "end": 0.62,
+              "probability": 0.904296875
+            },
+            {
+              "text": " stopped.",
+              "start": 0.62,
+              "end": 1.04,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "soldiers",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "raw": "stopped.",
+          "start": 0.62,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "soldiers",
+        "stopped."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "soldiers",
+        "stopped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldiers",
+          "start": 0.32,
+          "end": 0.62,
+          "key": "soldiers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stopped.",
+          "start": 0.62,
+          "end": 1.04,
+          "key": "stopped",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "soldiers",
+          "start": 0.32,
+          "end": 0.62
+        },
+        {
+          "text": "stopped.",
+          "start": 0.62,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08545549307018518
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8aa01d5a00bb314c1f5a9d19ff9281579ea60e8952d60f6d20a54eeb86f90e9",
+  "selected_reasons": []
+}

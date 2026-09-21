@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "a373487c5e0b01dd1450e805df6f292d759a0494e0db95846c55d3f6ba5d7896",
+  "attempts": [
+    {
+      "asr_seconds": 0.4001638824120164,
+      "alignment_seconds": 0.0016086986288428307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Killed?\" cried Denísov, recognizing from a distance the unmistakably lifeless attitude—very familiar to him—in which Pétya's body was lying.",
+        "hotwords": "Killed, Denísov, Pétya's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Killed, cried Denísov, recognizing from a distance the unmistakably lifeless attitude—very familiar to him—in which Pétya's body was lying.",
+          "start": 0.0,
+          "end": 8.38,
+          "words": [
+            {
+              "text": " Killed,",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.18017578125
+            },
+            {
+              "text": " cried",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.984375
+            },
+            {
+              "text": " Denísov,",
+              "start": 1.06,
+              "end": 1.64,
+              "probability": 0.011030832926432291
+            },
+            {
+              "text": " recognizing",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " from",
+              "start": 2.38,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distance",
+              "start": 2.88,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " unmistakably",
+              "start": 3.44,
+              "end": 4.2,
+              "probability": 0.9925130208333334
+            },
+            {
+              "text": " lifeless",
+              "start": 4.2,
+              "end": 4.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " attitude—very",
+              "start": 4.6,
+              "end": 5.72,
+              "probability": 0.6463165283203125
+            },
+            {
+              "text": " familiar",
+              "start": 5.72,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.08,
+              "end": 6.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him—in",
+              "start": 6.36,
+              "end": 6.9,
+              "probability": 0.7686360677083334
+            },
+            {
+              "text": " which",
+              "start": 6.9,
+              "end": 7.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Pétya's",
+              "start": 7.16,
+              "end": 7.64,
+              "probability": 0.4934844970703125
+            },
+            {
+              "text": " body",
+              "start": 7.64,
+              "end": 7.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 7.84,
+              "end": 8.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lying.",
+              "start": 8.04,
+              "end": 8.38,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Killed,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "cried",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "Denísov,",
+          "start": 1.06,
+          "end": 1.64
+        },
+        {
+          "raw": "recognizing",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "from",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "distance",
+          "start": 2.88,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "unmistakably",
+          "start": 3.44,
+          "end": 4.2
+        },
+        {
+          "raw": "lifeless",
+          "start": 4.2,
+          "end": 4.6
+        },
+        {
+          "raw": "attitude—very",
+          "start": 4.6,
+          "end": 5.72
+        },
+        {
+          "raw": "familiar",
+          "start": 5.72,
+          "end": 6.08
+        },
+        {
+          "raw": "to",
+          "start": 6.08,
+          "end": 6.36
+        },
+        {
+          "raw": "him—in",
+          "start": 6.36,
+          "end": 6.9
+        },
+        {
+          "raw": "which",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "raw": "Pétya's",
+          "start": 7.16,
+          "end": 7.64
+        },
+        {
+          "raw": "body",
+          "start": 7.64,
+          "end": 7.84
+        },
+        {
+          "raw": "was",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "raw": "lying.",
+          "start": 8.04,
+          "end": 8.38
+        }
+      ],
+      "expected_tokens": [
+        "“Killed?”",
+        "cried",
+        "Denísov,",
+        "recognizing",
+        "from",
+        "a",
+        "distance",
+        "the",
+        "unmistakably",
+        "lifeless",
+        "attitude—very",
+        "familiar",
+        "to",
+        "him—in",
+        "which",
+        "Pétya’s",
+        "body",
+        "was",
+        "lying."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Killed?\"",
+        "cried",
+        "Denísov,",
+        "recognizing",
+        "from",
+        "a",
+        "distance",
+        "the",
+        "unmistakably",
+        "lifeless",
+        "attitude—very",
+        "familiar",
+        "to",
+        "him—in",
+        "which",
+        "Pétya's",
+        "body",
+        "was",
+        "lying."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Killed,",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "killed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "cried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Denísov,",
+          "start": 1.06,
+          "end": 1.64,
+          "key": "denísov",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "recognizing",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "recognizing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.38,
+          "end": 2.74,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "distance",
+          "start": 2.88,
+          "end": 3.22,
+          "key": "distance",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "unmistakably",
+          "start": 3.44,
+          "end": 4.2,
+          "key": "unmistakably",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lifeless",
+          "start": 4.2,
+          "end": 4.6,
+          "key": "lifeless",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "attitude—very",
+          "start": 4.6,
+          "end": 5.72,
+          "key": "attitudevery",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "familiar",
+          "start": 5.72,
+          "end": 6.08,
+          "key": "familiar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.08,
+          "end": 6.36,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him—in",
+          "start": 6.36,
+          "end": 6.9,
+          "key": "himin",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 6.9,
+          "end": 7.16,
+          "key": "which",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Pétya's",
+          "start": 7.16,
+          "end": 7.64,
+          "key": "pétyas",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 7.64,
+          "end": 7.84,
+          "key": "body",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.84,
+          "end": 8.04,
+          "key": "was",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lying.",
+          "start": 8.04,
+          "end": 8.38,
+          "key": "lying",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Killed?”",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "cried",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "Denísov,",
+          "start": 1.06,
+          "end": 1.64
+        },
+        {
+          "text": "recognizing",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "from",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "distance",
+          "start": 2.88,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "unmistakably",
+          "start": 3.44,
+          "end": 4.2
+        },
+        {
+          "text": "lifeless",
+          "start": 4.2,
+          "end": 4.6
+        },
+        {
+          "text": "attitude—very",
+          "start": 4.6,
+          "end": 5.72
+        },
+        {
+          "text": "familiar",
+          "start": 5.72,
+          "end": 6.08
+        },
+        {
+          "text": "to",
+          "start": 6.08,
+          "end": 6.36
+        },
+        {
+          "text": "him—in",
+          "start": 6.36,
+          "end": 6.9
+        },
+        {
+          "text": "which",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "text": "Pétya’s",
+          "start": 7.16,
+          "end": 7.64
+        },
+        {
+          "text": "body",
+          "start": 7.64,
+          "end": 7.84
+        },
+        {
+          "text": "was",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "text": "lying.",
+          "start": 8.04,
+          "end": 8.38
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4020029539242387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5222c6dcddf55c76cb5efb07d8672ebb30a0a7142c87f92008a2720634389ed3",
+  "selected_reasons": []
+}

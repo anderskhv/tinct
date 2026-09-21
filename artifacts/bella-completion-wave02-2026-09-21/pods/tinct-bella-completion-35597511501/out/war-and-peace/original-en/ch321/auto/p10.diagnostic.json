@@ -1,0 +1,2481 @@
+{
+  "complete": true,
+  "signature": "413db28e1af8afd2278e34a9f9566c3e0996dcb664f808eab143be2c83319a1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.6371810166165233,
+      "alignment_seconds": 0.005133005790412426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Toll wrote a disposition: \"The first column will march to so and so,\" etc. And as usual nothing happened in accord with the disposition. Prince Eugène of Württemberg fired from a hill over the French crowds that were running past, and demanded reinforcements which did not arrive. The French, avoiding the Russians, dispersed and hid themselves in the forest by night, making their way round as best they could, and continued their flight.",
+        "hotwords": "Toll, Prince, Eugène, Württemberg, French, Russians"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Toll wrote a disposition, \"'The first column will march to so and so,\" etc. And as usual nothing happened in accord with the disposition. Prince Eugène of Württemberg fired from a hill over the French crowds that were running past, and demanded reinforcements which did not arrive.",
+          "start": 0.0,
+          "end": 16.3,
+          "words": [
+            {
+              "text": " Toll",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.069580078125
+            },
+            {
+              "text": " wrote",
+              "start": 0.42,
+              "end": 0.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " disposition,",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " \"'The",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.3851938247680664
+            },
+            {
+              "text": " first",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " column",
+              "start": 2.1,
+              "end": 2.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " will",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " march",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.982421875
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.986328125
+            },
+            {
+              "text": " so",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " and",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.218017578125
+            },
+            {
+              "text": " so,\"",
+              "start": 3.48,
+              "end": 4.04,
+              "probability": 0.5087051391601562
+            },
+            {
+              "text": " etc.",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.67578125
+            },
+            {
+              "text": " And",
+              "start": 5.24,
+              "end": 5.76,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " as",
+              "start": 5.76,
+              "end": 5.9,
+              "probability": 0.9296875
+            },
+            {
+              "text": " usual",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " happened",
+              "start": 6.48,
+              "end": 6.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " accord",
+              "start": 7.04,
+              "end": 7.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 7.3,
+              "end": 7.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " disposition.",
+              "start": 7.66,
+              "end": 8.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Prince",
+              "start": 9.4,
+              "end": 9.52,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Eugène",
+              "start": 9.52,
+              "end": 9.92,
+              "probability": 0.6907145182291666
+            },
+            {
+              "text": " of",
+              "start": 9.92,
+              "end": 10.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Württemberg",
+              "start": 10.18,
+              "end": 10.74,
+              "probability": 0.8783203125
+            },
+            {
+              "text": " fired",
+              "start": 10.74,
+              "end": 10.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 10.96,
+              "end": 11.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 11.22,
+              "end": 11.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hill",
+              "start": 11.34,
+              "end": 11.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " over",
+              "start": 11.5,
+              "end": 11.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 11.8,
+              "end": 11.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " French",
+              "start": 11.94,
+              "end": 12.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " crowds",
+              "start": 12.18,
+              "end": 12.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 12.58,
+              "end": 12.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 12.82,
+              "end": 12.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " running",
+              "start": 12.96,
+              "end": 13.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " past,",
+              "start": 13.22,
+              "end": 13.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 13.92,
+              "end": 14.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " demanded",
+              "start": 14.02,
+              "end": 14.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reinforcements",
+              "start": 14.44,
+              "end": 15.08,
+              "probability": 0.970703125
+            },
+            {
+              "text": " which",
+              "start": 15.08,
+              "end": 15.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " did",
+              "start": 15.5,
+              "end": 15.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 15.7,
+              "end": 15.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " arrive.",
+              "start": 15.9,
+              "end": 16.3,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " The French, avoiding the Russians, dispersed and hid themselves in the forest by night, making their way round as best they could, and continued their flight.",
+          "start": 17.34,
+          "end": 25.26,
+          "words": [
+            {
+              "text": " The",
+              "start": 17.34,
+              "end": 17.54,
+              "probability": 0.98828125
+            },
+            {
+              "text": " French,",
+              "start": 17.54,
+              "end": 17.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " avoiding",
+              "start": 18.06,
+              "end": 18.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 18.42,
+              "end": 18.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Russians,",
+              "start": 18.64,
+              "end": 18.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dispersed",
+              "start": 19.36,
+              "end": 19.7,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 19.7,
+              "end": 19.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hid",
+              "start": 19.98,
+              "end": 20.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " themselves",
+              "start": 20.1,
+              "end": 20.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 20.48,
+              "end": 20.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 20.74,
+              "end": 20.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forest",
+              "start": 20.84,
+              "end": 21.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 21.1,
+              "end": 21.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " night,",
+              "start": 21.36,
+              "end": 21.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " making",
+              "start": 21.96,
+              "end": 22.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 22.16,
+              "end": 22.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " way",
+              "start": 22.42,
+              "end": 22.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " round",
+              "start": 22.6,
+              "end": 22.88,
+              "probability": 0.955078125
+            },
+            {
+              "text": " as",
+              "start": 22.88,
+              "end": 23.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " best",
+              "start": 23.1,
+              "end": 23.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 23.32,
+              "end": 23.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " could,",
+              "start": 23.54,
+              "end": 23.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 24.1,
+              "end": 24.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " continued",
+              "start": 24.28,
+              "end": 24.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 24.68,
+              "end": 24.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " flight.",
+              "start": 24.96,
+              "end": 25.26,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Toll",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "wrote",
+          "start": 0.42,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "disposition,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "\"'The",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "first",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "column",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "raw": "will",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "march",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "so",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "so,\"",
+          "start": 3.48,
+          "end": 4.04
+        },
+        {
+          "raw": "etc.",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "raw": "And",
+          "start": 5.24,
+          "end": 5.76
+        },
+        {
+          "raw": "as",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "raw": "usual",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "nothing",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "raw": "happened",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "raw": "in",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "accord",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "raw": "with",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "disposition.",
+          "start": 7.66,
+          "end": 8.14
+        },
+        {
+          "raw": "Prince",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "raw": "Eugène",
+          "start": 9.52,
+          "end": 9.92
+        },
+        {
+          "raw": "of",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "raw": "Württemberg",
+          "start": 10.18,
+          "end": 10.74
+        },
+        {
+          "raw": "fired",
+          "start": 10.74,
+          "end": 10.96
+        },
+        {
+          "raw": "from",
+          "start": 10.96,
+          "end": 11.22
+        },
+        {
+          "raw": "a",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "raw": "hill",
+          "start": 11.34,
+          "end": 11.5
+        },
+        {
+          "raw": "over",
+          "start": 11.5,
+          "end": 11.8
+        },
+        {
+          "raw": "the",
+          "start": 11.8,
+          "end": 11.94
+        },
+        {
+          "raw": "French",
+          "start": 11.94,
+          "end": 12.18
+        },
+        {
+          "raw": "crowds",
+          "start": 12.18,
+          "end": 12.58
+        },
+        {
+          "raw": "that",
+          "start": 12.58,
+          "end": 12.82
+        },
+        {
+          "raw": "were",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "raw": "running",
+          "start": 12.96,
+          "end": 13.22
+        },
+        {
+          "raw": "past,",
+          "start": 13.22,
+          "end": 13.54
+        },
+        {
+          "raw": "and",
+          "start": 13.92,
+          "end": 14.02
+        },
+        {
+          "raw": "demanded",
+          "start": 14.02,
+          "end": 14.44
+        },
+        {
+          "raw": "reinforcements",
+          "start": 14.44,
+          "end": 15.08
+        },
+        {
+          "raw": "which",
+          "start": 15.08,
+          "end": 15.5
+        },
+        {
+          "raw": "did",
+          "start": 15.5,
+          "end": 15.7
+        },
+        {
+          "raw": "not",
+          "start": 15.7,
+          "end": 15.9
+        },
+        {
+          "raw": "arrive.",
+          "start": 15.9,
+          "end": 16.3
+        },
+        {
+          "raw": "The",
+          "start": 17.34,
+          "end": 17.54
+        },
+        {
+          "raw": "French,",
+          "start": 17.54,
+          "end": 17.82
+        },
+        {
+          "raw": "avoiding",
+          "start": 18.06,
+          "end": 18.42
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.64
+        },
+        {
+          "raw": "Russians,",
+          "start": 18.64,
+          "end": 18.94
+        },
+        {
+          "raw": "dispersed",
+          "start": 19.36,
+          "end": 19.7
+        },
+        {
+          "raw": "and",
+          "start": 19.7,
+          "end": 19.98
+        },
+        {
+          "raw": "hid",
+          "start": 19.98,
+          "end": 20.1
+        },
+        {
+          "raw": "themselves",
+          "start": 20.1,
+          "end": 20.48
+        },
+        {
+          "raw": "in",
+          "start": 20.48,
+          "end": 20.74
+        },
+        {
+          "raw": "the",
+          "start": 20.74,
+          "end": 20.84
+        },
+        {
+          "raw": "forest",
+          "start": 20.84,
+          "end": 21.1
+        },
+        {
+          "raw": "by",
+          "start": 21.1,
+          "end": 21.36
+        },
+        {
+          "raw": "night,",
+          "start": 21.36,
+          "end": 21.66
+        },
+        {
+          "raw": "making",
+          "start": 21.96,
+          "end": 22.16
+        },
+        {
+          "raw": "their",
+          "start": 22.16,
+          "end": 22.42
+        },
+        {
+          "raw": "way",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "raw": "round",
+          "start": 22.6,
+          "end": 22.88
+        },
+        {
+          "raw": "as",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "raw": "best",
+          "start": 23.1,
+          "end": 23.32
+        },
+        {
+          "raw": "they",
+          "start": 23.32,
+          "end": 23.54
+        },
+        {
+          "raw": "could,",
+          "start": 23.54,
+          "end": 23.8
+        },
+        {
+          "raw": "and",
+          "start": 24.1,
+          "end": 24.28
+        },
+        {
+          "raw": "continued",
+          "start": 24.28,
+          "end": 24.68
+        },
+        {
+          "raw": "their",
+          "start": 24.68,
+          "end": 24.96
+        },
+        {
+          "raw": "flight.",
+          "start": 24.96,
+          "end": 25.26
+        }
+      ],
+      "expected_tokens": [
+        "Toll",
+        "wrote",
+        "a",
+        "disposition:",
+        "“The",
+        "first",
+        "column",
+        "will",
+        "march",
+        "to",
+        "so",
+        "and",
+        "so,”",
+        "etc.",
+        "And",
+        "as",
+        "usual",
+        "nothing",
+        "happened",
+        "in",
+        "accord",
+        "with",
+        "the",
+        "disposition.",
+        "Prince",
+        "Eugène",
+        "of",
+        "Württemberg",
+        "fired",
+        "from",
+        "a",
+        "hill",
+        "over",
+        "the",
+        "French",
+        "crowds",
+        "that",
+        "were",
+        "running",
+        "past,",
+        "and",
+        "demanded",
+        "reinforcements",
+        "which",
+        "did",
+        "not",
+        "arrive.",
+        "The",
+        "French,",
+        "avoiding",
+        "the",
+        "Russians,",
+        "dispersed",
+        "and",
+        "hid",
+        "themselves",
+        "in",
+        "the",
+        "forest",
+        "by",
+        "night,",
+        "making",
+        "their",
+        "way",
+        "round",
+        "as",
+        "best",
+        "they",
+        "could,",
+        "and",
+        "continued",
+        "their",
+        "flight."
+      ],
+      "acoustic_expected_tokens": [
+        "Toll",
+        "wrote",
+        "a",
+        "disposition:",
+        "\"The",
+        "first",
+        "column",
+        "will",
+        "march",
+        "to",
+        "so",
+        "and",
+        "so,\"",
+        "etc.",
+        "And",
+        "as",
+        "usual",
+        "nothing",
+        "happened",
+        "in",
+        "accord",
+        "with",
+        "the",
+        "disposition.",
+        "Prince",
+        "Eugène",
+        "of",
+        "Württemberg",
+        "fired",
+        "from",
+        "a",
+        "hill",
+        "over",
+        "the",
+        "French",
+        "crowds",
+        "that",
+        "were",
+        "running",
+        "past,",
+        "and",
+        "demanded",
+        "reinforcements",
+        "which",
+        "did",
+        "not",
+        "arrive.",
+        "The",
+        "French,",
+        "avoiding",
+        "the",
+        "Russians,",
+        "dispersed",
+        "and",
+        "hid",
+        "themselves",
+        "in",
+        "the",
+        "forest",
+        "by",
+        "night,",
+        "making",
+        "their",
+        "way",
+        "round",
+        "as",
+        "best",
+        "they",
+        "could,",
+        "and",
+        "continued",
+        "their",
+        "flight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          73,
+          0,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Toll",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "toll",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 0.42,
+          "end": 0.68,
+          "key": "wrote",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "disposition,",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "disposition",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "\"'The",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "column",
+          "start": 2.1,
+          "end": 2.38,
+          "key": "column",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "march",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "march",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so,\"",
+          "start": 3.48,
+          "end": 4.04,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "etc.",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "etc",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.24,
+          "end": 5.76,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.76,
+          "end": 5.9,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "usual",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "usual",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "nothing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 6.48,
+          "end": 6.84,
+          "key": "happened",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.84,
+          "end": 7.04,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "accord",
+          "start": 7.04,
+          "end": 7.3,
+          "key": "accord",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.3,
+          "end": 7.54,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "disposition.",
+          "start": 7.66,
+          "end": 8.14,
+          "key": "disposition",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 9.4,
+          "end": 9.52,
+          "key": "prince",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Eugène",
+          "start": 9.52,
+          "end": 9.92,
+          "key": "eugène",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.92,
+          "end": 10.18,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Württemberg",
+          "start": 10.18,
+          "end": 10.74,
+          "key": "württemberg",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "fired",
+          "start": 10.74,
+          "end": 10.96,
+          "key": "fired",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.96,
+          "end": 11.22,
+          "key": "from",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.22,
+          "end": 11.34,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "hill",
+          "start": 11.34,
+          "end": 11.5,
+          "key": "hill",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 11.5,
+          "end": 11.8,
+          "key": "over",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.8,
+          "end": 11.94,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 11.94,
+          "end": 12.18,
+          "key": "french",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "crowds",
+          "start": 12.18,
+          "end": 12.58,
+          "key": "crowds",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.58,
+          "end": 12.82,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 12.82,
+          "end": 12.96,
+          "key": "were",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 12.96,
+          "end": 13.22,
+          "key": "running",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "past,",
+          "start": 13.22,
+          "end": 13.54,
+          "key": "past",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.92,
+          "end": 14.02,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "demanded",
+          "start": 14.02,
+          "end": 14.44,
+          "key": "demanded",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "reinforcements",
+          "start": 14.44,
+          "end": 15.08,
+          "key": "reinforcements",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 15.08,
+          "end": 15.5,
+          "key": "which",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 15.5,
+          "end": 15.7,
+          "key": "did",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.7,
+          "end": 15.9,
+          "key": "not",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "arrive.",
+          "start": 15.9,
+          "end": 16.3,
+          "key": "arrive",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 17.34,
+          "end": 17.54,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "French,",
+          "start": 17.54,
+          "end": 17.82,
+          "key": "french",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "avoiding",
+          "start": 18.06,
+          "end": 18.42,
+          "key": "avoiding",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.42,
+          "end": 18.64,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Russians,",
+          "start": 18.64,
+          "end": 18.94,
+          "key": "russians",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "dispersed",
+          "start": 19.36,
+          "end": 19.7,
+          "key": "dispersed",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.7,
+          "end": 19.98,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 19.98,
+          "end": 20.1,
+          "key": "hid",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 20.1,
+          "end": 20.48,
+          "key": "themselves",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.48,
+          "end": 20.74,
+          "key": "in",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.74,
+          "end": 20.84,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "forest",
+          "start": 20.84,
+          "end": 21.1,
+          "key": "forest",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 21.1,
+          "end": 21.36,
+          "key": "by",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 21.36,
+          "end": 21.66,
+          "key": "night",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 21.96,
+          "end": 22.16,
+          "key": "making",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 22.16,
+          "end": 22.42,
+          "key": "their",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 22.42,
+          "end": 22.6,
+          "key": "way",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 22.6,
+          "end": 22.88,
+          "key": "round",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 22.88,
+          "end": 23.1,
+          "key": "as",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 23.1,
+          "end": 23.32,
+          "key": "best",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 23.32,
+          "end": 23.54,
+          "key": "they",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "could,",
+          "start": 23.54,
+          "end": 23.8,
+          "key": "could",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.1,
+          "end": 24.28,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "continued",
+          "start": 24.28,
+          "end": 24.68,
+          "key": "continued",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 24.68,
+          "end": 24.96,
+          "key": "their",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "flight.",
+          "start": 24.96,
+          "end": 25.26,
+          "key": "flight",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Toll",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "wrote",
+          "start": 0.42,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "disposition:",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "“The",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "first",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "column",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "text": "will",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "march",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "text": "so",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "and",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "so,”",
+          "start": 3.48,
+          "end": 4.04
+        },
+        {
+          "text": "etc.",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "text": "And",
+          "start": 5.24,
+          "end": 5.76
+        },
+        {
+          "text": "as",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "text": "usual",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "nothing",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "happened",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "text": "in",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "accord",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "text": "with",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "text": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "disposition.",
+          "start": 7.66,
+          "end": 8.14
+        },
+        {
+          "text": "Prince",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "text": "Eugène",
+          "start": 9.52,
+          "end": 9.92
+        },
+        {
+          "text": "of",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "text": "Württemberg",
+          "start": 10.18,
+          "end": 10.74
+        },
+        {
+          "text": "fired",
+          "start": 10.74,
+          "end": 10.96
+        },
+        {
+          "text": "from",
+          "start": 10.96,
+          "end": 11.22
+        },
+        {
+          "text": "a",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "text": "hill",
+          "start": 11.34,
+          "end": 11.5
+        },
+        {
+          "text": "over",
+          "start": 11.5,
+          "end": 11.8
+        },
+        {
+          "text": "the",
+          "start": 11.8,
+          "end": 11.94
+        },
+        {
+          "text": "French",
+          "start": 11.94,
+          "end": 12.18
+        },
+        {
+          "text": "crowds",
+          "start": 12.18,
+          "end": 12.58
+        },
+        {
+          "text": "that",
+          "start": 12.58,
+          "end": 12.82
+        },
+        {
+          "text": "were",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "text": "running",
+          "start": 12.96,
+          "end": 13.22
+        },
+        {
+          "text": "past,",
+          "start": 13.22,
+          "end": 13.54
+        },
+        {
+          "text": "and",
+          "start": 13.92,
+          "end": 14.02
+        },
+        {
+          "text": "demanded",
+          "start": 14.02,
+          "end": 14.44
+        },
+        {
+          "text": "reinforcements",
+          "start": 14.44,
+          "end": 15.08
+        },
+        {
+          "text": "which",
+          "start": 15.08,
+          "end": 15.5
+        },
+        {
+          "text": "did",
+          "start": 15.5,
+          "end": 15.7
+        },
+        {
+          "text": "not",
+          "start": 15.7,
+          "end": 15.9
+        },
+        {
+          "text": "arrive.",
+          "start": 15.9,
+          "end": 16.3
+        },
+        {
+          "text": "The",
+          "start": 17.34,
+          "end": 17.54
+        },
+        {
+          "text": "French,",
+          "start": 17.54,
+          "end": 17.82
+        },
+        {
+          "text": "avoiding",
+          "start": 18.06,
+          "end": 18.42
+        },
+        {
+          "text": "the",
+          "start": 18.42,
+          "end": 18.64
+        },
+        {
+          "text": "Russians,",
+          "start": 18.64,
+          "end": 18.94
+        },
+        {
+          "text": "dispersed",
+          "start": 19.36,
+          "end": 19.7
+        },
+        {
+          "text": "and",
+          "start": 19.7,
+          "end": 19.98
+        },
+        {
+          "text": "hid",
+          "start": 19.98,
+          "end": 20.1
+        },
+        {
+          "text": "themselves",
+          "start": 20.1,
+          "end": 20.48
+        },
+        {
+          "text": "in",
+          "start": 20.48,
+          "end": 20.74
+        },
+        {
+          "text": "the",
+          "start": 20.74,
+          "end": 20.84
+        },
+        {
+          "text": "forest",
+          "start": 20.84,
+          "end": 21.1
+        },
+        {
+          "text": "by",
+          "start": 21.1,
+          "end": 21.36
+        },
+        {
+          "text": "night,",
+          "start": 21.36,
+          "end": 21.66
+        },
+        {
+          "text": "making",
+          "start": 21.96,
+          "end": 22.16
+        },
+        {
+          "text": "their",
+          "start": 22.16,
+          "end": 22.42
+        },
+        {
+          "text": "way",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "text": "round",
+          "start": 22.6,
+          "end": 22.88
+        },
+        {
+          "text": "as",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "text": "best",
+          "start": 23.1,
+          "end": 23.32
+        },
+        {
+          "text": "they",
+          "start": 23.32,
+          "end": 23.54
+        },
+        {
+          "text": "could,",
+          "start": 23.54,
+          "end": 23.8
+        },
+        {
+          "text": "and",
+          "start": 24.1,
+          "end": 24.28
+        },
+        {
+          "text": "continued",
+          "start": 24.28,
+          "end": 24.68
+        },
+        {
+          "text": "their",
+          "start": 24.68,
+          "end": 24.96
+        },
+        {
+          "text": "flight.",
+          "start": 24.96,
+          "end": 25.26
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 73
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6426964150741696
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cbcb042877d00b7901c332befecc5d5ad62e41cf738888a30fc977b3540c44d",
+  "selected_reasons": []
+}

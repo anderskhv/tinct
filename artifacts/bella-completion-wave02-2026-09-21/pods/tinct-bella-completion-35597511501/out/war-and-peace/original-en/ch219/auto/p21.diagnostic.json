@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "129d2ef3bf0da61c713399965d5b13d1771992cd640af2ce15f52af74e96b62b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12348802480846643,
+      "alignment_seconds": 0.000747140496969223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rapp made no reply.",
+        "hotwords": "Rapp"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rapp made no reply.",
+          "start": 0.0,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Rapp",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.0182037353515625
+            },
+            {
+              "text": " made",
+              "start": 0.42,
+              "end": 0.72,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " no",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " reply.",
+              "start": 0.98,
+              "end": 1.38,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rapp",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "made",
+          "start": 0.42,
+          "end": 0.72
+        },
+        {
+          "raw": "no",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "reply.",
+          "start": 0.98,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Rapp",
+        "made",
+        "no",
+        "reply."
+      ],
+      "acoustic_expected_tokens": [
+        "Rapp",
+        "made",
+        "no",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rapp",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "rapp",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.42,
+          "end": 0.72,
+          "key": "made",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 0.98,
+          "end": 1.38,
+          "key": "reply",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Rapp",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "made",
+          "start": 0.42,
+          "end": 0.72
+        },
+        {
+          "text": "no",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "reply.",
+          "start": 0.98,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12436383124440908
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e7a59a74b63a45791ae38f5e54b4468015833a73df189d82ab0527e26b210a4",
+  "selected_reasons": []
+}

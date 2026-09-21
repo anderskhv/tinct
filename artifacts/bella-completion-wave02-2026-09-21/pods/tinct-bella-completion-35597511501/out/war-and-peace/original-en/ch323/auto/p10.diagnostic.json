@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "6133759cb4c160c01621f74786cc238c174ac02104cda8a3f691cd16aa8edbc2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1006404897198081,
+      "alignment_seconds": 0.0006276797503232956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He paused and looked around.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He paused and looked around.",
+          "start": 0.0,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " paused",
+              "start": 0.38,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " looked",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " around.",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "paused",
+          "start": 0.38,
+          "end": 0.64
+        },
+        {
+          "raw": "and",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "looked",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "around.",
+          "start": 1.04,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "paused",
+        "and",
+        "looked",
+        "around."
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "paused",
+        "and",
+        "looked",
+        "around."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "paused",
+          "start": 0.38,
+          "end": 0.64,
+          "key": "paused",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "looked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "around.",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "around",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "paused",
+          "start": 0.38,
+          "end": 0.64
+        },
+        {
+          "text": "and",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "looked",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "around.",
+          "start": 1.04,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10135744418948889
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c2fc3930210b97a49abad42bf7bfe2c218f4575742ec5fa4ce799990dcb602f",
+  "selected_reasons": []
+}

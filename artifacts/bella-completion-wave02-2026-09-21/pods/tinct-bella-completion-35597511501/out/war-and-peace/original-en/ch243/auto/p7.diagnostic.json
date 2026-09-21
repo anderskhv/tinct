@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "5d28675683d6b16ddeabdb577d69873dbda24acf99a44c728ceb6cfc6ef8fa84",
+  "attempts": [
+    {
+      "asr_seconds": 0.28130780532956123,
+      "alignment_seconds": 0.0027508344501256943,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, it's a mercy if we can get the carpets alone into three cases,\" said the butler's assistant.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, it's a mercy if we can get the carpets alone into three cases,\" said the butler's assistant.",
+          "start": 0.0,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.05755615234375
+            },
+            {
+              "text": " it's",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mercy",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " get",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " carpets",
+              "start": 2.04,
+              "end": 2.44,
+              "probability": 0.962890625
+            },
+            {
+              "text": " alone",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " into",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " three",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " cases,\"",
+              "start": 3.26,
+              "end": 4.12,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " said",
+              "start": 4.12,
+              "end": 4.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.14,
+              "end": 4.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " butler's",
+              "start": 4.32,
+              "end": 4.64,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " assistant.",
+              "start": 4.64,
+              "end": 4.98,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "it's",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "mercy",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "if",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "we",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "can",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "get",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "carpets",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "raw": "alone",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "into",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "three",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "cases,\"",
+          "start": 3.26,
+          "end": 4.12
+        },
+        {
+          "raw": "said",
+          "start": 4.12,
+          "end": 4.14
+        },
+        {
+          "raw": "the",
+          "start": 4.14,
+          "end": 4.32
+        },
+        {
+          "raw": "butler's",
+          "start": 4.32,
+          "end": 4.64
+        },
+        {
+          "raw": "assistant.",
+          "start": 4.64,
+          "end": 4.98
+        }
+      ],
+      "expected_tokens": [
+        "“Why,",
+        "it’s",
+        "a",
+        "mercy",
+        "if",
+        "we",
+        "can",
+        "get",
+        "the",
+        "carpets",
+        "alone",
+        "into",
+        "three",
+        "cases,”",
+        "said",
+        "the",
+        "butler’s",
+        "assistant."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Why,",
+        "it's",
+        "a",
+        "mercy",
+        "if",
+        "we",
+        "can",
+        "get",
+        "the",
+        "carpets",
+        "alone",
+        "into",
+        "three",
+        "cases,\"",
+        "said",
+        "the",
+        "butler's",
+        "assistant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "its",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "mercy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "get",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "carpets",
+          "start": 2.04,
+          "end": 2.44,
+          "key": "carpets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "alone",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.68,
+          "end": 2.98,
+          "key": "into",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "three",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cases,\"",
+          "start": 3.26,
+          "end": 4.12,
+          "key": "cases",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.12,
+          "end": 4.14,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.14,
+          "end": 4.32,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "butler's",
+          "start": 4.32,
+          "end": 4.64,
+          "key": "butlers",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "assistant.",
+          "start": 4.64,
+          "end": 4.98,
+          "key": "assistant",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Why,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "it’s",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "mercy",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "if",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "we",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "can",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "get",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "carpets",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "text": "alone",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "into",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "text": "three",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "cases,”",
+          "start": 3.26,
+          "end": 4.12
+        },
+        {
+          "text": "said",
+          "start": 4.12,
+          "end": 4.14
+        },
+        {
+          "text": "the",
+          "start": 4.14,
+          "end": 4.32
+        },
+        {
+          "text": "butler’s",
+          "start": 4.32,
+          "end": 4.64
+        },
+        {
+          "text": "assistant.",
+          "start": 4.64,
+          "end": 4.98
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2842830643057823
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "157334fa76134025bd8986cdb94b69ce7f2dcd39ac3231777d4404328e3893fc",
+  "selected_reasons": []
+}

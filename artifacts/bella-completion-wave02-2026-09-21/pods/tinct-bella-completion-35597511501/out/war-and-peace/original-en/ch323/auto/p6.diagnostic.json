@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "0072fdf0e7a7c800db5dcbe2df6363088b1191aa2e3a3e6ef06afd8686b45aba",
+  "attempts": [
+    {
+      "asr_seconds": 0.2818535454571247,
+      "alignment_seconds": 0.0014406433328986168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, the standards!\" said Kutúzov, evidently detaching himself with difficulty from the thoughts that preoccupied him.",
+        "hotwords": "Ah, Kutúzov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, the standards!\" said Kutúzov, evidently detaching himself with difficulty from the thoughts that preoccupied him.",
+          "start": 0.0,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " standards",
+              "start": 0.82,
+              "end": 1.28,
+              "probability": 0.97119140625
+            },
+            {
+              "text": "!\"",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.0125732421875
+            },
+            {
+              "text": " said",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.890625
+            },
+            {
+              "text": " Kutúzov,",
+              "start": 1.74,
+              "end": 2.42,
+              "probability": 0.5677495002746582
+            },
+            {
+              "text": " evidently",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " detaching",
+              "start": 2.98,
+              "end": 3.52,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " himself",
+              "start": 3.52,
+              "end": 3.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " difficulty",
+              "start": 4.2,
+              "end": 4.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 4.64,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thoughts",
+              "start": 5.14,
+              "end": 5.4,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " that",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " preoccupied",
+              "start": 5.68,
+              "end": 6.32,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " him.",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "standards",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "raw": "!\"",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "Kutúzov,",
+          "start": 1.74,
+          "end": 2.42
+        },
+        {
+          "raw": "evidently",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "detaching",
+          "start": 2.98,
+          "end": 3.52
+        },
+        {
+          "raw": "himself",
+          "start": 3.52,
+          "end": 3.94
+        },
+        {
+          "raw": "with",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "difficulty",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "raw": "from",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "raw": "the",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "thoughts",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "raw": "that",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "preoccupied",
+          "start": 5.68,
+          "end": 6.32
+        },
+        {
+          "raw": "him.",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "“Ah,",
+        "the",
+        "standards!”",
+        "said",
+        "Kutúzov,",
+        "evidently",
+        "detaching",
+        "himself",
+        "with",
+        "difficulty",
+        "from",
+        "the",
+        "thoughts",
+        "that",
+        "preoccupied",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah,",
+        "the",
+        "standards!\"",
+        "said",
+        "Kutúzov,",
+        "evidently",
+        "detaching",
+        "himself",
+        "with",
+        "difficulty",
+        "from",
+        "the",
+        "thoughts",
+        "that",
+        "preoccupied",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          16,
+          4,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "standards",
+          "start": 0.82,
+          "end": 1.28,
+          "key": "standards",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kutúzov,",
+          "start": 1.74,
+          "end": 2.42,
+          "key": "kutúzov",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "evidently",
+          "start": 2.74,
+          "end": 2.98,
+          "key": "evidently",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "detaching",
+          "start": 2.98,
+          "end": 3.52,
+          "key": "detaching",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 3.52,
+          "end": 3.94,
+          "key": "himself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "difficulty",
+          "start": 4.2,
+          "end": 4.64,
+          "key": "difficulty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.64,
+          "end": 4.98,
+          "key": "from",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.98,
+          "end": 5.14,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thoughts",
+          "start": 5.14,
+          "end": 5.4,
+          "key": "thoughts",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.4,
+          "end": 5.68,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "preoccupied",
+          "start": 5.68,
+          "end": 6.32,
+          "key": "preoccupied",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 6.32,
+          "end": 6.66,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "standards!”",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "Kutúzov,",
+          "start": 1.74,
+          "end": 2.42
+        },
+        {
+          "text": "evidently",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "detaching",
+          "start": 2.98,
+          "end": 3.52
+        },
+        {
+          "text": "himself",
+          "start": 3.52,
+          "end": 3.94
+        },
+        {
+          "text": "with",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "difficulty",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "text": "from",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "text": "the",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "thoughts",
+          "start": 5.14,
+          "end": 5.4
+        },
+        {
+          "text": "that",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "preoccupied",
+          "start": 5.68,
+          "end": 6.32
+        },
+        {
+          "text": "him.",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28350048791617155
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7663360899210e4bb51cdf190cbb7302425fc54a0454e05a790eb36ce81c50d",
+  "selected_reasons": []
+}

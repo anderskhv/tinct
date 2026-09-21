@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "e50c565ee0f19f15ef00af6d4d95003ea1a29cdb95937b90b0b2326e42af9d6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13671119511127472,
+      "alignment_seconds": 0.0004405193030834198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I'll not fail, if I live.",
+        "hotwords": "I'll, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silvius, I'll not fail if I live.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Silvius,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.6915690104166666
+            },
+            {
+              "text": " I'll",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " not",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fail",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " live.",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silvius,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "I'll",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "not",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "fail",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "if",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "live.",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "SILVIUS.",
+        "I'll",
+        "not",
+        "fail,",
+        "if",
+        "I",
+        "live."
+      ],
+      "acoustic_expected_tokens": [
+        "I'll",
+        "not",
+        "fail,",
+        "if",
+        "I",
+        "live."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silvius,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "silvius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "fail",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "live",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SILVIUS.",
+          "start": 1.24,
+          "end": 1.24
+        },
+        {
+          "text": "I'll",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "not",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "fail,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "if",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "I",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "live.",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13722185418009758
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e3a6bef174f82c0625ba546dfdc60eb0ddf80ba22716a791459ee0d711fc47f7",
+  "selected_reasons": []
+}

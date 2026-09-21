@@ -1,0 +1,661 @@
+{
+  "complete": true,
+  "signature": "914a02835db3476f0c85edc5977f01486e1647af6672ded725f734bad3ec2f8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.260241792537272,
+      "alignment_seconds": 0.001655776984989643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pierre looked at his friend and, noticing that he did not like the conversation, gave no reply.",
+        "hotwords": "Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pierre Pierre looked at his friend and, noticing that he did not like the conversation, gave no reply.",
+          "start": 0.0,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Pierre",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " Pierre",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.0
+            },
+            {
+              "text": " looked",
+              "start": 0.74,
+              "end": 0.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " friend",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and,",
+              "start": 1.44,
+              "end": 2.12,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " noticing",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " he",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " did",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " conversation,",
+              "start": 3.58,
+              "end": 4.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gave",
+              "start": 4.7,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 4.88,
+              "end": 5.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reply.",
+              "start": 5.14,
+              "end": 5.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Pierre",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "looked",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "raw": "at",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "his",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "friend",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "and,",
+          "start": 1.44,
+          "end": 2.12
+        },
+        {
+          "raw": "noticing",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "that",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "raw": "he",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "did",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "not",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "like",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "conversation,",
+          "start": 3.58,
+          "end": 4.16
+        },
+        {
+          "raw": "gave",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "raw": "no",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "raw": "reply.",
+          "start": 5.14,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "Pierre",
+        "looked",
+        "at",
+        "his",
+        "friend",
+        "and,",
+        "noticing",
+        "that",
+        "he",
+        "did",
+        "not",
+        "like",
+        "the",
+        "conversation,",
+        "gave",
+        "no",
+        "reply."
+      ],
+      "acoustic_expected_tokens": [
+        "Pierre",
+        "looked",
+        "at",
+        "his",
+        "friend",
+        "and,",
+        "noticing",
+        "that",
+        "he",
+        "did",
+        "not",
+        "like",
+        "the",
+        "conversation,",
+        "gave",
+        "no",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pierre",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "pierre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "pierre",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.74,
+          "end": 0.82,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "friend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 1.44,
+          "end": 2.12,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "noticing",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "noticing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.22,
+          "end": 3.42,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "conversation,",
+          "start": 3.58,
+          "end": 4.16,
+          "key": "conversation",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 4.7,
+          "end": 4.88,
+          "key": "gave",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.88,
+          "end": 5.14,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 5.14,
+          "end": 5.58,
+          "key": "reply",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Pierre",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "looked",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "text": "at",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "his",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "friend",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "and,",
+          "start": 1.44,
+          "end": 2.12
+        },
+        {
+          "text": "noticing",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "that",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "he",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "did",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "not",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "like",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "conversation,",
+          "start": 3.58,
+          "end": 4.16
+        },
+        {
+          "text": "gave",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "text": "no",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "text": "reply.",
+          "start": 5.14,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26212364714592695
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59430ed71c20d78bb00fd7087955467fe790b09073c10de787f78836939d456d",
+  "selected_reasons": []
+}

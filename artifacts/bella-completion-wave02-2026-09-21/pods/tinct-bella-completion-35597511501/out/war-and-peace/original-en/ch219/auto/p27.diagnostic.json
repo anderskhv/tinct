@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "dc0e36f9411923bd3cde642177a9287c436e30a1826d0134e5e99684b3fde513",
+  "attempts": [
+    {
+      "asr_seconds": 0.24323111679404974,
+      "alignment_seconds": 0.0011296570301055908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah! One of the old ones! Has your regiment had its rice?\"",
+        "hotwords": "Ah, One, Has"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, One of the old ones! Has your regiment had its rice?\"",
+          "start": 0.0,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " One",
+              "start": 1.08,
+              "end": 1.6,
+              "probability": 0.02197265625
+            },
+            {
+              "text": " of",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " old",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.716796875
+            },
+            {
+              "text": " ones!",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Has",
+              "start": 3.36,
+              "end": 3.64,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " your",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " regiment",
+              "start": 3.82,
+              "end": 4.12,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " had",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " its",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " rice?\"",
+              "start": 4.56,
+              "end": 5.36,
+              "probability": 0.4234619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "One",
+          "start": 1.08,
+          "end": 1.6
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "old",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "raw": "ones!",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "raw": "Has",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "raw": "your",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "regiment",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "its",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "rice?\"",
+          "start": 4.56,
+          "end": 5.36
+        }
+      ],
+      "expected_tokens": [
+        "“Ah!",
+        "One",
+        "of",
+        "the",
+        "old",
+        "ones!",
+        "Has",
+        "your",
+        "regiment",
+        "had",
+        "its",
+        "rice?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah!",
+        "One",
+        "of",
+        "the",
+        "old",
+        "ones!",
+        "Has",
+        "your",
+        "regiment",
+        "had",
+        "its",
+        "rice?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.08,
+          "end": 1.6,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "old",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ones!",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "ones",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Has",
+          "start": 3.36,
+          "end": 3.64,
+          "key": "has",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "regiment",
+          "start": 3.82,
+          "end": 4.12,
+          "key": "regiment",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.4,
+          "key": "had",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "its",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rice?\"",
+          "start": 4.56,
+          "end": 5.36,
+          "key": "rice",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah!",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "One",
+          "start": 1.08,
+          "end": 1.6
+        },
+        {
+          "text": "of",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "old",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "text": "ones!",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "text": "Has",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "text": "your",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "regiment",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "text": "had",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "its",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "rice?”",
+          "start": 4.56,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24450990092009306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db378b89abfbc711ed76ce9cef8b46ffe3b049da156dc75544a39adf83950055",
+  "selected_reasons": []
+}

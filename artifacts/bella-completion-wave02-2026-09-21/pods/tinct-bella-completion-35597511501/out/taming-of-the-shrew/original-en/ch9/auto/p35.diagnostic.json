@@ -1,0 +1,588 @@
+{
+  "complete": true,
+  "signature": "c17b9d1e79c4727ef64633eeb9cbc89ccabbbc8c4a71694a1e83a080c547fd7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.28526680637151003,
+      "alignment_seconds": 0.002048444002866745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The old priest at Saint Luke's church is at your command at all hours.",
+        "hotwords": "The, Saint, Luke's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By Ondello, the old priest at Saint Luke's church is at your command at all hours.",
+          "start": 0.08,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.1617431640625
+            },
+            {
+              "text": " Ondello,",
+              "start": 0.6,
+              "end": 1.08,
+              "probability": 0.7019856770833334
+            },
+            {
+              "text": " the",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " old",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.880859375
+            },
+            {
+              "text": " priest",
+              "start": 2.04,
+              "end": 2.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " at",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Saint",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.31787109375
+            },
+            {
+              "text": " Luke's",
+              "start": 2.7,
+              "end": 3.06,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " church",
+              "start": 3.06,
+              "end": 3.28,
+              "probability": 0.29345703125
+            },
+            {
+              "text": " is",
+              "start": 3.28,
+              "end": 3.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " at",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " your",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " command",
+              "start": 3.84,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 4.18,
+              "end": 4.38,
+              "probability": 0.986328125
+            },
+            {
+              "text": " all",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hours.",
+              "start": 4.58,
+              "end": 5.02,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.6,
+          "end": 1.08
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "old",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "priest",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "raw": "at",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "Saint",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "Luke's",
+          "start": 2.7,
+          "end": 3.06
+        },
+        {
+          "raw": "church",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "raw": "is",
+          "start": 3.28,
+          "end": 3.6
+        },
+        {
+          "raw": "at",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "your",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "command",
+          "start": 3.84,
+          "end": 4.18
+        },
+        {
+          "raw": "at",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "raw": "all",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "hours.",
+          "start": 4.58,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "BIONDELLO.",
+        "The",
+        "old",
+        "priest",
+        "at",
+        "Saint",
+        "Luke’s",
+        "church",
+        "is",
+        "at",
+        "your",
+        "command",
+        "at",
+        "all",
+        "hours."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "old",
+        "priest",
+        "at",
+        "Saint",
+        "Luke's",
+        "church",
+        "is",
+        "at",
+        "your",
+        "command",
+        "at",
+        "all",
+        "hours."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          14,
+          2,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.6,
+          "end": 1.08,
+          "key": "ondello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "priest",
+          "start": 2.04,
+          "end": 2.28,
+          "key": "priest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Saint",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "saint",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Luke's",
+          "start": 2.7,
+          "end": 3.06,
+          "key": "lukes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "church",
+          "start": 3.06,
+          "end": 3.28,
+          "key": "church",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.28,
+          "end": 3.6,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 3.84,
+          "end": 4.18,
+          "key": "command",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.18,
+          "end": 4.38,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hours.",
+          "start": 4.58,
+          "end": 5.02,
+          "key": "hours",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIONDELLO.",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "text": "The",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "text": "old",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "priest",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "text": "at",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "Saint",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "Luke’s",
+          "start": 2.7,
+          "end": 3.06
+        },
+        {
+          "text": "church",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "text": "is",
+          "start": 3.28,
+          "end": 3.6
+        },
+        {
+          "text": "at",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "your",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "command",
+          "start": 3.84,
+          "end": 4.18
+        },
+        {
+          "text": "at",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "text": "all",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "hours.",
+          "start": 4.58,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2876035561785102
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "906ac9fb33b9ed20a213847cf2a960a0c00ccf57d5e872b191d447689d91d5ff",
+  "selected_reasons": []
+}

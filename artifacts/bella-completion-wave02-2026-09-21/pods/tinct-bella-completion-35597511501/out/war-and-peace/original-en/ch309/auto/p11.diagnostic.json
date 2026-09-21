@@ -1,0 +1,775 @@
+{
+  "complete": true,
+  "signature": "0e6206053570abc1f917ba8bea9191669a3eb60288d866c3cfe3bcfff6610e85",
+  "attempts": [
+    {
+      "asr_seconds": 0.3237694697454572,
+      "alignment_seconds": 0.002128629945218563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Hurrah!... Lads!... ours!\" shouted Pétya, and giving rein to his excited horse he galloped forward along the village street.",
+        "hotwords": "Hurrah, Lads, Pétya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hurrah!... Lads!... ours! shouted Pétya, and giving rein to his excited horse he galloped forward along the village street.",
+          "start": 0.0,
+          "end": 8.4,
+          "words": [
+            {
+              "text": " Hurrah",
+              "start": 0.0,
+              "end": 0.86,
+              "probability": 0.57421875
+            },
+            {
+              "text": "!...",
+              "start": 0.86,
+              "end": 1.86,
+              "probability": 0.39794349670410156
+            },
+            {
+              "text": " Lads",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.524871826171875
+            },
+            {
+              "text": "!...",
+              "start": 2.08,
+              "end": 3.44,
+              "probability": 0.310546875
+            },
+            {
+              "text": " ours!",
+              "start": 3.44,
+              "end": 3.44,
+              "probability": 0.006923675537109375
+            },
+            {
+              "text": " shouted",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Pétya,",
+              "start": 4.06,
+              "end": 4.58,
+              "probability": 0.35626834630966187
+            },
+            {
+              "text": " and",
+              "start": 4.76,
+              "end": 4.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " giving",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " rein",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.12237548828125
+            },
+            {
+              "text": " to",
+              "start": 5.38,
+              "end": 5.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 5.58,
+              "end": 5.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " excited",
+              "start": 5.7,
+              "end": 6.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " horse",
+              "start": 6.12,
+              "end": 6.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " he",
+              "start": 6.44,
+              "end": 6.66,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " galloped",
+              "start": 6.66,
+              "end": 7.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forward",
+              "start": 7.02,
+              "end": 7.34,
+              "probability": 0.986328125
+            },
+            {
+              "text": " along",
+              "start": 7.34,
+              "end": 7.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 7.64,
+              "end": 7.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " village",
+              "start": 7.82,
+              "end": 8.04,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " street.",
+              "start": 8.04,
+              "end": 8.4,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hurrah",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "raw": "!...",
+          "start": 0.86,
+          "end": 1.86
+        },
+        {
+          "raw": "Lads",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "!...",
+          "start": 2.08,
+          "end": 3.44
+        },
+        {
+          "raw": "ours!",
+          "start": 3.44,
+          "end": 3.44
+        },
+        {
+          "raw": "shouted",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "Pétya,",
+          "start": 4.06,
+          "end": 4.58
+        },
+        {
+          "raw": "and",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "raw": "giving",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "rein",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "raw": "to",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "raw": "his",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "raw": "excited",
+          "start": 5.7,
+          "end": 6.12
+        },
+        {
+          "raw": "horse",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "raw": "he",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "raw": "galloped",
+          "start": 6.66,
+          "end": 7.02
+        },
+        {
+          "raw": "forward",
+          "start": 7.02,
+          "end": 7.34
+        },
+        {
+          "raw": "along",
+          "start": 7.34,
+          "end": 7.64
+        },
+        {
+          "raw": "the",
+          "start": 7.64,
+          "end": 7.82
+        },
+        {
+          "raw": "village",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "raw": "street.",
+          "start": 8.04,
+          "end": 8.4
+        }
+      ],
+      "expected_tokens": [
+        "“Hurrah!...",
+        "Lads!...",
+        "ours!”",
+        "shouted",
+        "Pétya,",
+        "and",
+        "giving",
+        "rein",
+        "to",
+        "his",
+        "excited",
+        "horse",
+        "he",
+        "galloped",
+        "forward",
+        "along",
+        "the",
+        "village",
+        "street."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Hurrah!...",
+        "Lads!...",
+        "ours!\"",
+        "shouted",
+        "Pétya,",
+        "and",
+        "giving",
+        "rein",
+        "to",
+        "his",
+        "excited",
+        "horse",
+        "he",
+        "galloped",
+        "forward",
+        "along",
+        "the",
+        "village",
+        "street."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          4
+        ],
+        [
+          "equal",
+          2,
+          19,
+          4,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hurrah",
+          "start": 0.0,
+          "end": 0.86,
+          "key": "hurrah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "!...",
+          "start": 0.86,
+          "end": 1.86,
+          "key": "",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lads",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "lads",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!...",
+          "start": 2.08,
+          "end": 3.44,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ours!",
+          "start": 3.44,
+          "end": 3.44,
+          "key": "ours",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "shouted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pétya,",
+          "start": 4.06,
+          "end": 4.58,
+          "key": "pétya",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.76,
+          "end": 4.88,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "giving",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "giving",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rein",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "rein",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.38,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.58,
+          "end": 5.7,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "excited",
+          "start": 5.7,
+          "end": 6.12,
+          "key": "excited",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "horse",
+          "start": 6.12,
+          "end": 6.44,
+          "key": "horse",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.44,
+          "end": 6.66,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "galloped",
+          "start": 6.66,
+          "end": 7.02,
+          "key": "galloped",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 7.02,
+          "end": 7.34,
+          "key": "forward",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 7.34,
+          "end": 7.64,
+          "key": "along",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.64,
+          "end": 7.82,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "village",
+          "start": 7.82,
+          "end": 8.04,
+          "key": "village",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "street.",
+          "start": 8.04,
+          "end": 8.4,
+          "key": "street",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Hurrah!...",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "text": "Lads!...",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "ours!”",
+          "start": 3.44,
+          "end": 3.44
+        },
+        {
+          "text": "shouted",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "Pétya,",
+          "start": 4.06,
+          "end": 4.58
+        },
+        {
+          "text": "and",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "text": "giving",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "rein",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "text": "to",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "text": "his",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "text": "excited",
+          "start": 5.7,
+          "end": 6.12
+        },
+        {
+          "text": "horse",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "text": "he",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "text": "galloped",
+          "start": 6.66,
+          "end": 7.02
+        },
+        {
+          "text": "forward",
+          "start": 7.02,
+          "end": 7.34
+        },
+        {
+          "text": "along",
+          "start": 7.34,
+          "end": 7.64
+        },
+        {
+          "text": "the",
+          "start": 7.64,
+          "end": 7.82
+        },
+        {
+          "text": "village",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "text": "street.",
+          "start": 8.04,
+          "end": 8.4
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32620484102517366
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab3ebbaaa7e9637ea89dc984285a6f599f71be29ce44dcbf77dbbb3a36a292f5",
+  "selected_reasons": []
+}

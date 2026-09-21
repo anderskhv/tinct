@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "b9fcb2f49c6141529bcc5ae362bb76101cf95d4fa0b0f3448b3e87580a674931",
+  "attempts": [
+    {
+      "asr_seconds": 0.20219192281365395,
+      "alignment_seconds": 0.0003816438838839531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh! Oh! Oh!\"",
+        "hotwords": "Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh! Oh! Oh!",
+          "start": 0.0,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Oh!",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.321044921875
+            },
+            {
+              "text": " Oh!",
+              "start": 1.08,
+              "end": 1.56,
+              "probability": 0.7890625
+            },
+            {
+              "text": " Oh!",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.8994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh!",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "Oh!",
+          "start": 1.08,
+          "end": 1.56
+        },
+        {
+          "raw": "Oh!",
+          "start": 2.36,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "“Oh!",
+        "Oh!",
+        "Oh!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Oh!",
+        "Oh!",
+        "Oh!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh!",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh!",
+          "start": 1.08,
+          "end": 1.56,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh!",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Oh!",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "Oh!",
+          "start": 1.08,
+          "end": 1.56
+        },
+        {
+          "text": "Oh!”",
+          "start": 2.36,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20263412222266197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a9e8a301631b4aff70f1db1c8581927142a1b3393542f9ce519496e501d913b",
+  "selected_reasons": []
+}

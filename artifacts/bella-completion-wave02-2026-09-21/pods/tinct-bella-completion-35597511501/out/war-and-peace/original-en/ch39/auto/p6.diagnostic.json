@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "b8cc677d0ffd3a79377b3c88136e4fc3e016d881242cf10f1901ecc6fccd5dcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.173575721681118,
+      "alignment_seconds": 0.0013161282986402512,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Tell me about that!\" he said.",
+        "hotwords": "Tell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tell me about that, he said.",
+          "start": 0.0,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.147216796875
+            },
+            {
+              "text": " me",
+              "start": 0.38,
+              "end": 0.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " about",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that,",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said.",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "me",
+          "start": 0.38,
+          "end": 0.54
+        },
+        {
+          "raw": "about",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "that,",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "said.",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "“Tell",
+        "me",
+        "about",
+        "that!”",
+        "he",
+        "said."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Tell",
+        "me",
+        "about",
+        "that!\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.38,
+          "end": 0.54,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "about",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Tell",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "me",
+          "start": 0.38,
+          "end": 0.54
+        },
+        {
+          "text": "about",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "that!”",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "he",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "said.",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17503323685377836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8a30ee196308c85e18f90f96ae853a9b6f3e1fbf33d01a209393c619cab485d1",
+  "selected_reasons": []
+}

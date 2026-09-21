@@ -1,0 +1,1548 @@
+{
+  "complete": true,
+  "signature": "15d531bada60b4d150247cfab8cdb023f3fc231739288f8a2a548103061f6c74",
+  "attempts": [
+    {
+      "asr_seconds": 0.458757558837533,
+      "alignment_seconds": 0.0030903220176696777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Her tone was now querulous and her lip drawn up, giving her not a joyful, but an animal, squirrel-like expression. She paused as if she felt it indecorous to speak of her pregnancy before Pierre, though the gist of the matter lay in that.",
+        "hotwords": "Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Her tone was now querulous and her lip drawn up, giving her not a joyful, but an animal, squirrel-like expression.",
+          "start": 0.05,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " Her",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " tone",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " querulous",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " and",
+              "start": 1.73,
+              "end": 2.13,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " her",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lip",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " drawn",
+              "start": 2.49,
+              "end": 2.79,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " up,",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " giving",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 3.61,
+              "end": 3.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " not",
+              "start": 3.83,
+              "end": 4.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " joyful,",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 4.91,
+              "end": 5.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 5.07,
+              "end": 5.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " animal,",
+              "start": 5.19,
+              "end": 5.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " squirrel",
+              "start": 5.95,
+              "end": 6.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-like",
+              "start": 6.21,
+              "end": 6.57,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " expression.",
+              "start": 6.57,
+              "end": 7.07,
+              "probability": 0.96826171875
+            }
+          ]
+        },
+        {
+          "text": " She paused as if she felt it indecorous to speak of her pregnancy before Pierre, though the gist of the matter lay in that.",
+          "start": 7.97,
+          "end": 14.47,
+          "words": [
+            {
+              "text": " She",
+              "start": 7.97,
+              "end": 8.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " paused",
+              "start": 8.11,
+              "end": 8.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " if",
+              "start": 8.77,
+              "end": 8.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 8.89,
+              "end": 9.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " felt",
+              "start": 9.07,
+              "end": 9.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 9.27,
+              "end": 9.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " indecorous",
+              "start": 9.43,
+              "end": 9.99,
+              "probability": 0.529266357421875
+            },
+            {
+              "text": " to",
+              "start": 9.99,
+              "end": 10.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak",
+              "start": 10.21,
+              "end": 10.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 10.43,
+              "end": 10.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 10.59,
+              "end": 10.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pregnancy",
+              "start": 10.71,
+              "end": 11.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " before",
+              "start": 11.21,
+              "end": 11.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Pierre,",
+              "start": 11.69,
+              "end": 12.07,
+              "probability": 0.0254058837890625
+            },
+            {
+              "text": " though",
+              "start": 12.59,
+              "end": 12.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.75,
+              "end": 12.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gist",
+              "start": 12.93,
+              "end": 13.15,
+              "probability": 0.900390625
+            },
+            {
+              "text": " of",
+              "start": 13.15,
+              "end": 13.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 13.39,
+              "end": 13.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " matter",
+              "start": 13.51,
+              "end": 13.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lay",
+              "start": 13.77,
+              "end": 14.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 14.03,
+              "end": 14.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that.",
+              "start": 14.21,
+              "end": 14.47,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "tone",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "was",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "now",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "querulous",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "raw": "her",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "lip",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "drawn",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "raw": "up,",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "giving",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "her",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "raw": "not",
+          "start": 3.83,
+          "end": 4.01
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "joyful,",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "but",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "raw": "an",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "raw": "animal,",
+          "start": 5.19,
+          "end": 5.67
+        },
+        {
+          "raw": "squirrel",
+          "start": 5.95,
+          "end": 6.21
+        },
+        {
+          "raw": "-like",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "raw": "expression.",
+          "start": 6.57,
+          "end": 7.07
+        },
+        {
+          "raw": "She",
+          "start": 7.97,
+          "end": 8.11
+        },
+        {
+          "raw": "paused",
+          "start": 8.11,
+          "end": 8.51
+        },
+        {
+          "raw": "as",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "if",
+          "start": 8.77,
+          "end": 8.89
+        },
+        {
+          "raw": "she",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "raw": "felt",
+          "start": 9.07,
+          "end": 9.27
+        },
+        {
+          "raw": "it",
+          "start": 9.27,
+          "end": 9.43
+        },
+        {
+          "raw": "indecorous",
+          "start": 9.43,
+          "end": 9.99
+        },
+        {
+          "raw": "to",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "raw": "speak",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.59
+        },
+        {
+          "raw": "her",
+          "start": 10.59,
+          "end": 10.71
+        },
+        {
+          "raw": "pregnancy",
+          "start": 10.71,
+          "end": 11.21
+        },
+        {
+          "raw": "before",
+          "start": 11.21,
+          "end": 11.69
+        },
+        {
+          "raw": "Pierre,",
+          "start": 11.69,
+          "end": 12.07
+        },
+        {
+          "raw": "though",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "raw": "the",
+          "start": 12.75,
+          "end": 12.93
+        },
+        {
+          "raw": "gist",
+          "start": 12.93,
+          "end": 13.15
+        },
+        {
+          "raw": "of",
+          "start": 13.15,
+          "end": 13.39
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.51
+        },
+        {
+          "raw": "matter",
+          "start": 13.51,
+          "end": 13.77
+        },
+        {
+          "raw": "lay",
+          "start": 13.77,
+          "end": 14.03
+        },
+        {
+          "raw": "in",
+          "start": 14.03,
+          "end": 14.21
+        },
+        {
+          "raw": "that.",
+          "start": 14.21,
+          "end": 14.47
+        }
+      ],
+      "expected_tokens": [
+        "Her",
+        "tone",
+        "was",
+        "now",
+        "querulous",
+        "and",
+        "her",
+        "lip",
+        "drawn",
+        "up,",
+        "giving",
+        "her",
+        "not",
+        "a",
+        "joyful,",
+        "but",
+        "an",
+        "animal,",
+        "squirrel-like",
+        "expression.",
+        "She",
+        "paused",
+        "as",
+        "if",
+        "she",
+        "felt",
+        "it",
+        "indecorous",
+        "to",
+        "speak",
+        "of",
+        "her",
+        "pregnancy",
+        "before",
+        "Pierre,",
+        "though",
+        "the",
+        "gist",
+        "of",
+        "the",
+        "matter",
+        "lay",
+        "in",
+        "that."
+      ],
+      "acoustic_expected_tokens": [
+        "Her",
+        "tone",
+        "was",
+        "now",
+        "querulous",
+        "and",
+        "her",
+        "lip",
+        "drawn",
+        "up,",
+        "giving",
+        "her",
+        "not",
+        "a",
+        "joyful,",
+        "but",
+        "an",
+        "animal,",
+        "squirrel-like",
+        "expression.",
+        "She",
+        "paused",
+        "as",
+        "if",
+        "she",
+        "felt",
+        "it",
+        "indecorous",
+        "to",
+        "speak",
+        "of",
+        "her",
+        "pregnancy",
+        "before",
+        "Pierre,",
+        "though",
+        "the",
+        "gist",
+        "of",
+        "the",
+        "matter",
+        "lay",
+        "in",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          44,
+          0,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "her",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tone",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "tone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "querulous",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "querulous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 2.13,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lip",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "lip",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 2.49,
+          "end": 2.79,
+          "key": "drawn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "up",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "giving",
+          "start": 3.45,
+          "end": 3.61,
+          "key": "giving",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.61,
+          "end": 3.83,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.83,
+          "end": 4.01,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "joyful,",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "joyful",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.91,
+          "end": 5.07,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.07,
+          "end": 5.19,
+          "key": "an",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "animal,",
+          "start": 5.19,
+          "end": 5.67,
+          "key": "animal",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "squirrel -like",
+          "start": 5.95,
+          "end": 6.57,
+          "key": "squirrellike",
+          "pieces": [
+            18,
+            19
+          ]
+        },
+        {
+          "raw": "expression.",
+          "start": 6.57,
+          "end": 7.07,
+          "key": "expression",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 7.97,
+          "end": 8.11,
+          "key": "she",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "paused",
+          "start": 8.11,
+          "end": 8.51,
+          "key": "paused",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 8.77,
+          "end": 8.89,
+          "key": "if",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 8.89,
+          "end": 9.07,
+          "key": "she",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 9.07,
+          "end": 9.27,
+          "key": "felt",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.27,
+          "end": 9.43,
+          "key": "it",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "indecorous",
+          "start": 9.43,
+          "end": 9.99,
+          "key": "indecorous",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.99,
+          "end": 10.21,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 10.21,
+          "end": 10.43,
+          "key": "speak",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.59,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.59,
+          "end": 10.71,
+          "key": "her",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "pregnancy",
+          "start": 10.71,
+          "end": 11.21,
+          "key": "pregnancy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 11.21,
+          "end": 11.69,
+          "key": "before",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Pierre,",
+          "start": 11.69,
+          "end": 12.07,
+          "key": "pierre",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 12.59,
+          "end": 12.75,
+          "key": "though",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.75,
+          "end": 12.93,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gist",
+          "start": 12.93,
+          "end": 13.15,
+          "key": "gist",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.15,
+          "end": 13.39,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.51,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 13.51,
+          "end": 13.77,
+          "key": "matter",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 13.77,
+          "end": 14.03,
+          "key": "lay",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.03,
+          "end": 14.21,
+          "key": "in",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 14.21,
+          "end": 14.47,
+          "key": "that",
+          "pieces": [
+            44
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 18,
+          "text": "squirrel-like",
+          "heard": "squirrel -like",
+          "heard_indexes": [
+            18,
+            19
+          ],
+          "start": 5.95,
+          "end": 6.57
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Her",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "tone",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "was",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "now",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "text": "querulous",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "text": "her",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "lip",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "drawn",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "text": "up,",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "text": "giving",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "her",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "text": "not",
+          "start": 3.83,
+          "end": 4.01
+        },
+        {
+          "text": "a",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "joyful,",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "but",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "an",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "text": "animal,",
+          "start": 5.19,
+          "end": 5.67
+        },
+        {
+          "text": "squirrel-like",
+          "start": 5.95,
+          "end": 6.57
+        },
+        {
+          "text": "expression.",
+          "start": 6.57,
+          "end": 7.07
+        },
+        {
+          "text": "She",
+          "start": 7.97,
+          "end": 8.11
+        },
+        {
+          "text": "paused",
+          "start": 8.11,
+          "end": 8.51
+        },
+        {
+          "text": "as",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "if",
+          "start": 8.77,
+          "end": 8.89
+        },
+        {
+          "text": "she",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "text": "felt",
+          "start": 9.07,
+          "end": 9.27
+        },
+        {
+          "text": "it",
+          "start": 9.27,
+          "end": 9.43
+        },
+        {
+          "text": "indecorous",
+          "start": 9.43,
+          "end": 9.99
+        },
+        {
+          "text": "to",
+          "start": 9.99,
+          "end": 10.21
+        },
+        {
+          "text": "speak",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "text": "of",
+          "start": 10.43,
+          "end": 10.59
+        },
+        {
+          "text": "her",
+          "start": 10.59,
+          "end": 10.71
+        },
+        {
+          "text": "pregnancy",
+          "start": 10.71,
+          "end": 11.21
+        },
+        {
+          "text": "before",
+          "start": 11.21,
+          "end": 11.69
+        },
+        {
+          "text": "Pierre,",
+          "start": 11.69,
+          "end": 12.07
+        },
+        {
+          "text": "though",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "text": "the",
+          "start": 12.75,
+          "end": 12.93
+        },
+        {
+          "text": "gist",
+          "start": 12.93,
+          "end": 13.15
+        },
+        {
+          "text": "of",
+          "start": 13.15,
+          "end": 13.39
+        },
+        {
+          "text": "the",
+          "start": 13.39,
+          "end": 13.51
+        },
+        {
+          "text": "matter",
+          "start": 13.51,
+          "end": 13.77
+        },
+        {
+          "text": "lay",
+          "start": 13.77,
+          "end": 14.03
+        },
+        {
+          "text": "in",
+          "start": 14.03,
+          "end": 14.21
+        },
+        {
+          "text": "that.",
+          "start": 14.21,
+          "end": 14.47
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 44,
+        "matched_words": 44
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46219950914382935
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "abd01214f3c8bf8bb2fd6305738a9d15b73ac2de63b0b0781bdb94ad521ad676",
+  "selected_reasons": []
+}

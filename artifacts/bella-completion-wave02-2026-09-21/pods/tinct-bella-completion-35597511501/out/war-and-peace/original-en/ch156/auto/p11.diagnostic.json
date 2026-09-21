@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "fd5a271444afcdc34228ff25d6bb1fa453a28631165b44b4e3da3759e008aa7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3077525096014142,
+      "alignment_seconds": 0.0013320744037628174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I will tell my sister to ask her to dinner,\" said Anatole. \"Eh?\"",
+        "hotwords": "I, Anatole, Eh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I will tell my sister to ask her to dinner,\" said Anatole. Eh.",
+          "start": 0.0,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " will",
+              "start": 0.3,
+              "end": 0.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tell",
+              "start": 0.42,
+              "end": 0.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sister",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ask",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " dinner,\"",
+              "start": 1.9,
+              "end": 2.36,
+              "probability": 0.743408203125
+            },
+            {
+              "text": " said",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Anatole.",
+              "start": 2.58,
+              "end": 3.22,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " Eh.",
+              "start": 3.86,
+              "end": 4.32,
+              "probability": 0.00966644287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "will",
+          "start": 0.3,
+          "end": 0.42
+        },
+        {
+          "raw": "tell",
+          "start": 0.42,
+          "end": 0.62
+        },
+        {
+          "raw": "my",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "sister",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "ask",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "her",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "dinner,\"",
+          "start": 1.9,
+          "end": 2.36
+        },
+        {
+          "raw": "said",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "Anatole.",
+          "start": 2.58,
+          "end": 3.22
+        },
+        {
+          "raw": "Eh.",
+          "start": 3.86,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "will",
+        "tell",
+        "my",
+        "sister",
+        "to",
+        "ask",
+        "her",
+        "to",
+        "dinner,”",
+        "said",
+        "Anatole.",
+        "“Eh?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "will",
+        "tell",
+        "my",
+        "sister",
+        "to",
+        "ask",
+        "her",
+        "to",
+        "dinner,\"",
+        "said",
+        "Anatole.",
+        "\"Eh?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.3,
+          "end": 0.42,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.42,
+          "end": 0.62,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "sister",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "ask",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dinner,\"",
+          "start": 1.9,
+          "end": 2.36,
+          "key": "dinner",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Anatole.",
+          "start": 2.58,
+          "end": 3.22,
+          "key": "anatole",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Eh.",
+          "start": 3.86,
+          "end": 4.32,
+          "key": "eh",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "will",
+          "start": 0.3,
+          "end": 0.42
+        },
+        {
+          "text": "tell",
+          "start": 0.42,
+          "end": 0.62
+        },
+        {
+          "text": "my",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "sister",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "to",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "ask",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "her",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "to",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "dinner,”",
+          "start": 1.9,
+          "end": 2.36
+        },
+        {
+          "text": "said",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "Anatole.",
+          "start": 2.58,
+          "end": 3.22
+        },
+        {
+          "text": "“Eh?”",
+          "start": 3.86,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30927478708326817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be5ff6a5d6c498863424c602bd9ba72f08e5caab00624d8ca8f52420a6c54487",
+  "selected_reasons": []
+}

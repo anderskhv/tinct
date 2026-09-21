@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "4a0846d2f9cabc9834ec633d69543b8fc3096c0d773a68635ab11ae96f351a45",
+  "attempts": [
+    {
+      "asr_seconds": 0.3099268712103367,
+      "alignment_seconds": 0.0023386692628264427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In military affairs the strength of an army is the product of its mass and some unknown x.",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In military affairs the strength of an army is the product of its mass and some unknown x.",
+          "start": 0.0,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.8828125
+            },
+            {
+              "text": " military",
+              "start": 0.36,
+              "end": 0.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " affairs",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.869140625
+            },
+            {
+              "text": " strength",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " army",
+              "start": 1.84,
+              "end": 2.1,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " is",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " product",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " its",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mass",
+              "start": 3.04,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " some",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unknown",
+              "start": 3.8,
+              "end": 4.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " x.",
+              "start": 4.16,
+              "end": 4.52,
+              "probability": 0.39404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "military",
+          "start": 0.36,
+          "end": 0.66
+        },
+        {
+          "raw": "affairs",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "strength",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "an",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "army",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "product",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "its",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "mass",
+          "start": 3.04,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "some",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "unknown",
+          "start": 3.8,
+          "end": 4.16
+        },
+        {
+          "raw": "x.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "military",
+        "affairs",
+        "the",
+        "strength",
+        "of",
+        "an",
+        "army",
+        "is",
+        "the",
+        "product",
+        "of",
+        "its",
+        "mass",
+        "and",
+        "some",
+        "unknown",
+        "x."
+      ],
+      "acoustic_expected_tokens": [
+        "In",
+        "military",
+        "affairs",
+        "the",
+        "strength",
+        "of",
+        "an",
+        "army",
+        "is",
+        "the",
+        "product",
+        "of",
+        "its",
+        "mass",
+        "and",
+        "some",
+        "unknown",
+        "x."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "military",
+          "start": 0.36,
+          "end": 0.66,
+          "key": "military",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "affairs",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "affairs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strength",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "strength",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 1.84,
+          "end": 2.1,
+          "key": "army",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "product",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "product",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mass",
+          "start": 3.04,
+          "end": 3.34,
+          "key": "mass",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "some",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unknown",
+          "start": 3.8,
+          "end": 4.16,
+          "key": "unknown",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "x.",
+          "start": 4.16,
+          "end": 4.52,
+          "key": "x",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "military",
+          "start": 0.36,
+          "end": 0.66
+        },
+        {
+          "text": "affairs",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "strength",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "of",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "an",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "army",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "text": "is",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "the",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "product",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "of",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "its",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "mass",
+          "start": 3.04,
+          "end": 3.34
+        },
+        {
+          "text": "and",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "some",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "unknown",
+          "start": 3.8,
+          "end": 4.16
+        },
+        {
+          "text": "x.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3125780299305916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86ca9312ebd1859389bbfc1bc0bbeaf6c8d79d9204965d20f869a06ec1b9c0be",
+  "selected_reasons": []
+}

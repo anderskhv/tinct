@@ -1,0 +1,371 @@
+{
+  "complete": true,
+  "signature": "7f4c82dd185033a2828604752096b0cab3e5b7f68ae3d7d1e6ab7b7fef45dd28",
+  "attempts": [
+    {
+      "asr_seconds": 0.23709790036082268,
+      "alignment_seconds": 0.0009684385731816292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sideways! Cover yourself with your pistol!\" ejaculated Nesvítski.",
+        "hotwords": "Sideways, Cover, Nesvítski"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sideways, Cover yourself with your pistol!\" ejaculated Nesvítski.",
+          "start": 0.0,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " Sideways,",
+              "start": 0.0,
+              "end": 1.0,
+              "probability": 0.718505859375
+            },
+            {
+              "text": " Cover",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.037506103515625
+            },
+            {
+              "text": " yourself",
+              "start": 2.26,
+              "end": 2.6,
+              "probability": 0.97265625
+            },
+            {
+              "text": " with",
+              "start": 2.6,
+              "end": 2.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " your",
+              "start": 2.88,
+              "end": 3.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pistol",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.9794921875
+            },
+            {
+              "text": "!\"",
+              "start": 3.42,
+              "end": 3.76,
+              "probability": 4.172325134277344e-05
+            },
+            {
+              "text": " ejaculated",
+              "start": 3.76,
+              "end": 4.34,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Nesvítski.",
+              "start": 4.34,
+              "end": 5.04,
+              "probability": 0.4314148724079132
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sideways,",
+          "start": 0.0,
+          "end": 1.0
+        },
+        {
+          "raw": "Cover",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "yourself",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "raw": "your",
+          "start": 2.88,
+          "end": 3.06
+        },
+        {
+          "raw": "pistol",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "!\"",
+          "start": 3.42,
+          "end": 3.76
+        },
+        {
+          "raw": "ejaculated",
+          "start": 3.76,
+          "end": 4.34
+        },
+        {
+          "raw": "Nesvítski.",
+          "start": 4.34,
+          "end": 5.04
+        }
+      ],
+      "expected_tokens": [
+        "“Sideways!",
+        "Cover",
+        "yourself",
+        "with",
+        "your",
+        "pistol!”",
+        "ejaculated",
+        "Nesvítski."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sideways!",
+        "Cover",
+        "yourself",
+        "with",
+        "your",
+        "pistol!\"",
+        "ejaculated",
+        "Nesvítski."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sideways,",
+          "start": 0.0,
+          "end": 1.0,
+          "key": "sideways",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cover",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "cover",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 2.26,
+          "end": 2.6,
+          "key": "yourself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.88,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.88,
+          "end": 3.06,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pistol",
+          "start": 3.06,
+          "end": 3.42,
+          "key": "pistol",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.42,
+          "end": 3.76,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ejaculated",
+          "start": 3.76,
+          "end": 4.34,
+          "key": "ejaculated",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Nesvítski.",
+          "start": 4.34,
+          "end": 5.04,
+          "key": "nesvítski",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Sideways!",
+          "start": 0.0,
+          "end": 1.0
+        },
+        {
+          "text": "Cover",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "yourself",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "text": "with",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "text": "your",
+          "start": 2.88,
+          "end": 3.06
+        },
+        {
+          "text": "pistol!”",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "text": "ejaculated",
+          "start": 3.76,
+          "end": 4.34
+        },
+        {
+          "text": "Nesvítski.",
+          "start": 4.34,
+          "end": 5.04
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23821457847952843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9aa0fe12c7bf57fac9d760b4c3238ac97c225f976a6222e700e5d967ee1fd17",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "b1c8cffdddc08789ef6e8e585bf90cfee54e8320e4ba7a28fe043547140365d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.15129947382956743,
+      "alignment_seconds": 0.0008794823661446571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Our fine musician groweth amorous.",
+        "hotwords": "Our"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Our fine musician groweth amorous.",
+          "start": 0.08,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Our",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " fine",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " musician",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " groweth",
+              "start": 1.14,
+              "end": 1.62,
+              "probability": 0.4187084436416626
+            },
+            {
+              "text": " amorous.",
+              "start": 1.62,
+              "end": 2.06,
+              "probability": 0.827392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Our",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "fine",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "musician",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "groweth",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "raw": "amorous.",
+          "start": 1.62,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "Our",
+        "fine",
+        "musician",
+        "groweth",
+        "amorous."
+      ],
+      "acoustic_expected_tokens": [
+        "Our",
+        "fine",
+        "musician",
+        "groweth",
+        "amorous."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Our",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "our",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "fine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "musician",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "musician",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "groweth",
+          "start": 1.14,
+          "end": 1.62,
+          "key": "groweth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "amorous.",
+          "start": 1.62,
+          "end": 2.06,
+          "key": "amorous",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Our",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "fine",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "musician",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "groweth",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "text": "amorous.",
+          "start": 1.62,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1523054614663124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60380eaaa48e34ad4f66c453b0f2b2753933c31d05f5893beefa2cd6bee12386",
+  "selected_reasons": []
+}

@@ -1,0 +1,1029 @@
+{
+  "complete": true,
+  "signature": "45185c00ae2e6b751e8f9ecfe36eba45fab61d427dbe3413228e3a590ffbbd6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3969409028068185,
+      "alignment_seconds": 0.003147188574075699,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Denísov, bareheaded and with a gloomy face, walked behind some Cossacks who were carrying the body of Pétya Rostóv to a hole that had been dug in the garden.",
+        "hotwords": "Denísov, Cossacks, Pétya, Rostóv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Denísov, bareheaded and with a gloomy face, walked behind some Cossacks who were carrying",
+          "start": 0.0,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " Denísov,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.016078948974609375
+            },
+            {
+              "text": " bareheaded",
+              "start": 1.02,
+              "end": 1.38,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " and",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gloomy",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " face,",
+              "start": 2.04,
+              "end": 2.48,
+              "probability": 1.0
+            },
+            {
+              "text": " walked",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " behind",
+              "start": 2.92,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " some",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Cossacks",
+              "start": 3.64,
+              "end": 4.22,
+              "probability": 0.3456980387369792
+            },
+            {
+              "text": " who",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " were",
+              "start": 4.4,
+              "end": 4.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " carrying",
+              "start": 4.52,
+              "end": 4.82,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " the body of Pétya Rostóv to a hole that had been dug in the garden.",
+          "start": 4.82,
+          "end": 8.02,
+          "words": [
+            {
+              "text": " the",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " body",
+              "start": 5.0,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.22,
+              "end": 5.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Pétya",
+              "start": 5.42,
+              "end": 5.8,
+              "probability": 0.3471412658691406
+            },
+            {
+              "text": " Rostóv",
+              "start": 5.8,
+              "end": 6.26,
+              "probability": 0.3397318522135417
+            },
+            {
+              "text": " to",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " a",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hole",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 6.7,
+              "end": 6.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 6.88,
+              "end": 7.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " been",
+              "start": 7.04,
+              "end": 7.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dug",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 7.42,
+              "end": 7.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.6,
+              "end": 7.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " garden.",
+              "start": 7.7,
+              "end": 8.02,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Denísov,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "bareheaded",
+          "start": 1.02,
+          "end": 1.38
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "with",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "gloomy",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "face,",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "raw": "walked",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "behind",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "raw": "some",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "Cossacks",
+          "start": 3.64,
+          "end": 4.22
+        },
+        {
+          "raw": "who",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "were",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "raw": "carrying",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "body",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "raw": "of",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "raw": "Pétya",
+          "start": 5.42,
+          "end": 5.8
+        },
+        {
+          "raw": "Rostóv",
+          "start": 5.8,
+          "end": 6.26
+        },
+        {
+          "raw": "to",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "a",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "hole",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "that",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "raw": "had",
+          "start": 6.88,
+          "end": 7.04
+        },
+        {
+          "raw": "been",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "raw": "dug",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "in",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "raw": "the",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "raw": "garden.",
+          "start": 7.7,
+          "end": 8.02
+        }
+      ],
+      "expected_tokens": [
+        "Denísov,",
+        "bareheaded",
+        "and",
+        "with",
+        "a",
+        "gloomy",
+        "face,",
+        "walked",
+        "behind",
+        "some",
+        "Cossacks",
+        "who",
+        "were",
+        "carrying",
+        "the",
+        "body",
+        "of",
+        "Pétya",
+        "Rostóv",
+        "to",
+        "a",
+        "hole",
+        "that",
+        "had",
+        "been",
+        "dug",
+        "in",
+        "the",
+        "garden."
+      ],
+      "acoustic_expected_tokens": [
+        "Denísov,",
+        "bareheaded",
+        "and",
+        "with",
+        "a",
+        "gloomy",
+        "face,",
+        "walked",
+        "behind",
+        "some",
+        "Cossacks",
+        "who",
+        "were",
+        "carrying",
+        "the",
+        "body",
+        "of",
+        "Pétya",
+        "Rostóv",
+        "to",
+        "a",
+        "hole",
+        "that",
+        "had",
+        "been",
+        "dug",
+        "in",
+        "the",
+        "garden."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Denísov,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "denísov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bareheaded",
+          "start": 1.02,
+          "end": 1.38,
+          "key": "bareheaded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gloomy",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "gloomy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 2.04,
+          "end": 2.48,
+          "key": "face",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "walked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 2.92,
+          "end": 3.32,
+          "key": "behind",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "some",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cossacks",
+          "start": 3.64,
+          "end": 4.22,
+          "key": "cossacks",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "who",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.4,
+          "end": 4.52,
+          "key": "were",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "carrying",
+          "start": 4.52,
+          "end": 4.82,
+          "key": "carrying",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 5.0,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 5.0,
+          "end": 5.22,
+          "key": "body",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.22,
+          "end": 5.42,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Pétya",
+          "start": 5.42,
+          "end": 5.8,
+          "key": "pétya",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Rostóv",
+          "start": 5.8,
+          "end": 6.26,
+          "key": "rostóv",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.38,
+          "end": 6.52,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hole",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "hole",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.7,
+          "end": 6.88,
+          "key": "that",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.88,
+          "end": 7.04,
+          "key": "had",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 7.04,
+          "end": 7.2,
+          "key": "been",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "dug",
+          "start": 7.2,
+          "end": 7.42,
+          "key": "dug",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.42,
+          "end": 7.6,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.6,
+          "end": 7.7,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 7.7,
+          "end": 8.02,
+          "key": "garden",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Denísov,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "bareheaded",
+          "start": 1.02,
+          "end": 1.38
+        },
+        {
+          "text": "and",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "with",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "a",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "gloomy",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "face,",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "text": "walked",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "behind",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "text": "some",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "Cossacks",
+          "start": 3.64,
+          "end": 4.22
+        },
+        {
+          "text": "who",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "were",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "text": "carrying",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "text": "the",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "body",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "text": "of",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "text": "Pétya",
+          "start": 5.42,
+          "end": 5.8
+        },
+        {
+          "text": "Rostóv",
+          "start": 5.8,
+          "end": 6.26
+        },
+        {
+          "text": "to",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "text": "a",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "hole",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "text": "that",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "had",
+          "start": 6.88,
+          "end": 7.04
+        },
+        {
+          "text": "been",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "text": "dug",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "in",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "text": "the",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "text": "garden.",
+          "start": 7.7,
+          "end": 8.02
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40045812726020813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88476b97d67aca8ac5166cd3af9a7b5b94d61a84578f9d3850b2f8c7586773eb",
+  "selected_reasons": []
+}

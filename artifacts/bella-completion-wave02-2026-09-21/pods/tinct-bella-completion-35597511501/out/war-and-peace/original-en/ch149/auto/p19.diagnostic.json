@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "8a5e8c4751050d756517bba59891a26c76bee009050c0e544bae707df2e7c16e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11890300456434488,
+      "alignment_seconds": 0.00039006397128105164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Would you marry him?\"",
+        "hotwords": "Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would you marry him?",
+          "start": 0.0,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " you",
+              "start": 0.34,
+              "end": 0.48,
+              "probability": 0.984375
+            },
+            {
+              "text": " marry",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him?",
+              "start": 0.74,
+              "end": 1.04,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "raw": "marry",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "him?",
+          "start": 0.74,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "“Would",
+        "you",
+        "marry",
+        "him?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Would",
+        "you",
+        "marry",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Would",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "would",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.48,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "marry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 0.74,
+          "end": 1.04,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Would",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "you",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "text": "marry",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "him?”",
+          "start": 0.74,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11935531068593264
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7742330a0030c464d3b5e8c17c9f5a355cfd537f3efedefd33755fdd5b7b9232",
+  "selected_reasons": []
+}

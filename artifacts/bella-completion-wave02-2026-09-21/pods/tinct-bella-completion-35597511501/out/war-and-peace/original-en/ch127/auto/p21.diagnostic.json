@@ -1,0 +1,758 @@
+{
+  "complete": true,
+  "signature": "ecbf14634a5b1ba37bf71a99f7bb1a5eb310ce8b006de73a5b402b0fc5ec397f",
+  "attempts": [
+    {
+      "asr_seconds": 0.32089454401284456,
+      "alignment_seconds": 0.0016511017456650734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well?\" asked Pierre, seeing his friend's strange animation with surprise, and noticing the glance he turned on Natásha as he rose.",
+        "hotwords": "Well, Pierre, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, asked Pierre, seeing his friend's strange animation with surprise, and noticing the glance he turned on Natásha as he rose.",
+          "start": 0.0,
+          "end": 7.38,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.314208984375
+            },
+            {
+              "text": " asked",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Pierre,",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " seeing",
+              "start": 1.8,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " friend's",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " strange",
+              "start": 2.62,
+              "end": 2.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " animation",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " surprise,",
+              "start": 3.68,
+              "end": 4.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.56,
+              "end": 4.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " noticing",
+              "start": 4.66,
+              "end": 5.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.06,
+              "end": 5.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " glance",
+              "start": 5.3,
+              "end": 5.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 5.58,
+              "end": 5.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " turned",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 6.04,
+              "end": 6.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Natásha",
+              "start": 6.24,
+              "end": 6.7,
+              "probability": 0.005009651184082031
+            },
+            {
+              "text": " as",
+              "start": 6.7,
+              "end": 6.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 6.9,
+              "end": 7.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rose.",
+              "start": 7.06,
+              "end": 7.38,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "asked",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "Pierre,",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "seeing",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "raw": "his",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "friend's",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "strange",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "raw": "animation",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "with",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "surprise,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "raw": "noticing",
+          "start": 4.66,
+          "end": 5.06
+        },
+        {
+          "raw": "the",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "raw": "glance",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "raw": "he",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "raw": "turned",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "on",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "raw": "Natásha",
+          "start": 6.24,
+          "end": 6.7
+        },
+        {
+          "raw": "as",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "raw": "he",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "raw": "rose.",
+          "start": 7.06,
+          "end": 7.38
+        }
+      ],
+      "expected_tokens": [
+        "“Well?”",
+        "asked",
+        "Pierre,",
+        "seeing",
+        "his",
+        "friend’s",
+        "strange",
+        "animation",
+        "with",
+        "surprise,",
+        "and",
+        "noticing",
+        "the",
+        "glance",
+        "he",
+        "turned",
+        "on",
+        "Natásha",
+        "as",
+        "he",
+        "rose."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well?\"",
+        "asked",
+        "Pierre,",
+        "seeing",
+        "his",
+        "friend's",
+        "strange",
+        "animation",
+        "with",
+        "surprise,",
+        "and",
+        "noticing",
+        "the",
+        "glance",
+        "he",
+        "turned",
+        "on",
+        "Natásha",
+        "as",
+        "he",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "asked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pierre,",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "pierre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seeing",
+          "start": 1.8,
+          "end": 2.02,
+          "key": "seeing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend's",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "friends",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 2.62,
+          "end": 2.92,
+          "key": "strange",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "animation",
+          "start": 2.92,
+          "end": 3.36,
+          "key": "animation",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.36,
+          "end": 3.68,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "surprise,",
+          "start": 3.68,
+          "end": 4.14,
+          "key": "surprise",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "noticing",
+          "start": 4.66,
+          "end": 5.06,
+          "key": "noticing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.06,
+          "end": 5.3,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "glance",
+          "start": 5.3,
+          "end": 5.58,
+          "key": "glance",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.58,
+          "end": 5.78,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "turned",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.04,
+          "end": 6.24,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Natásha",
+          "start": 6.24,
+          "end": 6.7,
+          "key": "natásha",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.7,
+          "end": 6.9,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.9,
+          "end": 7.06,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "rose.",
+          "start": 7.06,
+          "end": 7.38,
+          "key": "rose",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well?”",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "asked",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "Pierre,",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "seeing",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "text": "his",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "friend’s",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "strange",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "text": "animation",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "text": "with",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "surprise,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "text": "and",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "text": "noticing",
+          "start": 4.66,
+          "end": 5.06
+        },
+        {
+          "text": "the",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "text": "glance",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "text": "he",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "text": "turned",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "on",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "text": "Natásha",
+          "start": 6.24,
+          "end": 6.7
+        },
+        {
+          "text": "as",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "text": "he",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "text": "rose.",
+          "start": 7.06,
+          "end": 7.38
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3227398134768009
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8af93c520a6e4655d2b0ff9dc4cec17c9a4f2530a0994299cb1ebaf0dc7980c7",
+  "selected_reasons": []
+}

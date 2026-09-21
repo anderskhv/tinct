@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "6d2eac0fa7b6bc4fa81503c0420ca98f1888eb3408aec945f955f0d8fdbe0729",
+  "attempts": [
+    {
+      "asr_seconds": 0.25854054372757673,
+      "alignment_seconds": 0.0009125703945755959,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nesvítski rose, puffing, and went up to the general, smiling.",
+        "hotwords": "Nesvítski"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nesvítski rose, puffing, and went up to the general, smiling.",
+          "start": 0.0,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Nesvítski",
+              "start": 0.0,
+              "end": 0.84,
+              "probability": 0.37673599521319073
+            },
+            {
+              "text": " rose,",
+              "start": 0.84,
+              "end": 1.24,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " puffing,",
+              "start": 1.6,
+              "end": 1.96,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " and",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " went",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " general,",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.892578125
+            },
+            {
+              "text": " smiling.",
+              "start": 3.68,
+              "end": 4.02,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nesvítski",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "raw": "rose,",
+          "start": 0.84,
+          "end": 1.24
+        },
+        {
+          "raw": "puffing,",
+          "start": 1.6,
+          "end": 1.96
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "went",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "up",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "general,",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "smiling.",
+          "start": 3.68,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "Nesvítski",
+        "rose,",
+        "puffing,",
+        "and",
+        "went",
+        "up",
+        "to",
+        "the",
+        "general,",
+        "smiling."
+      ],
+      "acoustic_expected_tokens": [
+        "Nesvítski",
+        "rose,",
+        "puffing,",
+        "and",
+        "went",
+        "up",
+        "to",
+        "the",
+        "general,",
+        "smiling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nesvítski",
+          "start": 0.0,
+          "end": 0.84,
+          "key": "nesvítski",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rose,",
+          "start": 0.84,
+          "end": 1.24,
+          "key": "rose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "puffing,",
+          "start": 1.6,
+          "end": 1.96,
+          "key": "puffing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "went",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 3.02,
+          "end": 3.4,
+          "key": "general",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "smiling.",
+          "start": 3.68,
+          "end": 4.02,
+          "key": "smiling",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Nesvítski",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "rose,",
+          "start": 0.84,
+          "end": 1.24
+        },
+        {
+          "text": "puffing,",
+          "start": 1.6,
+          "end": 1.96
+        },
+        {
+          "text": "and",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "went",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "up",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "general,",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "smiling.",
+          "start": 3.68,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2595733990892768
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41211dc2158967dccca165aff52f824e5eb6da2fa10a8944f2b533fdedb7c2e9",
+  "selected_reasons": []
+}

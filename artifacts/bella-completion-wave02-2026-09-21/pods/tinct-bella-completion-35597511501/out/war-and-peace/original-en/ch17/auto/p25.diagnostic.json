@@ -1,0 +1,1121 @@
+{
+  "complete": true,
+  "signature": "a44b4e4d65e03cf05a5237f2a35b677fc16bd5fdcaeff1f3f02d00a7641778d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.39979284908622503,
+      "alignment_seconds": 0.002551574259996414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Annette, for heaven's sake don't refuse me,\" the countess began, with a blush that looked very strange on her thin, dignified, elderly face, and she took the money from under the handkerchief.",
+        "hotwords": "Annette"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Annette, for heaven's sake don't refuse me, the countess began, with a blush that looked very strange on her thin, dignified, elderly face, and she took the money from under the handkerchief.",
+          "start": 0.08,
+          "end": 11.54,
+          "words": [
+            {
+              "text": " Annette,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.734130859375
+            },
+            {
+              "text": " for",
+              "start": 0.86,
+              "end": 0.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heaven's",
+              "start": 0.96,
+              "end": 1.4,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " sake",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " don't",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " refuse",
+              "start": 1.94,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me,",
+              "start": 2.26,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " countess",
+              "start": 3.24,
+              "end": 3.64,
+              "probability": 0.701904296875
+            },
+            {
+              "text": " began,",
+              "start": 3.64,
+              "end": 4.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " with",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blush",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " looked",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " very",
+              "start": 5.4,
+              "end": 5.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " strange",
+              "start": 5.78,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 6.3,
+              "end": 6.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 6.52,
+              "end": 6.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thin,",
+              "start": 6.66,
+              "end": 7.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dignified,",
+              "start": 7.46,
+              "end": 8.02,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " elderly",
+              "start": 8.3,
+              "end": 8.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " face,",
+              "start": 8.54,
+              "end": 9.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.62,
+              "end": 9.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " she",
+              "start": 9.72,
+              "end": 9.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " took",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 10.02,
+              "end": 10.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " money",
+              "start": 10.2,
+              "end": 10.4,
+              "probability": 1.0
+            },
+            {
+              "text": " from",
+              "start": 10.4,
+              "end": 10.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " under",
+              "start": 10.64,
+              "end": 10.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 10.9,
+              "end": 11.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " handkerchief.",
+              "start": 11.02,
+              "end": 11.54,
+              "probability": 0.9959309895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Annette,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "for",
+          "start": 0.86,
+          "end": 0.96
+        },
+        {
+          "raw": "heaven's",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "raw": "sake",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "don't",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "refuse",
+          "start": 1.94,
+          "end": 2.26
+        },
+        {
+          "raw": "me,",
+          "start": 2.26,
+          "end": 2.7
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "countess",
+          "start": 3.24,
+          "end": 3.64
+        },
+        {
+          "raw": "began,",
+          "start": 3.64,
+          "end": 4.02
+        },
+        {
+          "raw": "with",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "blush",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "raw": "that",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "raw": "looked",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "very",
+          "start": 5.4,
+          "end": 5.78
+        },
+        {
+          "raw": "strange",
+          "start": 5.78,
+          "end": 6.3
+        },
+        {
+          "raw": "on",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "raw": "her",
+          "start": 6.52,
+          "end": 6.66
+        },
+        {
+          "raw": "thin,",
+          "start": 6.66,
+          "end": 7.06
+        },
+        {
+          "raw": "dignified,",
+          "start": 7.46,
+          "end": 8.02
+        },
+        {
+          "raw": "elderly",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "raw": "face,",
+          "start": 8.54,
+          "end": 9.0
+        },
+        {
+          "raw": "and",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "raw": "she",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "raw": "took",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "the",
+          "start": 10.02,
+          "end": 10.2
+        },
+        {
+          "raw": "money",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "raw": "from",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "raw": "under",
+          "start": 10.64,
+          "end": 10.9
+        },
+        {
+          "raw": "the",
+          "start": 10.9,
+          "end": 11.02
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 11.02,
+          "end": 11.54
+        }
+      ],
+      "expected_tokens": [
+        "“Annette,",
+        "for",
+        "heaven’s",
+        "sake",
+        "don’t",
+        "refuse",
+        "me,”",
+        "the",
+        "countess",
+        "began,",
+        "with",
+        "a",
+        "blush",
+        "that",
+        "looked",
+        "very",
+        "strange",
+        "on",
+        "her",
+        "thin,",
+        "dignified,",
+        "elderly",
+        "face,",
+        "and",
+        "she",
+        "took",
+        "the",
+        "money",
+        "from",
+        "under",
+        "the",
+        "handkerchief."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Annette,",
+        "for",
+        "heaven's",
+        "sake",
+        "don't",
+        "refuse",
+        "me,\"",
+        "the",
+        "countess",
+        "began,",
+        "with",
+        "a",
+        "blush",
+        "that",
+        "looked",
+        "very",
+        "strange",
+        "on",
+        "her",
+        "thin,",
+        "dignified,",
+        "elderly",
+        "face,",
+        "and",
+        "she",
+        "took",
+        "the",
+        "money",
+        "from",
+        "under",
+        "the",
+        "handkerchief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Annette,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "annette",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.86,
+          "end": 0.96,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heaven's",
+          "start": 0.96,
+          "end": 1.4,
+          "key": "heavens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sake",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "sake",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.58,
+          "end": 1.94,
+          "key": "dont",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "refuse",
+          "start": 1.94,
+          "end": 2.26,
+          "key": "refuse",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.26,
+          "end": 2.7,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "countess",
+          "start": 3.24,
+          "end": 3.64,
+          "key": "countess",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "began,",
+          "start": 3.64,
+          "end": 4.02,
+          "key": "began",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.72,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blush",
+          "start": 4.72,
+          "end": 4.96,
+          "key": "blush",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.96,
+          "end": 5.24,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "looked",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.4,
+          "end": 5.78,
+          "key": "very",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 5.78,
+          "end": 6.3,
+          "key": "strange",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.3,
+          "end": 6.52,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 6.52,
+          "end": 6.66,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thin,",
+          "start": 6.66,
+          "end": 7.06,
+          "key": "thin",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dignified,",
+          "start": 7.46,
+          "end": 8.02,
+          "key": "dignified",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "elderly",
+          "start": 8.3,
+          "end": 8.54,
+          "key": "elderly",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 8.54,
+          "end": 9.0,
+          "key": "face",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.62,
+          "end": 9.72,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.72,
+          "end": 9.86,
+          "key": "she",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "took",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.02,
+          "end": 10.2,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 10.2,
+          "end": 10.4,
+          "key": "money",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.4,
+          "end": 10.64,
+          "key": "from",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 10.64,
+          "end": 10.9,
+          "key": "under",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.9,
+          "end": 11.02,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 11.02,
+          "end": 11.54,
+          "key": "handkerchief",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Annette,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "for",
+          "start": 0.86,
+          "end": 0.96
+        },
+        {
+          "text": "heaven’s",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "text": "sake",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "don’t",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "refuse",
+          "start": 1.94,
+          "end": 2.26
+        },
+        {
+          "text": "me,”",
+          "start": 2.26,
+          "end": 2.7
+        },
+        {
+          "text": "the",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "countess",
+          "start": 3.24,
+          "end": 3.64
+        },
+        {
+          "text": "began,",
+          "start": 3.64,
+          "end": 4.02
+        },
+        {
+          "text": "with",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "a",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "blush",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "text": "that",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "text": "looked",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "very",
+          "start": 5.4,
+          "end": 5.78
+        },
+        {
+          "text": "strange",
+          "start": 5.78,
+          "end": 6.3
+        },
+        {
+          "text": "on",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "text": "her",
+          "start": 6.52,
+          "end": 6.66
+        },
+        {
+          "text": "thin,",
+          "start": 6.66,
+          "end": 7.06
+        },
+        {
+          "text": "dignified,",
+          "start": 7.46,
+          "end": 8.02
+        },
+        {
+          "text": "elderly",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "text": "face,",
+          "start": 8.54,
+          "end": 9.0
+        },
+        {
+          "text": "and",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "text": "she",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "text": "took",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "the",
+          "start": 10.02,
+          "end": 10.2
+        },
+        {
+          "text": "money",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "text": "from",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "text": "under",
+          "start": 10.64,
+          "end": 10.9
+        },
+        {
+          "text": "the",
+          "start": 10.9,
+          "end": 11.02
+        },
+        {
+          "text": "handkerchief.",
+          "start": 11.02,
+          "end": 11.54
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4026148309931159
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8cc58be5b614391b504a7097f18d617cf1a2340e1ad855190bc9701ce6ef5e05",
+  "selected_reasons": []
+}

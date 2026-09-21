@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "fb6275254019e73a2c36e297c5127d66584a84ea67fbfb52630557e84f065da4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1778411790728569,
+      "alignment_seconds": 0.001156630925834179,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O, Lord Jesus Christ!\" she murmured.",
+        "hotwords": "O, Lord, Jesus, Christ"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, Lord Jesus Christ! she murmured.",
+          "start": 0.0,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.3642578125
+            },
+            {
+              "text": " Lord",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Jesus",
+              "start": 0.94,
+              "end": 1.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Christ!",
+              "start": 1.38,
+              "end": 1.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.712890625
+            },
+            {
+              "text": " murmured.",
+              "start": 2.28,
+              "end": 2.76,
+              "probability": 0.989990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "Lord",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "Jesus",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "raw": "Christ!",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "raw": "she",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "murmured.",
+          "start": 2.28,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "“O,",
+        "Lord",
+        "Jesus",
+        "Christ!”",
+        "she",
+        "murmured."
+      ],
+      "acoustic_expected_tokens": [
+        "\"O,",
+        "Lord",
+        "Jesus",
+        "Christ!\"",
+        "she",
+        "murmured."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jesus",
+          "start": 0.94,
+          "end": 1.38,
+          "key": "jesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Christ!",
+          "start": 1.38,
+          "end": 1.8,
+          "key": "christ",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "murmured.",
+          "start": 2.28,
+          "end": 2.76,
+          "key": "murmured",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“O,",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "Lord",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "Jesus",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "text": "Christ!”",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "text": "she",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "text": "murmured.",
+          "start": 2.28,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17913592513650656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47bba2c04ca60e4f88ff0602fdd65cd8da908afbe37b4753a20596368a19aaf3",
+  "selected_reasons": []
+}

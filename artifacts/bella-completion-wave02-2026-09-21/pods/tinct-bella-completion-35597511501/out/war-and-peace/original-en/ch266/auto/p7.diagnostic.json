@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "0315908eea9ca3ce4967dc72de335b57bc77349e6abc36980c4bb91ea6b5c2dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.43979391176253557,
+      "alignment_seconds": 0.003048790618777275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Very sad, sire,\" replied Michaud, lowering his eyes with a sigh. \"The abandonment of Moscow.\"",
+        "hotwords": "Very, Michaud, The, Moscow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Very sad, sire,\" replied Michaud, lowering his eyes with a sigh.",
+          "start": 0.0,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.22705078125
+            },
+            {
+              "text": " sad,",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " sire,\"",
+              "start": 1.04,
+              "end": 1.88,
+              "probability": 0.24521382649739584
+            },
+            {
+              "text": " replied",
+              "start": 1.88,
+              "end": 1.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Michaud,",
+              "start": 1.9,
+              "end": 2.38,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " lowering",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " his",
+              "start": 2.96,
+              "end": 3.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eyes",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sigh.",
+              "start": 3.8,
+              "end": 4.1,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " The abandonment of Moscow.",
+          "start": 4.1,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 4.1,
+              "end": 5.3,
+              "probability": 0.452392578125
+            },
+            {
+              "text": " abandonment",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " of",
+              "start": 5.68,
+              "end": 6.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Moscow.",
+              "start": 6.02,
+              "end": 6.38,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "sad,",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "sire,\"",
+          "start": 1.04,
+          "end": 1.88
+        },
+        {
+          "raw": "replied",
+          "start": 1.88,
+          "end": 1.9
+        },
+        {
+          "raw": "Michaud,",
+          "start": 1.9,
+          "end": 2.38
+        },
+        {
+          "raw": "lowering",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "his",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "raw": "eyes",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "raw": "sigh.",
+          "start": 3.8,
+          "end": 4.1
+        },
+        {
+          "raw": "The",
+          "start": 4.1,
+          "end": 5.3
+        },
+        {
+          "raw": "abandonment",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "of",
+          "start": 5.68,
+          "end": 6.02
+        },
+        {
+          "raw": "Moscow.",
+          "start": 6.02,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "“Very",
+        "sad,",
+        "sire,”",
+        "replied",
+        "Michaud,",
+        "lowering",
+        "his",
+        "eyes",
+        "with",
+        "a",
+        "sigh.",
+        "“The",
+        "abandonment",
+        "of",
+        "Moscow.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Very",
+        "sad,",
+        "sire,\"",
+        "replied",
+        "Michaud,",
+        "lowering",
+        "his",
+        "eyes",
+        "with",
+        "a",
+        "sigh.",
+        "\"The",
+        "abandonment",
+        "of",
+        "Moscow.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sad,",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "sad",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sire,\"",
+          "start": 1.04,
+          "end": 1.88,
+          "key": "sire",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.88,
+          "end": 1.9,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Michaud,",
+          "start": 1.9,
+          "end": 2.38,
+          "key": "michaud",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lowering",
+          "start": 2.74,
+          "end": 2.96,
+          "key": "lowering",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.96,
+          "end": 3.26,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "eyes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.8,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sigh.",
+          "start": 3.8,
+          "end": 4.1,
+          "key": "sigh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.1,
+          "end": 5.3,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "abandonment",
+          "start": 5.3,
+          "end": 5.68,
+          "key": "abandonment",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.68,
+          "end": 6.02,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Moscow.",
+          "start": 6.02,
+          "end": 6.38,
+          "key": "moscow",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Very",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "sad,",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "sire,”",
+          "start": 1.04,
+          "end": 1.88
+        },
+        {
+          "text": "replied",
+          "start": 1.88,
+          "end": 1.9
+        },
+        {
+          "text": "Michaud,",
+          "start": 1.9,
+          "end": 2.38
+        },
+        {
+          "text": "lowering",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "his",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "text": "eyes",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "with",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "text": "sigh.",
+          "start": 3.8,
+          "end": 4.1
+        },
+        {
+          "text": "“The",
+          "start": 4.1,
+          "end": 5.3
+        },
+        {
+          "text": "abandonment",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "of",
+          "start": 5.68,
+          "end": 6.02
+        },
+        {
+          "text": "Moscow.”",
+          "start": 6.02,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4432352390140295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "203963fcc1a0995600e3859f9a2a025f4ad1f3870930dd71be46634ffedaef54",
+  "selected_reasons": []
+}

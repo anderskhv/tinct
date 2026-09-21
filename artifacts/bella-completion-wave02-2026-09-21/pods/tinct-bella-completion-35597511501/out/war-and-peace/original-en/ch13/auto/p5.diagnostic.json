@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "e293cb07b2bab253b018a4378af18a88c698fbad2ff559958b203113eff3205f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2652558321133256,
+      "alignment_seconds": 0.001966997981071472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, if you do, so much the better, and you can go back to her!\"",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, if you do, so much the better, and you can go back to her!",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " if",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do,",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " much",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " better,",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 2.79,
+              "end": 2.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " can",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " back",
+              "start": 3.17,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her!",
+              "start": 3.57,
+              "end": 3.73,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "if",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "you",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "do,",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "so",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "much",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "better,",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "raw": "you",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "raw": "can",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "go",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "back",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "raw": "her!",
+          "start": 3.57,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "if",
+        "you",
+        "do,",
+        "so",
+        "much",
+        "the",
+        "better,",
+        "and",
+        "you",
+        "can",
+        "go",
+        "back",
+        "to",
+        "her!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "if",
+        "you",
+        "do,",
+        "so",
+        "much",
+        "the",
+        "better,",
+        "and",
+        "you",
+        "can",
+        "go",
+        "back",
+        "to",
+        "her!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "better",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.79,
+          "end": 2.89,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "can",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 3.17,
+          "end": 3.37,
+          "key": "back",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.57,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her!",
+          "start": 3.57,
+          "end": 3.73,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "if",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "you",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "do,",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "so",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "much",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "the",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "better,",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "text": "you",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "text": "can",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "go",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "back",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "text": "her!”",
+          "start": 3.57,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2674874383956194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d5911697aa65f5ee3731bf216ed279826c720e7c41734c929c3b66c038b211f3",
+  "selected_reasons": []
+}

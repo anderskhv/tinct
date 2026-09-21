@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "5a4340cbdd973f5848a55f3296c1e2cc83eb58521121e9f155880d22903fd10a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1835837233811617,
+      "alignment_seconds": 0.0012018093839287758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Forever?\" said the little girl. \"Till death itself?\"",
+        "hotwords": "Forever, Till"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Forever, said the little girl. Till death itself.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Forever,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.11016845703125
+            },
+            {
+              "text": " said",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " little",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " girl.",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Till",
+              "start": 2.22,
+              "end": 2.26,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " death",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " itself.",
+              "start": 2.5,
+              "end": 2.92,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Forever,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "little",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "girl.",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "Till",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "raw": "death",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "itself.",
+          "start": 2.5,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "“Forever?”",
+        "said",
+        "the",
+        "little",
+        "girl.",
+        "“Till",
+        "death",
+        "itself?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Forever?\"",
+        "said",
+        "the",
+        "little",
+        "girl.",
+        "\"Till",
+        "death",
+        "itself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Forever,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "forever",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "little",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "girl.",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "girl",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 2.22,
+          "end": 2.26,
+          "key": "till",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "death",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "itself.",
+          "start": 2.5,
+          "end": 2.92,
+          "key": "itself",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Forever?”",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "said",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "little",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "girl.",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "“Till",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "text": "death",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "itself?”",
+          "start": 2.5,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18494990468025208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e4005d61876d373139fa739465ab338023c7243451838d92b45e571a905c280",
+  "selected_reasons": []
+}

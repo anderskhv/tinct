@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "9c44cdc8edbbc7747fc21ae36692f55682c6c0d9337fd83b21da7e06708243c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.274975523352623,
+      "alignment_seconds": 0.0015443703159689903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She invited them to take the wounded man into the house.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She invited them to take the wounded man into the house.",
+          "start": 0.0,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.912109375
+            },
+            {
+              "text": " invited",
+              "start": 0.4,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " take",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wounded",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 1.76,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " into",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " She invited them to take the wounded man into the house.",
+          "start": 2.9,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " She",
+              "start": 2.9,
+              "end": 3.36,
+              "probability": 0.00029850006103515625
+            },
+            {
+              "text": " invited",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 5.638599395751953e-05
+            },
+            {
+              "text": " them",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.01971435546875
+            },
+            {
+              "text": " to",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " take",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.02532958984375
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.1456298828125
+            },
+            {
+              "text": " wounded",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 1.2218952178955078e-05
+            },
+            {
+              "text": " man",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.005825042724609375
+            },
+            {
+              "text": " into",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.039154052734375
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.409423828125
+            },
+            {
+              "text": " house.",
+              "start": 3.36,
+              "end": 3.36,
+              "probability": 0.061737060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "raw": "invited",
+          "start": 0.4,
+          "end": 0.74
+        },
+        {
+          "raw": "them",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "take",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "wounded",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "raw": "man",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "raw": "into",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "house.",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "She",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "raw": "invited",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "them",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "take",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "wounded",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "man",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "into",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.36
+        },
+        {
+          "raw": "house.",
+          "start": 3.36,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "invited",
+        "them",
+        "to",
+        "take",
+        "the",
+        "wounded",
+        "man",
+        "into",
+        "the",
+        "house."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "invited",
+        "them",
+        "to",
+        "take",
+        "the",
+        "wounded",
+        "man",
+        "into",
+        "the",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "insert",
+          11,
+          11,
+          11,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          11,
+          11,
+          11,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.4,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "invited",
+          "start": 0.4,
+          "end": 0.74,
+          "key": "invited",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "take",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "wounded",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.76,
+          "end": 2.1,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "house",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.9,
+          "end": 3.36,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "invited",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "invited",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "take",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "wounded",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "man",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "into",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 3.36,
+          "end": 3.36,
+          "key": "house",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "invited",
+          "start": 0.4,
+          "end": 0.74
+        },
+        {
+          "text": "them",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "take",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "wounded",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "text": "man",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "text": "into",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "the",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "house.",
+          "start": 2.54,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 22,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2768791997805238
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4a77b829591e0bbc63048f6924ebe3d7b4ec286e5461d994b6132581556d35a",
+  "selected_reasons": []
+}

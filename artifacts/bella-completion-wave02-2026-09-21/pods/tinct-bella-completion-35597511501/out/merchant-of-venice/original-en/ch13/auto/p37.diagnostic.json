@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "dca6837b57d6b89502b2a0b5db7b5d9de857393775324e891fd15b1103d23b67",
+  "attempts": [
+    {
+      "asr_seconds": 0.28590206149965525,
+      "alignment_seconds": 0.000472385436296463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Your daughter spent in Genoa, as I heard, one night, fourscore ducats.",
+        "hotwords": "Your, Genoa, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tubal, Your daughter spent in Genoa, as I heard, one night, fourscore ducats.",
+          "start": 0.0,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " Tubal,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.6649169921875
+            },
+            {
+              "text": " Your",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.024688720703125
+            },
+            {
+              "text": " daughter",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " spent",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " in",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Genoa,",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.774169921875
+            },
+            {
+              "text": " as",
+              "start": 2.68,
+              "end": 2.74,
+              "probability": 0.896484375
+            },
+            {
+              "text": " I",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " heard,",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " one",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.87109375
+            },
+            {
+              "text": " night,",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " fourscore",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.4109354019165039
+            },
+            {
+              "text": " ducats.",
+              "start": 4.42,
+              "end": 4.88,
+              "probability": 0.8216145833333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tubal,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "Your",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "daughter",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "spent",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "in",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "Genoa,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "heard,",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "one",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "night,",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "raw": "fourscore",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "raw": "ducats.",
+          "start": 4.42,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "TUBAL.",
+        "Your",
+        "daughter",
+        "spent",
+        "in",
+        "Genoa,",
+        "as",
+        "I",
+        "heard,",
+        "one",
+        "night,",
+        "fourscore",
+        "ducats."
+      ],
+      "acoustic_expected_tokens": [
+        "Your",
+        "daughter",
+        "spent",
+        "in",
+        "Genoa,",
+        "as",
+        "I",
+        "heard,",
+        "one",
+        "night,",
+        "fourscore",
+        "ducats."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tubal,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "tubal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "daughter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spent",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "spent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Genoa,",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "genoa",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.74,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heard,",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "heard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.38,
+          "end": 3.5,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "night",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fourscore",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "fourscore",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ducats.",
+          "start": 4.42,
+          "end": 4.88,
+          "key": "ducats",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "TUBAL.",
+          "start": 1.1,
+          "end": 1.1
+        },
+        {
+          "text": "Your",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "daughter",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "spent",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "in",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "Genoa,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "text": "as",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "text": "I",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "heard,",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "one",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "text": "night,",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "text": "fourscore",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "text": "ducats.",
+          "start": 4.42,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28645505104213953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a6c4f3ea12f5ec9f037e28b32618c18231fb67dc6ea555aeb2391190516f8c0",
+  "selected_reasons": []
+}

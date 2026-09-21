@@ -1,0 +1,1802 @@
+{
+  "complete": true,
+  "signature": "609814ba0be275d8552a8e76c132cd368716cad63ae9e6fc6adb117865a3bedb",
+  "attempts": [
+    {
+      "asr_seconds": 0.5036895405501127,
+      "alignment_seconds": 0.002954167313873768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I see, Colonel, from all that is happening, that Providence requires great sacrifices of us... I am ready to submit myself in all things to His will; but tell me, Michaud, how did you leave the army when it saw my ancient capital abandoned without a battle? Did you not notice discouragement?...\"",
+        "hotwords": "I, Colonel, Providence, His, Michaud"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I see, Colonel, from all that is happening, that Providence requires great sacrifices of us...",
+          "start": 0.0,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.7421875
+            },
+            {
+              "text": " see,",
+              "start": 0.34,
+              "end": 0.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Colonel,",
+              "start": 1.3,
+              "end": 1.3,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " from",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " happening,",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 2.96,
+              "end": 3.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Providence",
+              "start": 3.08,
+              "end": 3.4,
+              "probability": 0.21875
+            },
+            {
+              "text": " requires",
+              "start": 3.4,
+              "end": 3.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " great",
+              "start": 3.96,
+              "end": 4.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sacrifices",
+              "start": 4.34,
+              "end": 4.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 4.96,
+              "end": 5.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us...",
+              "start": 5.28,
+              "end": 5.52,
+              "probability": 0.5004596710205078
+            }
+          ]
+        },
+        {
+          "text": " I am ready to submit myself in all things to His will, but tell me, Michaud,",
+          "start": 6.42,
+          "end": 10.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.42,
+              "end": 6.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " am",
+              "start": 6.66,
+              "end": 6.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ready",
+              "start": 6.76,
+              "end": 6.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.94,
+              "end": 7.18,
+              "probability": 1.0
+            },
+            {
+              "text": " submit",
+              "start": 7.18,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " myself",
+              "start": 7.4,
+              "end": 7.9,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " in",
+              "start": 7.9,
+              "end": 8.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " all",
+              "start": 8.14,
+              "end": 8.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " things",
+              "start": 8.3,
+              "end": 8.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.56,
+              "end": 8.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " His",
+              "start": 8.76,
+              "end": 8.92,
+              "probability": 0.306884765625
+            },
+            {
+              "text": " will,",
+              "start": 8.92,
+              "end": 9.16,
+              "probability": 0.95703125
+            },
+            {
+              "text": " but",
+              "start": 9.42,
+              "end": 9.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tell",
+              "start": 9.58,
+              "end": 9.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 9.78,
+              "end": 10.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Michaud,",
+              "start": 10.28,
+              "end": 10.54,
+              "probability": 0.69970703125
+            }
+          ]
+        },
+        {
+          "text": " how did you leave the army when it saw my ancient capital abandoned without a battle?",
+          "start": 10.84,
+          "end": 14.5,
+          "words": [
+            {
+              "text": " how",
+              "start": 10.84,
+              "end": 10.96,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " did",
+              "start": 10.96,
+              "end": 11.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 11.08,
+              "end": 11.22,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " leave",
+              "start": 11.22,
+              "end": 11.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 11.4,
+              "end": 11.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " army",
+              "start": 11.58,
+              "end": 11.8,
+              "probability": 0.66796875
+            },
+            {
+              "text": " when",
+              "start": 11.8,
+              "end": 12.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 12.02,
+              "end": 12.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saw",
+              "start": 12.14,
+              "end": 12.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 12.36,
+              "end": 12.62,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " ancient",
+              "start": 12.62,
+              "end": 12.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " capital",
+              "start": 12.86,
+              "end": 13.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " abandoned",
+              "start": 13.34,
+              "end": 13.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " without",
+              "start": 13.78,
+              "end": 14.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 14.12,
+              "end": 14.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " battle?",
+              "start": 14.32,
+              "end": 14.5,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Did you not notice discouragement?",
+          "start": 15.64,
+          "end": 17.1,
+          "words": [
+            {
+              "text": " Did",
+              "start": 15.64,
+              "end": 15.72,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " you",
+              "start": 15.72,
+              "end": 15.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 15.86,
+              "end": 16.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " notice",
+              "start": 16.04,
+              "end": 16.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " discouragement?",
+              "start": 16.4,
+              "end": 17.1,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "see,",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "raw": "Colonel,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "all",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "happening,",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "that",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "raw": "Providence",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "raw": "requires",
+          "start": 3.4,
+          "end": 3.96
+        },
+        {
+          "raw": "great",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "raw": "sacrifices",
+          "start": 4.34,
+          "end": 4.96
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.28
+        },
+        {
+          "raw": "us...",
+          "start": 5.28,
+          "end": 5.52
+        },
+        {
+          "raw": "I",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "raw": "am",
+          "start": 6.66,
+          "end": 6.76
+        },
+        {
+          "raw": "ready",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "raw": "to",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "raw": "submit",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "raw": "myself",
+          "start": 7.4,
+          "end": 7.9
+        },
+        {
+          "raw": "in",
+          "start": 7.9,
+          "end": 8.14
+        },
+        {
+          "raw": "all",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "raw": "things",
+          "start": 8.3,
+          "end": 8.56
+        },
+        {
+          "raw": "to",
+          "start": 8.56,
+          "end": 8.76
+        },
+        {
+          "raw": "His",
+          "start": 8.76,
+          "end": 8.92
+        },
+        {
+          "raw": "will,",
+          "start": 8.92,
+          "end": 9.16
+        },
+        {
+          "raw": "but",
+          "start": 9.42,
+          "end": 9.58
+        },
+        {
+          "raw": "tell",
+          "start": 9.58,
+          "end": 9.78
+        },
+        {
+          "raw": "me,",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "raw": "Michaud,",
+          "start": 10.28,
+          "end": 10.54
+        },
+        {
+          "raw": "how",
+          "start": 10.84,
+          "end": 10.96
+        },
+        {
+          "raw": "did",
+          "start": 10.96,
+          "end": 11.08
+        },
+        {
+          "raw": "you",
+          "start": 11.08,
+          "end": 11.22
+        },
+        {
+          "raw": "leave",
+          "start": 11.22,
+          "end": 11.4
+        },
+        {
+          "raw": "the",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "raw": "army",
+          "start": 11.58,
+          "end": 11.8
+        },
+        {
+          "raw": "when",
+          "start": 11.8,
+          "end": 12.02
+        },
+        {
+          "raw": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "raw": "saw",
+          "start": 12.14,
+          "end": 12.36
+        },
+        {
+          "raw": "my",
+          "start": 12.36,
+          "end": 12.62
+        },
+        {
+          "raw": "ancient",
+          "start": 12.62,
+          "end": 12.86
+        },
+        {
+          "raw": "capital",
+          "start": 12.86,
+          "end": 13.34
+        },
+        {
+          "raw": "abandoned",
+          "start": 13.34,
+          "end": 13.78
+        },
+        {
+          "raw": "without",
+          "start": 13.78,
+          "end": 14.12
+        },
+        {
+          "raw": "a",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "raw": "battle?",
+          "start": 14.32,
+          "end": 14.5
+        },
+        {
+          "raw": "Did",
+          "start": 15.64,
+          "end": 15.72
+        },
+        {
+          "raw": "you",
+          "start": 15.72,
+          "end": 15.86
+        },
+        {
+          "raw": "not",
+          "start": 15.86,
+          "end": 16.04
+        },
+        {
+          "raw": "notice",
+          "start": 16.04,
+          "end": 16.4
+        },
+        {
+          "raw": "discouragement?",
+          "start": 16.4,
+          "end": 17.1
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "see,",
+        "Colonel,",
+        "from",
+        "all",
+        "that",
+        "is",
+        "happening,",
+        "that",
+        "Providence",
+        "requires",
+        "great",
+        "sacrifices",
+        "of",
+        "us...",
+        "I",
+        "am",
+        "ready",
+        "to",
+        "submit",
+        "myself",
+        "in",
+        "all",
+        "things",
+        "to",
+        "His",
+        "will;",
+        "but",
+        "tell",
+        "me,",
+        "Michaud,",
+        "how",
+        "did",
+        "you",
+        "leave",
+        "the",
+        "army",
+        "when",
+        "it",
+        "saw",
+        "my",
+        "ancient",
+        "capital",
+        "abandoned",
+        "without",
+        "a",
+        "battle?",
+        "Did",
+        "you",
+        "not",
+        "notice",
+        "discouragement?...”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "see,",
+        "Colonel,",
+        "from",
+        "all",
+        "that",
+        "is",
+        "happening,",
+        "that",
+        "Providence",
+        "requires",
+        "great",
+        "sacrifices",
+        "of",
+        "us...",
+        "I",
+        "am",
+        "ready",
+        "to",
+        "submit",
+        "myself",
+        "in",
+        "all",
+        "things",
+        "to",
+        "His",
+        "will;",
+        "but",
+        "tell",
+        "me,",
+        "Michaud,",
+        "how",
+        "did",
+        "you",
+        "leave",
+        "the",
+        "army",
+        "when",
+        "it",
+        "saw",
+        "my",
+        "ancient",
+        "capital",
+        "abandoned",
+        "without",
+        "a",
+        "battle?",
+        "Did",
+        "you",
+        "not",
+        "notice",
+        "discouragement?...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 0.34,
+          "end": 0.6,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Colonel,",
+          "start": 1.3,
+          "end": 1.3,
+          "key": "colonel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "happening,",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "happening",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.96,
+          "end": 3.08,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Providence",
+          "start": 3.08,
+          "end": 3.4,
+          "key": "providence",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 3.4,
+          "end": 3.96,
+          "key": "requires",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.96,
+          "end": 4.34,
+          "key": "great",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sacrifices",
+          "start": 4.34,
+          "end": 4.96,
+          "key": "sacrifices",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.28,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "us...",
+          "start": 5.28,
+          "end": 5.52,
+          "key": "us",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.42,
+          "end": 6.66,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 6.66,
+          "end": 6.76,
+          "key": "am",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 6.76,
+          "end": 6.94,
+          "key": "ready",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.94,
+          "end": 7.18,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "submit",
+          "start": 7.18,
+          "end": 7.4,
+          "key": "submit",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 7.4,
+          "end": 7.9,
+          "key": "myself",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.9,
+          "end": 8.14,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.14,
+          "end": 8.3,
+          "key": "all",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 8.3,
+          "end": 8.56,
+          "key": "things",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.56,
+          "end": 8.76,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 8.76,
+          "end": 8.92,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 8.92,
+          "end": 9.16,
+          "key": "will",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 9.42,
+          "end": 9.58,
+          "key": "but",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 9.58,
+          "end": 9.78,
+          "key": "tell",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 9.78,
+          "end": 10.0,
+          "key": "me",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Michaud,",
+          "start": 10.28,
+          "end": 10.54,
+          "key": "michaud",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 10.84,
+          "end": 10.96,
+          "key": "how",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 10.96,
+          "end": 11.08,
+          "key": "did",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.08,
+          "end": 11.22,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 11.22,
+          "end": 11.4,
+          "key": "leave",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.4,
+          "end": 11.58,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 11.58,
+          "end": 11.8,
+          "key": "army",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 11.8,
+          "end": 12.02,
+          "key": "when",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.02,
+          "end": 12.14,
+          "key": "it",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 12.14,
+          "end": 12.36,
+          "key": "saw",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.36,
+          "end": 12.62,
+          "key": "my",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "ancient",
+          "start": 12.62,
+          "end": 12.86,
+          "key": "ancient",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "capital",
+          "start": 12.86,
+          "end": 13.34,
+          "key": "capital",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "abandoned",
+          "start": 13.34,
+          "end": 13.78,
+          "key": "abandoned",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 13.78,
+          "end": 14.12,
+          "key": "without",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 14.12,
+          "end": 14.32,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "battle?",
+          "start": 14.32,
+          "end": 14.5,
+          "key": "battle",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 15.64,
+          "end": 15.72,
+          "key": "did",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.72,
+          "end": 15.86,
+          "key": "you",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.86,
+          "end": 16.04,
+          "key": "not",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 16.04,
+          "end": 16.4,
+          "key": "notice",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "discouragement?",
+          "start": 16.4,
+          "end": 17.1,
+          "key": "discouragement",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "see,",
+          "start": 0.34,
+          "end": 0.6
+        },
+        {
+          "text": "Colonel,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "text": "from",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "all",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "that",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "is",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "happening,",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "that",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "text": "Providence",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "text": "requires",
+          "start": 3.4,
+          "end": 3.96
+        },
+        {
+          "text": "great",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "text": "sacrifices",
+          "start": 4.34,
+          "end": 4.96
+        },
+        {
+          "text": "of",
+          "start": 4.96,
+          "end": 5.28
+        },
+        {
+          "text": "us...",
+          "start": 5.28,
+          "end": 5.52
+        },
+        {
+          "text": "I",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "text": "am",
+          "start": 6.66,
+          "end": 6.76
+        },
+        {
+          "text": "ready",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "text": "to",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "text": "submit",
+          "start": 7.18,
+          "end": 7.4
+        },
+        {
+          "text": "myself",
+          "start": 7.4,
+          "end": 7.9
+        },
+        {
+          "text": "in",
+          "start": 7.9,
+          "end": 8.14
+        },
+        {
+          "text": "all",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "text": "things",
+          "start": 8.3,
+          "end": 8.56
+        },
+        {
+          "text": "to",
+          "start": 8.56,
+          "end": 8.76
+        },
+        {
+          "text": "His",
+          "start": 8.76,
+          "end": 8.92
+        },
+        {
+          "text": "will;",
+          "start": 8.92,
+          "end": 9.16
+        },
+        {
+          "text": "but",
+          "start": 9.42,
+          "end": 9.58
+        },
+        {
+          "text": "tell",
+          "start": 9.58,
+          "end": 9.78
+        },
+        {
+          "text": "me,",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "text": "Michaud,",
+          "start": 10.28,
+          "end": 10.54
+        },
+        {
+          "text": "how",
+          "start": 10.84,
+          "end": 10.96
+        },
+        {
+          "text": "did",
+          "start": 10.96,
+          "end": 11.08
+        },
+        {
+          "text": "you",
+          "start": 11.08,
+          "end": 11.22
+        },
+        {
+          "text": "leave",
+          "start": 11.22,
+          "end": 11.4
+        },
+        {
+          "text": "the",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "text": "army",
+          "start": 11.58,
+          "end": 11.8
+        },
+        {
+          "text": "when",
+          "start": 11.8,
+          "end": 12.02
+        },
+        {
+          "text": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "text": "saw",
+          "start": 12.14,
+          "end": 12.36
+        },
+        {
+          "text": "my",
+          "start": 12.36,
+          "end": 12.62
+        },
+        {
+          "text": "ancient",
+          "start": 12.62,
+          "end": 12.86
+        },
+        {
+          "text": "capital",
+          "start": 12.86,
+          "end": 13.34
+        },
+        {
+          "text": "abandoned",
+          "start": 13.34,
+          "end": 13.78
+        },
+        {
+          "text": "without",
+          "start": 13.78,
+          "end": 14.12
+        },
+        {
+          "text": "a",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "text": "battle?",
+          "start": 14.32,
+          "end": 14.5
+        },
+        {
+          "text": "Did",
+          "start": 15.64,
+          "end": 15.72
+        },
+        {
+          "text": "you",
+          "start": 15.72,
+          "end": 15.86
+        },
+        {
+          "text": "not",
+          "start": 15.86,
+          "end": 16.04
+        },
+        {
+          "text": "notice",
+          "start": 16.04,
+          "end": 16.4
+        },
+        {
+          "text": "discouragement?...”",
+          "start": 16.4,
+          "end": 17.1
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5069118561223149
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7556a0bdc3f4c4bef287afe67d25b544ad2a2e8924ffee18ad0757157de8007f",
+  "selected_reasons": []
+}

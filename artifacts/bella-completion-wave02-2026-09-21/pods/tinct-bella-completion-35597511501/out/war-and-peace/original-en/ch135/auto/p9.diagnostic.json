@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "a539b9d4a5e2ac47e0c40e12feb4a7ae9dc4fd5b9ff00b22cd9190a1f39884c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12722469586879015,
+      "alignment_seconds": 0.000570002943277359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"As you please.\"",
+        "hotwords": "As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As you please.",
+          "start": 0.0,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.48583984375
+            },
+            {
+              "text": " you",
+              "start": 0.34,
+              "end": 0.46,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " please.",
+              "start": 0.46,
+              "end": 0.84,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "raw": "please.",
+          "start": 0.46,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "“As",
+        "you",
+        "please.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"As",
+        "you",
+        "please.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.34,
+          "end": 0.46,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "please.",
+          "start": 0.46,
+          "end": 0.84,
+          "key": "please",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“As",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "you",
+          "start": 0.34,
+          "end": 0.46
+        },
+        {
+          "text": "please.”",
+          "start": 0.46,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12789572309702635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43d93b034b08e873c484b1db2137ba5d1029c4f5b0b99077a2f9e21ed41bd315",
+  "selected_reasons": []
+}

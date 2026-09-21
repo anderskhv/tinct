@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "2d73572932516ef60fe74e9801366570d67ae9d71d23ed600fd9f25804953e2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.25100721791386604,
+      "alignment_seconds": 0.0011452417820692062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Now, my lad, we'll go and get dwy,\" he said to Pétya.",
+        "hotwords": "Now, Pétya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now, my lad, we'll go and get dwy,\" he said to Pétya.",
+          "start": 0.0,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.061676025390625
+            },
+            {
+              "text": " my",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lad,",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.9296875
+            },
+            {
+              "text": " we'll",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " go",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " get",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dwy,\"",
+              "start": 2.12,
+              "end": 3.28,
+              "probability": 0.2831624348958333
+            },
+            {
+              "text": " he",
+              "start": 3.28,
+              "end": 3.38,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " said",
+              "start": 3.38,
+              "end": 3.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Pétya.",
+              "start": 3.74,
+              "end": 4.22,
+              "probability": 0.29970401525497437
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "my",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "lad,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "we'll",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "go",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "get",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "dwy,\"",
+          "start": 2.12,
+          "end": 3.28
+        },
+        {
+          "raw": "he",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "raw": "said",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "raw": "to",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "Pétya.",
+          "start": 3.74,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "“Now,",
+        "my",
+        "lad,",
+        "we’ll",
+        "go",
+        "and",
+        "get",
+        "dwy,”",
+        "he",
+        "said",
+        "to",
+        "Pétya."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Now,",
+        "my",
+        "lad,",
+        "we'll",
+        "go",
+        "and",
+        "get",
+        "dwy,\"",
+        "he",
+        "said",
+        "to",
+        "Pétya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.82,
+          "end": 0.94,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lad,",
+          "start": 0.94,
+          "end": 1.22,
+          "key": "lad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "get",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dwy,\"",
+          "start": 2.12,
+          "end": 3.28,
+          "key": "dwy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.28,
+          "end": 3.38,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.38,
+          "end": 3.58,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Pétya.",
+          "start": 3.74,
+          "end": 4.22,
+          "key": "pétya",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Now,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "my",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "lad,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "we’ll",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "go",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "get",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "dwy,”",
+          "start": 2.12,
+          "end": 3.28
+        },
+        {
+          "text": "he",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "text": "said",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "text": "to",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "Pétya.",
+          "start": 3.74,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25230037700384855
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3710da6813deebae3a9e1ca6c29948fae82fe8d697fa894ac4d958c83164fa72",
+  "selected_reasons": []
+}

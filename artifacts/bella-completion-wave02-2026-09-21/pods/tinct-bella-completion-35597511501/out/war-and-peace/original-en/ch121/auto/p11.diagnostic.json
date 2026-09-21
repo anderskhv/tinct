@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "6b16594ba052c178a7f959aec3b0416cbdfdbd9315d57cdc5e25170a698361a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1765294335782528,
+      "alignment_seconds": 0.0012016389518976212,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She pointed to a lady who was crossing the room followed by a very plain daughter.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She pointed to a lady who was crossing the room followed by a very plain daughter.",
+          "start": 0.0,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " pointed",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lady",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " crossing",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " followed",
+              "start": 2.32,
+              "end": 2.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " by",
+              "start": 2.62,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 3.02,
+              "end": 3.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plain",
+              "start": 3.26,
+              "end": 3.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " daughter.",
+              "start": 3.6,
+              "end": 3.94,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "pointed",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "to",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "lady",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "who",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "was",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "crossing",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "room",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "followed",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "raw": "by",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "very",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "raw": "plain",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "raw": "daughter.",
+          "start": 3.6,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "pointed",
+        "to",
+        "a",
+        "lady",
+        "who",
+        "was",
+        "crossing",
+        "the",
+        "room",
+        "followed",
+        "by",
+        "a",
+        "very",
+        "plain",
+        "daughter."
+      ],
+      "acoustic_expected_tokens": [
+        "She",
+        "pointed",
+        "to",
+        "a",
+        "lady",
+        "who",
+        "was",
+        "crossing",
+        "the",
+        "room",
+        "followed",
+        "by",
+        "a",
+        "very",
+        "plain",
+        "daughter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pointed",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "pointed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "lady",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "crossing",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "crossing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "room",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 2.32,
+          "end": 2.62,
+          "key": "followed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.62,
+          "end": 2.9,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.02,
+          "end": 3.26,
+          "key": "very",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 3.26,
+          "end": 3.6,
+          "key": "plain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "daughter.",
+          "start": 3.6,
+          "end": 3.94,
+          "key": "daughter",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "pointed",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "to",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "lady",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "who",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "was",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "crossing",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "room",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "followed",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "text": "by",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "text": "a",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "very",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "text": "plain",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "text": "daughter.",
+          "start": 3.6,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17788984812796116
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb37c309b349efc8399b3f7499e2320d36eda5deffee76afdeadb13b30105c8b",
+  "selected_reasons": []
+}

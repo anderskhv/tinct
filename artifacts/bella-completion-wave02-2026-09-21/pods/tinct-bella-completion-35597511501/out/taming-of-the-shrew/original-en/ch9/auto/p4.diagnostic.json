@@ -1,0 +1,1760 @@
+{
+  "complete": true,
+  "signature": "64ad15980cfdbfd1bdc2a2c0d4745dcd2419207e0aebd44f003575b84590a4f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2874391842633486,
+      "alignment_seconds": 0.0008353209123015404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I warrant you. But, sir, here comes your boy; 'Twere good he were school'd.",
+        "hotwords": "I, But, Twere"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pedant, I warrant you. But, sir, here comes your boy. Twere good he were school'd.",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " Pedant,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.53668212890625
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " warrant",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " you.",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " But,",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sir,",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.880859375
+            },
+            {
+              "text": " here",
+              "start": 2.43,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " comes",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " your",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " boy.",
+              "start": 2.89,
+              "end": 3.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Twere",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.21240234375
+            },
+            {
+              "text": " good",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " he",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.341552734375
+            },
+            {
+              "text": " were",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.336181640625
+            },
+            {
+              "text": " school'd.",
+              "start": 4.11,
+              "end": 4.65,
+              "probability": 0.481689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "But,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "sir,",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "here",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "raw": "Twere",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "good",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "were",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "school'd.",
+          "start": 4.11,
+          "end": 4.65
+        }
+      ],
+      "expected_tokens": [
+        "PEDANT.",
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "’Twere",
+        "good",
+        "he",
+        "were",
+        "school’d."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "'Twere",
+        "good",
+        "he",
+        "were",
+        "school'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "pedant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.89,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.43,
+          "end": 2.47,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.15,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Twere",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "twere",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "were",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "school'd.",
+          "start": 4.11,
+          "end": 4.65,
+          "key": "schoold",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PEDANT.",
+          "start": 0.83,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "text": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "But,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "sir,",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "here",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "text": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "boy;",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "text": "’Twere",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "good",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "he",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "were",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "school’d.",
+          "start": 4.11,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.28838270902633667
+    },
+    {
+      "asr_seconds": 0.31541559752076864,
+      "alignment_seconds": 0.0014700014144182205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, But, Twere"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Peddant, I warrant you. But, sir, here comes your boy. Twere good you were schooled.",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " Peddant,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.4048258463541667
+            },
+            {
+              "text": " I",
+              "start": 0.81,
+              "end": 0.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " warrant",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " you.",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " But,",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sir,",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " here",
+              "start": 2.41,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " comes",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " your",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " boy.",
+              "start": 2.89,
+              "end": 3.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Twere",
+              "start": 3.57,
+              "end": 3.69,
+              "probability": 0.22528076171875
+            },
+            {
+              "text": " good",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.97265625
+            },
+            {
+              "text": " you",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.2275390625
+            },
+            {
+              "text": " were",
+              "start": 4.01,
+              "end": 4.11,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " schooled.",
+              "start": 4.11,
+              "end": 4.65,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peddant,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.81,
+          "end": 0.89
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "But,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "sir,",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "here",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "raw": "Twere",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "raw": "good",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "raw": "schooled.",
+          "start": 4.11,
+          "end": 4.65
+        }
+      ],
+      "expected_tokens": [
+        "PEDANT.",
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "’Twere",
+        "good",
+        "he",
+        "were",
+        "school’d."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "'Twere",
+        "good",
+        "he",
+        "were",
+        "school'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peddant,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "peddant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.81,
+          "end": 0.89,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.41,
+          "end": 2.47,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.15,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Twere",
+          "start": 3.57,
+          "end": 3.69,
+          "key": "twere",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.11,
+          "key": "were",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "schooled.",
+          "start": 4.11,
+          "end": 4.65,
+          "key": "schooled",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PEDANT.",
+          "start": 0.81,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 0.81,
+          "end": 0.89
+        },
+        {
+          "text": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "But,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "sir,",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "here",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "text": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "boy;",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "text": "’Twere",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "text": "good",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "he",
+          "start": 3.87,
+          "end": 3.94
+        },
+        {
+          "text": "were",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "text": "school’d.",
+          "start": 4.11,
+          "end": 4.65
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3170786267146468
+    },
+    {
+      "asr_seconds": 0.2769409054890275,
+      "alignment_seconds": 0.002086690627038479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pedant, I warrant you. But sir, here comes your boy. Twear good you were schooled.",
+          "start": 0.05,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Pedant,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.53668212890625
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " warrant",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " you.",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " But",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sir,",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " here",
+              "start": 2.43,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " comes",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " boy.",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Twear",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.298828125
+            },
+            {
+              "text": " good",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " you",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.34375
+            },
+            {
+              "text": " were",
+              "start": 4.01,
+              "end": 4.11,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " schooled.",
+              "start": 4.11,
+              "end": 4.69,
+              "probability": 0.982666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "But",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "sir,",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "here",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "raw": "Twear",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "good",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "raw": "schooled.",
+          "start": 4.11,
+          "end": 4.69
+        }
+      ],
+      "expected_tokens": [
+        "PEDANT.",
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "’Twere",
+        "good",
+        "he",
+        "were",
+        "school’d."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "warrant",
+        "you.",
+        "But,",
+        "sir,",
+        "here",
+        "comes",
+        "your",
+        "boy;",
+        "'Twere",
+        "good",
+        "he",
+        "were",
+        "school'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          9,
+          1,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pedant,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "pedant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.89,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.43,
+          "end": 2.47,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.89,
+          "end": 3.17,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Twear",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "twear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.11,
+          "key": "were",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "schooled.",
+          "start": 4.11,
+          "end": 4.69,
+          "key": "schooled",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PEDANT.",
+          "start": 0.83,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "text": "warrant",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "you.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "But,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "sir,",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "here",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "text": "comes",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "your",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "boy;",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "text": "’Twere",
+          "start": 3.17,
+          "end": 3.44
+        },
+        {
+          "text": "good",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "he",
+          "start": 3.87,
+          "end": 3.94
+        },
+        {
+          "text": "were",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "text": "school’d.",
+          "start": 4.11,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.27930046152323484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01445b6949da2e2e972f403762c450f17470afdea89e1a586906d9e6abc61d68",
+  "selected_reasons": []
+}

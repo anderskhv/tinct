@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "1148a1b589ffb787637a4f6601d209401e7e38a50f5906d21de4a4cf6d699a71",
+  "attempts": [
+    {
+      "asr_seconds": 0.297193287871778,
+      "alignment_seconds": 0.0018060198053717613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To your health!\" said Balagá who also emptied his glass, and wiped his mouth with his handkerchief.",
+        "hotwords": "To, Balagá"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To your health! said Balagá who also emptied his glass, and wiped his mouth with his handkerchief.",
+          "start": 0.0,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " your",
+              "start": 0.32,
+              "end": 0.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " health!",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.591796875
+            },
+            {
+              "text": " Balagá",
+              "start": 1.2,
+              "end": 1.74,
+              "probability": 0.3466237386067708
+            },
+            {
+              "text": " who",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " also",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " emptied",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.51953125
+            },
+            {
+              "text": " his",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " glass,",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 3.4,
+              "end": 3.58,
+              "probability": 0.982421875
+            },
+            {
+              "text": " wiped",
+              "start": 3.58,
+              "end": 3.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mouth",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.3,
+              "end": 4.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 4.52,
+              "end": 4.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " handkerchief.",
+              "start": 4.66,
+              "end": 5.24,
+              "probability": 0.9952799479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "your",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "raw": "health!",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "Balagá",
+          "start": 1.2,
+          "end": 1.74
+        },
+        {
+          "raw": "who",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "also",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "emptied",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "his",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "glass,",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "raw": "wiped",
+          "start": 3.58,
+          "end": 3.82
+        },
+        {
+          "raw": "his",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "mouth",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "with",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "raw": "his",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 4.66,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "“To",
+        "your",
+        "health!”",
+        "said",
+        "Balagá",
+        "who",
+        "also",
+        "emptied",
+        "his",
+        "glass,",
+        "and",
+        "wiped",
+        "his",
+        "mouth",
+        "with",
+        "his",
+        "handkerchief."
+      ],
+      "acoustic_expected_tokens": [
+        "\"To",
+        "your",
+        "health!\"",
+        "said",
+        "Balagá",
+        "who",
+        "also",
+        "emptied",
+        "his",
+        "glass,",
+        "and",
+        "wiped",
+        "his",
+        "mouth",
+        "with",
+        "his",
+        "handkerchief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.32,
+          "end": 0.48,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "health!",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "health",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Balagá",
+          "start": 1.2,
+          "end": 1.74,
+          "key": "balagá",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "also",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "emptied",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "emptied",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "glass,",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "glass",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wiped",
+          "start": 3.58,
+          "end": 3.82,
+          "key": "wiped",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "mouth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.3,
+          "end": 4.52,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.52,
+          "end": 4.66,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 4.66,
+          "end": 5.24,
+          "key": "handkerchief",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "your",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "text": "health!”",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "said",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "Balagá",
+          "start": 1.2,
+          "end": 1.74
+        },
+        {
+          "text": "who",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "also",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "emptied",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "his",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "glass,",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "text": "and",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "text": "wiped",
+          "start": 3.58,
+          "end": 3.82
+        },
+        {
+          "text": "his",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "mouth",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "with",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "text": "his",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "text": "handkerchief.",
+          "start": 4.66,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29923646710813046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4785b51647e8ef73458a7b73d6716c8c204731b50ea529022ea14458867f420f",
+  "selected_reasons": []
+}

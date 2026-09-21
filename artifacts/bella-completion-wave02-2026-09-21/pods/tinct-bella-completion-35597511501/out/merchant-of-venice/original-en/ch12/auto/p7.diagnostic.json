@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "9d16cc5055456687efa0e58c0c9b849f16ad32400fa468381d5d8852594a1d91",
+  "attempts": [
+    {
+      "asr_seconds": 0.09357962664216757,
+      "alignment_seconds": 0.0004852544516324997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He opens the silver casket.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He opens the silver casket.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " opens",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " silver",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " casket.",
+              "start": 1.31,
+              "end": 1.85,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "opens",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "silver",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "casket.",
+          "start": 1.31,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "opens",
+        "the",
+        "silver",
+        "casket._]"
+      ],
+      "acoustic_expected_tokens": [
+        "He",
+        "opens",
+        "the",
+        "silver",
+        "casket."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "opens",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "opens",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "silver",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "casket.",
+          "start": 1.31,
+          "end": 1.85,
+          "key": "casket",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "opens",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "the",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "silver",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "casket._]",
+          "start": 1.31,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09413439594209194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08ec765f2bff33136686f7461321d9f99d87ef2145da8b030dbe96e12ad83c5b",
+  "selected_reasons": []
+}

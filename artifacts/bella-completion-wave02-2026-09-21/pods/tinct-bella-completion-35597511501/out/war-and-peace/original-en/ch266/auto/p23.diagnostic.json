@@ -1,0 +1,897 @@
+{
+  "complete": true,
+  "signature": "8ae68d47ff4b1cf4bf059aa2b74c80f5f24b9625a5c675dbcb9a4f765d88b3d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.35139465145766735,
+      "alignment_seconds": 0.0018709301948547363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah!\" said the Emperor reassured, and with a kindly gleam in his eyes, he patted Michaud on the shoulder. \"You set me at ease, Colonel.\"",
+        "hotwords": "Ah, Emperor, Michaud, You, Colonel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah! said the Emperor reassured, and with a kindly gleam in his eyes, he patted Michaud on the shoulder.",
+          "start": 0.0,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Ah!",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.340576171875
+            },
+            {
+              "text": " said",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Emperor",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.625
+            },
+            {
+              "text": " reassured,",
+              "start": 1.38,
+              "end": 1.9,
+              "probability": 0.7734375
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 2.36,
+              "end": 2.46,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " a",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kindly",
+              "start": 2.6,
+              "end": 2.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gleam",
+              "start": 2.96,
+              "end": 3.24,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " in",
+              "start": 3.24,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " eyes,",
+              "start": 3.52,
+              "end": 3.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 4.16,
+              "end": 4.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " patted",
+              "start": 4.24,
+              "end": 4.54,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " Michaud",
+              "start": 4.54,
+              "end": 4.9,
+              "probability": 0.534423828125
+            },
+            {
+              "text": " on",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 5.08,
+              "end": 5.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shoulder.",
+              "start": 5.2,
+              "end": 5.44,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " You set me at ease, Colonel.",
+          "start": 6.5,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " You",
+              "start": 6.5,
+              "end": 6.74,
+              "probability": 0.2222900390625
+            },
+            {
+              "text": " set",
+              "start": 6.74,
+              "end": 6.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " me",
+              "start": 6.94,
+              "end": 7.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 7.1,
+              "end": 7.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ease,",
+              "start": 7.24,
+              "end": 7.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Colonel.",
+              "start": 8.12,
+              "end": 8.24,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah!",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "said",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "Emperor",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "reassured,",
+          "start": 1.38,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "raw": "a",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "kindly",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "raw": "gleam",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "raw": "in",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "raw": "his",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "eyes,",
+          "start": 3.52,
+          "end": 3.84
+        },
+        {
+          "raw": "he",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "raw": "patted",
+          "start": 4.24,
+          "end": 4.54
+        },
+        {
+          "raw": "Michaud",
+          "start": 4.54,
+          "end": 4.9
+        },
+        {
+          "raw": "on",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "the",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "raw": "shoulder.",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "raw": "You",
+          "start": 6.5,
+          "end": 6.74
+        },
+        {
+          "raw": "set",
+          "start": 6.74,
+          "end": 6.94
+        },
+        {
+          "raw": "me",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "raw": "at",
+          "start": 7.1,
+          "end": 7.24
+        },
+        {
+          "raw": "ease,",
+          "start": 7.24,
+          "end": 7.56
+        },
+        {
+          "raw": "Colonel.",
+          "start": 8.12,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "“Ah!”",
+        "said",
+        "the",
+        "Emperor",
+        "reassured,",
+        "and",
+        "with",
+        "a",
+        "kindly",
+        "gleam",
+        "in",
+        "his",
+        "eyes,",
+        "he",
+        "patted",
+        "Michaud",
+        "on",
+        "the",
+        "shoulder.",
+        "“You",
+        "set",
+        "me",
+        "at",
+        "ease,",
+        "Colonel.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ah!\"",
+        "said",
+        "the",
+        "Emperor",
+        "reassured,",
+        "and",
+        "with",
+        "a",
+        "kindly",
+        "gleam",
+        "in",
+        "his",
+        "eyes,",
+        "he",
+        "patted",
+        "Michaud",
+        "on",
+        "the",
+        "shoulder.",
+        "\"You",
+        "set",
+        "me",
+        "at",
+        "ease,",
+        "Colonel.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah!",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.76,
+          "end": 0.86,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "emperor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reassured,",
+          "start": 1.38,
+          "end": 1.9,
+          "key": "reassured",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.46,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kindly",
+          "start": 2.6,
+          "end": 2.96,
+          "key": "kindly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gleam",
+          "start": 2.96,
+          "end": 3.24,
+          "key": "gleam",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.24,
+          "end": 3.38,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 3.52,
+          "end": 3.84,
+          "key": "eyes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.16,
+          "end": 4.24,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "patted",
+          "start": 4.24,
+          "end": 4.54,
+          "key": "patted",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Michaud",
+          "start": 4.54,
+          "end": 4.9,
+          "key": "michaud",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.08,
+          "end": 5.2,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shoulder.",
+          "start": 5.2,
+          "end": 5.44,
+          "key": "shoulder",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.5,
+          "end": 6.74,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 6.74,
+          "end": 6.94,
+          "key": "set",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.94,
+          "end": 7.1,
+          "key": "me",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 7.1,
+          "end": 7.24,
+          "key": "at",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "ease,",
+          "start": 7.24,
+          "end": 7.56,
+          "key": "ease",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Colonel.",
+          "start": 8.12,
+          "end": 8.24,
+          "key": "colonel",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ah!”",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "said",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "the",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "Emperor",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "text": "reassured,",
+          "start": 1.38,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "with",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "text": "a",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "kindly",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "text": "gleam",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "text": "in",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "text": "his",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "eyes,",
+          "start": 3.52,
+          "end": 3.84
+        },
+        {
+          "text": "he",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "text": "patted",
+          "start": 4.24,
+          "end": 4.54
+        },
+        {
+          "text": "Michaud",
+          "start": 4.54,
+          "end": 4.9
+        },
+        {
+          "text": "on",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "the",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "text": "shoulder.",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "text": "“You",
+          "start": 6.5,
+          "end": 6.74
+        },
+        {
+          "text": "set",
+          "start": 6.74,
+          "end": 6.94
+        },
+        {
+          "text": "me",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "text": "at",
+          "start": 7.1,
+          "end": 7.24
+        },
+        {
+          "text": "ease,",
+          "start": 7.24,
+          "end": 7.56
+        },
+        {
+          "text": "Colonel.”",
+          "start": 8.12,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3534898590296507
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5b358447ac1f151513caebb2a433f5e4e0563a887fc4b0714df3696fafbdc5a",
+  "selected_reasons": []
+}

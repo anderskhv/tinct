@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "20962da130c67a8169d09da5ff494aa5fb81f14a124d1bf49bba290d48428e34",
+  "attempts": [
+    {
+      "asr_seconds": 0.15764342434704304,
+      "alignment_seconds": 0.0009402493014931679,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Come, draw the curtain, Nerissa.",
+        "hotwords": "Come, Nerissa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, come, draw the curtain, Nerissa.",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.680908203125
+            },
+            {
+              "text": " come,",
+              "start": 1.11,
+              "end": 1.43,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " draw",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " curtain,",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Nerissa.",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.85400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "come,",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "raw": "draw",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "curtain,",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "Nerissa.",
+          "start": 2.25,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "PORTIA.",
+        "Come,",
+        "draw",
+        "the",
+        "curtain,",
+        "Nerissa."
+      ],
+      "acoustic_expected_tokens": [
+        "Come,",
+        "draw",
+        "the",
+        "curtain,",
+        "Nerissa."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.11,
+          "end": 1.43,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "draw",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "curtain,",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "curtain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Nerissa.",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "nerissa",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PORTIA.",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "text": "Come,",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "text": "draw",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "curtain,",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "Nerissa.",
+          "start": 2.25,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15872339345514774
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2de9a6659e70f543a5335895e71b0dd146ea605e514328b49f12c36dc21387aa",
+  "selected_reasons": []
+}

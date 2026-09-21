@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "742052383340e739866c65e0353b0a5f141ad87a6cd84feead1e8dad5d45bca6",
+  "attempts": [
+    {
+      "asr_seconds": 0.10508832987397909,
+      "alignment_seconds": 0.0006655044853687286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To the Emperor.\"",
+        "hotwords": "To, Emperor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To the Emperor.",
+          "start": 0.0,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.34814453125
+            },
+            {
+              "text": " the",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Emperor.",
+              "start": 0.46,
+              "end": 0.76,
+              "probability": 0.8662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "the",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "Emperor.",
+          "start": 0.46,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "“To",
+        "the",
+        "Emperor.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"To",
+        "the",
+        "Emperor.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Emperor.",
+          "start": 0.46,
+          "end": 0.76,
+          "key": "emperor",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“To",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "the",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "Emperor.”",
+          "start": 0.46,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10585192311555147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5bc28e4209081027d9e7b04c1457490a950c533be5a61d1af6a3db5510831917",
+  "selected_reasons": []
+}

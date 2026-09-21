@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "50f12e885647f60af03c4715b4da9f133fd35825271ebdaf98af77faa839298f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23055950086563826,
+      "alignment_seconds": 0.001324954442679882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To the Pedant Sir, this is the gentleman I told you of;",
+        "hotwords": "To, Pedant, Sir, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To the Pedant Sir, this is the gentleman I told you of.",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Pedant",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.42684173583984375
+            },
+            {
+              "text": " Sir,",
+              "start": 1.0,
+              "end": 1.46,
+              "probability": 0.0791015625
+            },
+            {
+              "text": " this",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " is",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " gentleman",
+              "start": 2.42,
+              "end": 2.8,
+              "probability": 0.55078125
+            },
+            {
+              "text": " I",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.759765625
+            },
+            {
+              "text": " told",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of.",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "Pedant",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "raw": "this",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "is",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.42,
+          "end": 2.8
+        },
+        {
+          "raw": "I",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "told",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "of.",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "the",
+        "Pedant_]",
+        "Sir,",
+        "this",
+        "is",
+        "the",
+        "gentleman",
+        "I",
+        "told",
+        "you",
+        "of;"
+      ],
+      "acoustic_expected_tokens": [
+        "To",
+        "the",
+        "Pedant",
+        "Sir,",
+        "this",
+        "is",
+        "the",
+        "gentleman",
+        "I",
+        "told",
+        "you",
+        "of;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pedant",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "pedant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.0,
+          "end": 1.46,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.42,
+          "end": 2.8,
+          "key": "gentleman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "told",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "Pedant_]",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "Sir,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "text": "this",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "is",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "gentleman",
+          "start": 2.42,
+          "end": 2.8
+        },
+        {
+          "text": "I",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "told",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "you",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "text": "of;",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23207895085215569
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db41c2005b96acee2e1b90fea4ad14b81d8a7f1617b3127c763482d70f9132f0",
+  "selected_reasons": []
+}

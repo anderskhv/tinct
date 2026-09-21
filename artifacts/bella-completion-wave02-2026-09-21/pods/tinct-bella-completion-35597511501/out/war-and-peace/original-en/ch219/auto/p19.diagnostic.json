@@ -1,0 +1,758 @@
+{
+  "complete": true,
+  "signature": "7762cb7c8260dac74d717defe4bc7fcaaccba7789cafb463ed8285b5753bfdca",
+  "attempts": [
+    {
+      "asr_seconds": 0.2686957521364093,
+      "alignment_seconds": 0.001717638224363327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And having entered on the path of definition, of which he was fond, Napoleon suddenly and unexpectedly gave a new one.",
+        "hotwords": "Napoleon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And having entered on the path of definition, of which he was fond, Napoleon suddenly and unexpectedly gave a new one.",
+          "start": 0.0,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " having",
+              "start": 0.34,
+              "end": 0.56,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " entered",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " path",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " definition,",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " of",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " which",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fond,",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Napoleon",
+              "start": 3.86,
+              "end": 3.86,
+              "probability": 0.96875
+            },
+            {
+              "text": " suddenly",
+              "start": 3.86,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.22,
+              "end": 4.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " unexpectedly",
+              "start": 4.54,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gave",
+              "start": 5.02,
+              "end": 5.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.46,
+              "end": 5.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " new",
+              "start": 5.64,
+              "end": 5.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one.",
+              "start": 5.82,
+              "end": 6.12,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "having",
+          "start": 0.34,
+          "end": 0.56
+        },
+        {
+          "raw": "entered",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "on",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "path",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "of",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "definition,",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "which",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "he",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "was",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "fond,",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "Napoleon",
+          "start": 3.86,
+          "end": 3.86
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.86,
+          "end": 4.22
+        },
+        {
+          "raw": "and",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "raw": "unexpectedly",
+          "start": 4.54,
+          "end": 5.02
+        },
+        {
+          "raw": "gave",
+          "start": 5.02,
+          "end": 5.46
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.64
+        },
+        {
+          "raw": "new",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "raw": "one.",
+          "start": 5.82,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "having",
+        "entered",
+        "on",
+        "the",
+        "path",
+        "of",
+        "definition,",
+        "of",
+        "which",
+        "he",
+        "was",
+        "fond,",
+        "Napoleon",
+        "suddenly",
+        "and",
+        "unexpectedly",
+        "gave",
+        "a",
+        "new",
+        "one."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "having",
+        "entered",
+        "on",
+        "the",
+        "path",
+        "of",
+        "definition,",
+        "of",
+        "which",
+        "he",
+        "was",
+        "fond,",
+        "Napoleon",
+        "suddenly",
+        "and",
+        "unexpectedly",
+        "gave",
+        "a",
+        "new",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 0.34,
+          "end": 0.56,
+          "key": "having",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "entered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "path",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "path",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "definition,",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "definition",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fond,",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "fond",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 3.86,
+          "end": 3.86,
+          "key": "napoleon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.86,
+          "end": 4.22,
+          "key": "suddenly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.22,
+          "end": 4.54,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unexpectedly",
+          "start": 4.54,
+          "end": 5.02,
+          "key": "unexpectedly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 5.02,
+          "end": 5.46,
+          "key": "gave",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.64,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 5.64,
+          "end": 5.82,
+          "key": "new",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 5.82,
+          "end": 6.12,
+          "key": "one",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "having",
+          "start": 0.34,
+          "end": 0.56
+        },
+        {
+          "text": "entered",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "on",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "path",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "of",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "definition,",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "which",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "he",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "was",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "fond,",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "Napoleon",
+          "start": 3.86,
+          "end": 3.86
+        },
+        {
+          "text": "suddenly",
+          "start": 3.86,
+          "end": 4.22
+        },
+        {
+          "text": "and",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "text": "unexpectedly",
+          "start": 4.54,
+          "end": 5.02
+        },
+        {
+          "text": "gave",
+          "start": 5.02,
+          "end": 5.46
+        },
+        {
+          "text": "a",
+          "start": 5.46,
+          "end": 5.64
+        },
+        {
+          "text": "new",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "text": "one.",
+          "start": 5.82,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27062778268009424
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b2c7d15c52c53059a7b024544432d73a18e443c7736a9aa5e7c49e4bfdd27a06",
+  "selected_reasons": []
+}

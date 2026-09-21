@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "bb29092499429b5315c7ce8e594e8556841a495a7b064c2cf76cd76fe5543b50",
+  "attempts": [
+    {
+      "asr_seconds": 0.25858136266469955,
+      "alignment_seconds": 0.001593615859746933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The princess blushed, and raised her arms with a gesture of despair.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The princess blushed, and raised her arms with a gesture of despair.",
+          "start": 0.02,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.939453125
+            },
+            {
+              "text": " princess",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " blushed,",
+              "start": 0.82,
+              "end": 1.38,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " and",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " raised",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " arms",
+              "start": 2.34,
+              "end": 2.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " gesture",
+              "start": 2.94,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 1.0
+            },
+            {
+              "text": " despair.",
+              "start": 3.44,
+              "end": 3.82,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "princess",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "blushed,",
+          "start": 0.82,
+          "end": 1.38
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "raised",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "her",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "arms",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "gesture",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "raw": "of",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "despair.",
+          "start": 3.44,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "princess",
+        "blushed,",
+        "and",
+        "raised",
+        "her",
+        "arms",
+        "with",
+        "a",
+        "gesture",
+        "of",
+        "despair."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "princess",
+        "blushed,",
+        "and",
+        "raised",
+        "her",
+        "arms",
+        "with",
+        "a",
+        "gesture",
+        "of",
+        "despair."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "princess",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "princess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blushed,",
+          "start": 0.82,
+          "end": 1.38,
+          "key": "blushed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "raised",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 2.34,
+          "end": 2.64,
+          "key": "arms",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gesture",
+          "start": 2.94,
+          "end": 3.22,
+          "key": "gesture",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "despair.",
+          "start": 3.44,
+          "end": 3.82,
+          "key": "despair",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "princess",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "blushed,",
+          "start": 0.82,
+          "end": 1.38
+        },
+        {
+          "text": "and",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "raised",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "her",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "arms",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "text": "with",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "text": "gesture",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "text": "of",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "despair.",
+          "start": 3.44,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2604050375521183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "845017b64b576af846dd3e36e840cb42af47138b0f624eb9154c544df51f3ff6",
+  "selected_reasons": []
+}

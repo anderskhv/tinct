@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "a38babbe12f5bbf6b07722e7eedad23bc3b585407161dc5ed6b4e4ed65a98374",
+  "attempts": [
+    {
+      "asr_seconds": 0.22511493600904942,
+      "alignment_seconds": 0.0012645171955227852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soon after this, Ermólov moved up to Kutúzov and respectfully remarked:",
+        "hotwords": "Soon, Ermólov, Kutúzov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soon after this, Ermólov moved up to Kutúzov and respectfully remarked.",
+          "start": 0.0,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " Soon",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " after",
+              "start": 0.44,
+              "end": 0.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this,",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Ermólov",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.4851246476173401
+            },
+            {
+              "text": " moved",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " up",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Kutúzov",
+              "start": 2.38,
+              "end": 2.88,
+              "probability": 0.49060094356536865
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " respectfully",
+              "start": 3.08,
+              "end": 3.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " remarked.",
+              "start": 3.56,
+              "end": 4.06,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soon",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "after",
+          "start": 0.44,
+          "end": 0.76
+        },
+        {
+          "raw": "this,",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "Ermólov",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "moved",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "up",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "to",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 2.38,
+          "end": 2.88
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "respectfully",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "raw": "remarked.",
+          "start": 3.56,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "Soon",
+        "after",
+        "this,",
+        "Ermólov",
+        "moved",
+        "up",
+        "to",
+        "Kutúzov",
+        "and",
+        "respectfully",
+        "remarked:"
+      ],
+      "acoustic_expected_tokens": [
+        "Soon",
+        "after",
+        "this,",
+        "Ermólov",
+        "moved",
+        "up",
+        "to",
+        "Kutúzov",
+        "and",
+        "respectfully",
+        "remarked:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soon",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "soon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 0.44,
+          "end": 0.76,
+          "key": "after",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 0.76,
+          "end": 1.08,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ermólov",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "ermólov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "moved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 2.38,
+          "end": 2.88,
+          "key": "kutúzov",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "respectfully",
+          "start": 3.08,
+          "end": 3.56,
+          "key": "respectfully",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "remarked.",
+          "start": 3.56,
+          "end": 4.06,
+          "key": "remarked",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Soon",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "after",
+          "start": 0.44,
+          "end": 0.76
+        },
+        {
+          "text": "this,",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "Ermólov",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "moved",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "up",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "to",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "Kutúzov",
+          "start": 2.38,
+          "end": 2.88
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "respectfully",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "text": "remarked:",
+          "start": 3.56,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2265564277768135
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "187985b7befe76bdde7b5ce9ea40f94b308d903fef3c1dcda8b2a4adc0959d39",
+  "selected_reasons": []
+}

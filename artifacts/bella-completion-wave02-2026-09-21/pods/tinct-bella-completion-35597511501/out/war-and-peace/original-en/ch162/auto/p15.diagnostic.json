@@ -1,0 +1,2774 @@
+{
+  "complete": true,
+  "signature": "3629ac8ea0f90ce50dca93761994469c644be39efb28811eb8cd03693176b0f4",
+  "attempts": [
+    {
+      "asr_seconds": 4.256368274800479,
+      "alignment_seconds": 0.00405456405133009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Fool, I told you the sable one! Hey, Matrëna, the sable!\" he shouted so that his voice rang far through the rooms.",
+        "hotwords": "Fool, I, Hey, Matrëna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool, I told you the sable one! Hey, Matrëna, the sable!\" he shouted so that his voice rang far through the rooms.",
+          "start": 0.0,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.1268310546875
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " told",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " sable",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " one!",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Hey,",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " Matrëna,",
+              "start": 3.52,
+              "end": 3.9,
+              "probability": 0.48293034732341766
+            },
+            {
+              "text": " the",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " sable",
+              "start": 4.22,
+              "end": 4.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": "!\"",
+              "start": 4.58,
+              "end": 4.9,
+              "probability": 0.2440185546875
+            },
+            {
+              "text": " he",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " shouted",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 5.26,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 5.7,
+              "end": 5.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " voice",
+              "start": 5.86,
+              "end": 6.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rang",
+              "start": 6.14,
+              "end": 6.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " far",
+              "start": 6.44,
+              "end": 6.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " through",
+              "start": 6.8,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rooms.",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Fool, I told you the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the sable one! Hey, Matrëna, the s",
+          "start": 7.44,
+          "end": 8.5,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 7.44,
+              "end": 8.5,
+              "probability": 1.7881393432617188e-06
+            },
+            {
+              "text": " I",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.041961669921875
+            },
+            {
+              "text": " told",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.003452301025390625
+            },
+            {
+              "text": " you",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.0208282470703125
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.00047779083251953125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.005138397216796875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.0019235610961914062
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.0043450891971588135
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.009063720703125
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.5044937133789062
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.396484375
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.0280303955078125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.76483154296875
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.87890625
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9375
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.409912109375
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.935546875
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9561767578125
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9664306640625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9693603515625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9715576171875
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9710693359375
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9686279296875
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9683837890625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9609375
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9576416015625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sable",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " one!",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Hey,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Matrëna,",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " s",
+              "start": 8.5,
+              "end": 8.5,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "told",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "you",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "the",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "sable",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "raw": "one!",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "sable",
+          "start": 4.22,
+          "end": 4.58
+        },
+        {
+          "raw": "!\"",
+          "start": 4.58,
+          "end": 4.9
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "shouted",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "so",
+          "start": 5.26,
+          "end": 5.56
+        },
+        {
+          "raw": "that",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "raw": "his",
+          "start": 5.7,
+          "end": 5.86
+        },
+        {
+          "raw": "voice",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "raw": "rang",
+          "start": 6.14,
+          "end": 6.44
+        },
+        {
+          "raw": "far",
+          "start": 6.44,
+          "end": 6.8
+        },
+        {
+          "raw": "through",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "raw": "the",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "rooms.",
+          "start": 7.18,
+          "end": 7.44
+        },
+        {
+          "raw": "Fool,",
+          "start": 7.44,
+          "end": 8.5
+        },
+        {
+          "raw": "I",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "told",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "you",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5
+        },
+        {
+          "raw": "s",
+          "start": 8.5,
+          "end": 8.5
+        }
+      ],
+      "expected_tokens": [
+        "“Fool,",
+        "I",
+        "told",
+        "you",
+        "the",
+        "sable",
+        "one!",
+        "Hey,",
+        "Matrëna,",
+        "the",
+        "sable!”",
+        "he",
+        "shouted",
+        "so",
+        "that",
+        "his",
+        "voice",
+        "rang",
+        "far",
+        "through",
+        "the",
+        "rooms."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Fool,",
+        "I",
+        "told",
+        "you",
+        "the",
+        "sable",
+        "one!",
+        "Hey,",
+        "Matrëna,",
+        "the",
+        "sable!\"",
+        "he",
+        "shouted",
+        "so",
+        "that",
+        "his",
+        "voice",
+        "rang",
+        "far",
+        "through",
+        "the",
+        "rooms."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "insert",
+          11,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          22,
+          12,
+          23
+        ],
+        [
+          "insert",
+          22,
+          22,
+          23,
+          119
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          11,
+          11,
+          11,
+          12
+        ],
+        [
+          "insert",
+          22,
+          22,
+          23,
+          119
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "told",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 1.34,
+          "end": 1.62,
+          "key": "sable",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "hey",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 3.52,
+          "end": 3.9,
+          "key": "matrëna",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 4.22,
+          "end": 4.58,
+          "key": "sable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 4.58,
+          "end": 4.9,
+          "key": "",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "shouted",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.26,
+          "end": 5.56,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.56,
+          "end": 5.7,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.7,
+          "end": 5.86,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 5.86,
+          "end": 6.14,
+          "key": "voice",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "rang",
+          "start": 6.14,
+          "end": 6.44,
+          "key": "rang",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 6.44,
+          "end": 6.8,
+          "key": "far",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 6.8,
+          "end": 7.04,
+          "key": "through",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "rooms.",
+          "start": 7.18,
+          "end": 7.44,
+          "key": "rooms",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Fool,",
+          "start": 7.44,
+          "end": 8.5,
+          "key": "fool",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "told",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "sable",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "sable",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "one",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "Hey,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "hey",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "Matrëna,",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "matrëna",
+          "pieces": [
+            116
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "the",
+          "pieces": [
+            117
+          ]
+        },
+        {
+          "raw": "s",
+          "start": 8.5,
+          "end": 8.5,
+          "key": "s",
+          "pieces": [
+            118
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Fool,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "told",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "you",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "the",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "sable",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "text": "one!",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "text": "Hey,",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "Matrëna,",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "text": "the",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "sable!”",
+          "start": 4.22,
+          "end": 4.58
+        },
+        {
+          "text": "he",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "shouted",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "so",
+          "start": 5.26,
+          "end": 5.56
+        },
+        {
+          "text": "that",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "his",
+          "start": 5.7,
+          "end": 5.86
+        },
+        {
+          "text": "voice",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "text": "rang",
+          "start": 6.14,
+          "end": 6.44
+        },
+        {
+          "text": "far",
+          "start": 6.44,
+          "end": 6.8
+        },
+        {
+          "text": "through",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "text": "the",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "rooms.",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 119,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.262092564254999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "441d0a044f26ae87bd4b76c01dafe8d677ef6637d1f17ca89ce12de6a26c83d8",
+  "selected_reasons": []
+}

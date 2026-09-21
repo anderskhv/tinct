@@ -1,0 +1,305 @@
+{
+  "complete": true,
+  "signature": "8c66beed5b63712bf17af2c680e61daed2ac576cdcfa0bcf5fed76d4f9dfece2",
+  "attempts": [
+    {
+      "asr_seconds": 0.25821679551154375,
+      "alignment_seconds": 0.0010521747171878815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't talk nonsense!\" cried Márya Dmítrievna.",
+        "hotwords": "Don't, Márya, Dmítrievna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't talk nonsense!\" cried Márya Dmítrievna.",
+          "start": 0.0,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.533447265625
+            },
+            {
+              "text": " talk",
+              "start": 0.46,
+              "end": 0.62,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " nonsense",
+              "start": 0.62,
+              "end": 1.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "!\"",
+              "start": 1.04,
+              "end": 1.64,
+              "probability": 0.09912109375
+            },
+            {
+              "text": " cried",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Márya",
+              "start": 1.76,
+              "end": 2.14,
+              "probability": 0.03569316864013672
+            },
+            {
+              "text": " Dmítrievna.",
+              "start": 2.14,
+              "end": 2.78,
+              "probability": 0.2205810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "talk",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "raw": "nonsense",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "raw": "!\"",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "raw": "cried",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "Márya",
+          "start": 1.76,
+          "end": 2.14
+        },
+        {
+          "raw": "Dmítrievna.",
+          "start": 2.14,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "“Don’t",
+        "talk",
+        "nonsense!”",
+        "cried",
+        "Márya",
+        "Dmítrievna."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Don't",
+        "talk",
+        "nonsense!\"",
+        "cried",
+        "Márya",
+        "Dmítrievna."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 0.46,
+          "end": 0.62,
+          "key": "talk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nonsense",
+          "start": 0.62,
+          "end": 1.04,
+          "key": "nonsense",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.04,
+          "end": 1.64,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Márya",
+          "start": 1.76,
+          "end": 2.14,
+          "key": "márya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dmítrievna.",
+          "start": 2.14,
+          "end": 2.78,
+          "key": "dmítrievna",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Don’t",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "talk",
+          "start": 0.46,
+          "end": 0.62
+        },
+        {
+          "text": "nonsense!”",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "text": "cried",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "Márya",
+          "start": 1.76,
+          "end": 2.14
+        },
+        {
+          "text": "Dmítrievna.",
+          "start": 2.14,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2594089647755027
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cac38f3d71f1fb10e28f8d784b2deaf91b8d75b585e3de5a1d91df695b61f5fa",
+  "selected_reasons": []
+}

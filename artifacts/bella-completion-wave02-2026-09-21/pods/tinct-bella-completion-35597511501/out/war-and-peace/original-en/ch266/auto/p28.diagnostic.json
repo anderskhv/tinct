@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "0d99241a14b9063759ebee5f717fb4cf9b0af996a0294b9e8b8674969bb24233",
+  "attempts": [
+    {
+      "asr_seconds": 0.15441555809229612,
+      "alignment_seconds": 0.0010605193674564362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the Emperor paused, with a frown.",
+        "hotwords": "And, Emperor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the Emperor paused, with a frown.",
+          "start": 0.0,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.27392578125
+            },
+            {
+              "text": " the",
+              "start": 0.36,
+              "end": 0.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Emperor",
+              "start": 0.48,
+              "end": 0.78,
+              "probability": 0.356689453125
+            },
+            {
+              "text": " paused,",
+              "start": 0.78,
+              "end": 1.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 1.5,
+              "end": 1.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " frown.",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "the",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "raw": "Emperor",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "raw": "paused,",
+          "start": 0.78,
+          "end": 1.24
+        },
+        {
+          "raw": "with",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "raw": "a",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "frown.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "Emperor",
+        "paused,",
+        "with",
+        "a",
+        "frown."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "the",
+        "Emperor",
+        "paused,",
+        "with",
+        "a",
+        "frown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.36,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 0.48,
+          "end": 0.78,
+          "key": "emperor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "paused,",
+          "start": 0.78,
+          "end": 1.24,
+          "key": "paused",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.5,
+          "end": 1.58,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "frown.",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "frown",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "the",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "text": "Emperor",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "text": "paused,",
+          "start": 0.78,
+          "end": 1.24
+        },
+        {
+          "text": "with",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "text": "a",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "frown.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15562816429883242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa32f29bea7dfea4c22ca7f5e3b28cb3f96fe7ad9bb38fe84d3d7bd609eec323",
+  "selected_reasons": []
+}

@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "7c30550ccc620dcae97d2f9c8b293b40657a0ad7c5c504b6aa542e75a7cbd135",
+  "attempts": [
+    {
+      "asr_seconds": 0.08036201354116201,
+      "alignment_seconds": 4.826299846172333e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall",
+          "start": 0.0,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.306884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.0,
+          "end": 0.7
+        }
+      ],
+      "expected_tokens": [
+        "SHALLOW."
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHALLOW.",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08045063726603985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f75e4766b6bed3d74395c47eaa37a6cae920f2af79ad524abaffcc637a81075",
+  "selected_reasons": []
+}

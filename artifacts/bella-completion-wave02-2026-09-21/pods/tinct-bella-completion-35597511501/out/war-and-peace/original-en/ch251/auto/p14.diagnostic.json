@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "823c8d774a9085fe433ee2d191bae6ecb52c603788792ebb41a9f8c6f55e82a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.317009512335062,
+      "alignment_seconds": 0.002368682064116001,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mávra Kuzmínichna opened the gate and an officer of eighteen, with the round face of a Rostóv, entered the yard.",
+        "hotwords": "Mávra, Kuzmínichna, Rostóv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mávra Kuzmínichna opened the gate and an officer of eighteen, with the round face of a Rostóv, entered the yard.",
+          "start": 0.0,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " Mávra",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.1946697235107422
+            },
+            {
+              "text": " Kuzmínichna",
+              "start": 0.6,
+              "end": 1.16,
+              "probability": 0.2584584554036458
+            },
+            {
+              "text": " opened",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gate",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " an",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " officer",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " of",
+              "start": 2.36,
+              "end": 2.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " eighteen,",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " with",
+              "start": 3.32,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " round",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " face",
+              "start": 3.76,
+              "end": 4.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Rostóv,",
+              "start": 4.32,
+              "end": 4.86,
+              "probability": 0.2143268585205078
+            },
+            {
+              "text": " entered",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 5.26,
+              "end": 5.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yard.",
+              "start": 5.44,
+              "end": 5.76,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "raw": "opened",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "gate",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "an",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "officer",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "raw": "eighteen,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "with",
+          "start": 3.32,
+          "end": 3.4
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "round",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "raw": "face",
+          "start": 3.76,
+          "end": 4.04
+        },
+        {
+          "raw": "of",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "raw": "Rostóv,",
+          "start": 4.32,
+          "end": 4.86
+        },
+        {
+          "raw": "entered",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "raw": "yard.",
+          "start": 5.44,
+          "end": 5.76
+        }
+      ],
+      "expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "opened",
+        "the",
+        "gate",
+        "and",
+        "an",
+        "officer",
+        "of",
+        "eighteen,",
+        "with",
+        "the",
+        "round",
+        "face",
+        "of",
+        "a",
+        "Rostóv,",
+        "entered",
+        "the",
+        "yard."
+      ],
+      "acoustic_expected_tokens": [
+        "Mávra",
+        "Kuzmínichna",
+        "opened",
+        "the",
+        "gate",
+        "and",
+        "an",
+        "officer",
+        "of",
+        "eighteen,",
+        "with",
+        "the",
+        "round",
+        "face",
+        "of",
+        "a",
+        "Rostóv,",
+        "entered",
+        "the",
+        "yard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mávra",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "mávra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.16,
+          "key": "kuzmínichna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "opened",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "gate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "officer",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.62,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eighteen,",
+          "start": 2.62,
+          "end": 2.98,
+          "key": "eighteen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.32,
+          "end": 3.4,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "round",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.76,
+          "end": 4.04,
+          "key": "face",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.32,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Rostóv,",
+          "start": 4.32,
+          "end": 4.86,
+          "key": "rostóv",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "entered",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "yard.",
+          "start": 5.44,
+          "end": 5.76,
+          "key": "yard",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Mávra",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Kuzmínichna",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "text": "opened",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "gate",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "an",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "officer",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "of",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "text": "eighteen,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "with",
+          "start": 3.32,
+          "end": 3.4
+        },
+        {
+          "text": "the",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "round",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "text": "face",
+          "start": 3.76,
+          "end": 4.04
+        },
+        {
+          "text": "of",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "a",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "text": "Rostóv,",
+          "start": 4.32,
+          "end": 4.86
+        },
+        {
+          "text": "entered",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "the",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "text": "yard.",
+          "start": 5.44,
+          "end": 5.76
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31971095874905586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9836b71238bfa131ce67c19c7f5f44bea148833d5254734f953478aa13ffd564",
+  "selected_reasons": []
+}

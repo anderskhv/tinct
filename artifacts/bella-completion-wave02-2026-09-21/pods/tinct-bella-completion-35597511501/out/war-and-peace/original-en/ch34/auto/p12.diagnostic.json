@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "4b63effe30fa4f3036bf7845b3ac8d6c7651889a1f6fc4f45f9bfdaf34ba0992",
+  "attempts": [
+    {
+      "asr_seconds": 0.2869577305391431,
+      "alignment_seconds": 0.0014454768970608711,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Meanwhile the staff officer standing in front pointed out something to the general, who looked through his field glass.",
+        "hotwords": "Meanwhile"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Meanwhile the staff officer standing in front pointed out something to the general, who looked through his field glass.",
+          "start": 0.0,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " Meanwhile",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " staff",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " officer",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " standing",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " front",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pointed",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " something",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.18,
+              "end": 3.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " general,",
+              "start": 3.58,
+              "end": 3.9,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " who",
+              "start": 4.24,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " looked",
+              "start": 4.34,
+              "end": 4.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " through",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " field",
+              "start": 5.0,
+              "end": 5.3,
+              "probability": 0.978515625
+            },
+            {
+              "text": " glass.",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "staff",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "raw": "officer",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "standing",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "raw": "in",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "front",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "pointed",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "raw": "out",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "something",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "to",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "general,",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "raw": "who",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "raw": "looked",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "raw": "through",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "raw": "his",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "field",
+          "start": 5.0,
+          "end": 5.3
+        },
+        {
+          "raw": "glass.",
+          "start": 5.3,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "Meanwhile",
+        "the",
+        "staff",
+        "officer",
+        "standing",
+        "in",
+        "front",
+        "pointed",
+        "out",
+        "something",
+        "to",
+        "the",
+        "general,",
+        "who",
+        "looked",
+        "through",
+        "his",
+        "field",
+        "glass."
+      ],
+      "acoustic_expected_tokens": [
+        "Meanwhile",
+        "the",
+        "staff",
+        "officer",
+        "standing",
+        "in",
+        "front",
+        "pointed",
+        "out",
+        "something",
+        "to",
+        "the",
+        "general,",
+        "who",
+        "looked",
+        "through",
+        "his",
+        "field",
+        "glass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Meanwhile",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "meanwhile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "staff",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "staff",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "officer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "standing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "front",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "front",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pointed",
+          "start": 2.32,
+          "end": 2.7,
+          "key": "pointed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "something",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.18,
+          "end": 3.44,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 3.58,
+          "end": 3.9,
+          "key": "general",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.24,
+          "end": 4.34,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 4.34,
+          "end": 4.5,
+          "key": "looked",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "through",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "field",
+          "start": 5.0,
+          "end": 5.3,
+          "key": "field",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "glass.",
+          "start": 5.3,
+          "end": 5.66,
+          "key": "glass",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Meanwhile",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "staff",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "text": "officer",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "standing",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "text": "in",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "front",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "pointed",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "text": "out",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "something",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "to",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "general,",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "text": "who",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "text": "looked",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "text": "through",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "text": "his",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "field",
+          "start": 5.0,
+          "end": 5.3
+        },
+        {
+          "text": "glass.",
+          "start": 5.3,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2885994678363204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35067f297fcace96eb4cfb839a417370e5bcd4bf7d1a6c061eb130ca6d828486",
+  "selected_reasons": []
+}

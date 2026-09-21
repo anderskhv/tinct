@@ -1,0 +1,226 @@
+{
+  "complete": true,
+  "signature": "a55e5169b553646d96d9c6c211fda9a14ec51958c1f60af2af28604466834e1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2503343243151903,
+      "alignment_seconds": 0.0007033990696072578,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who?\" asked Rostóv.",
+        "hotwords": "Who, Rostóv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who asked Rostóv.",
+          "start": 0.0,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " asked",
+              "start": 0.46,
+              "end": 0.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Rostóv.",
+              "start": 0.94,
+              "end": 1.64,
+              "probability": 0.34325377146402997
+            }
+          ]
+        },
+        {
+          "text": " Who, Rostóv",
+          "start": 1.64,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Who,",
+              "start": 1.64,
+              "end": 2.46,
+              "probability": 0.00012362003326416016
+            },
+            {
+              "text": " Rostóv",
+              "start": 2.46,
+              "end": 2.46,
+              "probability": 0.00023724635442097983
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "raw": "asked",
+          "start": 0.46,
+          "end": 0.94
+        },
+        {
+          "raw": "Rostóv.",
+          "start": 0.94,
+          "end": 1.64
+        },
+        {
+          "raw": "Who,",
+          "start": 1.64,
+          "end": 2.46
+        },
+        {
+          "raw": "Rostóv",
+          "start": 2.46,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "“Who?”",
+        "asked",
+        "Rostóv."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Who?\"",
+        "asked",
+        "Rostóv."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.0,
+          "end": 0.46,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.46,
+          "end": 0.94,
+          "key": "asked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rostóv.",
+          "start": 0.94,
+          "end": 1.64,
+          "key": "rostóv",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Who,",
+          "start": 1.64,
+          "end": 2.46,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rostóv",
+          "start": 2.46,
+          "end": 2.46,
+          "key": "rostóv",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Who?”",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "asked",
+          "start": 0.46,
+          "end": 0.94
+        },
+        {
+          "text": "Rostóv.",
+          "start": 0.94,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25117940828204155
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a288b976970f03de24e79255d2e0685c1578e48271a93f4bdc542a43063a0396",
+  "selected_reasons": []
+}

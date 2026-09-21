@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "8dd604a38e1cbc9c4edfbb80a1a87493deb769be932852f977b3c49e6629af5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19858818408101797,
+      "alignment_seconds": 0.0011040549725294113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Too hot!\" she replied, blushing with pleasure.",
+        "hotwords": "Too"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Too hot! she replied, blushing with pleasure.",
+          "start": 0.0,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Too",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.11846923828125
+            },
+            {
+              "text": " hot!",
+              "start": 0.42,
+              "end": 0.72,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " she",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " replied,",
+              "start": 1.08,
+              "end": 1.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blushing",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pleasure.",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Too",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "hot!",
+          "start": 0.42,
+          "end": 0.72
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "replied,",
+          "start": 1.08,
+          "end": 1.5
+        },
+        {
+          "raw": "blushing",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "with",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "raw": "pleasure.",
+          "start": 2.44,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "“Too",
+        "hot!”",
+        "she",
+        "replied,",
+        "blushing",
+        "with",
+        "pleasure."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Too",
+        "hot!\"",
+        "she",
+        "replied,",
+        "blushing",
+        "with",
+        "pleasure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Too",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "too",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hot!",
+          "start": 0.42,
+          "end": 0.72,
+          "key": "hot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied,",
+          "start": 1.08,
+          "end": 1.5,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blushing",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "blushing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pleasure.",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "pleasure",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Too",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "hot!”",
+          "start": 0.42,
+          "end": 0.72
+        },
+        {
+          "text": "she",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "replied,",
+          "start": 1.08,
+          "end": 1.5
+        },
+        {
+          "text": "blushing",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "with",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "pleasure.",
+          "start": 2.44,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19985494669526815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2cf0273673581d891892b67a3169311a2f3b6010f1e0f2e1fdd1bb66b0d17b0",
+  "selected_reasons": []
+}

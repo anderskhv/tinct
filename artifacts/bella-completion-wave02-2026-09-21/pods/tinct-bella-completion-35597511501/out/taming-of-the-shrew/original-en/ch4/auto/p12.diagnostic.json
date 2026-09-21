@@ -1,0 +1,4926 @@
+{
+  "complete": true,
+  "signature": "a59c74bc99fd342fbe7db6b01a0d98ffa2909982f477a459615dba48fc9ababa",
+  "attempts": [
+    {
+      "asr_seconds": 3.5213982267305255,
+      "alignment_seconds": 0.011634484864771366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Hic ibat_, as I told you before, _Simois_, I am Lucentio, _hic est_, son unto Vincentio of Pisa, _Sigeia tellus_, disguised thus to get your love, _Hic steterat_, and that Lucentio that comes a-wooing, _Priami_, is my man Tranio, _regia_, bearing my port, _celsa senis_, that we might beguile the old pantaloon.",
+        "hotwords": "I, Lucentio, Vincentio, Pisa, Tranio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, Lucentio, Pisa, Tranio, Tranio, Tranio, Tranio, Tranio, Tranio,",
+          "start": 0.05,
+          "end": 21.47,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.0023136138916015625
+            },
+            {
+              "text": " Lucentio,",
+              "start": 1.67,
+              "end": 5.05,
+              "probability": 0.6372552712758383
+            },
+            {
+              "text": " Pisa,",
+              "start": 6.19,
+              "end": 7.59,
+              "probability": 0.0005036592483520508
+            },
+            {
+              "text": " Tranio,",
+              "start": 8.23,
+              "end": 13.71,
+              "probability": 0.32176899909973145
+            },
+            {
+              "text": " Tranio,",
+              "start": 13.71,
+              "end": 13.77,
+              "probability": 0.6246795654296875
+            },
+            {
+              "text": " Tranio,",
+              "start": 13.77,
+              "end": 14.65,
+              "probability": 0.7374674479166666
+            },
+            {
+              "text": " Tranio,",
+              "start": 14.91,
+              "end": 15.89,
+              "probability": 0.7930501302083334
+            },
+            {
+              "text": " Tranio,",
+              "start": 16.05,
+              "end": 16.33,
+              "probability": 0.8317057291666666
+            },
+            {
+              "text": " Tranio,",
+              "start": 16.71,
+              "end": 21.47,
+              "probability": 0.8619791666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.67,
+          "end": 5.05
+        },
+        {
+          "raw": "Pisa,",
+          "start": 6.19,
+          "end": 7.59
+        },
+        {
+          "raw": "Tranio,",
+          "start": 8.23,
+          "end": 13.71
+        },
+        {
+          "raw": "Tranio,",
+          "start": 13.71,
+          "end": 13.77
+        },
+        {
+          "raw": "Tranio,",
+          "start": 13.77,
+          "end": 14.65
+        },
+        {
+          "raw": "Tranio,",
+          "start": 14.91,
+          "end": 15.89
+        },
+        {
+          "raw": "Tranio,",
+          "start": 16.05,
+          "end": 16.33
+        },
+        {
+          "raw": "Tranio,",
+          "start": 16.71,
+          "end": 21.47
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "acoustic_expected_tokens": [
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          4,
+          0,
+          1
+        ],
+        [
+          "delete",
+          4,
+          10,
+          1,
+          1
+        ],
+        [
+          "equal",
+          10,
+          11,
+          1,
+          2
+        ],
+        [
+          "delete",
+          11,
+          17,
+          2,
+          2
+        ],
+        [
+          "equal",
+          17,
+          18,
+          2,
+          3
+        ],
+        [
+          "delete",
+          18,
+          38,
+          3,
+          3
+        ],
+        [
+          "equal",
+          38,
+          39,
+          3,
+          4
+        ],
+        [
+          "replace",
+          39,
+          52,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "delete",
+          4,
+          10,
+          1,
+          1
+        ],
+        [
+          "delete",
+          11,
+          17,
+          2,
+          2
+        ],
+        [
+          "delete",
+          18,
+          38,
+          3,
+          3
+        ],
+        [
+          "replace",
+          39,
+          52,
+          4,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 1.67,
+          "end": 5.05,
+          "key": "lucentio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pisa,",
+          "start": 6.19,
+          "end": 7.59,
+          "key": "pisa",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 8.23,
+          "end": 13.71,
+          "key": "tranio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 13.71,
+          "end": 13.77,
+          "key": "tranio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 13.77,
+          "end": 14.65,
+          "key": "tranio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 14.91,
+          "end": 15.89,
+          "key": "tranio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 16.05,
+          "end": 16.33,
+          "key": "tranio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 16.71,
+          "end": 21.47,
+          "key": "tranio",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "_Hic",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "ibat_,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "as",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "told",
+          "start": 0.73,
+          "end": 1.2
+        },
+        {
+          "text": "you",
+          "start": 1.2,
+          "end": 1.435
+        },
+        {
+          "text": "before,",
+          "start": 1.435,
+          "end": 1.552
+        },
+        {
+          "text": "_Simois_,",
+          "start": 1.552,
+          "end": 1.611
+        },
+        {
+          "text": "I",
+          "start": 1.611,
+          "end": 1.64
+        },
+        {
+          "text": "am",
+          "start": 1.64,
+          "end": 1.655
+        },
+        {
+          "text": "Lucentio,",
+          "start": 1.67,
+          "end": 5.05
+        },
+        {
+          "text": "_hic",
+          "start": 5.05,
+          "end": 5.62
+        },
+        {
+          "text": "est_,",
+          "start": 5.62,
+          "end": 5.905
+        },
+        {
+          "text": "son",
+          "start": 5.905,
+          "end": 6.048
+        },
+        {
+          "text": "unto",
+          "start": 6.048,
+          "end": 6.119
+        },
+        {
+          "text": "Vincentio",
+          "start": 6.119,
+          "end": 6.155
+        },
+        {
+          "text": "of",
+          "start": 6.155,
+          "end": 6.173
+        },
+        {
+          "text": "Pisa,",
+          "start": 6.19,
+          "end": 7.59
+        },
+        {
+          "text": "_Sigeia",
+          "start": 7.59,
+          "end": 7.91
+        },
+        {
+          "text": "tellus_,",
+          "start": 7.91,
+          "end": 8.07
+        },
+        {
+          "text": "disguised",
+          "start": 8.07,
+          "end": 8.15
+        },
+        {
+          "text": "thus",
+          "start": 8.15,
+          "end": 8.19
+        },
+        {
+          "text": "to",
+          "start": 8.19,
+          "end": 8.21
+        },
+        {
+          "text": "get",
+          "start": 8.21,
+          "end": 8.22
+        },
+        {
+          "text": "your",
+          "start": 8.22,
+          "end": 8.225
+        },
+        {
+          "text": "love,",
+          "start": 8.225,
+          "end": 8.227
+        },
+        {
+          "text": "_Hic",
+          "start": 8.227,
+          "end": 8.229
+        },
+        {
+          "text": "steterat_,",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "and",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "that",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "Lucentio",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "that",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "comes",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "a-wooing,",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "_Priami_,",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "is",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "my",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "man",
+          "start": 8.229,
+          "end": 8.229
+        },
+        {
+          "text": "Tranio,",
+          "start": 8.23,
+          "end": 13.71
+        },
+        {
+          "text": "_regia_,",
+          "start": 13.71,
+          "end": 17.59
+        },
+        {
+          "text": "bearing",
+          "start": 17.59,
+          "end": 19.53
+        },
+        {
+          "text": "my",
+          "start": 19.53,
+          "end": 20.5
+        },
+        {
+          "text": "port,",
+          "start": 20.5,
+          "end": 20.985
+        },
+        {
+          "text": "_celsa",
+          "start": 20.985,
+          "end": 21.227
+        },
+        {
+          "text": "senis_,",
+          "start": 21.227,
+          "end": 21.349
+        },
+        {
+          "text": "that",
+          "start": 21.349,
+          "end": 21.41
+        },
+        {
+          "text": "we",
+          "start": 21.41,
+          "end": 21.44
+        },
+        {
+          "text": "might",
+          "start": 21.44,
+          "end": 21.455
+        },
+        {
+          "text": "beguile",
+          "start": 21.455,
+          "end": 21.462
+        },
+        {
+          "text": "the",
+          "start": 21.462,
+          "end": 21.466
+        },
+        {
+          "text": "old",
+          "start": 21.466,
+          "end": 21.468
+        },
+        {
+          "text": "pantaloon.",
+          "start": 21.468,
+          "end": 21.469
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.07692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.533235519193113
+    },
+    {
+      "asr_seconds": 0.6863297037780285,
+      "alignment_seconds": 0.0030015120282769203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Lucentio, Vincentio, Pisa, Tranio"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lucentio, hic I bet, as I told you before, Simwa, I am Lucentio, hic est, son unto Vincentio",
+          "start": 0.05,
+          "end": 7.19,
+          "words": [
+            {
+              "text": " Lucentio,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.6648050944010416
+            },
+            {
+              "text": " hic",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.5667724609375
+            },
+            {
+              "text": " I",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " bet,",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " as",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.962890625
+            },
+            {
+              "text": " I",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " told",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " before,",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Simwa,",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.312255859375
+            },
+            {
+              "text": " I",
+              "start": 4.17,
+              "end": 4.25,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " am",
+              "start": 4.25,
+              "end": 4.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Lucentio,",
+              "start": 4.37,
+              "end": 5.01,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " hic",
+              "start": 5.23,
+              "end": 5.29,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " est,",
+              "start": 5.29,
+              "end": 5.61,
+              "probability": 0.95703125
+            },
+            {
+              "text": " son",
+              "start": 6.13,
+              "end": 6.23,
+              "probability": 0.7421875
+            },
+            {
+              "text": " unto",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " Vincentio",
+              "start": 6.51,
+              "end": 7.19,
+              "probability": 0.6676025390625
+            }
+          ]
+        },
+        {
+          "text": " of Pisa, Psygeotelis, disguised thus to get your love, hic Steterat, and that Lucentio",
+          "start": 7.19,
+          "end": 13.09,
+          "words": [
+            {
+              "text": " of",
+              "start": 7.19,
+              "end": 7.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Pisa,",
+              "start": 7.33,
+              "end": 7.77,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " Psygeotelis,",
+              "start": 8.13,
+              "end": 8.89,
+              "probability": 0.489935302734375
+            },
+            {
+              "text": " disguised",
+              "start": 9.19,
+              "end": 9.53,
+              "probability": 0.3662109375
+            },
+            {
+              "text": " thus",
+              "start": 9.53,
+              "end": 9.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.89,
+              "end": 10.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " get",
+              "start": 10.07,
+              "end": 10.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 10.19,
+              "end": 10.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " love,",
+              "start": 10.37,
+              "end": 10.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " hic",
+              "start": 11.13,
+              "end": 11.19,
+              "probability": 0.953369140625
+            },
+            {
+              "text": " Steterat,",
+              "start": 11.19,
+              "end": 11.81,
+              "probability": 0.5113118489583334
+            },
+            {
+              "text": " and",
+              "start": 12.17,
+              "end": 12.35,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " that",
+              "start": 12.35,
+              "end": 12.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Lucentio",
+              "start": 12.49,
+              "end": 13.09,
+              "probability": 0.9934895833333334
+            }
+          ]
+        },
+        {
+          "text": " that comes a-wooing, Priamie, is my man Tranio, Regia, bearing my port, Celcicinis, that we",
+          "start": 13.09,
+          "end": 19.19,
+          "words": [
+            {
+              "text": " that",
+              "start": 13.09,
+              "end": 13.29,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " comes",
+              "start": 13.29,
+              "end": 13.51,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " a",
+              "start": 13.51,
+              "end": 13.69,
+              "probability": 0.80224609375
+            },
+            {
+              "text": "-wooing,",
+              "start": 13.69,
+              "end": 14.09,
+              "probability": 0.8125
+            },
+            {
+              "text": " Priamie,",
+              "start": 14.25,
+              "end": 14.63,
+              "probability": 0.436767578125
+            },
+            {
+              "text": " is",
+              "start": 14.81,
+              "end": 14.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 14.95,
+              "end": 15.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " man",
+              "start": 15.13,
+              "end": 15.37,
+              "probability": 0.2061767578125
+            },
+            {
+              "text": " Tranio,",
+              "start": 15.37,
+              "end": 15.87,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Regia,",
+              "start": 16.03,
+              "end": 16.37,
+              "probability": 0.58416748046875
+            },
+            {
+              "text": " bearing",
+              "start": 16.75,
+              "end": 16.87,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " my",
+              "start": 16.87,
+              "end": 17.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " port,",
+              "start": 17.21,
+              "end": 17.57,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Celcicinis,",
+              "start": 17.95,
+              "end": 18.53,
+              "probability": 0.306488037109375
+            },
+            {
+              "text": " that",
+              "start": 18.93,
+              "end": 19.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " we",
+              "start": 19.03,
+              "end": 19.19,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " might beguile the old pantaloon.",
+          "start": 19.19,
+          "end": 20.81,
+          "words": [
+            {
+              "text": " might",
+              "start": 19.19,
+              "end": 19.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beguile",
+              "start": 19.39,
+              "end": 19.75,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " the",
+              "start": 19.75,
+              "end": 19.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " old",
+              "start": 19.89,
+              "end": 20.15,
+              "probability": 0.892578125
+            },
+            {
+              "text": " pantaloon.",
+              "start": 20.15,
+              "end": 20.81,
+              "probability": 0.68359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "hic",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "bet,",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "before,",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "raw": "Simwa,",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "raw": "am",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01
+        },
+        {
+          "raw": "hic",
+          "start": 5.23,
+          "end": 5.29
+        },
+        {
+          "raw": "est,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "raw": "son",
+          "start": 6.13,
+          "end": 6.23
+        },
+        {
+          "raw": "unto",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "Vincentio",
+          "start": 6.51,
+          "end": 7.19
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "raw": "Pisa,",
+          "start": 7.33,
+          "end": 7.77
+        },
+        {
+          "raw": "Psygeotelis,",
+          "start": 8.13,
+          "end": 8.89
+        },
+        {
+          "raw": "disguised",
+          "start": 9.19,
+          "end": 9.53
+        },
+        {
+          "raw": "thus",
+          "start": 9.53,
+          "end": 9.89
+        },
+        {
+          "raw": "to",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "raw": "get",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "raw": "your",
+          "start": 10.19,
+          "end": 10.37
+        },
+        {
+          "raw": "love,",
+          "start": 10.37,
+          "end": 10.67
+        },
+        {
+          "raw": "hic",
+          "start": 11.13,
+          "end": 11.19
+        },
+        {
+          "raw": "Steterat,",
+          "start": 11.19,
+          "end": 11.81
+        },
+        {
+          "raw": "and",
+          "start": 12.17,
+          "end": 12.35
+        },
+        {
+          "raw": "that",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "raw": "Lucentio",
+          "start": 12.49,
+          "end": 13.09
+        },
+        {
+          "raw": "that",
+          "start": 13.09,
+          "end": 13.29
+        },
+        {
+          "raw": "comes",
+          "start": 13.29,
+          "end": 13.51
+        },
+        {
+          "raw": "a",
+          "start": 13.51,
+          "end": 13.69
+        },
+        {
+          "raw": "-wooing,",
+          "start": 13.69,
+          "end": 14.09
+        },
+        {
+          "raw": "Priamie,",
+          "start": 14.25,
+          "end": 14.63
+        },
+        {
+          "raw": "is",
+          "start": 14.81,
+          "end": 14.95
+        },
+        {
+          "raw": "my",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "raw": "man",
+          "start": 15.13,
+          "end": 15.37
+        },
+        {
+          "raw": "Tranio,",
+          "start": 15.37,
+          "end": 15.87
+        },
+        {
+          "raw": "Regia,",
+          "start": 16.03,
+          "end": 16.37
+        },
+        {
+          "raw": "bearing",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "raw": "my",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "raw": "port,",
+          "start": 17.21,
+          "end": 17.57
+        },
+        {
+          "raw": "Celcicinis,",
+          "start": 17.95,
+          "end": 18.53
+        },
+        {
+          "raw": "that",
+          "start": 18.93,
+          "end": 19.03
+        },
+        {
+          "raw": "we",
+          "start": 19.03,
+          "end": 19.19
+        },
+        {
+          "raw": "might",
+          "start": 19.19,
+          "end": 19.39
+        },
+        {
+          "raw": "beguile",
+          "start": 19.39,
+          "end": 19.75
+        },
+        {
+          "raw": "the",
+          "start": 19.75,
+          "end": 19.89
+        },
+        {
+          "raw": "old",
+          "start": 19.89,
+          "end": 20.15
+        },
+        {
+          "raw": "pantaloon.",
+          "start": 20.15,
+          "end": 20.81
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "acoustic_expected_tokens": [
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          "equal",
+          2,
+          7,
+          4,
+          9
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "equal",
+          8,
+          18,
+          10,
+          20
+        ],
+        [
+          "replace",
+          18,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          34,
+          21,
+          35
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ],
+        [
+          "equal",
+          35,
+          43,
+          36,
+          44
+        ],
+        [
+          "replace",
+          43,
+          45,
+          44,
+          45
+        ],
+        [
+          "equal",
+          45,
+          52,
+          45,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "replace",
+          18,
+          20,
+          20,
+          21
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ],
+        [
+          "replace",
+          43,
+          45,
+          44,
+          45
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hic",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "hic",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bet,",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "bet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "told",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "before",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Simwa,",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "simwa",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.25,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.25,
+          "end": 4.37,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01,
+          "key": "lucentio",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hic",
+          "start": 5.23,
+          "end": 5.29,
+          "key": "hic",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "est,",
+          "start": 5.29,
+          "end": 5.61,
+          "key": "est",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 6.13,
+          "end": 6.23,
+          "key": "son",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "unto",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Vincentio",
+          "start": 6.51,
+          "end": 7.19,
+          "key": "vincentio",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.33,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Pisa,",
+          "start": 7.33,
+          "end": 7.77,
+          "key": "pisa",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Psygeotelis,",
+          "start": 8.13,
+          "end": 8.89,
+          "key": "psygeotelis",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "disguised",
+          "start": 9.19,
+          "end": 9.53,
+          "key": "disguised",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 9.53,
+          "end": 9.89,
+          "key": "thus",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.89,
+          "end": 10.07,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 10.07,
+          "end": 10.19,
+          "key": "get",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 10.19,
+          "end": 10.37,
+          "key": "your",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 10.37,
+          "end": 10.67,
+          "key": "love",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "hic",
+          "start": 11.13,
+          "end": 11.19,
+          "key": "hic",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Steterat,",
+          "start": 11.19,
+          "end": 11.81,
+          "key": "steterat",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.17,
+          "end": 12.35,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.35,
+          "end": 12.49,
+          "key": "that",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Lucentio",
+          "start": 12.49,
+          "end": 13.09,
+          "key": "lucentio",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.09,
+          "end": 13.29,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 13.29,
+          "end": 13.51,
+          "key": "comes",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a -wooing,",
+          "start": 13.51,
+          "end": 14.09,
+          "key": "awooing",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "Priamie,",
+          "start": 14.25,
+          "end": 14.63,
+          "key": "priamie",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.81,
+          "end": 14.95,
+          "key": "is",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.95,
+          "end": 15.13,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 15.13,
+          "end": 15.37,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Tranio,",
+          "start": 15.37,
+          "end": 15.87,
+          "key": "tranio",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Regia,",
+          "start": 16.03,
+          "end": 16.37,
+          "key": "regia",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "bearing",
+          "start": 16.75,
+          "end": 16.87,
+          "key": "bearing",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.87,
+          "end": 17.21,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "port,",
+          "start": 17.21,
+          "end": 17.57,
+          "key": "port",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Celcicinis,",
+          "start": 17.95,
+          "end": 18.53,
+          "key": "celcicinis",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 18.93,
+          "end": 19.03,
+          "key": "that",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 19.03,
+          "end": 19.19,
+          "key": "we",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 19.19,
+          "end": 19.39,
+          "key": "might",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "beguile",
+          "start": 19.39,
+          "end": 19.75,
+          "key": "beguile",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.75,
+          "end": 19.89,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 19.89,
+          "end": 20.15,
+          "key": "old",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "pantaloon.",
+          "start": 20.15,
+          "end": 20.81,
+          "key": "pantaloon",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "a-wooing,",
+          "heard": "a -wooing,",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 13.51,
+          "end": 14.09
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "_Hic",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "ibat_,",
+          "start": 1.67,
+          "end": 2.0
+        },
+        {
+          "text": "as",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "I",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "told",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "you",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "before,",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "text": "_Simois_,",
+          "start": 3.29,
+          "end": 3.73
+        },
+        {
+          "text": "I",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "text": "am",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "text": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01
+        },
+        {
+          "text": "_hic",
+          "start": 5.23,
+          "end": 5.29
+        },
+        {
+          "text": "est_,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "text": "son",
+          "start": 6.13,
+          "end": 6.23
+        },
+        {
+          "text": "unto",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "Vincentio",
+          "start": 6.51,
+          "end": 7.19
+        },
+        {
+          "text": "of",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "text": "Pisa,",
+          "start": 7.33,
+          "end": 7.77
+        },
+        {
+          "text": "_Sigeia",
+          "start": 7.77,
+          "end": 8.48
+        },
+        {
+          "text": "tellus_,",
+          "start": 8.48,
+          "end": 8.835
+        },
+        {
+          "text": "disguised",
+          "start": 9.19,
+          "end": 9.53
+        },
+        {
+          "text": "thus",
+          "start": 9.53,
+          "end": 9.89
+        },
+        {
+          "text": "to",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "text": "get",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "text": "your",
+          "start": 10.19,
+          "end": 10.37
+        },
+        {
+          "text": "love,",
+          "start": 10.37,
+          "end": 10.67
+        },
+        {
+          "text": "_Hic",
+          "start": 11.13,
+          "end": 11.19
+        },
+        {
+          "text": "steterat_,",
+          "start": 11.19,
+          "end": 11.81
+        },
+        {
+          "text": "and",
+          "start": 12.17,
+          "end": 12.35
+        },
+        {
+          "text": "that",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "Lucentio",
+          "start": 12.49,
+          "end": 13.09
+        },
+        {
+          "text": "that",
+          "start": 13.09,
+          "end": 13.29
+        },
+        {
+          "text": "comes",
+          "start": 13.29,
+          "end": 13.51
+        },
+        {
+          "text": "a-wooing,",
+          "start": 13.51,
+          "end": 14.09
+        },
+        {
+          "text": "_Priami_,",
+          "start": 14.09,
+          "end": 14.45
+        },
+        {
+          "text": "is",
+          "start": 14.81,
+          "end": 14.95
+        },
+        {
+          "text": "my",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "text": "man",
+          "start": 15.13,
+          "end": 15.37
+        },
+        {
+          "text": "Tranio,",
+          "start": 15.37,
+          "end": 15.87
+        },
+        {
+          "text": "_regia_,",
+          "start": 16.03,
+          "end": 16.37
+        },
+        {
+          "text": "bearing",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "text": "my",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "text": "port,",
+          "start": 17.21,
+          "end": 17.57
+        },
+        {
+          "text": "_celsa",
+          "start": 17.57,
+          "end": 18.25
+        },
+        {
+          "text": "senis_,",
+          "start": 18.25,
+          "end": 18.59
+        },
+        {
+          "text": "that",
+          "start": 18.93,
+          "end": 19.03
+        },
+        {
+          "text": "we",
+          "start": 19.03,
+          "end": 19.19
+        },
+        {
+          "text": "might",
+          "start": 19.19,
+          "end": 19.39
+        },
+        {
+          "text": "beguile",
+          "start": 19.39,
+          "end": 19.75
+        },
+        {
+          "text": "the",
+          "start": 19.75,
+          "end": 19.89
+        },
+        {
+          "text": "old",
+          "start": 19.89,
+          "end": 20.15
+        },
+        {
+          "text": "pantaloon.",
+          "start": 20.15,
+          "end": 20.81
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 45
+      },
+      "match_ratio": 0.8653846153846154,
+      "rejection_reasons": [],
+      "seconds": 0.6895948173478246
+    },
+    {
+      "asr_seconds": 0.756310872733593,
+      "alignment_seconds": 0.005753036588430405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucentio.",
+          "start": 0.59,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Lucentio.",
+              "start": 0.59,
+              "end": 1.07,
+              "probability": 0.5035400390625
+            }
+          ]
+        },
+        {
+          "text": " Hic, I bet, as I told you before, Simwa, I am Lucentio, hic est.",
+          "start": 1.55,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Hic,",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.55889892578125
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bet,",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " I",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " told",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " before,",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Simwa,",
+              "start": 3.59,
+              "end": 3.89,
+              "probability": 0.4251708984375
+            },
+            {
+              "text": " I",
+              "start": 4.17,
+              "end": 4.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " am",
+              "start": 4.25,
+              "end": 4.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Lucentio,",
+              "start": 4.37,
+              "end": 5.01,
+              "probability": 0.9441731770833334
+            },
+            {
+              "text": " hic",
+              "start": 5.23,
+              "end": 5.29,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " est.",
+              "start": 5.29,
+              "end": 5.61,
+              "probability": 0.93994140625
+            }
+          ]
+        },
+        {
+          "text": " Son unto Vincentio of Pisa, Sigeotelis, Disguise thus to get your love, hic Steterat.",
+          "start": 6.11,
+          "end": 11.81,
+          "words": [
+            {
+              "text": " Son",
+              "start": 6.11,
+              "end": 6.23,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " unto",
+              "start": 6.23,
+              "end": 6.53,
+              "probability": 0.31640625
+            },
+            {
+              "text": " Vincentio",
+              "start": 6.53,
+              "end": 7.19,
+              "probability": 0.774658203125
+            },
+            {
+              "text": " of",
+              "start": 7.19,
+              "end": 7.33,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Pisa,",
+              "start": 7.33,
+              "end": 7.75,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Sigeotelis,",
+              "start": 8.09,
+              "end": 8.89,
+              "probability": 0.4867919921875
+            },
+            {
+              "text": " Disguise",
+              "start": 9.21,
+              "end": 9.67,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " thus",
+              "start": 9.67,
+              "end": 9.87,
+              "probability": 0.984375
+            },
+            {
+              "text": " to",
+              "start": 9.87,
+              "end": 10.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " get",
+              "start": 10.07,
+              "end": 10.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 10.19,
+              "end": 10.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " love,",
+              "start": 10.37,
+              "end": 10.67,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " hic",
+              "start": 11.13,
+              "end": 11.19,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " Steterat.",
+              "start": 11.19,
+              "end": 11.81,
+              "probability": 0.4862467447916667
+            }
+          ]
+        },
+        {
+          "text": " And that Lucentio that comes a-wooing, Priamie, Is my mantranio, Regia, bearing my port,",
+          "start": 12.23,
+          "end": 17.55,
+          "words": [
+            {
+              "text": " And",
+              "start": 12.23,
+              "end": 12.35,
+              "probability": 0.94921875
+            },
+            {
+              "text": " that",
+              "start": 12.35,
+              "end": 12.49,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Lucentio",
+              "start": 12.49,
+              "end": 13.11,
+              "probability": 0.9220377604166666
+            },
+            {
+              "text": " that",
+              "start": 13.11,
+              "end": 13.29,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " comes",
+              "start": 13.29,
+              "end": 13.51,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " a",
+              "start": 13.51,
+              "end": 13.69,
+              "probability": 0.8125
+            },
+            {
+              "text": "-wooing,",
+              "start": 13.69,
+              "end": 14.09,
+              "probability": 0.8074951171875
+            },
+            {
+              "text": " Priamie,",
+              "start": 14.29,
+              "end": 14.63,
+              "probability": 0.4354654947916667
+            },
+            {
+              "text": " Is",
+              "start": 14.83,
+              "end": 14.95,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " my",
+              "start": 14.95,
+              "end": 15.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " mantranio,",
+              "start": 15.11,
+              "end": 15.85,
+              "probability": 0.7055257161458334
+            },
+            {
+              "text": " Regia,",
+              "start": 16.03,
+              "end": 16.37,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " bearing",
+              "start": 16.69,
+              "end": 16.89,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " my",
+              "start": 16.89,
+              "end": 17.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " port,",
+              "start": 17.19,
+              "end": 17.55,
+              "probability": 0.91650390625
+            }
+          ]
+        },
+        {
+          "text": " Selsasenis, that we might beguile the old pantaloon.",
+          "start": 18.25,
+          "end": 20.83,
+          "words": [
+            {
+              "text": " Selsasenis,",
+              "start": 18.25,
+              "end": 18.73,
+              "probability": 0.21691970825195311
+            },
+            {
+              "text": " that",
+              "start": 18.85,
+              "end": 19.03,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " we",
+              "start": 19.03,
+              "end": 19.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " might",
+              "start": 19.19,
+              "end": 19.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beguile",
+              "start": 19.39,
+              "end": 19.77,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " the",
+              "start": 19.77,
+              "end": 19.87,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " old",
+              "start": 19.87,
+              "end": 20.15,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " pantaloon.",
+              "start": 20.15,
+              "end": 20.83,
+              "probability": 0.7128092447916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "raw": "Hic,",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "bet,",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "as",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "before,",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "raw": "Simwa,",
+          "start": 3.59,
+          "end": 3.89
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "raw": "am",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01
+        },
+        {
+          "raw": "hic",
+          "start": 5.23,
+          "end": 5.29
+        },
+        {
+          "raw": "est.",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "raw": "Son",
+          "start": 6.11,
+          "end": 6.23
+        },
+        {
+          "raw": "unto",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "raw": "Vincentio",
+          "start": 6.53,
+          "end": 7.19
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "raw": "Pisa,",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "raw": "Sigeotelis,",
+          "start": 8.09,
+          "end": 8.89
+        },
+        {
+          "raw": "Disguise",
+          "start": 9.21,
+          "end": 9.67
+        },
+        {
+          "raw": "thus",
+          "start": 9.67,
+          "end": 9.87
+        },
+        {
+          "raw": "to",
+          "start": 9.87,
+          "end": 10.07
+        },
+        {
+          "raw": "get",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "raw": "your",
+          "start": 10.19,
+          "end": 10.37
+        },
+        {
+          "raw": "love,",
+          "start": 10.37,
+          "end": 10.67
+        },
+        {
+          "raw": "hic",
+          "start": 11.13,
+          "end": 11.19
+        },
+        {
+          "raw": "Steterat.",
+          "start": 11.19,
+          "end": 11.81
+        },
+        {
+          "raw": "And",
+          "start": 12.23,
+          "end": 12.35
+        },
+        {
+          "raw": "that",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "raw": "Lucentio",
+          "start": 12.49,
+          "end": 13.11
+        },
+        {
+          "raw": "that",
+          "start": 13.11,
+          "end": 13.29
+        },
+        {
+          "raw": "comes",
+          "start": 13.29,
+          "end": 13.51
+        },
+        {
+          "raw": "a",
+          "start": 13.51,
+          "end": 13.69
+        },
+        {
+          "raw": "-wooing,",
+          "start": 13.69,
+          "end": 14.09
+        },
+        {
+          "raw": "Priamie,",
+          "start": 14.29,
+          "end": 14.63
+        },
+        {
+          "raw": "Is",
+          "start": 14.83,
+          "end": 14.95
+        },
+        {
+          "raw": "my",
+          "start": 14.95,
+          "end": 15.11
+        },
+        {
+          "raw": "mantranio,",
+          "start": 15.11,
+          "end": 15.85
+        },
+        {
+          "raw": "Regia,",
+          "start": 16.03,
+          "end": 16.37
+        },
+        {
+          "raw": "bearing",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "raw": "my",
+          "start": 16.89,
+          "end": 17.19
+        },
+        {
+          "raw": "port,",
+          "start": 17.19,
+          "end": 17.55
+        },
+        {
+          "raw": "Selsasenis,",
+          "start": 18.25,
+          "end": 18.73
+        },
+        {
+          "raw": "that",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "raw": "we",
+          "start": 19.03,
+          "end": 19.19
+        },
+        {
+          "raw": "might",
+          "start": 19.19,
+          "end": 19.39
+        },
+        {
+          "raw": "beguile",
+          "start": 19.39,
+          "end": 19.77
+        },
+        {
+          "raw": "the",
+          "start": 19.77,
+          "end": 19.87
+        },
+        {
+          "raw": "old",
+          "start": 19.87,
+          "end": 20.15
+        },
+        {
+          "raw": "pantaloon.",
+          "start": 20.15,
+          "end": 20.83
+        }
+      ],
+      "expected_tokens": [
+        "LUCENTIO.",
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "acoustic_expected_tokens": [
+        "_Hic",
+        "ibat_,",
+        "as",
+        "I",
+        "told",
+        "you",
+        "before,",
+        "_Simois_,",
+        "I",
+        "am",
+        "Lucentio,",
+        "_hic",
+        "est_,",
+        "son",
+        "unto",
+        "Vincentio",
+        "of",
+        "Pisa,",
+        "_Sigeia",
+        "tellus_,",
+        "disguised",
+        "thus",
+        "to",
+        "get",
+        "your",
+        "love,",
+        "_Hic",
+        "steterat_,",
+        "and",
+        "that",
+        "Lucentio",
+        "that",
+        "comes",
+        "a-wooing,",
+        "_Priami_,",
+        "is",
+        "my",
+        "man",
+        "Tranio,",
+        "_regia_,",
+        "bearing",
+        "my",
+        "port,",
+        "_celsa",
+        "senis_,",
+        "that",
+        "we",
+        "might",
+        "beguile",
+        "the",
+        "old",
+        "pantaloon."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          "equal",
+          2,
+          7,
+          4,
+          9
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "equal",
+          8,
+          18,
+          10,
+          20
+        ],
+        [
+          "replace",
+          18,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          34,
+          22,
+          35
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ],
+        [
+          "equal",
+          35,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          37,
+          39,
+          38,
+          39
+        ],
+        [
+          "equal",
+          39,
+          43,
+          39,
+          43
+        ],
+        [
+          "replace",
+          43,
+          45,
+          43,
+          44
+        ],
+        [
+          "equal",
+          45,
+          52,
+          44,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "replace",
+          18,
+          21,
+          20,
+          22
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ],
+        [
+          "replace",
+          37,
+          39,
+          38,
+          39
+        ],
+        [
+          "replace",
+          43,
+          45,
+          43,
+          44
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucentio.",
+          "start": 0.59,
+          "end": 1.07,
+          "key": "lucentio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hic,",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "hic",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bet,",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "bet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "told",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "before",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Simwa,",
+          "start": 3.59,
+          "end": 3.89,
+          "key": "simwa",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.25,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.25,
+          "end": 4.37,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01,
+          "key": "lucentio",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hic",
+          "start": 5.23,
+          "end": 5.29,
+          "key": "hic",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "est.",
+          "start": 5.29,
+          "end": 5.61,
+          "key": "est",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Son",
+          "start": 6.11,
+          "end": 6.23,
+          "key": "son",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 6.23,
+          "end": 6.53,
+          "key": "unto",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Vincentio",
+          "start": 6.53,
+          "end": 7.19,
+          "key": "vincentio",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.33,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Pisa,",
+          "start": 7.33,
+          "end": 7.75,
+          "key": "pisa",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Sigeotelis,",
+          "start": 8.09,
+          "end": 8.89,
+          "key": "sigeotelis",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Disguise",
+          "start": 9.21,
+          "end": 9.67,
+          "key": "disguise",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 9.67,
+          "end": 9.87,
+          "key": "thus",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.87,
+          "end": 10.07,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 10.07,
+          "end": 10.19,
+          "key": "get",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 10.19,
+          "end": 10.37,
+          "key": "your",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 10.37,
+          "end": 10.67,
+          "key": "love",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "hic",
+          "start": 11.13,
+          "end": 11.19,
+          "key": "hic",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Steterat.",
+          "start": 11.19,
+          "end": 11.81,
+          "key": "steterat",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 12.23,
+          "end": 12.35,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.35,
+          "end": 12.49,
+          "key": "that",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Lucentio",
+          "start": 12.49,
+          "end": 13.11,
+          "key": "lucentio",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.11,
+          "end": 13.29,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 13.29,
+          "end": 13.51,
+          "key": "comes",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a -wooing,",
+          "start": 13.51,
+          "end": 14.09,
+          "key": "awooing",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "Priamie,",
+          "start": 14.29,
+          "end": 14.63,
+          "key": "priamie",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 14.83,
+          "end": 14.95,
+          "key": "is",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.95,
+          "end": 15.11,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "mantranio,",
+          "start": 15.11,
+          "end": 15.85,
+          "key": "mantranio",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Regia,",
+          "start": 16.03,
+          "end": 16.37,
+          "key": "regia",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "bearing",
+          "start": 16.69,
+          "end": 16.89,
+          "key": "bearing",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.89,
+          "end": 17.19,
+          "key": "my",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "port,",
+          "start": 17.19,
+          "end": 17.55,
+          "key": "port",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Selsasenis,",
+          "start": 18.25,
+          "end": 18.73,
+          "key": "selsasenis",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 18.85,
+          "end": 19.03,
+          "key": "that",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 19.03,
+          "end": 19.19,
+          "key": "we",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 19.19,
+          "end": 19.39,
+          "key": "might",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "beguile",
+          "start": 19.39,
+          "end": 19.77,
+          "key": "beguile",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.77,
+          "end": 19.87,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 19.87,
+          "end": 20.15,
+          "key": "old",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "pantaloon.",
+          "start": 20.15,
+          "end": 20.83,
+          "key": "pantaloon",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "a-wooing,",
+          "heard": "a -wooing,",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 13.51,
+          "end": 14.09
+        }
+      ],
+      "groups": [
+        {
+          "heard_index": 38,
+          "heard": "mantranio,",
+          "expected_indexes": [
+            37,
+            38
+          ],
+          "text": "man Tranio,",
+          "start": 15.11,
+          "end": 15.85
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "LUCENTIO.",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "_Hic",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "ibat_,",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "as",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "I",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "told",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "you",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "before,",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "text": "_Simois_,",
+          "start": 3.29,
+          "end": 3.73
+        },
+        {
+          "text": "I",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "text": "am",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "text": "Lucentio,",
+          "start": 4.37,
+          "end": 5.01
+        },
+        {
+          "text": "_hic",
+          "start": 5.23,
+          "end": 5.29
+        },
+        {
+          "text": "est_,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "text": "son",
+          "start": 6.11,
+          "end": 6.23
+        },
+        {
+          "text": "unto",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "text": "Vincentio",
+          "start": 6.53,
+          "end": 7.19
+        },
+        {
+          "text": "of",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "text": "Pisa,",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "text": "_Sigeia",
+          "start": 7.75,
+          "end": 8.71
+        },
+        {
+          "text": "tellus_,",
+          "start": 8.71,
+          "end": 9.19
+        },
+        {
+          "text": "disguised",
+          "start": 9.19,
+          "end": 9.43
+        },
+        {
+          "text": "thus",
+          "start": 9.67,
+          "end": 9.87
+        },
+        {
+          "text": "to",
+          "start": 9.87,
+          "end": 10.07
+        },
+        {
+          "text": "get",
+          "start": 10.07,
+          "end": 10.19
+        },
+        {
+          "text": "your",
+          "start": 10.19,
+          "end": 10.37
+        },
+        {
+          "text": "love,",
+          "start": 10.37,
+          "end": 10.67
+        },
+        {
+          "text": "_Hic",
+          "start": 11.13,
+          "end": 11.19
+        },
+        {
+          "text": "steterat_,",
+          "start": 11.19,
+          "end": 11.81
+        },
+        {
+          "text": "and",
+          "start": 12.23,
+          "end": 12.35
+        },
+        {
+          "text": "that",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "Lucentio",
+          "start": 12.49,
+          "end": 13.11
+        },
+        {
+          "text": "that",
+          "start": 13.11,
+          "end": 13.29
+        },
+        {
+          "text": "comes",
+          "start": 13.29,
+          "end": 13.51
+        },
+        {
+          "text": "a-wooing,",
+          "start": 13.51,
+          "end": 14.09
+        },
+        {
+          "text": "_Priami_,",
+          "start": 14.09,
+          "end": 14.46
+        },
+        {
+          "text": "is",
+          "start": 14.83,
+          "end": 14.95
+        },
+        {
+          "text": "my",
+          "start": 14.95,
+          "end": 15.11
+        },
+        {
+          "text": "man",
+          "start": 15.11,
+          "end": 15.357
+        },
+        {
+          "text": "Tranio,",
+          "start": 15.357,
+          "end": 15.85
+        },
+        {
+          "text": "_regia_,",
+          "start": 16.03,
+          "end": 16.37
+        },
+        {
+          "text": "bearing",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "text": "my",
+          "start": 16.89,
+          "end": 17.19
+        },
+        {
+          "text": "port,",
+          "start": 17.19,
+          "end": 17.55
+        },
+        {
+          "text": "_celsa",
+          "start": 17.55,
+          "end": 18.2
+        },
+        {
+          "text": "senis_,",
+          "start": 18.2,
+          "end": 18.525
+        },
+        {
+          "text": "that",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "text": "we",
+          "start": 19.03,
+          "end": 19.19
+        },
+        {
+          "text": "might",
+          "start": 19.19,
+          "end": 19.39
+        },
+        {
+          "text": "beguile",
+          "start": 19.39,
+          "end": 19.77
+        },
+        {
+          "text": "the",
+          "start": 19.77,
+          "end": 19.87
+        },
+        {
+          "text": "old",
+          "start": 19.87,
+          "end": 20.15
+        },
+        {
+          "text": "pantaloon.",
+          "start": 20.15,
+          "end": 20.83
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 51,
+        "matched_words": 44
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.762544889934361
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "68c0f956e99d59d4e516578945ebc9e2246c1e8c33f865ab0c9452d407aae148",
+  "selected_reasons": []
+}

@@ -1,0 +1,461 @@
+{
+  "complete": true,
+  "signature": "1201e311363f0a9bb152a7903885d8505adf67a65cbe45ba2ca707d0a06b227a",
+  "attempts": [
+    {
+      "asr_seconds": 0.28880574461072683,
+      "alignment_seconds": 0.0010605379939079285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Among the Russian prisoners rescued by Denísov and Dólokhov was Pierre Bezúkhov.",
+        "hotwords": "Among, Russian, Denísov, Dólokhov, Pierre, Bezúkhov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Among the Russian prisoners rescued by Denísov and Dólokhov was Pierre Bezúkhov.",
+          "start": 0.0,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Among",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.853515625
+            },
+            {
+              "text": " the",
+              "start": 0.42,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Russian",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " prisoners",
+              "start": 0.88,
+              "end": 1.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rescued",
+              "start": 1.32,
+              "end": 1.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Denísov",
+              "start": 2.04,
+              "end": 2.52,
+              "probability": 0.017404556274414062
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Dólokhov",
+              "start": 2.76,
+              "end": 3.24,
+              "probability": 0.242926025390625
+            },
+            {
+              "text": " was",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Pierre",
+              "start": 3.5,
+              "end": 3.88,
+              "probability": 0.52734375
+            },
+            {
+              "text": " Bezúkhov.",
+              "start": 3.88,
+              "end": 4.46,
+              "probability": 0.37023172378540037
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Among",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "the",
+          "start": 0.42,
+          "end": 0.62
+        },
+        {
+          "raw": "Russian",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "prisoners",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "raw": "rescued",
+          "start": 1.32,
+          "end": 1.76
+        },
+        {
+          "raw": "by",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "Denísov",
+          "start": 2.04,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 2.76,
+          "end": 3.24
+        },
+        {
+          "raw": "was",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "raw": "Bezúkhov.",
+          "start": 3.88,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "Among",
+        "the",
+        "Russian",
+        "prisoners",
+        "rescued",
+        "by",
+        "Denísov",
+        "and",
+        "Dólokhov",
+        "was",
+        "Pierre",
+        "Bezúkhov."
+      ],
+      "acoustic_expected_tokens": [
+        "Among",
+        "the",
+        "Russian",
+        "prisoners",
+        "rescued",
+        "by",
+        "Denísov",
+        "and",
+        "Dólokhov",
+        "was",
+        "Pierre",
+        "Bezúkhov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Among",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "among",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.42,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Russian",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "russian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prisoners",
+          "start": 0.88,
+          "end": 1.32,
+          "key": "prisoners",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rescued",
+          "start": 1.32,
+          "end": 1.76,
+          "key": "rescued",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Denísov",
+          "start": 2.04,
+          "end": 2.52,
+          "key": "denísov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 2.76,
+          "end": 3.24,
+          "key": "dólokhov",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pierre",
+          "start": 3.5,
+          "end": 3.88,
+          "key": "pierre",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bezúkhov.",
+          "start": 3.88,
+          "end": 4.46,
+          "key": "bezúkhov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Among",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "the",
+          "start": 0.42,
+          "end": 0.62
+        },
+        {
+          "text": "Russian",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "prisoners",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "text": "rescued",
+          "start": 1.32,
+          "end": 1.76
+        },
+        {
+          "text": "by",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "Denísov",
+          "start": 2.04,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "Dólokhov",
+          "start": 2.76,
+          "end": 3.24
+        },
+        {
+          "text": "was",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "Pierre",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "text": "Bezúkhov.",
+          "start": 3.88,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29000244848430157
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "501b449655c777736e999848db0ddff00bc7fc1d66f118a5f9a17c0f5735d1a8",
+  "selected_reasons": []
+}

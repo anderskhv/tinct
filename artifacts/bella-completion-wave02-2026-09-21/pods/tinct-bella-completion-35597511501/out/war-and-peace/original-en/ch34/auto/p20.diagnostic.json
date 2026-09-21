@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "3a9da29543b9260436f1e3c54b02311dce4c4417b8075e3e7159640ee13e0fee",
+  "attempts": [
+    {
+      "asr_seconds": 0.18368868622928858,
+      "alignment_seconds": 0.0005332771688699722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Very good,\" answered Nesvítski.",
+        "hotwords": "Very, Nesvítski"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Very good,\" answered Nesvítski.",
+          "start": 0.0,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.400390625
+            },
+            {
+              "text": " good,\"",
+              "start": 0.48,
+              "end": 1.36,
+              "probability": 0.49385833740234375
+            },
+            {
+              "text": " answered",
+              "start": 1.36,
+              "end": 1.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Nesvítski.",
+              "start": 1.38,
+              "end": 2.08,
+              "probability": 0.39269331097602844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "good,\"",
+          "start": 0.48,
+          "end": 1.36
+        },
+        {
+          "raw": "answered",
+          "start": 1.36,
+          "end": 1.38
+        },
+        {
+          "raw": "Nesvítski.",
+          "start": 1.38,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "“Very",
+        "good,”",
+        "answered",
+        "Nesvítski."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Very",
+        "good,\"",
+        "answered",
+        "Nesvítski."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good,\"",
+          "start": 0.48,
+          "end": 1.36,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.36,
+          "end": 1.38,
+          "key": "answered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nesvítski.",
+          "start": 1.38,
+          "end": 2.08,
+          "key": "nesvítski",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Very",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "good,”",
+          "start": 0.48,
+          "end": 1.36
+        },
+        {
+          "text": "answered",
+          "start": 1.36,
+          "end": 1.38
+        },
+        {
+          "text": "Nesvítski.",
+          "start": 1.38,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1843038173392415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0174710b136ac97ec5188b5f7c77c34042734a76d953fdcd61f930b3c27be120",
+  "selected_reasons": []
+}

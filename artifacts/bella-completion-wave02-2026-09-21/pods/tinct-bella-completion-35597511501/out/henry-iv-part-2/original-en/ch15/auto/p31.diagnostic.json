@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "13bcdebaeb826af8b0e011ee149245c9186af77a2a99e1c56456fac8cc3158bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.11178225185722113,
+      "alignment_seconds": 0.0006806729361414909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Within_.] Sir John!",
+        "hotwords": "Within_, Sir, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Within, Sir John.",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Within,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.463623046875
+            },
+            {
+              "text": " Sir",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " John.",
+              "start": 1.3,
+              "end": 1.56,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Sir",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "John.",
+          "start": 1.3,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "[_Within_.]",
+        "Sir",
+        "John!"
+      ],
+      "acoustic_expected_tokens": [
+        "Within_.]",
+        "Sir",
+        "John!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "within",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "John.",
+          "start": 1.3,
+          "end": 1.56,
+          "key": "john",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Within_.]",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Sir",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "John!",
+          "start": 1.3,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11256058420985937
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "412fb1fe266a6ea6697535daffa854399321385215567dfa49c747ea9c1fcc64",
+  "selected_reasons": []
+}

@@ -1,0 +1,1930 @@
+{
+  "complete": true,
+  "signature": "4d4bb22411698ef4fe6263f57c99051070abaeca227642f458d331807d9ea080",
+  "attempts": [
+    {
+      "asr_seconds": 0.3363329628482461,
+      "alignment_seconds": 0.000984078273177147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Did your brother tell you how I counterfeited to swoon when he show'd me your handkercher?",
+        "hotwords": "Did, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosalind, did your brother tell you how I counterfeited to swoon when he show'd me your handkercher?",
+          "start": 0.7,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Rosalind,",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.8743489583333334
+            },
+            {
+              "text": " did",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " brother",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tell",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " how",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " counterfeited",
+              "start": 2.86,
+              "end": 3.5,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " to",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " swoon",
+              "start": 3.66,
+              "end": 4.1,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " when",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " he",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " show'd",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.016385555267333984
+            },
+            {
+              "text": " me",
+              "start": 4.8,
+              "end": 4.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 4.88,
+              "end": 5.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " handkercher?",
+              "start": 5.02,
+              "end": 5.5,
+              "probability": 0.6788736979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "did",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "swoon",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "raw": "when",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "show'd",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "me",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "raw": "handkercher?",
+          "start": 5.02,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "acoustic_expected_tokens": [
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          12,
+          1,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          16,
+          14,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5,
+          "key": "counterfeited",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "swoon",
+          "start": 3.66,
+          "end": 4.1,
+          "key": "swoon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "show'd",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "showd",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.8,
+          "end": 4.88,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.02,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "handkercher?",
+          "start": 5.02,
+          "end": 5.5,
+          "key": "handkercher",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "Did",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "text": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "swoon",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "text": "when",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "show'd",
+          "start": 4.46,
+          "end": 4.63
+        },
+        {
+          "text": "me",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "text": "your",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "text": "handkercher?",
+          "start": 5.02,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.33744986075907946
+    },
+    {
+      "asr_seconds": 0.28674612008035183,
+      "alignment_seconds": 0.0011870311573147774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Did, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Rosalind did your brother tell you how I counterfeited to swoon when he showed me your handkerchief",
+          "start": 0.9,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Rosalind",
+              "start": 0.9,
+              "end": 1.3,
+              "probability": 0.8743489583333334
+            },
+            {
+              "text": " did",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.0595703125
+            },
+            {
+              "text": " your",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.98828125
+            },
+            {
+              "text": " brother",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tell",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " counterfeited",
+              "start": 2.86,
+              "end": 3.5,
+              "probability": 0.923828125
+            },
+            {
+              "text": " to",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " swoon",
+              "start": 3.66,
+              "end": 4.12,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " when",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " showed",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 4.7,
+              "end": 4.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 4.88,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " handkerchief",
+              "start": 5.02,
+              "end": 5.48,
+              "probability": 0.8780924479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind",
+          "start": 0.9,
+          "end": 1.3
+        },
+        {
+          "raw": "did",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "swoon",
+          "start": 3.66,
+          "end": 4.12
+        },
+        {
+          "raw": "when",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "showed",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "raw": "handkerchief",
+          "start": 5.02,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "acoustic_expected_tokens": [
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          15,
+          1,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind",
+          "start": 0.9,
+          "end": 1.3,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5,
+          "key": "counterfeited",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "swoon",
+          "start": 3.66,
+          "end": 4.12,
+          "key": "swoon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "showed",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "showed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.88,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.02,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "handkerchief",
+          "start": 5.02,
+          "end": 5.48,
+          "key": "handkerchief",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "text": "Did",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "text": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "text": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "swoon",
+          "start": 3.66,
+          "end": 4.12
+        },
+        {
+          "text": "when",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "show'd",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "me",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "text": "your",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "text": "handkercher?",
+          "start": 5.02,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2881006086245179
+    },
+    {
+      "asr_seconds": 0.2832549260929227,
+      "alignment_seconds": 0.0014729807153344154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rosalind, did your brother tell you how I counterfeited to Swoon when he showed me your handkerchief?",
+          "start": 0.7,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Rosalind,",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.8743489583333334
+            },
+            {
+              "text": " did",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " brother",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tell",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " how",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " counterfeited",
+              "start": 2.86,
+              "end": 3.5,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " to",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Swoon",
+              "start": 3.66,
+              "end": 4.1,
+              "probability": 0.822021484375
+            },
+            {
+              "text": " when",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " he",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " showed",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.7,
+              "end": 4.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " handkerchief?",
+              "start": 5.04,
+              "end": 5.48,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "did",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "Swoon",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "raw": "when",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "showed",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 5.04,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "ROSALIND.",
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "acoustic_expected_tokens": [
+        "Did",
+        "your",
+        "brother",
+        "tell",
+        "you",
+        "how",
+        "I",
+        "counterfeited",
+        "to",
+        "swoon",
+        "when",
+        "he",
+        "show'd",
+        "me",
+        "your",
+        "handkercher?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          15,
+          1,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosalind,",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "rosalind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "counterfeited",
+          "start": 2.86,
+          "end": 3.5,
+          "key": "counterfeited",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Swoon",
+          "start": 3.66,
+          "end": 4.1,
+          "key": "swoon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "showed",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "showed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.88,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.88,
+          "end": 5.04,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 5.04,
+          "end": 5.48,
+          "key": "handkerchief",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ROSALIND.",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "Did",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "brother",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "tell",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "how",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "counterfeited",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "text": "to",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "swoon",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "text": "when",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "show'd",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "me",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "text": "your",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "handkercher?",
+          "start": 5.04,
+          "end": 5.26
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2849227227270603
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf056cded4d24d903366a96619851f96f54a25a3eab0451f59fd9ea7a270eadd",
+  "selected_reasons": []
+}

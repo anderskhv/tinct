@@ -1,0 +1,821 @@
+{
+  "complete": true,
+  "signature": "a4caca6c3ee8050e4f69be3a2a607aa6c0c3d01b60d7a795d3c572e47fa87fc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.17078018374741077,
+      "alignment_seconds": 0.0007271794602274895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* \"Cousinhood is a dangerous neighborhood.\"",
+        "hotwords": "Cousinhood"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Asterisk Cousinhood is a dangerous neighborhood.",
+          "start": 0.0,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.709228515625
+            },
+            {
+              "text": " Cousinhood",
+              "start": 0.74,
+              "end": 1.18,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.9453125
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " dangerous",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " neighborhood.",
+              "start": 1.9,
+              "end": 2.52,
+              "probability": 0.611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18,
+          "key": "cousinhood",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "dangerous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52,
+          "key": "neighborhood",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "“Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "neighborhood.”",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1716488404199481
+    },
+    {
+      "asr_seconds": 0.20213959086686373,
+      "alignment_seconds": 0.0009193727746605873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cousinhood"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk Cousinhood is a dangerous neighborhood.",
+          "start": 0.0,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.709228515625
+            },
+            {
+              "text": " Cousinhood",
+              "start": 0.74,
+              "end": 1.18,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.9453125
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " dangerous",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " neighborhood.",
+              "start": 1.9,
+              "end": 2.52,
+              "probability": 0.611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18,
+          "key": "cousinhood",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "dangerous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52,
+          "key": "neighborhood",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "“Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "neighborhood.”",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20319500844925642
+    },
+    {
+      "asr_seconds": 0.1921842796728015,
+      "alignment_seconds": 0.0009207548573613167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk Cousinhood is a dangerous neighborhood.",
+          "start": 0.0,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.709228515625
+            },
+            {
+              "text": " Cousinhood",
+              "start": 0.74,
+              "end": 1.18,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.9453125
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " dangerous",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " neighborhood.",
+              "start": 1.9,
+              "end": 2.52,
+              "probability": 0.611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"Cousinhood",
+        "is",
+        "a",
+        "dangerous",
+        "neighborhood.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cousinhood",
+          "start": 0.74,
+          "end": 1.18,
+          "key": "cousinhood",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dangerous",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "dangerous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.9,
+          "end": 2.52,
+          "key": "neighborhood",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "“Cousinhood",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "dangerous",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "neighborhood.”",
+          "start": 1.9,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19323966559022665
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8fb46691118e7ba291a76046dc8e8c8527cd5465c3f232f41d9b6cf1380bbed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

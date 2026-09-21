@@ -1,0 +1,1234 @@
+{
+  "complete": true,
+  "signature": "915fe7690fdb161914cee6bb6959f23779fc39e5d262ef450d415fdb63c2eeeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.4296140680089593,
+      "alignment_seconds": 0.0028262510895729065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That is the Dutch ambassador, do you see? That gray-haired man,\" she said, indicating an old man with a profusion of silver-gray curly hair, who was surrounded by ladies laughing at something he said.",
+        "hotwords": "That, Dutch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is the Dutch ambassador, do you see? That gray-haired man,\" she said, indicating an old man with a profusion of silver-gray curly hair, who was surrounded by ladies laughing at something he said.",
+          "start": 0.0,
+          "end": 11.14,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.492919921875
+            },
+            {
+              "text": " is",
+              "start": 0.36,
+              "end": 0.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Dutch",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " ambassador,",
+              "start": 0.84,
+              "end": 1.3,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " do",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see?",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " That",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " gray",
+              "start": 3.36,
+              "end": 3.64,
+              "probability": 0.6826171875
+            },
+            {
+              "text": "-haired",
+              "start": 3.64,
+              "end": 3.88,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " man,\"",
+              "start": 3.88,
+              "end": 4.4,
+              "probability": 0.57952880859375
+            },
+            {
+              "text": " she",
+              "start": 4.4,
+              "end": 4.52,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said,",
+              "start": 4.52,
+              "end": 4.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " indicating",
+              "start": 5.4,
+              "end": 5.42,
+              "probability": 0.98828125
+            },
+            {
+              "text": " an",
+              "start": 5.42,
+              "end": 5.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " old",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 6.1,
+              "end": 6.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.28,
+              "end": 6.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " profusion",
+              "start": 6.36,
+              "end": 6.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 6.82,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " silver",
+              "start": 6.98,
+              "end": 7.22,
+              "probability": 0.96533203125
+            },
+            {
+              "text": "-gray",
+              "start": 7.22,
+              "end": 7.5,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " curly",
+              "start": 7.5,
+              "end": 7.82,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " hair,",
+              "start": 7.82,
+              "end": 8.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " who",
+              "start": 8.48,
+              "end": 8.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " surrounded",
+              "start": 8.68,
+              "end": 9.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 9.04,
+              "end": 9.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ladies",
+              "start": 9.36,
+              "end": 9.7,
+              "probability": 0.98828125
+            },
+            {
+              "text": " laughing",
+              "start": 9.7,
+              "end": 10.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " at",
+              "start": 10.04,
+              "end": 10.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " something",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 10.58,
+              "end": 10.82,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " said.",
+              "start": 10.82,
+              "end": 11.14,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "is",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "Dutch",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "ambassador,",
+          "start": 0.84,
+          "end": 1.3
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "see?",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "raw": "That",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "gray",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "raw": "-haired",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "raw": "man,\"",
+          "start": 3.88,
+          "end": 4.4
+        },
+        {
+          "raw": "she",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "raw": "said,",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "raw": "indicating",
+          "start": 5.4,
+          "end": 5.42
+        },
+        {
+          "raw": "an",
+          "start": 5.42,
+          "end": 5.68
+        },
+        {
+          "raw": "old",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "man",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "with",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "raw": "a",
+          "start": 6.28,
+          "end": 6.36
+        },
+        {
+          "raw": "profusion",
+          "start": 6.36,
+          "end": 6.82
+        },
+        {
+          "raw": "of",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "raw": "silver",
+          "start": 6.98,
+          "end": 7.22
+        },
+        {
+          "raw": "-gray",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "raw": "curly",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "raw": "hair,",
+          "start": 7.82,
+          "end": 8.22
+        },
+        {
+          "raw": "who",
+          "start": 8.48,
+          "end": 8.52
+        },
+        {
+          "raw": "was",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "surrounded",
+          "start": 8.68,
+          "end": 9.04
+        },
+        {
+          "raw": "by",
+          "start": 9.04,
+          "end": 9.36
+        },
+        {
+          "raw": "ladies",
+          "start": 9.36,
+          "end": 9.7
+        },
+        {
+          "raw": "laughing",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "raw": "at",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "raw": "something",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "he",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "raw": "said.",
+          "start": 10.82,
+          "end": 11.14
+        }
+      ],
+      "expected_tokens": [
+        "“That",
+        "is",
+        "the",
+        "Dutch",
+        "ambassador,",
+        "do",
+        "you",
+        "see?",
+        "That",
+        "gray-haired",
+        "man,”",
+        "she",
+        "said,",
+        "indicating",
+        "an",
+        "old",
+        "man",
+        "with",
+        "a",
+        "profusion",
+        "of",
+        "silver-gray",
+        "curly",
+        "hair,",
+        "who",
+        "was",
+        "surrounded",
+        "by",
+        "ladies",
+        "laughing",
+        "at",
+        "something",
+        "he",
+        "said."
+      ],
+      "acoustic_expected_tokens": [
+        "\"That",
+        "is",
+        "the",
+        "Dutch",
+        "ambassador,",
+        "do",
+        "you",
+        "see?",
+        "That",
+        "gray-haired",
+        "man,\"",
+        "she",
+        "said,",
+        "indicating",
+        "an",
+        "old",
+        "man",
+        "with",
+        "a",
+        "profusion",
+        "of",
+        "silver-gray",
+        "curly",
+        "hair,",
+        "who",
+        "was",
+        "surrounded",
+        "by",
+        "ladies",
+        "laughing",
+        "at",
+        "something",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.36,
+          "end": 0.48,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dutch",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "dutch",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ambassador,",
+          "start": 0.84,
+          "end": 1.3,
+          "key": "ambassador",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "see?",
+          "start": 1.84,
+          "end": 2.12,
+          "key": "see",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gray -haired",
+          "start": 3.36,
+          "end": 3.88,
+          "key": "grayhaired",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "man,\"",
+          "start": 3.88,
+          "end": 4.4,
+          "key": "man",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.4,
+          "end": 4.52,
+          "key": "she",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 4.52,
+          "end": 4.82,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "indicating",
+          "start": 5.4,
+          "end": 5.42,
+          "key": "indicating",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.42,
+          "end": 5.68,
+          "key": "an",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "old",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 5.88,
+          "end": 6.1,
+          "key": "man",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.1,
+          "end": 6.28,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.28,
+          "end": 6.36,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "profusion",
+          "start": 6.36,
+          "end": 6.82,
+          "key": "profusion",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.82,
+          "end": 6.98,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "silver -gray",
+          "start": 6.98,
+          "end": 7.5,
+          "key": "silvergray",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "curly",
+          "start": 7.5,
+          "end": 7.82,
+          "key": "curly",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "hair,",
+          "start": 7.82,
+          "end": 8.22,
+          "key": "hair",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 8.48,
+          "end": 8.52,
+          "key": "who",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "was",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "surrounded",
+          "start": 8.68,
+          "end": 9.04,
+          "key": "surrounded",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.04,
+          "end": 9.36,
+          "key": "by",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 9.36,
+          "end": 9.7,
+          "key": "ladies",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "laughing",
+          "start": 9.7,
+          "end": 10.04,
+          "key": "laughing",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 10.04,
+          "end": 10.28,
+          "key": "at",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "something",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.58,
+          "end": 10.82,
+          "key": "he",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 10.82,
+          "end": 11.14,
+          "key": "said",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "gray-haired",
+          "heard": "gray -haired",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.36,
+          "end": 3.88
+        },
+        {
+          "expected_index": 21,
+          "text": "silver-gray",
+          "heard": "silver -gray",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 6.98,
+          "end": 7.5
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“That",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "is",
+          "start": 0.36,
+          "end": 0.48
+        },
+        {
+          "text": "the",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "Dutch",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "ambassador,",
+          "start": 0.84,
+          "end": 1.3
+        },
+        {
+          "text": "do",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "you",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "see?",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "text": "That",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "gray-haired",
+          "start": 3.36,
+          "end": 3.88
+        },
+        {
+          "text": "man,”",
+          "start": 3.88,
+          "end": 4.4
+        },
+        {
+          "text": "she",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "text": "said,",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "text": "indicating",
+          "start": 5.4,
+          "end": 5.42
+        },
+        {
+          "text": "an",
+          "start": 5.42,
+          "end": 5.68
+        },
+        {
+          "text": "old",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "man",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "with",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "text": "a",
+          "start": 6.28,
+          "end": 6.36
+        },
+        {
+          "text": "profusion",
+          "start": 6.36,
+          "end": 6.82
+        },
+        {
+          "text": "of",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "silver-gray",
+          "start": 6.98,
+          "end": 7.5
+        },
+        {
+          "text": "curly",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "text": "hair,",
+          "start": 7.82,
+          "end": 8.22
+        },
+        {
+          "text": "who",
+          "start": 8.48,
+          "end": 8.52
+        },
+        {
+          "text": "was",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "surrounded",
+          "start": 8.68,
+          "end": 9.04
+        },
+        {
+          "text": "by",
+          "start": 9.04,
+          "end": 9.36
+        },
+        {
+          "text": "ladies",
+          "start": 9.36,
+          "end": 9.7
+        },
+        {
+          "text": "laughing",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "text": "at",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "text": "something",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "text": "he",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "text": "said.",
+          "start": 10.82,
+          "end": 11.14
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4327437411993742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7ddcced23600190447480aa8a50e40590f5767da6c3dd6339e7f34a4777a0f5",
+  "selected_reasons": []
+}

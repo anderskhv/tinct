@@ -1,0 +1,843 @@
+{
+  "complete": true,
+  "signature": "0b70994b2073459b54168543149c50cfb2161771b89eb8b1a0b3573adcc4bf65",
+  "attempts": [
+    {
+      "asr_seconds": 0.21239459235221148,
+      "alignment_seconds": 0.0011757519096136093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* \"That's a superb animal.\"",
+        "hotwords": "That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " asterisk that's a superb animal",
+          "start": 0.0,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.552581787109375
+            },
+            {
+              "text": " that's",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " a",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " superb",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " animal",
+              "start": 1.62,
+              "end": 2.08,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " asterisk that's a superb animal",
+          "start": 2.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 2.08,
+              "end": 2.08,
+              "probability": 0.13330161571502686
+            },
+            {
+              "text": " that's",
+              "start": 2.08,
+              "end": 2.08,
+              "probability": 0.022729873657226562
+            },
+            {
+              "text": " a",
+              "start": 2.08,
+              "end": 2.08,
+              "probability": 0.060455322265625
+            },
+            {
+              "text": " superb",
+              "start": 2.08,
+              "end": 2.08,
+              "probability": 3.11732292175293e-05
+            },
+            {
+              "text": " animal",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.00014674663543701172
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "that's",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "superb",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "raw": "that's",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "raw": "a",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "raw": "superb",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "raw": "animal",
+          "start": 2.08,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“That’s",
+        "a",
+        "superb",
+        "animal.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"That's",
+        "a",
+        "superb",
+        "animal.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "superb",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "superb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08,
+          "key": "animal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.08,
+          "end": 2.08,
+          "key": "asterisk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 2.08,
+          "end": 2.08,
+          "key": "thats",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.08,
+          "end": 2.08,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "superb",
+          "start": 2.08,
+          "end": 2.08,
+          "key": "superb",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "animal",
+          "start": 2.08,
+          "end": 2.16,
+          "key": "animal",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "“That’s",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "a",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "superb",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "animal.”",
+          "start": 1.62,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 10,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21387456078082323
+    },
+    {
+      "asr_seconds": 0.22128784470260143,
+      "alignment_seconds": 0.0009411834180355072,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk that's a superb animal",
+          "start": 0.0,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.6973876953125
+            },
+            {
+              "text": " that's",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.541534423828125
+            },
+            {
+              "text": " a",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " superb",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " animal",
+              "start": 1.62,
+              "end": 2.08,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "that's",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "superb",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“That’s",
+        "a",
+        "superb",
+        "animal.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"That's",
+        "a",
+        "superb",
+        "animal.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "superb",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "superb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08,
+          "key": "animal",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "“That’s",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "superb",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "animal.”",
+          "start": 1.62,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22234874684363604
+    },
+    {
+      "asr_seconds": 0.19774282071739435,
+      "alignment_seconds": 0.00112252589315176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk that's a superb animal",
+          "start": 0.0,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.6973876953125
+            },
+            {
+              "text": " that's",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.541534423828125
+            },
+            {
+              "text": " a",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " superb",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " animal",
+              "start": 1.62,
+              "end": 2.08,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "that's",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "superb",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“That’s",
+        "a",
+        "superb",
+        "animal.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"That's",
+        "a",
+        "superb",
+        "animal.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "superb",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "superb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "animal",
+          "start": 1.62,
+          "end": 2.08,
+          "key": "animal",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "“That’s",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "superb",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "animal.”",
+          "start": 1.62,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19901026785373688
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0419d58276dec2dbd409974ad1d51b2036a2651bd37667165205dbf4c05abe22",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

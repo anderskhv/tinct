@@ -1,0 +1,569 @@
+{
+  "complete": true,
+  "signature": "2c29407c6a77953eca337c8e0a0e5b363a1ef97951d6ccbb76149afe152807ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.2561091985553503,
+      "alignment_seconds": 0.001467767171561718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But I'll send an orderly.... Two of them!\" said Rostóv. \"What an idea, doctor!\"",
+        "hotwords": "But, I'll, Two, Rostóv, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But I'll send an orderly.... Two of them!\" said Rostóv. What an idea, doctor!",
+          "start": 0.0,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.33544921875
+            },
+            {
+              "text": " I'll",
+              "start": 0.3,
+              "end": 0.54,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " send",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " orderly....",
+              "start": 0.9,
+              "end": 2.28,
+              "probability": 0.4535806179046631
+            },
+            {
+              "text": " Two",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " of",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "!\"",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.0001157522201538086
+            },
+            {
+              "text": " said",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Rostóv.",
+              "start": 3.12,
+              "end": 3.88,
+              "probability": 0.36332082748413086
+            },
+            {
+              "text": " What",
+              "start": 4.66,
+              "end": 4.94,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " an",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " idea,",
+              "start": 5.1,
+              "end": 5.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " doctor!",
+              "start": 5.86,
+              "end": 6.04,
+              "probability": 0.2496337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "I'll",
+          "start": 0.3,
+          "end": 0.54
+        },
+        {
+          "raw": "send",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "an",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "orderly....",
+          "start": 0.9,
+          "end": 2.28
+        },
+        {
+          "raw": "Two",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "of",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "them",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "!\"",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "said",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "Rostóv.",
+          "start": 3.12,
+          "end": 3.88
+        },
+        {
+          "raw": "What",
+          "start": 4.66,
+          "end": 4.94
+        },
+        {
+          "raw": "an",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "idea,",
+          "start": 5.1,
+          "end": 5.48
+        },
+        {
+          "raw": "doctor!",
+          "start": 5.86,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "I’ll",
+        "send",
+        "an",
+        "orderly....",
+        "Two",
+        "of",
+        "them!”",
+        "said",
+        "Rostóv.",
+        "“What",
+        "an",
+        "idea,",
+        "doctor!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "I'll",
+        "send",
+        "an",
+        "orderly....",
+        "Two",
+        "of",
+        "them!\"",
+        "said",
+        "Rostóv.",
+        "\"What",
+        "an",
+        "idea,",
+        "doctor!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          14,
+          9,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 0.3,
+          "end": 0.54,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "send",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "orderly....",
+          "start": 0.9,
+          "end": 2.28,
+          "key": "orderly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Two",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "two",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Rostóv.",
+          "start": 3.12,
+          "end": 3.88,
+          "key": "rostóv",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.66,
+          "end": 4.94,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "idea,",
+          "start": 5.1,
+          "end": 5.48,
+          "key": "idea",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "doctor!",
+          "start": 5.86,
+          "end": 6.04,
+          "key": "doctor",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "I’ll",
+          "start": 0.3,
+          "end": 0.54
+        },
+        {
+          "text": "send",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "an",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "orderly....",
+          "start": 0.9,
+          "end": 2.28
+        },
+        {
+          "text": "Two",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "of",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "them!”",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "text": "said",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "Rostóv.",
+          "start": 3.12,
+          "end": 3.88
+        },
+        {
+          "text": "“What",
+          "start": 4.66,
+          "end": 4.94
+        },
+        {
+          "text": "an",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "idea,",
+          "start": 5.1,
+          "end": 5.48
+        },
+        {
+          "text": "doctor!”",
+          "start": 5.86,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2577684000134468
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2532bfb38bfdf6ade403598ff3b41590806312196a6f7a09b894b24797fc3a74",
+  "selected_reasons": []
+}

@@ -1,0 +1,699 @@
+{
+  "complete": true,
+  "signature": "bace3ba96f1fd5c6b6ae185f83f96e2b1714b0a7cda8263047649704264fb447",
+  "attempts": [
+    {
+      "asr_seconds": 0.3495797887444496,
+      "alignment_seconds": 0.002201274037361145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You have been caught once already by a 'little girl,'\" said Dólokhov who knew of Kurágin's marriage. \"Take care!\"",
+        "hotwords": "You, Dólokhov, Kurágin's, Take"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You have been caught once already by a little girl,\" said Dólokhov who knew of Kurágin's marriage.",
+          "start": 0.0,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.11602783203125
+            },
+            {
+              "text": " have",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " been",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caught",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " once",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " already",
+              "start": 1.2,
+              "end": 1.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " little",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.343017578125
+            },
+            {
+              "text": " girl,\"",
+              "start": 2.34,
+              "end": 2.98,
+              "probability": 0.830078125
+            },
+            {
+              "text": " said",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Dólokhov",
+              "start": 3.2,
+              "end": 3.68,
+              "probability": 0.19344491958618165
+            },
+            {
+              "text": " who",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " knew",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Kurágin's",
+              "start": 4.38,
+              "end": 4.92,
+              "probability": 0.46015501022338867
+            },
+            {
+              "text": " marriage.",
+              "start": 4.92,
+              "end": 5.2,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Take care!",
+          "start": 6.26,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " Take",
+              "start": 6.26,
+              "end": 6.54,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " care!",
+              "start": 6.54,
+              "end": 6.88,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "been",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "caught",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "once",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "already",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "raw": "by",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "little",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "girl,\"",
+          "start": 2.34,
+          "end": 2.98
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 3.2,
+          "end": 3.68
+        },
+        {
+          "raw": "who",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "knew",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "Kurágin's",
+          "start": 4.38,
+          "end": 4.92
+        },
+        {
+          "raw": "marriage.",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "raw": "Take",
+          "start": 6.26,
+          "end": 6.54
+        },
+        {
+          "raw": "care!",
+          "start": 6.54,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "have",
+        "been",
+        "caught",
+        "once",
+        "already",
+        "by",
+        "a",
+        "‘little",
+        "girl,’”",
+        "said",
+        "Dólokhov",
+        "who",
+        "knew",
+        "of",
+        "Kurágin’s",
+        "marriage.",
+        "“Take",
+        "care!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "have",
+        "been",
+        "caught",
+        "once",
+        "already",
+        "by",
+        "a",
+        "'little",
+        "girl,'\"",
+        "said",
+        "Dólokhov",
+        "who",
+        "knew",
+        "of",
+        "Kurágin's",
+        "marriage.",
+        "\"Take",
+        "care!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "been",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "caught",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "once",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 1.2,
+          "end": 1.66,
+          "key": "already",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "girl,\"",
+          "start": 2.34,
+          "end": 2.98,
+          "key": "girl",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Dólokhov",
+          "start": 3.2,
+          "end": 3.68,
+          "key": "dólokhov",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 3.94,
+          "end": 4.16,
+          "key": "knew",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Kurágin's",
+          "start": 4.38,
+          "end": 4.92,
+          "key": "kurágins",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "marriage.",
+          "start": 4.92,
+          "end": 5.2,
+          "key": "marriage",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 6.26,
+          "end": 6.54,
+          "key": "take",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "care!",
+          "start": 6.54,
+          "end": 6.88,
+          "key": "care",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "been",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "caught",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "once",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "already",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "text": "by",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "a",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "‘little",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "girl,’”",
+          "start": 2.34,
+          "end": 2.98
+        },
+        {
+          "text": "said",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "Dólokhov",
+          "start": 3.2,
+          "end": 3.68
+        },
+        {
+          "text": "who",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "knew",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "Kurágin’s",
+          "start": 4.38,
+          "end": 4.92
+        },
+        {
+          "text": "marriage.",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "text": "“Take",
+          "start": 6.26,
+          "end": 6.54
+        },
+        {
+          "text": "care!”",
+          "start": 6.54,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3520409781485796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78b3573ec8cee4fde8bc0b3e984c4069719b59c386caa5e6131194e8fc419780",
+  "selected_reasons": []
+}

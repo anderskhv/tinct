@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "6a14dfc3140296803abc51ec90b51b128939502f804b523904a16d43714cb6a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3096842123195529,
+      "alignment_seconds": 0.0011767484247684479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, I've not said anything! I only say that I'll certainly go with you,\" said Pétya shyly.",
+        "hotwords": "Why, I've, I, I'll, Pétya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, I've not said anything! I only say that I'll certainly go with you,\" said Pétya shyly.",
+          "start": 0.0,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.11236572265625
+            },
+            {
+              "text": " I've",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.9765625
+            },
+            {
+              "text": " not",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anything!",
+              "start": 1.42,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 2.8,
+              "end": 3.02,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " only",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " I'll",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " certainly",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 4.04,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 4.36,
+              "end": 4.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you,\"",
+              "start": 4.52,
+              "end": 4.94,
+              "probability": 0.66015625
+            },
+            {
+              "text": " said",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Pétya",
+              "start": 5.1,
+              "end": 5.54,
+              "probability": 0.3264836072921753
+            },
+            {
+              "text": " shyly.",
+              "start": 5.54,
+              "end": 6.0,
+              "probability": 0.5450439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "I've",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "not",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "said",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "anything!",
+          "start": 1.42,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "raw": "only",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "say",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "that",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "I'll",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "certainly",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "go",
+          "start": 4.04,
+          "end": 4.36
+        },
+        {
+          "raw": "with",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "raw": "you,\"",
+          "start": 4.52,
+          "end": 4.94
+        },
+        {
+          "raw": "said",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "Pétya",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "raw": "shyly.",
+          "start": 5.54,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "“Why,",
+        "I’ve",
+        "not",
+        "said",
+        "anything!",
+        "I",
+        "only",
+        "say",
+        "that",
+        "I’ll",
+        "certainly",
+        "go",
+        "with",
+        "you,”",
+        "said",
+        "Pétya",
+        "shyly."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Why,",
+        "I've",
+        "not",
+        "said",
+        "anything!",
+        "I",
+        "only",
+        "say",
+        "that",
+        "I'll",
+        "certainly",
+        "go",
+        "with",
+        "you,\"",
+        "said",
+        "Pétya",
+        "shyly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "ive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anything!",
+          "start": 1.42,
+          "end": 1.86,
+          "key": "anything",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.8,
+          "end": 3.02,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "ill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "certainly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.04,
+          "end": 4.36,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.36,
+          "end": 4.52,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 4.52,
+          "end": 4.94,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Pétya",
+          "start": 5.1,
+          "end": 5.54,
+          "key": "pétya",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shyly.",
+          "start": 5.54,
+          "end": 6.0,
+          "key": "shyly",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Why,",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "I’ve",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "not",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "said",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "anything!",
+          "start": 1.42,
+          "end": 1.86
+        },
+        {
+          "text": "I",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "only",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "say",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "text": "that",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "I’ll",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "certainly",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "go",
+          "start": 4.04,
+          "end": 4.36
+        },
+        {
+          "text": "with",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "text": "you,”",
+          "start": 4.52,
+          "end": 4.94
+        },
+        {
+          "text": "said",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "Pétya",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "text": "shyly.",
+          "start": 5.54,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3109859246760607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95217161bae2509a293f09ee4243680bc0af6bf1824a220c768a1ddd42c2c382",
+  "selected_reasons": []
+}

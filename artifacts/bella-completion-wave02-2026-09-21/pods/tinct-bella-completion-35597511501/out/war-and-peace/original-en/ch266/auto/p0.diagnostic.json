@@ -1,0 +1,1661 @@
+{
+  "complete": true,
+  "signature": "ca1c149c62697f73c6f5f1f024502e5b47a8884b2f2cfd9224025c97ab559e80",
+  "attempts": [
+    {
+      "asr_seconds": 0.49274028930813074,
+      "alignment_seconds": 0.0033186450600624084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nine days after the abandonment of Moscow, a messenger from Kutúzov reached Petersburg with the official announcement of that event. This messenger was Michaud, a Frenchman who did not know Russian, but who was quoique étranger, russe de cœur et d'âme, * as he said of himself.",
+        "hotwords": "Nine, Moscow, Kutúzov, Petersburg, This, Michaud, Frenchman, Russian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nine days after the abandonment of Moscow, a messenger from Kutúzov reached Petersburg",
+          "start": 0.0,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " Nine",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.4873046875
+            },
+            {
+              "text": " days",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " abandonment",
+              "start": 1.28,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Moscow,",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.8,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " messenger",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kutúzov",
+              "start": 3.46,
+              "end": 4.0,
+              "probability": 0.35435494780540466
+            },
+            {
+              "text": " reached",
+              "start": 4.0,
+              "end": 4.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Petersburg",
+              "start": 4.32,
+              "end": 4.82,
+              "probability": 0.9658203125
+            }
+          ]
+        },
+        {
+          "text": " with the official announcement of that event. This messenger was Michaud, a Frenchman who",
+          "start": 4.82,
+          "end": 10.06,
+          "words": [
+            {
+              "text": " with",
+              "start": 4.82,
+              "end": 5.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " official",
+              "start": 5.28,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " announcement",
+              "start": 5.6,
+              "end": 6.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 6.32,
+              "end": 6.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " event.",
+              "start": 6.48,
+              "end": 6.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " This",
+              "start": 7.9,
+              "end": 8.08,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " messenger",
+              "start": 8.08,
+              "end": 8.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Michaud,",
+              "start": 8.68,
+              "end": 9.06,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " a",
+              "start": 9.38,
+              "end": 9.46,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Frenchman",
+              "start": 9.46,
+              "end": 9.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " who",
+              "start": 9.74,
+              "end": 10.06,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " did not know Russian, but who was quoique étranger, russe de cœur et d'âme, ** as",
+          "start": 10.06,
+          "end": 15.06,
+          "words": [
+            {
+              "text": " did",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 10.2,
+              "end": 10.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 10.4,
+              "end": 10.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Russian,",
+              "start": 10.64,
+              "end": 10.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " but",
+              "start": 11.4,
+              "end": 11.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " who",
+              "start": 11.46,
+              "end": 11.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quoique",
+              "start": 11.78,
+              "end": 12.08,
+              "probability": 0.00015413761138916016
+            },
+            {
+              "text": " étranger,",
+              "start": 12.08,
+              "end": 12.56,
+              "probability": 0.5426680445671082
+            },
+            {
+              "text": " russe",
+              "start": 12.82,
+              "end": 13.06,
+              "probability": 0.10265096028645833
+            },
+            {
+              "text": " de",
+              "start": 13.06,
+              "end": 13.12,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " cœur",
+              "start": 13.12,
+              "end": 13.34,
+              "probability": 0.3162364959716797
+            },
+            {
+              "text": " et",
+              "start": 13.34,
+              "end": 13.48,
+              "probability": 0.03070068359375
+            },
+            {
+              "text": " d",
+              "start": 13.48,
+              "end": 13.68,
+              "probability": 0.46826171875
+            },
+            {
+              "text": "'âme,",
+              "start": 13.68,
+              "end": 13.98,
+              "probability": 0.2201706369717916
+            },
+            {
+              "text": " **",
+              "start": 14.48,
+              "end": 14.74,
+              "probability": 0.0123138427734375
+            },
+            {
+              "text": " as",
+              "start": 14.74,
+              "end": 15.06,
+              "probability": 0.58837890625
+            }
+          ]
+        },
+        {
+          "text": " he said of himself.",
+          "start": 15.06,
+          "end": 15.92,
+          "words": [
+            {
+              "text": " he",
+              "start": 15.06,
+              "end": 15.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 15.2,
+              "end": 15.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 15.4,
+              "end": 15.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " himself.",
+              "start": 15.54,
+              "end": 15.92,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nine",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "days",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "after",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "abandonment",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "Moscow,",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.8,
+          "end": 2.82
+        },
+        {
+          "raw": "messenger",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "from",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 3.46,
+          "end": 4.0
+        },
+        {
+          "raw": "reached",
+          "start": 4.0,
+          "end": 4.32
+        },
+        {
+          "raw": "Petersburg",
+          "start": 4.32,
+          "end": 4.82
+        },
+        {
+          "raw": "with",
+          "start": 4.82,
+          "end": 5.16
+        },
+        {
+          "raw": "the",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "official",
+          "start": 5.28,
+          "end": 5.6
+        },
+        {
+          "raw": "announcement",
+          "start": 5.6,
+          "end": 6.08
+        },
+        {
+          "raw": "of",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "raw": "that",
+          "start": 6.32,
+          "end": 6.48
+        },
+        {
+          "raw": "event.",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "raw": "This",
+          "start": 7.9,
+          "end": 8.08
+        },
+        {
+          "raw": "messenger",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "raw": "was",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "raw": "Michaud,",
+          "start": 8.68,
+          "end": 9.06
+        },
+        {
+          "raw": "a",
+          "start": 9.38,
+          "end": 9.46
+        },
+        {
+          "raw": "Frenchman",
+          "start": 9.46,
+          "end": 9.74
+        },
+        {
+          "raw": "who",
+          "start": 9.74,
+          "end": 10.06
+        },
+        {
+          "raw": "did",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "not",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "raw": "know",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "raw": "Russian,",
+          "start": 10.64,
+          "end": 10.96
+        },
+        {
+          "raw": "but",
+          "start": 11.4,
+          "end": 11.46
+        },
+        {
+          "raw": "who",
+          "start": 11.46,
+          "end": 11.64
+        },
+        {
+          "raw": "was",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "quoique",
+          "start": 11.78,
+          "end": 12.08
+        },
+        {
+          "raw": "étranger,",
+          "start": 12.08,
+          "end": 12.56
+        },
+        {
+          "raw": "russe",
+          "start": 12.82,
+          "end": 13.06
+        },
+        {
+          "raw": "de",
+          "start": 13.06,
+          "end": 13.12
+        },
+        {
+          "raw": "cœur",
+          "start": 13.12,
+          "end": 13.34
+        },
+        {
+          "raw": "et",
+          "start": 13.34,
+          "end": 13.48
+        },
+        {
+          "raw": "d",
+          "start": 13.48,
+          "end": 13.68
+        },
+        {
+          "raw": "'âme,",
+          "start": 13.68,
+          "end": 13.98
+        },
+        {
+          "raw": "**",
+          "start": 14.48,
+          "end": 14.74
+        },
+        {
+          "raw": "as",
+          "start": 14.74,
+          "end": 15.06
+        },
+        {
+          "raw": "he",
+          "start": 15.06,
+          "end": 15.2
+        },
+        {
+          "raw": "said",
+          "start": 15.2,
+          "end": 15.4
+        },
+        {
+          "raw": "of",
+          "start": 15.4,
+          "end": 15.54
+        },
+        {
+          "raw": "himself.",
+          "start": 15.54,
+          "end": 15.92
+        }
+      ],
+      "expected_tokens": [
+        "Nine",
+        "days",
+        "after",
+        "the",
+        "abandonment",
+        "of",
+        "Moscow,",
+        "a",
+        "messenger",
+        "from",
+        "Kutúzov",
+        "reached",
+        "Petersburg",
+        "with",
+        "the",
+        "official",
+        "announcement",
+        "of",
+        "that",
+        "event.",
+        "This",
+        "messenger",
+        "was",
+        "Michaud,",
+        "a",
+        "Frenchman",
+        "who",
+        "did",
+        "not",
+        "know",
+        "Russian,",
+        "but",
+        "who",
+        "was",
+        "quoique",
+        "étranger,",
+        "russe",
+        "de",
+        "cœur",
+        "et",
+        "d’âme,",
+        "*",
+        "as",
+        "he",
+        "said",
+        "of",
+        "himself."
+      ],
+      "acoustic_expected_tokens": [
+        "Nine",
+        "days",
+        "after",
+        "the",
+        "abandonment",
+        "of",
+        "Moscow,",
+        "a",
+        "messenger",
+        "from",
+        "Kutúzov",
+        "reached",
+        "Petersburg",
+        "with",
+        "the",
+        "official",
+        "announcement",
+        "of",
+        "that",
+        "event.",
+        "This",
+        "messenger",
+        "was",
+        "Michaud,",
+        "a",
+        "Frenchman",
+        "who",
+        "did",
+        "not",
+        "know",
+        "Russian,",
+        "but",
+        "who",
+        "was",
+        "quoique",
+        "étranger,",
+        "russe",
+        "de",
+        "cœur",
+        "et",
+        "d'âme,",
+        "*",
+        "as",
+        "he",
+        "said",
+        "of",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nine",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "nine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "days",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "days",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "after",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "abandonment",
+          "start": 1.28,
+          "end": 1.7,
+          "key": "abandonment",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Moscow,",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "moscow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.8,
+          "end": 2.82,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 2.82,
+          "end": 3.12,
+          "key": "messenger",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Kutúzov",
+          "start": 3.46,
+          "end": 4.0,
+          "key": "kutúzov",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "reached",
+          "start": 4.0,
+          "end": 4.32,
+          "key": "reached",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Petersburg",
+          "start": 4.32,
+          "end": 4.82,
+          "key": "petersburg",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.82,
+          "end": 5.16,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.16,
+          "end": 5.28,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "official",
+          "start": 5.28,
+          "end": 5.6,
+          "key": "official",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "announcement",
+          "start": 5.6,
+          "end": 6.08,
+          "key": "announcement",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.32,
+          "end": 6.48,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "event.",
+          "start": 6.48,
+          "end": 6.82,
+          "key": "event",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 7.9,
+          "end": 8.08,
+          "key": "this",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 8.08,
+          "end": 8.44,
+          "key": "messenger",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.44,
+          "end": 8.68,
+          "key": "was",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Michaud,",
+          "start": 8.68,
+          "end": 9.06,
+          "key": "michaud",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.38,
+          "end": 9.46,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Frenchman",
+          "start": 9.46,
+          "end": 9.74,
+          "key": "frenchman",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 9.74,
+          "end": 10.06,
+          "key": "who",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 10.06,
+          "end": 10.2,
+          "key": "did",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.2,
+          "end": 10.4,
+          "key": "not",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 10.4,
+          "end": 10.64,
+          "key": "know",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Russian,",
+          "start": 10.64,
+          "end": 10.96,
+          "key": "russian",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 11.4,
+          "end": 11.46,
+          "key": "but",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 11.46,
+          "end": 11.64,
+          "key": "who",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "was",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "quoique",
+          "start": 11.78,
+          "end": 12.08,
+          "key": "quoique",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "étranger,",
+          "start": 12.08,
+          "end": 12.56,
+          "key": "étranger",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "russe",
+          "start": 12.82,
+          "end": 13.06,
+          "key": "russe",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 13.06,
+          "end": 13.12,
+          "key": "de",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "cœur",
+          "start": 13.12,
+          "end": 13.34,
+          "key": "cœur",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 13.34,
+          "end": 13.48,
+          "key": "et",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "d 'âme,",
+          "start": 13.48,
+          "end": 13.98,
+          "key": "dâme",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "**",
+          "start": 14.48,
+          "end": 14.74,
+          "key": "",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 14.74,
+          "end": 15.06,
+          "key": "as",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.06,
+          "end": 15.2,
+          "key": "he",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 15.2,
+          "end": 15.4,
+          "key": "said",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.4,
+          "end": 15.54,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 15.54,
+          "end": 15.92,
+          "key": "himself",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 40,
+          "text": "d'âme,",
+          "heard": "d 'âme,",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 13.48,
+          "end": 13.98
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Nine",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "days",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "after",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "the",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "abandonment",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "Moscow,",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.8,
+          "end": 2.82
+        },
+        {
+          "text": "messenger",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "text": "from",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "Kutúzov",
+          "start": 3.46,
+          "end": 4.0
+        },
+        {
+          "text": "reached",
+          "start": 4.0,
+          "end": 4.32
+        },
+        {
+          "text": "Petersburg",
+          "start": 4.32,
+          "end": 4.82
+        },
+        {
+          "text": "with",
+          "start": 4.82,
+          "end": 5.16
+        },
+        {
+          "text": "the",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "official",
+          "start": 5.28,
+          "end": 5.6
+        },
+        {
+          "text": "announcement",
+          "start": 5.6,
+          "end": 6.08
+        },
+        {
+          "text": "of",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "that",
+          "start": 6.32,
+          "end": 6.48
+        },
+        {
+          "text": "event.",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "text": "This",
+          "start": 7.9,
+          "end": 8.08
+        },
+        {
+          "text": "messenger",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "text": "was",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "Michaud,",
+          "start": 8.68,
+          "end": 9.06
+        },
+        {
+          "text": "a",
+          "start": 9.38,
+          "end": 9.46
+        },
+        {
+          "text": "Frenchman",
+          "start": 9.46,
+          "end": 9.74
+        },
+        {
+          "text": "who",
+          "start": 9.74,
+          "end": 10.06
+        },
+        {
+          "text": "did",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "not",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "text": "know",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "text": "Russian,",
+          "start": 10.64,
+          "end": 10.96
+        },
+        {
+          "text": "but",
+          "start": 11.4,
+          "end": 11.46
+        },
+        {
+          "text": "who",
+          "start": 11.46,
+          "end": 11.64
+        },
+        {
+          "text": "was",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "quoique",
+          "start": 11.78,
+          "end": 12.08
+        },
+        {
+          "text": "étranger,",
+          "start": 12.08,
+          "end": 12.56
+        },
+        {
+          "text": "russe",
+          "start": 12.82,
+          "end": 13.06
+        },
+        {
+          "text": "de",
+          "start": 13.06,
+          "end": 13.12
+        },
+        {
+          "text": "cœur",
+          "start": 13.12,
+          "end": 13.34
+        },
+        {
+          "text": "et",
+          "start": 13.34,
+          "end": 13.48
+        },
+        {
+          "text": "d’âme,",
+          "start": 13.48,
+          "end": 13.98
+        },
+        {
+          "text": "*",
+          "start": 14.48,
+          "end": 14.74
+        },
+        {
+          "text": "as",
+          "start": 14.74,
+          "end": 15.06
+        },
+        {
+          "text": "he",
+          "start": 15.06,
+          "end": 15.2
+        },
+        {
+          "text": "said",
+          "start": 15.2,
+          "end": 15.4
+        },
+        {
+          "text": "of",
+          "start": 15.4,
+          "end": 15.54
+        },
+        {
+          "text": "himself.",
+          "start": 15.54,
+          "end": 15.92
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4963580220937729
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0124b47bf4f3560032850cfce024f23e987c3dc98f8df1f24b40c08980de1bb",
+  "selected_reasons": []
+}

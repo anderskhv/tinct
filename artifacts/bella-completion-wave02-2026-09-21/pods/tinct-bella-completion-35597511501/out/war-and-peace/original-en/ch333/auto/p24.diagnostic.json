@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "890d7c254643d3eeb506317cc1d3c35bf01e5820c82ef76d04b890046011230f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19570250064134598,
+      "alignment_seconds": 0.000655272975564003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, that's all—everything,\" said Natásha.",
+        "hotwords": "Well, Natásha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, that's all—everything,\" said Natásha.",
+          "start": 0.0,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.038238525390625
+            },
+            {
+              "text": " that's",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " all—everything,\"",
+              "start": 1.06,
+              "end": 2.14,
+              "probability": 0.5812149047851562
+            },
+            {
+              "text": " said",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Natásha.",
+              "start": 2.4,
+              "end": 2.96,
+              "probability": 0.010576089223225912
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "that's",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "all—everything,\"",
+          "start": 1.06,
+          "end": 2.14
+        },
+        {
+          "raw": "said",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "Natásha.",
+          "start": 2.4,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "“Well,",
+        "that’s",
+        "all—everything,”",
+        "said",
+        "Natásha."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Well,",
+        "that's",
+        "all—everything,\"",
+        "said",
+        "Natásha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all—everything,\"",
+          "start": 1.06,
+          "end": 2.14,
+          "key": "alleverything",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Natásha.",
+          "start": 2.4,
+          "end": 2.96,
+          "key": "natásha",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Well,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "that’s",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "all—everything,”",
+          "start": 1.06,
+          "end": 2.14
+        },
+        {
+          "text": "said",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "Natásha.",
+          "start": 2.4,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19644523225724697
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2238ec8d51f9a0cf7592b92f572f354ea3db3d1dbd0cd16a495bc001d4da4330",
+  "selected_reasons": []
+}

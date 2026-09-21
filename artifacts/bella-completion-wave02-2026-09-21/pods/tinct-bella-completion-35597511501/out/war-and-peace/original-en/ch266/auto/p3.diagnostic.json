@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "f6867432e4f4c8a46649ef3ba7c001e8a2a076a9e14fcf5cf412dc9325a83c76",
+  "attempts": [
+    {
+      "asr_seconds": 0.19936509616672993,
+      "alignment_seconds": 0.0007071010768413544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* Our most gracious sovereign.",
+        "hotwords": "Our"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Asterisk our most gracious sovereign.",
+          "start": 0.0,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.7386474609375
+            },
+            {
+              "text": " our",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " most",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " gracious",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sovereign.",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "sovereign",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "sovereign.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20019055251032114
+    },
+    {
+      "asr_seconds": 0.12370133027434349,
+      "alignment_seconds": 0.000990009866654873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Our"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk our most gracious sovereign",
+          "start": 0.0,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.7386474609375
+            },
+            {
+              "text": " our",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " most",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " gracious",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sovereign",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "sovereign",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "sovereign",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "sovereign.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12481927126646042
+    },
+    {
+      "asr_seconds": 0.2590030515566468,
+      "alignment_seconds": 0.0005794595927000046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk our most gracious sovereign.",
+          "start": 0.0,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.7386474609375
+            },
+            {
+              "text": " our",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " most",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " gracious",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sovereign.",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "Our",
+        "most",
+        "gracious",
+        "sovereign."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sovereign.",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "sovereign",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Our",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "most",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "gracious",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "sovereign.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2596678975969553
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "387fbb0471d79c033e8c4006fefedbd0f9b983850f0a62de4a89c947e7ea230f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

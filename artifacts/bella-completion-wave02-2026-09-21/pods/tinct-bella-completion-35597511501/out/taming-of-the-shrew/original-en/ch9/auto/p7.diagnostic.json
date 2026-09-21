@@ -1,0 +1,258 @@
+{
+  "complete": true,
+  "signature": "c9893e4b3279315cbcc24ca8aa1a3308043f2d5160175283c187f97f354435a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.17291294690221548,
+      "alignment_seconds": 0.0007247840985655785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tut! fear not me.",
+        "hotwords": "Tut"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By Ondello, Tut, fear not me.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.345458984375
+            },
+            {
+              "text": " Ondello,",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.5836588541666666
+            },
+            {
+              "text": " Tut,",
+              "start": 1.35,
+              "end": 1.39,
+              "probability": 0.348388671875
+            },
+            {
+              "text": " fear",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " not",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me.",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "raw": "Tut,",
+          "start": 1.35,
+          "end": 1.39
+        },
+        {
+          "raw": "fear",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "not",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "me.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "BIONDELLO.",
+        "Tut!",
+        "fear",
+        "not",
+        "me."
+      ],
+      "acoustic_expected_tokens": [
+        "Tut!",
+        "fear",
+        "not",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          4,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ondello,",
+          "start": 0.57,
+          "end": 0.97,
+          "key": "ondello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tut,",
+          "start": 1.35,
+          "end": 1.39,
+          "key": "tut",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "fear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "BIONDELLO.",
+          "start": 1.35,
+          "end": 1.35
+        },
+        {
+          "text": "Tut!",
+          "start": 1.35,
+          "end": 1.39
+        },
+        {
+          "text": "fear",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "not",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "me.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17376307863742113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d60efa8a940a382525c0cb7ad052ab5a417308bf9f28ff9b0f9581fc35533695",
+  "selected_reasons": []
+}

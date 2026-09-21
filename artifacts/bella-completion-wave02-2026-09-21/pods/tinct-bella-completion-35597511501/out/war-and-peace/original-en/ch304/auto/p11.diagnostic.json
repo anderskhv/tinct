@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "9cb4f645ee2b6a8d1ab32a3c9943af48650a62e781df91d26f11d57962a3e515",
+  "attempts": [
+    {
+      "asr_seconds": 0.19443740788847208,
+      "alignment_seconds": 0.001220780424773693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What a bwute you are!... Well?\"",
+        "hotwords": "What, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What a bwute you are!...Well...",
+          "start": 0.0,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " a",
+              "start": 0.32,
+              "end": 0.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bwute",
+              "start": 0.46,
+              "end": 0.68,
+              "probability": 0.02174488703409831
+            },
+            {
+              "text": " you",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.93359375
+            },
+            {
+              "text": " are",
+              "start": 0.88,
+              "end": 1.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!...Well...",
+              "start": 1.38,
+              "end": 2.0,
+              "probability": 0.24921703338623047
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "a",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "raw": "bwute",
+          "start": 0.46,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "are",
+          "start": 0.88,
+          "end": 1.38
+        },
+        {
+          "raw": "!...Well...",
+          "start": 1.38,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "“What",
+        "a",
+        "bwute",
+        "you",
+        "are!...",
+        "Well?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"What",
+        "a",
+        "bwute",
+        "you",
+        "are!...",
+        "Well?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.32,
+          "end": 0.46,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bwute",
+          "start": 0.46,
+          "end": 0.68,
+          "key": "bwute",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.88,
+          "end": 1.38,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "!...Well...",
+          "start": 1.38,
+          "end": 2.0,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“What",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "a",
+          "start": 0.32,
+          "end": 0.46
+        },
+        {
+          "text": "bwute",
+          "start": 0.46,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "are!...",
+          "start": 0.88,
+          "end": 1.38
+        },
+        {
+          "text": "Well?”",
+          "start": 1.38,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19583568070083857
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77abb6f43c05d9c508e6c99cab377da74b6ad0642bb6a4f0e76f94693d6b6a42",
+  "selected_reasons": []
+}

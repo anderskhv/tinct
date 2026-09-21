@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "36cdfb397a9d10df4e3310b2239cbd69e07b964c6df7e04221d883c3dbf2ff30",
+  "attempts": [
+    {
+      "asr_seconds": 0.15737199131399393,
+      "alignment_seconds": 0.00040305405855178833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Shallow, Falstaff, Bardolph and Page.",
+        "hotwords": "Enter, Shallow, Falstaff, Bardolph, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Shallow, Falstaff, Bardolph and Page.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Shallow,",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.54949951171875
+            },
+            {
+              "text": " Falstaff,",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.62890625
+            },
+            {
+              "text": " Bardolph",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.4566192626953125
+            },
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.56,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " Page.",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.65283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Shallow,",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "Falstaff,",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "raw": "Bardolph",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.56
+        },
+        {
+          "raw": "Page.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Shallow,",
+        "Falstaff,",
+        "Bardolph",
+        "and",
+        "Page."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Shallow,",
+        "Falstaff,",
+        "Bardolph",
+        "and",
+        "Page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "shallow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Falstaff,",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "falstaff",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bardolph",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "bardolph",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.56,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Shallow,",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "text": "Falstaff,",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "text": "Bardolph",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.56
+        },
+        {
+          "text": "Page.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15783728286623955
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af60ad64ad3341caed6411e33693d0db3c6ed80a89b59286b45890e05f0c651b",
+  "selected_reasons": []
+}

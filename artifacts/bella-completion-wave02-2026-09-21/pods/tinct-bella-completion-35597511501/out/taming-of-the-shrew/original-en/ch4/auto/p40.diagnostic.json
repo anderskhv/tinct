@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "5277d9a7ab484b04c296ddfd2b0599bcd68d59671ea8fc3dd8e1c517dbbd147b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1426686979830265,
+      "alignment_seconds": 0.0007708966732025146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt Bianca and Servant.",
+        "hotwords": "Exeunt, Bianca, Servant"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Bianca and Servant.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4160257975260417
+            },
+            {
+              "text": " Bianca",
+              "start": 0.77,
+              "end": 1.23,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " Servant.",
+              "start": 1.41,
+              "end": 1.89,
+              "probability": 0.657470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Bianca",
+          "start": 0.77,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.41,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Bianca",
+        "and",
+        "Servant._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "Bianca",
+        "and",
+        "Servant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bianca",
+          "start": 0.77,
+          "end": 1.23,
+          "key": "bianca",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.41,
+          "end": 1.89,
+          "key": "servant",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Bianca",
+          "start": 0.77,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "Servant._]",
+          "start": 1.41,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14356531389057636
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e351e179e70f31ef17ed86758813c54641dfb26c374c71b9cb3d474b87ad4282",
+  "selected_reasons": []
+}

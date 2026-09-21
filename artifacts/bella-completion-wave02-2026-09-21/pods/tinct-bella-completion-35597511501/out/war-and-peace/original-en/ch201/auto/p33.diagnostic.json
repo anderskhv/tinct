@@ -1,0 +1,1194 @@
+{
+  "complete": true,
+  "signature": "efaca7886177e1cbe0d0bd679aca299ccbce8a33d6ca0a06b8439c5ea7ad76ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.46199186239391565,
+      "alignment_seconds": 0.003510468639433384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Again Princess Mary tried to catch someone's eye, but not a single eye in the crowd was turned to her; evidently they were all trying to avoid her look. She felt strange and awkward.",
+        "hotwords": "Again, Princess, Mary, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Again, Princess Mary tried to catch someone's eye, but not a single eye in the crowd was turned to her, evidently they were all trying to avoid her look.",
+          "start": 0.0,
+          "end": 7.74,
+          "words": [
+            {
+              "text": " Again,",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " Princess",
+              "start": 0.86,
+              "end": 0.86,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Mary",
+              "start": 0.86,
+              "end": 1.24,
+              "probability": 0.96484375
+            },
+            {
+              "text": " tried",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " catch",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " someone's",
+              "start": 1.96,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eye,",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " single",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eye",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " crowd",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turned",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 4.88,
+              "end": 5.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her,",
+              "start": 5.06,
+              "end": 5.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " evidently",
+              "start": 5.72,
+              "end": 5.84,
+              "probability": 0.986328125
+            },
+            {
+              "text": " they",
+              "start": 5.84,
+              "end": 6.18,
+              "probability": 0.943359375
+            },
+            {
+              "text": " were",
+              "start": 6.18,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 6.3,
+              "end": 6.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " trying",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.82,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " avoid",
+              "start": 6.98,
+              "end": 7.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 7.26,
+              "end": 7.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " look.",
+              "start": 7.5,
+              "end": 7.74,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " She felt strange and awkward.",
+          "start": 8.8,
+          "end": 10.24,
+          "words": [
+            {
+              "text": " She",
+              "start": 8.8,
+              "end": 8.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " felt",
+              "start": 8.96,
+              "end": 9.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " strange",
+              "start": 9.2,
+              "end": 9.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 9.68,
+              "end": 9.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " awkward.",
+              "start": 9.92,
+              "end": 10.24,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Again,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Princess",
+          "start": 0.86,
+          "end": 0.86
+        },
+        {
+          "raw": "Mary",
+          "start": 0.86,
+          "end": 1.24
+        },
+        {
+          "raw": "tried",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "catch",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "someone's",
+          "start": 1.96,
+          "end": 2.5
+        },
+        {
+          "raw": "eye,",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "but",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "single",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "eye",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "in",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "crowd",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "raw": "was",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "turned",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.06
+        },
+        {
+          "raw": "her,",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "raw": "evidently",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "raw": "they",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "raw": "were",
+          "start": 6.18,
+          "end": 6.3
+        },
+        {
+          "raw": "all",
+          "start": 6.3,
+          "end": 6.54
+        },
+        {
+          "raw": "trying",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "raw": "to",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "raw": "avoid",
+          "start": 6.98,
+          "end": 7.26
+        },
+        {
+          "raw": "her",
+          "start": 7.26,
+          "end": 7.5
+        },
+        {
+          "raw": "look.",
+          "start": 7.5,
+          "end": 7.74
+        },
+        {
+          "raw": "She",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "raw": "felt",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "raw": "strange",
+          "start": 9.2,
+          "end": 9.68
+        },
+        {
+          "raw": "and",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "raw": "awkward.",
+          "start": 9.92,
+          "end": 10.24
+        }
+      ],
+      "expected_tokens": [
+        "Again",
+        "Princess",
+        "Mary",
+        "tried",
+        "to",
+        "catch",
+        "someone’s",
+        "eye,",
+        "but",
+        "not",
+        "a",
+        "single",
+        "eye",
+        "in",
+        "the",
+        "crowd",
+        "was",
+        "turned",
+        "to",
+        "her;",
+        "evidently",
+        "they",
+        "were",
+        "all",
+        "trying",
+        "to",
+        "avoid",
+        "her",
+        "look.",
+        "She",
+        "felt",
+        "strange",
+        "and",
+        "awkward."
+      ],
+      "acoustic_expected_tokens": [
+        "Again",
+        "Princess",
+        "Mary",
+        "tried",
+        "to",
+        "catch",
+        "someone's",
+        "eye,",
+        "but",
+        "not",
+        "a",
+        "single",
+        "eye",
+        "in",
+        "the",
+        "crowd",
+        "was",
+        "turned",
+        "to",
+        "her;",
+        "evidently",
+        "they",
+        "were",
+        "all",
+        "trying",
+        "to",
+        "avoid",
+        "her",
+        "look.",
+        "She",
+        "felt",
+        "strange",
+        "and",
+        "awkward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Again,",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Princess",
+          "start": 0.86,
+          "end": 0.86,
+          "key": "princess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 0.86,
+          "end": 1.24,
+          "key": "mary",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tried",
+          "start": 1.24,
+          "end": 1.58,
+          "key": "tried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "catch",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "catch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "someone's",
+          "start": 1.96,
+          "end": 2.5,
+          "key": "someones",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "eye",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.48,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "single",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "single",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 3.7,
+          "end": 3.98,
+          "key": "eye",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "crowd",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "crowd",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "was",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "turned",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.06,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.06,
+          "end": 5.3,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "evidently",
+          "start": 5.72,
+          "end": 5.84,
+          "key": "evidently",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.84,
+          "end": 6.18,
+          "key": "they",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 6.18,
+          "end": 6.3,
+          "key": "were",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.3,
+          "end": 6.54,
+          "key": "all",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "trying",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "trying",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.82,
+          "end": 6.98,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "avoid",
+          "start": 6.98,
+          "end": 7.26,
+          "key": "avoid",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.26,
+          "end": 7.5,
+          "key": "her",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "look.",
+          "start": 7.5,
+          "end": 7.74,
+          "key": "look",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 8.8,
+          "end": 8.96,
+          "key": "she",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 8.96,
+          "end": 9.2,
+          "key": "felt",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 9.2,
+          "end": 9.68,
+          "key": "strange",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.68,
+          "end": 9.92,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "awkward.",
+          "start": 9.92,
+          "end": 10.24,
+          "key": "awkward",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Again",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Princess",
+          "start": 0.86,
+          "end": 0.86
+        },
+        {
+          "text": "Mary",
+          "start": 0.86,
+          "end": 1.24
+        },
+        {
+          "text": "tried",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "to",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "catch",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "someone’s",
+          "start": 1.96,
+          "end": 2.5
+        },
+        {
+          "text": "eye,",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "text": "but",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "a",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "single",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "eye",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "in",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "crowd",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "text": "was",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "turned",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "to",
+          "start": 4.88,
+          "end": 5.06
+        },
+        {
+          "text": "her;",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "text": "evidently",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "text": "they",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "text": "were",
+          "start": 6.18,
+          "end": 6.3
+        },
+        {
+          "text": "all",
+          "start": 6.3,
+          "end": 6.54
+        },
+        {
+          "text": "trying",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "text": "to",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "avoid",
+          "start": 6.98,
+          "end": 7.26
+        },
+        {
+          "text": "her",
+          "start": 7.26,
+          "end": 7.5
+        },
+        {
+          "text": "look.",
+          "start": 7.5,
+          "end": 7.74
+        },
+        {
+          "text": "She",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "text": "felt",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "text": "strange",
+          "start": 9.2,
+          "end": 9.68
+        },
+        {
+          "text": "and",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "text": "awkward.",
+          "start": 9.92,
+          "end": 10.24
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46588461101055145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70820220164f475e202fad7354676daf2d9b215012ea2ade2da6064204ad08d2",
+  "selected_reasons": []
+}
