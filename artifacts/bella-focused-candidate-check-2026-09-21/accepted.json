@@ -32,6 +32,33 @@
   "sourceCommit": "4df331185675280ed03c98541e352882cb7e5aec",
   "sourceFolder": "artifacts/bella-focused-acoustic-2026-09-21/federalist-papers/84",
   "audioHashesRechecked": true,
+  "publishedBytesVerified": true,
+  "completeEditionStructural": true
+ },
+ {
+  "key": "pride-and-prejudice/original-en/ch2",
+  "status": "acoustic-pass",
+  "candidateSha256": "a67a3181cbec628e63a4196cdb24f366f0dfc6f82dd90ed2606aded713d9bd28",
+  "changedParagraphs": [
+   10
+  ],
+  "probes": [
+   {
+    "model": "base",
+    "passGate": true,
+    "within": 29,
+    "maxDelta": 0.3700000000000001
+   },
+   {
+    "model": "small",
+    "passGate": true,
+    "within": 29,
+    "maxDelta": 0.4699999999999998
+   }
+  ],
+  "sourceCommit": "0cd588da69f83d795f1c84f560caa357f51dbc8a",
+  "sourceFolder": "artifacts/bella-focused-short-clips-2026-09-21/pride-and-prejudice/2",
+  "audioHashesRechecked": true,
   "publishedBytesVerified": false,
   "completeEditionStructural": true
  }
