@@ -15,7 +15,7 @@ describe('Existing reader accepts repaired Bella audio data',()=>{
    for(let i=0;i<paragraphs.length;i++){
     const p=paragraphs[i]
     expect(p.words?.length).toBeGreaterThan(0)
-    expect(clips[i].file).toBe(f.manifest.paragraphs[i].file)
+    expect(clips[i].file).toBe(f.manifest.paragraphs.find((mp:any)=>mp.paragraph===i).file)
     const timed=p.words!.map((w,j)=>({w,j})).filter(({w})=>w.end>w.start)
     expect(timed.length).toBeGreaterThan(0)
     for(const entry of [timed[0],timed[Math.floor(timed.length/2)],timed.at(-1)!]){
