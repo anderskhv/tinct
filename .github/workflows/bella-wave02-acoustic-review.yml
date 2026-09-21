@@ -1,0 +1,60 @@
+name: bella-wave02-acoustic-review
+on:
+  push:
+    branches: ['codex/bella-wave02-acoustic-review-20260921']
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625 av==18.1.0
+      - env:
+          SHARD: ${{ matrix.shard }}
+        run: python3 tools/audio-highlight/bella_wave02_acoustic_matrix.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-wave02-review-${{ matrix.shard }}
+          path: artifacts/bella-completion-wave02-2026-09-21/review/shard-${{ matrix.shard }}.json
+  collect:
+    needs: review
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bella-wave02-review-*
+          merge-multiple: true
+          path: artifacts/bella-completion-wave02-2026-09-21/review
+      - run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("artifacts/bella-completion-wave02-2026-09-21/review")
+          files=list(root.glob("shard-*.json"))
+          rows=[r for p in files for r in json.loads(p.read_text())]
+          accepted=[dict(r["target"],candidateSha256=r["probe"]["candidate_sha256"]) for r in rows if r.get("probe",{}).get("criterion_met")]
+          (root/"accepted.json").write_text(json.dumps(accepted,indent=1))
+          (root/"summary.json").write_text(json.dumps(dict(shards=len(files),chapters=len(rows),accepted=len(accepted),errors=[r for r in rows if "error" in r]),indent=1))
+          print(len(accepted),"accepted of",len(rows))
+          PY
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-completion-wave02-2026-09-21/review
+          git commit -m "Preserve independent CPU review of saved GPU candidates [skip ci]"
+          git push origin HEAD:codex/bella-wave02-acoustic-review-20260921
