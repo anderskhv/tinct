@@ -1,0 +1,2449 @@
+{
+  "complete": true,
+  "signature": "ce72df73a61da9a991f37df2b7085498628abfcae119a984017db1d2b8a8e69e",
+  "attempts": [
+    {
+      "asr_seconds": 14.858428741000012,
+      "alignment_seconds": 0.003916067999995221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In its positive aims, however, this form of Socialism aspires either to restoring the old means of production and of exchange, and with them the old property relations, and the old society, or to cramping the modern means of production and of exchange, within the framework of the old property relations that have been, and were bound to be, exploded by those means. In either case, it is both reactionary and Utopian.",
+        "hotwords": "In, Socialism, Utopian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In its positive aims, however, this form of Socialism aspires either to restoring the old means of production and of exchange, and with them the old property relations, and the old society, or to cramping the modern means of production and of exchange, within the framework of the old property relations that have been, and were bound to be, exploded by those means.",
+          "start": 0.05,
+          "end": 21.51,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9236864447593689
+            },
+            {
+              "text": " its",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9905787110328674
+            },
+            {
+              "text": " positive",
+              "start": 0.71,
+              "end": 1.17,
+              "probability": 0.9851140975952148
+            },
+            {
+              "text": " aims,",
+              "start": 1.17,
+              "end": 1.57,
+              "probability": 0.9968512654304504
+            },
+            {
+              "text": " however,",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.9981226325035095
+            },
+            {
+              "text": " this",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.9958640336990356
+            },
+            {
+              "text": " form",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.9964444041252136
+            },
+            {
+              "text": " of",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.9998082518577576
+            },
+            {
+              "text": " Socialism",
+              "start": 3.13,
+              "end": 3.63,
+              "probability": 0.12542356550693512
+            },
+            {
+              "text": " aspires",
+              "start": 3.63,
+              "end": 4.25,
+              "probability": 0.9941329956054688
+            },
+            {
+              "text": " either",
+              "start": 4.25,
+              "end": 4.61,
+              "probability": 0.9888788461685181
+            },
+            {
+              "text": " to",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.9981920123100281
+            },
+            {
+              "text": " restoring",
+              "start": 4.81,
+              "end": 5.27,
+              "probability": 0.9862003326416016
+            },
+            {
+              "text": " the",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.9967635869979858
+            },
+            {
+              "text": " old",
+              "start": 5.49,
+              "end": 5.67,
+              "probability": 0.9896935820579529
+            },
+            {
+              "text": " means",
+              "start": 5.67,
+              "end": 5.95,
+              "probability": 0.99765944480896
+            },
+            {
+              "text": " of",
+              "start": 5.95,
+              "end": 6.17,
+              "probability": 0.9993939399719238
+            },
+            {
+              "text": " production",
+              "start": 6.17,
+              "end": 6.59,
+              "probability": 0.9850215315818787
+            },
+            {
+              "text": " and",
+              "start": 6.59,
+              "end": 6.83,
+              "probability": 0.9918156266212463
+            },
+            {
+              "text": " of",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.9878954887390137
+            },
+            {
+              "text": " exchange,",
+              "start": 6.93,
+              "end": 7.49,
+              "probability": 0.9975153207778931
+            },
+            {
+              "text": " and",
+              "start": 7.87,
+              "end": 8.19,
+              "probability": 0.9950333833694458
+            },
+            {
+              "text": " with",
+              "start": 8.19,
+              "end": 8.33,
+              "probability": 0.9817290902137756
+            },
+            {
+              "text": " them",
+              "start": 8.33,
+              "end": 8.53,
+              "probability": 0.9992468357086182
+            },
+            {
+              "text": " the",
+              "start": 8.53,
+              "end": 8.69,
+              "probability": 0.9782525897026062
+            },
+            {
+              "text": " old",
+              "start": 8.69,
+              "end": 8.95,
+              "probability": 0.9908245801925659
+            },
+            {
+              "text": " property",
+              "start": 8.95,
+              "end": 9.33,
+              "probability": 0.9471101760864258
+            },
+            {
+              "text": " relations,",
+              "start": 9.33,
+              "end": 9.91,
+              "probability": 0.9467952847480774
+            },
+            {
+              "text": " and",
+              "start": 10.37,
+              "end": 10.59,
+              "probability": 0.9958048462867737
+            },
+            {
+              "text": " the",
+              "start": 10.59,
+              "end": 10.69,
+              "probability": 0.9962884187698364
+            },
+            {
+              "text": " old",
+              "start": 10.69,
+              "end": 10.93,
+              "probability": 0.9888889193534851
+            },
+            {
+              "text": " society,",
+              "start": 10.93,
+              "end": 11.49,
+              "probability": 0.9839751720428467
+            },
+            {
+              "text": " or",
+              "start": 11.87,
+              "end": 12.11,
+              "probability": 0.9944636225700378
+            },
+            {
+              "text": " to",
+              "start": 12.11,
+              "end": 12.25,
+              "probability": 0.9977038502693176
+            },
+            {
+              "text": " cramping",
+              "start": 12.25,
+              "end": 12.53,
+              "probability": 0.9723952114582062
+            },
+            {
+              "text": " the",
+              "start": 12.53,
+              "end": 12.75,
+              "probability": 0.9986819624900818
+            },
+            {
+              "text": " modern",
+              "start": 12.75,
+              "end": 13.09,
+              "probability": 0.9985707998275757
+            },
+            {
+              "text": " means",
+              "start": 13.09,
+              "end": 13.41,
+              "probability": 0.9992042183876038
+            },
+            {
+              "text": " of",
+              "start": 13.41,
+              "end": 13.61,
+              "probability": 0.9996644258499146
+            },
+            {
+              "text": " production",
+              "start": 13.61,
+              "end": 14.01,
+              "probability": 0.9968571662902832
+            },
+            {
+              "text": " and",
+              "start": 14.01,
+              "end": 14.25,
+              "probability": 0.9937549829483032
+            },
+            {
+              "text": " of",
+              "start": 14.25,
+              "end": 14.37,
+              "probability": 0.9893068671226501
+            },
+            {
+              "text": " exchange,",
+              "start": 14.37,
+              "end": 14.91,
+              "probability": 0.9994416832923889
+            },
+            {
+              "text": " within",
+              "start": 15.25,
+              "end": 15.53,
+              "probability": 0.9945846199989319
+            },
+            {
+              "text": " the",
+              "start": 15.53,
+              "end": 15.77,
+              "probability": 0.999370276927948
+            },
+            {
+              "text": " framework",
+              "start": 15.77,
+              "end": 16.09,
+              "probability": 0.9951056241989136
+            },
+            {
+              "text": " of",
+              "start": 16.09,
+              "end": 16.31,
+              "probability": 0.9989223480224609
+            },
+            {
+              "text": " the",
+              "start": 16.31,
+              "end": 16.45,
+              "probability": 0.9973500967025757
+            },
+            {
+              "text": " old",
+              "start": 16.45,
+              "end": 16.65,
+              "probability": 0.997724711894989
+            },
+            {
+              "text": " property",
+              "start": 16.65,
+              "end": 17.03,
+              "probability": 0.994596540927887
+            },
+            {
+              "text": " relations",
+              "start": 17.03,
+              "end": 17.61,
+              "probability": 0.9896593689918518
+            },
+            {
+              "text": " that",
+              "start": 17.61,
+              "end": 17.89,
+              "probability": 0.9934939742088318
+            },
+            {
+              "text": " have",
+              "start": 17.89,
+              "end": 17.99,
+              "probability": 0.9985021352767944
+            },
+            {
+              "text": " been,",
+              "start": 17.99,
+              "end": 18.29,
+              "probability": 0.9997305274009705
+            },
+            {
+              "text": " and",
+              "start": 18.77,
+              "end": 18.91,
+              "probability": 0.9976189732551575
+            },
+            {
+              "text": " were",
+              "start": 18.91,
+              "end": 19.03,
+              "probability": 0.9919378161430359
+            },
+            {
+              "text": " bound",
+              "start": 19.03,
+              "end": 19.31,
+              "probability": 0.9976252913475037
+            },
+            {
+              "text": " to",
+              "start": 19.31,
+              "end": 19.53,
+              "probability": 0.9985582232475281
+            },
+            {
+              "text": " be,",
+              "start": 19.53,
+              "end": 19.83,
+              "probability": 0.9993084669113159
+            },
+            {
+              "text": " exploded",
+              "start": 20.15,
+              "end": 20.51,
+              "probability": 0.9937230944633484
+            },
+            {
+              "text": " by",
+              "start": 20.51,
+              "end": 20.79,
+              "probability": 0.9993675351142883
+            },
+            {
+              "text": " those",
+              "start": 20.79,
+              "end": 21.05,
+              "probability": 0.9969295859336853
+            },
+            {
+              "text": " means.",
+              "start": 21.05,
+              "end": 21.51,
+              "probability": 0.9989582300186157
+            }
+          ]
+        },
+        {
+          "text": " In either case, it is both reactionary and Utopian.",
+          "start": 21.51,
+          "end": 25.57,
+          "words": [
+            {
+              "text": " In",
+              "start": 21.51,
+              "end": 22.33,
+              "probability": 0.8130506873130798
+            },
+            {
+              "text": " either",
+              "start": 22.33,
+              "end": 22.57,
+              "probability": 0.9988683462142944
+            },
+            {
+              "text": " case,",
+              "start": 22.57,
+              "end": 22.95,
+              "probability": 0.99955815076828
+            },
+            {
+              "text": " it",
+              "start": 23.39,
+              "end": 23.47,
+              "probability": 0.9976588487625122
+            },
+            {
+              "text": " is",
+              "start": 23.47,
+              "end": 23.61,
+              "probability": 0.9994342923164368
+            },
+            {
+              "text": " both",
+              "start": 23.61,
+              "end": 23.85,
+              "probability": 0.9992364645004272
+            },
+            {
+              "text": " reactionary",
+              "start": 23.85,
+              "end": 24.45,
+              "probability": 0.9941934943199158
+            },
+            {
+              "text": " and",
+              "start": 24.45,
+              "end": 24.91,
+              "probability": 0.9982055425643921
+            },
+            {
+              "text": " Utopian.",
+              "start": 24.91,
+              "end": 25.57,
+              "probability": 0.6788654873768488
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "its",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "positive",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "raw": "aims,",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "raw": "however,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "this",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "form",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "of",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "Socialism",
+          "start": 3.13,
+          "end": 3.63
+        },
+        {
+          "raw": "aspires",
+          "start": 3.63,
+          "end": 4.25
+        },
+        {
+          "raw": "either",
+          "start": 4.25,
+          "end": 4.61
+        },
+        {
+          "raw": "to",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "restoring",
+          "start": 4.81,
+          "end": 5.27
+        },
+        {
+          "raw": "the",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "raw": "old",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "raw": "means",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "raw": "of",
+          "start": 5.95,
+          "end": 6.17
+        },
+        {
+          "raw": "production",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "raw": "and",
+          "start": 6.59,
+          "end": 6.83
+        },
+        {
+          "raw": "of",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "exchange,",
+          "start": 6.93,
+          "end": 7.49
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.19
+        },
+        {
+          "raw": "with",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "raw": "them",
+          "start": 8.33,
+          "end": 8.53
+        },
+        {
+          "raw": "the",
+          "start": 8.53,
+          "end": 8.69
+        },
+        {
+          "raw": "old",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "raw": "property",
+          "start": 8.95,
+          "end": 9.33
+        },
+        {
+          "raw": "relations,",
+          "start": 9.33,
+          "end": 9.91
+        },
+        {
+          "raw": "and",
+          "start": 10.37,
+          "end": 10.59
+        },
+        {
+          "raw": "the",
+          "start": 10.59,
+          "end": 10.69
+        },
+        {
+          "raw": "old",
+          "start": 10.69,
+          "end": 10.93
+        },
+        {
+          "raw": "society,",
+          "start": 10.93,
+          "end": 11.49
+        },
+        {
+          "raw": "or",
+          "start": 11.87,
+          "end": 12.11
+        },
+        {
+          "raw": "to",
+          "start": 12.11,
+          "end": 12.25
+        },
+        {
+          "raw": "cramping",
+          "start": 12.25,
+          "end": 12.53
+        },
+        {
+          "raw": "the",
+          "start": 12.53,
+          "end": 12.75
+        },
+        {
+          "raw": "modern",
+          "start": 12.75,
+          "end": 13.09
+        },
+        {
+          "raw": "means",
+          "start": 13.09,
+          "end": 13.41
+        },
+        {
+          "raw": "of",
+          "start": 13.41,
+          "end": 13.61
+        },
+        {
+          "raw": "production",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "raw": "and",
+          "start": 14.01,
+          "end": 14.25
+        },
+        {
+          "raw": "of",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "raw": "exchange,",
+          "start": 14.37,
+          "end": 14.91
+        },
+        {
+          "raw": "within",
+          "start": 15.25,
+          "end": 15.53
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.77
+        },
+        {
+          "raw": "framework",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "raw": "of",
+          "start": 16.09,
+          "end": 16.31
+        },
+        {
+          "raw": "the",
+          "start": 16.31,
+          "end": 16.45
+        },
+        {
+          "raw": "old",
+          "start": 16.45,
+          "end": 16.65
+        },
+        {
+          "raw": "property",
+          "start": 16.65,
+          "end": 17.03
+        },
+        {
+          "raw": "relations",
+          "start": 17.03,
+          "end": 17.61
+        },
+        {
+          "raw": "that",
+          "start": 17.61,
+          "end": 17.89
+        },
+        {
+          "raw": "have",
+          "start": 17.89,
+          "end": 17.99
+        },
+        {
+          "raw": "been,",
+          "start": 17.99,
+          "end": 18.29
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.91
+        },
+        {
+          "raw": "were",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "raw": "bound",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "raw": "be,",
+          "start": 19.53,
+          "end": 19.83
+        },
+        {
+          "raw": "exploded",
+          "start": 20.15,
+          "end": 20.51
+        },
+        {
+          "raw": "by",
+          "start": 20.51,
+          "end": 20.79
+        },
+        {
+          "raw": "those",
+          "start": 20.79,
+          "end": 21.05
+        },
+        {
+          "raw": "means.",
+          "start": 21.05,
+          "end": 21.51
+        },
+        {
+          "raw": "In",
+          "start": 21.51,
+          "end": 22.33
+        },
+        {
+          "raw": "either",
+          "start": 22.33,
+          "end": 22.57
+        },
+        {
+          "raw": "case,",
+          "start": 22.57,
+          "end": 22.95
+        },
+        {
+          "raw": "it",
+          "start": 23.39,
+          "end": 23.47
+        },
+        {
+          "raw": "is",
+          "start": 23.47,
+          "end": 23.61
+        },
+        {
+          "raw": "both",
+          "start": 23.61,
+          "end": 23.85
+        },
+        {
+          "raw": "reactionary",
+          "start": 23.85,
+          "end": 24.45
+        },
+        {
+          "raw": "and",
+          "start": 24.45,
+          "end": 24.91
+        },
+        {
+          "raw": "Utopian.",
+          "start": 24.91,
+          "end": 25.57
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "its",
+        "positive",
+        "aims,",
+        "however,",
+        "this",
+        "form",
+        "of",
+        "Socialism",
+        "aspires",
+        "either",
+        "to",
+        "restoring",
+        "the",
+        "old",
+        "means",
+        "of",
+        "production",
+        "and",
+        "of",
+        "exchange,",
+        "and",
+        "with",
+        "them",
+        "the",
+        "old",
+        "property",
+        "relations,",
+        "and",
+        "the",
+        "old",
+        "society,",
+        "or",
+        "to",
+        "cramping",
+        "the",
+        "modern",
+        "means",
+        "of",
+        "production",
+        "and",
+        "of",
+        "exchange,",
+        "within",
+        "the",
+        "framework",
+        "of",
+        "the",
+        "old",
+        "property",
+        "relations",
+        "that",
+        "have",
+        "been,",
+        "and",
+        "were",
+        "bound",
+        "to",
+        "be,",
+        "exploded",
+        "by",
+        "those",
+        "means.",
+        "In",
+        "either",
+        "case,",
+        "it",
+        "is",
+        "both",
+        "reactionary",
+        "and",
+        "Utopian."
+      ],
+      "acoustic_expected_tokens": [
+        "In",
+        "its",
+        "positive",
+        "aims,",
+        "however,",
+        "this",
+        "form",
+        "of",
+        "Socialism",
+        "aspires",
+        "either",
+        "to",
+        "restoring",
+        "the",
+        "old",
+        "means",
+        "of",
+        "production",
+        "and",
+        "of",
+        "exchange,",
+        "and",
+        "with",
+        "them",
+        "the",
+        "old",
+        "property",
+        "relations,",
+        "and",
+        "the",
+        "old",
+        "society,",
+        "or",
+        "to",
+        "cramping",
+        "the",
+        "modern",
+        "means",
+        "of",
+        "production",
+        "and",
+        "of",
+        "exchange,",
+        "within",
+        "the",
+        "framework",
+        "of",
+        "the",
+        "old",
+        "property",
+        "relations",
+        "that",
+        "have",
+        "been,",
+        "and",
+        "were",
+        "bound",
+        "to",
+        "be,",
+        "exploded",
+        "by",
+        "those",
+        "means.",
+        "In",
+        "either",
+        "case,",
+        "it",
+        "is",
+        "both",
+        "reactionary",
+        "and",
+        "Utopian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          72,
+          0,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "its",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "positive",
+          "start": 0.71,
+          "end": 1.17,
+          "key": "positive",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "aims,",
+          "start": 1.17,
+          "end": 1.57,
+          "key": "aims",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "however,",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "however",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "form",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "form",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Socialism",
+          "start": 3.13,
+          "end": 3.63,
+          "key": "socialism",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "aspires",
+          "start": 3.63,
+          "end": 4.25,
+          "key": "aspires",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 4.25,
+          "end": 4.61,
+          "key": "either",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "restoring",
+          "start": 4.81,
+          "end": 5.27,
+          "key": "restoring",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.27,
+          "end": 5.49,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 5.49,
+          "end": 5.67,
+          "key": "old",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 5.67,
+          "end": 5.95,
+          "key": "means",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.95,
+          "end": 6.17,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "production",
+          "start": 6.17,
+          "end": 6.59,
+          "key": "production",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.59,
+          "end": 6.83,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.83,
+          "end": 6.93,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "exchange,",
+          "start": 6.93,
+          "end": 7.49,
+          "key": "exchange",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.19,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.19,
+          "end": 8.33,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 8.33,
+          "end": 8.53,
+          "key": "them",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.53,
+          "end": 8.69,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 8.69,
+          "end": 8.95,
+          "key": "old",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 8.95,
+          "end": 9.33,
+          "key": "property",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "relations,",
+          "start": 9.33,
+          "end": 9.91,
+          "key": "relations",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.37,
+          "end": 10.59,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.59,
+          "end": 10.69,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 10.69,
+          "end": 10.93,
+          "key": "old",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "society,",
+          "start": 10.93,
+          "end": 11.49,
+          "key": "society",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 11.87,
+          "end": 12.11,
+          "key": "or",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.11,
+          "end": 12.25,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "cramping",
+          "start": 12.25,
+          "end": 12.53,
+          "key": "cramping",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.53,
+          "end": 12.75,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "modern",
+          "start": 12.75,
+          "end": 13.09,
+          "key": "modern",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 13.09,
+          "end": 13.41,
+          "key": "means",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.41,
+          "end": 13.61,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "production",
+          "start": 13.61,
+          "end": 14.01,
+          "key": "production",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.01,
+          "end": 14.25,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.25,
+          "end": 14.37,
+          "key": "of",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "exchange,",
+          "start": 14.37,
+          "end": 14.91,
+          "key": "exchange",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 15.25,
+          "end": 15.53,
+          "key": "within",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.77,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "framework",
+          "start": 15.77,
+          "end": 16.09,
+          "key": "framework",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.09,
+          "end": 16.31,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.31,
+          "end": 16.45,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 16.45,
+          "end": 16.65,
+          "key": "old",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 16.65,
+          "end": 17.03,
+          "key": "property",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "relations",
+          "start": 17.03,
+          "end": 17.61,
+          "key": "relations",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 17.61,
+          "end": 17.89,
+          "key": "that",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.89,
+          "end": 17.99,
+          "key": "have",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "been,",
+          "start": 17.99,
+          "end": 18.29,
+          "key": "been",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.91,
+          "key": "and",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 18.91,
+          "end": 19.03,
+          "key": "were",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 19.03,
+          "end": 19.31,
+          "key": "bound",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.53,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 19.53,
+          "end": 19.83,
+          "key": "be",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "exploded",
+          "start": 20.15,
+          "end": 20.51,
+          "key": "exploded",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 20.51,
+          "end": 20.79,
+          "key": "by",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 20.79,
+          "end": 21.05,
+          "key": "those",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "means.",
+          "start": 21.05,
+          "end": 21.51,
+          "key": "means",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 21.51,
+          "end": 22.33,
+          "key": "in",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 22.33,
+          "end": 22.57,
+          "key": "either",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 22.57,
+          "end": 22.95,
+          "key": "case",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 23.39,
+          "end": 23.47,
+          "key": "it",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 23.47,
+          "end": 23.61,
+          "key": "is",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 23.61,
+          "end": 23.85,
+          "key": "both",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "reactionary",
+          "start": 23.85,
+          "end": 24.45,
+          "key": "reactionary",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.45,
+          "end": 24.91,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Utopian.",
+          "start": 24.91,
+          "end": 25.57,
+          "key": "utopian",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "its",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "positive",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "text": "aims,",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "text": "however,",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "this",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "form",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "of",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "Socialism",
+          "start": 3.13,
+          "end": 3.63
+        },
+        {
+          "text": "aspires",
+          "start": 3.63,
+          "end": 4.25
+        },
+        {
+          "text": "either",
+          "start": 4.25,
+          "end": 4.61
+        },
+        {
+          "text": "to",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "restoring",
+          "start": 4.81,
+          "end": 5.27
+        },
+        {
+          "text": "the",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "text": "old",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "text": "means",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "text": "of",
+          "start": 5.95,
+          "end": 6.17
+        },
+        {
+          "text": "production",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "text": "and",
+          "start": 6.59,
+          "end": 6.83
+        },
+        {
+          "text": "of",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "exchange,",
+          "start": 6.93,
+          "end": 7.49
+        },
+        {
+          "text": "and",
+          "start": 7.87,
+          "end": 8.19
+        },
+        {
+          "text": "with",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "text": "them",
+          "start": 8.33,
+          "end": 8.53
+        },
+        {
+          "text": "the",
+          "start": 8.53,
+          "end": 8.69
+        },
+        {
+          "text": "old",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "text": "property",
+          "start": 8.95,
+          "end": 9.33
+        },
+        {
+          "text": "relations,",
+          "start": 9.33,
+          "end": 9.91
+        },
+        {
+          "text": "and",
+          "start": 10.37,
+          "end": 10.59
+        },
+        {
+          "text": "the",
+          "start": 10.59,
+          "end": 10.69
+        },
+        {
+          "text": "old",
+          "start": 10.69,
+          "end": 10.93
+        },
+        {
+          "text": "society,",
+          "start": 10.93,
+          "end": 11.49
+        },
+        {
+          "text": "or",
+          "start": 11.87,
+          "end": 12.11
+        },
+        {
+          "text": "to",
+          "start": 12.11,
+          "end": 12.25
+        },
+        {
+          "text": "cramping",
+          "start": 12.25,
+          "end": 12.53
+        },
+        {
+          "text": "the",
+          "start": 12.53,
+          "end": 12.75
+        },
+        {
+          "text": "modern",
+          "start": 12.75,
+          "end": 13.09
+        },
+        {
+          "text": "means",
+          "start": 13.09,
+          "end": 13.41
+        },
+        {
+          "text": "of",
+          "start": 13.41,
+          "end": 13.61
+        },
+        {
+          "text": "production",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "text": "and",
+          "start": 14.01,
+          "end": 14.25
+        },
+        {
+          "text": "of",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "text": "exchange,",
+          "start": 14.37,
+          "end": 14.91
+        },
+        {
+          "text": "within",
+          "start": 15.25,
+          "end": 15.53
+        },
+        {
+          "text": "the",
+          "start": 15.53,
+          "end": 15.77
+        },
+        {
+          "text": "framework",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "text": "of",
+          "start": 16.09,
+          "end": 16.31
+        },
+        {
+          "text": "the",
+          "start": 16.31,
+          "end": 16.45
+        },
+        {
+          "text": "old",
+          "start": 16.45,
+          "end": 16.65
+        },
+        {
+          "text": "property",
+          "start": 16.65,
+          "end": 17.03
+        },
+        {
+          "text": "relations",
+          "start": 17.03,
+          "end": 17.61
+        },
+        {
+          "text": "that",
+          "start": 17.61,
+          "end": 17.89
+        },
+        {
+          "text": "have",
+          "start": 17.89,
+          "end": 17.99
+        },
+        {
+          "text": "been,",
+          "start": 17.99,
+          "end": 18.29
+        },
+        {
+          "text": "and",
+          "start": 18.77,
+          "end": 18.91
+        },
+        {
+          "text": "were",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "text": "bound",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "text": "to",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "text": "be,",
+          "start": 19.53,
+          "end": 19.83
+        },
+        {
+          "text": "exploded",
+          "start": 20.15,
+          "end": 20.51
+        },
+        {
+          "text": "by",
+          "start": 20.51,
+          "end": 20.79
+        },
+        {
+          "text": "those",
+          "start": 20.79,
+          "end": 21.05
+        },
+        {
+          "text": "means.",
+          "start": 21.05,
+          "end": 21.51
+        },
+        {
+          "text": "In",
+          "start": 21.51,
+          "end": 22.33
+        },
+        {
+          "text": "either",
+          "start": 22.33,
+          "end": 22.57
+        },
+        {
+          "text": "case,",
+          "start": 22.57,
+          "end": 22.95
+        },
+        {
+          "text": "it",
+          "start": 23.39,
+          "end": 23.47
+        },
+        {
+          "text": "is",
+          "start": 23.47,
+          "end": 23.61
+        },
+        {
+          "text": "both",
+          "start": 23.61,
+          "end": 23.85
+        },
+        {
+          "text": "reactionary",
+          "start": 23.85,
+          "end": 24.45
+        },
+        {
+          "text": "and",
+          "start": 24.45,
+          "end": 24.91
+        },
+        {
+          "text": "Utopian.",
+          "start": 24.91,
+          "end": 25.57
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 72,
+        "matched_words": 72
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 14.862499471000007
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3dbce6d803dc4035b47c85c24d1eddce75a47de10ce90abc578c88353cec312",
+  "selected_reasons": []
+}
