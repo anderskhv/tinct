@@ -44,14 +44,6 @@ jobs:
         id: bundle_gate
       - name: Install silent browser acceptance
         run: npx playwright install --with-deps chromium webkit
-      - name: Verify reader panels and selection
-        run: node scripts/check-reader-panels.mjs
-      - name: Save reader acceptance screenshots
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: reader-panels-acceptance
-          path: app/artifacts/reader-panels
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' && github.head_ref == 'codex/reader-panels-selection-20260921' }}
         run: |
@@ -60,7 +52,23 @@ jobs:
           espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? Explain in detail over several paragraphs."
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
           node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
+      - name: Save voice capture acceptance
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voice-capture-acceptance
+          path: app/artifacts/voice-capture
+      - name: Verify reader panels and selection
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-reader-panels.mjs
+      - name: Save reader acceptance screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-panels-acceptance
+          path: app/artifacts/reader-panels
       - name: Verify library and preparation
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() }}
@@ -73,7 +81,6 @@ jobs:
         with:
           name: library-preparation-acceptance
           path: |
-            app/artifacts/voice-capture
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening

@@ -1,18 +1,18 @@
 # Current reader behavior
 
-This active-checkout note records the September 17 reader update. It does not
-replace or silently import the broader, historical Documents product inventory.
-Release evidence and limits are in [the reader feedback plan](reader-feedback-2026-09-17.md).
+This note records the active reader, including the September 21 polish candidate.
+Release status and verification limits are in [the reader polish plan](reader-panels-selection-2026-09-21.md)
+and [the September 17 release plan](reader-feedback-2026-09-17.md).
 
-- Explain uses a compact, stable, scrollable glass card. Its icon expands to one
-  desktop leaf or the phone reader viewport. Chat and Talk retain the explanation.
+- Explain uses a compact, stable, scrollable glass card. Its transparent icon expands to the content height, bounded by one
+  desktop leaf or the phone viewport. Close stays outside the scrolling text. Chat and Talk retain the explanation.
 - Chat opens with fresh writing space; prior messages remain above. Displayed
   explanations are recorded through the book-scoped chat history writer.
 - Explain shares the current speculative request for 60 seconds. There is no
   persistent answer cache; displayed explanations remain in chat history.
 - Requested personal recall searches available/synced reading records, chats and
   highlights across editions/books. Ordinary voice context stays book-scoped.
-- Read selections extend across pages with a 700ms top/bottom edge hold, within
+- Read selections extend across pages with a 450ms top/bottom edge hold, within
   the chapter. Compare retains its existing selection behavior.
 - Edition projection preserves one saved highlight. Shared exact wording stays
   precise; differing Bible wording uses verses, and explicitly aligned prose
@@ -58,9 +58,8 @@ AI use offers an account with the existing first month free. Book opening and
 reading do not trigger an account nudge, and reading remains available without AI.
 [Iteration verification and release status](library-iteration-2026-09-17.md).
 
-The private `/lab/voice` test room allows site administrators to compare editable
-Live1 speaking/reasoning prompts and Terra/Sol/Luna backend models. It leaves
-ordinary reader voice defaults unchanged. See [test room scope and verification](voice-test-room-2026-09-17.md).
+The September 17 private voice test room was removed by the September 18 Grok
+migration. Its [test room plan](voice-test-room-2026-09-17.md) is historical.
 
 ## Library conversation surfaces — September 17 follow-up
 
@@ -71,11 +70,11 @@ and uses a bounded, centred voice surface with round Mute/End controls.
 
 ## Voice follow-ups — September 18
 
-Sol with compact context is the shipped Talk default. The change supplies
-reader location at connection, explicitly suppresses fillers and retains the
-original turn identity of late backend continuations. Release status and the
-limits of managed Live speech steering are recorded in
-[the voice follow-up plan](voice-sol-light-2026-09-18.md).
+The earlier Sol/Live chain was superseded by native Grok speech-to-speech
+(`grok-voice-latest`, voice `altair`). All Talk entry points use it; dictation
+remains separate. The browser sends audio through a WebSocket using an ephemeral
+secret minted by the Worker. The minimal prompt and model remain unchanged in
+the September 21 capture-recovery work. See [Grok release evidence and limits](voice-grok-2026-09-18.md).
 
 ## Page-edge hyphenation — September 18
 
@@ -87,3 +86,32 @@ stale layout work, and the reader preserves its logical position through
 repagination, page turns and reload. Candidate and production checks run in
 muted headless desktop and phone browsers. See the
 [hyphenation hardening release plan](hyphenation-hardening-2026-09-18.md).
+
+## Reader polish — September 21
+
+[Release status and acceptance evidence](reader-panels-selection-2026-09-21.md).
+
+- Desktop Chat, Talk, Explain, Define and Reading settings share header dragging
+  and viewport bounds. Chat/Talk minimize and restore; Chat/Talk/Explain/Define
+  resize. Positions are remembered for the browser session. Small selection
+  menus remain attached to the passage; phone cards and sheets remain in place.
+- Highlights preserve text geometry around verse numbers. Selection uses visible
+  line fragments to reach short final words and paints a trailing hyphenated
+  fragment before the page turns. The cross-page instruction hint is removed.
+- Explain offers a highlight pen and theme-coloured More/Less. Dictionary misses
+  stay in Define: a lexical AI definition with subtle provenance replaces the
+  former passage explanation. The existing archaic supplement now participates
+  in lookup; failed dictionary downloads can retry.
+- Full library is available from the book title. Desktop progress toggles
+  percent of book/chapter. Comparison footers separate edition names from folios,
+  with the modern edition labelled **Tinct Modern English**.
+- Phone titles follow the reading margin; its progress uses the book font at a
+  smaller size. Desktop frame and page share paper colour with a subtle centre
+  gutter shadow.
+- Advanced settings remain reachable within the viewport. Line spacing, paragraph
+  spacing and margins use bounded sliders with editable decimal-comma values.
+  Restore defaults resets appearance while preserving edition, position and data.
+- Talk detects a stopped capture graph, presents reconnect recovery and cleans up
+  tracks on End. Same-page restart reuses worklet registration, and stale response
+  completions cannot overwrite a new answer. Real-device echo and Bluetooth
+  behaviour remain outside silent browser verification.

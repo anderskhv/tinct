@@ -25,6 +25,6 @@ Voice capture exceptions were swallowed, so a dead graph could claim to be liste
 
 ## Verification and release
 
-All authoring and execution use remote GitHub branch/Actions; the historical Documents checkout remains untouched. Candidate tests/build/bundle checks and silent Chromium/WebKit acceptance are pending. Production uses the serialized GitHub deploy workflow on Node 24.13.0. No physical iPhone or Mac microphone testing is authorized. Browser AI definition tests use fixtures and do not call Anthropic APIs.
+All authoring and execution use remote GitHub branch/Actions; the historical Documents checkout remains untouched. Candidate run [35576417347](https://github.com/anderskhv/tinct/actions/runs/35576417347) passed 2,521 tests (one skipped), build, bundle verification, all six Chromium/WebKit reader cases, hyphenation and responsive entry acceptance. Candidate bundle: `index-gszvwRT4.js`. Its voice check stopped before connecting because it targeted a control hidden during dictation; the corrected test uses the Talk menu. Real-provider voice acceptance remains pending. Production uses the serialized GitHub deploy workflow on Node 24.13.0. No physical iPhone or Mac microphone testing is authorized. Browser AI definition tests use fixtures and do not call Anthropic APIs.
 
 Next: run cloud gates, correct failures, verify real-provider voice in a muted isolated browser, then release and record exact bundle/run/screenshot evidence here.

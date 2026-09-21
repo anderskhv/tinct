@@ -33,7 +33,7 @@ await page.addInitScript(()=>{
   // SpeechRecognition itself is browser-vendor hosted. Exercise its lifecycle
   // contract with a fixture; Grok below still receives real synthetic PCM.
   window.SpeechRecognition=class {
-    start(){window.__captureQA.dictationActive=true;this.onstart?.();this.onresult?.({results:[{isFinal:true,0:{transcript:'A fixture dictated question'}}]})}
+    start(){window.__captureQA.dictationActive=true;this.onstart?.();this.onresult?.({resultIndex:0,results:[{isFinal:true,0:{transcript:'A fixture dictated question'}}]})}
     stop(){window.__captureQA.dictationActive=false;this.onend?.()}
   }
   const original=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
@@ -73,8 +73,7 @@ try{
   await page.getByTestId('lab-ask-mic').click()
   await page.getByTestId('lab-dictation-status').waitFor()
   assert(await page.evaluate(()=>window.__captureQA.dictationActive))
-  await page.getByTestId('lab-ask-voice').click()
-  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-voice-panel"]')?.dataset.connection==='connected',null,{timeout:30000})
+  await open()
   assert.equal(await page.evaluate(()=>window.__captureQA.dictationActive),false,'Talk must stop dictation')
   report.checks.push({name:'dictation fixture hands microphone ownership to real Grok capture'})
   const panel=page.getByTestId('lab-voice-panel')
