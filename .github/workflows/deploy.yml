@@ -73,6 +73,8 @@ jobs:
 
       - name: Install silent production browser
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify production featured-book preview
+        run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
       - name: Verify production library and preparation
         run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
       - name: Verify responsive landing and library
@@ -87,6 +89,7 @@ jobs:
         with:
           name: production-library-preparation
           path: |
+            app/artifacts/featured-preview
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening

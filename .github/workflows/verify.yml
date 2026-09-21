@@ -31,7 +31,7 @@ jobs:
       - name: Check project documentation
         run: |
           python3 ../scripts/check-docs.py
-          python3 ../scripts/check-docs.py docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md
+          python3 ../scripts/check-docs.py docs/featured-library-preview-2026-09-21.md docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
@@ -43,6 +43,8 @@ jobs:
       - run: npm run verify-bundle
       - name: Install silent browser acceptance
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify featured-book preview
+        run: node scripts/check-featured-preview.mjs
       - name: Verify library and preparation
         run: node scripts/check-library-layout.mjs
       - name: Verify hyphenation hardening
@@ -56,6 +58,7 @@ jobs:
         with:
           name: library-preparation-acceptance
           path: |
+            app/artifacts/featured-preview
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening

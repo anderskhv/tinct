@@ -87,3 +87,9 @@ stale layout work, and the reader preserves its logical position through
 repagination, page turns and reload. Candidate and production checks run in
 muted headless desktop and phone browsers. See the
 [hyphenation hardening release plan](hyphenation-hardening-2026-09-18.md).
+
+## Featured-library design preview — September 21
+
+An isolated admin-only featured-book experiment is tracked in the
+[preview plan](featured-library-preview-2026-09-21.md). It does not replace or
+change the public library; release and acceptance status live in that plan.
