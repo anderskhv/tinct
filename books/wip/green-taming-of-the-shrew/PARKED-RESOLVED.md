@@ -1,4 +1,36 @@
-# PARKED — The Taming of the Shrew (`taming-of-the-shrew`), modern-en
+# RESOLVED (was PARKED) — The Taming of the Shrew (`taming-of-the-shrew`), modern-en
+
+> **RESOLVED 2026-09-21. This book is now ACCEPTED — see
+> `ACCEPTANCE-RECORD.md` in this directory.**
+>
+> **How it was resolved.** Both blocking defects recorded below were
+> repaired in round 4:
+>
+> - **D1** (ch2 ¶28 0-based, Grumio's quantity) — "half a dozen" restored
+>   to the source's "half a score".
+> - **D2** (the "Katherine the curst" epithet) — all four locations listed
+>   below repaired to the source's own printed form. Round 4 then found a
+>   **fifth, previously-missed occurrence** of the same class at
+>   `chapters[1].paragraphs[29]` (Hortensio, one paragraph *before*
+>   Grumio's echo, which the round-3 sweep had keyed on); it read
+>   "Katherine the shrew" and was fixed to "Katherine the curst".
+>
+> Round 5 (Claude Opus, `claude-opus-5`) re-derived that fifth fix from
+> `source.json`, confirmed Hortensio's full line and Grumio's echo are now
+> consistent with each other, and swept the whole book a **third** time for
+> the `curst`/`cursed`/`shrew` epithet class, matching every occurrence in
+> both files 1:1 by location. All five title-class occurrences match; the
+> word "cursed" no longer appears anywhere in the candidate. Structure
+> re-validated at 12 chapters / 1021 paragraphs.
+>
+> Final accepted `candidate.json` sha256:
+> `51ef8f1b346059713de284d3247c104b5eea7f7294c2ad5e192b64360583462b`
+> (the park-time hash recorded below is superseded.)
+>
+> Everything below this header is the original round-3 park notice, kept
+> unchanged for history.
+
+---
 
 **Status:** PARKED after 3 correction rounds, per the programme's
 three-round rule (`books/wip/SECOND-BATCH-TRACKER.md`). Not accepted.
