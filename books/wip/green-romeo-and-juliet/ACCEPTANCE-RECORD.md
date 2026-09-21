@@ -1,5 +1,17 @@
 # Acceptance Record — Romeo and Juliet (`romeo-and-juliet`, modern-en)
 
+> **SUPERSEDED — NOT ACCEPTED. See `PARKED.md`.**
+>
+> The independent round-2 Opus verification pass (2026-09-21,
+> `claude-opus-5`) confirmed this record's structure work and all 12 of its
+> fixes, but found the register-softening / printed-form-erasure class was
+> **not** exhausted: 19 further live instances plus a dropped stage
+> direction on its first independent pass, and two demonstrably false
+> verification claims in `fidelity-review-1.md` §5 ("wormwood on my dug"
+> preserved; "no malapropism dialect in this play"). **PARKED at round 2 of
+> 3. No acceptance hash is in force.** Nothing below should be treated as a
+> verdict; it is round 1's input to round 3.
+
 **Book id:** `romeo-and-juliet`
 **Edition:** `modern-en`
 **Accepted (this pass):** 2026-09-21

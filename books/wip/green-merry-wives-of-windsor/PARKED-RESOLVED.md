@@ -1,3 +1,25 @@
+# PARKED-RESOLVED — The Merry Wives of Windsor (`merry-wives-of-windsor`, modern-en)
+
+> **RESOLVED 2026-09-21 (round 3, Claude Sonnet 5, `claude-sonnet-5`).**
+> Everything below this line is round 2's original parking report, kept
+> verbatim for history. Round 3 fixed all 6 blocking/policy items it lists
+> (23.45's `'Seese'/'putter'` joke, the 8 untagged Evans/Caius dialect
+> paragraphs — including 4.23 and 8.40, which round 2's own summary table
+> had already counted but whose full text is in the body below — the
+> Quickly malapropism sweep, the `Readins`/`Colebrook` toponym, and the
+> `punk`/`wench` register softening), decided the ~23 lower-severity
+> coinages as a set, found 2 further defects round 2 had not caught
+> (12.16 `erection`, 14.71 `jealousies`), and checked the Host/Pistol/Nym as
+> first-class voices as suggested at the end of this file. Full round 3
+> detail, including why each of the ~23 coinages was or wasn't restored, is
+> in `ACCEPTANCE-RECORD.md`'s "Round 3" section. Final accepted hash
+> (`candidate.json`, sha256):
+> `eb863e8964c6c0a0e272ade2d425e327f38718923232ac39eee0a8b1cd50b5ad`.
+> This file is renamed from `PARKED.md` per the dispatch instruction; no
+> content below was altered.
+
+---
+
 # PARKED — The Merry Wives of Windsor (`merry-wives-of-windsor`, modern-en)
 
 **Date:** 2026-09-21

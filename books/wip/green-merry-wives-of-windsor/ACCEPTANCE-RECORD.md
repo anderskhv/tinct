@@ -1,6 +1,25 @@
 # Acceptance Record — The Merry Wives of Windsor (`merry-wives-of-windsor`, modern-en)
 
-> **SUPERSEDED 2026-09-21 — NOT ACCEPTED. See `PARKED.md`.**
+> **ACCEPTED 2026-09-21 (round 3). Current status.** Round 3 (Claude Sonnet 5,
+> `claude-sonnet-5`) fixed all defects round 2 (Claude Opus, independent
+> verification) found parked, re-derived every fix fresh against `source.json`
+> (not from round 1's notes — round 1's own notes misquoted source at 23.45),
+> ran a tag-agnostic whole-book resweep to confirm no further Evans/Caius/
+> Quickly dialect-marker or malapropism erasure remained, checked the Host,
+> Pistol and Nym as first-class voices, applied a uniform restore-vs-modernize
+> policy to the ~23 previously-undecided coinages, and reverified structure,
+> compression and every changed paragraph against source after writing.
+> **Final file hash (candidate.json, sha256):**
+> `eb863e8964c6c0a0e272ade2d425e327f38718923232ac39eee0a8b1cd50b5ad`.
+> Full round 3 detail is in `PARKED-RESOLVED.md` (renamed from `PARKED.md`,
+> history kept). The section below, marked superseded, is round 1's own
+> record — its factual claims (including its false claim about source's
+> wording at 23.45) are retained for history only and must not be trusted.
+
+---
+
+> **SUPERSEDED 2026-09-21 — NOT ACCEPTED at the time. See `PARKED-RESOLVED.md`
+> for round 2's findings and round 3's fixes.**
 >
 > Round 2 independent verification (Claude Opus, `claude-opus-5`) re-derived
 > everything below from `source.json` and `candidate.json` directly. Structure,
@@ -237,3 +256,193 @@ Per-paragraph hashes (`accepted-paragraph-hashes.tsv`) and the release
 packet are intentionally **not** produced by this round, per the dispatching
 instruction — they are the independent verification pass's responsibility
 once it confirms this text clean.
+
+---
+
+## Round 3 (2026-09-21) — Claude Sonnet 5 (`claude-sonnet-5`)
+
+Round 3 is the final correction round before a hard park, dispatched to fix
+everything `PARKED.md` (round 2, Claude Opus independent verification)
+found. **Every fix below was re-derived directly from `source.json` in this
+round, not taken from round 1's or round 2's notes**, and every changed
+paragraph was independently re-read against `source.json` again after
+writing (`verify_round3.txt`-equivalent output, reproduced in the table
+below).
+
+### Method
+
+1. Full text of `PARKED.md` read first (round 2's findings, methodology,
+   and explicit non-blocking-item list).
+2. Built a **tag-agnostic speaker map** of the whole book from `source.json`
+   directly: every paragraph is attributed to a speaker by carrying the
+   current speaker forward across untagged continuation paragraphs, reset
+   only by a new `_Name._` tag (stage-direction-only `_Enter…_` paragraphs
+   don't change the running attribution). This is the same defect class of
+   fix round 1's tag-keyed sweep missed — continuation paragraphs — so the
+   resweep here is built to not repeat that mistake.
+3. Ran a **tag-agnostic lost-token diff** (case-insensitive, both texts'
+   speaker-tag prefixes stripped before comparison) for every paragraph
+   attributed to Evans, Caius, Quick, Host, Pist, or Nym — 211 paragraphs
+   flagged, all read by hand (`sweep_out.txt`, 845 lines).
+4. Classified every flagged paragraph into: (a) genuine dialect-marker /
+   malapropism / toponym / register erasure → restore verbatim from source;
+   (b) ordinary archaic-vocabulary modernization (`thou`→`you`,
+   `forsooth`→`indeed`, `hath`→`has`, and the like) → leave, consistent
+   with the policy round 1 set and round 2 did not fault.
+5. Directly re-checked source 23.44/23.45 word-for-word (the Ch23 blocking
+   defect) rather than trusting either round's prior notes.
+6. Did a full pass of every Quickly-attributed paragraph (74 turns) for
+   malapropisms beyond the four round 2 already named, and found one more:
+   **12.16, "erection"** (Quickly's malapropism for "direction" — a famous,
+   well-documented textual crux in this play) had been silently corrected
+   away to "instructions," erasing both the malapropism and its bawdy joke.
+7. Checked the Host, Pistol and Nym as first-class voices per round 2's
+   instruction. Finding: Pistol's and Nym's idiolects are built from
+   accurate (not misspelled, not malapropic) period-archaic bombast —
+   `wight`, `welkin`, `gripe`, `tester`, `malecontents`, `fico`, `labras`,
+   `kibes`, `gourd and fullam`, etc. — and every one of Pistol's actual
+   comic payoffs (`world's mine oyster`, the `Convey…Steal!` exchange) is
+   intact word for word. This is the same class as the general
+   archaic-vocabulary modernization already reviewed and accepted
+   book-wide, not a misspelled-dialect or malapropism erasure, so it is
+   **not** restored — restoring it piecemeal (e.g. only `fico`/`labras`)
+   would be an inconsistent, arbitrary partial fix of exactly the kind this
+   batch has repeatedly parked over. The Host, however, has a genuine
+   signature-coinage problem: see the coinage policy below.
+8. Applied all fixes as scoped whole-paragraph exact-match replacements
+   (script refused to write if the expected `old` text wasn't found
+   verbatim; none failed).
+9. Re-validated structure (23/23 chapters, 1,155/1,155 paragraphs, titles
+   and numbers identical to source) and re-ran the compression sweep
+   (0.5×–2.2× band, whole book, 8+-word paragraphs) after writing — 0
+   outliers.
+10. Diffed the post-fix file against the pre-round-3 file: **exactly 22
+    paragraphs changed, none elsewhere.**
+11. Re-ran the tag-agnostic lost-token sweep against the corrected file:
+    every restored marker (`vizaments`, `Got`/`pless`, `Fe`, `peds`,
+    `dispositions`, `Pabylon`/`vagram`, `Verefore`, `knog`/`cogscomb`,
+    `jealousies`, `detest`/`allicholy`, `canaries`/`alligant`, `speciously`
+    ×2, `erection`, `Readins`/`Colebrook`, `punk`, `varletto`, `Mounseur`,
+    `guest-cavaleire`, `An-heires`, `good-jer`) dropped out of the flagged
+    list; every remaining flagged item is ordinary archaic-vocabulary
+    modernization already reviewed as legitimate.
+
+### Fixes applied (22 paragraphs)
+
+| Loc | Speaker | Restored | Source-verified after fix |
+|---|---|---|---|
+| 1.16 | Evans | `vizaments` (malapropism, was "considerations") | ✅ |
+| 1.27 | Evans (untagged) | `Got pless` (was "God bless") | ✅ |
+| 4.23 | Caius | `Fe, fe, fe, fe!` (was "Fie, fie, fie, fie!") | ✅ |
+| 4.51 | Quickly | `good-jer` (was "mischief") | ✅ |
+| 4.64 | Quickly | `detest`, `allicholy` (was "protest", "melancholy") | ✅ |
+| 5.78 | Host | `guest-cavaleire` (was "guest-cavalier") | ✅ |
+| 5.80 | Host | `An-heires` (was "my heirs") | ✅ |
+| 6.27 | Quickly | `canaries`/`canary`, `alligant` (was "flutter", "elegant") | ✅ |
+| 6.41 | Pistol | `punk` (register: was "wench") | ✅ |
+| 7.26 | Host | `Mounseur` (was "Monsieur") | ✅ |
+| 8.6 | Evans (song, untagged) | `sings`, `peds` (was "sing", "beds") | ✅ |
+| 8.7 | Evans (song, untagged) | `dispositions` (was "disposition") | ✅ |
+| 8.8 | Evans (song, untagged) | `Pabylon`, `vagram` (was "Babylon", "vagrant") | ✅ |
+| 8.40 | Caius | `Verefore` (was "Vere-fore") | ✅ |
+| 8.44 | Evans (`[Aloud]`, untagged) | `knog`, `cogscomb` (was "knock", "coxcomb") | ✅ |
+| 11.50 | Quickly | `speciously` (was "specially") | ✅ |
+| 12.16 | Quickly | `erection` (malapropism, was "instructions") — **new find, not in `PARKED.md`** | ✅ |
+| 14.71 | Evans | `jealousies` (ungrammatical plural, matches `dispositions`/`melancholies` — **new find**) | ✅ |
+| 17.32 | Host | `varletto` (was "varlet") | ✅ |
+| 17.38 | Evans | `Readins`, `Colebrook` (was "Reading", "Colnbrook") | ✅ |
+| 17.50 | Quickly | `speciously` (was "specially") | ✅ |
+| 23.45 | Falstaff | `'Seese' and 'putter'!` (was `'Cheese' and 'butter'!`) — **the headline joke, both round 1 and round 1's own written record were wrong about source's wording; re-derived fresh from `source.json`, which reads `‘Seese’ and ’putter’!`, not "Cheese/butter"** | ✅ |
+
+### The ~23 lower-severity coinages — decided as a set
+
+Policy (matching the line this batch has drawn everywhere else): **restore**
+if the word is a character's own mangled/invented coinage where the
+strangeness or foreignness is itself the comic point or a deliberate
+period-specific term repeated as part of that character's identity;
+**modernize** if it is simply an obsolete English synonym for an ordinary
+concept, with no character-specific comic payload.
+
+**Restored (5, all above, all Host's or Quickly's own signature
+coinages):** `guest-cavaleire`, `An-heires`, `varletto`, `Mounseur`,
+`good-jer`. All five are the Host's (or, for `good-jer`, Quickly's) own
+invented or foreign-mangled address terms, structurally identical to Caius's
+`by gar` and Evans's `vizaments`/`Hibocrates`, which round 1 and round 2 both
+already treat as restore-worthy.
+
+**Left as legitimate modernization (18), reviewed and reasoned individually:**
+
+- `shent`→"catch it" (4.16), `wee`→"tiny" (4.8) — ordinary archaic
+  vocabulary, not a coinage or malapropism, Quickly-adjacent but not
+  Quickly's own error class.
+- `eyas-musket`→"little hawk-chick" (10.14), `drumble`→"dawdle" (10.63),
+  `draff`→"swill" (14.45), `ging`→"gang" (14.52), `lewdsters`→"lechers"
+  (21.9), `geminy`→"pair" (6.3), `whitsters` (10.8), `pumpion` (10.23),
+  `uncape`→"uncouple the hounds" (10.70) — none belong to Evans, Caius,
+  Quickly, or the Host; all are ordinary period vocabulary spoken by
+  Ford/Page/Falstaff/etc. with no misspelling or malapropism involved, and
+  the modern gloss preserves the meaning intact. Same bucket as
+  `posset`→"hot spiced drink" and `spigot`→"tap," already reviewed and
+  accepted in round 1.
+- `fico`→"fig" (3.16), `labras`→"lips" (1.75), `illades`/`œillades`→
+  "glances" (3.31), `kibes`, `ken`/`wight` (3.18, 3.22), `nuthook's`→
+  "constable's" (1.77, Nym), `gourd and fullam`→"loaded dice" (3.39) —
+  Pistol's (and once Nym's) grandiloquent-but-accurate archaic/foreign
+  bombast vocabulary. See the Pistol/Nym finding above (method step 7):
+  this is the same general-archaic-vocabulary bucket as the rest of the
+  book, not a misspelling/malapropism erasure, and none of Pistol's actual
+  jokes are broken by it. Restoring a handful of these words in isolation
+  (while every other archaic word Pistol uses stays modernized) would be
+  an arbitrary partial fix, so the whole set is left as modernized,
+  consistently.
+
+Also reconfirmed non-blocking, unchanged, agreeing with rounds 1 and 2:
+`Kaiser`/`Keisar`, `Actæon`/`Actaeon` ligature normalization, `hæc`/`quæ`
+ligatures, "These knights will hack" interpretive gloss, `adieu`→"farewell"
+(spoken by both Caius and Nym in source — an ordinary English loanword, not
+Caius-specific broken French), and the fairy-song archaic vocabulary in
+23.13–23.29 (`expressure`, `instalment`, `charactery`, etc. — Quickly
+reciting scripted verse in character as Fairy Queen, not her own malapropism
+idiolect).
+
+### Verification after fixes
+
+- Structure: 23/23 chapters, 1,155/1,155 paragraphs, chapter numbers and
+  titles identical to source, both before and after the round — unchanged.
+- Diff against the pre-round-3 file: **exactly 22 paragraphs changed**,
+  confirmed by direct paragraph-by-paragraph comparison of every chapter,
+  none elsewhere.
+- Every one of the 22 changed paragraphs independently re-read against
+  `source.json` fresh after writing (table above) — including re-deriving
+  23.44/23.45 from scratch rather than trusting either prior round's notes,
+  since round 1's own notes were wrong about source's wording there.
+- Compression sweep re-run whole-book (0.5×–2.2 × band, 8+-word paragraphs):
+  0 outliers.
+- Tag-agnostic lost-token resweep re-run against the corrected file: every
+  restored marker cleared; no new dialect-marker/malapropism-class loss
+  found; remaining flagged items are all previously-reviewed ordinary
+  archaic-vocabulary modernization.
+- `python3 -m json.tool candidate.json` — valid.
+
+### Final hash
+
+**candidate.json, sha256:**
+`eb863e8964c6c0a0e272ade2d425e327f38718923232ac39eee0a8b1cd50b5ad`
+
+**source.json, sha256 (unchanged):**
+`4ee59167c634e42eb81ede9d58ec481aedf55931bfd5fd953b9c0713a2c6b280`
+
+### Verdict
+
+**Accepted.** All 6 items `PARKED.md` listed as blocking or needing a policy
+decision are fixed and independently re-verified against source, plus 2
+further genuine defects this round's tag-agnostic resweep found that neither
+round 1 nor round 2 had caught (12.16 `erection`, 14.71 `jealousies`). The
+~23 previously-undecided lower-severity coinages now have a documented,
+uniformly-applied policy. The Host, Pistol and Nym were checked as
+first-class voices per round 2's instruction; the Host had a genuine
+signature-coinage gap (now fixed, 5 items); Pistol and Nym did not.
+Structure, compression, and register all reverify clean. No app, registry,
+audio, or deploy action was taken. This directory only. No paid API calls.
+
+Rounds used: 3 of 3 (final round, per dispatch instruction).

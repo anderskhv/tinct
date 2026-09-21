@@ -1,3 +1,180 @@
+# RESOLVED — round 3 of 3 — Richard III (`richard-iii`, modern-en)
+
+**Round 3 reviewer/fixer:** **Claude Sonnet 5** (`claude-sonnet-5`).
+**Date:** 2026-09-21
+**Verdict: all 15 blocking defects + both minor "should-fix" items resolved.
+Independently re-verified against `source.json` after fixing.
+`candidate.json` sha256 `1eb6085c1901b978283aa6b466931d4e8944c1bc83266f4398c86058e89318e0`.**
+
+This file is kept under its round-2 filename (renamed to
+`PARKED-RESOLVED.md`) so the full history — everything round 2 found and
+why — stays intact below, unedited. This preamble documents round 3's
+work on top of it. See `ACCEPTANCE-RECORD.md` for the consolidated
+sign-off.
+
+## Round 3 methodology
+
+Round 1's central failure was claiming methodology it did not actually
+run. To avoid repeating that, every claim below was executed as literal
+Python against `source.json`/`candidate.json` in this session, and the
+commands (not just their outcomes) are described so they can be re-run.
+
+1. **Re-derived, not trusted.** Re-searched `source.json` directly for
+   the exact distinctive source string cited in each of round 2's 15
+   defects and the 9 minors — none was taken on faith. All 15 blocking
+   items and all 9 minors matched round 2's report exactly; nothing was
+   already stale or already fixed.
+2. **Fixes applied with `content_edit_helpers.safe_replace()`**
+   (`books/content_edit_helpers.py`), one call per paragraph, each
+   raising loudly on a missing/ambiguous match rather than doing a
+   blind global replace — this is what makes the ten near-identical
+   `"They exit." -> "Exeunt."` edits location-safe instead of touching
+   every occurrence of that string in the book.
+3. **Exeunt — full-book location-keyed recount**, not a presence/count
+   check: built the set of every `(chapter, paragraph-index)` containing
+   `Exeunt`/`exeunt` in `source.json` (39 locations) and the equivalent
+   set in `candidate.json`, and diffed the sets directly. Before the
+   round-3 fixes this reproduced round 2's exact 10-location gap
+   (source 39 / candidate 29). After the fixes: **candidate 39,
+   symmetric difference with source = empty set** — all 39 locations
+   match exactly, not merely the count.
+4. **Fresh independent sweep for the same defect class**, built from
+   scratch (not reusing round 1's or round 2's described method,
+   consistent with the dispatch note that round 1's claimed methodology
+   was never actually run):
+   - A **location-keyed name/place map**: ~48 named characters (Richard,
+     Buckingham, Catesby, Ratcliffe, Tyrrel/Tyrell, Richmond, Shore,
+     etc.) and ~30 place names (Tewksbury, Pomfret, Rougemount,
+     Ha'rfordwest, Crosby, Baynard's, Ludlow, Bosworth, etc.), each
+     checked as a *set of `(chapter, paragraph)` locations* in source
+     vs. candidate, not just a raw count — a count-only check is exactly
+     what let the `Exeunt` sub-pattern hide in round 1. Every mismatch
+     was individually read in context. Result: **all place names matched
+     location-for-location with zero discrepancies** (after fixing
+     Rougemount/Ha'rfordwest); all character-name mismatches were
+     one-off `+1`s in the candidate, and every one was read and
+     confirmed to be either (a) the already-accepted "Mistress Shore
+     herself" anaphora clarification at ch1 ¶11, (b) a markdown
+     italic-underscore artifact in `source.json` (`_Ratcliffe_`,
+     `_Brakenbury reads..._`, `_Richmond, Brandon...exeunt._`) that broke
+     the `\b` word-boundary regex on the source side only, not a real
+     textual difference, or (c) a coincidental common-word match
+     ("Abate the edge of traitors" → "**Blunt** the edge of traitors" —
+     the verb "blunt," unrelated to Sir James Blunt). No new proper-noun
+     erasure found.
+   - A **rare/capitalized-token cross-reference**: whole-book
+     capitalized-token frequency diff (case-sensitive) and a
+     case-insensitive whole-word diff over every token of length ≥4
+     appearing in source but absent from candidate. The case-insensitive
+     diff surfaced ~700 tokens, but manual inspection showed the list is
+     dominated by expected archaic-form modernization (`hath`, `doth`,
+     `i'll`, `unto`, `thine`, `withal`, `wherefore`, `spake`, `quoth`,
+     `whiles`, ~600 more of the same shape) — exactly what the register
+     and fidelity reviews in round 1/2 already confirmed is legitimate.
+     Every capitalized proper-noun-shaped token in that list
+     (`Rougemount`, `Ha'rfordwest`, `Hoyday`, `Christopher`, `Urswick`,
+     `Tressel`, `Berkeley`, `Warwick's`, `Rutland's`, `Caesar's`,
+     `Jove's`, `Abraham's`, `George's`, `Grace's`, `Queen's`, etc.) was
+     individually checked against a location search in candidate — all
+     were present under their correct (possibly modernized-punctuation)
+     form except the two already-known Defect-A items, now fixed.
+   - **Conclusion: no additional instance of the "erasure of source's own
+     printed forms" defect class was found beyond round 2's 15.**
+
+## Round 3 fixes (17 paragraphs, 9 chapters)
+
+All applied via `safe_replace()`, verified structurally with
+`validate_structure()`, and confirmed by `diff_report()`/
+`assert_only_changed()` to be the *only* paragraphs that changed anywhere
+in the 1,420-paragraph book. Each was then independently re-read against
+`source.json` after the edit (see table).
+
+| # | Loc | Defect | Fix |
+|---|---|---|---|
+| 1 | ch17 ¶64 | Defect A | `Rougemont` → `Rougemount` |
+| 2 | ch20 ¶2 | Defect A | `Haverfordwest` → `Ha'rfordwest` |
+| 3 | ch23 ¶10 | Defect B | `They exit.` → `Exeunt.` |
+| 4 | ch23 ¶19 | Defect B | `The others exit.` → `The others exeunt.` |
+| 5 | ch23 ¶84 | Defect B | `They exit.` → `Exeunt.` |
+| 6 | ch23 ¶98 | Defect B | `They exit.` → `Exeunt.` |
+| 7 | ch23 ¶124 | Defect B | `Exit RICHARD and RATCLIFFE.` → `Exeunt RICHARD and RATCLIFFE.` (plural restored) |
+| 8 | ch23 ¶134 | Defect B | `They exit.` → `Exeunt.` |
+| 9 | ch23 ¶166 | Defect B | `They exit.` → `Exeunt.` |
+| 10 | ch24 ¶2 | Defect B | `Exit NORFOLK and Soldiers.` → `Exeunt NORFOLK and Soldiers.` (plural restored) |
+| 11 | ch24 ¶7 | Defect B | `They exit.` → `Exeunt.` |
+| 12 | ch25 ¶8 | Defect B | `They exit.` → `Exeunt.` |
+| 13 | ch9 ¶85 | Defect C | `Mrs. Shore` → `Mistress Shore` |
+| 14 | ch13 ¶20 | Defect C | `Mrs. Shore` → `Mistress Shore` |
+| 15 | ch7 ¶6 | Defect D | `Good day, neighbors.` → `Neighbors, God speed you.` |
+| 16 | ch2 ¶1 | Minor §3.1 | `may it be aborted` → `let it be abortive` (restores source's own word, sibling of the already-preserved ch3 ¶80 `abortive`) |
+| 17 | ch23 ¶32 | Minor §3.7 | `herald-at-arms` → `pursuivant-at-arms` (restores source's own term, consistent with the untouched `pursuivant` at ch12 ¶34) |
+
+Post-fix location-keyed `Exeunt` recount: source 39 / candidate 39,
+symmetric difference empty.
+
+## Round 3 ruling on the remaining 7 minor items
+
+Reviewed individually; none is a proper-noun/stage-direction/period-title
+erasure or an internally-inconsistent partial fix, so none is treated as
+blocking. Ruling and reasoning for each:
+
+- **ch19 ¶181, `Hoyday` → `Heyday`.** Left as-is. Same shape as round 1's
+  already-accepted `bunch-backed` → `hunch-backed` call: a same-register
+  modernization of an archaic interjection spelling, occurring once, not
+  part of an inconsistent kept/changed pair anywhere else in the book.
+- **ch2 ¶103, `a score or two of tailors` → `twenty or so tailors`.**
+  Left as-is. "A score or two" (20–40) narrowed to "twenty or so" loses
+  some of the upper range, but this is an idiom-to-idiom modernization
+  of a deliberately vague quantity in a comic boast, not a factual
+  quantity the reader needs precisely; no better single modern idiom
+  keeps the same vagueness and range without becoming clunkier than the
+  line can bear.
+- **ch16 ¶39, `such little pretty one` → `such little pretty ones`.**
+  Left as-is. Source's singular is itself non-standard for a plural
+  referent (the imprisoned princes, plural, addressed a few lines later
+  as "my babies"); pluralizing is a grammatical clarity fix that changes
+  no meaning, not an erasure of a deliberate or distinctive form.
+- **ch18 ¶1, `most replenished sweet work of nature` → `most
+  well-furnished`.** Left as-is. "Replenished" here means
+  complete/perfect; "well-furnished" is an accurate gloss of that sense,
+  not a meaning shift.
+- **ch4 ¶100, `malmsey-butt within` → `malmsey cask in the next
+  room`.** Left as-is. "In the next room" is a reasonable staging gloss
+  of "within" (backstage, offstage) in a scene already set in a murder
+  chamber; it adds no fact that contradicts the source and aids a reader
+  unfamiliar with the "within" stage-direction convention.
+- **`Zounds` rendered two ways** (`By God's wounds` ×3, `Damn!` ×1).
+  Left as-is. This is a translated interjection/oath, not a proper noun
+  or stage-direction convention; unlike `Exeunt`/`Mistress`, nothing in
+  the book depends on the two renderings matching each other verbatim,
+  and both preserve the oath's exclamatory force in context.
+- **ch2 ¶0, `King Henry the Sixth` → `King Henry VI`; ch2 ¶1, `Paul's` →
+  `St. Paul's`.** Left as-is. Regnal-numeral style (`the Sixth` vs.
+  `VI`) and a standard abbreviation-expansion (`St.` for a name already
+  universally known in that expanded form) are formatting conventions,
+  not erasures of a distinctive source spelling in the way
+  `Tewksbury`/`Rougemount`/`Ha'rfordwest` are. `Harry the Sixth` at
+  ch23 ¶51 is preserved as-is (untouched, not converted to "Harry VI"),
+  so the inconsistency is cosmetic, not a "kept half, changed half" defect
+  in the Exeunt/Mistress sense — there is no location where the *same*
+  numeral-style choice needed to be applied twice and wasn't.
+
+## Round 3 file state
+
+- `source.json` sha256 `891ead74f6cbcfa6acd05afc92b3e7798c4aa2105a1e7011086e8b2853e3a449`
+  — unmodified, still matches round 1's and round 2's hash.
+- `candidate.json` sha256 `1eb6085c1901b978283aa6b466931d4e8944c1bc83266f4398c86058e89318e0`
+  — 17 paragraphs edited from round 2's parked state (across ch2, ch7,
+  ch9, ch13, ch17, ch20, ch23 ×8, ch24 ×2, ch25), all confirmed to be
+  *exactly* the intended set via `assert_only_changed()`, all 25
+  chapters still pass `validate_structure()`, all 1,420 paragraph
+  indices/order/count unchanged, no ratio-outlier flags on any edited
+  paragraph.
+
+**READY FOR INDEPENDENT VERIFICATION.**
+
+---
+
 # PARKED (round 2 of 3) — Richard III (`richard-iii`, modern-en)
 
 **Reviewer:** independent adversarial fidelity verifier, **Claude Opus
