@@ -1,0 +1,30 @@
+{
+ "name": "tinct-bella-completion-35599810351",
+ "commit": "f898ec4f693108a5f73c73b04844aa36c2eca4a9",
+ "batch": 40,
+ "createdAt": "2026-09-21T12:30:25Z",
+ "maxSeconds": 1500,
+ "arms": "auto",
+ "computeType": "float16",
+ "helperPayloadPreflight": {
+  "helper": "v7",
+  "files": [
+   "trial.py",
+   "pinned_words_sidecar_lib.py",
+   "pinned_words_sidecar_lib_v2.py",
+   "pinned_words_sidecar_lib_v3.py",
+   "pinned_words_sidecar_lib_v4.py",
+   "pinned_words_sidecar_lib_v5.py",
+   "pinned_words_sidecar_lib_v6.py",
+   "pinned_words_sidecar_lib_v7.py",
+   "spoken_policy.py",
+   "cloud_cohort.py",
+   "cloud_probe.py",
+   "bella_gpu_review.py",
+   "observed_prefix_repair.py",
+   "citation_equivalence.py",
+   "remap_gpu_cohort.py"
+  ],
+  "default": "v7"
+ }
+}
