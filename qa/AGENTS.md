@@ -21,8 +21,7 @@ Common edition keys:
 
 - `original-en`
 - `modern-en`
-- `modern-da`
-- Bible-specific: `kjv-en`, `web-en`, `modern-en`, `modern-da`
+- Bible-specific: `kjv-en`, `web-en`, `modern-en`
 
 Expected shape:
 
@@ -58,14 +57,6 @@ Spot checks:
 - fluency
 - literary quality
 - absence of translationese
-
-Danish-specific watchlist:
-
-- false cognates such as `eventuelt`, `aktuel`, `realisere`
-- English word order
-- dropped verb prefixes
-- unnatural articles where Danish suffixes are expected
-- polysemy mistakes such as court/justice, judgment/cathedral, sacrifice/victim
 
 Threads QA:
 
