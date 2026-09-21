@@ -19,7 +19,7 @@ of conversation. Confirmed via direct paragraph-index comparison between
 
 | # | Ch. | Paragraphs | What | Verdict |
 |---|-----|-----------|------|---------|
-| 1 | 16 | P41 (4 lines), P43 (18 lines), P45 (echoed closing line) | Mitya's "Confession of a Passionate Heart" — quotes Schiller's "An die Freude" ("Ode to Joy") in this edition's inherited English verse translation | **DEFECT, CORRECTED (targeted).** Was unmodernized throughout ("fostereth," "'Tis at her beck," "hath turned," "cling for ever"). Now fixed: "fostereth"→"fosters", "'Tis at her beck...hath turned"→"At her bidding...has turned", "cling for ever"→"cling forever". "The foaming must" deliberately kept (rhymes with "lust" two lines later) — a documented judgment call, not an oversight; see correction-ledger.md items 4-6 and its "Remaining open item" note (this is a targeted fix of the clearly-archaic constructions, not a full re-rendering of the stanza's denser poetic phrasing). |
+| 1 | 16 | P41 (4 lines), P43 (18 lines), P45 (echoed closing line) | Mitya's "Confession of a Passionate Heart" — quotes Schiller's "An die Freude" ("Ode to Joy") in this edition's inherited English verse translation | **DEFECT, CORRECTED (targeted).** Was unmodernized throughout ("fostereth," "'Tis at her beck," "hath turned," "cling for ever"). Now fixed: "fostereth"→"fosters", "'Tis at her beck...hath turned"→"At her bidding...has turned", "cling for ever"→"cling forever". "The foaming must"→"the foaming new wine" (revised after reconsideration: "must" risked being misparsed as the modal verb, so meaning/clarity took priority over the must/lust rhyme it had been kept for) — see correction-ledger.md items 4-6 (this is a targeted fix of the clearly-archaic constructions, not a full re-rendering of the stanza's denser poetic phrasing). |
 | 2 | 33 | P11 (song, sung), P12 (dialogue quoting the song) | Smerdyakov's guitar song, "What do I care for royal wealth / If but my dear one be in health?", and the woman's dialogue remembering a more tender prior rendition | **DEFECT, CORRECTED.** Rhyme-driven addition replaced "health" with invented "leisure" (P11) and invented "and gay" (P12), losing the "health" concept entirely and making P11/P12 mutually inconsistent even within the modern-en text itself. See correction-ledger.md items 1-2. |
 | 3 | 36 | P1 | Epigraph couplet to "The Grand Inquisitor": "No signs from heaven come to-day / To add to what the heart doth say" | **DEFECT, CORRECTED.** Retains "doth say" though the *identical* phrase is correctly modernized to "says" one paragraph later (P2, in prose) — internal inconsistency, unnecessary archaism per the failure class named in the task. See correction-ledger.md item 3. |
 | 4 | 50 | P134 | Two-line fragment Mitya recites: "Glory be to God in Heaven, Glory be to God in me...." | Clean. Minor natural modernization ("Glory be to" → "Glory to"), no content change, no invented rhyme. |
@@ -36,11 +36,17 @@ verse passage in this book is left with an unresolved defect.
 
 Chapter 16's correction is intentionally narrow — it fixes the clearly
 archaic constructions ("fostereth," "'Tis at her beck...hath turned")
-without attempting a full re-rendering of the stanza's denser poetic
-phrasing or its "must"/"lust" rhyme (see correction-ledger.md's
-"Remaining open item"). A full modernization pass on that stanza's
-remaining dense-but-not-archaic phrasing is legitimate future work, not
-a defect in what's staged here.
+and the one word that risked active misreading rather than mere
+unfamiliarity ("must," revised to "new wine" after reconsidering the
+earlier rhyme-preservation call — see correction-ledger.md) — without
+attempting a full re-rendering of the stanza's remaining denser poetic
+phrasing (see correction-ledger.md's "Remaining open item"). A full
+modernization pass on that phrasing is legitimate future work, not a
+defect in what's staged here.
+
+"No unresolved defect" above means none of the checks documented in
+`independent-review.md` and `must-revision-review.md` found one — it is
+not a claim that no further scrutiny could ever surface anything else.
 
 ## Not verse (excluded from scope)
 

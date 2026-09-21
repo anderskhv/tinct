@@ -100,20 +100,27 @@ re-verified against the source here before drafting any fix.
   "'Tis at her beck ... hath turned" → "At her bidding ... has turned"
   (archaic contraction/idiom + archaic auxiliary verb). Neither word was
   load-bearing for any rhyme in the stanza.
-- **Deliberate judgment call — "the foaming must" left unchanged:** "must"
-  here means unfermented/fermenting grape juice (new wine), an obscure
-  word to a modern reader. It was **not** modernized (e.g. to "new wine")
-  because it rhymes with "lust" two lines later in the same stanza
-  ("The wreath, the foaming must, ... To insects—sensual lust.") —
-  replacing it would silently destroy an existing, clearly deliberate
-  rhyme the original translator chose, for a word that is odd but not
-  actually unclear in context (flanked by wreaths/wine imagery, a reader
-  can follow the sense even without knowing the technical term).
-  Independent review agreed with this call but flagged "must" as
-  genuinely obscure enough to warrant a closer look (a footnote, or a
-  full quatrain rewrite trading the must/lust rhyme for something else)
-  if and when this stanza gets a full modernization pass rather than this
-  narrow, targeted correction. Recorded as an open item below.
+- **"The foaming must" — revised (superseded judgment call):** "must"
+  means unfermented/fermenting grape juice (new wine). The first pass
+  left it unchanged to preserve its rhyme with "lust" two lines later
+  ("The wreath, the foaming must, ... To insects—sensual lust."),
+  reasoning that "must" was odd but not actually unclear in context. On
+  review, that was the wrong tradeoff: "must" sitting immediately after
+  "the foaming" risks being misparsed as the modal verb ("must") rather
+  than the noun — a general reader is likely to read it as ungrammatical,
+  not merely unfamiliar, which is worse than losing the rhyme. **Revised
+  correction: "The wreath, the foaming new wine,"** — keeps the same
+  image (Dionysian festivity, active fermentation/foam) and pairs
+  naturally with "foaming," at the cost of the must/lust rhyme. Meaning
+  and clarity outrank rhyme per the protocol, and this rhyme was never
+  worth risking a misreading for. Independently re-reviewed
+  (`must-revision-review.md`): ACCEPT AS-IS — "new wine" is confirmed the
+  best of the plausible alternatives (checked against "cider" [wrong
+  register], "grape juice" [undercuts the Bacchic/alcoholic connotation],
+  "fresh wine" [roughly equivalent but less idiomatic]), with only a
+  minor, non-critical loss of technical precision (must is an earlier
+  fermentation stage than "new wine" strictly implies) that does not rise
+  to a fidelity defect.
 
 ## 6. Chapter 16, paragraph 45 (echoed closing line)
 
@@ -124,14 +131,20 @@ re-verified against the source here before drafting any fix.
   diction to fix.
 
 ## Status: all six staged corrections above (ch33 P11/P12, ch36 P1, ch16
-P41/P43/P45) independently reviewed for both accessibility and fidelity.
-**Verdict: ACCEPT AS-IS on all six, no further fixes required.** See
-`independent-review.md` for the full independent write-up, including
-confirmation that the ch33 P11/P12 pair still preserves the exact same
-divergence pattern as the source (the two sung lines differ from each
-other the same way source's two versions do — no more, no less) and that
-no trace of the original "treasure"/"leisure"/"well and gay" rhyme-driven
-additions survives.
+P41/P43/P45) independently reviewed for both accessibility and fidelity,
+**as of two review rounds**: the first round accepted all six as staged;
+a second, narrower round revisited P43's "must" specifically (see above)
+after further scrutiny concluded the earlier rhyme-preservation call
+didn't meet the accessibility bar, and the revised text was independently
+re-reviewed and accepted. **Current verdict: ACCEPT AS-IS on all six from
+the documented reviews (`independent-review.md`,
+`must-revision-review.md`) — this means none of the checks performed so
+far found an unresolved defect, not a claim that no further scrutiny
+could ever find one.** Confirmed the ch33 P11/P12 pair still preserves
+the exact same divergence pattern as the source (the two sung lines
+differ from each other the same way source's two versions do — no more,
+no less) and that no trace of the original "treasure"/"leisure"/"well
+and gay" rhyme-driven additions survives.
 
 ## Remaining open item (not a defect in what's staged — a scope note for
 the next batch)
