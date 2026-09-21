@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "61ac5b8ea055bdbc476fee70ab78b9a4ea49ad36b5b8825e19605fe1801e0d1c",
+  "attempts": [
+    {
+      "asr_seconds": 7.179767373000004,
+      "alignment_seconds": 0.0004978380000011384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That man must not be immersed in business",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That man must not be immersed in business",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.73335200548172
+            },
+            {
+              "text": " man",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.9762715101242065
+            },
+            {
+              "text": " must",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.9953604340553284
+            },
+            {
+              "text": " not",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.9982598423957825
+            },
+            {
+              "text": " be",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9995629191398621
+            },
+            {
+              "text": " immersed",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.9961556792259216
+            },
+            {
+              "text": " in",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.99928879737854
+            },
+            {
+              "text": " business",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.9964203834533691
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "man",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "must",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "not",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "immersed",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "business",
+          "start": 2.07,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "man",
+        "must",
+        "not",
+        "be",
+        "immersed",
+        "in",
+        "business"
+      ],
+      "acoustic_expected_tokens": [
+        "That",
+        "man",
+        "must",
+        "not",
+        "be",
+        "immersed",
+        "in",
+        "business"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "man",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "immersed",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "immersed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "business",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "man",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "text": "must",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "not",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "be",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "immersed",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "in",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "business",
+          "start": 2.07,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 7.180301345999965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3cf070c4692c1a0648b525120c22e393646672dbeabbe984d4a77402704f7f4e",
+  "selected_reasons": []
+}

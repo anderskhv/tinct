@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "477a54da7705941fd8b88dd9c3620fdb7ef031a7474e14c099682a8ed3c99dc7",
+  "attempts": [
+    {
+      "asr_seconds": 6.597248831000002,
+      "alignment_seconds": 0.0001942320000125619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Horns within.",
+        "hotwords": "Horns"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Horns within.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Horns",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7583053112030029
+            },
+            {
+              "text": " within.",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.8641698956489563
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horns",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "within.",
+          "start": 0.81,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "[_Horns",
+        "within._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Horns",
+        "within."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horns",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "horns",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Horns",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "within._]",
+          "start": 0.81,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.597461701000043
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1a1ebece386aff8b35822b971d2a9798141d637ca5b7322cc4c9d68223a9d1a",
+  "selected_reasons": []
+}

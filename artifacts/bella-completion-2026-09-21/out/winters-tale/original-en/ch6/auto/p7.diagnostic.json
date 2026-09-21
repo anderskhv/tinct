@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "0616e6147b02daab14d24b1d54d1cc55faf22213431a7d3c68abce6595917b02",
+  "attempts": [
+    {
+      "asr_seconds": 6.586046053000018,
+      "alignment_seconds": 0.0001544619999549468,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt.",
+        "hotwords": "Exeunt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Exeunt.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6932743986447653
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt.",
+          "start": 0.05,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt._]",
+          "start": 0.05,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.586217000000033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85ad3c817416435d88c5985dce6bfcd6627f7156b703691a9ad1085df825d5bc",
+  "selected_reasons": []
+}

@@ -1,0 +1,664 @@
+{
+  "complete": true,
+  "signature": "88ae1c905d74a39f03cf56bb1789a807a49a1dbe53e885ef4285a1615acca995",
+  "attempts": [
+    {
+      "asr_seconds": 6.876322281000057,
+      "alignment_seconds": 0.0003172069999664018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "(1) Matthew xxvi. 41.",
+        "hotwords": "Matthew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 1 Matthew 26. 41.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " 1",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9252461194992065
+            },
+            {
+              "text": " Matthew",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.3277858793735504
+            },
+            {
+              "text": " 26.",
+              "start": 1.12,
+              "end": 1.52,
+              "probability": 0.6349069476127625
+            },
+            {
+              "text": " 41.",
+              "start": 2.44,
+              "end": 2.96,
+              "probability": 0.4202384352684021
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "26.",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "raw": "41.",
+          "start": 2.44,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "acoustic_expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "matthew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "26.",
+          "start": 1.12,
+          "end": 1.52,
+          "key": "twentysix",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "41.",
+          "start": 2.44,
+          "end": 2.96,
+          "key": "fortyone",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "(1)",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "text": "xxvi.",
+          "start": 1.12,
+          "end": 1.78
+        },
+        {
+          "text": "41.",
+          "start": 2.44,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.87666333300001
+    },
+    {
+      "asr_seconds": 6.866070387000036,
+      "alignment_seconds": 0.00029566400007752236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Matthew"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 1 Matthew Rom. 26, 41",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " 1",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9252461194992065
+            },
+            {
+              "text": " Matthew",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.3277858793735504
+            },
+            {
+              "text": " Rom.",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.026281574741005898
+            },
+            {
+              "text": " 26,",
+              "start": 1.4,
+              "end": 1.88,
+              "probability": 0.9077160358428955
+            },
+            {
+              "text": " 41",
+              "start": 2.48,
+              "end": 2.9,
+              "probability": 0.9299423098564148
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "Rom.",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "26,",
+          "start": 1.4,
+          "end": 1.88
+        },
+        {
+          "raw": "41",
+          "start": 2.48,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "acoustic_expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "matthew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rom.",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "rom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "26,",
+          "start": 1.4,
+          "end": 1.88,
+          "key": "twentysix",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "41",
+          "start": 2.48,
+          "end": 2.9,
+          "key": "fortyone",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "(1)",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "text": "xxvi.",
+          "start": 1.12,
+          "end": 1.8
+        },
+        {
+          "text": "41.",
+          "start": 2.48,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.866391668999995
+    },
+    {
+      "asr_seconds": 6.698675869999988,
+      "alignment_seconds": 0.00028567900005782576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 1 Matthew 26, 41",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " 1",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9252461194992065
+            },
+            {
+              "text": " Matthew",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.3277861177921295
+            },
+            {
+              "text": " 26,",
+              "start": 1.12,
+              "end": 1.52,
+              "probability": 0.6349069476127625
+            },
+            {
+              "text": " 41",
+              "start": 2.42,
+              "end": 2.9,
+              "probability": 0.8567571043968201
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "26,",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "raw": "41",
+          "start": 2.42,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "acoustic_expected_tokens": [
+        "(1)",
+        "Matthew",
+        "xxvi.",
+        "41."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "1",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Matthew",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "matthew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "26,",
+          "start": 1.12,
+          "end": 1.52,
+          "key": "twentysix",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "41",
+          "start": 2.42,
+          "end": 2.9,
+          "key": "fortyone",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "(1)",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Matthew",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "text": "xxvi.",
+          "start": 1.12,
+          "end": 1.77
+        },
+        {
+          "text": "41.",
+          "start": 2.42,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.698986327000057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47fc677d00ea3c16f85d8c081474f4c371308e07338b9d8735eeb3f497307ca7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

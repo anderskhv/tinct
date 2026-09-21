@@ -1,0 +1,482 @@
+{
+  "complete": true,
+  "signature": "ba52340d98c6ce587823e4a5264d904e866a639aa5080e5199d0268fccec93a2",
+  "attempts": [
+    {
+      "asr_seconds": 6.868792898000038,
+      "alignment_seconds": 0.0002542920000223603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ay, madam.",
+        "hotwords": "Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oswald, I'm Adam.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8401113152503967
+            },
+            {
+              "text": " I'm",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9686749577522278
+            },
+            {
+              "text": " Adam.",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9545485377311707
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "OSWALD.",
+        "Ay,",
+        "madam."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "OSWALD.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.835
+        },
+        {
+          "text": "madam.",
+          "start": 0.835,
+          "end": 1.252
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.869068922999986
+    },
+    {
+      "asr_seconds": 6.782711905000042,
+      "alignment_seconds": 0.00028160399995158514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ay"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Oswald, I'm Adam.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8401113152503967
+            },
+            {
+              "text": " I'm",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9686749577522278
+            },
+            {
+              "text": " Adam.",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9545485377311707
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "OSWALD.",
+        "Ay,",
+        "madam."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "OSWALD.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.835
+        },
+        {
+          "text": "madam.",
+          "start": 0.835,
+          "end": 1.252
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.783015040000009
+    },
+    {
+      "asr_seconds": 6.707117817000039,
+      "alignment_seconds": 0.0002577479999672505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, I'm Adam.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8401113152503967
+            },
+            {
+              "text": " I'm",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9686749577522278
+            },
+            {
+              "text": " Adam.",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9545485377311707
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "OSWALD.",
+        "Ay,",
+        "madam."
+      ],
+      "acoustic_expected_tokens": [
+        "Ay,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "OSWALD.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Ay,",
+          "start": 0.0,
+          "end": 0.835
+        },
+        {
+          "text": "madam.",
+          "start": 0.835,
+          "end": 1.252
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.7073971969999775
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f853586e90a721c61fef83d7879e780f8a285e8a94d48ce4865ba9e0a97f39b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

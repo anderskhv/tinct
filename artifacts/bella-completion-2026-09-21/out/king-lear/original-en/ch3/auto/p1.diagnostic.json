@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "32a2615a182331ed1324c79e313dc4250f6885ab6a5b3c327f7c5da011b0fafe",
+  "attempts": [
+    {
+      "asr_seconds": 7.779022756000018,
+      "alignment_seconds": 0.0004936120000138544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Did my father strike my gentleman for chiding of his fool?",
+        "hotwords": "Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Goneril, did my father strike my gentleman for chiding of his fool?",
+          "start": 0.05,
+          "end": 4.09,
+          "words": [
+            {
+              "text": " Goneril,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6174586315949758
+            },
+            {
+              "text": " did",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.985008955001831
+            },
+            {
+              "text": " my",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9982302784919739
+            },
+            {
+              "text": " father",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.9882373213768005
+            },
+            {
+              "text": " strike",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.9971411228179932
+            },
+            {
+              "text": " my",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.9980849027633667
+            },
+            {
+              "text": " gentleman",
+              "start": 2.47,
+              "end": 2.89,
+              "probability": 0.7043271064758301
+            },
+            {
+              "text": " for",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.9945335388183594
+            },
+            {
+              "text": " chiding",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.9767136573791504
+            },
+            {
+              "text": " of",
+              "start": 3.47,
+              "end": 3.59,
+              "probability": 0.9984349608421326
+            },
+            {
+              "text": " his",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.998904824256897
+            },
+            {
+              "text": " fool?",
+              "start": 3.73,
+              "end": 4.09,
+              "probability": 0.9934397339820862
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "did",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "my",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "father",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "strike",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "raw": "for",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "chiding",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "raw": "his",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "fool?",
+          "start": 3.73,
+          "end": 4.09
+        }
+      ],
+      "expected_tokens": [
+        "GONERIL.",
+        "Did",
+        "my",
+        "father",
+        "strike",
+        "my",
+        "gentleman",
+        "for",
+        "chiding",
+        "of",
+        "his",
+        "fool?"
+      ],
+      "acoustic_expected_tokens": [
+        "Did",
+        "my",
+        "father",
+        "strike",
+        "my",
+        "gentleman",
+        "for",
+        "chiding",
+        "of",
+        "his",
+        "fool?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "goneril",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "strike",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.47,
+          "end": 2.89,
+          "key": "gentleman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chiding",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "chiding",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.59,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.59,
+          "end": 3.73,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fool?",
+          "start": 3.73,
+          "end": 4.09,
+          "key": "fool",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "GONERIL.",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "Did",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "my",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "father",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "strike",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "my",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "gentleman",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "text": "for",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "chiding",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "of",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "text": "his",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "fool?",
+          "start": 3.73,
+          "end": 4.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 7.779553052999972
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c590f0ec076bf2df43e1e21e57bf3ef15509283823a437600592f750eec6538",
+  "selected_reasons": []
+}
