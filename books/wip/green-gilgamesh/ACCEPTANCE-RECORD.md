@@ -1,5 +1,17 @@
 # Acceptance Record — The Epic of Gilgamesh (`gilgamesh`), modern-en
 
+> **WITHDRAWN 2026-09-21 — this book is PARKED, not accepted.**
+> See `PARKED.md` in this directory. The "ACCEPTED" verdict and the hash
+> below were both superseded: an independent Opus verification (round 2)
+> found a whole defect class this record missed (systematic softening of
+> sexual content while violent content was preserved at full intensity),
+> a fix pass repaired part of it, and a second independent Opus pass
+> (round 3, `claude-opus-5`) found the same class still live at six more
+> locations plus five new defect classes. Current candidate hash is
+> `48cb7739c18b920c5b75baee9779174ef66d5b1faaec0ad0c894ba67a2239fa8`.
+> Everything below this banner describes round 1 only and should be read
+> as history, not as a verdict.
+
 Programme: green-library second batch (`books/wip/SECOND-BATCH-TRACKER.md`,
 book #2). Procedure: `books/TRANSLATION_PROTOCOL.md` steps A-D.
 
@@ -114,7 +126,7 @@ verification, on `books/wip/green-gilgamesh/candidate.json`.
 
 ## Verdict
 
-**ACCEPTED.**
+**~~ACCEPTED~~ — WITHDRAWN. See `PARKED.md`.**
 
 This acceptance record covers `books/wip/green-gilgamesh/candidate.json`
 at the hash above. It has not been copied into
