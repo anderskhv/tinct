@@ -6,7 +6,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  const browser=await chromium.launch({headless:true,args:['--mute-audio']});
  const results=[];
  try{
- for(const width of [390,1440])for(const target of [{book:'king-lear',chapter:3},{book:'imitation-of-christ',chapter:76},{book:'winters-tale',chapter:6}]){
+ for(const width of [390,1440])for(const target of [{book:'king-lear',chapter:3},{book:'merchant-of-venice',chapter:6},{book:'merchant-of-venice',chapter:9}]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:900},permissions:[]});
   const page=await context.newPage();const row={...target,width,http:[],requestFailures:[]};
   page.on('response',r=>{if(r.url().includes('/api/audio'))row.http.push({url:r.url(),status:r.status(),type:r.headers()['content-type']})});
@@ -15,8 +15,8 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    await page.addInitScript(({book,chapter})=>{
     const Native=window.Audio;window.__bellaAudio=[];
     window.Audio=function(...args){const a=new Native(...args);a.muted=true;a.volume=0;window.__bellaAudio.push(a);return a};
-    localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'original-en',compareOpen:false}));
-    sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:'original-en',savedPlace:{bookId:book,chapterNumber:chapter,paragraphIndex:0,page:0}}));
+    localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'original-en',audioEdition:'original-en',audioFollowsPrimary:true,compareOpen:false}));
+    sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:'original-en',audioEditionKey:'original-en',savedPlace:{bookId:book,chapterNumber:chapter,paragraphIndex:0,page:0}}));
    },target);
    await page.route('**/api/**',r=>['GET','HEAD'].includes(r.request().method())?r.continue():r.abort());
    await page.goto('https://tinct.app/lab/phone?chrome=v2',{waitUntil:'networkidle'});
@@ -33,6 +33,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    row.firstHighlight=await page.getByTestId('lab-hearing-current').first().textContent();
    row.audio=await page.evaluate(()=>{const a=window.__bellaAudio.find(a=>!a.paused);return {src:a.src,muted:a.muted,time:a.currentTime,duration:a.duration}});
    assert(row.audio.muted,'audio was not muted');
+   assert(decodeURIComponent(row.audio.src).includes('/original-en/'),'unexpected audio edition');
    // Native media seeking exercises actual timeupdate handling with served MP3s.
    await page.evaluate(()=>{const a=window.__bellaAudio.find(a=>!a.paused);a.currentTime=Math.max(.2,a.duration*.5)});
    await page.waitForTimeout(400);
