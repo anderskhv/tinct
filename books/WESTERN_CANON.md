@@ -1,5 +1,7 @@
 # Western Canon — Reading List
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 A composite canon drawn primarily from **St. John's College Great Books Program** (the most influential Western canon curriculum in the US, used at both Annapolis and Santa Fe campuses), cross-referenced with **Columbia University's Core Curriculum** (Literature Humanities + Contemporary Civilization) and **Mortimer Adler's Great Books of the Western World** (Britannica, 1952).
 
 Organized chronologically by period. "In Tinct?" column shows current library status.
@@ -181,7 +183,7 @@ Organized chronologically by period. "In Tinct?" column shows current library st
 
 **Legend:**
 - ✅ Complete (3 editions + audio)
-- 🟡 Partial (original text only, needs modern-en / modern-da)
+- 🟡 Partial (original text only, needs the agreed English reading package; Danish is not required)
 - ❌ Not in library
 
 ---

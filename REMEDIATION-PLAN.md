@@ -1,5 +1,7 @@
 # Tinct Remediation Plan — June 2026
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 **Status:** Approved for execution. Written 2026-06-10 from a full codebase scan (4 parallel investigations + architecture review).
 **Executor:** A coding agent working phase by phase. Read this entire file before writing any code.
 **Prime directive:** No material degradation of the live reading experience. Every phase is independently deployable and independently revertible. Deploy one phase at a time, soak before the next.

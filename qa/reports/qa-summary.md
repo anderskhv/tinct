@@ -1,5 +1,7 @@
 # QA Structural Check Summary
 
+> **Scope update — 2026-09-21:** This report preserves historical observations. Danish findings and recommendations do not create current repair, translation, audio or publication requirements; Danish is no longer the strategy. English findings remain subject to the current QA plan. See [Language scope](../../STRATEGY.md#language-scope).
+
 **Date:** 2026-04-08
 **Run:** Post-fix re-run (bugs fixed, then re-checked)
 **Result:** 3 passed, 17 warnings, 0 failures

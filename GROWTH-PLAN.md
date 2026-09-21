@@ -1,5 +1,7 @@
 # Tinct Growth Plan — From Good Product to Famous One
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 **Created:** 2026-06-10. Owner: Anders. Companion docs: `SEO-STRATEGY.md` (search harvest), `REMEDIATION-PLAN.md` Phase 5 (mechanical SEO), `STRATEGY.md` (positioning).
 **Budget posture:** Anders is willing to spend. This plan caps experimental spend at ~**DKK 3,500/mo (~$500)** plus one-offs, reviewed monthly — enough to move every lever below; more money than this does not buy more fame at Tinct's stage.
 
@@ -9,7 +11,7 @@
 
 Famous sites are not famous because of SEO. Standard Ebooks, Project Gutenberg, SparkNotes, Genius — each got famous from ONE remarkable thing, repeated and distributed for years: a public good, a first, a story journalists wanted to tell. SEO then harvested the demand their fame created.
 
-Tinct's remarkable thing already exists and is unannounced: **the entire Western canon, freshly translated into modern English and modern Danish, free, in the most beautiful reader on the web, with an AI companion.** Nobody else has this. The growth plan is: name it, stage it, tell it, repeat it — and let search + AI search harvest.
+Tinct's remarkable thing already exists and is unannounced: **classics with accessible English reading editions, a free reader and an AI companion.** Nobody else has this. The growth plan is: name it, stage it, tell it, repeat it — and let search + AI search harvest.
 
 Three tracks, run in parallel. Track A creates the things worth talking about. Track B does the talking. Track C captures the demand.
 
@@ -45,8 +47,8 @@ A 45-second screen-capture video of the actual product — split-pane original/m
 2. **Product Hunt:** same assets, separate day.
 3. **The January moment:** "Year of War and Peace" cohort launch (A2) — its own news cycle.
 
-### B2. The Danish story (disproportionately winnable)
-Ex-Jabra SVP leaves corporate life, spends his sabbatical translating the world's classics into modern Danish, gives them away free. That is a *culture-section feature story*, not a tech story — Politiken, Berlingske, Weekendavisen, Kristeligt Dagblad, DR. Danish press → real DR-70+ backlinks → the entire English surface lifts. Pitch directly (founders get meetings in Denmark); spend on a freelance PR person only if DIY stalls (~DKK 10-15k one-off, decide in August).
+### B2. Danish-language launch campaign — retired 2026-09-21
+The Danish translation campaign and associated PR spend are removed from the current plan. Marketing should describe the English reading experience; future localization requires a separate decision.
 
 ### B3. Niche sponsorships + community (paid, targeted)
 - Book-world newsletters and podcasts (lit-fic Substacks, classics podcasts): $100-500 per placement, audience-perfect. 2/month.
@@ -62,7 +64,7 @@ A "Tinct for classrooms" one-pager: free, no ads, no signup needed to read, mode
 
 Already specified elsewhere; listed here for the complete picture:
 1. `REMEDIATION-PLAN.md` Phase 5 — mechanical fixes (og:image, soft-404s, internal links, schema, Bing).
-2. `SEO-STRATEGY.md` §Mediocre→exceptional — translation-comparison pages (the moat surface), Danish mirror, CTR rewrites, AI-crawler opening + llms.txt (decision 5.7).
+2. `SEO-STRATEGY.md` §Mediocre→exceptional — English translation-comparison pages (the moat surface), CTR rewrites, AI-crawler opening + llms.txt (decision 5.7).
 3. **Paid tooling:** Ahrefs Starter ($29/mo now; Lite $129/mo when backlink work starts) — measurement, not magic.
 4. **Paid search ads: NO** (for growth). A $3/mo subscription cannot pay back CPC acquisition. Sole exception: ~$100/mo brand-defense + query-research budget, treated as market research (which queries convert), killed if it teaches nothing by month 2.
 
@@ -77,7 +79,7 @@ Already specified elsewhere; listed here for the complete picture:
 | Newsletter/podcast placements (2/mo) | ~$400-800 | |
 | Brand-defense/research ads (optional, 2-mo trial) | ~$100 | |
 | Demo video (DIY) / quote-card design polish | | ~$0-300 |
-| Danish PR freelancer (only if DIY stalls, decide Aug) | | ~DKK 10-15k |
+| Danish-language PR allocation | Withdrawn 2026-09-21 | No current allocation |
 | **Total steady state** | **~$550-1,050/mo** | |
 
 What NOT to spend on: SEO agencies (nothing they'd do isn't in these docs), link buying (penalty risk), big ad budgets (unit economics), more AI-generated page volume (Helpful-Content risk).
@@ -90,7 +92,7 @@ Anders is gone June 15 – Aug 14, no PC. Build accordingly:
 
 **Before June 15 (realistic):** Phase 0 + Phase 1 of REMEDIATION-PLAN (the product must not embarrass the launches), Phase 5.1-5.3 quick wins, og:image, Bing quota boost.
 **During summer (runs without him):** SEO surface indexes and accrues; IndexNow + sitemap automation; @FallibleMusings scheduled posts; A1 manifesto can be drafted on phone if pulled to it — otherwise nothing launches in summer. **Do not launch Show HN before the trip** — launches need the founder present for 72 hours.
-**Sept–Oct:** Show HN + Product Hunt (product polished, founder home). A2 pilot cohort (Odyssey in 90 Days). Danish press pitches. Translation-comparison + Danish pilot pages measured.
+**Sept–Oct:** Show HN + Product Hunt (product polished, founder home). A2 pilot cohort (Odyssey in 90 Days). English-product press pitches. English translation-comparison pages measured.
 **January 2027:** "Year of War and Peace" cohort — the flagship moment.
 
 ---
@@ -100,7 +102,7 @@ Anders is gone June 15 – Aug 14, no PC. Build accordingly:
 - Email list size (A2) — the owned audience; the single best fame-proxy we control.
 - Referring domains (Ahrefs) — target: 10 real ones by December.
 - Search clicks/week (GSC+Bing combined) — target: 100/wk by December (from ~2 today).
-- One earned-media feature by year end (Danish or international).
+- One earned-media feature by year end (reaching readers of the English product).
 - Reader retention (finished books per cohort) — fame built on a product people abandon is borrowed time.
 
 A deliberate non-metric: follower counts and viral one-offs. (Healthy reception vs. metrics-validation — the distinction is Anders's own.)

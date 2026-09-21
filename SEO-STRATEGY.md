@@ -1,5 +1,7 @@
 # Tinct SEO Strategy
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 **Last updated: 2026-06-12** (Phase 5 mechanical fixes deployed; full sitemap submitted to IndexNow)
 
 ---
@@ -37,8 +39,8 @@ Everyone in the May surface's query space competes on *summaries* (SparkNotes, L
 - This doc's old fear ("don't compete with Gutenberg for the .txt") doesn't apply: Gutenberg can't serve "modern English" queries at all.
 - Optionally later: full-text modern-edition reading pages per chapter (the maximal version). Start with comparison pages — cheaper, higher intent.
 
-### 2. Own Danish outright (small market, total victory)
-Every book already has a Danish modern edition; competition is paid publishers and library logins. Nobody serves "Forbrydelse og straf på moderne dansk" free online. A Danish mirror of the SEO surface + hreflang gets actual #1 positions — and #1 positions anywhere create the authority and backlink seeds (Danish gymnasium teachers, dansk litteratur blogs, biblioteker) that lift the English surface too. This is the cheapest path from "ranks nowhere" to "ranks first for something."
+### 2. Preserve future localization options
+The Danish mirror proposal is retired (2026-09-21). Focus on English content now. Keep future language-specific metadata and routes possible, without publishing localized pages or claiming unsupported language coverage.
 
 ### 3. Win AI search before Google (the 2026 channel)
 Tinct's exact customer asks ChatGPT/Claude/Perplexity "what's the easiest way to read Dostoevsky" — and Tinct currently **403s their crawlers**. Poetry Editor already runs the opposite posture (permissive robots + llms.txt). Recommendation: open GPTBot/ClaudeBot/PerplexityBot on the static SEO pages, add llms.txt + llms-full.txt describing the catalog and the modern editions, keep /data/ and /api/ blocked. The moat is the product (positions, chat, journal, audio), not the corpus — the corpus is public domain anyway. Being the cited answer for "read classics in modern English, free" in AI assistants is winnable NOW while incumbents' ad models keep them hostile to AI crawlers. (Decision required — reverses a deliberate block. Tracked as Phase 5.7.)
@@ -52,7 +54,7 @@ Where Tinct does reach page 1, the title must win the click against ad-farms. Sp
 - Not warping the product for Google (flywheel section below stands).
 
 ### Sequencing
-1. Phase 5 mechanical fixes (par) → 2. Translation-comparison pages for the 10 books with the strongest translation-query volume (Russians + epics + Dante) → 3. Danish mirror for the same 10 → 4. AI-crawler opening + llms.txt (pending decision) → 5. CTR rewrite pass from GSC query data → 6. The Tier 3 "AI reading companion" guides (unchanged from Phase 4 below) → backlinks throughout (Show HN for the modern-translations angle is a genuinely strong submission: "I translated 33 classics into modern English and built a free reader").
+1. Phase 5 mechanical fixes (par) → 2. Translation-comparison pages for the 10 books with the strongest translation-query volume (Russians + epics + Dante) → 3. AI-crawler opening + llms.txt (pending decision) → 4. CTR rewrite pass from GSC query data → 5. The Tier 3 "AI reading companion" guides (unchanged from Phase 4 below) → backlinks throughout (Show HN for the modern-translations angle is a genuinely strong submission: "I translated 33 classics into modern English and built a free reader").
 
 ---
 
@@ -128,26 +130,12 @@ Don't pay for Ahrefs/SEMrush yet. The free checks give 80% of the signal.
 
 ## Language expansion
 
-### Danish — winnable, in phase 1
+### English now; future languages by explicit decision
+Danish is no longer part of the SEO strategy. The earlier phase-1 mirror, coverage and near-zero-cost assumptions are withdrawn. English QA or useful search data does not automatically restart that work.
 
-Competition in Danish is much thinner than English:
-- `adl.dk` — Danish state-funded Danish-original literature archive. Narrow scope.
-- `Project Runeberg` — Nordic PD archive. Dated, not heavily ranking.
-- `gutenberg.org` — has some Danish texts but not canonically Danish-branded.
+Future localized pages require approved language scope, real translation coverage and language-specific quality checks. Keep routes and metadata extensible; add hreflang only for actual supported language variants.
 
-Danish *translations* of world classics (Homer, Dante, Dostoevsky) are mostly locked behind paid publishers (Gyldendal, Rosinante) or library systems. Tinct's Danish modern editions have no real "free online" competitor for these translations.
-
-**Query equivalents:**
-- "Læs Odysseen online gratis"
-- "Odysseen moderne dansk"
-- "Karakterer i Odysseen"
-- "Homer på dansk"
-
-**Cost:** near-zero. Tinct already has Danish editions for every book. Mirror the English page structure in Danish.
-
-**TAM:** small absolute volume but easy rankings + builds local brand in Tinct's home market. Worth shipping.
-
-### Other languages — blocked until translation coverage
+### Historical market considerations — no approved expansion sequence
 
 | Language | Dominant PD competitor | Winnability | Blocker |
 |---|---|---|---|
@@ -179,7 +167,7 @@ Production currently has:
 - 699 URLs in `https://tinct.app/sitemap.xml`
 - Unique generated meta for every `/read/{bookId}` route
 
-The original Danish mirror plan has not shipped. Do not add Danish SEO pages until the English set is quality-audited and Search Console shows useful query data.
+The original Danish mirror plan is retired. English quality and Search Console work continue without a Danish follow-up requirement.
 
 ### Phase 2 — Technical hygiene
 
@@ -282,7 +270,7 @@ Superseded items: Bing Webmaster is set up (sitemap submitted 6/5, processing); 
 1. Record GSC Pages indexed-vs-discovered ratio here weekly — the health metric for the May expansion. If Google indexes <30% after 4 more weeks, consolidate (noindex the weakest chapter-page tiers) rather than wait.
 2. Click the Bing crawl-quota boost if not already done in Bing Webmaster Tools.
 3. Build the first 3 translation-comparison pages (Crime and Punishment, The Odyssey, The Brothers Karamazov) and measure for 4 weeks before scaling to 10.
-4. Danish mirror pilot: same 3 books, hreflang paired with the English pages.
+4. Retired 2026-09-21: Danish mirror pilot. No replacement language rollout is approved.
 5. CTR rewrite pass on the query families already showing impressions (GSC Queries → every query with >10 impressions and 0 clicks).
 6. Backlinks: draft the Show HN post ("modern translations of 33 classics, free reader") — the strongest single authority play available; coordinate with marketing lead.
 

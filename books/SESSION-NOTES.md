@@ -1,5 +1,7 @@
 # Session Notes — Translation Quality Sweep
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 > Historical record only, retired from operational use on 2026-09-21. The tasks, commands and language-specific guidance below are not current instructions. Follow `AGENTS.md` and the exact current assignment instead.
 
 **Started:** 2026-04-17

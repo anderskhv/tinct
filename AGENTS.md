@@ -1,5 +1,7 @@
 # Tinct Agent Instructions
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 ## Scope
 
 This repository is Tinct, a deep-reading platform for public-domain texts. It includes a React/Vite app, book edition data, QA tooling, Cloudflare deployment, Supabase auth/storage, Stripe billing, R2 audio, and Capacitor Android.

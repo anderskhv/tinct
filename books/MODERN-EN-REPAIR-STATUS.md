@@ -1,5 +1,7 @@
 # Modern-EN Repair — Audit Status
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 **Date:** 2026-05-23
 **Audit scope:** wealth-of-nations, leviathan, don-quixote, essays-montaigne, anna-karenina
 
@@ -73,9 +75,9 @@ The label "light-touch modernization" was used in commit messages; the result fo
 
 ## Implication for `modern-da`
 
-The Danish modern-da files were generated from `modern-en`. Where `modern-en` is essentially the source text, `modern-da` was translated from archaic/early-modern English rather than from a real modern reading edition. Danish quality is bounded by English source quality. Re-translation of `modern-da` will be required for every chapter we re-render in `modern-en`.
+The Danish modern-da files were generated from `modern-en`. Where `modern-en` is essentially the source text, `modern-da` was translated from archaic/early-modern English rather than from a real modern reading edition. Danish quality is bounded by English source quality. If Danish is explicitly reopened in future, its source-version dependencies will need review before reuse; this is not a current regeneration requirement.
 
-This was the right call: **do not start modern-da work yet.**
+**Current decision (2026-09-21): Danish is outside the strategy.** Do not restart Danish work when English repairs finish.
 
 ## Scope decision needed
 
@@ -102,4 +104,4 @@ Anna Karenina `modern-en` has been fully re-rendered and checked:
 - Identical paragraphs vs `original-en`: 133 / 7,442 (1.8%).
 - Average chapter similarity vs `original-en`: 0.284.
 
-Follow-up required: regenerate `modern-da` from the repaired `modern-en`, then generate/upload `anna-karenina/modern-en` Kokoro audio and Danish audio.
+The May follow-up requiring Danish regeneration and Danish audio is superseded. English audio follow-up belongs to the current audio work plan; no Danish dependency blocks it. The historical observations above have not been rerun.

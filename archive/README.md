@@ -1,5 +1,7 @@
 # Archive
 
+> **Language strategy supersession — 2026-09-21:** Archived Danish/EN–DA roadmaps, translation instructions, budgets and launch plans are historical evidence, not active instructions. Danish is no longer the strategy. Preserve these records and existing assets; follow [the current English scope and future-localization direction](../STRATEGY.md#language-scope).
+
 Files moved here are not active in the project but preserved in case they're useful for reference or recovery. **Don't run code from here without checking it's still relevant** — much of it is intentionally retired.
 
 ## Folders
