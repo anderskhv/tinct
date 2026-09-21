@@ -35,6 +35,7 @@ for entry in cohort:
     result=cloud_probe.probe_chapter(probe,entry,json.loads(path.read_text()),cohortpath.parent,True)
     result["candidate_sha256"]=trial.sha(path)
     result["model_sha256"]=trial.sha(Path.home()/".cache/whisper/base.pt")
+    result=json.loads(json.dumps(result,default=lambda v:v.item() if hasattr(v,"item") else v.tolist()))
     probes.append(result);trial.write(root/"probes.json",probes)
     if result["criterion_met"]:
         book,edition,ch=entry["key"].split("/")
