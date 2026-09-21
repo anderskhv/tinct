@@ -3,68 +3,41 @@
     "book": "king-lear",
     "chapter": 3,
     "width": 390,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fwords.json&timing=2",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      }
+    ],
+    "requestFailures": [],
     "bundle": "/assets/index-DIuP-7hv.js",
     "firstHighlight": "Enter",
     "audio": {
       "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
       "muted": true,
-      "time": 0.05,
-      "duration": null
+      "time": 0.065156,
+      "duration": 2.575
     },
-    "status": "fail",
-    "error": "Error: page.evaluate: TypeError: Failed to set the 'currentTime' property on 'HTMLMediaElement': The provided double value is non-finite.\n    at eval (eval at evaluate (:290:30), <anonymous>:1:66)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
-  },
-  {
-    "book": "imitation-of-christ",
-    "chapter": 76,
-    "width": 390,
-    "bundle": "/assets/index-DIuP-7hv.js",
-    "status": "fail",
-    "error": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
-  },
-  {
-    "book": "winters-tale",
-    "chapter": 6,
-    "width": 390,
-    "bundle": "/assets/index-DIuP-7hv.js",
-    "status": "fail",
-    "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
-  },
-  {
-    "book": "king-lear",
-    "chapter": 3,
-    "width": 1440,
-    "bundle": "/assets/index-DIuP-7hv.js",
-    "firstHighlight": "Enter",
-    "audio": {
-      "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
-      "muted": true,
-      "time": 0.05,
-      "duration": null
-    },
-    "status": "fail",
-    "error": "Error: page.evaluate: TypeError: Failed to set the 'currentTime' property on 'HTMLMediaElement': The provided double value is non-finite.\n    at eval (eval at evaluate (:290:30), <anonymous>:1:66)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
-  },
-  {
-    "book": "imitation-of-christ",
-    "chapter": 76,
-    "width": 1440,
-    "bundle": "/assets/index-DIuP-7hv.js",
-    "status": "fail",
-    "error": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
-  },
-  {
-    "book": "winters-tale",
-    "chapter": 6,
-    "width": 1440,
-    "bundle": "/assets/index-DIuP-7hv.js",
-    "status": "fail",
-    "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
-    "url": "https://tinct.app/lab/phone?chrome=v2"
+    "speed": 1.5,
+    "paragraphTransition": true,
+    "pauseResume": true,
+    "seek": true,
+    "status": "pass"
   }
 ]
