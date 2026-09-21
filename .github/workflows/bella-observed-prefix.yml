@@ -1,0 +1,26 @@
+name: bella-observed-prefix-repair
+on:
+  push:
+    branches: ['codex/bella-context-repair-20260921']
+    paths: ['tools/audio-highlight/aligner/observed_prefix_repair.py', '.github/workflows/bella-observed-prefix.yml']
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check positive and negative prefix cases
+        run: python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_observed_prefix.py'
+      - name: Repair observed labels and replay independent acoustic evidence
+        run: python3 tools/audio-highlight/bella_prefix_replay.py
+      - name: Preserve repair evidence
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-context-repair-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record observed speaker-label repair and independent acoustic result [skip ci]"
+          git push origin HEAD:codex/bella-context-repair-20260921
