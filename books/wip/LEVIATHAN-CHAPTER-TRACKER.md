@@ -18,19 +18,15 @@ unnumbered Introduction).
 | 10 | 9 | Of the Several Subjects of Knowledge | **final verified** | `394b09485b8ef288af5409527d0fe050570e060ca6150f7d53b15500983ce445` |
 | 14 | 13 | Of the Natural Condition of Mankind, as Concerning Their Felicity, and Misery | **final verified** | `0bf1de2f5e2b9097cb36cbc99776582df5ff01a19787446811b6a737291cda82` |
 | 27 | 26 | Of Civil Laws | **final verified** | `81bc5757384809e4e28599eec1fcd7883d56b3220a0c14c85519fb61c14a7ba1` |
+| 2 | 1 | Of Sense | **final verified** | `46c4171f315c7f4fda1533b5ea27eac31f1389fac1d90cb716046aa338b1f663` |
+| 13 | 12 | Of Religion | **final verified** | `42bc1e301272084321689dd3a30d4c013081e26adb6d33574e5977ca61d0478a` |
+| 16 | 15 | Of Other Laws of Nature | **final verified** | `81049aadf46b3c513989d25d6e316bca7f2375930c885967e0926a3d8bcd7fc7` |
 
-Batch 2 (ch10/14/27) full process history, review coverage, and
-defect-by-stage counts are in each chapter's `books/wip/leviathan-pilot-ch{N}/PILOT-REPORT.md`.
+Batch 2 (ch10/14/27) and batch 3 (ch2/13/16) full process history,
+review coverage, and defect-by-stage counts are in each chapter's
+`books/wip/leviathan-pilot-ch{N}/PILOT-REPORT.md`.
 
-## In progress (batch 3)
-
-| Edition ch | Hobbes ch | Title | Why selected | Status |
-|---|---|---|---|---|
-| 2 | 1 | Of Sense | short/calibration (5 paras, 683w) | drafting dispatched |
-| 16 | 15 | Of Other Laws of Nature | long/scale (43 paras, 5,008w) | drafting dispatched |
-| 13 | 12 | Of Religion | different difficulty (anthropology of religion, editorial-transparency test case) | drafting dispatched |
-
-## Not started (40 remaining after batch 3)
+## Not started (37 remaining after batch 3)
 
 1 (Introduction), 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19, 20, 21,
 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42, 43
