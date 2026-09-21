@@ -1,0 +1,27 @@
+name: preserve-ready-pride
+on:
+  push:
+    branches: ['codex/bella-focused-pride-ready-20260921']
+    paths: ['.github/workflows/bella-focused-pride-ready.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: focused-short-0
+          run-id: 35611660467
+          github-token: ${{ github.token }}
+          path: artifacts/bella-focused-short-clips-2026-09-21
+      - run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-short-clips-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve completed Pride evidence [skip ci]"
+          git push origin HEAD:codex/bella-focused-pride-ready-20260921
