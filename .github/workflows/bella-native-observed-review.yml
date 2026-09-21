@@ -1,0 +1,43 @@
+name: bella-native-observed-repair
+on:
+  push:
+    branches: ['codex/bella-native-observed-repair-20260921']
+    paths: ['tools/audio-highlight/bella_native_observed_review.py','.github/workflows/bella-native-observed-review.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: bella-native-repair-pilot
+          run-id: 35600244516
+          github-token: ${{ github.token }}
+          path: artifacts/bella-native-repair-pilot-2026-09-21
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625 av==18.1.0
+      - run: python3 tools/audio-highlight/bella_native_observed_review.py
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          find artifacts/bella-native-repair-pilot-2026-09-21 -name '*.json' -print0 | xargs -0 git add -f --
+          if test -f artifacts/bella-native-repair-pilot-2026-09-21/accepted.json; then find artifacts/bella-native-repair-pilot-2026-09-21 -name '*.mp3' -print0 | xargs -0 git add -f --; fi
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve native Bella audio review and accepted assets [skip ci]"
+          git push origin HEAD:codex/bella-native-observed-repair-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-native-reviewed
+          path: artifacts/bella-native-repair-pilot-2026-09-21
