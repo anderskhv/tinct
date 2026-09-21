@@ -1,0 +1,73 @@
+name: bella-focused-retry
+on:
+  push:
+    branches: ['codex/bella-focused-retry-20260921']
+    paths: ['tools/audio-highlight/bella_focused_retry.py', '.github/workflows/bella-focused-retry.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  review:
+    strategy:
+      fail-fast: false
+      max-parallel: 9
+      matrix:
+        target: [0,1,2,3,4,5,6,7,8]
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Wait for this chapter's saved initial diagnostics
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ matrix.target }}
+        run: |
+          python3 - <<'PY'
+          import os,json,time,urllib.request
+          for _ in range(40):
+            req=urllib.request.Request("https://api.github.com/repos/anderskhv/tinct/actions/runs/35608784161/artifacts",headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"User-Agent":"tinct-recovery"})
+            rows=json.load(urllib.request.urlopen(req))["artifacts"]
+            if any(x["name"]=="focused-"+os.environ["TARGET"] for x in rows):break
+            time.sleep(30)
+          else:raise SystemExit("Initial diagnostics not yet preserved")
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: focused-${{ matrix.target }}
+          run-id: 35608784161
+          github-token: ${{ github.token }}
+          path: artifacts/bella-focused-acoustic-2026-09-21
+      - name: Install pinned recognition libraries
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625 faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0
+      - name: Recover or repair only this authorized chapter
+        timeout-minutes: 45
+        run: python3 tools/audio-highlight/bella_focused_retry.py ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: focused-${{ matrix.target }}
+          path: artifacts/bella-focused-acoustic-2026-09-21
+          retention-days: 30
+  preserve:
+    if: always()
+    needs: review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: focused-*
+          merge-multiple: true
+          path: artifacts/bella-focused-acoustic-2026-09-21
+      - run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-acoustic-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve narrow chapter repair evidence [skip ci]"
+          git push origin HEAD:codex/bella-focused-retry-20260921
