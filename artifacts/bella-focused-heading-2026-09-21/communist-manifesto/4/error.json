@@ -1,0 +1,5 @@
+{
+ "key": "communist-manifesto/original-en/ch4",
+ "error": "AssertionError: {'fixed': [13], 'needed': [13, 21]}",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/tinct/tinct/tools/audio-highlight/bella_focused_heading.py\", line 90, in <module>\n    try:main()\n        ^^^^^^\n  File \"/home/runner/work/tinct/tinct/tools/audio-highlight/bella_focused_heading.py\", line 73, in main\n    assert fixed==indices,dict(fixed=fixed,needed=indices)\n           ^^^^^^^^^^^^^^\nAssertionError: {'fixed': [13], 'needed': [13, 21]}\n"
+}
