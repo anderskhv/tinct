@@ -1,0 +1,1224 @@
+[
+ {
+  "bookId": "beyond-good-and-evil",
+  "edition": "original-en",
+  "chapter": 5,
+  "editionContentHash": "e567e753d97cb2516a7fd519b3b475cad91d3b749b23191ca763f7e3d4aae5a8",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:55:23.961144+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "5f59cf4176876225eff7facdf56985593f56b5cd609c4c070b5325eb72140eaf",
+  "manifestMetadata": {
+   "chapter": 5,
+   "title": "Chapter 4 \u2014 Epigrams and Interludes"
+  },
+  "durationSeconds": 1115.883,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "beyond-good-and-evil",
+   "edition": "original-en",
+   "chapter": 5,
+   "textParagraphs": 123,
+   "textParagraphsWithWords": 123,
+   "manifestSpokenParagraphs": 123,
+   "durationSeconds": 1112.36,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 128685
+    },
+    {
+     "file": "p61.mp3",
+     "status": 206,
+     "bytes": 175917
+    },
+    {
+     "file": "p122.mp3",
+     "status": 206,
+     "bytes": 117165
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/collect-report.json",
+    "record": {
+     "key": "beyond-good-and-evil/original-en/ch5",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9948677457560205,
+       "reasons": [
+        {
+         "paragraph": 84,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/out/beyond-good-and-evil/original-en/ch5/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9711804184761152,
+       "reasons": [
+        {
+         "paragraph": 10,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 79,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 84,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 99,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 111,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/out/beyond-good-and-evil/original-en/ch5/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   },
+   {
+    "path": "artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/collect-report.json",
+    "record": {
+     "key": "beyond-good-and-evil/original-en/ch5",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9735491512041058,
+       "reasons": [
+        {
+         "paragraph": 84,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 122,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/out/beyond-good-and-evil/original-en/ch5/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9510461902881958,
+       "reasons": [
+        {
+         "paragraph": 10,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 19,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 79,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 84,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 99,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 111,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 122,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/out/beyond-good-and-evil/original-en/ch5/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "candide",
+  "edition": "original-en",
+  "chapter": 26,
+  "editionContentHash": "fb6a9a535cfbd3afd37a830ebff92d8e0c6c944242fcfb47b12195fff2c7570f",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:55:28.019154+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "d71694be82b0502344b3086cf95af7353146c7314260e23dede96ddc950b7512",
+  "manifestMetadata": {
+   "chapter": 26,
+   "title": "Chapter 26 \u2014 Of a Supper Which Candide and Martin Took with Six Strangers, and Who They Were"
+  },
+  "durationSeconds": 383.977,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "candide",
+   "edition": "original-en",
+   "chapter": 26,
+   "textParagraphs": 35,
+   "textParagraphsWithWords": 35,
+   "manifestSpokenParagraphs": 35,
+   "durationSeconds": 381.93,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 217389
+    },
+    {
+     "file": "p17.mp3",
+     "status": 206,
+     "bytes": 182829
+    },
+    {
+     "file": "p34.mp3",
+     "status": 206,
+     "bytes": 334125
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+    "record": {
+     "key": "candide/original-en/ch26",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9981900452488688,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/candide/original-en/ch26/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9755656108597285,
+       "reasons": [
+        {
+         "paragraph": 4,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/candide/original-en/ch26/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   },
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/collect-report.json",
+    "record": {
+     "key": "candide/original-en/ch26",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9981900452488688,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/out/candide/original-en/ch26/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9755656108597285,
+       "reasons": [
+        {
+         "paragraph": 4,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/out/candide/original-en/ch26/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "communist-manifesto",
+  "edition": "original-en",
+  "chapter": 4,
+  "editionContentHash": "02526e00f44b0560545ead4262a82bf522411a3fbb860e73a7537594fe172fa7",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:55:44.989463+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "40ef403fe8df4ec9cfbe4b9218a87d2a3a00258e45e0fde5b88d26d3a642a86d",
+  "manifestMetadata": {
+   "chapter": 4,
+   "title": "III. Socialist and Communist Literature"
+  },
+  "durationSeconds": 1353.912,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "communist-manifesto",
+   "edition": "original-en",
+   "chapter": 4,
+   "textParagraphs": 62,
+   "textParagraphsWithWords": 62,
+   "manifestSpokenParagraphs": 62,
+   "durationSeconds": 1349.9,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 49965
+    },
+    {
+     "file": "p30.mp3",
+     "status": 206,
+     "bytes": 187437
+    },
+    {
+     "file": "p61.mp3",
+     "status": 206,
+     "bytes": 122157
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+    "record": {
+     "key": "communist-manifesto/original-en/ch4",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9950372208436724,
+       "reasons": [
+        {
+         "paragraph": 21,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/communist-manifesto/original-en/ch4/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9882133995037221,
+       "reasons": [
+        {
+         "paragraph": 13,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 21,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/communist-manifesto/original-en/ch4/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   },
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/collect-report.json",
+    "record": {
+     "key": "communist-manifesto/original-en/ch4",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.994727047146402,
+       "reasons": [
+        {
+         "paragraph": 21,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/out/communist-manifesto/original-en/ch4/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.984181141439206,
+       "reasons": [
+        {
+         "paragraph": 1,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 13,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 21,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/out/communist-manifesto/original-en/ch4/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "don-quixote",
+  "edition": "original-en",
+  "chapter": 52,
+  "editionContentHash": "b26a5b1d54cda7f9ee587b14cb987afb3bc6450b020b36cb4ac6444f4ba48c3c",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:57:26.188761+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "668c19f031c960c2191de73c16c579375aac3d00dfbb10d7d4621ddda33ca7a4",
+  "manifestMetadata": {
+   "chapter": 52,
+   "title": "Part 1, Chapter 52"
+  },
+  "durationSeconds": 2031.432,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "don-quixote",
+   "edition": "original-en",
+   "chapter": 52,
+   "textParagraphs": 62,
+   "textParagraphsWithWords": 62,
+   "manifestSpokenParagraphs": 62,
+   "durationSeconds": 2028.34,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 174765
+    },
+    {
+     "file": "p30.mp3",
+     "status": 206,
+     "bytes": 92973
+    },
+    {
+     "file": "p61.mp3",
+     "status": 206,
+     "bytes": 3513645
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/collect-report.json",
+    "record": {
+     "key": "don-quixote/original-en/ch52",
+     "arms": {
+      "auto": {
+       "status": "candidate_requires_acoustic_review",
+       "matchRatio": 0.9900941864241637,
+       "reasons": [],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/out/don-quixote/original-en/ch52/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9725560246833388,
+       "reasons": [
+        {
+         "paragraph": 27,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 30,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 33,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 36,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 39,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 42,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 46,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 48,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 49,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 53,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 55,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/out/don-quixote/original-en/ch52/off/words.candidate.json"
+      }
+     },
+     "outcome": "candidate",
+     "selectedArm": "auto",
+     "matchRatio": 0.9900941864241637
+    }
+   },
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-83/collect-report.json",
+    "record": {
+     "key": "don-quixote/original-en/ch52",
+     "arms": {
+      "auto": {
+       "status": "candidate_requires_acoustic_review",
+       "matchRatio": 0.9874959402403378,
+       "reasons": [],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-83/out/don-quixote/original-en/ch52/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9699577784995128,
+       "reasons": [
+        {
+         "paragraph": 27,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 30,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 33,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 36,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 39,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 42,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 46,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 48,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 49,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 53,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 55,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-83/out/don-quixote/original-en/ch52/off/words.candidate.json"
+      }
+     },
+     "outcome": "candidate",
+     "selectedArm": "auto",
+     "matchRatio": 0.9874959402403378
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "federalist-papers",
+  "edition": "original-en",
+  "chapter": 48,
+  "editionContentHash": "dae685ea31249485f86645a83d7a9b37e0618ad5652990fa5202ab697d81ca2b",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:56:07.196891+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "45e7fab24d4cda79555db72bf456bb976b81cb3f3a626f78d095235035ddfb98",
+  "manifestMetadata": {
+   "chapter": 48,
+   "title": "No. 48 \u2014 These Departments Should Not Be So Far Separated as to Have No Constitutional Control Over Each Other. (Madison)"
+  },
+  "durationSeconds": 716.232,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "federalist-papers",
+   "edition": "original-en",
+   "chapter": 48,
+   "textParagraphs": 16,
+   "textParagraphsWithWords": 16,
+   "manifestSpokenParagraphs": 16,
+   "durationSeconds": 706.2,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 471213
+    },
+    {
+     "file": "p8.mp3",
+     "status": 206,
+     "bytes": 965037
+    },
+    {
+     "file": "p15.mp3",
+     "status": 206,
+     "bytes": 309165
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/collect-report.json",
+    "record": {
+     "key": "federalist-papers/original-en/ch48",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9994614970382337,
+       "reasons": [
+        {
+         "paragraph": 11,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch48/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9876144318793754,
+       "reasons": [
+        {
+         "paragraph": 11,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch48/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "federalist-papers",
+  "edition": "original-en",
+  "chapter": 84,
+  "editionContentHash": "dae685ea31249485f86645a83d7a9b37e0618ad5652990fa5202ab697d81ca2b",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:56:09.345689+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "41097fb9c6c0935406220152ca39c982c80aa6298dc60c34c8f5c5b88eb0e7b9",
+  "manifestMetadata": {
+   "chapter": 84,
+   "title": "No. 84 \u2014 Certain General and Miscellaneous Objections to the Constitution Considered and Answered. (Hamilton)"
+  },
+  "durationSeconds": 1490.736,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "federalist-papers",
+   "edition": "original-en",
+   "chapter": 84,
+   "textParagraphs": 28,
+   "textParagraphsWithWords": 28,
+   "manifestSpokenParagraphs": 28,
+   "durationSeconds": 1481.74,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 450477
+    },
+    {
+     "file": "p14.mp3",
+     "status": 206,
+     "bytes": 430509
+    },
+    {
+     "file": "p27.mp3",
+     "status": 206,
+     "bytes": 190893
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/collect-report.json",
+    "record": {
+     "key": "federalist-papers/original-en/ch84",
+     "arms": {
+      "auto": {
+       "status": "candidate_requires_acoustic_review",
+       "matchRatio": 0.9959581550166429,
+       "reasons": [],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch84/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9914407988587732,
+       "reasons": [
+        {
+         "paragraph": 25,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 27,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch84/off/words.candidate.json"
+      }
+     },
+     "outcome": "candidate",
+     "selectedArm": "auto",
+     "matchRatio": 0.9959581550166429
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "nicomachean-ethics",
+  "edition": "original-en",
+  "chapter": 7,
+  "editionContentHash": "8a377597b5be2eb3266884175a06e0387e4fbf47a41559eb07cd9f2c7adc8a8c",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:55:21.847748+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "bc3fd9a5f8f1c31886402224358b11f46548c07d8114d90d00936a82aeeccb01",
+  "manifestMetadata": {
+   "chapter": 7,
+   "title": "Book 7 \u2014 Continence and Pleasure"
+  },
+  "durationSeconds": 3760.809,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "nicomachean-ethics",
+   "edition": "original-en",
+   "chapter": 7,
+   "textParagraphs": 147,
+   "textParagraphsWithWords": 147,
+   "manifestSpokenParagraphs": 147,
+   "durationSeconds": 3757.58,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 925485
+    },
+    {
+     "file": "p73.mp3",
+     "status": 206,
+     "bytes": 450477
+    },
+    {
+     "file": "p146.mp3",
+     "status": 206,
+     "bytes": 186285
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-13/collect-report.json",
+    "record": {
+     "key": "nicomachean-ethics/original-en/ch7",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9965420560747663,
+       "reasons": [
+        {
+         "paragraph": 57,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-13/out/nicomachean-ethics/original-en/ch7/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9875700934579439,
+       "reasons": [
+        {
+         "paragraph": 55,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 57,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 95,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 127,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-13/out/nicomachean-ethics/original-en/ch7/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "pride-and-prejudice",
+  "edition": "original-en",
+  "chapter": 2,
+  "editionContentHash": "993a219bf4eb2f0b77032f9f7e3e028f7685c95832b519137e986579ed791341",
+  "voice": "unknown",
+  "manifestStatus": 200,
+  "manifestContentHash": "8ebcbea2b24b91d41c664f7509130c3276652541399f4b88bdb9ff9e58bd43b3",
+  "manifestMetadata": {
+   "chapter": 2,
+   "title": "Chapter 2"
+  },
+  "durationSeconds": 264.175,
+  "wordsStatus": 404,
+  "wordsBytes": null,
+  "readiness": {
+   "bookId": "pride-and-prejudice",
+   "edition": "original-en",
+   "chapter": 2,
+   "textParagraphs": 27,
+   "textParagraphsWithWords": 27,
+   "manifestSpokenParagraphs": 27,
+   "durationSeconds": 262.32,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 361773
+    },
+    {
+     "file": "p13.mp3",
+     "status": 206,
+     "bytes": 120621
+    },
+    {
+     "file": "p26.mp3",
+     "status": 206,
+     "bytes": 143277
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "verificationRun": 35587234933,
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/collect-report.json",
+    "record": {
+     "key": "pride-and-prejudice/original-en/ch2",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9962358845671268,
+       "reasons": [
+        {
+         "paragraph": 10,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/out/pride-and-prejudice/original-en/ch2/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.986198243412798,
+       "reasons": [
+        {
+         "paragraph": 10,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/out/pride-and-prejudice/original-en/ch2/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ },
+ {
+  "bookId": "the-awakening",
+  "edition": "original-en",
+  "chapter": 12,
+  "editionContentHash": "4519dd9e2334bcaf0462eb487d46d3c055f9f607e091b409be477fe843b7db78",
+  "voice": "unknown",
+  "checkedAt": "2026-09-21T10:55:08.952916+00:00",
+  "manifestStatus": 200,
+  "manifestContentHash": "d2196cebdedfdbde1f48852154ad54d57f98bc8a9babc06efca837a1460903ef",
+  "manifestMetadata": {
+   "chapter": 12,
+   "title": "Chapter 12"
+  },
+  "durationSeconds": 443.125,
+  "wordsStatus": 404,
+  "wordsBytes": 0,
+  "readiness": {
+   "bookId": "the-awakening",
+   "edition": "original-en",
+   "chapter": 12,
+   "textParagraphs": 38,
+   "textParagraphsWithWords": 38,
+   "manifestSpokenParagraphs": 38,
+   "durationSeconds": 441.32,
+   "sampled": [
+    {
+     "file": "p0.mp3",
+     "status": 206,
+     "bytes": 563757
+    },
+    {
+     "file": "p18.mp3",
+     "status": 206,
+     "bytes": 31533
+    },
+    {
+     "file": "p37.mp3",
+     "status": 206,
+     "bytes": 205485
+    }
+   ],
+   "outcome": "ready",
+   "detail": "manifest matches the edition paragraph count"
+  },
+  "state": "timings-missing",
+  "priorAttempts": [
+   {
+    "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+    "record": {
+     "key": "the-awakening/original-en/ch12",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9984697781178271,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/the-awakening/original-en/ch12/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.9693955623565417,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 24,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/the-awakening/original-en/ch12/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   },
+   {
+    "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/collect-report.json",
+    "record": {
+     "key": "the-awakening/original-en/ch12",
+     "arms": {
+      "auto": {
+       "status": "rejected",
+       "matchRatio": 0.9977046671767407,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/out/the-awakening/original-en/ch12/auto/words.candidate.json"
+      },
+      "off": {
+       "status": "rejected",
+       "matchRatio": 0.96327467482785,
+       "reasons": [
+        {
+         "paragraph": 15,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 24,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        },
+        {
+         "paragraph": 30,
+         "reasons": [
+          "observed_alignment_below_85_percent"
+         ]
+        }
+       ],
+       "validationErrors": [],
+       "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/out/the-awakening/original-en/ch12/off/words.candidate.json"
+      }
+     },
+     "outcome": "excluded",
+     "reason": "no arm passed the gate and sidecar validation"
+    }
+   }
+  ],
+  "contentHold": null,
+  "nextAction": "stronger-recognition"
+ }
+]
