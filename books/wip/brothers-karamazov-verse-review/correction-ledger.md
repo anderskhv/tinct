@@ -69,14 +69,83 @@ re-verified against the source here before drafting any fix.
   meter or rhyme, so dropping it costs nothing and removes an
   inconsistency within the same chapter.
 
-## Not corrected in this pass (flagged for next batch)
+## 4. Chapter 16, paragraph 41 (Schiller "Ode to Joy," first stanza)
 
-**Chapter 16** (Schiller's "Ode to Joy" quotation, an 4-line stanza at P41
-and an 18-line stanza at P43, echoed at P45) is completely unmodernized —
-"fostereth," "'Tis at her beck," "hath turned," "cling for ever," etc.,
-identical to source throughout. This is not a small couplet-level fix like
-the three above; a faithful modern rendering of an 18-line rhymed
-philosophical stanza is real drafting work of its own, and speculatively
-drafting it here would exceed this pilot's "targeted verse review, not a
-new full-novel rewrite" scope. Recorded in `inventory.md` and
-`PILOT-REPORT.md` as the concrete next-batch recommendation.
+- **Source/current modern-en (identical, unmodernized):** "Would he purge
+  his soul from vileness / And attain to light and worth, / He must turn
+  and cling for ever / To his ancient Mother Earth."
+- **Corrected:** "Would he purge his soul from vileness / And attain to
+  light and worth, / He must turn and cling forever / To his ancient
+  Mother Earth."
+- **Why:** Minimal fix — this quatrain has almost no archaic diction to
+  begin with (unlike P43); the one change is "cling for ever" →
+  "cling forever," a spelling modernization, not a rhyme or meaning
+  change. The rest is already clear, idiomatic English and was left
+  alone per the "no required rewrite percentage" rule.
+
+## 5. Chapter 16, paragraph 43 (Schiller "Ode to Joy," main stanza)
+
+- **Source/current modern-en (identical, unmodernized):** "Joy everlasting
+  fostereth / The soul of all creation, ... 'Tis at her beck the grass
+  hath turned / Each blade towards the light ... Her gifts to man are
+  friends in need, / The wreath, the foaming must, / To angels—vision of
+  God's throne, / To insects—sensual lust." (full text in
+  `staged-corrections.json`)
+- **Corrected:** "Joy everlasting fosters / The soul of all creation, ...
+  At her bidding the grass has turned / Each blade towards the light ..."
+  — rest of the stanza, including "the foaming must" (see below),
+  unchanged.
+- **Why:** Two archaic constructions modernized without touching rhyme,
+  meter, or meaning: "fostereth" → "fosters" (archaic -eth ending);
+  "'Tis at her beck ... hath turned" → "At her bidding ... has turned"
+  (archaic contraction/idiom + archaic auxiliary verb). Neither word was
+  load-bearing for any rhyme in the stanza.
+- **Deliberate judgment call — "the foaming must" left unchanged:** "must"
+  here means unfermented/fermenting grape juice (new wine), an obscure
+  word to a modern reader. It was **not** modernized (e.g. to "new wine")
+  because it rhymes with "lust" two lines later in the same stanza
+  ("The wreath, the foaming must, ... To insects—sensual lust.") —
+  replacing it would silently destroy an existing, clearly deliberate
+  rhyme the original translator chose, for a word that is odd but not
+  actually unclear in context (flanked by wreaths/wine imagery, a reader
+  can follow the sense even without knowing the technical term).
+  Independent review agreed with this call but flagged "must" as
+  genuinely obscure enough to warrant a closer look (a footnote, or a
+  full quatrain rewrite trading the must/lust rhyme for something else)
+  if and when this stanza gets a full modernization pass rather than this
+  narrow, targeted correction. Recorded as an open item below.
+
+## 6. Chapter 16, paragraph 45 (echoed closing line)
+
+- **Source/current modern-en:** "To insects—sensual lust." (a one-line
+  fragment repeating P43's closing line, as in the source's own
+  formatting)
+- **Corrected:** No change — already plain modern English, no archaic
+  diction to fix.
+
+## Status: all six staged corrections above (ch33 P11/P12, ch36 P1, ch16
+P41/P43/P45) independently reviewed for both accessibility and fidelity.
+**Verdict: ACCEPT AS-IS on all six, no further fixes required.** See
+`independent-review.md` for the full independent write-up, including
+confirmation that the ch33 P11/P12 pair still preserves the exact same
+divergence pattern as the source (the two sung lines differ from each
+other the same way source's two versions do — no more, no less) and that
+no trace of the original "treasure"/"leisure"/"well and gay" rhyme-driven
+additions survives.
+
+## Remaining open item (not a defect in what's staged — a scope note for
+the next batch)
+
+**Chapter 16, paragraphs 41/43/45 above are a narrow, targeted correction
+of the specific archaic constructions that were easy to fix without
+touching rhyme or meter — they are not a full modernization pass on this
+stanza.** Most of the stanza's more purely poetic/dense phrasing (e.g.
+"It is her secret ferment fires / The cup of life with flame," "the
+foaming must") was deliberately left as-is, either because it isn't
+genuinely archaic (just dense/poetic, which the rules don't require
+rewriting) or, in the "must" case, because modernizing it would cost an
+existing deliberate rhyme for a word that reads as merely odd rather than
+unclear. A full, careful re-rendering of this stanza (trading off
+rhyme/meter against full modernization of every word) remains legitimate
+future work if Anders wants it, but it is out of scope for this pass and
+should not be read as "still broken."
