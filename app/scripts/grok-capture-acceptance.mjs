@@ -13,6 +13,7 @@ const browser=await chromium.launch({headless:true,args:[
 ]})
 const context=await browser.newContext({viewport:{width:1440,height:900},permissions:['microphone'],serviceWorkers:'block'})
 const page=await context.newPage()
+page.setDefaultTimeout(10000)
 const report={live,checks:[],events:[],errors:[]}
 page.on('pageerror',error=>report.errors.push(error.message))
 await page.route('**/*',async route=>{
@@ -85,6 +86,13 @@ try{
   await resize.focus();await page.keyboard.press('ArrowLeft')
   assert((await panel.boundingBox()).width<box.width,'Talk panel can resize during a call')
   await page.screenshot({path:output+'/desktop-call.png'})
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-voice-panel"]')?.dataset.status==='speaking',null,{timeout:35000})
+  // Inject a silent pause in the synthetic source so one answer finishes,
+  // then restore the repeating question to exercise interruption as well.
+  await page.evaluate(()=>window.__captureQA.tracks.filter(t=>t.readyState==='live').forEach(t=>{t.enabled=false}))
+  await page.waitForFunction(()=>window.__captureQA.events.some(e=>e.type==='response.done'&&e.status==='completed')&&document.querySelector('[data-testid="lab-voice-panel"]')?.dataset.status==='listening',null,{timeout:90000})
+  report.checks.push({name:'complete spoken answer returns to listening',...(await evidence())})
+  await page.evaluate(()=>window.__captureQA.tracks.filter(t=>t.readyState==='live').forEach(t=>{t.enabled=true}))
   await page.waitForFunction(()=>window.__captureQA.events.filter(e=>e.type==='response.done').length>=3&&(window.__captureQA.audio||0)>100000,null,{timeout:90000})
   const first=await evidence()
   assert(first.events.filter(e=>e.type==='input_audio_buffer.speech_started').length>=3)

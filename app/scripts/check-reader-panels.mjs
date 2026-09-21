@@ -13,9 +13,10 @@ const explanation = 'A compact opening grounded in the selected passage.\n\nA se
 const definition = 'pronoun. Used to refer to people or things already identified.'
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
-async function boot(browser, phone) {
+async function boot(browser, phone, bookId='bible', edition='kjv-en') {
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone })
   const page = await context.newPage()
+  page.setDefaultTimeout(10000)
   const requests = [], errors = []
   page.on('pageerror', error => errors.push(error.message))
   await page.route('**/*', async route => {
@@ -36,11 +37,11 @@ async function boot(browser, phone) {
     }
     return route.continue()
   })
-  await page.addInitScript(() => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',savedPlace:{bookId:'bible',chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
+  await page.addInitScript(({bookId,edition}) => {
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
-  })
+  },{bookId,edition})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
@@ -179,6 +180,26 @@ async function run(engine,name,phone) {
       assert(box.x>=0&&box.y>=0&&box.x+box.width<=1001&&box.y+box.height<=651,'settings remain on screen')
       await page.screenshot({path:output+'/'+name+'-desktop-settings-small.png'})
     }
+    await page.getByTestId('lab-v2-sheet-confirm').click()
+    for(const theme of ['dark','light']){
+      await clickMenu(page,'settings')
+      await page.getByTestId('lab-v2-theme-'+theme).click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      await select(page)
+      await page.getByRole('button',{name:'Explain',exact:true}).click()
+      await page.getByText('A compact opening grounded in the selected passage.').waitFor()
+      const colours=await page.locator('.lab-contextual-explain-more').evaluate(node=>{
+        const style=getComputedStyle(node)
+        const probe=document.createElement('i');probe.style.color=style.getPropertyValue('--lab-ink-muted');node.append(probe)
+        const theme=getComputedStyle(probe).color;probe.remove();return {ink:style.color,theme}
+      })
+      assert.equal(colours.ink,colours.theme,'More follows the theme')
+      await page.screenshot({path:output+'/'+name+'-'+result.layout+'-'+theme+'.png'})
+      await page.getByRole('button',{name:'Close explanation',exact:true}).click()
+    }
+    await page.getByTestId('lab-header-book').click()
+    await page.getByRole('button',{name:/Full library/}).click()
+    await page.waitForURL('**/library**')
     assert.deepEqual(errors,[])
     result.passed=true
   } catch(error) {
@@ -186,10 +207,42 @@ async function run(engine,name,phone) {
     if(state) {
       await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
       result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)
+      result.windows=await state.page.locator('[data-reader-window]').evaluateAll(nodes=>nodes.map(node=>{
+        const box=node.getBoundingClientRect(),style=getComputedStyle(node)
+        return {class:node.className,rect:box.toJSON(),inline:node.getAttribute('style'),z:style.zIndex,
+          controls:[...node.querySelectorAll('button')].filter(n=>n.getBoundingClientRect().width).map(n=>{
+            const b=n.getBoundingClientRect(),hit=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2)
+            return {label:n.getAttribute('aria-label'),rect:b.toJSON(),hit:hit?.outerHTML.slice(0,200)}
+          })}
+      }))
     }
   } finally { await browser.close(); results.push(result) }
 }
-for(const [name,engine] of [['chromium',chromium],['webkit',webkit]])for(const phone of [false,true])await run(engine,name,phone)
+async function compareLabel(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'desktop-comparison',live}
+  try{
+    state=await boot(browser,false,'notes-from-underground','original-en')
+    const {page}=state
+    await clickMenu(page,'settings')
+    await page.getByTestId('lab-v2-compare-edition').selectOption('modern-en')
+    await page.getByTestId('lab-v2-show-compare').click()
+    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
+    const footers=page.getByTestId('lab-desktop-page-footers')
+    await footers.getByText('Tinct Modern English',{exact:true}).waitFor()
+    assert.equal(await footers.locator('b').count(),2)
+    await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-comparison-failure.png'}).catch(()=>{})
+  }finally{await browser.close();results.push(result)}
+}
+for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
+  for(const phone of [false,true])await run(engine,name,phone)
+  await compareLabel(engine,name)
+}
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
 console.log(JSON.stringify({live,results},null,2))
 if(results.some(r=>!r.passed))process.exit(1)

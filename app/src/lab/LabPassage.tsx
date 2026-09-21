@@ -353,13 +353,14 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
   let nearest: Element | null = null
   let best = Infinity
   for (const word of line.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
-    for (const box of Array.from(word.getClientRects()).length ? Array.from(word.getClientRects()) : [word.getBoundingClientRect()]) {
-    if (!box.width || !box.height) continue
-    const dx = Math.max(box.left - clientX, 0, clientX - box.right)
-    const dy = Math.max(box.top - clientY, 0, clientY - box.bottom)
-    const distance = dy * dy * 10000 + dx * dx
-    if (distance < best) { best = distance; nearest = word }
-        }
+    const fragments = Array.from(word.getClientRects())
+    for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
+      if (!box.width || !box.height) continue
+      const dx = Math.max(box.left - clientX, 0, clientX - box.right)
+      const dy = Math.max(box.top - clientY, 0, clientY - box.bottom)
+      const distance = dy * dy * 10000 + dx * dx
+      if (distance < best) { best = distance; nearest = word }
+    }
   }
   return wordPlaceFromTarget(nearest)
 }
@@ -696,12 +697,13 @@ export function LabPassage({
       let best = Infinity
       for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
         if (!!word.closest('.lab-book-col-compare') !== drag.comparison) continue
-        for (const box of Array.from(word.getClientRects()).length ? Array.from(word.getClientRects()) : [word.getBoundingClientRect()]) {
-        if (!box.width || !box.height) continue
-        const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
-        const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
-        const distance = dy * dy * 10000 + dx * dx
-        if (distance < best) { best = distance; nearest = word }
+        const fragments = Array.from(word.getClientRects())
+        for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
+          if (!box.width || !box.height) continue
+          const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
+          const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
+          const distance = dy * dy * 10000 + dx * dx
+          if (distance < best) { best = distance; nearest = word }
         }
       }
       place = wordPlaceFromTarget(nearest)

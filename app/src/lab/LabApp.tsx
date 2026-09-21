@@ -4462,7 +4462,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 <span className="lab-chapter-progress-info">{footProgressLabel}</span>
               )}
             </button>
-          ) : (
+          ) : chromeV2 ? (
             <button type="button"
               className="lab-chapter-progress is-interactive"
               data-testid="lab-chapter-progress"
@@ -4471,6 +4471,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             >
               <span className="lab-chapter-progress-info">{footProgressLabel}</span>
             </button>
+          ) : (
+            <div className="lab-chapter-progress" data-testid="lab-chapter-progress"><span className="lab-chapter-progress-info">{footProgressLabel}</span></div>
           )}
           {chapterEndNeedsPage && !chapterEndPage || chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button

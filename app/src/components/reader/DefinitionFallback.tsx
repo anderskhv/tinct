@@ -15,6 +15,7 @@ export function DefinitionFallback({ word, request }: {
     let active = true
     setAnswer(''); setStatus('loading')
     void requestRef.current(() => {}, word, 'define').then(text => {
+      if (!text.trim()) throw new Error('Empty definition')
       if (active) { setAnswer(text.trim()); setStatus('ready') }
     }).catch(() => { if (active) setStatus('error') })
     return () => { active = false }

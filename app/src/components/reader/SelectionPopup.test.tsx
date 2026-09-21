@@ -214,3 +214,11 @@ it('keeps the palette compact until Add note and sends Ask to the composer', () 
   fireEvent.click(screen.getByRole('button',{name:'Add note'}))
   expect(input.onRequestNote).toHaveBeenCalledOnce()
 })
+
+it('offers a definition retry when the provider returns no text', async () => {
+  const request = vi.fn().mockResolvedValueOnce(' ').mockResolvedValueOnce('verb. To look for.')
+  render(<SelectionPopup {...props({ lab: true, popupMode: 'define', defineQuery: 'seeketh', defineLoading: false, defineNotFound: true, onRequestExplanation: request })} />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Try again' }))
+  await screen.findByText('verb. To look for.')
+  expect(request).toHaveBeenCalledTimes(2)
+})
