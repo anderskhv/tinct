@@ -218,7 +218,7 @@ For non-trivial bugs:
 
 ## Browser Cache Guidance For Anders
 
-Anders uses a Danish Mac keyboard. Do not default to telling him `Cmd+Shift+R`.
+Anders's keyboard layout makes the usual browser shortcut unreliable. Do not default to telling him `Cmd+Shift+R`.
 
 Recommended cache-busting guidance:
 
