@@ -44,9 +44,15 @@ further and accepted.
 ## Relationship to currently-live text
 
 A paragraph-level diff against the current live
-`twelfth-night-modern-en.json` shows the accepted text differs in 17 of
-1120 paragraphs (3 round-1 fixes + 13 round-2/3 fixes + 1 round-3
-additional find).
+`twelfth-night-modern-en.json` shows the accepted text differs in **16 of
+1120** paragraphs — the 3 round-1 fixes (Ch3 ¶66, Ch9 ¶33, Ch18 ¶76) plus
+the 13 paragraphs round 3 changed (Ch3 ¶16, Ch5 ¶27, Ch8 ¶37, Ch8 ¶39,
+Ch10 ¶70, Ch10 ¶83, Ch10 ¶98, Ch12 ¶19, Ch13 ¶16, Ch14 ¶126, Ch15 ¶28,
+Ch18 ¶119, Ch18 ¶123). All 1-based. Round 3's 13 fix *operations* touched
+13 paragraphs, not 12+1: the `cubiculo` find is already inside that 13,
+and two of the operations (`firago` and `the Sophy`) both landed in
+Ch14 ¶126. Verified by direct diff in round 4; an earlier draft of this
+line said 17 and double-counted `cubiculo`.
 
 ## Audio invalidation
 
