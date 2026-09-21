@@ -449,6 +449,57 @@ async function paintDiagnostics(page,label){
  await fs.writeFile(output+'/'+label+'-paint-diagnostic.json',JSON.stringify(before,null,2))
 }
 
+
+async function highlightBodyPaint(page){
+ const geometry=await page.locator('[data-testid="lab-word"].is-hl-warm').evaluateAll(nodes=>nodes.filter(n=>!n.querySelector('.lab-verse-mark')).flatMap(n=>[...n.getClientRects()]).filter(r=>r.width>25&&r.height>15&&r.top>0&&r.bottom<innerHeight).slice(0,8).map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom})))
+ const pixels=(await page.screenshot()).toString('base64')
+ return page.evaluate(async({pixels,geometry})=>{
+  const image=new Image();image.src='data:image/png;base64,'+pixels;await image.decode()
+  const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
+  const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const ratio=image.width/innerWidth
+  const color=getComputedStyle(document.querySelector('.lab-highlight-seam')).backgroundColor.match(/[0-9.]+/g).slice(0,3).map(Number)
+  let matched=0,total=0
+  for(const r of geometry)for(let y=Math.ceil((r.top+3)*ratio);y<(r.bottom-3)*ratio;y+=2)for(let x=Math.ceil((r.left+2)*ratio);x<(r.right-2)*ratio;x+=2){
+   const rgba=ctx.getImageData(x,y,1,1).data;if(color.every((v,i)=>Math.abs(v-rgba[i])<4))matched++;total++
+  }
+  return {fraction:matched/Math.max(1,total),total}
+ },{pixels,geometry})
+}
+
+async function safariPaintProbe(){
+ if(live)return
+ const browser=await webkit.launch({headless:true})
+ try{
+  const state=await boot(browser,false,'notes-from-underground','original-en',1,{paragraphIndex:0,highlights:[{id:'probe',bookId:'notes-from-underground',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:115,color:'gold',kept:true}],deviceScaleFactor:2})
+  const {page}=state;await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
+  const results=[]
+  for(const variant of ['baseline','literal-scoped','literal-global','selectable-ancestors','no-isolation','refresh-registry','text-boundaries']){
+   await page.reload({waitUntil:'domcontentloaded'})
+   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true'&&document.querySelector('.lab-highlight-seam'))
+   await page.evaluate(()=>document.fonts.ready)
+   const details=await page.evaluate(variant=>{
+    const entries=[...CSS.highlights].filter(([key,value])=>key.endsWith('-warm')&&value.size)
+    const style=document.createElement('style')
+    if(variant.startsWith('literal-'))style.textContent=entries.map(([key])=>(variant==='literal-global'?'':'.lab.is-night ' )+'::highlight('+key+'){background-color:#5c4a2e;color:#bfb8ac}').join('\n')
+    if(variant==='selectable-ancestors')style.textContent='html,body,#root,.lab,.lab *{-webkit-user-select:text!important;user-select:text!important}'
+    if(variant==='no-isolation')style.textContent='.lab .lab-hearing-line{isolation:auto!important;position:static!important}'
+    document.head.append(style)
+    if(variant==='refresh-registry')for(const [key,value] of entries){CSS.highlights.delete(key);CSS.highlights.set(key,new Highlight(...value))}
+    if(variant==='text-boundaries')for(const [key,value] of entries){
+     const ranges=[...value].map(old=>{const r=old.cloneRange();const first=document.createTreeWalker(old.startContainer,NodeFilter.SHOW_TEXT).nextNode();const walker=document.createTreeWalker(old.endContainer,NodeFilter.SHOW_TEXT);let last,node;while(node=walker.nextNode())last=node;if(first&&last){r.setStart(first,0);r.setEnd(last,last.length)}return r})
+     CSS.highlights.set(key,new Highlight(...ranges))
+    }
+    const word=document.querySelector('.is-hl-warm[data-testid="lab-word"]')
+    return {rules:[...document.styleSheets].flatMap(s=>{try{return [...s.cssRules].map(r=>r.cssText).filter(t=>t.includes('::highlight('))}catch{return[]}}),computed:entries.map(([key])=>({key,color:getComputedStyle(word,'::highlight('+key+')').backgroundColor})),ancestors:(()=>{const a=[];let n=word;while(n){a.push({tag:n.tagName,cls:n.className,select:getComputedStyle(n).webkitUserSelect});n=n.parentElement}return a})()}
+   },variant)
+   await page.waitForTimeout(100)
+   results.push({variant,...await highlightBodyPaint(page),details})
+   await page.screenshot({path:output+'/paint-probe-'+variant+'.png'})
+  }
+  await fs.writeFile(output+'/paint-probe.json',JSON.stringify(results,null,2))
+ }finally{await browser.close()}
+}
+
 async function checkHighlightPaint(page){
   // Read the ready geometry atomically: an unrelated React commit can
   // replace the paint-only nodes between waitFor() and evaluateAll().
@@ -506,6 +557,8 @@ async function highlightRegression(engine,name){
       await page.locator(target).first().waitFor()
       result[fixture.book]={records:await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))}
       await page.screenshot({path:output+'/'+name+'-'+fixture.book+'-gold-reloaded.png'})
+      result[fixture.book].bodyPaint=await highlightBodyPaint(page)
+      assert(result[fixture.book].bodyPaint.fraction>.25,'saved highlight background must fill the word rows, not only their seams: '+JSON.stringify(result[fixture.book].bodyPaint))
       const marked=page.locator('[data-testid="lab-word"].is-hl-warm')
       const count=await marked.count();assert(count>5,'saved Gold is painted after reload')
       const chosen=[0,Math.floor(count/2),count-1]
@@ -621,6 +674,7 @@ async function designReference(){
     }
   }finally{await browser.close()}
 }
+await safariPaintProbe()
 await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
