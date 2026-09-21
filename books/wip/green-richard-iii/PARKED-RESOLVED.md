@@ -1,3 +1,42 @@
+# RESOLVED AND ACCEPTED — Richard III (`richard-iii`, modern-en)
+
+> **Round 4 outcome (2026-09-21, Claude Opus `claude-opus-5`): ACCEPTED —
+> no longer parked.**
+>
+> Round 4 re-derived everything in this file from `source.json` without
+> trusting round 3's self-report. Round 3's claimed candidate sha256
+> `1eb6085c…89318e0` was recomputed and confirmed. All 17 of round 3's
+> fixes were re-derived at their actual locations and confirmed correct,
+> including plural direction at ch23 ¶124 and ch24 ¶2. An independent
+> location-keyed `Exeunt` recount gives source 39 / candidate 39 with an
+> empty symmetric difference (and `Exit` 44/44). Independent, freshly
+> built proper-noun (120 names/places), capitalized-token, register,
+> oath, quantity and compression sweeps found **no unresolved instance of
+> the "erasure of the source's own printed forms" class**, and ch19 (all
+> 219 paragraphs) plus ch7, ch14, ch17, ch20, ch21 and ch22 were read
+> word-for-word with no defect of any class.
+>
+> Two narrow residual items were fixed directly in round 4 rather than
+> triggering a fourth correction round: `King Henry VI` → `King Henry the
+> Sixth` (ch2 ¶0) and `St. Paul's` → `Paul's` (ch2 ¶1). Both were already
+> documented by round 2 and explicitly ruled on by round 3 — so this is a
+> corrected ruling on a known item, not an undetected recurrence — but
+> round 3's stated ground for that ruling ("there is no location where
+> the same numeral-style choice needed to be applied twice and wasn't")
+> is factually wrong: source prints `the Sixth` at 6 locations and
+> `Paul's` at 2, and the candidate had changed exactly one of each. Both
+> are cosmetic rather than meaning-bearing, and restoring the source form
+> required no editorial judgment. Post-fix: `the Sixth` 6/6, `Paul's` 2/2.
+>
+> Final `candidate.json` sha256
+> `e5e713ceee70f643d290357683524f0f0c62a8b1061278b79f51860010137385`.
+> `accepted-paragraph-hashes.tsv` written (1,420 rows). Full round-4
+> detail and the four-round coverage table are in `ACCEPTANCE-RECORD.md`.
+>
+> Everything below is preserved unedited as history.
+
+---
+
 # RESOLVED — round 3 of 3 — Richard III (`richard-iii`, modern-en)
 
 **Round 3 reviewer/fixer:** **Claude Sonnet 5** (`claude-sonnet-5`).

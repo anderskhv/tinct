@@ -1,3 +1,220 @@
+# RESOLVED — Romeo and Juliet (`romeo-and-juliet`, modern-en)
+
+> **Round 3 resolution, 2026-09-21, Claude Sonnet 5.** This file was
+> `PARKED.md` after round 2 (independent Opus verification) found 19 further
+> live register-softening/erasure instances plus a dropped stage direction,
+> on top of round 1's 12 fixes. Round 3 fixed all of it, ran an independent
+> fresh sweep on top (found 12 more instances round 2 hadn't listed — 3 of
+> its own already-documented B-items round 1's task brief omitted, plus 9
+> genuinely new: 6 additional "Marry"/"faith" oath occurrences, "Mass", the
+> Nurse's "no faith" triplet, "hot a Jack", "you knaves", "damned guilty
+> deeds"), fixed the 7 clearly-unambiguous non-blocking items round 2 flagged
+> but didn't fix, and re-verified every one of the resulting 64 changed
+> paragraphs against `source.json` directly, fresh, after applying the fix.
+>
+> **Final candidate.json sha256:**
+> `49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9`
+>
+> **Final source.json sha256 (unchanged, confirms source was never touched):**
+> `d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276`
+>
+> Structure re-validated after the last edit: 25 chapters both files, 1,062
+> paragraphs both files, per-chapter counts identical, `sections` arrays
+> identical, JSON valid both files, no empty/whitespace paragraph.
+> `assert_only_changed`-equivalent diff against the round-2-handoff
+> `candidate.json` confirms **exactly 64 paragraphs changed and no others**.
+>
+> Report to the calling process: **READY FOR INDEPENDENT VERIFICATION —
+> sha256 49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9**
+>
+> The rest of this file is round 2's `PARKED.md` in full, preserved as
+> history. Everything below "Round 3 fix log" is unchanged from what round 2
+> handed off.
+
+---
+
+## Round 3 fix log (this round)
+
+All fixes applied via exact-substring `safe_replace` (old substring verified
+present exactly once in the target paragraph before replacement), then the
+whole file re-validated for structure and re-diffed against the round-2
+handoff copy to confirm nothing else moved. Every fix below was independently
+re-located in `source.json` by distinctive-phrase search (not by trusting
+round 2's cited paragraph numbers) before being applied, and independently
+re-verified against `source.json` again after being applied.
+
+### B1–B19 (round 2's numbered findings) — all fixed
+| Item | Loc | Fix |
+|---|---|---|
+| B1 | 7,13 | "medlar tree" / "call medlars" / "open-arse and ... poperin pear" restored |
+| B2 | 2,13 | "civil" restored (was "rough", the imported "cruel" emendation) |
+| B3 | 2,17 | "a pretty piece of flesh" restored |
+| B4 | 2,20 | "naked" restored to "My naked weapon is out" |
+| B5 | 5,24 | "alderman", "tithe-pig's", "foul, sluttish hair", "the hag" all restored |
+| B6 | 17,52 | "minion", "green-sickness carrion", "baggage" restored |
+| B7 | 17,55 | "young baggage" restored; "Out on her, hilding!" restored |
+| B8 | 19,11 | "a peevish, self-willed harlotry" restored |
+| B9 | 21,18 | "a merry whoreson" restored |
+| B10 | 15,11 | "Carrion flies" restored |
+| B11 | 11,21 | "wanton blood" restored; "bird's nest" restored |
+| B12 | 22,54/55 | "pestilent knave" restored; "Hang him, Jack" restored |
+| B13 | 10,74 | "twenty such Jacks" restored |
+| B14 | 4,12 | "wormwood" restored (×2); "by the rood" and "by my holidame" restored; "wretch"/"fool" variation restored (was flattened to identical "sweet little thing" twice) |
+| B15 | 10,72 / 10,89 | "ropery" restored; "versal world" restored; the invented "Count" title removed from "one Paris" (source has no title there — distinct from the legitimate book-wide County→Count convention) |
+| B16 | book-wide | oath convention decided and applied — see below |
+| B17 | 10,11 | "the very butcher of a silk button" restored |
+| B18 | 10,16 | "Without his roe" restored |
+| B19 | 13,70 | "or let Benvolio die" restored |
+| S1 | 5,11 | `[Putting on a mask.]` stage direction restored |
+
+### ch2 ¶67 / ¶72 (flagged by round 2's compression sweep, not fixed)
+- **2,67**: restored "the worshipped sun peered out from the golden window
+  of the east" image and the "being one too many even for my own weary
+  company... pursued my own mood, not his" parallel structure.
+- **2,72**: restored "I won't say how truly" parenthesis and the second half
+  of the worm/bud image ("spread its sweet leaves to the air, or dedicate
+  its beauty to the sun" — candidate had collapsed both clauses into one).
+
+### Book-wide oath convention (B16) — decision and full application
+
+**Decision:** restore "Marry", "i'faith"/"I'faith"/"in faith", "Jesu", and
+plain "Faith"/"on my faith" verbatim (or in an immediately-recognizable
+modern spelling of the same interjection) at every location, rather than
+modernizing them away. Reasoning:
+
+1. This batch has an established precedent for restoring exactly this class
+   of period oath/interjection verbatim (the Tilly-vally restoration in
+   Twelfth Night, the oath-restoration convention in Coriolanus) rather than
+   modernizing it into a generic filler ("Well,", "Indeed,", "Honestly,").
+2. These interjections are not incidental filler in this play — they carry
+   real character-voice weight. "Marry" and "i'faith"/"Faith" are heavily
+   concentrated in the Nurse's and Mercutio's speech (of ~28 combined
+   occurrences, roughly 20 are spoken by one of the two), and both are
+   voice-defined characters whose vocabulary this batch has already committed
+   to preserving in full (crude vocabulary, malapropisms). Flattening their
+   oaths to generic modern fillers erodes exactly the voice the crude-word
+   and malapropism fixes were restoring.
+3. They are short, low-ambiguity, and legible in context to a modern
+   reader without a gloss — unlike genuinely untranslatable puns (the
+   "circle"/"hare hoar" class), which this round leaves alone per existing
+   precedent.
+4. Applying "keep everywhere" rather than a mixed policy avoids the
+   inconsistency problem the task instructions explicitly warn against.
+
+**Full application (24 locations, every source occurrence, fixed
+book-wide, none left inconsistent):**
+- **"Marry" / "marry"** (16 locations): 2,23; 4,12 (×1, "That shall she,
+  marry"); 4,17; 6,26; 6,43; 6,52; 10,16; 11,17; 13,22; 13,40; 17,44; 17,75;
+  19,6; 19,18; 22,1; 22,47.
+- **"i'faith" / "I'faith" / "in faith" / "Faith," / "on my faith" / "Good
+  faith"** (11 locations): 4,8; 4,23; 10,61; 10,77; 11,14; 17,68 (literal
+  "faith"/troth wordplay, restored as the repeated word it is in source, not
+  as the exclamation); 17,69; 21,5; 21,18; 22,28; 22,41; 22,51; 25,29.
+  (Counted 12 above because 17,68 is the literal-noun instance, not the
+  interjection — both are restored for the same reason: source's own word
+  choice carries the play's thematic wordplay and should not be paraphrased
+  away.)
+- **"Jesu"** (3 locations): 9,13; 10,13; 11,9.
+- **"Mass"** (1 location, 21,18) — same period-oath class as "Zounds",
+  which round 2 already judged acceptable when rendered rather than deleted;
+  applying the same standard, restored rather than left as "Ha!".
+
+Round 2's location list under-counted this class (it estimated "roughly a
+dozen" for each of Marry and i'faith/faith and found only the capitalized
+"Marry"/apostrophe-exact "i'faith" spellings). This round's search was
+case-insensitive and word-boundary-based across every spelling variant, and
+found 6 additional genuine oath occurrences round 2's own B16 list did not
+name: 2,23 ("No, marry"), 4,8 ("Faith, I can tell..."), 4,12 ("shall she,
+marry"), 10,16 ("marry, she had a better love"), 17,68/17,69 ("my faith in
+heaven"/"Faith, here it is"), 19,18 ("Ay, marry"), 21,5 ("faith, you'll be
+sick"), 21,18 ("Mass"/"Good faith"), 22,28/22,41/22,51 (three more
+"Faith,"/"on my faith" instances), and the Nurse's "no faith" in her "no
+trust, No faith, no honesty" triplet at 14,19 (also restored, since it was
+flattened to "You can't trust men. None of them." — losing the triplet
+structure entirely, not just the word "faith").
+
+### Fresh independent register/erasure sweep (task step 3)
+
+Built fresh from `source.json` (not reusing round 1's or round 2's word
+lists): a curated ~110-stem list of archaic/bawdy/insult/oath vocabulary
+(whore, harlot, bawd, wanton, minion, carrion, baggage, hilding, jack, knave,
+hag, alderman, wormwood, dug, medlar, poperin, arse, ropery, versal, rood,
+holidame, jesu, marry, faith, flesh, naked, maidenhead, pox, plague, zounds,
+sluttish, cuckold, prick, bawdy, deflower, wretch, puling, mammet, tallow,
+green-sickness, peevish, whoreson, rapier, county, earl, widow, roe, silk
+button, cur, rogue, scurvy, pestilent, caitiff, canker, villain, shame,
+vestal, chamber, and more — full list in the working script), applied
+per-paragraph to flag any stem present in source and absent from the
+matching candidate paragraph, then read every flag by hand.
+
+This independently re-surfaced B1, B12, B13, B17, B18, B19 (validating round
+2's B-list — round 2's own task brief to round 3 had accidentally not
+enumerated these five as their own numbered instructions, but they were
+still findings in round 2's document and this sweep caught them
+independently either way) and additionally found, beyond round 2's B-list:
+
+- **13,4** — "hot a Jack in thy mood" → "hot-tempered": the "Jack" jibe
+  erased a third time (after 22,55 and 10,74). Restored.
+- **6,11** — "More light, you knaves" → "More light, you there!": the crude
+  address erased. Restored.
+- **10,76** — "Scurvy knave." → "That scoundrel!": restored (second "Scurvy
+  knave" occurrence in the same exchange as B13's 10,74).
+- **14,22** — "damned guilty deeds" → "guilty deeds": restored.
+- Plus the full oath list above, since "marry"/"faith"/"jesu" were on the
+  fresh list too.
+
+Everything else the sweep flagged (`county`→`Count`, `rapier`→`sword`,
+"cur"/"cat"/"rat"/"nest" in Mercutio's already-documented untranslatable
+puns, "chamber"→"room", etc.) was re-checked against round 2's
+"judged acceptable" list and confirmed to still be legitimate modernization,
+not a new erasure.
+
+### Non-blocking items fixed (unambiguous ones only, per task instructions)
+
+- **14,1** — "every tongue that speaks But Romeo's name speaks heavenly
+  eloquence" — restored the correct reading ("speaks *nothing but*
+  Romeo's name") and removed the invented "is as nothing compared to"
+  comparison not present in source.
+- **4,2** — removed the nonsensical "back when I was" that attached "at
+  twelve year old" to the Nurse's own age rather than leaving it as
+  ambiguous in the source's own construction.
+- **17,1** — restored "that pierced the fearful hollow of your ear" and
+  "Nightly she sings".
+- **17,63** — restored "puling fool" and "whining mammet" as two distinct
+  images (candidate had collapsed both into one "wretched, whining doll").
+- **16,4** — restored "my son Paris's love" (Capulet's own framing).
+- **16,6** — restored "earl" (Paris's specific rank in this one line,
+  distinct from the "County"→"Count" title convention used elsewhere).
+- **3,22** — restored "lady" in "the lady widow of Utruvio".
+
+Left alone, as documented already-acceptable by round 2 and not re-litigated
+this round: "County"→"Count" (16 locations), "rapier"→"sword" (3 locations),
+`_` italic-marker normalization, the "circle"/"hare hoar" untranslatable
+puns, Queen Mab length/Friar Lawrence potion-speech density, and
+"Zounds"→"God's blood"/"God!".
+
+### Verification performed this round
+
+- `python3 -m json.tool` — valid, both files.
+- Structure: 25 chapters both sides, 1,062 paragraphs both sides, per-chapter
+  counts identical, `sections` identical, no empty paragraph either side.
+- `source.json` sha256 unchanged from round 1/round 2's recorded value
+  (`d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276`),
+  confirming source was never edited.
+- Diff against the round-2 handoff `candidate.json`
+  (`68520dd1cfc6a4910f127d239e741c44c6af4ac1f43406857b375977e2f6ad6f`):
+  **exactly 64 paragraphs changed, none outside the intended fix set.**
+- Every one of the 64 changed paragraphs re-read side by side against
+  `source.json` fresh, after the fix was applied (not from the edit script's
+  own success report) — full transcript in this round's working notes.
+- No paid Anthropic API calls. Only files in
+  `books/wip/green-romeo-and-juliet/` touched.
+
+**Final candidate.json sha256 (after the last edit):**
+`49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9`
+
+---
+
 # PARKED — Romeo and Juliet (`romeo-and-juliet`, modern-en)
 
 **Status:** PARKED at round 2 of 3. **No acceptance hash issued.**

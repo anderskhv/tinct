@@ -1,16 +1,47 @@
 # Acceptance Record — Romeo and Juliet (`romeo-and-juliet`, modern-en)
 
-> **SUPERSEDED — NOT ACCEPTED. See `PARKED.md`.**
+> **UPDATED AT ROUND 3 — READY FOR INDEPENDENT VERIFICATION.** See
+> `PARKED-RESOLVED.md` (formerly `PARKED.md`) for the full round 2 → round 3
+> history.
 >
-> The independent round-2 Opus verification pass (2026-09-21,
-> `claude-opus-5`) confirmed this record's structure work and all 12 of its
-> fixes, but found the register-softening / printed-form-erasure class was
-> **not** exhausted: 19 further live instances plus a dropped stage
-> direction on its first independent pass, and two demonstrably false
-> verification claims in `fidelity-review-1.md` §5 ("wormwood on my dug"
-> preserved; "no malapropism dialect in this play"). **PARKED at round 2 of
-> 3. No acceptance hash is in force.** Nothing below should be treated as a
-> verdict; it is round 1's input to round 3.
+> Round 2 (independent Opus verification, `claude-opus-5`) confirmed round
+> 1's structure work and all 12 of its fixes, but found the
+> register-softening / printed-form-erasure class was **not** exhausted: 19
+> further live instances plus a dropped stage direction, and two
+> demonstrably false verification claims in `fidelity-review-1.md` §5
+> ("wormwood on my dug" preserved; "no malapropism dialect in this play").
+> Parked at round 2 of 3, no acceptance hash.
+>
+> **Round 3 (2026-09-21, Claude Sonnet 5)** independently re-derived every
+> one of round 2's 19 findings plus the dropped stage direction directly
+> from `source.json` (not trusting any prior round's claims, including its
+> own once made), fixed all of them, decided and applied a book-wide oath
+> convention (`Marry`/`i'faith`/`Jesu`/`Faith` restored verbatim — see
+> `PARKED-RESOLVED.md` for the full reasoning and location list), ran a
+> freshly-built independent register/erasure sweep that surfaced 12 further
+> instances beyond round 2's list (6 more oath occurrences round 2's count
+> missed, "Mass", the Nurse's "no faith" triplet, "hot a Jack", "you
+> knaves", "damned guilty deeds", and confirmed round 2's own B1/B12/B13/
+> B17/B18/B19 independently), fixed 7 of the unambiguous non-blocking items
+> round 2 flagged but left alone, and re-verified all 64 resulting changed
+> paragraphs against `source.json` fresh after applying each fix.
+>
+> **Final `candidate.json` sha256 (round 3, current):**
+> `49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9`
+>
+> Structure re-validated after the last edit: 25 chapters / 1,062
+> paragraphs both files, `sections` identical, JSON valid, no empty
+> paragraph. Diff against the round-2 handoff copy of `candidate.json`
+> confirms exactly 64 paragraphs changed and nothing else. `source.json`'s
+> hash is unchanged from round 1/2
+> (`d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276`),
+> confirming it was never edited.
+>
+> Report to the calling process: **READY FOR INDEPENDENT VERIFICATION —
+> sha256 49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9**
+>
+> The section below this notice is round 1's original record, preserved as
+> history. It documents round 1's 12 fixes and process, not round 3's.
 
 **Book id:** `romeo-and-juliet`
 **Edition:** `modern-en`
