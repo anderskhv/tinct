@@ -404,9 +404,15 @@ async function contentsAndSameEdition(engine,name,phone){
       await contentsPage.evaluate(()=>document.fonts.ready)
       assert.equal(await contents.locator('[aria-current="page"]').count(),1)
       if(book==='frederick-douglass') {
-        await contents.getByRole('button',{name:'Chapters',exact:true}).waitFor()
+        assert.equal(await contents.locator('.tree').getByRole('button',{name:'Chapters',exact:true}).getAttribute('aria-expanded'),'true')
         const heading=contents.locator('header .title')
-        assert(await heading.evaluate(node=>node.scrollWidth>node.clientWidth),'long title ellipsizes')
+        const titleGeometry=await heading.evaluate(node=>{
+          const box=node.getBoundingClientRect(), icons=node.parentElement.querySelector('.actions').getBoundingClientRect()
+          return {right:box.right,iconsLeft:icons.left,height:box.height,overflow:getComputedStyle(node).textOverflow,wrap:getComputedStyle(node).whiteSpace}
+        })
+        assert(titleGeometry.right<=titleGeometry.iconsLeft&&titleGeometry.height<30,'title stays on one line clear of both icons: '+JSON.stringify(titleGeometry))
+        assert.equal(titleGeometry.overflow,'ellipsis')
+        assert.equal(titleGeometry.wrap,'nowrap')
         await heading.click()
         await contents.locator('.full-title').getByText('Narrative of the Life of Frederick Douglass',{exact:true}).waitFor()
         await heading.click()
