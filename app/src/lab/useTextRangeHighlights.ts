@@ -83,7 +83,9 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
         }
       }
     }
-    // Continued-tail alignment runs in a later layout effect; measure after it.
+    // Paint immediately so unrelated renders never expose an unpainted frame.
+    paintSeams()
+    // Continued-tail alignment runs in a later layout effect; measure again after it.
     let frame=requestAnimationFrame(paintSeams)
     const observer=typeof ResizeObserver==='function' ? new ResizeObserver(() => {
       cancelAnimationFrame(frame); frame=requestAnimationFrame(paintSeams)

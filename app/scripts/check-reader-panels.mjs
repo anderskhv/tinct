@@ -443,13 +443,10 @@ async function paintDiagnostics(page,label){
  const read=()=>page.evaluate(()=>{
    const word=document.querySelector('.is-hl-warm[data-testid="lab-word"]'), line=word?.closest('.lab-hearing-line')
    const style=word&&getComputedStyle(word)
-   return {word:word&&{text:word.textContent,rect:word.getBoundingClientRect().toJSON(),select:style.userSelect,background:style.backgroundColor},line:line&&{rect:line.getBoundingClientRect().toJSON(),isolation:getComputedStyle(line).isolation},seams:[...document.querySelectorAll('.lab-highlight-seam')].map(n=>({rect:n.getBoundingClientRect().toJSON(),style:n.getAttribute('style')})),ranges:[...(CSS.highlights||[])].map(([key,value])=>({key,ranges:[...value].map(r=>({text:r.toString().slice(0,80),rects:[...r.getClientRects()].map(b=>b.toJSON())}))}))}
+   return {word:word&&{text:word.textContent,rect:word.getBoundingClientRect().toJSON(),select:style.getPropertyValue("-webkit-user-select"),stageSelect:getComputedStyle(word.closest(".lab-hearing-stage")).getPropertyValue("-webkit-user-select"),background:style.backgroundColor},line:line&&{rect:line.getBoundingClientRect().toJSON(),isolation:getComputedStyle(line).isolation},seams:[...document.querySelectorAll('.lab-highlight-seam')].map(n=>({rect:n.getBoundingClientRect().toJSON(),style:n.getAttribute('style')})),ranges:[...(CSS.highlights||[])].map(([key,value])=>({key,ranges:[...value].map(r=>({text:r.toString().slice(0,80),rects:[...r.getClientRects()].map(b=>b.toJSON())}))}))}
  })
  const before=await read()
- await page.addStyleTag({content:'.lab .lab-passage.has-text-range-highlights .lab-hearing-line {isolation:auto!important}'})
- await page.screenshot({path:output+'/'+label+'-without-isolation.png'})
- const noIsolation=await read()
- await fs.writeFile(output+'/'+label+'-paint-diagnostic.json',JSON.stringify({before,noIsolation},null,2))
+ await fs.writeFile(output+'/'+label+'-paint-diagnostic.json',JSON.stringify(before,null,2))
 }
 
 async function checkHighlightPaint(page){
@@ -464,21 +461,21 @@ async function checkHighlightPaint(page){
     const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
     const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0)
     const ratio=image.width/innerWidth
-    const paper=getComputedStyle(document.querySelector('.lab-passage')).backgroundColor.match(/[0-9.]+/g).slice(0,3).map(Number)
     return geometry.map(rect=>{
       const y=Math.floor((rect.top+rect.bottom)/2*ratio)
-      let samePaper=0,samples=0
+      const band=rect.color.match(/[0-9.]+/g).slice(0,3).map(Number)
+      let sameBand=0,samples=0
       for(let x=Math.ceil(rect.left*ratio)+4;x<Math.floor(rect.right*ratio)-4;x++){
         const rgba=ctx.getImageData(x,y,1,1).data
-        if(paper.every((v,i)=>Math.abs(v-rgba[i])<4))samePaper++
+        if(band.every((v,i)=>Math.abs(v-rgba[i])<4))sameBand++
         samples++
       }
-      return {paperFraction:samePaper/Math.max(1,samples),rect}
+      return {bandFraction:sameBand/Math.max(1,samples),rect}
     })
   },{pixels,geometry})
   assert(geometry.length>0,'fixture must exercise fractional highlight row edges')
-  assert(gaps.every(g=>g.paperFraction<.05),'a dark paper line must not cross a highlighted band: '+JSON.stringify(gaps))
-  return {joinedEdges:geometry.length,worstPaperFraction:Math.max(...gaps.map(g=>g.paperFraction))}
+  assert(gaps.every(g=>g.bandFraction>.8),'highlight colour must remain continuous between rows: '+JSON.stringify(gaps))
+  return {joinedEdges:geometry.length,minimumBandFraction:Math.min(...gaps.map(g=>g.bandFraction))}
 }
 
 async function highlightRegression(engine,name){
@@ -582,7 +579,8 @@ async function mobileChromeRegression(engine,name){
       })
       ;(result.quiet??=[]).push({theme,...quiet})
       assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
-      assert.equal(quiet.progress,quiet.title,'quiet progress uses the same grey ink as the header')
+      const rgba=value=>{const values=value.match(/[0-9.]+/g).map(Number);return values.length===3?[...values,1]:values}
+      assert.deepEqual(rgba(quiet.progress),rgba(quiet.title),'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
       await page.touchscreen.tap(195,220)
     }

@@ -1206,7 +1206,7 @@
 
 /* WebKit needs selectable text to paint custom highlights. Non-passive touch
    and selectstart handlers suppress native selection on this passage. */
-.lab .has-text-range-highlights, .lab .has-text-range-highlights * {
+.lab .lab-passage.has-text-range-highlights, .lab .lab-passage.has-text-range-highlights * {
   -webkit-user-select: text;
   user-select: text;
 }
