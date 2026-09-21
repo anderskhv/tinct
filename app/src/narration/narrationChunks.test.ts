@@ -15,13 +15,13 @@ import {
 } from './narrationCore'
 
 describe('narration scope', () => {
-  it('is the featured shelf, English editions, any chapter', () => {
+  it('is every published-id English edition, any chapter', () => {
     expect([...NARRATION_SCOPE_BOOK_IDS]).toEqual([...LAB_POPULAR_BOOK_IDS])
     expect(isPilotScope('odyssey', 'original-en', 1)).toBe(true)
     expect(isPilotScope('odyssey', 'modern-en', 24)).toBe(true)
     expect(isPilotScope('bible', 'kjv-en', 1189)).toBe(true)
     expect(isPilotScope('odyssey', 'modern-da', 1)).toBe(false)
-    expect(isPilotScope('ulysses', 'original-en', 1)).toBe(false)
+    expect(isPilotScope('ulysses', 'original-en', 1)).toBe(true)
     expect(isPilotScope('odyssey', 'original-en', 0)).toBe(false)
   })
 })

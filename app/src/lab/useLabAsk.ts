@@ -101,6 +101,7 @@ export interface UseLabAskOptions {
   onVoiceToolSessionStart?: () => void
   /** `'v2'` only from `/lab/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
   voiceVersion?: LabVoiceVersion
+  voicePersona?: 'female' | 'male'
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -439,6 +440,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
     assistantPace,
     onSetAssistantPace: setAssistantPace,
+    voicePersona: options.voicePersona,
   })
 
   // Voice V2: a mid-session failure is shown, not swallowed. The notice

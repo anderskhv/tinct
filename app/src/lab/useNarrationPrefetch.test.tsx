@@ -35,18 +35,16 @@ function harness(overrides: Partial<Parameters<typeof useNarrationPrefetch>[0]> 
 afterEach(() => cleanup())
 
 describe('useNarrationPrefetch', () => {
-  it('warms the opening paragraphs of the chapter one sentence group per round until complete', async () => {
+  it('does not warm the current chapter during silent reading', async () => {
     const h = harness()
-    await waitFor(() => expect(h.calls.length).toBe(NARRATION_PREFETCH_PARAGRAPHS * 2))
-    expect(h.calls[0]).toMatchObject({ chapter: 1, indexes: [0, 1, 2], mode: 'next', token: 'tok' })
     await new Promise(resolve => setTimeout(resolve, 20))
-    expect(h.calls.length).toBe(NARRATION_PREFETCH_PARAGRAPHS * 2)
+    expect(h.calls.length).toBe(0)
   })
 
   it('warms the next chapter only when the reader nears the end, once', async () => {
     const h = harness({ currentParagraph: 10 })
-    await waitFor(() => expect(h.calls.length).toBe(6))
-    expect(h.calls.every(call => call.chapter === 1)).toBe(true)
+    await new Promise(resolve => setTimeout(resolve, 20))
+    expect(h.calls.length).toBe(0)
     h.rerender({ ...h.base, currentParagraph: 30 })
     await waitFor(() => expect(h.calls.filter(call => call.chapter === 2).length).toBe(6))
     h.rerender({ ...h.base, currentParagraph: 31 })
@@ -75,7 +73,7 @@ describe('useNarrationPrefetch', () => {
       calls.push(request.paragraphs.length)
       return [{ paragraph: 0, status: 'failed', reason: 'budget_exhausted' }] as NarrationParagraphResult[]
     })
-    const h = harness({ ensureImpl: failing as never })
+    const h = harness({ currentParagraph: 31, ensureImpl: failing as never })
     await waitFor(() => expect(calls.length).toBe(1))
     await new Promise(resolve => setTimeout(resolve, 20))
     expect(calls.length).toBe(1)

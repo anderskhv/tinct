@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { useAuth } from './hooks/useAuth'
 import { useVoiceSession } from './hooks/useVoiceSession'
+import { useVoicePersonaSync, type VoicePersona } from './lab/useVoicePersonaSync'
 import { LabMarkdown } from './lab/LabMarkdown'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
 import { labCallUtterance, labCallView } from './lab/labVoiceCall'
@@ -24,6 +25,20 @@ import {
 
 type Mode = 'search' | 'chat' | 'talk' | null
 type Turn = { id: string; role: 'user' | 'assistant'; content: string; pending?: boolean; error?: boolean }
+
+function readLibraryVoicePersona(): VoicePersona {
+  try {
+    const parsed = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { shared?: { voicePersona?: string } }
+    return parsed.shared?.voicePersona === 'male' ? 'male' : 'female'
+  } catch { return 'female' }
+}
+
+function writeLibraryVoicePersona(voicePersona: VoicePersona): void {
+  try {
+    const parsed = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as Record<string, unknown> & { shared?: Record<string, unknown> }
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...parsed, shared: { ...(parsed.shared || {}), voicePersona } }))
+  } catch { /* local persistence is best effort */ }
+}
 
 declare global {
   interface Window {
@@ -86,6 +101,12 @@ function BookActions({ books }: { books: LibraryCatalogueBook[] }) {
 
 export function LibraryAssistant() {
   const auth = useAuth()
+  const [voicePersona, setVoicePersona] = useState<VoicePersona>(readLibraryVoicePersona)
+  useVoicePersonaSync({
+    userId: auth.user?.id ?? null,
+    value: voicePersona,
+    onRemote: value => { setVoicePersona(value); writeLibraryVoicePersona(value) },
+  })
   const [catalogue, setCatalogue] = useState<LibraryCatalogue | null>(null)
   const [mode, setMode] = useState<Mode>(null)
   const [searchDraft, setSearchDraft] = useState('')
@@ -123,6 +144,7 @@ export function LibraryAssistant() {
     authToken: token,
     isAnonymous: !token,
     labGuest: !token,
+    voicePersona,
     bookId: 'library',
     bookTitle: 'Tinct Library',
     bookAuthor: 'Tinct',

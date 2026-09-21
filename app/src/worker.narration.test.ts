@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { handleNarration, narrationConfig, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
+import { handleNarration, narrationConfig, synthesizeWithGoogle, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
 import { NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
 import { fishTimestampSseFor, syntheticMp3 } from './narration/narrationTestFixtures'
@@ -162,6 +162,41 @@ describe('narration config and voices', () => {
     expect(text).not.toContain('voice-a-id')
     expect(text).not.toContain('warm-token')
   })
+
+  it('resolves production personas to the approved exact Google voices', () => {
+    const config = narrationConfig({
+      NARRATION_PILOT: '1', NARRATION_PROVIDER: 'google', GOOGLE_TTS_API_KEY: 'secret', AUDIO_BUCKET: {} as R2Bucket,
+    })
+    expect(config).toMatchObject({ enabled: true, provider: 'google', model: 'google-tts-v1beta1' })
+    expect(config.voices).toEqual([
+      { key: 'f', id: 'en-US-Wavenet-F', label: 'Female', persona: 'female' },
+      { key: 'm', id: 'en-US-Wavenet-J', label: 'Male', persona: 'male' },
+    ])
+  })
+})
+
+describe('Google SSML timing synthesis', () => {
+  it('marks every token and returns ordered token segments', async () => {
+    const audio = syntheticMp3(200)
+    const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body)) as { input: { ssml: string }; voice: { name: string }; enableTimePointing: string[] }
+      expect(body.voice.name).toBe('en-US-Wavenet-F')
+      expect(body.enableTimePointing).toEqual(['SSML_MARK'])
+      expect(body.input.ssml).toContain('<mark name="w0"/>Hello,')
+      expect(body.input.ssml).toContain('<mark name="w1"/>world!')
+      return Response.json({
+        audioContent: Buffer.from(audio).toString('base64'),
+        timepoints: [{ markName: 'w0', timeSeconds: 0.1 }, { markName: 'w1', timeSeconds: 0.7 }],
+      })
+    }) as unknown as typeof fetch
+    const result = await synthesizeWithGoogle({
+      apiKey: 'not-logged', baseUrl: 'https://google.test', voiceId: 'en-US-Wavenet-F', text: 'Hello, world!',
+      fetchImpl, sleep: async () => {}, now: () => 100,
+    })
+    expect(result.timingsSource).toBe('ssml-mark')
+    expect(result.segments.map(segment => segment.text)).toEqual(['Hello,', 'world!'])
+    expect(result.segments[1].end).toBeGreaterThan(result.segments[1].start)
+  })
 })
 
 describe('POST /api/narration/ensure', () => {
@@ -172,7 +207,7 @@ describe('POST /api/narration/ensure', () => {
     expect((await ensure(anonymous, { paragraphs: [{ index: 0 }] })).status).toBe(401)
     const h = makeHarness()
     expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(403)
-    expect((await ensure(h, { paragraphs: [{ index: 0 }], bookId: 'ulysses' })).status).toBe(403)
+    expect((await ensure(h, { paragraphs: [{ index: 0 }], bookId: 'ulysses' })).status).toBe(404)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], voice: 'z' })).status).toBe(400)
     expect((await ensure(h, { paragraphs: [] })).status).toBe(400)
     expect((await ensure(h, { paragraphs: [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 0 }] })).status).toBe(400)
@@ -269,6 +304,19 @@ describe('POST /api/narration/ensure', () => {
     expect(after.chunks![0].hash).not.toBe(before.chunks![0].hash)
     expect(h.fish.calls.length).toBe(2)
     expect((await chapter(h)).json.paragraphs[1]).toMatchObject({ status: 'ready' })
+  })
+
+  it('regenerates only an edited chunk and reuses unchanged chunks', async () => {
+    const h = makeHarness()
+    const initial = await ensure(h, { paragraphs: [{ index: 4 }], mode: 'all' })
+    expect(initial.json.paragraphs[0].status).toBe('ready')
+    const calls = h.fish.calls.length
+    expect(calls).toBeGreaterThanOrEqual(3)
+    h.paragraphs[4] = h.paragraphs[4].replace('sheep and oxen', 'goats and oxen')
+    const changed = await ensure(h, { paragraphs: [{ index: 4 }], mode: 'all' })
+    expect(changed.json.paragraphs[0].status).toBe('ready')
+    expect(h.fish.calls.length - calls).toBe(1)
+    expect(changed.json.paragraphs[0].probed).toBe(2)
   })
 
   it('refuses to generate for text the reader does not have (text hash mismatch)', async () => {
@@ -381,25 +429,71 @@ describe('POST /api/narration/ensure', () => {
     expect(map.complete).toBe(false)
   })
 
-  it('falls back to plain synthesis when timestamps are unavailable and marks timings unusable', async () => {
+  it('rejects plain synthesis when timestamps are unavailable', async () => {
     const h = makeHarness()
     const respond = h.fish.respond
     h.fish.respond = (call) => (call.url.endsWith('/with-timestamp') ? new Response('missing', { status: 404 }) : respond(call))
     const result = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
-    expect(result).toMatchObject({ status: 'ready', timingsSource: 'none', timingsUsable: false, words: null })
-    expect(result.duration).toBeGreaterThan(1)
+    expect(result).toMatchObject({ status: 'failed', reason: 'validation_failed' })
+    expect(String(result.detail)).toContain('timings_incomplete')
     expect(h.fish.calls.map(call => call.url)).toEqual(['https://fish.test/v1/tts/stream/with-timestamp', 'https://fish.test/v1/tts'])
   })
 
-  it('keeps word timings only when enough provider segments match the tokens', async () => {
+  it('rejects provider segments below the word timing threshold', async () => {
     const h = makeHarness()
     h.fish.respond = ({ body }: { body?: string }) => {
       const text = (JSON.parse(body || '{}') as { text: string }).text
       return new Response(fishTimestampSseFor(text, { dropEvery: 4 }), { status: 200 })
     }
     const result = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
-    expect(result).toMatchObject({ status: 'ready', timingsUsable: false, words: null })
-    expect((result.chunks![0].alignment as { matchRatio: number }).matchRatio).toBeLessThan(0.85)
+    expect(result).toMatchObject({ status: 'failed', reason: 'validation_failed' })
+    expect(String(result.detail)).toContain('timings_incomplete')
+  })
+})
+
+describe('production Google narration', () => {
+  it('cold-generates then shares the warm cache for both approved personas', async () => {
+    const h = makeHarness({
+      NARRATION_PROVIDER: 'google', GOOGLE_TTS_API_KEY: 'google-secret', NARRATION_GOOGLE_BASE_URL: 'https://google.test',
+    })
+    h.fish.respond = ({ body }) => {
+      const request = JSON.parse(body || '{}') as { input: { ssml: string } }
+      const marks = [...request.input.ssml.matchAll(/<mark name="w(\d+)"\/>/g)]
+      return Response.json({
+        audioContent: Buffer.from(syntheticMp3(240)).toString('base64'),
+        timepoints: marks.map((match, index) => ({ markName: `w${match[1]}`, timeSeconds: index * 0.25 })),
+      })
+    }
+    const female = await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] })
+    expect(female.json.paragraphs[0]).toMatchObject({ status: 'ready', timingsUsable: true })
+    expect(JSON.parse(h.fish.calls[0].body).voice.name).toBe('en-US-Wavenet-F')
+    const coldCalls = h.fish.calls.length
+    const warm = await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] })
+    expect(warm.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    expect(h.fish.calls.length).toBe(coldCalls)
+    const male = await ensure(h, { voice: 'm', paragraphs: [{ index: 0 }] })
+    expect(male.json.paragraphs[0]).toMatchObject({ status: 'ready', timingsUsable: true })
+    expect(JSON.parse(h.fish.calls.at(-1)!.body).voice.name).toBe('en-US-Wavenet-J')
+  })
+
+  it('exempts Anders from speculative preparation and leaves retained Bella untouched', async () => {
+    const h = makeHarness({
+      NARRATION_PROVIDER: 'google', GOOGLE_TTS_API_KEY: 'google-secret', NARRATION_GOOGLE_BASE_URL: 'https://google.test',
+    }, { user: { id: 'anders', email: 'ahvelplund@fastmail.com' } })
+    const anders = await handleNarration(new Request('https://tinct.app/api/narration/prepare', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bookId: 'odyssey', editionKey: 'modern-en', chapter: 1, voice: 'f', paragraphs: [{ index: 0 }], mode: 'all', targetSeconds: 45 }),
+    }), h.env, h.ctx, h.deps)
+    expect(anders.status).toBe(204)
+    expect(h.fish.calls).toHaveLength(0)
+
+    const other = makeHarness({ NARRATION_PROVIDER: 'google', GOOGLE_TTS_API_KEY: 'google-secret' })
+    const bella = await handleNarration(new Request('https://tinct.app/api/narration/prepare', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bookId: 'frankenstein', editionKey: 'original-en', chapter: 1, voice: 'f', paragraphs: [{ index: 0 }], mode: 'all', targetSeconds: 45 }),
+    }), other.env, other.ctx, other.deps)
+    expect(bella.status).toBe(204)
+    expect(other.fish.calls).toHaveLength(0)
   })
 })
 
@@ -552,7 +646,7 @@ describe('narration cache integrity under interference', () => {
     expect(after.complete).toBe(true)
   })
 
-  it('keeps the recording another generator finished during synthesis instead of overwriting it', async () => {
+  it('rejects an incomplete recording another generator publishes during synthesis', async () => {
     const h = makeHarness()
     const text = chunkNarrationText(narrationTextForParagraph(PARAGRAPHS[0]))[0].text
     const textHash = await textHashOf(PARAGRAPHS[0])
@@ -576,9 +670,9 @@ describe('narration cache integrity under interference', () => {
     }
     const result = await ensure(h, { paragraphs: [{ index: 0 }] })
     expect(result.json.paragraphs[0].status).toBe('ready')
-    expect(result.json.paragraphs[0].raced).toBe(true)
-    expect(result.json.paragraphs[0].duration).toBe(3.9)
-    expect(h.env.AUDIO_BUCKET.store.get(keys.audio)!.length).toBe(theirs.length)
+    expect(result.json.paragraphs[0].raced).toBeUndefined()
+    expect(result.json.paragraphs[0].duration).not.toBe(3.9)
+    expect(h.env.AUDIO_BUCKET.store.get(keys.audio)!.length).not.toBe(theirs.length)
   })
 })
 

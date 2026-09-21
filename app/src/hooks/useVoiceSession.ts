@@ -56,6 +56,7 @@ export interface UseVoiceSessionOptions {
   skipPlayback?: VoiceAudioEngine['skipPlayback']
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void
+  voicePersona?: 'female' | 'male'
 }
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
@@ -193,6 +194,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       tools: opts.tools,
       applicationTools: opts.applicationTools,
       assistantPace: opts.assistantPace,
+      voicePersona: opts.voicePersona,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
   }, [buildContext])

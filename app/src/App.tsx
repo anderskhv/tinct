@@ -1065,6 +1065,7 @@ export default function App() {
   const voiceSession = useVoiceSession({
     authToken: session?.access_token ?? null,
     isAnonymous,
+    voicePersona: preferences.voicePersona,
     bookId: book.id,
     bookTitle: book.title,
     bookAuthor: book.author,

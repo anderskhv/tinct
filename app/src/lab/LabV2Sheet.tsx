@@ -295,16 +295,14 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                 />
                 {narrationPilot && (
                   <SelectRow
-                    label="Narration pilot"
+                    label="Voice"
                     testId="lab-v2-narration-voice"
-                    value={narrationPilot.info?.enabled && narrationPilot.voice ? narrationPilot.voice : ''}
+                    value={prefs.voicePersona}
                     options={[
-                      { value: '', label: narrationPilot.info?.enabled ? 'Off' : 'Not set up on this server' },
-                      ...(narrationPilot.info?.voices ?? []).map(voice => ({ value: voice.key, label: voice.label })),
+                      { value: 'female', label: 'Female' },
+                      { value: 'male', label: 'Male' },
                     ]}
-                    onChange={value => onPrefs(value
-                      ? { ...prefs, narrationProvider: 'fish', narrationVoice: value }
-                      : { ...prefs, narrationProvider: null })}
+                    onChange={value => onPrefs({ ...prefs, voicePersona: value === 'male' ? 'male' : 'female' })}
                   />
                 )}
               </div>

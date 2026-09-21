@@ -94,6 +94,8 @@ export interface LabSharedPrefs {
    */
   narrationProvider?: 'fish' | null
   narrationVoice?: string | null
+  /** Account-synced persona shared by audiobook narration and voice assistant. */
+  voicePersona: 'female' | 'male'
 }
 
 export interface LabStoredPrefs {
@@ -166,6 +168,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   paragraphSpacing: 'standard',
   progressDisplay: { metric: 'page', scope: 'chapter' },
   compareOpen: false,
+  voicePersona: 'female',
 }
 
 /**
@@ -328,6 +331,9 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
     compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    voicePersona: src.voicePersona === 'male' || src.voicePersona === 'female'
+      ? src.voicePersona
+      : src.narrationVoice === 'a' ? 'male' : fallback.voicePersona,
     // Narration pilot keys are stored only once a reader opted in, so the
     // stored shape of every other reader's prefs is unchanged.
     ...(src.narrationProvider === 'fish' ? { narrationProvider: 'fish' as const } : {}),
@@ -353,6 +359,7 @@ const DEFAULT_LAB_SHARED: LabSharedPrefs = {
   audioFollowsPrimary: true,
   audioSpeed: DEFAULT_LAB_PREFS.audioSpeed,
   compareOpen: DEFAULT_LAB_PREFS.compareOpen,
+  voicePersona: DEFAULT_LAB_PREFS.voicePersona,
 }
 
 export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {

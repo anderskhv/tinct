@@ -182,6 +182,7 @@ describe('lab prefs', () => {
       audioEdition: 'web-en',
       audioSpeed: 1.75,
       compareOpen: true,
+      voicePersona: 'female',
       darkMode: true,
       fontFamily: 'baskerville',
       fontSize: 1.8,
@@ -200,6 +201,7 @@ describe('lab prefs', () => {
       audioEdition: 'web-en',
       audioSpeed: 1.75,
       compareOpen: true,
+      voicePersona: 'female',
     })
     expect(migrated.phone).toEqual(migrated.desktop)
     expect(migrated.phone).toMatchObject({

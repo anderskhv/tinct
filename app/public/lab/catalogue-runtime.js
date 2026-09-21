@@ -1371,6 +1371,25 @@ import {
     } catch { /* private mode */ }
     window.dispatchEvent(new CustomEvent('tinct:lab-reader-handoff', { detail: intent }))
     rememberLibrary(book.id)
+    // Start only the bounded opening buffer before navigation. The Worker
+    // verifies account identity (and exempts Anders), text, edition and voice;
+    // it also skips retained Bella originals and deduplicates shared chunks.
+    try {
+      const stored = readJson('tinct-lab-prefs')
+      const persona = stored?.shared?.voicePersona === 'male' ? 'male' : 'female'
+      const place = intent.savedPlace || {}
+      const start = Number.isInteger(place.paragraphIndex) ? place.paragraphIndex : 0
+      const prepare = window.__tinctPrepareNarration
+      if (typeof prepare === 'function') void prepare({
+        bookId: intent.bookId,
+        editionKey: intent.primaryEditionKey,
+        chapter: Number.isInteger(place.chapterNumber) ? place.chapterNumber : 1,
+        voice: persona === 'male' ? 'm' : 'f',
+        paragraphs: Array.from({ length: 8 }, (_, offset) => ({ index: start + offset })),
+        mode: 'all',
+        targetSeconds: 45,
+      })
+    } catch { /* best-effort speculative preparation */ }
     // Neutral reader route: its layout follows the viewport. Explicit
     // /lab/phone and /lab/desktop remain useful QA overrides.
     window.location.assign(`/reader${previewSearch}`)
