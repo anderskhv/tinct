@@ -1,6 +1,12 @@
 # Bella recordings by book and English edition
 
-Checked 2026-09-21 against the current registry, published text and every chapter manifest. Covers 100 published books, 200 English editions and 11,830 chapters. No audio generation or production changes were performed.
+Checked 2026-09-21 against the current registry, published text and every chapter manifest. Covers 100 published books, 200 English editions and 11,830 chapters. That initial inventory performed no audio generation or production changes. The focused timing-publication update below supersedes the affected rows.
+
+## Focused retention update — 2026-09-21, 15:27 UTC
+
+Five timing sidecars are now published: Jekyll 9, Candide 26, Federalist 48 and 84, and Pride 2. Candide, Federalist and Pride passed complete-edition timing/text and existing-reader checks plus muted phone/desktop playback acceptance. Jekyll is timing-complete, but its existing catalogue audio flag remains false; normal playback completion is not claimed. No recording, narrator, text or availability policy changed.
+
+Don Quixote 52, Awakening 12, Beyond Good and Evil 5, Communist Manifesto 4 and Nicomachean Ethics 7 remain unpublished and are whole-edition replacement candidates under the separate strategy decision. Nicomachean's final candidate did not complete independent acoustic acceptance before its timeout. The Histories original-en 1390 remains a content hold; no more specific editorial reason was recorded. See [execution evidence](bella-word-sync-execution-2026-09-21.md) for per-book failures, receipt hashes, checks and cost limits. The broad backlog remains paused.
 
 ## What exists
 
@@ -12,12 +18,13 @@ Checked 2026-09-21 against the current registry, published text and every chapte
 
 ## Best existing Bella retention candidates
 
-These 31 original/classic English editions have structural/text timing coverage for every chapter, excluding the known Jekyll spoken-heading defect. Jerusalem’s 24 omitted paragraph slots are all *** scene separators, not missing spoken prose. This is a retention shortlist, not full listening or every-MP3 certification. A dagger marks missing catalogue hasAudio flags.
+These 35 original/classic English editions have structural/text timing coverage for every chapter after the focused pass. Jekyll's spoken-heading defect is repaired, but its catalogue audio availability remains false. Jerusalem’s 24 omitted paragraph slots are all *** scene separators, not missing spoken prose. This is a retention shortlist, not full listening or every-MP3 certification. A dagger marks missing catalogue hasAudio flags.
 
 - A Midsummer Night's Dream
 - Antigone
 - Apology
 - Beowulf
+- Candide
 - Confessions
 - Crito
 - Discourse on the Origin of Inequality †
@@ -33,6 +40,9 @@ These 31 original/classic English editions have structural/text timing coverage 
 - On Liberty †
 - Phaedrus †
 - Symposium
+- Pride and Prejudice
+- Strange Case of Dr Jekyll and Mr Hyde †
+- The Federalist Papers
 - The Aeneid
 - The Art of War
 - The Comedy of Errors †
@@ -51,7 +61,7 @@ These 31 original/classic English editions have structural/text timing coverage 
 - The Death of Ivan Ilyich: no original or modern English audio manifests.
 - Marcus Aurelius, Meditations: original recordings sampled against an older translation; all 12 original timing files invalid for current text. Modern recordings also have mapping/timing issues.
 - Faust, Part One: sampled original recordings use an older translation; no complete current-text timing coverage.
-- Jekyll and Hyde: timing files exist for all chapters, but a spoken name in chapter 9 has zero-duration timings. A repair is staged, not published.
+- Jekyll and Hyde: chapter 9's spoken name is repaired and published. All ten chapters pass timing/text checks, but the original edition's catalogue hasAudio flag remains false.
 - Montaigne, Measure for Measure and Merry Wives of Windsor: substantial source-to-recording remapping is still required.
 - Bible KJV and WEB: known missing MP3 chunks despite manifest coverage; WEB also has a content hold.
 - The Histories original: one held chapter lacks timings.
@@ -80,7 +90,7 @@ Original means original/classic English, including historical English translatio
 | As You Like It | Audio manifests 17/17; timings 9 checked, 8 missing | Audio manifests 17/17; timings 0 checked, 3 present only, 14 missing |
 | Beowulf | Audio manifests 43/43; timings 43 checked | Audio manifests 43/43; timings 0 checked, 43 present only |
 | Beyond Good and Evil | Audio manifests 11/11; timings 10 checked, 1 missing | Audio manifests 11/11; timings 0 checked, 9 present only, 2 missing |
-| Candide | Audio manifests 30/30; timings 29 checked, 1 missing | Audio manifests 30/30; timings 0 checked, 28 present only, 2 missing |
+| Candide | Audio manifests 30/30; timings 30 checked; focused retention accepted | Audio manifests 30/30; timings 0 checked, 28 present only, 2 missing |
 | Confessions | Audio manifests 13/13; timings 13 checked | Audio manifests 13/13; timings 0 checked, 13 present only |
 | Coriolanus | Audio manifests 29/29; timings 19 checked, 10 missing | Audio manifests 29/29; timings 0 checked, 9 present only, 20 missing |
 | Crime and Punishment | Audio manifests 41/41; timings 34 checked, 7 missing | Audio manifests 41/41; timings 30 checked, 11 missing |
@@ -127,11 +137,11 @@ Original means original/classic English, including historical English translatio
 | Phaedrus | Audio manifests 6/6; timings 6 checked | Audio manifests 6/6; timings 6 checked |
 | Poetics | Audio manifests 26/26; timings 25 checked, 1 missing | Audio manifests 26/26; timings 25 checked, 1 missing |
 | Politics | Audio manifests 8/8; timings 6 checked, 2 missing | Audio manifests 8/8; timings 0 checked, 8 present only |
-| Pride and Prejudice | Audio manifests 61/61; timings 60 checked, 1 missing | Audio manifests 61/61; timings 54 checked, 7 missing |
+| Pride and Prejudice | Audio manifests 61/61; timings 61 checked; focused retention accepted | Audio manifests 61/61; timings 54 checked, 7 missing |
 | Richard III | Audio manifests 25/25; timings 16 checked, 9 missing | Audio manifests 25/25; timings 0 checked, 22 present only, 3 missing |
 | Romeo and Juliet | Audio manifests 25/25; timings 19 checked, 6 missing | Audio manifests 25/25; timings 23 checked, 2 missing |
 | Second Treatise of Government | Audio manifests 19/19; timings 18 checked, 1 missing | Audio manifests 19/19; timings 0 checked, 18 present only, 1 missing |
-| Strange Case of Dr Jekyll and Mr Hyde | Audio manifests 10/10; timings 10 checked; spoken-heading defect | Audio manifests 10/10; timings 0 checked, 8 present only, 2 missing |
+| Strange Case of Dr Jekyll and Mr Hyde | Audio manifests 10/10; timings 10 checked; heading repaired; catalogue audio unavailable | Audio manifests 10/10; timings 0 checked, 8 present only, 2 missing |
 | Symposium | Audio manifests 8/8; timings 8 checked | Audio manifests 8/8; timings 7 checked, 1 missing |
 | The Aeneid | Audio manifests 12/12; timings 12 checked | Audio manifests 12/12; timings 0 checked, 12 missing |
 | The Art of War | Audio manifests 13/13; timings 13 checked | Audio manifests 13/13; timings 12 checked, 1 missing |
@@ -144,7 +154,7 @@ Original means original/classic English, including historical English translatio
 | The Death of Ivan Ilyich | No audio | No audio |
 | The Divine Comedy | Audio manifests 100/100; timings 100 checked | Audio manifests 100/100; timings 74 checked, 26 missing |
 | The Epic of Gilgamesh | Audio manifests 12/12; timings 12 checked | Audio manifests 12/12; timings 10 checked, 2 missing |
-| The Federalist Papers | Audio manifests 85/85; timings 83 checked, 2 missing | Audio manifests 85/85; timings 0 checked, 82 present only, 3 missing |
+| The Federalist Papers | Audio manifests 85/85; timings 85 checked; focused retention accepted | Audio manifests 85/85; timings 0 checked, 82 present only, 3 missing |
 | The Histories | Audio manifests 1525/1525; timings 1524 checked, 1 missing | Audio manifests 1525/1525; timings 994 checked, 108 present only, 423 missing |
 | The Iliad | Audio manifests 24/24; timings 23 checked, 1 missing | Audio manifests 24/24; timings 0 checked, 24 present only |
 | The Imitation of Christ | Audio manifests 114/114; timings 83 checked, 31 missing | Audio manifests 114/114; timings 0 checked, 83 present only, 31 missing |

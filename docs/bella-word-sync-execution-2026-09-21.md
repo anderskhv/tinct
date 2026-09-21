@@ -1,5 +1,49 @@
 # Bella word-sync execution — 2026-09-21
 
+## Focused retention pass — 2026-09-21, 15:27 UTC
+
+Anders authorized a narrow exception to the 12:58 pause: finish nine near-complete original-English editions, with a 90-minute wall-clock cap starting at 13:34:35 UTC (deadline 15:04:35 UTC). The broader backlog remains paused. This pass changed timing sidecars only; it did not change recordings, book text, reader/app code, catalogue availability, narrator, or deploy the app.
+
+Five chapter sidecars were published and their served bytes verified: Jekyll and Hyde 9, Candide 26, Federalist Papers 48 and 84, and Pride and Prejudice 2. Candide (30 chapters), Federalist Papers (85), and Pride and Prejudice (61) passed whole-edition structural/text and existing-reader data checks, plus isolated muted production playback at 390 and 1440 pixels. The browser checks covered word highlighting, seeking, pause/resume, 1.5× speed, and paragraph/chapter transitions. These three editions are accepted for retention. Acoustic checks are representative automated samples, not human listening or word-by-word certification.
+
+Jekyll's spoken HASTIE LANYON paragraph is repaired, with previous bytes backed up before conditional replacement. Its ten chapters passed timing/text and existing-reader checks. Its original edition still has `hasAudio: false`; normal audio handoff is rejected by the existing catalogue validation. It is timing-complete but not accepted as user-visible audio completion. No flag was changed.
+
+| Original-English edition | Focused result |
+| --- | --- |
+| Candide | Complete retention acceptance; chapter 26 published |
+| The Federalist Papers | Complete retention acceptance; chapters 48 and 84 published |
+| Pride and Prejudice | Complete retention acceptance; chapter 2 published |
+| Jekyll and Hyde | Chapter 9 published; timing-complete, existing catalogue audio unavailability remains |
+| Don Quixote | Chapter 52 remains unpublished: six spoken labels/headings still fail recognition |
+| The Awakening | Chapter 12 remains unpublished: independent acoustic check 28/30, maximum 1.11 seconds; paragraph 1 alternative did not improve agreement |
+| Beyond Good and Evil | Chapter 5 remains unpublished: independent acoustic check 27/30, maximum 1.20 seconds; alternatives did not improve agreement |
+| Nicomachean Ethics | Chapter 7 remains unpublished: final phrase recognition recovered a candidate, but the independent acoustic check hit its 8-minute cap before producing an acceptance result |
+| The Communist Manifesto | Chapter 4 remains unpublished: spoken section labels recovered, but independent base check remains 28/30, maximum 0.55 seconds; small check passes 30/30 |
+
+The unresolved editions remain candidates for whole-edition voice replacement under the separate strategy decision. No replacement was activated and no narrator was mixed within an edition. The Histories original-en chapter 1390 remains held for content: both ledger and quarantine say `hold: content` / `reason: content`. The originating September 17 entry explicitly retains that content hold after a helper update; no more specific editorial reason was present in the inspected records.
+
+See [execution evidence](bella-word-sync-execution-2026-09-21.md) and [updated edition inventory](bella-edition-inventory-2026-09-21.md). These results supersede the historical “staged, not published” statements below for the five named sidecars only.
+
+## Focused pass evidence and limits
+
+- [Publication journal](https://github.com/anderskhv/tinct/blob/codex/bella-focused-retention-20260921/artifacts/bella-focused-retention-2026-09-21/publication-journal.json) records conditional writes, exact SHA-256 values, served-byte verification and Jekyll's backup. Missing objects used create-only writes; Jekyll used the previous ETag as an overwrite precondition.
+- [Final whole-edition and reader-data check](https://github.com/anderskhv/tinct/actions/runs/35614746117) rechecks published candidate bytes against frozen text/audio identities and validates all 176 chapters across Candide, Federalist and Pride. Jekyll's separate ten-chapter acceptance is in [run 35609170350](https://github.com/anderskhv/tinct/actions/runs/35609170350).
+- Muted browser acceptance: [Candide](https://github.com/anderskhv/tinct/actions/runs/35610797896), [Federalist](https://github.com/anderskhv/tinct/actions/runs/35613629508), [Pride](https://github.com/anderskhv/tinct/actions/runs/35614617639). Federalist and Pride observed bundle `index-CbOXAagz.js`; Candide observed `index-DEtLZ0Dq.js`. Other work changed the production app during this pass; this task performed no app deployment or before/after bundle-equality claim.
+- [Collected narrow repairs](https://github.com/anderskhv/tinct/tree/codex/bella-focused-collected-20260921/artifacts/bella-focused-acoustic-2026-09-21), [short spoken phrases](https://github.com/anderskhv/tinct/tree/codex/bella-focused-short-clips-20260921/artifacts/bella-focused-short-clips-2026-09-21), [Nicomachean checkpoint recovery](https://github.com/anderskhv/tinct/tree/codex/bella-focused-nicomachean-resume-20260921/artifacts/bella-focused-acoustic-2026-09-21/nicomachean-ethics/7), and [Communist boundary review](https://github.com/anderskhv/tinct/tree/codex/bella-focused-communist-boundaries-20260921/artifacts/bella-focused-communist-boundaries-2026-09-21) preserve successes and rejections.
+- [Final Nicomachean phrase check](https://github.com/anderskhv/tinct/tree/codex/bella-focused-nicomachean-phrase-20260921/artifacts/bella-focused-nicomachean-phrase-2026-09-21) preserves the final bounded attempt. The final phrase produced a candidate with the exact source words, but the independent acoustic stage timed out at 15:00:09 UTC. The candidate is unverified and was not published.
+- [Histories hold evidence](https://github.com/anderskhv/tinct/blob/codex/bella-focused-retention-20260921/artifacts/bella-focused-retention-2026-09-21/histories-hold.json) preserves the canonical `the-histories` key and origin `02387ccda5ade092e6ed6bb48567629f1ea9ec35`.
+
+Historical passing-candidate paths were checked first but the referenced actual sidecar bytes were absent (404); summary records alone were not reusable candidates. Only the ten authorized chapters were regenerated where needed, then unchanged paragraph diagnostics were reused after text/audio identity verification. No good chapter was realigned. A model-tree hash check initially encountered a cache-path exclusion error; the pinned model was reverified outside that cache path. Nicomachean checkpoint recovery also corrected an enclosing-bracket restoration mismatch while preserving exact source tokens and observed timestamps; a focused check rejects changed words. The 0.85 observed-token gate and sampled acoustic gates were not relaxed, and no arbitrary homophone substitutions were introduced.
+
+Independent results for published repairs: Candide 30/30 anchors, maximum 0.15 seconds; Federalist 48 29/30, maximum 0.40 seconds; Federalist 84 30/30, maximum 0.15 seconds; Pride base 29/30, maximum 0.37 seconds and small 29/30, maximum 0.47 seconds. Jekyll's previously preserved independent check passed 30/30, maximum 0.11 seconds. Complete editions here means the stated structural/text, sampled acoustic and reader acceptance gates passed; it is not certification of every spoken word.
+
+No RunPod job was launched by this focused pass: incremental RunPod spend is $0. [Billing reconciliation](https://github.com/anderskhv/tinct/blob/codex/bella-focused-acceptance-20260921/artifacts/bella-focused-acceptance-2026-09-21/billing.json) at 14:05 UTC found $0.2067058728 billed for the earlier remap pod, giving a conservative $3.2067 carry against the existing $15 aggregate ceiling. Account-wide billing is not task-specific and may lag. GitHub Actions CPU runner costs were not retrieved. All coding, tests and generated assets stayed in cloud branches; existing local R2 credentials were used only for in-memory transport of accepted cloud bytes.
+
+At close, no further repair batch is authorized by this pass. Keep the unresolved books on the whole-edition replacement decision list; do not resume the broader backlog or alter availability/content holds from these results.
+
+All repair jobs had ended by 15:00:13 UTC, within the 15:04:35 deadline. Documentation closeout and the final report ran past the 90-minute wall-clock cap; no new repair attempt or production publication was started after the deadline.
+
+
 Status: ongoing completion work. Anders explicitly instructed continuing through failures on 2026-09-21. This report records observed repairs and remaining gaps, not full Bella coverage or edition completion.
 
 
