@@ -1,0 +1,35 @@
+[
+  {
+    "at": "2026-09-21T10:41:14.613001+00:00",
+    "key": "winters-tale/original-en/ch6/words.json",
+    "outcome": "published",
+    "sha256": "295bfc09b610eda54a0c8acfe5473f52f0584a16caf959b471dc8af1a7803e5a",
+    "servedSha256": "295bfc09b610eda54a0c8acfe5473f52f0584a16caf959b471dc8af1a7803e5a",
+    "bytes": 19461,
+    "sourceTextUnchanged": true,
+    "audioFilesUnchanged": 8,
+    "validation": {
+      "bookId": "winters-tale",
+      "edition": "original-en",
+      "chapter": 6,
+      "ok": true,
+      "failures": [],
+      "paragraphsChecked": 8,
+      "wordsChecked": 179,
+      "worstParagraphRatio": 1,
+      "sidecarBytes": 19461
+    },
+    "appDeployment": false,
+    "conditionalCreate": true,
+    "currentReaderBundle": "/assets/index-DIuP-7hv.js",
+    "bundleVerificationLimit": "Initial before/after capture pattern returned empty; no claim of measured bundle equality. Current bundle recorded after publication. This task changed no app code and triggered no deployment.",
+    "acoustic": {
+      "run": 35589562923,
+      "within300ms": 29,
+      "anchors": 30,
+      "maxDeltaSeconds": 0.97,
+      "humanListening": false
+    },
+    "uploadRoute": "Existing audio credentials used in memory from preserved local configuration; no local repository files or secrets were written. Cloud generated and verified the candidate."
+  }
+]
