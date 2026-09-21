@@ -63,7 +63,7 @@ For Why It Still Matters items:
 Avoid: first-person plural commentary ("we", "many of us"), aphorisms, parallelism for rhythm, "Both. Neither." style two-word openers, steelman bothsidesing, heavy contemporary commentary.
 
 For Acclaim:
-- Verified primary-source quotes only — no fabrication, no folklore (e.g., the "Joyce learned Danish for Niels Lyhne" story — actually he learned Norwegian for Ibsen; do not ship)
+- Verified primary-source quotes only — no fabrication or unverified folklore
 - 1-3 quotes per book
 - Source + context (work, year) where available
 
@@ -72,7 +72,7 @@ For Acclaim:
 | Feature | Status |
 |---|---|
 | 60 public books in registry | Done |
-| 3 editions per book (original-en, modern-en, modern-da) | Done |
+| English editions | Verify current inventory |
 | Paginated reader + opt-in split pane | Done |
 | Side panel: Chat / Feed / Cast | Done |
 | Highlights (5 colors), notes, reading journal | Done |

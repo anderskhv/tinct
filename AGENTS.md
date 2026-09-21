@@ -123,6 +123,51 @@ Do not ask Anders to deploy or to verify production. When app/lab work is done:
 
 Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports existing unrelated errors in legacy/worker files. Prefer the project build and focused tests until the TypeScript baseline is cleaned up.
 
+## Voice (Talk)
+
+Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `altair`)
+over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
+
+- Worker secret `XAI_API_KEY` mints single-use client secrets at
+  `/api/voice-session` (signed-in, charged) and `/api/lab-voice-session`
+  (guest, rate limited). Never put the key in browser assets or logs.
+- The runtime prompt is `GROK_VOICE_INSTRUCTIONS` in
+  `app/src/voice/grokConfig.ts`. Keep it minimal; add a constraint only for a
+  demonstrated issue. Reference text (position, excerpt, recent turns) is data
+  appended under its own header, never instructions.
+- No user-facing model selection or comparison lab. Rollback is a revert of the
+  Grok commit; `OPENAI_API_KEY` remains for typed chat and source research.
+- Real-provider check (bounded, a few cents): build, `npx wrangler dev` with
+  `app/.dev.vars` holding `XAI_API_KEY`, then
+  `node scripts/grok-voice-smoke.mjs http://127.0.0.1:8787 <question.wav> [resume.wav]`
+  from `app/`. Headless, fake microphone, muted output. Against production use
+  `https://tinct.app`. Mocked tests alone do not prove the provider connection.
+
+## Narration (Fish Audio pilot)
+
+On-demand narration through Fish Audio for readers who open
+`/reader?narration=fish`, on the featured shelf (16 books), English editions,
+every chapter; everyone else keeps the Kokoro recordings. Design, measurements,
+reviews and the release record are in `docs/fish-audio-pilot-2026-09-18.md`.
+
+- Worker routes under `/api/narration/*` (`app/src/worker/routes/narration.ts`);
+  pure core in `app/src/narration/narrationCore.ts`. Fish is reached only with
+  the Worker secret `FISH_AUDIO_API_KEY`; `NARRATION_ADMIN_TOKEN` gates the warm
+  route. Neither goes in browser assets, the repo or logs.
+- Audio is synthesised per sentence group (≤300 chars), validated, then cached
+  content-addressed in R2 under `narration/fish/`. Identity = text + model +
+  voice + settings; a text change never plays stale audio. Chunker and cache
+  versions are pinned in `narrationCore.ts`; bumping either is a new cache.
+- Voices, model, scope and the daily/monthly text-byte ceilings are Worker
+  vars (`NARRATION_*` in `wrangler.jsonc`). Raise a ceiling there, not in code.
+- Pre-generate a chapter from `app/`:
+  `node scripts/narration-warm.mjs --chapter N --voices a,b [--books …] [--first N]`
+  with `NARRATION_ADMIN_TOKEN` in `app/.env`. Safe to re-run; cached chunks cost
+  nothing. Chapter 1 of the shelf is ≈700k characters per voice (≈$10.5).
+- Silent acceptance with an in-page provider mock:
+  `node scripts/check-narration-pilot.mjs` (muted, headless). Unit tests cover
+  the core, the Worker route, the reader hook and the prefetch.
+
 ## Reader And Position Invariants
 
 These are production-critical:
@@ -173,7 +218,7 @@ For non-trivial bugs:
 
 ## Browser Cache Guidance For Anders
 
-Anders uses a Danish Mac keyboard. Do not default to telling him `Cmd+Shift+R`.
+Anders's keyboard layout makes the usual browser shortcut unreliable. Do not default to telling him `Cmd+Shift+R`.
 
 Recommended cache-busting guidance:
 

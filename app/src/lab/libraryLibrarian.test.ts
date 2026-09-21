@@ -28,8 +28,8 @@ describe('library librarian catalogue boundary', () => {
 
   it('builds a library-only prompt with accurate time estimates and no arbitrary book context', () => {
     const prompt = libraryCataloguePrompt(catalogue)
-    expect(prompt).toContain('republic | The Republic | Plato | About 5 hours')
-    expect(prompt).toContain('meditations | Meditations | Marcus Aurelius | About 3 hours')
+    expect(prompt).toContain('republic | The Republic | Plato | About 7–9 hours')
+    expect(prompt).toContain('meditations | Meditations | Marcus Aurelius | About 4–6 hours')
     expect(prompt).not.toContain('Future Book')
     expect(prompt).not.toContain('Withheld')
     expect(prompt).toContain('separate library-selection conversation')
@@ -43,7 +43,7 @@ describe('library librarian catalogue boundary', () => {
   })
 
   it('keeps a single honest reading-time number', () => {
-    expect(estimatedHours(75_000)).toBe('About 5 hours')
+    expect(estimatedHours(75_000)).toBe('About 7–9 hours')
     expect(estimatedHours(null)).toBeNull()
   })
 })

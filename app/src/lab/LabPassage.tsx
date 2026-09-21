@@ -18,6 +18,12 @@ import { followGranularity, followWordRole, type FollowParagraph, type FollowTar
 import { verseLineRanges } from './labVerseLines'
 import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
+/** Drag-to-select page turns: the strip at the top and bottom of the page
+ *  that turns it, and how long the finger rests there first. 24px / 700ms
+ *  was hard to reach on a full-width line (2026-09-19 phone QA). */
+export const LAB_EDGE_ZONE_PX = 32
+export const LAB_EDGE_HOLD_MS = 450
+
 export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
@@ -66,6 +72,8 @@ interface LabPassageProps {
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
   onSelectionPageTurn?: (direction: LabPageTurnDirection) => void
+  /** The range under the finger while a selection is being made, null when it ends. */
+  onSelectingChange?: (range: LabHighlightRange | null) => void
   /**
    * Which pointers may turn the page by tapping the outer thirds. Set by the
    * pointer, never by the window width: 'none' where a mouse has visible
@@ -89,15 +97,16 @@ function wordSpacing(
   previous?: { text: string },
 ): string {
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  return previous && isLabVerseMarker(previous.text) ? '' : ' '
+  // After a verse marker the separator belongs to THIS word, not to the marker:
+  // it is then inside the word's painted span, so a highlight that starts here
+  // has no unpainted notch between the number and the first word. Non-breaking,
+  // so the marker and its word still never split across a line.
+  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
-function renderWordText(text: string, hasFollowingWord = false, emphasis = false) {
+function renderWordText(text: string, emphasis = false) {
   const content = isLabVerseMarker(text) ? (
-    <span className="lab-verse-mark">
-      {labVerseMarkerDisplay(text)}
-      {hasFollowingWord ? '\u00a0' : ''}
-    </span>
+    <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
   ) : text
   return emphasis ? <em>{content}</em> : content
 }
@@ -146,8 +155,11 @@ export function renderWordGroups<T extends { text: string }>(
       })
     }
   }
+  // As in labMeasureParagraph: a trailing display fragment is not a word, so
+  // it must not extend the verse-line ranges by one.
+  const ownedCount = words.filter(word => !(word as { fragment?: boolean }).fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) return rendered.map(item => item.node)
   const base = lineation!.from
@@ -245,7 +257,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
       {renderWordGroups(line.words, (word, wordIndex, spacing) => (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
+          {renderWordText(word.text, word.emphasis)}
         </span>
       ), lineationFor(paragraphs, line))}
     </p>
@@ -308,7 +320,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
+              {renderWordText(word.text, word.emphasis)}
             </span>
           )
         }, lineationFor(paragraphs, line, fallbackParagraphIndex))}
@@ -324,6 +336,27 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
   const wordIndex = Number(el.getAttribute('data-word-index'))
   if (!Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return null
   return { paragraphIndex, wordIndex }
+}
+
+/**
+ * The word of `line` nearest to a point, for touches that land between words
+ * rather than on one. Vertical distance is weighted far above horizontal, so a
+ * point past the ragged end of a short line resolves to that line's last word
+ * rather than to whatever sits underneath on the line below — the same metric
+ * the drag path uses, kept identical on purpose.
+ */
+function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): LabWordPlace | null {
+  let nearest: Element | null = null
+  let best = Infinity
+  for (const word of line.querySelectorAll('[data-testid="lab-word"]')) {
+    const box = word.getBoundingClientRect()
+    if (!box.width || !box.height) continue
+    const dx = Math.max(box.left - clientX, 0, clientX - box.right)
+    const dy = Math.max(box.top - clientY, 0, clientY - box.bottom)
+    const distance = dy * dy * 10000 + dx * dx
+    if (distance < best) { best = distance; nearest = word }
+  }
+  return wordPlaceFromTarget(nearest)
 }
 
 export function LabPassage({
@@ -370,6 +403,7 @@ export function LabPassage({
   pageTurn,
   onPageTurn,
   onSelectionPageTurn,
+  onSelectingChange,
   tapZones = 'all',
   onCompareSwap,
   onToggleControls,
@@ -408,6 +442,10 @@ export function LabPassage({
   } | null>(null)
   const edgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const edgeDirectionRef = useRef<-1 | 1 | null>(null)
+  /** One page per visit to the edge: after a turn the finger has to leave the
+   *  zone before it can turn another. A timer alone re-fired under a finger
+   *  that simply stayed put (2026-09-19 phone QA: the surprise second flip). */
+  const edgeArmedRef = useRef(true)
   const pageTurnRef = useRef(onSelectionPageTurn ?? onPageTurn)
   pageTurnRef.current = onSelectionPageTurn ?? onPageTurn
   const cancelEdge = () => {
@@ -422,6 +460,9 @@ export function LabPassage({
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const selectingChangeRef = useRef(onSelectingChange)
+  selectingChangeRef.current = onSelectingChange
+  useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
 
   useEffect(() => () => {
     if (longPressRef.current) clearTimeout(longPressRef.current)
@@ -534,7 +575,18 @@ export function LabPassage({
     if ((event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     // Hearing still owns the same page surface. It must accept edge taps and
     // swipes even though text selection is intentionally reading-only.
-    const place = hearing ? null : wordPlaceFromTarget(event.target)
+    let place = hearing ? null : wordPlaceFromTarget(event.target)
+    // A one- or two-character word ("I", "a") is a few pixels wide, so a finger
+    // aimed at it usually lands on the separator beside it or on the paragraph
+    // itself — `place` came back null and the long-press timer below was never
+    // armed, which is why short words could not start a selection while longer
+    // ones could. Resolve to the nearest word of the line actually touched.
+    // Scoped to a line element, so taps in the page margins stay null and the
+    // edge tap zones keep turning pages.
+    if (!place && !hearing) {
+      const line = (event.target as Element)?.closest?.('.lab-hearing-line')
+      if (line) place = nearestWordPlaceIn(line, event.clientX, event.clientY)
+    }
     if (place && onSeekToWord) return
     if (!place && !onPageTurn) return
     // A word at the left/right edge can still be long-pressed. A short release
@@ -585,9 +637,10 @@ export function LabPassage({
     }
     event.preventDefault()
     const bounds = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientY >= bounds.bottom - 24 ? 1 : event.clientY <= bounds.top + 24 ? -1 : null
+    const direction = event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
-    if (direction && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
+    if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
       edgeDirectionRef.current = direction
       const advance = () => {
         if (dragRef.current !== drag || !drag.selecting) { cancelEdge(); return }
@@ -599,6 +652,7 @@ export function LabPassage({
           ? edge.paragraphIndex === lastP && edge.wordIndex >= tokenizeHearingWords(paragraphs[lastP] || '').length - 1
           : edge.paragraphIndex === 0 && edge.wordIndex === 0)
         if (!edge || atEnd) { cancelEdge(); return }
+        edgeArmedRef.current = false
         pageTurnRef.current?.(direction)
         edgeTimerRef.current = setTimeout(() => {
           if (dragRef.current !== drag) return
@@ -609,10 +663,11 @@ export function LabPassage({
             drag.end = next
             setLocalSelecting(buildHighlightRange(paragraphs, drag.start, next))
           }
-          edgeTimerRef.current = setTimeout(advance, 700)
+          // No further turn from here: the finger must leave the zone first.
+          edgeTimerRef.current = null
         }, 200)
       }
-      edgeTimerRef.current = setTimeout(advance, 700)
+      edgeTimerRef.current = setTimeout(advance, LAB_EDGE_HOLD_MS)
     }
     const pointTarget = typeof document.elementFromPoint === 'function'
       ? document.elementFromPoint(event.clientX, event.clientY)
@@ -622,6 +677,15 @@ export function LabPassage({
     const sameSide = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison
     // Selection follows the nearest line through whitespace, including short touch lines.
     // Keep Compare isolated; the second Read leaf still belongs to the primary.
+    if (!place && sameSide) {
+      // Prefer the line the finger is actually inside. Dragging to the ragged
+      // end of a short last line means leaving the words behind — an
+      // article-wide search can then answer with a word on the line below,
+      // which is why a short trailing line was hard to capture. `sameSide`
+      // has already established the column, so this line is the right one.
+      const line = (target as Element)?.closest?.('.lab-hearing-line')
+      if (line) place = nearestWordPlaceIn(line, event.clientX, event.clientY)
+    }
     if (!place && sameSide) {
       let nearest: Element | null = null
       let best = Infinity
@@ -762,6 +826,23 @@ export function LabPassage({
                         ? followWordRole(follow, paragraphIndex, absoluteWord)
                           ?? (follow.kind === 'paragraph' ? (paragraphIndex < follow.paragraphIndex ? 'spoken' : paragraphIndex > follow.paragraphIndex ? 'upcoming' : null) : null)
                         : null
+                      // The page-edge fragment is decoration, not a word: no
+                      // index, no test id, no selection, hidden from assistive
+                      // technology, and its hyphen is drawn by CSS. Nothing
+                      // that reads words or offsets can see it.
+                      if (word.fragment) {
+                        return (
+                          <span
+                            key={`${lineIndex}-${wordIndex}`}
+                            className="lab-word-fragment"
+                            data-testid="lab-word-fragment"
+                            aria-hidden="true"
+                          >
+                            {spacing}
+                            {word.text}
+                          </span>
+                        )
+                      }
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}
@@ -777,7 +858,7 @@ export function LabPassage({
                             : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
+                          {renderWordText(word.text, word.emphasis)}
                         </span>
                       )
                     }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
@@ -966,7 +1047,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
+                    {renderWordText(word.text, word.emphasis)}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))}
               </p>

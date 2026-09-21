@@ -42,6 +42,9 @@ export async function handleAudioFile(request: Request, env: AudioEnv): Promise<
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
+  // Narration cache metadata (text, provider voice id, timings) is served
+  // through /api/narration only; the public route hands out the audio alone.
+  if (path!.startsWith('narration/') && !path!.endsWith('.mp3')) return jsonResponse({ error: 'Invalid path' }, 400, request)
   if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
   const rangeHeader = request.headers.get('range')

@@ -2,8 +2,7 @@ import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
-import type { VoiceTrial } from '../voice/voiceTrial'
-import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
+import { BOOK_PASSAGE_TOOL, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
@@ -41,7 +40,7 @@ import { labConversationStateV2 } from './labVoiceV2'
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
-import { gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
+import { decideLabAiAction, gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
 import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './labTalkHistory'
 import {
   appendLabChatTurn,
@@ -54,7 +53,6 @@ import {
 } from './labChatHistory'
 import type { ChatConversation } from '../types'
 import {
-  buildLabVoiceControlInstructions,
   labVoiceActionEntry,
   mergeLabVoiceTools,
   shouldResumePlaybackAfterNavigation,
@@ -101,11 +99,19 @@ export interface UseLabAskOptions {
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
-  /** `'v2'` only from `/lab/reader?voice=v2`. Defaults to Voice V1. */
-  quietCompanionHandoff?: boolean
-  voiceTrial?: VoiceTrial | null
+  /** `'v2'` only from `/lab/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
   voiceVersion?: LabVoiceVersion
 }
+
+/** The card shows the first paragraph whole, then "More". The opener's word
+ *  cap is what keeps it to two or three lines on a phone; the rest is capped
+ *  at three short paragraphs so the expanded card stays a glance, not a read. */
+export const LAB_EXPLAIN_PROMPT = [
+  'Explain this selected passage for a reader at this point in the book.',
+  'First paragraph: the answer itself, one sentence, at most 25 words. It must stand alone. If the passage is a name or place, say what it is and why it is here, nothing more. Then a blank line.',
+  'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.',
+  'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
+].join('\n\n')
 
 export function useLabAsk(options: UseLabAskOptions) {
   const { session, likelyAuthenticated } = useAuth()
@@ -220,8 +226,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
   const signedIn = options.signedIn ?? (Boolean(liveToken) || likelyAuthenticated)
   // Account policy (labAccountPrompt.ts), in one place, before any network
-  // call or mic session: an anonymous reader gets three free AI actions,
-  // chat and voice spending the same allowance, and the fourth shows the
+  // call or mic session: an anonymous reader gets ten free AI interactions,
+  // chat and voice spending the same allowance, and the eleventh shows the
   // account sheet and is not sent. Signed in: never gated.
   const gateAiAction = useCallback((action: LabAiAction, text?: string): boolean => {
     const decision = gateLabAiAction({ signedIn })
@@ -322,20 +328,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
     return selected ? turnsFromConversations([selected]) : null
   }, [options.conversationId, conversations, chatBookId])
-  const talkInstructions = useMemo(
-    () => buildLabVoiceControlInstructions(
-      buildDirectVoiceInstructions(askContext) + (!options.voiceTrial ? '\nFor resume_audiobook, set play_audio=true when the reader asks to hear, play or resume audio. Set play_audio=false for returning to the page; the app restores the prior reading mode. Use the understood request, not potentially garbled transcript captions.' : ''),
+  // Reference material only: the Tinct prompt itself lives in grokConfig.ts.
+  const talkReference = useMemo(
+    () => buildLabTalkReference(askContext,
       (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
     ),
-    [askContext, selectedConversationTurns, turns, options.voiceTrial],
+    [askContext, selectedConversationTurns, turns],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
     () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL, PERSONAL_HISTORY_TOOL]).map(tool =>
-      !options.voiceTrial && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'resume_audiobook'
-        ? { ...tool, parameters: { type: 'object', properties: { play_audio: { type: 'boolean', description: 'True for an explicit request to play or resume audio. False to return to the page and restore its previous mode.' } }, required: ['play_audio'], additionalProperties: false } }
+      tool && typeof tool === 'object' && 'name' in tool && tool.name === 'resume_audiobook'
+        ? { ...tool, description: 'Return the reader to the book. Call for "back to the book", "resume", "continue reading" or "play the audiobook"; not for a bare thanks.', parameters: { type: 'object', properties: { play_audio: { type: 'boolean', description: 'True for an explicit request to play or resume audio. False to return to the page and restore its previous mode.' } }, required: ['play_audio'], additionalProperties: false } }
         : tool),
-    [options.voiceTrial],
+    [],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -408,7 +414,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     readingObjective: labReadingAngle(),
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    visibleText: talkInstructions,
+    visibleText: '',
     isAudioPlaying: false,
     pausePlayback: () => null,
     resumePlayback: (_anchor, playAudio) => {
@@ -418,25 +424,21 @@ export function useLabAsk(options: UseLabAskOptions) {
     onEndConversation: () => optionsRef.current.onResumeListen?.(false),
     recordMessage: recordTurn,
     appendLocalMessage,
+    onBeforeUserTurn: () => gateAiAction('voice'),
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
-    instructions: talkInstructions,
+    reference: talkReference,
     tools: mergedVoiceTools,
     onApplicationTool: onTinctVoiceTool,
     onSessionStart: () => {
       tinctVoiceTools.resetUndo()
       optionsRef.current.onVoiceToolSessionStart?.()
     },
-    onCompanionAsk: undefined,
-    voiceTrial: options.voiceTrial,
-    honorModelResume: true,
-    quietCompanionHandoff: options.quietCompanionHandoff,
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
     assistantPace,
     onSetAssistantPace: setAssistantPace,
-    voiceVersion,
   })
 
   // Voice V2: a mid-session failure is shown, not swallowed. The notice
@@ -453,7 +455,10 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const startVoice = useCallback(async (greeting?: string): Promise<boolean> => {
     if (voice.isActive || starting) return true
-    if (!gateAiAction('voice')) return false
+    if (!decideLabAiAction({ signedIn }).allowed) {
+      optionsRef.current.onAccountPrompt?.({action:'voice'})
+      return false
+    }
     const request = ++voiceStartRequestRef.current
     voice.unlockAudio()
     setNotice(null)
@@ -478,7 +483,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return true
-  }, [gateAiAction, options.authToken, sessionToken, starting, voice.isActive, voice.start])
+  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
     voiceStartRequestRef.current++
@@ -783,7 +788,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     for (const turn of added) recordTurn({ ...turn, timestamp: turn.timestamp!, source: 'text', isComplete: true }, chapterNumber, paragraphIndex)
   }, [recordTurn])
 
-  const explanationRef = useRef<{ key: string; time: number; text: string; promise: Promise<string>; listeners: Set<(text: string) => void> } | null>(null)
+  const explanationRef = useRef<{ key: string; time: number; text: string; promise: Promise<string>; listeners: Set<(text: string) => void>; speculative: boolean; abort: AbortController } | null>(null)
+  /** Drop a prefetch nobody asked to see: the popup closed on Highlight,
+   *  Copy or a dismiss. A fetch the reader did open is left to finish. */
+  const discardSpeculativeExplanation = useCallback(() => {
+    const entry = explanationRef.current
+    if (!entry || !entry.speculative) return
+    entry.abort.abort()
+    explanationRef.current = null
+  }, [])
   const explainSelection = useCallback(async (input: {
     text: string
     editionKey: string
@@ -799,12 +812,22 @@ export function useLabAsk(options: UseLabAskOptions) {
     const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
+      // The reader asked for it: this is the moment the action is charged,
+      // whether or not the answer was already fetched on speculation.
+      if (!input.speculative && cached.speculative) {
+        if (!gateAiAction('chat')) throw new LabChatError('unavailable')
+        cached.speculative = false
+      }
       if (cached.text) onDelta(cached.text)
       cached.listeners.add(onDelta)
       try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
     }
-    if (!gateAiAction('chat')) throw new LabChatError('unavailable')
-    const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]) }
+    // Speculation is on the house: it fires as a selection settles and is
+    // never charged. Only a tap on Explain goes through the gate.
+    if (!input.speculative && !gateAiAction('chat')) throw new LabChatError('unavailable')
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) throw new LabChatError('unavailable')
+    if (explanationRef.current?.speculative) explanationRef.current.abort.abort()
+    const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]), speculative: !!input.speculative, abort: new AbortController() }
     explanationRef.current = entry
     entry.promise = (async () => {
       const context: LabAskContext = {
@@ -821,15 +844,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
+        signal: entry.abort.signal,
         body: JSON.stringify({
           model: COMPANION_MODEL,
-          max_tokens: 700,
+          max_tokens: 450,
           stream: true,
           effort: COMPANION_EFFORT_VOICE,
           system: buildLabAskInstructions(context),
           messages: [{
             role: 'user',
-            content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Start with a self-contained opening paragraph of one or two short sentences, followed by a blank line. Then add the useful detail in short paragraphs, so the reader can begin before the rest arrives. Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
+            content: `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
           ...labCompanionBookFields(context),
         }),
@@ -847,6 +871,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   return {
     turns,
+    discardSpeculativeExplanation,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     historyStatus,

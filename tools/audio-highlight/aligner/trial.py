@@ -3,16 +3,20 @@ from __future__ import annotations
 import importlib.util
 import argparse,dataclasses,difflib,hashlib,importlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time
 from pathlib import Path
-import pinned_words_sidecar_lib_v4 as lib
+import pinned_words_sidecar_lib_v7 as lib
 from spoken_policy import validate_map
 GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
 # acceptance results were measured against; v2 adds the approved expected-side markup
 # normalisation (DECISIONS.md 2026-09-11); v3 adds gluing, the mirror case and the
-# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule.
-# Default v4; --helper v1 reproduces run 1 exactly
+# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule;
+# v5 drops unspoken speaker/stage/WEB cues from the scoring denominator;
+# v6 also drops unspoken whole-paragraph chapter/section headings.
+# v7 keeps v6 scoring and stops restore_source_tokens from treating prefixes of
+# prose as headings (canary 35323671028 / Hume modern-en/7 p14).
+# Default v7; --helper v1 reproduces run 1 exactly
 # and --helper v2 reproduces run 2.
-HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3','v4':'pinned_words_sidecar_lib_v4'};DEFAULT_HELPER='v4'
+HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3','v4':'pinned_words_sidecar_lib_v4','v5':'pinned_words_sidecar_lib_v5','v6':'pinned_words_sidecar_lib_v6','v7':'pinned_words_sidecar_lib_v7'};DEFAULT_HELPER='v7'
 def select_helper(name):
  global lib;lib=importlib.import_module(HELPERS[name]);return lib
 
@@ -20,15 +24,28 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,obj):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(obj,indent=2,ensure_ascii=False));tmp.replace(p)
 def tree_hash(path):return hashlib.sha256(json.dumps([(str(p.relative_to(path)),sha(p)) for p in sorted(Path(path).rglob('*')) if p.is_file() and '.cache' not in p.parts],separators=(',',':')).encode()).hexdigest()
+def acoustic_tokens(text, *, strip_headings=True):
+ try:
+  cleaned=lib.clean_text(text,strip_headings=strip_headings)
+ except TypeError:
+  cleaned=lib.clean_text(text)
+ return lib.chapter_words_from_text(cleaned)
 def restore_source_tokens(aligned,source_expected,acoustic_expected):
  if len(aligned)!=len(acoustic_expected):
   raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(acoustic_expected)} aligned={len(aligned)}')
+ # A whole paragraph can be acoustic-empty (v6/v7 heading-only lines, or a
+ # paragraph that is only stripped markup). Prefixes of a heading are not
+ # themselves headings, so the incremental clean_text map cannot run.
+ if not acoustic_expected:
+  return [dict(text=token,start=0.0,end=0.0) for token in source_expected]
  # Prove a monotonic zero-or-one mapping from every exact source token to the
  # cleaned acoustic stream. A zero delta is allowed only for source markup
  # clean_text deliberately removes (for example standalone verse superscripts).
+ # Prefixes must not apply whole-paragraph heading detection: "45. I" looks
+ # like a numbered ALL-CAPS label even when the full sentence is prose.
  mapping=[];previous=[]
  for index in range(len(source_expected)):
-  prefix=lib.chapter_words_from_text(lib.clean_text(' '.join(source_expected[:index+1])))
+  prefix=acoustic_tokens(' '.join(source_expected[:index+1]),strip_headings=False)
   if prefix[:len(previous)]!=previous or len(prefix)-len(previous) not in (0,1):
    raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r}')
   if len(prefix)==len(previous):mapping.append(None)

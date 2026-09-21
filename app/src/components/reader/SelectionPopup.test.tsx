@@ -134,11 +134,12 @@ describe('compact selection popup', () => {
       onRequestExplanation: vi.fn().mockResolvedValue('An explanation.'),
     })
     render(<SelectionPopup {...input} />)
-    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', ''))).toEqual(['Explain', 'Highlight', 'Copy'])
-    expect(screen.queryByText('Ask')).toBeNull()
+    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', ''))).toEqual(['Explain', 'Ask', 'Highlight', 'Copy'])
+    expect(screen.getByText('Ask')).toBeTruthy()
     expect(screen.queryByText('Add note')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Highlight' }))
-    expect(input.onRequestNote).toHaveBeenCalledWith('sage')
+    expect(input.onColorClick).toHaveBeenCalledWith('sage')
+    expect(input.setPopupMode).toHaveBeenCalledWith('colors')
     localStorage.clear()
   })
 
@@ -154,6 +155,20 @@ describe('compact selection popup', () => {
     expect(input.onExplain).toHaveBeenCalledOnce()
   })
 
+  it('explains a word the dictionary does not know instead of stopping at not found', async () => {
+    const request = vi.fn().mockResolvedValue('Gennesaret is a plain on the north-west shore of the Sea of Galilee.')
+    const input = props({ lab: true, popupMode: 'define', defineQuery: 'Gennesaret', defineLoading: false, defineNotFound: true, onRequestExplanation: request })
+    render(<SelectionPopup {...input} />)
+    expect(screen.queryByText(/No definition found/)).toBeNull()
+    await screen.findByText(/Gennesaret is a plain/)
+    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret')
+  })
+
+  it('keeps the plain not-found line when there is no explanation to fall back to', () => {
+    render(<SelectionPopup {...props({ popupMode: 'define', defineQuery: 'Gennesaret', defineLoading: false, defineNotFound: true })} />)
+    expect(screen.getByText(/No definition found/)).toBeTruthy()
+  })
+
   it('does not autofocus the optional note and keeps recolouring in the same editor', () => {
     const input = props({
       lab: true,
@@ -165,7 +180,7 @@ describe('compact selection popup', () => {
     expect(document.activeElement).not.toBe(screen.getByRole('textbox', { name: 'Highlight note' }))
     fireEvent.click(screen.getByRole('button', { name: 'Highlight Rose' }))
     expect(input.onColorClick).toHaveBeenCalledWith('rose')
-    expect(input.dismissPopup).toHaveBeenCalledOnce()
+    expect(input.dismissPopup).not.toHaveBeenCalled()
     fireEvent.click(screen.getByRole('button', { name: 'Remove highlight' }))
     expect(input.onDeleteHighlight).toHaveBeenCalledWith('h1')
   })
@@ -179,9 +194,21 @@ describe('compact selection popup', () => {
     })
     render(<SelectionPopup {...input} />)
     expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', '')))
-      .toEqual(['Delete highlight', 'Explain', 'Highlight', 'Copy'])
+      .toEqual(['Delete highlight', 'Explain', 'Ask', 'Highlight', 'Copy'])
     fireEvent.click(screen.getByRole('button', { name: 'Delete highlight' }))
     expect(input.onDeleteHighlight).toHaveBeenCalledWith('saved')
     expect(input.dismissPopup).toHaveBeenCalledOnce()
   })
+})
+
+it('keeps the palette compact until Add note and sends Ask to the composer', () => {
+  const input=props({lab:true,popupMode:'main',onRequestExplanation:vi.fn()})
+  const {rerender}=render(<SelectionPopup {...input}/>)
+  fireEvent.click(screen.getByRole('button',{name:'Ask',exact:true}))
+  expect(input.onExplain).toHaveBeenCalledOnce()
+  rerender(<SelectionPopup {...input} popupMode="colors"/>)
+  expect(screen.queryByRole('textbox')).toBeNull()
+  expect(screen.queryByText('Copy')).toBeNull()
+  fireEvent.click(screen.getByRole('button',{name:'Add note'}))
+  expect(input.onRequestNote).toHaveBeenCalledOnce()
 })

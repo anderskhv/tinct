@@ -60,6 +60,7 @@ import {
   heroHeadline,
   libraryModeFor,
   readingList,
+  heroAside,
   recapEyebrow,
   type ContinueTarget,
   type LibraryBookInfo,
@@ -357,6 +358,8 @@ function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): 
   if (!text) return
   text.textContent = summary
   line.hidden = false
+  line.classList.remove('is-fallback')
+  line.dataset.summaryKind = 'summary'
   line.classList.add('is-shown')
   section.dataset.summaryLine = status
   markExpandable(line, text)
@@ -644,27 +647,37 @@ function removeMarkup(bookId: string, title: string): string {
   return `<button type="button" class="lib-now-remove" data-now-remove="${escapeHtml(bookId)}" aria-label="${escapeHtml(`Remove ${title} from currently reading`)}" title="Remove from currently reading">×</button>`
 }
 
-/** The block: a button, so the whole three-line box is the tap target. */
-function summaryMarkup(summaryKey: string): string {
-  return `<button type="button" class="lib-recap-summary" hidden data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
+/**
+ * The block: a button, so the whole three-line box is the tap target. It is
+ * always laid out at the same size (three lines and an affordance row, see
+ * `.lib-recap-summary` in public/lab/index.html). Until a recap exists it
+ * carries the aside — chapter name, author — as a fallback, not a control;
+ * `showSummary` swaps the recap in over it without the block changing size.
+ */
+function summaryMarkup(summaryKey: string, aside: string): string {
+  return `<button type="button" class="lib-recap-summary is-fallback" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-summary-kind="fallback" data-expandable="false" disabled><span class="lib-recap-summary-text">${escapeHtml(aside)}</span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
 }
 
 /**
- * Title, one location, last-read age, a stable recap preview, then Continue.
- * The empty preview reserves the same space as a collapsed recap; selecting
- * another book rebuilds the caption closed. library-boot.js paints this order.
+ * Title, one location, last-read age, Continue, then the recap block.
+ *
+ * The block is the same size for every book, recap or not (owner decision,
+ * 2026-09-18): with a recap it shows a three-line preview and Expand; without
+ * one it shows the aside. So the card never changes height as the focused
+ * book changes, and the boot paints (library-boot.js) build exactly this
+ * order and this block, so hydration cannot reflow it either.
  */
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const note = progressNote(row)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
-  const summary = summaryMarkup(summaryKey)
+  const summary = summaryMarkup(summaryKey, heroAside(row, book))
   return `<p class="lib-lede" data-testid="lab-recap-book" title="${escapeHtml(bookTitle(book, row.bookId))}">${escapeHtml(bookTitle(book, row.bookId))}</p>
       <p class="lib-h1" data-testid="lab-recap-headline" title="${escapeHtml(heroHeadline(row))}">${escapeHtml(heroHeadline(row))}</p>
       <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.lastActiveAt))}</p>
-      ${summary}
-      <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
+      <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>
+      ${summary}`
 }
 
 function finishedMarkup(row: ReadingList['finished'][number], books: Map<string, CatalogueBook>): string {
@@ -1073,6 +1086,7 @@ function bootSnapshot(list: ReadingList, userId: string | null, books: Map<strin
       coverSrc: safeCoverSource(cover?.src),
       coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
       note: progressNote(hero),
+      aside: heroAside(hero, book),
     } : null,
   }
 }

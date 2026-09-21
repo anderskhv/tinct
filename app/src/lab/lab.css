@@ -1,5 +1,8 @@
 .lab-audio-unavailable { position:fixed; z-index:200; left:50%; bottom:90px; transform:translateX(-50%); width:min(440px,calc(100% - 32px)); box-sizing:border-box; display:flex; align-items:center; gap:12px; padding:16px; border:1px solid var(--lab-border); border-radius:18px; background:var(--lab-paper); color:var(--lab-ink); box-shadow:0 8px 30px #0002; font-size:16px; }
 .lab-audio-unavailable button { flex:none; width:32px; height:32px; border:0; background:transparent; color:inherit; font-size:24px; }
+.lab-narration-notice .lab-narration-retry { flex:none; width:auto; height:32px; padding:0 14px; border:1px solid var(--lab-border); border-radius:16px; background:transparent; color:inherit; font:inherit; font-size:14px; }
+.lab-narration-notice[data-status="loading"] span::before { content:""; display:inline-block; width:10px; height:10px; margin-right:10px; border-radius:50%; border:2px solid currentColor; border-right-color:transparent; vertical-align:middle; animation:lab-narration-spin 0.9s linear infinite; }
+@keyframes lab-narration-spin { to { transform:rotate(360deg); } }
 
 .lab {
   --lab-paper: #ece7db;
@@ -748,6 +751,11 @@
   border-bottom: 0;
   margin-bottom: 0;
 }
+/* A dictionary miss shows the Explain card in the definition's place: the
+   card sets its own height, so the definition cap comes off. */
+.lab .popup-define:has(.lab-contextual-explain) { max-height: none; overflow: visible; }
+.lab .popup-define .lab-contextual-explain { margin-top: 4px; }
+.lab .popup-define .lab-contextual-explain-scroll { padding: 6px 12px 0; }
 
 .lab .popup-define-word,
 .lab .popup-define-list,
@@ -1112,7 +1120,6 @@
 
 .lab-contextual-explain-scroll {
   min-height: 0;
-  max-height: min(48dvh, 410px);
   padding: 22px 22px 12px;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -1131,17 +1138,50 @@
 }
 
 .lab-contextual-explain p { margin: 0 0 12px; white-space: pre-wrap; }
-.lab-contextual-explain-wait { min-height: 90px; opacity: 0.65; }
 .lab-contextual-explain-link { padding: 0 !important; text-decoration: underline; text-underline-offset: 4px; }
-.lab-contextual-explain footer { display: flex; flex-shrink: 0; justify-content: space-between; padding: 6px 14px; border-top: 1px solid var(--lab-border, #d8d0c2); font-size: 15px; }
+/* Three quiet lines hold the opener's place for the rare tap that beats the fetch. */
+.lab-contextual-explain-skeleton { display: grid; gap: 9px; padding: 4px 0 6px; }
+.lab-contextual-explain-skeleton span { display: block; height: 11px; border-radius: 6px; background: linear-gradient(90deg, color-mix(in srgb, currentColor 14%, transparent), transparent 60%); background-size: 200% 100%; animation: labExplainShimmer 1.4s ease infinite; }
+.lab-contextual-explain-skeleton span:last-child { width: 60%; }
+@keyframes labExplainShimmer { from { background-position: 100% 0 } to { background-position: -100% 0 } }
+@media (prefers-reduced-motion: reduce) { .lab-contextual-explain-skeleton span { animation: none; } }
+/* "More" is one word of the body face, one size down, on its own line. */
+.lab-contextual-explain button.lab-contextual-explain-more { display: inline-flex; align-items: center; gap: 6px; min-height: 30px; margin: 2px 0 0; padding: 0; font: 400 14px/1.3 'EB Garamond', Georgia, serif; color: var(--lab-accent, #1f4a5c); }
+.lab.is-night .lab-contextual-explain button.lab-contextual-explain-more { color: #8fb3c2; }
+.lab-contextual-explain button.lab-contextual-explain-more.is-busy { color: var(--lab-muted); }
+.lab-contextual-explain button.lab-contextual-explain-more.is-busy::after { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid currentColor; border-top-color: transparent; animation: labExplainSpin .9s linear infinite; }
+@keyframes labExplainSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .lab-contextual-explain button.lab-contextual-explain-more.is-busy::after { animation: none; } }
+.lab-contextual-explain footer { display: flex; flex-shrink: 0; justify-content: center; gap: 12px; padding: 6px 12px 12px; }
 
-.lab-contextual-explain footer button { display: grid; place-items: center; width: 44px; }
+/* Chat and Talk are two glass circles, icon only; the label lives in aria. */
+.lab-contextual-explain footer .lab-contextual-explain-tool { display: grid; place-items: center; width: 34px; min-height: 34px; height: 34px; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .65); background: linear-gradient(155deg, rgba(255,255,255,.26), rgba(255,255,255,.06)); box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 1px 3px rgba(30,25,18,.14); }
+.lab-contextual-explain footer .lab-contextual-explain-tool svg { width: 17px; height: 17px; }
+.lab-contextual-explain footer .lab-contextual-explain-tool:disabled { opacity: .35; cursor: default; }
+.lab.is-night .lab-contextual-explain footer .lab-contextual-explain-tool { border-color: rgba(255,245,226,.28); background: linear-gradient(155deg, rgba(255,245,226,.10), rgba(255,245,226,.025)); box-shadow: inset 0 1px 0 rgba(255,245,226,.12), 0 1px 3px rgba(0,0,0,.18); }
 
-.selection-popup.is-compact .popup-highlight-note { width: 100%; padding: 8px; box-sizing: border-box; }
-.selection-popup.is-compact .popup-highlight-note .popup-colors { padding: 0 0 12px; }
-.selection-popup.is-compact .popup-highlight-note .popup-textarea { box-sizing: border-box; width: 100%; min-height: 96px; padding: 12px; border: 1px solid var(--lab-border, #d8d0c2); border-radius: 8px; background: transparent; color: inherit; font: 18px/1.4 'EB Garamond', Georgia, serif; resize: vertical; }
+.selection-popup.is-compact .popup-highlight-note { width: 100%; padding: 0 4px 4px; box-sizing: border-box; }
+.selection-popup.is-compact .popup-highlight-note .popup-textarea { box-sizing: border-box; width: 100%; min-height: 72px; margin-top: 4px; padding: 10px 12px; border: 1px solid var(--lab-border, #d8d0c2); border-radius: 8px; background: transparent; color: inherit; font: 18px/1.4 'EB Garamond', Georgia, serif; resize: none; }
 .selection-popup.is-compact .popup-highlight-note .popup-button { min-height: 44px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font: 16px/1.3 'EB Garamond', Georgia, serif; cursor: pointer; }
-.selection-popup.is-compact .popup-highlight-note > .popup-button { opacity: 0.65; }
+.selection-popup.is-compact .popup-note-body > .popup-button { opacity: 0.65; }
+
+/* The note grows out of the palette rather than replacing it with a bigger
+   box: the colour row keeps the exact geometry it had a moment ago, and only
+   the field and its actions animate open beneath. `max-height` is the
+   animated property (not `height: auto`, which cannot be animated) and no
+   fill-mode is set, so once the animation ends the panel is back to its
+   natural height and can never clip its own content. */
+@keyframes popupNoteOpen {
+  from { opacity: 0; transform: translateY(-6px); max-height: 0; }
+  to { opacity: 1; transform: none; max-height: 340px; }
+}
+.selection-popup.is-compact .popup-note-body {
+  overflow: hidden;
+  animation: popupNoteOpen 180ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .selection-popup.is-compact .popup-note-body { animation: none; }
+}
 
 @media (min-width: 769px) {
   .lab .selection-popup.is-contextual-explain { top: 115px !important; left: calc(75vw - 190px) !important; transform: none !important; max-height: min(70dvh, 610px); }
@@ -1151,7 +1191,6 @@
 @media (max-width: 768px) {
   .lab .selection-popup.is-contextual-explain { left: 12px !important; right: 12px !important; top: auto !important; bottom: calc(76px + env(safe-area-inset-bottom)); transform: none !important; max-height: min(65dvh, var(--explain-available-height)); }
   .lab .selection-popup.is-contextual-explain[data-explain-edge="top"] { top: 80px !important; bottom: auto; }
-  .lab-contextual-explain-scroll { max-height: 43dvh; }
 }
 
 /* Selection owns the paginated text surface before the browser chooses to pan.
@@ -1161,15 +1200,9 @@
   touch-action: pinch-zoom;
   -webkit-touch-callout: none;
 }
-/* Reserve the same reading area through loading, paragraph streaming and errors. */
-.lab .lab-contextual-explain-scroll {
-  height: calc(4 * 1.4 * 18px + 28px);
-  min-height: calc(4 * 1.4 * 18px + 28px);
-  max-height: calc(4 * 1.4 * 18px + 28px);
-  box-sizing: border-box;
-}
-.lab .lab-contextual-explain footer { display: flex; }
-.lab .lab-contextual-explain footer .lab-super-row { flex: 1; width: 50%; }
+/* The collapsed card is as tall as its opener: no clamp, no inner scroll,
+   never a cut sentence. Only the expanded card scrolls. */
+.lab .lab-contextual-explain-scroll { box-sizing: border-box; }
 
 /* WebKit needs selectable text to paint custom highlights. Non-passive touch
    and selectstart handlers suppress native selection on this passage. */
@@ -1188,40 +1221,42 @@
   width: min(340px, calc(100vw - 24px));
 }
 .lab .selection-popup.is-lab.is-contextual-explain { max-height: min(440px, calc(100dvh - 120px)); }
-.lab-contextual-explain-scroll { max-height: min(28dvh, 250px); padding: 18px 20px 10px; }
-.lab-contextual-explain-wait { min-height: 28px; font-size: 14px; color: var(--lab-muted); }
-.lab-contextual-explain footer { display: flex; padding: 0; }
-.lab .lab-contextual-explain footer .lab-super-row { display: flex; width: 100%; min-height: 48px; padding: 0 18px 0 0; border-radius: 0; font: 18px/1.4 'EB Garamond', Georgia, serif; }
-.lab-contextual-explain footer .lab-super-row-icon { width: 56px; flex: 0 0 56px; display: grid; place-items: center; }
-.lab-contextual-explain footer button:disabled { opacity: .4; cursor: default; }
+.lab-contextual-explain-scroll { padding: 18px 20px 0; }
+.lab-contextual-explain-scroll p:last-of-type { margin-bottom: 0; }
 .lab .selection-popup.is-lab.is-compact { background: rgba(248,243,232,.96); }
 .lab.is-night .selection-popup.is-lab.is-compact { background: rgba(36,31,26,.96); }
-/* Quiet glass controls, shared with the introduction's rounded action family. */
-.lab .lab-contextual-explain footer { gap: 10px; padding: 12px; border-top: 0; }
-.lab .lab-contextual-explain footer .lab-super-row {
-  justify-content: center; gap: 10px; width: 50%; padding: 0 10px;
-  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .65);
-  background: linear-gradient(155deg, rgba(255,255,255,.26), rgba(255,255,255,.06));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 3px 8px rgba(30,25,18,.10);
-}
-.lab .lab-contextual-explain footer .lab-super-row .lab-super-row-icon { width: 20px; flex: 0 0 20px; }
-.lab .lab-contextual-explain footer .lab-super-row .lab-super-row-label { flex: 0 1 auto; }
-.lab.is-night .lab-contextual-explain footer .lab-super-row { border-color: rgba(255,245,226,.28); background: linear-gradient(155deg, rgba(255,245,226,.10), rgba(255,245,226,.025)); box-shadow: inset 0 1px 0 rgba(255,245,226,.12), 0 3px 8px rgba(0,0,0,.18); }
 .lab .lab-contextual-explain footer button:focus-visible,
-.lab .lab-contextual-explain-heading button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-.lab-contextual-explain-heading { display: flex; justify-content: flex-end; padding: 0 12px; flex-shrink: 0; }
-.lab .lab-contextual-explain-heading button { display: flex; align-items: center; gap: 6px; min-height: 44px; font-size: 14px; color: var(--lab-muted); }
+.lab .lab-contextual-explain button.lab-contextual-explain-more:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+/* Expanded, the card takes the height its paragraphs need, up to the reader's
+   margins; a short answer stays a short card, a long one scrolls inside. */
 .lab .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) {
   z-index: 460;
-  top: 12px !important; left: 12px !important; right: 12px !important; bottom: 12px !important;
-  width: auto; min-width: 0; max-width: none; height: calc(100dvh - 24px); max-height: none;
+  top: 12px !important; left: 12px !important; right: 12px !important; bottom: auto !important;
+  width: auto; min-width: 0; max-width: none; height: auto; max-height: calc(100dvh - 24px);
+  display: flex; flex-direction: column;
 }
-.lab .lab-contextual-explain.is-expanded { height: 100%; }
-.lab .lab-contextual-explain.is-expanded .lab-contextual-explain-scroll { flex: 1; height: auto; min-height: 0; max-height: none; }
+.lab .lab-contextual-explain.is-expanded { height: auto; min-height: 0; max-height: 100%; }
+.lab .lab-contextual-explain.is-expanded .lab-contextual-explain-scroll { flex: 1 1 auto; height: auto; min-height: 0; max-height: none; overflow-y: auto; }
 .lab .lab-ask-attachment-text { display: block; max-height: 100px; overflow-y: auto; overscroll-behavior: contain; -webkit-line-clamp: unset; }
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class*="is-hl-"],
 .lab .lab-passage.has-text-range-highlights .lab-highlight-gap,
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class~="is-selecting"] { background: transparent !important; }
+/* Except the verse number's word: ::highlight paints only the small raised
+   figure's box, which reads as a notch in the band. The span's own box is the
+   line's, so it keeps painting the same colour under the fragment paint
+   (2026-09-19 phone QA, Matthew 14). */
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-selecting:has(> .lab-verse-mark),
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-warm:has(> .lab-verse-mark) { background: var(--highlight-gold, #f5e6c8) !important; }
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-rose:has(> .lab-verse-mark) { background: var(--highlight-rose, #f5d0d0) !important; }
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sage:has(> .lab-verse-mark) { background: var(--highlight-sage, #cde3b4) !important; }
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sky:has(> .lab-verse-mark) { background: var(--highlight-sky, #d0e0f5) !important; }
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-lavender:has(> .lab-verse-mark) { background: var(--highlight-lavender, #e0d0f5) !important; }
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-selecting:has(> .lab-verse-mark),
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-warm:has(> .lab-verse-mark) { background: var(--highlight-gold, #5c4a2e) !important; }
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-rose:has(> .lab-verse-mark) { background: var(--highlight-rose, #5c3030) !important; }
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sage:has(> .lab-verse-mark) { background: var(--highlight-sage, #4a5c2e) !important; }
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sky:has(> .lab-verse-mark) { background: var(--highlight-sky, #2e3a5c) !important; }
+.lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-lavender:has(> .lab-verse-mark) { background: var(--highlight-lavender, #3a2e5c) !important; }
 
 .lab-ask-attachment-text {
   display: block;
@@ -1282,6 +1317,11 @@
   flex: 1;
   min-width: 0;
   height: 100%;
+  /* With a highlight attached, the quoted passage takes most of the composer
+     and this field collapses to a single 1.4-line strip -- a target under 25px
+     tall, which is why the field was hard to hit on a phone. 44px is the floor
+     everything else tappable in the reader uses. */
+  min-height: 44px;
   border: 0;
   outline: none;
   background: transparent;
@@ -2266,10 +2306,15 @@
   line-height: 1.42;
 }
 
+/* Keeps a verse number welded to its first word. `vertical-align: baseline`
+   and no padding matter for highlights: an inline-block that sits off the
+   baseline paints its word's mark a few pixels below the marks either side,
+   which is what made a highlight starting at a verse look like a separate
+   block rather than one continuous run. */
 .lab-verse-unit {
-  display: inline-block;
+  display: inline;
   white-space: nowrap;
-  padding-top: 0.08em;
+  vertical-align: baseline;
 }
 
 /*
@@ -2290,15 +2335,41 @@
   text-indent: -1.5em;
 }
 
+/* The opening of the NEXT page's word, shown so a page's last line fills
+   instead of stopping short. It is decoration, and deliberately invisible to
+   everything that reads text: the hyphen is generated content, so it is not in
+   `textContent` and is not copied; the fragment is unselectable, so a copy, a
+   selection offset or a saved highlight can never contain half a word; and it
+   is aria-hidden, so assistive technology hears the word once, whole, on the
+   page that owns it. */
+/* `.lab .has-text-range-highlights *` makes the whole passage selectable so
+   WebKit will paint custom highlights, and it out-specifies a bare class. The
+   fragment has to beat it, or a select-all picks up half a word. */
+.lab-word-fragment,
+.lab .lab-word-fragment,
+.lab .has-text-range-highlights .lab-word-fragment {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.lab-word-fragment::after {
+  content: '\2010';
+}
+
+/* The verse number is small and raised. Its margin used to sit before it:
+   highlights are painted per text fragment (::highlight) and a margin is not
+   text, so a band across "² And" had a slit there. The space before the
+   number carries that room now (below), and it is painted. */
 .lab-verse-mark {
   font-size: 0.58em;
   vertical-align: super;
   line-height: 0;
   font-weight: 600;
-  margin-left: 0.2em;
+  margin-left: 0;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
+.lab-highlight-gap:has(+ .lab-verse-unit) { letter-spacing: 0.2em; }
 
 /* Reading and playback share one exact typographic surface. */
 .lab-passage.is-reading .lab-hearing-line {
@@ -4450,6 +4521,8 @@
   right: auto;
   bottom: auto;
   width: min(560px, 48%);
+  /* ...unless the reader has dragged the divider; see LabAskPane. */
+  width: var(--lab-companion-width, min(560px, 48%));
   height: 100%;
   max-height: none;
   box-sizing: border-box;
@@ -4463,6 +4536,42 @@
   -webkit-backdrop-filter: blur(24px) saturate(1.08);
   overflow: hidden;
   z-index: 160;
+}
+
+/* The conversation's share of the desktop is the reader's to set: drag the
+   panel's inner edge. A 10px grab strip straddling the border, so it is
+   catchable without eating clicks meant for the text beside it, and invisible
+   until pointed at or focused. Bounds live in useDraggableSurface. */
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  z-index: 6;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: background 140ms ease;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:hover::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:focus-visible::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer.is-resizing::after {
+  background: var(--lab-accent, #1f4a5c);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after { transition: none; }
 }
 
 .lab.is-desktop[data-playing="true"] .lab-ask.is-desktop-companion {
@@ -4866,7 +4975,7 @@
     padding-left: 46px;
   }
 
-  .lab.is-desktop .lab-ask.is-desktop-companion { width: 50%; }
+  .lab.is-desktop .lab-ask.is-desktop-companion { --lab-companion-width: 50%; }
 }
 
 /* Reader control accessibility: quiet glyphs, full finger-sized targets, and
@@ -5209,6 +5318,20 @@
 
 .lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-prev"] { left: 8px; }
 .lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-next"] { right: 8px; }
+
+/* Selection palette: no note form until the explicit + action. */
+.lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
+/* The note opens inside the very same pill: same width, same padding, same
+   corner, so the colour row does not move or resize by a pixel and the popup
+   does not re-centre -- only the field and its actions grow out beneath. */
+.lab .selection-popup.is-lab[data-popup-mode="note"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
+.lab .selection-popup.is-lab[data-popup-mode="note"] .popup-highlight-note{padding:0}
+.lab .popup-highlight-palette{display:flex;align-items:center;gap:20px;min-height:44px;padding:0 4px}
+.lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
+.lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
+.lab .popup-highlight-palette .popup-add-note.is-pressed{transform:rotate(45deg);transform-origin:50% 50%;opacity:.7}
+.lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
+.lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
 
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
@@ -5826,6 +5949,23 @@
 
 .lab[data-chrome-version="v2"] .lab-v2-row.is-step {
   min-height: 48px;
+}
+
+/* A switch row: the page swaps between the main and compare version. */
+.lab[data-chrome-version="v2"] .lab-v2-switch {
+  flex: 0 0 auto; position: relative; width: 40px; height: 24px; border-radius: 12px;
+  background: color-mix(in srgb, currentColor 22%, transparent);
+  transition: background 160ms ease;
+}
+.lab[data-chrome-version="v2"] .lab-v2-switch-knob {
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--lab-paper, #fff); box-shadow: 0 1px 3px rgba(0,0,0,.28);
+  transition: transform 160ms ease;
+}
+.lab[data-chrome-version="v2"] .lab-v2-row.is-toggle[aria-checked="true"] .lab-v2-switch { background: var(--lab-accent, #1f4a5c); }
+.lab[data-chrome-version="v2"] .lab-v2-row.is-toggle[aria-checked="true"] .lab-v2-switch-knob { transform: translateX(16px); }
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-v2-switch, .lab[data-chrome-version="v2"] .lab-v2-switch-knob { transition: none; }
 }
 
 .lab[data-chrome-version="v2"] .lab-v2-row-icon {
@@ -6752,10 +6892,14 @@
 
 /* ── Desktop: the pill in the corner ──────────────────────────────────── */
 
+/* right/bottom below are the pill's RESTING corner. Once the reader drags it,
+   inline left/top win and those two are set to auto — see useDraggableSurface. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
   position: absolute;
   right: 40px;
   bottom: 34px;
+  cursor: grab;
+  touch-action: none;
   z-index: 170;
   display: flex;
   align-items: center;
@@ -6950,11 +7094,16 @@
   padding: 12px;
   border-radius: 24px;
 }
+/* The writing row keeps the 44px floor every other tappable thing in the
+   reader has. With a highlight attached the quote takes most of the composer
+   and this field used to sit at 28px -- the strip that was hard to hit on a
+   phone. This rule out-specifies the shared .lab-ask-composer floor, so the
+   floor has to be stated here as well. */
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-input {
   flex: 0 0 100%;
   width: 100%;
   min-width: 0;
-  min-height: 28px;
+  min-height: 44px;
   max-height: min(180px, 30dvh);
   box-sizing: border-box;
   padding: 2px 4px;
@@ -7227,7 +7376,6 @@
 
 /* While composing on a phone, reserve the viewport for conversation and draft. */
 .lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-header,
-.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-toolbar,
 .lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-back-contents,
 .lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-copy { display: none; }
 .lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask { padding-top: 8px; }
@@ -7263,9 +7411,14 @@
   padding-left: max(14px, calc(25% - 320px));
   padding-right: max(14px, calc(25% - 320px));
 }
+/* The divider drag (LabAskPane, --lab-companion-width) must win over the
+   designed 50% here too, or the panel ignores the width the reader chose. */
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion {
+  width: var(--lab-companion-width, 50%);
+}
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion.is-chat {
   --lab-chat-inset: clamp(12px, 1.4vw, 24px);
-  width: calc(50% - 2 * var(--lab-chat-inset));
+  width: calc(var(--lab-companion-width, 50%) - 2 * var(--lab-chat-inset));
   height: calc(100% - var(--lab-chat-inset) - 48px);
   align-self: start;
   margin-top: var(--lab-chat-inset);
@@ -7367,9 +7520,6 @@
    the text without allocating a header row. Overlay scrollbars need ink clearance. */
 .lab[data-chrome-version="v2"] .lab-ask-thread { scrollbar-gutter: stable; padding-right: 20px; }
 .lab[data-chrome-version="v2"] .lab-contextual-explain { position: relative; }
-.lab[data-chrome-version="v2"] .lab-contextual-explain-heading { position: absolute; right: 4px; top: 2px; z-index: 1; padding: 0; }
-.lab[data-chrome-version="v2"] .lab-contextual-explain-heading button { width: 36px; min-height: 36px; justify-content: center; padding: 0; border-radius: 50%; background: color-mix(in srgb, var(--lab-paper) 45%, transparent); backdrop-filter: blur(12px); }
-.lab[data-chrome-version="v2"] .lab-contextual-explain-scroll { padding-right: 42px; }
 @media (min-width: 769px) {
   .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) { left: calc(50vw + 12px) !important; right: 12px !important; }
   .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain[data-explain-side="left"]:has(.is-expanded) { left: 12px !important; right: calc(50vw + 12px) !important; }
@@ -7382,17 +7532,28 @@
   border-radius: 12px; background: var(--lab-paper); opacity: .85;
 }
 
-/* Keep the verse marker and its first word on one continuous ink band. */
+/* The verse marker and its first word are an inline run (nowrap keeps them
+   together), so each word paints its own mark on the same box as every word
+   around it. A separate inline-block box, painted as one band, sat a few
+   pixels off the neighbouring marks in WebKit (2026-09-19 phone QA). */
 .lab[data-chrome-version="v2"] .lab-verse-unit { padding-top: 0; }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-hl-warm:first-child):has(> .is-hl-warm:last-child) { background: var(--highlight-gold, #f5e6c8); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-warm:first-child):has(> .is-hl-warm:last-child) { background: var(--highlight-gold, #5c4a2e); }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-hl-rose:first-child):has(> .is-hl-rose:last-child) { background: var(--highlight-rose, #f5d0d0); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-rose:first-child):has(> .is-hl-rose:last-child) { background: var(--highlight-rose, #5c3030); }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-hl-sage:first-child):has(> .is-hl-sage:last-child) { background: var(--highlight-sage, #cde3b4); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-sage:first-child):has(> .is-hl-sage:last-child) { background: var(--highlight-sage, #4a5c2e); }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-hl-sky:first-child):has(> .is-hl-sky:last-child) { background: var(--highlight-sky, #d0e0f5); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-sky:first-child):has(> .is-hl-sky:last-child) { background: var(--highlight-sky, #2e3a5c); }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-hl-lavender:first-child):has(> .is-hl-lavender:last-child) { background: var(--highlight-lavender, #e0d0f5); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-lavender:first-child):has(> .is-hl-lavender:last-child) { background: var(--highlight-lavender, #3a2e5c); }
-.lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-selecting:first-child):has(> .is-selecting:last-child) { background: var(--highlight-gold, #f5e6c8); }
-.lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-selecting:first-child):has(> .is-selecting:last-child) { background: var(--highlight-gold, #5c4a2e); }
+
+/* Approved cover entry: art remains dominant; compact choices sit on its lower edge. */
+.lab[data-chrome-version="v2"] .lab-cover-entry{background:transparent;padding:0 18px max(18px,env(safe-area-inset-bottom))}
+.lab[data-chrome-version="v2"] .lab-cover-entry button{min-height:54px;padding:9px 14px;background:#20231feb;border:1px solid #ffffff20;backdrop-filter:blur(18px)}
+.lab[data-chrome-version="v2"] .lab-cover-entry button+button{border-top:0}
+.lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
+.lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}
+
+
+
+/* A dragged pill follows the pointer, so the cursor says so and text under it
+   is not selected on the way past. The controls inside keep their own pointer
+   cursor: a press only becomes a drag after DRAG_SLOP px of travel. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill button { cursor: pointer; }
+
+

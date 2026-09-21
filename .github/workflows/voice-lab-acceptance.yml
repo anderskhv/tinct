@@ -1,0 +1,32 @@
+name: voice-lab-acceptance
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  voice:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify production voice room with simulated media and providers
+        run: BASE=https://tinct.app node ../output/voice-lab-2026-09-17/acceptance.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voice-room-acceptance
+          path: output/voice-lab-2026-09-17/

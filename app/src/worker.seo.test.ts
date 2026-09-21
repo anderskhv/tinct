@@ -425,7 +425,8 @@ describe('worker SEO routing', () => {
     expect(html).toContain('Browse the library')
     expect(html).not.toContain('app shell')
     const csp = resp.headers.get('Content-Security-Policy') || ''
-    expect(csp).toContain('https://api.openai.com')
+    expect(csp).toContain('wss://api.x.ai')
+    expect(csp).not.toContain('api.openai.com')
     expect(csp).toContain('mediastream:')
   })
 

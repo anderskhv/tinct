@@ -59,7 +59,8 @@ export interface SelectionPopupProps {
   onExplanationReady?: (answer: string) => void
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
-  onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
+  /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
+  onRequestExplanation?: (onDelta: (text: string) => void, text?: string) => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
   onDeleteHighlight?: (id: string) => void
@@ -222,11 +223,14 @@ export function SelectionPopup({
     onColorClick(color)
     setPopupMode('colors')
   }
-  const applyNoteColor = (color: HighlightColor) => {
-    setLastColor(color)
-    try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
-    if (selection.existingHighlightId) onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
-    onColorClick(color)
+  /**
+   * Picking a colour from the open palette is a finished action: apply it and
+   * get out of the reader's way. (`applyColor` on its own still opens the
+   * palette — that is the Highlight action, whose whole point is to offer the
+   * choice.)
+   */
+  const pickColor = (color: HighlightColor) => {
+    applyColor(color)
     dismissPopup()
   }
   const dismissRef = useRef(dismissPopup)
@@ -287,7 +291,7 @@ export function SelectionPopup({
       onTouchEnd={e => e.stopPropagation()}
     >
       {contextualExplain && popupMode === 'explain' && (
-        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} />
+        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} onClose={dismissPopup} />
       )}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
@@ -343,7 +347,10 @@ export function SelectionPopup({
               </ol>
             </div>
           )}
-          {!defineLoading && defineNotFound && (
+          {!defineLoading && defineNotFound && contextualExplain && (typeof navigator === 'undefined' || navigator.onLine !== false) ? (
+            // A dictionary miss is not a dead end: the same card explains the word in its place.
+            <ContextualExplainCard passage={defineQuery} request={onDelta => onRequestExplanation!(onDelta, defineQuery)} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} />
+          ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
             </div>
@@ -381,46 +388,62 @@ export function SelectionPopup({
         </div>
       )}
 
+      {contextualExplain && popupMode === 'colors' && <div className="popup-highlight-palette" aria-label="Highlight colour">
+        {HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => pickColor(c.key)} />)}
+        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => onRequestNote(lastColor)}>+</button>
+      </div>}
+
       {popupMode === 'note' && (
         <div className={`popup-issue-form${contextualExplain ? ' popup-highlight-note' : ''}`}>
-          {contextualExplain && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyNoteColor(c.key)} />)}</div>}
-          <textarea
-            className="popup-textarea"
-            value={noteInput}
-            onChange={e => setNoteInput(e.target.value)}
-            placeholder={contextualExplain ? 'Add a note (optional)…' : 'Add a note to this highlight...'}
-            aria-label="Highlight note"
-            rows={3}
-            onClick={e => e.stopPropagation()}
-            autoFocus={!contextualExplain}
-          />
-          <div className="popup-note-actions">
-            <button className="popup-button" onClick={() => {
-              if (contextualExplain) setNoteInput(selection.existingNote || '')
-              setPopupMode(homeMode)
-            }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
-            <button
-              className="popup-button popup-button-primary"
-              onClick={() => {
-                if (selection.existingHighlightId) {
-                  onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
-                }
-                dismissPopup()
-              }}
-            >{contextualExplain ? 'Done' : 'Save'}</button>
+          {/* Same markup as the compact palette, so opening a note does not
+              resize or shift the dots: the row stays put and the note grows
+              out beneath it. */}
+          {contextualExplain && <div className="popup-highlight-palette" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}
+            {/* The same "+" the palette carries, so the row is the same width
+                and the pill does not narrow or re-centre; pressed, it folds
+                the note away again. */}
+            <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}>+</button>
+          </div>}
+          <div className={contextualExplain ? 'popup-note-body' : undefined}>
+            <textarea
+              className="popup-textarea"
+              value={noteInput}
+              onChange={e => setNoteInput(e.target.value)}
+              placeholder={contextualExplain ? 'Add a note…' : 'Add a note to this highlight...'}
+              aria-label="Highlight note"
+              rows={3}
+              onClick={e => e.stopPropagation()}
+              autoFocus={!contextualExplain}
+            />
+            <div className="popup-note-actions">
+              <button className="popup-button" onClick={() => {
+                if (contextualExplain) setNoteInput(selection.existingNote || '')
+                setPopupMode(homeMode)
+              }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
+              <button
+                className="popup-button popup-button-primary"
+                onClick={() => {
+                  if (selection.existingHighlightId) {
+                    onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
+                  }
+                  dismissPopup()
+                }}
+              >{contextualExplain ? 'Save note' : 'Save'}</button>
+            </div>
+            {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
           </div>
-          {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
         </div>
       )}
 
-      {(popupMode === 'main' || popupMode === 'colors') && (
+      {(popupMode === 'main' || (popupMode === 'colors' && !contextualExplain)) && (
         <div className="popup-compact-menu">
           {informationMode && <div className="popup-menu-heading"><button type="button" onClick={() => { setGalleryId(null); setPopupMode(informationMode) }} aria-label="Back to information">‹ Back</button></div>}
           {contextualExplain ? (
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={openContextualExplanation}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-              <button type="button" className="popup-menu-action" onClick={() => onRequestNote(lastColor)}><NoteIcon /><span>Highlight</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><NoteIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
             </>
           ) : <>

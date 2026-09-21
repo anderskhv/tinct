@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { VOICE_AGENT_POLICY, VOICE_TOOLS } from '../voice/context'
+import { VOICE_TOOLS } from '../voice/context'
 import {
   affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
@@ -101,7 +101,6 @@ describe('lab ask context', () => {
     expect(instructions).toContain('no Book 3')
     expect(instructions).toContain('no ending')
     expect(instructions).toContain('Reading angle: homecoming')
-    expect(instructions).not.toContain(VOICE_AGENT_POLICY)
     expect(instructions).not.toContain('Speak for about 20')
     expect(instructions).toContain('resume_audiobook')
     expect(instructions).not.toContain('return control to audiobook')
@@ -116,9 +115,9 @@ describe('lab ask context', () => {
     const strip = readFileSync(resolve(__dirname, '../components/AudioStrip.tsx'), 'utf8')
     const session = readFileSync(resolve(__dirname, '../hooks/useVoiceSession.ts'), 'utf8')
     const context = readFileSync(resolve(__dirname, '../voice/context.ts'), 'utf8')
-    expect(context).toContain('Speak for about 20–30 seconds')
+    expect(context).toContain('buildGrokVoiceInstructions')
     expect(context).toContain('resume_audiobook')
-    expect(session).toContain('Production AudioStrip leaves this unset')
+    expect(session).toContain('Production App.tsx leaves this unset')
     expect(strip).not.toContain("from '../lab/")
     expect(strip).not.toContain('buildLabAskInstructions')
   })
@@ -191,15 +190,13 @@ describe('resume listen command', () => {
 describe('lab voice tools', () => {
   it('gives lab the resume and speed tools and honors the model call', () => {
     const ask = readFileSync(resolve(__dirname, 'useLabAsk.ts'), 'utf8')
-    const controller = readFileSync(resolve(__dirname, '../voice/VoiceSessionController.ts'), 'utf8')
+    const controller = readFileSync(resolve(__dirname, '../voice/GrokVoiceSessionController.ts'), 'utf8')
     const context = readFileSync(resolve(__dirname, '../voice/context.ts'), 'utf8')
     expect(ask).toContain('LAB_VOICE_TOOLS')
-    expect(ask).toContain('honorModelResume: true')
     expect(ask).toContain('onSetPlaybackSpeed')
     expect(ask).not.toContain('tools: []')
-    expect(controller).toContain('this.honorModelResume || shouldHonorModelResume')
     expect(controller).toContain("name === 'set_playback_speed'")
-    expect(controller).toContain('this.honorModelResume')
+    expect(controller).toContain("call.name === 'resume_audiobook'")
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'set_playback_speed')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'set_assistant_pace')).toBe(true)
     expect(LAB_VOICE_TOOLS.some(tool => tool.name === 'next_chapter')).toBe(true)
@@ -214,16 +211,13 @@ describe('lab voice tools', () => {
     expect(context).not.toContain('set_playback_speed')
     expect(context).not.toContain('set_assistant_pace')
     expect(context).not.toContain('next_chapter')
-    expect(controller).toContain('isLabPlaybackSkip(name)')
-    expect(controller).toContain('continueAfterPlaybackAdjust')
+    expect(controller).toContain('isLabPlaybackSkip(call.name)')
     expect(ask).toContain('onPlaybackSkip')
     expect(ask).toContain('skipPlayback')
     expect(ask).toContain('onSetAssistantPace')
-    expect(ask).toContain('onCompanionAsk')
-    expect(ask).toContain('talkInstructions')
-    expect(controller).toContain('ASK_COMPANION_TOOL')
+    expect(ask).toContain('talkReference')
     expect(controller).toContain("name === 'set_assistant_pace'")
-    expect(controller).toContain('audio.output')
+    expect(controller).toContain('output: { speed')
     expect(controller).toContain('ASSISTANT_PACE_SPEED')
   })
 })

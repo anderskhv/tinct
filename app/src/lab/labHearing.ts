@@ -19,6 +19,12 @@ export interface HearingWord {
   wordIndex?: number
   /** True when this word came from a Gutenberg `_..._` emphasis pair. */
   emphasis?: boolean
+  /**
+   * Display-only opening of the NEXT page's word, shown at a page edge. It has
+   * no word index, is not selectable, is hidden from assistive technology, and
+   * its hyphen is CSS, so it is invisible to everything that reads the text.
+   */
+  fragment?: true
 }
 
 export interface HearingLine {
@@ -512,6 +518,56 @@ export interface ChapterPageSegment {
   paragraphIndex: number
   from: number
   to: number
+  /**
+   * This segment's first word is shown from this character onward, because the
+   * previous page displayed its opening as a hyphenated fragment. The word
+   * still BELONGS to this page and to this page only.
+   */
+  headBreak?: number
+  /**
+   * Characters of the word at `to` shown at the end of this page as a
+   * display-only fragment. That word belongs to the NEXT page: the fragment
+   * carries no word index, is not selectable and is hidden from assistive
+   * technology, so nothing keyed on word index can see it.
+   *
+   * Segment ranges therefore stay strictly adjacent — `to` of one equals `from`
+   * of the next, exactly as before hyphenation existed — and every
+   * (paragraph, word) still resolves to exactly one page.
+   */
+  tailFragment?: number
+}
+
+/**
+ * A rendered word of a page. `fragment` marks the display-only opening of the
+ * NEXT page's word: it has no index, is not selectable, is hidden from
+ * assistive technology, and its hyphen is drawn by CSS (`::after`) so it never
+ * enters `textContent`, a copy, a selection offset or a saved highlight.
+ */
+export type SegmentWord<T> = T & { fragment?: true }
+
+/**
+ * The words of a segment as they are RENDERED: the plain slice, except that a
+ * word whose opening was shown on the previous page starts partway in, and a
+ * display fragment of the next page's word may be appended.
+ *
+ * Every surface goes through here — the reading column, the narration paint and
+ * the offscreen measurement — so the paginator measures what the reader sees.
+ */
+export function segmentWordTexts<T extends { text: string }>(
+  words: T[],
+  segment: ChapterPageSegment,
+): Array<SegmentWord<T>> {
+  const out: Array<SegmentWord<T>> = words.slice(segment.from, segment.to)
+  if (out.length && segment.headBreak != null && segment.headBreak > 0) {
+    out[0] = { ...out[0], text: out[0].text.slice(segment.headBreak) }
+  }
+  if (segment.tailFragment != null && segment.tailFragment > 0) {
+    const source = words[segment.to]
+    if (source) {
+      out.push({ ...source, text: source.text.slice(0, segment.tailFragment), fragment: true })
+    }
+  }
+  return out
 }
 
 export function chapterPageSegments(page: ChapterHearingPage | undefined): ChapterPageSegment[] {
@@ -520,8 +576,21 @@ export function chapterPageSegments(page: ChapterHearingPage | undefined): Chapt
   return [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
 }
 
+/**
+ * Rebuild a page from reshaped segments.
+ *
+ * Every caller is a post-paint adjuster that moves `from` or `to` — growing a
+ * page, cutting its tail, reflowing after a cut. A page-edge break is an offset
+ * into the word at a particular boundary, so the moment that boundary moves the
+ * offset describes a different word: kept, it would duplicate or drop letters.
+ * They are therefore dropped here, at the one place all of those adjusters pass
+ * through. The page falls back to breaking between words, which is always
+ * correct, and the next measurement pass re-hyphenates it.
+ */
 function pageFromSegments(segments: ChapterPageSegment[]): ChapterHearingPage | null {
-  const clean = segments.filter(segment => segment.to > segment.from)
+  const clean = segments
+    .filter(segment => segment.to > segment.from)
+    .map(({ tailFragment: _tailFragment, headBreak: _headBreak, ...segment }) => segment)
   const first = clean[0]
   if (!first) return null
   return {
@@ -796,6 +865,11 @@ export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[
       segment.paragraphIndex === right[segmentIndex]?.paragraphIndex
       && segment.from === right[segmentIndex]?.from
       && segment.to === right[segmentIndex]?.to
+      // Hyphenation never moves `from`/`to`, so without these the hyphenated
+      // re-measure compares equal to the plain one and is thrown away — the
+      // second pass would silently never reach the reader.
+      && segment.tailFragment === right[segmentIndex]?.tailFragment
+      && segment.headBreak === right[segmentIndex]?.headBreak
     ))
   })
 }
@@ -958,16 +1032,69 @@ export function pageIndexForPlace(
 }
 
 /** Same pages Hearing uses, flattened across the chapter for Reading. */
+/**
+ * Whether a page-edge break between two adjacent segments reconstructs its
+ * source word exactly once.
+ *
+ * Checking only that both sides are non-null is not enough: mismatched offsets
+ * silently duplicate or drop letters ("heav" + "vens", "heav" + "ns"), and an
+ * offset at 0 or at the word's length produces an empty half or a hyphen with
+ * nothing after it. Every one of those is a text-integrity bug, so the layout
+ * is rejected and the reader gets the un-hyphenated pagination instead.
+ */
+export function pageBreakPairIsSound(
+  before: ChapterPageSegment,
+  after: ChapterPageSegment,
+  words: Array<{ text: string }>,
+): boolean {
+  const fragment = before.tailFragment
+  const head = after.headBreak
+  if (fragment == null && head == null) return true
+  // One side alone means the two pages disagree about what they are showing.
+  if (fragment == null || head == null) return false
+  if (fragment !== head) return false
+  if (!Number.isInteger(fragment)) return false
+  const word = words[before.to]?.text
+  if (!word) return false
+  // A break must be strictly inside the word: neither half may be empty.
+  return fragment > 0 && fragment < word.length
+}
+
+/**
+ * The two halves as the pages will DRAW them, reconstructed. This is what
+ * "spells the word exactly once" actually means, and unlike comparing
+ * `slice(0,n) + slice(n)` to the original — which is true for any n — it can
+ * fail, because each side is taken from its own segment's offset.
+ */
+export function drawnBrokenWord(
+  before: ChapterPageSegment,
+  after: ChapterPageSegment,
+  words: Array<{ text: string }>,
+): string | null {
+  const word = words[before.to]?.text
+  if (!word || before.tailFragment == null || after.headBreak == null) return null
+  return word.slice(0, before.tailFragment) + word.slice(after.headBreak)
+}
+
 /** True when every paragraph is covered, in order, with no gaps or N/M holes. */
 export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPage[]): boolean {
   for (let i = 0; i < paragraphs.length; i++) {
-    const n = tokenizeHearingWords(paragraphs[i]).length
+    const words = tokenizeHearingWords(paragraphs[i])
+    const n = words.length
     if (n === 0) continue
     const parts = pages.flatMap(page => chapterPageSegments(page)).filter(part => part.paragraphIndex === i)
     if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
+    // Nothing precedes a paragraph's first segment, so nothing can have shown
+    // the opening of its first word.
+    if (parts[0].headBreak != null) return false
     for (let j = 0; j < parts.length - 1; j++) {
+      // Ranges stay strictly adjacent: a page-edge break adds a display
+      // fragment, never a shared word index.
       if (parts[j].to !== parts[j + 1].from) return false
+      if (!pageBreakPairIsSound(parts[j], parts[j + 1], words)) return false
     }
+    // The last segment of a paragraph has nothing after it to continue into.
+    if (parts[parts.length - 1].tailFragment != null) return false
   }
   return pages.length === 0 ? paragraphs.every(text => tokenizeHearingWords(text).length === 0) : true
 }
@@ -995,7 +1122,12 @@ export function readingPageLines(paragraphs: string[], page: ChapterHearingPage 
     return {
       paragraphIndex: segment.paragraphIndex,
       from: segment.from,
-      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const, emphasis: word.emphasis })),
+      words: segmentWordTexts(words, segment).map(word => ({
+        text: word.text,
+        role: 'line' as const,
+        emphasis: word.emphasis,
+        ...(word.fragment ? { fragment: true as const } : {}),
+      })),
     }
   })
 }
@@ -1012,7 +1144,10 @@ export function hearingReadingPageLines(
     return {
       paragraphIndex: segment.paragraphIndex,
       from: segment.from,
-      words: words.slice(segment.from, segment.to).map((word, offset) => {
+      words: segmentWordTexts(words, segment).map((word, offset) => {
+        // The trailing fragment is not a word: it owns no index, so narration
+        // never follows it and it can never claim a spoken word's paint.
+        if (word.fragment) return { text: word.text, role: 'line' as const, emphasis: word.emphasis, fragment: true as const }
         const wordIndex = segment.from + offset
         let role: HearingWordRole = 'line'
         if (follow.kind === 'word') {

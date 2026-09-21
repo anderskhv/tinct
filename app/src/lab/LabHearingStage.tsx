@@ -4,7 +4,7 @@ import { followGranularity, followWordRole, type FollowParagraph, type FollowTar
 
 interface LabHearingStageProps {
   paragraphs: FollowParagraph[]
-  clips?: Array<{ duration?: number }>
+  clips?: Array<{ duration?: number; kind?: string; index?: number }>
   follow: FollowTarget
   playing: boolean
   clipIndex: number
@@ -29,9 +29,13 @@ export function LabHearingStage({
   onCycleSpeed,
   hideTransport = false,
 }: LabHearingStageProps) {
+  // Clips may be sentence groups (several per paragraph), so the paragraph
+  // behind a clip is looked up by the clip's own paragraph index.
+  const clipAt = clips?.[clipIndex]
+  const clipParagraph = clipAt?.kind === 'paragraph' && typeof clipAt.index === 'number' ? clipAt.index : clipIndex
   const paragraph = follow.kind === 'none'
-    ? paragraphs[clipIndex] || paragraphs[0]
-    : paragraphs.find(item => item.index === follow.paragraphIndex) || paragraphs[clipIndex]
+    ? paragraphs.find(item => item.index === clipParagraph) || paragraphs[clipIndex] || paragraphs[0]
+    : paragraphs.find(item => item.index === follow.paragraphIndex) || paragraphs.find(item => item.index === clipParagraph) || paragraphs[clipIndex]
   const lines = hearingStageLines(paragraph, follow.kind === 'none' && paragraph
     ? { kind: paragraph.words ? 'word' : 'paragraph', paragraphIndex: paragraph.index, wordIndex: 0 }
     : follow)

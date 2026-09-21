@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
+import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import {
@@ -39,6 +40,13 @@ export interface LabV2SheetProps {
   onPrefs: (prefs: LabPrefs) => void
   editions: Edition[]
   audioEditions?: Edition[]
+  /** Present once a compare edition is chosen: the switch between the main and compare page. */
+  compare?: { active: boolean; onToggle: () => void } | null
+  /**
+   * Fish narration pilot row, present only for a reader who opted in with
+   * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
+   */
+  narrationPilot?: { info: NarrationPilotInfo | null; voice: string | null } | null
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
 }
@@ -163,7 +171,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions, compare = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
     authLoading: auth.isLoading,
@@ -270,6 +278,19 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   options={[{ value: '', label: 'None' }, ...editionOptions.filter(option => option.value !== prefs.primaryEdition)]}
                   onChange={value => onPrefs({ ...prefs, compareEdition: value || prefs.compareEdition, compareOpen: value !== '' })}
                 />
+                {compare && prefs.compareOpen && (
+                  <button
+                    type="button"
+                    className="lab-v2-row is-toggle"
+                    role="switch"
+                    aria-checked={compare.active}
+                    data-testid="lab-v2-show-compare"
+                    onClick={compare.onToggle}
+                  >
+                    <span className="lab-v2-row-label">Show compare version</span>
+                    <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                  </button>
+                )}
                 <SelectRow
                   label="Audiobook"
                   testId="lab-v2-audio-edition"
@@ -277,6 +298,20 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   options={[{ value: '', label: 'Follow primary edition' }, ...audioEditions.map(edition => ({ value: edition.key, label: edition.label }))]}
                   onChange={value => onPrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
                 />
+                {narrationPilot && (
+                  <SelectRow
+                    label="Narration pilot"
+                    testId="lab-v2-narration-voice"
+                    value={narrationPilot.info?.enabled && narrationPilot.voice ? narrationPilot.voice : ''}
+                    options={[
+                      { value: '', label: narrationPilot.info?.enabled ? 'Off' : 'Not set up on this server' },
+                      ...(narrationPilot.info?.voices ?? []).map(voice => ({ value: voice.key, label: voice.label })),
+                    ]}
+                    onChange={value => onPrefs(value
+                      ? { ...prefs, narrationProvider: 'fish', narrationVoice: value }
+                      : { ...prefs, narrationProvider: null })}
+                  />
+                )}
               </div>
               <div className="lab-v2-foot">
                 <button

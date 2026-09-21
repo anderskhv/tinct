@@ -262,18 +262,16 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
   })
 
-  it('has no Compare row at all when no compare edition is chosen', () => {
-    expect(labSuperMenuRows({ compare: false }).map(row => row.id))
+  it('has no Compare row, with or without a compare edition', () => {
+    expect(labSuperMenuRows({ phone: true }).map(row => row.id))
       .toEqual(['chat', 'talk', 'library', 'settings', 'account'])
-    expect(labSuperMenuRows({ compare: true }).map(row => row.id))
-      .toEqual(['chat', 'talk', 'compare', 'library', 'settings', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('shows Compare once a second version is picked', () => {
+  it('keeps Compare out of the menu once a second version is picked; the switch is in Reading settings', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
@@ -286,7 +284,9 @@ describe('the super-menu', () => {
       }}
     />)
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.getByTestId('lab-super-row-compare')).toBeTruthy()
+    expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
   })
 
   it('opens the reading settings sheet from its row', () => {
@@ -415,6 +415,22 @@ describe('the transport', () => {
       'lab-hearing-forward',
       'lab-phone-talk',
     ])
+  })
+
+  it('puts a paused transport away on the next page turn, and keeps a playing one', async () => {
+    stubAudio()
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(root().getAttribute('data-transport')).toBe('open'))
+    // Playing: a page turn leaves the transport where it is.
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(root().getAttribute('data-transport')).toBe('open')
+    // Paused: it stays for the moment, then goes with the next page turn.
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-v2-play').getAttribute('aria-label')).toBe('Play'))
+    expect(root().getAttribute('data-transport')).toBe('open')
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    await waitFor(() => expect(root().getAttribute('data-transport')).toBe('closed'))
   })
 
   it('lets the chrome hide over playing audio while the transport stays', async () => {

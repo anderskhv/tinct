@@ -15,7 +15,9 @@ tooling, recovered so the work can run in the cloud instead of on one Mac.
 ## Helper revisions (2026-09-11)
 
 `trial.py` compares through a **pinned helper revision**, selected with
-`--helper v1|v2` (default `v2`); hashes and what each pin is are in `PINS.md`.
+`--helper v1|v2|v3|v4|v5|v6|v7` (default `v7`); hashes and what each pin is are in `PINS.md`.
+The next GPU canary must run after `codex/audio-runner-reviewed` includes v7.
+This pin only changes restore mapping. It does not launch GPU work.
 
 - `v1` — `pinned_words_sidecar_lib.py`, the verbatim `f5b23de7` helper above.
   Unchanged; `--helper v1` reproduces run 1's comparison exactly.
@@ -27,6 +29,12 @@ tooling, recovered so the work can run in the cloud instead of on one Mac.
   gate, the timestamps and the interpolation rule are untouched. A paragraph
   with none of that markup aligns byte-for-byte as under `v1`.
   Evidence: `docs/audio-normalisation-2026-09-11.md`.
+- `v6` — `pinned_words_sidecar_lib_v6.py`, v5 plus unspoken whole-paragraph
+  chapter/section headings (manifesto ch4 p21 is the 0.80→pass fixture).
+  Frozen. See `HEADING-RULE-V6.md` and `GREEK-POETICS-CANARY-15.md`.
+- `v7` — `pinned_words_sidecar_lib_v7.py`, v6 scoring plus restore-safe
+  heading strip (Hume modern-en/7 p14 / canary 35323671028). Gate stays
+  0.85. See `HEADING-RULE-V7.md`.
 
 Tests for the aligner live next to it and are run from this directory:
 

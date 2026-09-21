@@ -297,6 +297,29 @@ it('never spends guest allowance or opens an account prompt during speculation',
   expect(fetcher).not.toHaveBeenCalled(); expect(onAccountPrompt).not.toHaveBeenCalled()
 })
 
+it('drops a speculative explanation nobody opened and keeps one the reader did', async () => {
+  const fetcher = vi.fn().mockImplementation((_url: string, init: { signal: AbortSignal }) => new Promise((resolve, reject) => {
+    // Like fetch: an already-aborted signal rejects at once, a later abort rejects then.
+    if (init.signal.aborted) { reject(new DOMException('aborted', 'AbortError')); return }
+    init.signal.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')))
+    setTimeout(() => resolve(ok()), 30)
+  }))
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+  const input = { text: 'Of the children of Ammon.', editionKey: 'web-en', paragraphs: base.paragraphs, paragraphIndex: 0 }
+  const speculative = result.current.explainSelection({ ...input, speculative: true }, vi.fn())
+  act(() => result.current.discardSpeculativeExplanation())
+  await expect(speculative).rejects.toThrow()
+  expect(fetcher.mock.calls[0][1].signal.aborted).toBe(true)
+  // Opened: a later discard (the popup closing after Explain) leaves it alone.
+  const opened = result.current.explainSelection(input, vi.fn())
+  act(() => result.current.discardSpeculativeExplanation())
+  await expect(opened).resolves.toBeTruthy()
+  expect(fetcher).toHaveBeenCalledTimes(2)
+  expect(JSON.parse(fetcher.mock.calls[1][1].body).max_tokens).toBe(450)
+  expect(JSON.parse(fetcher.mock.calls[1][1].body).messages[0].content).toContain('at most 25 words')
+})
+
 it('records a displayed explanation once and sends it as context for the next question', async () => {
  const fetcher = vi.fn().mockResolvedValue(ok())
  vi.stubGlobal('fetch', fetcher)

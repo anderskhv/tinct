@@ -3,9 +3,6 @@ import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './l
 
 export interface LabSuperMenuProps {
   open: boolean
-  /** No compare edition chosen means no Compare row at all. */
-  compare: boolean
-  compareActive?: boolean
   phone?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
@@ -28,15 +25,6 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
         <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
         <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
         <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
-      </svg>
-    )
-  }
-  if (id === 'compare') {
-    return (
-      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2.75" y="4.25" width="8" height="15.5" rx="1.65" />
-        <rect x="13.25" y="4.25" width="8" height="15.5" rx="1.65" />
-        <path d="M5.25 8h3M5.25 11h3M15.75 8h3M15.75 11h3" />
       </svg>
     )
   }
@@ -73,7 +61,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, compare, compareActive, phone, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuProps) {
   useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
@@ -84,7 +72,7 @@ export function LabSuperMenu({ open, compare, compareActive, phone, onSelect, on
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ compare, compareActive, phone })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone })
 
   return (
     <div className="lab-super-layer" data-testid="lab-super-layer">

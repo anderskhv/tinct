@@ -87,6 +87,13 @@ export interface LabSharedPrefs {
   audioFollowsPrimary?: boolean
   audioSpeed: number
   compareOpen: boolean
+  /**
+   * Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Off
+   * unless the reader opted in with `?narration=fish` on a reader route; the
+   * chosen voice key follows the reader across English edition switches.
+   */
+  narrationProvider?: 'fish' | null
+  narrationVoice?: string | null
 }
 
 export interface LabStoredPrefs {
@@ -321,6 +328,10 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
     compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    // Narration pilot keys are stored only once a reader opted in, so the
+    // stored shape of every other reader's prefs is unchanged.
+    ...(src.narrationProvider === 'fish' ? { narrationProvider: 'fish' as const } : {}),
+    ...(typeof src.narrationVoice === 'string' && /^[a-z]$/.test(src.narrationVoice) ? { narrationVoice: src.narrationVoice } : {}),
   }
 }
 

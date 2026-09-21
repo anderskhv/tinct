@@ -28,7 +28,7 @@ Each edition file is `{bookId}-{editionKey}.json` with structure:
 }
 ```
 
-Edition keys: `original-en`, `modern-en`, `modern-da` (most books). Bible has `kjv-en`, `web-en`, `modern-en`, `modern-da`.
+Edition keys: `original-en`, `modern-en` (most books). Bible has `kjv-en`, `web-en`, `modern-en`.
 
 ## QA Tiers
 
@@ -43,7 +43,7 @@ Edition keys: `original-en`, `modern-en`, `modern-da` (most books). Bible has `k
 ### Layer 1 — Structural Checks (automated, run via `node structural-check.cjs`)
 
 The script checks every book automatically:
-1. **Paragraph alignment** — modern-en and modern-da must have same paragraph count as original per chapter
+1. **Paragraph alignment** — modern-en must have same paragraph count as original per chapter
 2. **Length ratios** — each translated paragraph vs original. Flag if <30% or >300% of original length
 3. **Empty content** — empty paragraphs, empty chapters, missing chapters
 4. **Chapter count** — all editions of same book must have same number of chapters
@@ -60,12 +60,6 @@ For each book, sample 3 paragraphs per chapter (first, middle, last) and evaluat
 - **Translationese** (1-5, inverted — 5 = no translationese): Stiff syntax, false cognates, unnatural word order?
 
 Flag anything scoring below 3 on any dimension.
-
-**Danish-specific checks:**
-- False cognates (e.g., "eventually" ≠ "eventuelt")
-- Dropped verb prefixes
-- Translationese word order (English SVO imposed on Danish)
-- Overly formal register where casual is appropriate
 
 ### Layer 3 — Threads QA
 
@@ -105,9 +99,9 @@ node structural-check.cjs --book odyssey
   "books": {
     "odyssey": {
       "status": "pass|warn|fail",
-      "editions_found": ["original-en", "modern-en", "modern-da"],
+      "editions_found": ["original-en", "modern-en"],
       "editions_missing": [],
-      "chapter_counts": { "original-en": 24, "modern-en": 24, "modern-da": 24 },
+      "chapter_counts": { "original-en": 24, "modern-en": 24 },
       "issues": []
     }
   }
@@ -118,17 +112,17 @@ node structural-check.cjs --book odyssey
 ```markdown
 # Spot-Check: The Odyssey
 Date: 2026-04-08
-Editions checked: modern-en, modern-da
+Editions checked: modern-en
 
 ## Summary
 - Modern EN: avg 4.2/5 across dimensions — PASS
-- Modern DA: avg 3.1/5, flagged for translationese — NEEDS REVIEW
 
 ## Flagged Paragraphs
-### Chapter 3, Paragraph 12 (modern-da)
-- Accuracy: 4, Fluency: 2, Literary: 3, Translationese: 2
-- Issue: "Han besluttede sig for eventuelt at..." — false cognate, should be "til sidst"
-- Original: "He eventually decided to..."
+### Chapter 3, Paragraph 12 (modern-en)
+- Accuracy: 2, Fluency: 4, Literary: 3, Translationese: 4
+- Issue: An absolute claim was weakened.
+- Original: "He could never return."
+- Candidate: "It was difficult for him to return."
 ```
 
 ## Human Review Queue
@@ -140,18 +134,7 @@ Anders will review up to **100 flagged sentences per book**. Your job is to make
 ### What to flag:
 - Paragraphs that failed spot-check scoring (any dimension < 3)
 - Length ratio outliers (structural check warnings)
-- **Danish linguistic pattern matches** (see watchlist below)
 - Anything that feels "off" during spot-check — when in doubt, flag it
-
-### Danish Polysemy/Pattern Watchlist
-Flag occurrences of these for human review (not auto-fix):
-- **False cognates**: "bestå" (≠ stand), "eventuelt" (≠ eventually), "aktuel" (≠ actual), "realisere" (≠ realize), "gilder" (≠ guilds)
-- **Polysemous words**: "retten" (court vs justice), "dom" (judgment vs cathedral), "offer" (sacrifice vs victim)
-- **Deflated verbs**: "rykkede" where a specific verb would be punchier
-- **Dropped verb prefixes**: missing for-/be-/ind-/ud-/an- prefixes
-- **English article interference**: separate articles where Danish uses suffixed
-
-This list will grow. Check the memory file at `~/.claude/projects/-Users-andershvelplund-Documents-Projects-Tinct/memory/feedback_danish_quality.md` for the latest patterns.
 
 ### Review file format:
 ```markdown
@@ -166,11 +149,11 @@ Mark with [OK] or [FIX] + your correction. Return the file to the QA agent.
 
 ## Flagged Sentences
 
-### 1. [Chapter X, Paragraph Y] (reason: false cognate)
-- **Original (EN):** "Who is able to stand before the LORD?"
-- **Danish:** "Hvem kan bestå for HERREN?"
-- **Issue:** "bestå" means endure/pass, not stand in presence
-- **Suggestion:** "Hvem kan stå for HERREN?"
+### 1. [Chapter X, Paragraph Y] (reason: changed certainty)
+- **Source:** "He could never return."
+- **Candidate:** "It was difficult for him to return."
+- **Issue:** Impossibility became difficulty.
+- **Suggestion:** Restore the source's degree of certainty.
 - [ ] OK  [ ] FIX: _______________
 
 ### 2. [Chapter X, Paragraph Y] (reason: polysemy)

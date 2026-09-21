@@ -53,12 +53,11 @@ export function searchLibraryCatalogue(catalogue: LibraryCatalogue | null, query
   ].join(' ')).includes(needle))
 }
 
-export function estimatedHours(wordCount: number | null | undefined, wordsPerMinute = 250): string | null {
-  if (!Number.isFinite(wordCount) || Number(wordCount) <= 0 || !Number.isFinite(wordsPerMinute) || wordsPerMinute <= 0) return null
-  const hours = Number(wordCount) / wordsPerMinute / 60
-  if (hours < 1) return 'Less than 1 hour'
-  const rounded = Math.max(1, Math.round(hours))
-  return `About ${rounded} ${rounded === 1 ? 'hour' : 'hours'}`
+export function estimatedHours(wordCount: number | null | undefined): string | null {
+  if (!Number.isFinite(wordCount) || Number(wordCount) <= 0) return null
+  const low=Math.max(1,Math.ceil(Number(wordCount)/200/60))
+  const high=Math.max(low,Math.ceil(Number(wordCount)/140/60))
+  return `About ${low === high ? low : `${low}–${high}`} ${high === 1 ? 'hour' : 'hours'}`
 }
 
 export function libraryCataloguePrompt(catalogue: LibraryCatalogue | null): string {

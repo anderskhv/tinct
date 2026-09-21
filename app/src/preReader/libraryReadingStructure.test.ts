@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { serializePreReaderCatalogue } from './catalogue'
-import { addLibraryReadingStructures } from './libraryReadingStructure'
+import { addLibraryReadingStructures, publishedWordCount } from './libraryReadingStructure'
 
 describe('Library 2 published reading structures', () => {
   const catalogue = addLibraryReadingStructures(
@@ -35,6 +35,16 @@ describe('Library 2 published reading structures', () => {
     expect(shards('odyssey', 'modern-en')).toBe(false)
     expect(shards('the-republic', 'original-en')).toBe(false)
     expect(shards('pride-and-prejudice', 'modern-en')).toBe(false)
+  })
+
+  it('uses published word counts for full novels and sharded epics', () => {
+    for (const id of ['divine-comedy','frankenstein','niels-lyhne','war-and-peace']) {
+      const book=catalogue.books.find(book=>book.id===id)!
+      const words=publishedWordCount(path.resolve(process.cwd(),'public'),id,book.readingStructure.editionKey)
+      expect(words).toBeGreaterThan(10000)
+      expect(book.wordCount).toBe(words)
+      console.log('PUBLISHED_WORD_COUNT',id,book.readingStructure.editionKey,words)
+    }
   })
 
   it('uses the real chapter extent instead of a chapter-local page percentage', () => {

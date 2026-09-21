@@ -8,6 +8,7 @@ import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { isValidUUID } from './worker/lib/security'
 import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
+import { handleNarration } from './worker/routes/narration'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -47,6 +48,7 @@ export { serveSpaWithMetaForTest } from './worker/routes/seo'
 interface Env {
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
+  XAI_API_KEY?: string
   INDEXNOW_KEY?: string
   STRIPE_SECRET_KEY?: string
   STRIPE_WEBHOOK_SECRET?: string
@@ -56,6 +58,16 @@ interface Env {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  /** Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Secret; never sent to clients. */
+  FISH_AUDIO_API_KEY?: string
+  NARRATION_PILOT?: string
+  NARRATION_MODEL?: string
+  NARRATION_VOICE_A_ID?: string
+  NARRATION_VOICE_A_LABEL?: string
+  NARRATION_VOICE_B_ID?: string
+  NARRATION_VOICE_B_LABEL?: string
+  NARRATION_DAILY_BYTES?: string
+  NARRATION_MONTHLY_BYTES?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   ASSETS: { fetch: (request: Request) => Promise<Response> }
@@ -153,6 +165,10 @@ export default {
 
     const indexNowResponse = handleIndexNowVerification(request, env)
     if (indexNowResponse) return indexNowResponse
+
+    if (url.pathname.startsWith('/api/narration/')) {
+      return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
+    }
 
     switch (url.pathname) {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)

@@ -1,7 +1,14 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
-import { VoiceExpandIcon } from '../../lab/LabVoiceIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
 import { useEffect, useRef, useState } from 'react'
+
+/** The opener is everything before the first blank line; the rest waits
+ *  behind "More". A one-paragraph answer has no rest and no More. */
+export function splitExplanation(text: string): { opener: string; rest: string } {
+  const boundary = text.indexOf('\n\n')
+  if (boundary < 0) return { opener: text, rest: '' }
+  return { opener: text.slice(0, boundary), rest: text.slice(boundary + 2).trim() }
+}
 
 export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady }: {
   passage: string
@@ -9,6 +16,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
   onReady?: (answer: string) => void
   onAsk: (answer: string) => void
   onTalk?: (answer: string) => void
+  /** Kept for callers that still pass it; the expanded card closes with the popup. */
   onClose?: () => void
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
@@ -27,6 +35,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
     let recorded = false
     setStatus('loading')
     setAnswer('')
+    setExpanded(false)
     void requestRef.current((text) => {
       if (!active) return
       // Reveal complete paragraphs; subsequent paragraphs arrive below the first.
@@ -44,33 +53,51 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
     return () => { active = false; if (!recorded && shown) record?.(shown) }
   }, [attempt, passage])
 
+  const { opener, rest } = splitExplanation(answer)
+  const streaming = status === 'streaming'
+  // More stays while the rest may still arrive; a finished one-paragraph
+  // answer has nothing behind it and shows no More at all.
+  const hasMore = rest.length > 0 || streaming
+  const busy = streaming && !rest
+
   return (
     <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
-      <div className="lab-contextual-explain-heading">
-        <button type="button" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
-          <VoiceExpandIcon size={16} />
-        </button>
-      </div>
       <div className="lab-contextual-explain-scroll">
-        <div role="status" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
-          {status === 'loading' && <p className="lab-contextual-explain-wait">Loading…</p>}
+        <div role="status" aria-live="polite" aria-busy={status === 'loading' || streaming}>
+          {status === 'loading' && (
+            <div className="lab-contextual-explain-skeleton" aria-label="Loading explanation">
+              <span /><span /><span />
+            </div>
+          )}
           {status === 'error' && (
             <>
               <p>The explanation couldn’t be loaded. Your passage is still here.</p>
               <button type="button" className="lab-contextual-explain-link" onClick={() => setAttempt(value => value + 1)}>Try again</button>
             </>
           )}
-          {(status === 'streaming' || status === 'ready') && (
-            <LabMarkdown>{answer}</LabMarkdown>
+          {(streaming || status === 'ready') && (
+            <>
+              <LabMarkdown>{expanded && rest ? `${opener}\n\n${rest}` : opener}</LabMarkdown>
+              {hasMore && (
+                <button
+                  type="button"
+                  className={`lab-contextual-explain-more${busy ? ' is-busy' : ''}`}
+                  aria-expanded={expanded}
+                  onClick={() => setExpanded(value => !value)}
+                >
+                  {expanded ? 'Less' : 'More'}
+                </button>
+              )}
+            </>
           )}
         </div>
       </div>
       <footer>
-        <button className="lab-super-row" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
-          <span className="lab-super-row-icon"><RowIcon id="chat" /></span><span className="lab-super-row-label">Chat</span>
+        <button className="lab-contextual-explain-tool" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
+          <RowIcon id="chat" />
         </button>
-        {onTalk && <button className="lab-super-row" type="button" aria-label="Talk about this explanation" onClick={() => onTalk(answer)} disabled={!answer}>
-          <span className="lab-super-row-icon"><RowIcon id="talk" /></span><span className="lab-super-row-label">Talk</span>
+        {onTalk && <button className="lab-contextual-explain-tool" type="button" aria-label="Talk about this explanation" onClick={() => onTalk(answer)} disabled={!answer}>
+          <RowIcon id="talk" />
         </button>}
       </footer>
     </section>

@@ -2,9 +2,10 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { useAuth } from './hooks/useAuth'
 import { useVoiceSession } from './hooks/useVoiceSession'
+import { LabMarkdown } from './lab/LabMarkdown'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
 import { labCallUtterance, labCallView } from './lab/labVoiceCall'
-import { gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
+import { decideLabAiAction, gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
 import { readAnthropicResponse } from './lab/labCompanion'
 import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from './companionModel'
 import { apiUrl } from './utils/apiUrl'
@@ -94,6 +95,7 @@ export function LibraryAssistant() {
   const [failedQuestion, setFailedQuestion] = useState<string | null>(null)
   const [voiceBooks, setVoiceBooks] = useState<string[]>([])
   const [accountAction, setAccountAction] = useState<'chat' | 'voice' | null>(null)
+  const panelRef = useRef<HTMLElement | null>(null)
   const abortRef = useRef<AbortController | null>(null)
   const requestRef = useRef(0)
   const voiceTurnsRef = useRef<ChatMessage[]>([])
@@ -134,6 +136,11 @@ export function LibraryAssistant() {
     resumePlayback: () => {},
     recordMessage: () => {},
     appendLocalMessage: appendVoiceMessage,
+    onBeforeUserTurn: () => {
+      const decision = gateLabAiAction({ signedIn })
+      if (!decision.allowed) setAccountAction('voice')
+      return decision.allowed
+    },
     onNeedAuth: () => setAccountAction('voice'),
     onInsufficientBalance: () => setAccountAction('voice'),
     instructions: `${system}\n\nThis is voice mode in the library. Help choose a book. Never say "Ask about this page" and never imply a book is open. When recommending books, call show_library_books with their exact catalogue ids. Open a book only after an explicit request, using open_library_book.`,
@@ -236,7 +243,7 @@ export function LibraryAssistant() {
     setMode('talk')
     setAccountAction(null)
     if (auth.isLoading) return
-    const decision = gateLabAiAction({ signedIn })
+    const decision = decideLabAiAction({ signedIn })
     if (!decision.allowed) { showAccount('voice'); return }
     voice.unlockAudio()
     await voice.start({ authToken: token })
@@ -251,19 +258,54 @@ export function LibraryAssistant() {
     setAccountAction(null)
   }
 
+  // A phone conversation owns the visible viewport, including when its keyboard opens.
+  useEffect(() => {
+    if (mode !== 'chat' && mode !== 'talk') return
+    const panel = panelRef.current
+    const previousFocus = document.activeElement as HTMLElement | null
+    const mobile = window.matchMedia('(max-width: 600px)')
+    const oldOverflow = document.body.style.overflow
+    const viewport = window.visualViewport
+    const update = () => {
+      document.body.style.overflow = mobile.matches ? 'hidden' : oldOverflow
+      panel?.style.setProperty('--assistant-height', (viewport?.height ?? window.innerHeight) + 'px')
+      panel?.style.setProperty('--assistant-top', (viewport?.offsetTop ?? 0) + 'px')
+    }
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { event.preventDefault(); close() }
+      if (event.key === 'Tab' && mobile.matches && panel) {
+        const controls = [...panel.querySelectorAll<HTMLElement>('button:not([disabled]),a[href],input:not([disabled])')]
+        const first = controls[0], last = controls.at(-1)
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+      }
+    }
+    update()
+    if (mode === 'talk') panel?.querySelector<HTMLButtonElement>('header button')?.focus({ preventScroll: true })
+    viewport?.addEventListener('resize', update); viewport?.addEventListener('scroll', update)
+    window.addEventListener('resize', update); document.addEventListener('keydown', escape)
+    return () => {
+      document.body.style.overflow = oldOverflow
+      viewport?.removeEventListener('resize', update); viewport?.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update); document.removeEventListener('keydown', escape)
+      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true })
+    }
+  }, [mode])
+
   const results = useMemo(() => searchLibraryCatalogue(catalogue, searchDraft), [catalogue, searchDraft])
   const voiceRecommended = voiceBooks.map(id => byId.get(id)).filter((book): book is LibraryCatalogueBook => Boolean(book))
   const voiceView = labCallView({ connection: voice.connection, activity: voice.activity as never, micMuted: voice.micMuted, fullDuplex: true })
 
   return <>
     <style>{labVoiceCss}</style>
-    {mode && <section className={`library-assistant-panel is-${mode}`} role="dialog" aria-label={mode === 'search' ? 'Search the library' : mode === 'chat' ? 'Chat with the librarian' : 'Talk with the librarian'}>
+    {mode && <section ref={panelRef} className={`library-assistant-panel is-${mode}`} role="dialog" aria-label={mode === 'search' ? 'Search the library' : mode === 'chat' ? 'Chat with the librarian' : 'Talk with the librarian'}>
       <header><span>{mode === 'search' ? 'Find a book' : 'Your librarian'}</span><button type="button" onClick={close} aria-label="Close">{icon('close')}</button></header>
       {accountAction && <div className="library-account-prompt">
-        <p>Create a free account to keep using {accountAction === 'voice' ? 'Talk' : 'Chat'}.</p>
+        <p>You’ve used your 10 free AI interactions. Create an account for your first month of AI free, or keep browsing and reading without AI.</p>
         <div><a href={labSignInHref('create', '/library')}>Create account</a><a href={labSignInHref('signin', '/library')}>Sign in</a></div>
       </div>}
       {mode === 'search' && <>
+        <a className="library-search-account" href={signedIn ? '/lab/sign-in?mode=account&returnTo=%2Flibrary' : labSignInHref('signin', '/library')}>{signedIn ? 'Account' : 'Sign in'}</a>
         <label className="library-assistant-field">{icon('search')}<input autoFocus type="search" value={searchDraft} onChange={event => setSearchDraft(event.target.value)} placeholder={`Search ${books.length} books`} aria-label="Search by title, author, subject, or description" /><button type="button" onClick={() => setSearchDraft('')} aria-label="Clear search">{searchDraft ? 'Clear' : ''}</button></label>
         <div className="library-search-results" aria-live="polite">
           {results.length ? <BookActions books={results} /> : <p>No books match “{searchDraft}”.</p>}
@@ -274,7 +316,7 @@ export function LibraryAssistant() {
           {turns.length === 0 && <p className="library-chat-empty">Tell me what you feel like reading, or name a book you loved.</p>}
           {turns.map(turn => <div key={turn.id} className={`library-chat-turn is-${turn.role}${turn.error ? ' is-error' : ''}`}>
             <span>{turn.role === 'user' ? 'You' : 'Tinct'}</span>
-            <p>{turn.pending && !turn.content ? 'Thinking…' : visibleLibrarianText(turn.content)}</p>
+            <LabMarkdown>{turn.pending && !turn.content ? 'Thinking…' : visibleLibrarianText(turn.content)}</LabMarkdown>
             {turn.role === 'assistant' && !turn.pending && <BookActions books={recommendationBookIds(turn.content, catalogue).map(id => byId.get(id)).filter((book): book is LibraryCatalogueBook => Boolean(book))} />}
           </div>)}
           {failedQuestion && !sending && <button className="library-retry" type="button" onClick={() => void sendChat(failedQuestion)}>Retry</button>}
@@ -284,7 +326,7 @@ export function LibraryAssistant() {
           <button type="submit" disabled={!chatDraft.trim() || sending} aria-label="Send">{icon('send')}</button>
         </form>
       </>}
-      {mode === 'talk' && !accountAction && <div className="library-voice-wrap">
+      {mode === 'talk' && !accountAction && <div className={`library-voice-wrap${voiceRecommended.length ? ' has-recommendations' : ''}`}>
         <LabVoiceCall
           view={voiceView}
           getAssistantLevel={voice.getAssistantLevel}
@@ -299,7 +341,7 @@ export function LibraryAssistant() {
         <BookActions books={voiceRecommended} />
       </div>}
     </section>}
-    <nav className="library-glass-dock" aria-label="Find a book">
+    <nav className={`library-glass-dock${mode === 'chat' || mode === 'talk' ? ' is-conversation-open' : ''}`} aria-label="Find a book">
       <button type="button" aria-pressed={mode === 'search'} onClick={() => { if (mode === 'talk') voice.stop(); setAccountAction(null); setMode('search') }}>{icon('search')}<span>Search</span></button>
       <button type="button" aria-pressed={mode === 'talk'} onClick={() => void startTalk()}>{icon('talk')}<span>Talk</span></button>
       <button type="button" aria-pressed={mode === 'chat'} onClick={() => { if (mode === 'talk') voice.stop(); setAccountAction(null); setMode('chat') }}>{icon('chat')}<span>Chat</span></button>
