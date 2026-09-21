@@ -102,7 +102,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
       <footer>
         {onHighlight && <button className="lab-contextual-explain-tool" type="button" aria-label="Highlight this passage" onClick={onHighlight}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m5 15 10-10 4 4L9 19H5zM4 22h16" /></svg>
-        </button>
+        </button>}
         <button className="lab-contextual-explain-tool" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
           <RowIcon id="chat" />
         </button>

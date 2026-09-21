@@ -720,7 +720,7 @@ it('paints the verse number\'s word under the fragment highlight so the band acr
   expect(css).toContain('.lab-hearing-word.is-selecting:has(> .lab-verse-mark)')
   // No unpainted margin before the number; the space before it carries the room.
   expect(css).toMatch(/\.lab-verse-mark \{[^}]*margin-left: 0;/)
-  expect(css).toContain('.lab-highlight-gap:has(+ .lab-verse-unit) { letter-spacing: 0.2em; }')
+  expect(css).not.toMatch(/\.lab-highlight-gap:has\(\+ \.lab-verse-unit\)\s*\{[^}]*letter-spacing:/)
 })
 
 it('turns one page per visit to the edge: a finger that stays put never turns a second', () => {
