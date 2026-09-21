@@ -1,0 +1,144 @@
+{
+ "bookId": "communist-manifesto",
+ "edition": "original-en",
+ "chapter": 4,
+ "editionContentHash": "02526e00f44b0560545ead4262a82bf522411a3fbb860e73a7537594fe172fa7",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:55:44.989463+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "40ef403fe8df4ec9cfbe4b9218a87d2a3a00258e45e0fde5b88d26d3a642a86d",
+ "manifestMetadata": {
+  "chapter": 4,
+  "title": "III. Socialist and Communist Literature"
+ },
+ "durationSeconds": 1353.912,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "communist-manifesto",
+  "edition": "original-en",
+  "chapter": 4,
+  "textParagraphs": 62,
+  "textParagraphsWithWords": 62,
+  "manifestSpokenParagraphs": 62,
+  "durationSeconds": 1349.9,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 49965
+   },
+   {
+    "file": "p30.mp3",
+    "status": 206,
+    "bytes": 187437
+   },
+   {
+    "file": "p61.mp3",
+    "status": 206,
+    "bytes": 122157
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+   "record": {
+    "key": "communist-manifesto/original-en/ch4",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9950372208436724,
+      "reasons": [
+       {
+        "paragraph": 21,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/communist-manifesto/original-en/ch4/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9882133995037221,
+      "reasons": [
+       {
+        "paragraph": 13,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 21,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/communist-manifesto/original-en/ch4/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  },
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/collect-report.json",
+   "record": {
+    "key": "communist-manifesto/original-en/ch4",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.994727047146402,
+      "reasons": [
+       {
+        "paragraph": 21,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/out/communist-manifesto/original-en/ch4/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.984181141439206,
+      "reasons": [
+       {
+        "paragraph": 1,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 13,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 21,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-12/out/communist-manifesto/original-en/ch4/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}

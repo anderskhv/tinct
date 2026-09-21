@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "2b0fa4ab521f90ebbe4397623c674dab3b95fdb403dbc08bac908bd2ae165717",
+  "attempts": [
+    {
+      "asr_seconds": 2.4141980140000214,
+      "alignment_seconds": 0.00014864399997804867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 1. Reactionary socialism",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " 1.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8312665820121765
+            },
+            {
+              "text": " Reactionary",
+              "start": 1.23,
+              "end": 1.79,
+              "probability": 0.9223475754261017
+            },
+            {
+              "text": " socialism",
+              "start": 1.79,
+              "end": 2.31,
+              "probability": 0.4805437922477722
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "1.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Reactionary",
+          "start": 1.23,
+          "end": 1.79
+        },
+        {
+          "raw": "socialism",
+          "start": 1.79,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "1.",
+        "REACTIONARY",
+        "SOCIALISM"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "1.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Reactionary",
+          "start": 1.23,
+          "end": 1.79,
+          "key": "reactionary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 1.79,
+          "end": 2.31,
+          "key": "socialism",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "1.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "REACTIONARY",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "SOCIALISM",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4143557820000296
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2dc710f67953b16bc52787692439eaf16baaca08d7978a98457124da2f2c3e1",
+  "selected_reasons": []
+}

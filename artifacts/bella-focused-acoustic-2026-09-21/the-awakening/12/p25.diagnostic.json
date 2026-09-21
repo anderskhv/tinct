@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "11c6c0cc28179492da12141335c89c26166ab74dd442cdf37f9844103ecfe28d",
+  "attempts": [
+    {
+      "asr_seconds": 2.194336913000029,
+      "alignment_seconds": 0.00036006100003760366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What shall we do there?\"",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What shall we do there?",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9360741376876831
+            },
+            {
+              "text": " shall",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.9939385652542114
+            },
+            {
+              "text": " we",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9989018440246582
+            },
+            {
+              "text": " do",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9981972575187683
+            },
+            {
+              "text": " there?",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.9966187477111816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "shall",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "we",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "do",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "there?",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "“What",
+        "shall",
+        "we",
+        "do",
+        "there?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"What",
+        "shall",
+        "we",
+        "do",
+        "there?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "shall",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "we",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "do",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "there?”",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.1947133150000013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffbd4f7a294f1b901513e1bac9e256fb311882bab2a5c0af5cc471a8122550e3",
+  "selected_reasons": []
+}

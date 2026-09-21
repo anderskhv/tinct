@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "459405bb833320d0266990587c63ba6348d64e50fce0afbe567d1dd6b3d7e6b4",
+  "attempts": [
+    {
+      "asr_seconds": 2.393569566999986,
+      "alignment_seconds": 0.0005329429999960666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am sick of Mr. Bingley,\" cried his wife.",
+        "hotwords": "I, Mr, Bingley"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am sick of Mr. Bingley,\" cried his wife.",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.14088845252990723
+            },
+            {
+              "text": " am",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9012327790260315
+            },
+            {
+              "text": " sick",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.9940242171287537
+            },
+            {
+              "text": " of",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.9978267550468445
+            },
+            {
+              "text": " Mr.",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.9388896226882935
+            },
+            {
+              "text": " Bingley,\"",
+              "start": 1.42,
+              "end": 1.9,
+              "probability": 0.7723763883113861
+            },
+            {
+              "text": " cried",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.9985923171043396
+            },
+            {
+              "text": " his",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.9992875456809998
+            },
+            {
+              "text": " wife.",
+              "start": 2.36,
+              "end": 2.6,
+              "probability": 0.9988603591918945
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "sick",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "of",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "Bingley,\"",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "raw": "cried",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "his",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "wife.",
+          "start": 2.36,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "am",
+        "sick",
+        "of",
+        "Mr.",
+        "Bingley,”",
+        "cried",
+        "his",
+        "wife."
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "am",
+        "sick",
+        "of",
+        "Mr.",
+        "Bingley,\"",
+        "cried",
+        "his",
+        "wife."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "sick",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bingley,\"",
+          "start": 1.42,
+          "end": 1.9,
+          "key": "bingley",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 2.36,
+          "end": 2.6,
+          "key": "wife",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "am",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "sick",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "of",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "Mr.",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "Bingley,”",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "text": "cried",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "his",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "wife.",
+          "start": 2.36,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.3941253029999814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5be8b9f166c7e4c2bdefd4a4de1b31ee8d2c196b7f20bc310aa1be2d8f956a5b",
+  "selected_reasons": []
+}

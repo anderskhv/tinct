@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "bb94a47a1f9bef845573c348d2ea3d93c5d1bfb1a1384f5bc610d077eb87b4c6",
+  "attempts": [
+    {
+      "asr_seconds": 3.039691855000001,
+      "alignment_seconds": 8.737199982533639e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The author's preface",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7504941821098328
+            },
+            {
+              "text": " author's",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.8098124861717224
+            },
+            {
+              "text": " preface",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.992167204618454
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "author's",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "preface",
+          "start": 1.0,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "THE",
+        "AUTHOR’S",
+        "PREFACE"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "author's",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "authors",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "preface",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "preface",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "THE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "AUTHOR’S",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "PREFACE",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.0397896050001236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c470f482c260c95fa331d1fd6d65ab8eba3c72cac6d9084cb924e8340a651025",
+  "selected_reasons": []
+}

@@ -1,0 +1,183 @@
+{
+  "complete": true,
+  "signature": "b3644aaf17938de33df71e779cae2aa8edecbb93c886abfdc2e95fbfff9a451e",
+  "attempts": [
+    {
+      "asr_seconds": 2.195794251000052,
+      "alignment_seconds": 0.00014319000001705717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To the count of limos",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.31873008608818054
+            },
+            {
+              "text": " the",
+              "start": 0.48,
+              "end": 0.56,
+              "probability": 0.9853346347808838
+            },
+            {
+              "text": " count",
+              "start": 0.56,
+              "end": 0.78,
+              "probability": 0.9113488793373108
+            },
+            {
+              "text": " of",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.9984346032142639
+            },
+            {
+              "text": " limos",
+              "start": 0.92,
+              "end": 1.36,
+              "probability": 0.6131014674901962
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "raw": "count",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "raw": "of",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "limos",
+          "start": 0.92,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "TO",
+        "THE",
+        "COUNT",
+        "OF",
+        "LEMOS:"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.56,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 0.56,
+          "end": 0.78,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "limos",
+          "start": 0.92,
+          "end": 1.36,
+          "key": "limos",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "TO",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "THE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "COUNT",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "LEMOS:",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.195955024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f7c263adf6049dc8725330200bfdbbae7b12bcf74f1a49f3ef4a85d3e374979",
+  "selected_reasons": []
+}

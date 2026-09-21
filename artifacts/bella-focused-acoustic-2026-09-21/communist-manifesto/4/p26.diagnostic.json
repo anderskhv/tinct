@@ -1,0 +1,4672 @@
+{
+  "complete": true,
+  "signature": "bea9b73ad59491eef398b4730694482c6f33b788ad5ec9d6b3cd77d0ebd65fd8",
+  "attempts": [
+    {
+      "asr_seconds": 8.489649203999988,
+      "alignment_seconds": 0.0053916289999733635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It is well known how the monks wrote silly lives of Catholic Saints _over_ the manuscripts on which the classical works of ancient heathendom had been written. The German _literati_ reversed this process with the profane French literature. They wrote their philosophical nonsense beneath the French original. For instance, beneath the French criticism of the economic functions of money, they wrote \"Alienation of Humanity,\" and beneath the French criticism of the bourgeois State they wrote \"dethronement of the Category of the General,\" and so forth.",
+        "hotwords": "It, Catholic, Saints, German, French, For, Alienation, Humanity, State, Category, General"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is well known how the monks wrote silly lives of Catholic Saints over the manuscripts on which",
+          "start": 25.59,
+          "end": 30.03,
+          "words": [
+            {
+              "text": " It",
+              "start": 25.59,
+              "end": 26.19,
+              "probability": 0.7958149313926697
+            },
+            {
+              "text": " is",
+              "start": 26.19,
+              "end": 26.79,
+              "probability": 0.9934059381484985
+            },
+            {
+              "text": " well",
+              "start": 26.79,
+              "end": 26.83,
+              "probability": 0.9981551766395569
+            },
+            {
+              "text": " known",
+              "start": 26.83,
+              "end": 26.83,
+              "probability": 0.8462538719177246
+            },
+            {
+              "text": " how",
+              "start": 26.83,
+              "end": 26.83,
+              "probability": 0.9921294450759888
+            },
+            {
+              "text": " the",
+              "start": 26.83,
+              "end": 27.31,
+              "probability": 0.9885565042495728
+            },
+            {
+              "text": " monks",
+              "start": 27.31,
+              "end": 27.37,
+              "probability": 0.9824094772338867
+            },
+            {
+              "text": " wrote",
+              "start": 27.37,
+              "end": 29.51,
+              "probability": 0.9973291158676147
+            },
+            {
+              "text": " silly",
+              "start": 29.51,
+              "end": 29.51,
+              "probability": 0.7011978030204773
+            },
+            {
+              "text": " lives",
+              "start": 29.51,
+              "end": 29.81,
+              "probability": 0.9896767735481262
+            },
+            {
+              "text": " of",
+              "start": 29.81,
+              "end": 29.93,
+              "probability": 0.9982194304466248
+            },
+            {
+              "text": " Catholic",
+              "start": 29.93,
+              "end": 29.93,
+              "probability": 0.9415765404701233
+            },
+            {
+              "text": " Saints",
+              "start": 29.93,
+              "end": 29.93,
+              "probability": 0.08381368964910507
+            },
+            {
+              "text": " over",
+              "start": 29.93,
+              "end": 29.93,
+              "probability": 0.9964615702629089
+            },
+            {
+              "text": " the",
+              "start": 29.93,
+              "end": 30.03,
+              "probability": 0.9985236525535583
+            },
+            {
+              "text": " manuscripts",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.98811274766922
+            },
+            {
+              "text": " on",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.903751790523529
+            },
+            {
+              "text": " which",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.998624324798584
+            }
+          ]
+        },
+        {
+          "text": " dethronement of the Category of the General, and so forth.",
+          "start": 30.03,
+          "end": 33.45,
+          "words": [
+            {
+              "text": " dethronement",
+              "start": 30.03,
+              "end": 30.73,
+              "probability": 0.45281406305730343
+            },
+            {
+              "text": " of",
+              "start": 30.73,
+              "end": 30.85,
+              "probability": 0.9972250461578369
+            },
+            {
+              "text": " the",
+              "start": 30.85,
+              "end": 30.99,
+              "probability": 0.9987730383872986
+            },
+            {
+              "text": " Category",
+              "start": 30.99,
+              "end": 31.37,
+              "probability": 0.05168135464191437
+            },
+            {
+              "text": " of",
+              "start": 31.37,
+              "end": 31.67,
+              "probability": 0.996601939201355
+            },
+            {
+              "text": " the",
+              "start": 31.67,
+              "end": 31.77,
+              "probability": 0.9950969815254211
+            },
+            {
+              "text": " General,",
+              "start": 31.77,
+              "end": 32.13,
+              "probability": 0.9654513597488403
+            },
+            {
+              "text": " and",
+              "start": 32.53,
+              "end": 32.87,
+              "probability": 0.987224817276001
+            },
+            {
+              "text": " so",
+              "start": 32.87,
+              "end": 33.11,
+              "probability": 0.9993306398391724
+            },
+            {
+              "text": " forth.",
+              "start": 33.11,
+              "end": 33.45,
+              "probability": 0.9991534948348999
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 25.59,
+          "end": 26.19
+        },
+        {
+          "raw": "is",
+          "start": 26.19,
+          "end": 26.79
+        },
+        {
+          "raw": "well",
+          "start": 26.79,
+          "end": 26.83
+        },
+        {
+          "raw": "known",
+          "start": 26.83,
+          "end": 26.83
+        },
+        {
+          "raw": "how",
+          "start": 26.83,
+          "end": 26.83
+        },
+        {
+          "raw": "the",
+          "start": 26.83,
+          "end": 27.31
+        },
+        {
+          "raw": "monks",
+          "start": 27.31,
+          "end": 27.37
+        },
+        {
+          "raw": "wrote",
+          "start": 27.37,
+          "end": 29.51
+        },
+        {
+          "raw": "silly",
+          "start": 29.51,
+          "end": 29.51
+        },
+        {
+          "raw": "lives",
+          "start": 29.51,
+          "end": 29.81
+        },
+        {
+          "raw": "of",
+          "start": 29.81,
+          "end": 29.93
+        },
+        {
+          "raw": "Catholic",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "raw": "Saints",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "raw": "over",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "raw": "the",
+          "start": 29.93,
+          "end": 30.03
+        },
+        {
+          "raw": "manuscripts",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "on",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "which",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "dethronement",
+          "start": 30.03,
+          "end": 30.73
+        },
+        {
+          "raw": "of",
+          "start": 30.73,
+          "end": 30.85
+        },
+        {
+          "raw": "the",
+          "start": 30.85,
+          "end": 30.99
+        },
+        {
+          "raw": "Category",
+          "start": 30.99,
+          "end": 31.37
+        },
+        {
+          "raw": "of",
+          "start": 31.37,
+          "end": 31.67
+        },
+        {
+          "raw": "the",
+          "start": 31.67,
+          "end": 31.77
+        },
+        {
+          "raw": "General,",
+          "start": 31.77,
+          "end": 32.13
+        },
+        {
+          "raw": "and",
+          "start": 32.53,
+          "end": 32.87
+        },
+        {
+          "raw": "so",
+          "start": 32.87,
+          "end": 33.11
+        },
+        {
+          "raw": "forth.",
+          "start": 33.11,
+          "end": 33.45
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "well",
+        "known",
+        "how",
+        "the",
+        "monks",
+        "wrote",
+        "silly",
+        "lives",
+        "of",
+        "Catholic",
+        "Saints",
+        "_over_",
+        "the",
+        "manuscripts",
+        "on",
+        "which",
+        "the",
+        "classical",
+        "works",
+        "of",
+        "ancient",
+        "heathendom",
+        "had",
+        "been",
+        "written.",
+        "The",
+        "German",
+        "_literati_",
+        "reversed",
+        "this",
+        "process",
+        "with",
+        "the",
+        "profane",
+        "French",
+        "literature.",
+        "They",
+        "wrote",
+        "their",
+        "philosophical",
+        "nonsense",
+        "beneath",
+        "the",
+        "French",
+        "original.",
+        "For",
+        "instance,",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "economic",
+        "functions",
+        "of",
+        "money,",
+        "they",
+        "wrote",
+        "“Alienation",
+        "of",
+        "Humanity,”",
+        "and",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "bourgeois",
+        "State",
+        "they",
+        "wrote",
+        "“dethronement",
+        "of",
+        "the",
+        "Category",
+        "of",
+        "the",
+        "General,”",
+        "and",
+        "so",
+        "forth."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "is",
+        "well",
+        "known",
+        "how",
+        "the",
+        "monks",
+        "wrote",
+        "silly",
+        "lives",
+        "of",
+        "Catholic",
+        "Saints",
+        "_over_",
+        "the",
+        "manuscripts",
+        "on",
+        "which",
+        "the",
+        "classical",
+        "works",
+        "of",
+        "ancient",
+        "heathendom",
+        "had",
+        "been",
+        "written.",
+        "The",
+        "German",
+        "_literati_",
+        "reversed",
+        "this",
+        "process",
+        "with",
+        "the",
+        "profane",
+        "French",
+        "literature.",
+        "They",
+        "wrote",
+        "their",
+        "philosophical",
+        "nonsense",
+        "beneath",
+        "the",
+        "French",
+        "original.",
+        "For",
+        "instance,",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "economic",
+        "functions",
+        "of",
+        "money,",
+        "they",
+        "wrote",
+        "\"Alienation",
+        "of",
+        "Humanity,\"",
+        "and",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "bourgeois",
+        "State",
+        "they",
+        "wrote",
+        "\"dethronement",
+        "of",
+        "the",
+        "Category",
+        "of",
+        "the",
+        "General,\"",
+        "and",
+        "so",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "delete",
+          18,
+          75,
+          18,
+          18
+        ],
+        [
+          "equal",
+          75,
+          85,
+          18,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          18,
+          75,
+          18,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 25.59,
+          "end": 26.19,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 26.19,
+          "end": 26.79,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 26.79,
+          "end": 26.83,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 26.83,
+          "end": 26.83,
+          "key": "known",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 26.83,
+          "end": 26.83,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.83,
+          "end": 27.31,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "monks",
+          "start": 27.31,
+          "end": 27.37,
+          "key": "monks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 27.37,
+          "end": 29.51,
+          "key": "wrote",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 29.51,
+          "end": 29.51,
+          "key": "silly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 29.51,
+          "end": 29.81,
+          "key": "lives",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 29.81,
+          "end": 29.93,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Catholic",
+          "start": 29.93,
+          "end": 29.93,
+          "key": "catholic",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Saints",
+          "start": 29.93,
+          "end": 29.93,
+          "key": "saints",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 29.93,
+          "end": 29.93,
+          "key": "over",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.93,
+          "end": 30.03,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "manuscripts",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "manuscripts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "dethronement",
+          "start": 30.03,
+          "end": 30.73,
+          "key": "dethronement",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 30.73,
+          "end": 30.85,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.85,
+          "end": 30.99,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Category",
+          "start": 30.99,
+          "end": 31.37,
+          "key": "category",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.37,
+          "end": 31.67,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 31.67,
+          "end": 31.77,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "General,",
+          "start": 31.77,
+          "end": 32.13,
+          "key": "general",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 32.53,
+          "end": 32.87,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 32.87,
+          "end": 33.11,
+          "key": "so",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 33.11,
+          "end": 33.45,
+          "key": "forth",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 25.59,
+          "end": 26.19
+        },
+        {
+          "text": "is",
+          "start": 26.19,
+          "end": 26.79
+        },
+        {
+          "text": "well",
+          "start": 26.79,
+          "end": 26.83
+        },
+        {
+          "text": "known",
+          "start": 26.83,
+          "end": 26.83
+        },
+        {
+          "text": "how",
+          "start": 26.83,
+          "end": 26.83
+        },
+        {
+          "text": "the",
+          "start": 26.83,
+          "end": 27.31
+        },
+        {
+          "text": "monks",
+          "start": 27.31,
+          "end": 27.37
+        },
+        {
+          "text": "wrote",
+          "start": 27.37,
+          "end": 29.51
+        },
+        {
+          "text": "silly",
+          "start": 29.51,
+          "end": 29.51
+        },
+        {
+          "text": "lives",
+          "start": 29.51,
+          "end": 29.81
+        },
+        {
+          "text": "of",
+          "start": 29.81,
+          "end": 29.93
+        },
+        {
+          "text": "Catholic",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "text": "Saints",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "text": "_over_",
+          "start": 29.93,
+          "end": 29.93
+        },
+        {
+          "text": "the",
+          "start": 29.93,
+          "end": 30.03
+        },
+        {
+          "text": "manuscripts",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "on",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "which",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "classical",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "works",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "ancient",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "heathendom",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "had",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "been",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "written.",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "The",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "German",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "_literati_",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "reversed",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "this",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "process",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "with",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "profane",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "French",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "literature.",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "They",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "wrote",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "their",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "philosophical",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "nonsense",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "beneath",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "French",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "original.",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "For",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "instance,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "beneath",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "French",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "criticism",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "economic",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "functions",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "money,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "they",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "wrote",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "“Alienation",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Humanity,”",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "and",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "beneath",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "French",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "criticism",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "bourgeois",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "State",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "they",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "wrote",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "“dethronement",
+          "start": 30.03,
+          "end": 30.73
+        },
+        {
+          "text": "of",
+          "start": 30.73,
+          "end": 30.85
+        },
+        {
+          "text": "the",
+          "start": 30.85,
+          "end": 30.99
+        },
+        {
+          "text": "Category",
+          "start": 30.99,
+          "end": 31.37
+        },
+        {
+          "text": "of",
+          "start": 31.37,
+          "end": 31.67
+        },
+        {
+          "text": "the",
+          "start": 31.67,
+          "end": 31.77
+        },
+        {
+          "text": "General,”",
+          "start": 31.77,
+          "end": 32.13
+        },
+        {
+          "text": "and",
+          "start": 32.53,
+          "end": 32.87
+        },
+        {
+          "text": "so",
+          "start": 32.87,
+          "end": 33.11
+        },
+        {
+          "text": "forth.",
+          "start": 33.11,
+          "end": 33.45
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 0.32941176470588235,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 8.495094662999975
+    },
+    {
+      "asr_seconds": 8.447213723999994,
+      "alignment_seconds": 0.005565332999992734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It, Catholic, Saints, German, French, For, Alienation, Humanity, State, Category, General"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " It is well known how the monks wrote silly lives of Catholic saints over the manuscripts",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7958149313926697
+            },
+            {
+              "text": " is",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.9934059381484985
+            },
+            {
+              "text": " well",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.9981551766395569
+            },
+            {
+              "text": " known",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.8462538719177246
+            },
+            {
+              "text": " how",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.9921294450759888
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9885565042495728
+            },
+            {
+              "text": " monks",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.9824094772338867
+            },
+            {
+              "text": " wrote",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.9973291158676147
+            },
+            {
+              "text": " silly",
+              "start": 2.23,
+              "end": 2.61,
+              "probability": 0.7011978030204773
+            },
+            {
+              "text": " lives",
+              "start": 2.61,
+              "end": 3.09,
+              "probability": 0.9896767735481262
+            },
+            {
+              "text": " of",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.9982194304466248
+            },
+            {
+              "text": " Catholic",
+              "start": 3.29,
+              "end": 3.71,
+              "probability": 0.9415765404701233
+            },
+            {
+              "text": " saints",
+              "start": 3.71,
+              "end": 4.07,
+              "probability": 0.9111865758895874
+            },
+            {
+              "text": " over",
+              "start": 4.07,
+              "end": 4.47,
+              "probability": 0.996478259563446
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.99846351146698
+            },
+            {
+              "text": " manuscripts",
+              "start": 4.61,
+              "end": 5.15,
+              "probability": 0.9921735525131226
+            }
+          ]
+        },
+        {
+          "text": " on which the classical works of ancient heathendom had been written.",
+          "start": 5.47,
+          "end": 8.85,
+          "words": [
+            {
+              "text": " on",
+              "start": 5.47,
+              "end": 5.83,
+              "probability": 0.9014522433280945
+            },
+            {
+              "text": " which",
+              "start": 5.83,
+              "end": 5.97,
+              "probability": 0.9989376664161682
+            },
+            {
+              "text": " the",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.997928261756897
+            },
+            {
+              "text": " classical",
+              "start": 6.15,
+              "end": 6.53,
+              "probability": 0.9894078969955444
+            },
+            {
+              "text": " works",
+              "start": 6.53,
+              "end": 6.89,
+              "probability": 0.9977218508720398
+            },
+            {
+              "text": " of",
+              "start": 6.89,
+              "end": 7.09,
+              "probability": 0.9979889392852783
+            },
+            {
+              "text": " ancient",
+              "start": 7.09,
+              "end": 7.51,
+              "probability": 0.9464660286903381
+            },
+            {
+              "text": " heathendom",
+              "start": 7.51,
+              "end": 8.09,
+              "probability": 0.8132567008336385
+            },
+            {
+              "text": " had",
+              "start": 8.09,
+              "end": 8.29,
+              "probability": 0.9942400455474854
+            },
+            {
+              "text": " been",
+              "start": 8.29,
+              "end": 8.47,
+              "probability": 0.9994012117385864
+            },
+            {
+              "text": " written.",
+              "start": 8.47,
+              "end": 8.85,
+              "probability": 0.9989621639251709
+            }
+          ]
+        },
+        {
+          "text": " The German literati reversed this process with the profane French literature.",
+          "start": 9.55,
+          "end": 13.95,
+          "words": [
+            {
+              "text": " The",
+              "start": 9.55,
+              "end": 9.69,
+              "probability": 0.9884434342384338
+            },
+            {
+              "text": " German",
+              "start": 9.69,
+              "end": 10.01,
+              "probability": 0.9923126101493835
+            },
+            {
+              "text": " literati",
+              "start": 10.01,
+              "end": 10.55,
+              "probability": 0.9406131207942963
+            },
+            {
+              "text": " reversed",
+              "start": 10.55,
+              "end": 10.99,
+              "probability": 0.9752159714698792
+            },
+            {
+              "text": " this",
+              "start": 10.99,
+              "end": 11.37,
+              "probability": 0.9981472492218018
+            },
+            {
+              "text": " process",
+              "start": 11.37,
+              "end": 11.79,
+              "probability": 0.999018669128418
+            },
+            {
+              "text": " with",
+              "start": 11.79,
+              "end": 12.35,
+              "probability": 0.9827665090560913
+            },
+            {
+              "text": " the",
+              "start": 12.35,
+              "end": 12.49,
+              "probability": 0.9959774613380432
+            },
+            {
+              "text": " profane",
+              "start": 12.49,
+              "end": 13.01,
+              "probability": 0.9976067245006561
+            },
+            {
+              "text": " French",
+              "start": 13.01,
+              "end": 13.35,
+              "probability": 0.9721606373786926
+            },
+            {
+              "text": " literature.",
+              "start": 13.35,
+              "end": 13.95,
+              "probability": 0.9888445734977722
+            }
+          ]
+        },
+        {
+          "text": " They wrote their philosophical nonsense beneath the French original.",
+          "start": 14.65,
+          "end": 17.89,
+          "words": [
+            {
+              "text": " They",
+              "start": 14.65,
+              "end": 14.77,
+              "probability": 0.9933606386184692
+            },
+            {
+              "text": " wrote",
+              "start": 14.77,
+              "end": 14.97,
+              "probability": 0.9996911287307739
+            },
+            {
+              "text": " their",
+              "start": 14.97,
+              "end": 15.17,
+              "probability": 0.9973675608634949
+            },
+            {
+              "text": " philosophical",
+              "start": 15.17,
+              "end": 15.73,
+              "probability": 0.9981903433799744
+            },
+            {
+              "text": " nonsense",
+              "start": 15.73,
+              "end": 16.33,
+              "probability": 0.9954053163528442
+            },
+            {
+              "text": " beneath",
+              "start": 16.33,
+              "end": 16.83,
+              "probability": 0.9956275224685669
+            },
+            {
+              "text": " the",
+              "start": 16.83,
+              "end": 17.09,
+              "probability": 0.9959179759025574
+            },
+            {
+              "text": " French",
+              "start": 17.09,
+              "end": 17.39,
+              "probability": 0.9922890067100525
+            },
+            {
+              "text": " original.",
+              "start": 17.39,
+              "end": 17.89,
+              "probability": 0.9931221604347229
+            }
+          ]
+        },
+        {
+          "text": " For instance, beneath the French criticism of the economic functions of money, they wrote",
+          "start": 18.99,
+          "end": 24.05,
+          "words": [
+            {
+              "text": " For",
+              "start": 18.99,
+              "end": 19.07,
+              "probability": 0.9944183826446533
+            },
+            {
+              "text": " instance,",
+              "start": 19.07,
+              "end": 19.45,
+              "probability": 0.9995658993721008
+            },
+            {
+              "text": " beneath",
+              "start": 19.85,
+              "end": 20.01,
+              "probability": 0.9947972893714905
+            },
+            {
+              "text": " the",
+              "start": 20.01,
+              "end": 20.31,
+              "probability": 0.9984661340713501
+            },
+            {
+              "text": " French",
+              "start": 20.31,
+              "end": 20.63,
+              "probability": 0.9944855570793152
+            },
+            {
+              "text": " criticism",
+              "start": 20.63,
+              "end": 21.11,
+              "probability": 0.9970685839653015
+            },
+            {
+              "text": " of",
+              "start": 21.11,
+              "end": 21.45,
+              "probability": 0.9987297654151917
+            },
+            {
+              "text": " the",
+              "start": 21.45,
+              "end": 21.55,
+              "probability": 0.9948126077651978
+            },
+            {
+              "text": " economic",
+              "start": 21.55,
+              "end": 21.97,
+              "probability": 0.997512936592102
+            },
+            {
+              "text": " functions",
+              "start": 21.97,
+              "end": 22.53,
+              "probability": 0.9985646605491638
+            },
+            {
+              "text": " of",
+              "start": 22.53,
+              "end": 22.79,
+              "probability": 0.9994906187057495
+            },
+            {
+              "text": " money,",
+              "start": 22.79,
+              "end": 23.09,
+              "probability": 0.9986841082572937
+            },
+            {
+              "text": " they",
+              "start": 23.59,
+              "end": 23.71,
+              "probability": 0.9909024834632874
+            },
+            {
+              "text": " wrote",
+              "start": 23.71,
+              "end": 24.05,
+              "probability": 0.9993534684181213
+            }
+          ]
+        },
+        {
+          "text": " Alienation of Humanity.",
+          "start": 24.05,
+          "end": 25.57,
+          "words": [
+            {
+              "text": " Alienation",
+              "start": 24.05,
+              "end": 24.95,
+              "probability": 0.5166092198342085
+            },
+            {
+              "text": " of",
+              "start": 24.95,
+              "end": 25.11,
+              "probability": 0.9806901812553406
+            },
+            {
+              "text": " Humanity.",
+              "start": 25.11,
+              "end": 25.57,
+              "probability": 0.9212856292724609
+            }
+          ]
+        },
+        {
+          "text": " And beneath the French criticism of the bourgeois state they wrote Dethronement of the Category",
+          "start": 26.15,
+          "end": 31.33,
+          "words": [
+            {
+              "text": " And",
+              "start": 26.15,
+              "end": 26.47,
+              "probability": 0.2900901138782501
+            },
+            {
+              "text": " beneath",
+              "start": 26.47,
+              "end": 26.75,
+              "probability": 0.9713715314865112
+            },
+            {
+              "text": " the",
+              "start": 26.75,
+              "end": 27.01,
+              "probability": 0.9828361868858337
+            },
+            {
+              "text": " French",
+              "start": 27.01,
+              "end": 27.27,
+              "probability": 0.9822518825531006
+            },
+            {
+              "text": " criticism",
+              "start": 27.27,
+              "end": 27.79,
+              "probability": 0.9873100519180298
+            },
+            {
+              "text": " of",
+              "start": 27.79,
+              "end": 28.07,
+              "probability": 0.9967742562294006
+            },
+            {
+              "text": " the",
+              "start": 28.07,
+              "end": 28.19,
+              "probability": 0.9960606694221497
+            },
+            {
+              "text": " bourgeois",
+              "start": 28.19,
+              "end": 28.55,
+              "probability": 0.8915629386901855
+            },
+            {
+              "text": " state",
+              "start": 28.55,
+              "end": 29.29,
+              "probability": 0.8615265488624573
+            },
+            {
+              "text": " they",
+              "start": 29.29,
+              "end": 29.57,
+              "probability": 0.9354470372200012
+            },
+            {
+              "text": " wrote",
+              "start": 29.57,
+              "end": 29.89,
+              "probability": 0.9933040738105774
+            },
+            {
+              "text": " Dethronement",
+              "start": 29.89,
+              "end": 30.75,
+              "probability": 0.518497045210097
+            },
+            {
+              "text": " of",
+              "start": 30.75,
+              "end": 30.85,
+              "probability": 0.9908192753791809
+            },
+            {
+              "text": " the",
+              "start": 30.85,
+              "end": 30.97,
+              "probability": 0.9907873272895813
+            },
+            {
+              "text": " Category",
+              "start": 30.97,
+              "end": 31.33,
+              "probability": 0.399659663438797
+            }
+          ]
+        },
+        {
+          "text": " of the General, and so forth.",
+          "start": 31.33,
+          "end": 33.43,
+          "words": [
+            {
+              "text": " of",
+              "start": 31.33,
+              "end": 31.65,
+              "probability": 0.9959383010864258
+            },
+            {
+              "text": " the",
+              "start": 31.65,
+              "end": 31.77,
+              "probability": 0.992111086845398
+            },
+            {
+              "text": " General,",
+              "start": 31.77,
+              "end": 32.15,
+              "probability": 0.9855067729949951
+            },
+            {
+              "text": " and",
+              "start": 32.37,
+              "end": 32.87,
+              "probability": 0.9756455421447754
+            },
+            {
+              "text": " so",
+              "start": 32.87,
+              "end": 33.11,
+              "probability": 0.9979546070098877
+            },
+            {
+              "text": " forth.",
+              "start": 33.11,
+              "end": 33.43,
+              "probability": 0.9974355101585388
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "is",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "well",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "known",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "how",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "monks",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "wrote",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "silly",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "raw": "lives",
+          "start": 2.61,
+          "end": 3.09
+        },
+        {
+          "raw": "of",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "Catholic",
+          "start": 3.29,
+          "end": 3.71
+        },
+        {
+          "raw": "saints",
+          "start": 3.71,
+          "end": 4.07
+        },
+        {
+          "raw": "over",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "manuscripts",
+          "start": 4.61,
+          "end": 5.15
+        },
+        {
+          "raw": "on",
+          "start": 5.47,
+          "end": 5.83
+        },
+        {
+          "raw": "which",
+          "start": 5.83,
+          "end": 5.97
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "classical",
+          "start": 6.15,
+          "end": 6.53
+        },
+        {
+          "raw": "works",
+          "start": 6.53,
+          "end": 6.89
+        },
+        {
+          "raw": "of",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "raw": "ancient",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "raw": "heathendom",
+          "start": 7.51,
+          "end": 8.09
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.29
+        },
+        {
+          "raw": "been",
+          "start": 8.29,
+          "end": 8.47
+        },
+        {
+          "raw": "written.",
+          "start": 8.47,
+          "end": 8.85
+        },
+        {
+          "raw": "The",
+          "start": 9.55,
+          "end": 9.69
+        },
+        {
+          "raw": "German",
+          "start": 9.69,
+          "end": 10.01
+        },
+        {
+          "raw": "literati",
+          "start": 10.01,
+          "end": 10.55
+        },
+        {
+          "raw": "reversed",
+          "start": 10.55,
+          "end": 10.99
+        },
+        {
+          "raw": "this",
+          "start": 10.99,
+          "end": 11.37
+        },
+        {
+          "raw": "process",
+          "start": 11.37,
+          "end": 11.79
+        },
+        {
+          "raw": "with",
+          "start": 11.79,
+          "end": 12.35
+        },
+        {
+          "raw": "the",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "raw": "profane",
+          "start": 12.49,
+          "end": 13.01
+        },
+        {
+          "raw": "French",
+          "start": 13.01,
+          "end": 13.35
+        },
+        {
+          "raw": "literature.",
+          "start": 13.35,
+          "end": 13.95
+        },
+        {
+          "raw": "They",
+          "start": 14.65,
+          "end": 14.77
+        },
+        {
+          "raw": "wrote",
+          "start": 14.77,
+          "end": 14.97
+        },
+        {
+          "raw": "their",
+          "start": 14.97,
+          "end": 15.17
+        },
+        {
+          "raw": "philosophical",
+          "start": 15.17,
+          "end": 15.73
+        },
+        {
+          "raw": "nonsense",
+          "start": 15.73,
+          "end": 16.33
+        },
+        {
+          "raw": "beneath",
+          "start": 16.33,
+          "end": 16.83
+        },
+        {
+          "raw": "the",
+          "start": 16.83,
+          "end": 17.09
+        },
+        {
+          "raw": "French",
+          "start": 17.09,
+          "end": 17.39
+        },
+        {
+          "raw": "original.",
+          "start": 17.39,
+          "end": 17.89
+        },
+        {
+          "raw": "For",
+          "start": 18.99,
+          "end": 19.07
+        },
+        {
+          "raw": "instance,",
+          "start": 19.07,
+          "end": 19.45
+        },
+        {
+          "raw": "beneath",
+          "start": 19.85,
+          "end": 20.01
+        },
+        {
+          "raw": "the",
+          "start": 20.01,
+          "end": 20.31
+        },
+        {
+          "raw": "French",
+          "start": 20.31,
+          "end": 20.63
+        },
+        {
+          "raw": "criticism",
+          "start": 20.63,
+          "end": 21.11
+        },
+        {
+          "raw": "of",
+          "start": 21.11,
+          "end": 21.45
+        },
+        {
+          "raw": "the",
+          "start": 21.45,
+          "end": 21.55
+        },
+        {
+          "raw": "economic",
+          "start": 21.55,
+          "end": 21.97
+        },
+        {
+          "raw": "functions",
+          "start": 21.97,
+          "end": 22.53
+        },
+        {
+          "raw": "of",
+          "start": 22.53,
+          "end": 22.79
+        },
+        {
+          "raw": "money,",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "raw": "they",
+          "start": 23.59,
+          "end": 23.71
+        },
+        {
+          "raw": "wrote",
+          "start": 23.71,
+          "end": 24.05
+        },
+        {
+          "raw": "Alienation",
+          "start": 24.05,
+          "end": 24.95
+        },
+        {
+          "raw": "of",
+          "start": 24.95,
+          "end": 25.11
+        },
+        {
+          "raw": "Humanity.",
+          "start": 25.11,
+          "end": 25.57
+        },
+        {
+          "raw": "And",
+          "start": 26.15,
+          "end": 26.47
+        },
+        {
+          "raw": "beneath",
+          "start": 26.47,
+          "end": 26.75
+        },
+        {
+          "raw": "the",
+          "start": 26.75,
+          "end": 27.01
+        },
+        {
+          "raw": "French",
+          "start": 27.01,
+          "end": 27.27
+        },
+        {
+          "raw": "criticism",
+          "start": 27.27,
+          "end": 27.79
+        },
+        {
+          "raw": "of",
+          "start": 27.79,
+          "end": 28.07
+        },
+        {
+          "raw": "the",
+          "start": 28.07,
+          "end": 28.19
+        },
+        {
+          "raw": "bourgeois",
+          "start": 28.19,
+          "end": 28.55
+        },
+        {
+          "raw": "state",
+          "start": 28.55,
+          "end": 29.29
+        },
+        {
+          "raw": "they",
+          "start": 29.29,
+          "end": 29.57
+        },
+        {
+          "raw": "wrote",
+          "start": 29.57,
+          "end": 29.89
+        },
+        {
+          "raw": "Dethronement",
+          "start": 29.89,
+          "end": 30.75
+        },
+        {
+          "raw": "of",
+          "start": 30.75,
+          "end": 30.85
+        },
+        {
+          "raw": "the",
+          "start": 30.85,
+          "end": 30.97
+        },
+        {
+          "raw": "Category",
+          "start": 30.97,
+          "end": 31.33
+        },
+        {
+          "raw": "of",
+          "start": 31.33,
+          "end": 31.65
+        },
+        {
+          "raw": "the",
+          "start": 31.65,
+          "end": 31.77
+        },
+        {
+          "raw": "General,",
+          "start": 31.77,
+          "end": 32.15
+        },
+        {
+          "raw": "and",
+          "start": 32.37,
+          "end": 32.87
+        },
+        {
+          "raw": "so",
+          "start": 32.87,
+          "end": 33.11
+        },
+        {
+          "raw": "forth.",
+          "start": 33.11,
+          "end": 33.43
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "well",
+        "known",
+        "how",
+        "the",
+        "monks",
+        "wrote",
+        "silly",
+        "lives",
+        "of",
+        "Catholic",
+        "Saints",
+        "_over_",
+        "the",
+        "manuscripts",
+        "on",
+        "which",
+        "the",
+        "classical",
+        "works",
+        "of",
+        "ancient",
+        "heathendom",
+        "had",
+        "been",
+        "written.",
+        "The",
+        "German",
+        "_literati_",
+        "reversed",
+        "this",
+        "process",
+        "with",
+        "the",
+        "profane",
+        "French",
+        "literature.",
+        "They",
+        "wrote",
+        "their",
+        "philosophical",
+        "nonsense",
+        "beneath",
+        "the",
+        "French",
+        "original.",
+        "For",
+        "instance,",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "economic",
+        "functions",
+        "of",
+        "money,",
+        "they",
+        "wrote",
+        "“Alienation",
+        "of",
+        "Humanity,”",
+        "and",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "bourgeois",
+        "State",
+        "they",
+        "wrote",
+        "“dethronement",
+        "of",
+        "the",
+        "Category",
+        "of",
+        "the",
+        "General,”",
+        "and",
+        "so",
+        "forth."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "is",
+        "well",
+        "known",
+        "how",
+        "the",
+        "monks",
+        "wrote",
+        "silly",
+        "lives",
+        "of",
+        "Catholic",
+        "Saints",
+        "_over_",
+        "the",
+        "manuscripts",
+        "on",
+        "which",
+        "the",
+        "classical",
+        "works",
+        "of",
+        "ancient",
+        "heathendom",
+        "had",
+        "been",
+        "written.",
+        "The",
+        "German",
+        "_literati_",
+        "reversed",
+        "this",
+        "process",
+        "with",
+        "the",
+        "profane",
+        "French",
+        "literature.",
+        "They",
+        "wrote",
+        "their",
+        "philosophical",
+        "nonsense",
+        "beneath",
+        "the",
+        "French",
+        "original.",
+        "For",
+        "instance,",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "economic",
+        "functions",
+        "of",
+        "money,",
+        "they",
+        "wrote",
+        "\"Alienation",
+        "of",
+        "Humanity,\"",
+        "and",
+        "beneath",
+        "the",
+        "French",
+        "criticism",
+        "of",
+        "the",
+        "bourgeois",
+        "State",
+        "they",
+        "wrote",
+        "\"dethronement",
+        "of",
+        "the",
+        "Category",
+        "of",
+        "the",
+        "General,\"",
+        "and",
+        "so",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          85,
+          0,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 0.61,
+          "end": 0.87,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 0.87,
+          "end": 1.13,
+          "key": "known",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.13,
+          "end": 1.49,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "monks",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "monks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "wrote",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 2.23,
+          "end": 2.61,
+          "key": "silly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 2.61,
+          "end": 3.09,
+          "key": "lives",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Catholic",
+          "start": 3.29,
+          "end": 3.71,
+          "key": "catholic",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "saints",
+          "start": 3.71,
+          "end": 4.07,
+          "key": "saints",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 4.07,
+          "end": 4.47,
+          "key": "over",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "manuscripts",
+          "start": 4.61,
+          "end": 5.15,
+          "key": "manuscripts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.47,
+          "end": 5.83,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.83,
+          "end": 5.97,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.15,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "classical",
+          "start": 6.15,
+          "end": 6.53,
+          "key": "classical",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "works",
+          "start": 6.53,
+          "end": 6.89,
+          "key": "works",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.89,
+          "end": 7.09,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "ancient",
+          "start": 7.09,
+          "end": 7.51,
+          "key": "ancient",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "heathendom",
+          "start": 7.51,
+          "end": 8.09,
+          "key": "heathendom",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.29,
+          "key": "had",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.29,
+          "end": 8.47,
+          "key": "been",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "written.",
+          "start": 8.47,
+          "end": 8.85,
+          "key": "written",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.55,
+          "end": 9.69,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "German",
+          "start": 9.69,
+          "end": 10.01,
+          "key": "german",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "literati",
+          "start": 10.01,
+          "end": 10.55,
+          "key": "literati",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "reversed",
+          "start": 10.55,
+          "end": 10.99,
+          "key": "reversed",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.99,
+          "end": 11.37,
+          "key": "this",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "process",
+          "start": 11.37,
+          "end": 11.79,
+          "key": "process",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 11.79,
+          "end": 12.35,
+          "key": "with",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.35,
+          "end": 12.49,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "profane",
+          "start": 12.49,
+          "end": 13.01,
+          "key": "profane",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 13.01,
+          "end": 13.35,
+          "key": "french",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "literature.",
+          "start": 13.35,
+          "end": 13.95,
+          "key": "literature",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 14.65,
+          "end": 14.77,
+          "key": "they",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 14.77,
+          "end": 14.97,
+          "key": "wrote",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 14.97,
+          "end": 15.17,
+          "key": "their",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "philosophical",
+          "start": 15.17,
+          "end": 15.73,
+          "key": "philosophical",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "nonsense",
+          "start": 15.73,
+          "end": 16.33,
+          "key": "nonsense",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "beneath",
+          "start": 16.33,
+          "end": 16.83,
+          "key": "beneath",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.83,
+          "end": 17.09,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 17.09,
+          "end": 17.39,
+          "key": "french",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "original.",
+          "start": 17.39,
+          "end": 17.89,
+          "key": "original",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 18.99,
+          "end": 19.07,
+          "key": "for",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "instance,",
+          "start": 19.07,
+          "end": 19.45,
+          "key": "instance",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "beneath",
+          "start": 19.85,
+          "end": 20.01,
+          "key": "beneath",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.01,
+          "end": 20.31,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 20.31,
+          "end": 20.63,
+          "key": "french",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "criticism",
+          "start": 20.63,
+          "end": 21.11,
+          "key": "criticism",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.11,
+          "end": 21.45,
+          "key": "of",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.45,
+          "end": 21.55,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "economic",
+          "start": 21.55,
+          "end": 21.97,
+          "key": "economic",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "functions",
+          "start": 21.97,
+          "end": 22.53,
+          "key": "functions",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.53,
+          "end": 22.79,
+          "key": "of",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 22.79,
+          "end": 23.09,
+          "key": "money",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 23.59,
+          "end": 23.71,
+          "key": "they",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 23.71,
+          "end": 24.05,
+          "key": "wrote",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Alienation",
+          "start": 24.05,
+          "end": 24.95,
+          "key": "alienation",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.95,
+          "end": 25.11,
+          "key": "of",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Humanity.",
+          "start": 25.11,
+          "end": 25.57,
+          "key": "humanity",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 26.15,
+          "end": 26.47,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "beneath",
+          "start": 26.47,
+          "end": 26.75,
+          "key": "beneath",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 26.75,
+          "end": 27.01,
+          "key": "the",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 27.01,
+          "end": 27.27,
+          "key": "french",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "criticism",
+          "start": 27.27,
+          "end": 27.79,
+          "key": "criticism",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 27.79,
+          "end": 28.07,
+          "key": "of",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 28.07,
+          "end": 28.19,
+          "key": "the",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "bourgeois",
+          "start": 28.19,
+          "end": 28.55,
+          "key": "bourgeois",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 28.55,
+          "end": 29.29,
+          "key": "state",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 29.29,
+          "end": 29.57,
+          "key": "they",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 29.57,
+          "end": 29.89,
+          "key": "wrote",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Dethronement",
+          "start": 29.89,
+          "end": 30.75,
+          "key": "dethronement",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 30.75,
+          "end": 30.85,
+          "key": "of",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.85,
+          "end": 30.97,
+          "key": "the",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Category",
+          "start": 30.97,
+          "end": 31.33,
+          "key": "category",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.33,
+          "end": 31.65,
+          "key": "of",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 31.65,
+          "end": 31.77,
+          "key": "the",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "General,",
+          "start": 31.77,
+          "end": 32.15,
+          "key": "general",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 32.37,
+          "end": 32.87,
+          "key": "and",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 32.87,
+          "end": 33.11,
+          "key": "so",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 33.11,
+          "end": 33.43,
+          "key": "forth",
+          "pieces": [
+            84
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "is",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "well",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "text": "known",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "how",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "monks",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "wrote",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "text": "silly",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "text": "lives",
+          "start": 2.61,
+          "end": 3.09
+        },
+        {
+          "text": "of",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "Catholic",
+          "start": 3.29,
+          "end": 3.71
+        },
+        {
+          "text": "Saints",
+          "start": 3.71,
+          "end": 4.07
+        },
+        {
+          "text": "_over_",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "text": "manuscripts",
+          "start": 4.61,
+          "end": 5.15
+        },
+        {
+          "text": "on",
+          "start": 5.47,
+          "end": 5.83
+        },
+        {
+          "text": "which",
+          "start": 5.83,
+          "end": 5.97
+        },
+        {
+          "text": "the",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "classical",
+          "start": 6.15,
+          "end": 6.53
+        },
+        {
+          "text": "works",
+          "start": 6.53,
+          "end": 6.89
+        },
+        {
+          "text": "of",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "text": "ancient",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "text": "heathendom",
+          "start": 7.51,
+          "end": 8.09
+        },
+        {
+          "text": "had",
+          "start": 8.09,
+          "end": 8.29
+        },
+        {
+          "text": "been",
+          "start": 8.29,
+          "end": 8.47
+        },
+        {
+          "text": "written.",
+          "start": 8.47,
+          "end": 8.85
+        },
+        {
+          "text": "The",
+          "start": 9.55,
+          "end": 9.69
+        },
+        {
+          "text": "German",
+          "start": 9.69,
+          "end": 10.01
+        },
+        {
+          "text": "_literati_",
+          "start": 10.01,
+          "end": 10.55
+        },
+        {
+          "text": "reversed",
+          "start": 10.55,
+          "end": 10.99
+        },
+        {
+          "text": "this",
+          "start": 10.99,
+          "end": 11.37
+        },
+        {
+          "text": "process",
+          "start": 11.37,
+          "end": 11.79
+        },
+        {
+          "text": "with",
+          "start": 11.79,
+          "end": 12.35
+        },
+        {
+          "text": "the",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "profane",
+          "start": 12.49,
+          "end": 13.01
+        },
+        {
+          "text": "French",
+          "start": 13.01,
+          "end": 13.35
+        },
+        {
+          "text": "literature.",
+          "start": 13.35,
+          "end": 13.95
+        },
+        {
+          "text": "They",
+          "start": 14.65,
+          "end": 14.77
+        },
+        {
+          "text": "wrote",
+          "start": 14.77,
+          "end": 14.97
+        },
+        {
+          "text": "their",
+          "start": 14.97,
+          "end": 15.17
+        },
+        {
+          "text": "philosophical",
+          "start": 15.17,
+          "end": 15.73
+        },
+        {
+          "text": "nonsense",
+          "start": 15.73,
+          "end": 16.33
+        },
+        {
+          "text": "beneath",
+          "start": 16.33,
+          "end": 16.83
+        },
+        {
+          "text": "the",
+          "start": 16.83,
+          "end": 17.09
+        },
+        {
+          "text": "French",
+          "start": 17.09,
+          "end": 17.39
+        },
+        {
+          "text": "original.",
+          "start": 17.39,
+          "end": 17.89
+        },
+        {
+          "text": "For",
+          "start": 18.99,
+          "end": 19.07
+        },
+        {
+          "text": "instance,",
+          "start": 19.07,
+          "end": 19.45
+        },
+        {
+          "text": "beneath",
+          "start": 19.85,
+          "end": 20.01
+        },
+        {
+          "text": "the",
+          "start": 20.01,
+          "end": 20.31
+        },
+        {
+          "text": "French",
+          "start": 20.31,
+          "end": 20.63
+        },
+        {
+          "text": "criticism",
+          "start": 20.63,
+          "end": 21.11
+        },
+        {
+          "text": "of",
+          "start": 21.11,
+          "end": 21.45
+        },
+        {
+          "text": "the",
+          "start": 21.45,
+          "end": 21.55
+        },
+        {
+          "text": "economic",
+          "start": 21.55,
+          "end": 21.97
+        },
+        {
+          "text": "functions",
+          "start": 21.97,
+          "end": 22.53
+        },
+        {
+          "text": "of",
+          "start": 22.53,
+          "end": 22.79
+        },
+        {
+          "text": "money,",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "text": "they",
+          "start": 23.59,
+          "end": 23.71
+        },
+        {
+          "text": "wrote",
+          "start": 23.71,
+          "end": 24.05
+        },
+        {
+          "text": "“Alienation",
+          "start": 24.05,
+          "end": 24.95
+        },
+        {
+          "text": "of",
+          "start": 24.95,
+          "end": 25.11
+        },
+        {
+          "text": "Humanity,”",
+          "start": 25.11,
+          "end": 25.57
+        },
+        {
+          "text": "and",
+          "start": 26.15,
+          "end": 26.47
+        },
+        {
+          "text": "beneath",
+          "start": 26.47,
+          "end": 26.75
+        },
+        {
+          "text": "the",
+          "start": 26.75,
+          "end": 27.01
+        },
+        {
+          "text": "French",
+          "start": 27.01,
+          "end": 27.27
+        },
+        {
+          "text": "criticism",
+          "start": 27.27,
+          "end": 27.79
+        },
+        {
+          "text": "of",
+          "start": 27.79,
+          "end": 28.07
+        },
+        {
+          "text": "the",
+          "start": 28.07,
+          "end": 28.19
+        },
+        {
+          "text": "bourgeois",
+          "start": 28.19,
+          "end": 28.55
+        },
+        {
+          "text": "State",
+          "start": 28.55,
+          "end": 29.29
+        },
+        {
+          "text": "they",
+          "start": 29.29,
+          "end": 29.57
+        },
+        {
+          "text": "wrote",
+          "start": 29.57,
+          "end": 29.89
+        },
+        {
+          "text": "“dethronement",
+          "start": 29.89,
+          "end": 30.75
+        },
+        {
+          "text": "of",
+          "start": 30.75,
+          "end": 30.85
+        },
+        {
+          "text": "the",
+          "start": 30.85,
+          "end": 30.97
+        },
+        {
+          "text": "Category",
+          "start": 30.97,
+          "end": 31.33
+        },
+        {
+          "text": "of",
+          "start": 31.33,
+          "end": 31.65
+        },
+        {
+          "text": "the",
+          "start": 31.65,
+          "end": 31.77
+        },
+        {
+          "text": "General,”",
+          "start": 31.77,
+          "end": 32.15
+        },
+        {
+          "text": "and",
+          "start": 32.37,
+          "end": 32.87
+        },
+        {
+          "text": "so",
+          "start": 32.87,
+          "end": 33.11
+        },
+        {
+          "text": "forth.",
+          "start": 33.11,
+          "end": 33.43
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 85,
+        "matched_words": 85
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 8.452916911999978
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1c812c0ec069ccca74a2869bd83db0ce3886b530215db44e8226bfedb4bc8a7f",
+  "selected_reasons": []
+}

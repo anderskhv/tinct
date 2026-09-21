@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "efebd0a9e7492ad4572e56006b1c8a12142eaf2c2459a6acced94006f0d102ab",
+  "attempts": [
+    {
+      "asr_seconds": 2.3304240979999804,
+      "alignment_seconds": 0.0008199009999998452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "141. The belly is the reason why man does not so readily take himself for a God.",
+        "hotwords": "God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 141. The belly is the reason why man does not so readily take himself for a God.",
+          "start": 0.63,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " 141.",
+              "start": 0.63,
+              "end": 1.19,
+              "probability": 0.8266427516937256
+            },
+            {
+              "text": " The",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.9416767358779907
+            },
+            {
+              "text": " belly",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.9471753239631653
+            },
+            {
+              "text": " is",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.9987139701843262
+            },
+            {
+              "text": " the",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.9977152347564697
+            },
+            {
+              "text": " reason",
+              "start": 3.07,
+              "end": 3.35,
+              "probability": 0.9993264675140381
+            },
+            {
+              "text": " why",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.9939689636230469
+            },
+            {
+              "text": " man",
+              "start": 3.63,
+              "end": 3.99,
+              "probability": 0.990480363368988
+            },
+            {
+              "text": " does",
+              "start": 3.99,
+              "end": 4.19,
+              "probability": 0.9969754219055176
+            },
+            {
+              "text": " not",
+              "start": 4.19,
+              "end": 4.45,
+              "probability": 0.9992427825927734
+            },
+            {
+              "text": " so",
+              "start": 4.45,
+              "end": 4.71,
+              "probability": 0.9973427653312683
+            },
+            {
+              "text": " readily",
+              "start": 4.71,
+              "end": 5.07,
+              "probability": 0.9995834231376648
+            },
+            {
+              "text": " take",
+              "start": 5.07,
+              "end": 5.41,
+              "probability": 0.9986007809638977
+            },
+            {
+              "text": " himself",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.99564528465271
+            },
+            {
+              "text": " for",
+              "start": 5.71,
+              "end": 6.03,
+              "probability": 0.9989903569221497
+            },
+            {
+              "text": " a",
+              "start": 6.03,
+              "end": 6.15,
+              "probability": 0.9786438345909119
+            },
+            {
+              "text": " God.",
+              "start": 6.15,
+              "end": 6.39,
+              "probability": 0.21623459458351135
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "141.",
+          "start": 0.63,
+          "end": 1.19
+        },
+        {
+          "raw": "The",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "belly",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "is",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "reason",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "raw": "why",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "man",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "raw": "does",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "raw": "not",
+          "start": 4.19,
+          "end": 4.45
+        },
+        {
+          "raw": "so",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "raw": "readily",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "raw": "take",
+          "start": 5.07,
+          "end": 5.41
+        },
+        {
+          "raw": "himself",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "for",
+          "start": 5.71,
+          "end": 6.03
+        },
+        {
+          "raw": "a",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "raw": "God.",
+          "start": 6.15,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "141.",
+        "The",
+        "belly",
+        "is",
+        "the",
+        "reason",
+        "why",
+        "man",
+        "does",
+        "not",
+        "so",
+        "readily",
+        "take",
+        "himself",
+        "for",
+        "a",
+        "God."
+      ],
+      "acoustic_expected_tokens": [
+        "141.",
+        "The",
+        "belly",
+        "is",
+        "the",
+        "reason",
+        "why",
+        "man",
+        "does",
+        "not",
+        "so",
+        "readily",
+        "take",
+        "himself",
+        "for",
+        "a",
+        "God."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "141.",
+          "start": 0.63,
+          "end": 1.19,
+          "key": "141",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "belly",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "belly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 3.07,
+          "end": 3.35,
+          "key": "reason",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "why",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.63,
+          "end": 3.99,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 3.99,
+          "end": 4.19,
+          "key": "does",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.19,
+          "end": 4.45,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.45,
+          "end": 4.71,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "readily",
+          "start": 4.71,
+          "end": 5.07,
+          "key": "readily",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 5.07,
+          "end": 5.41,
+          "key": "take",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "himself",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.71,
+          "end": 6.03,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.03,
+          "end": 6.15,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "God.",
+          "start": 6.15,
+          "end": 6.39,
+          "key": "god",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "141.",
+          "start": 0.63,
+          "end": 1.19
+        },
+        {
+          "text": "The",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "belly",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "is",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "the",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "reason",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "why",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "man",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "text": "does",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "text": "not",
+          "start": 4.19,
+          "end": 4.45
+        },
+        {
+          "text": "so",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "text": "readily",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "text": "take",
+          "start": 5.07,
+          "end": 5.41
+        },
+        {
+          "text": "himself",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "for",
+          "start": 5.71,
+          "end": 6.03
+        },
+        {
+          "text": "a",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "text": "God.",
+          "start": 6.15,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.331282685999952
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c4334e42dbceb43fa1d26cef95ac9f6556130fc69ae120945d40032dd79acf0",
+  "selected_reasons": []
+}

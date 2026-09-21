@@ -1,0 +1,1650 @@
+{
+  "complete": true,
+  "signature": "d177074724ae3cc695b5925cb412ced45db00ed97bbb3ee82a45fc67f83c5084",
+  "attempts": [
+    {
+      "asr_seconds": 2.8590839459999984,
+      "alignment_seconds": 0.0007656270000211407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We may cite Proudhon's _Philosophie de la Misère_ as an example of this form.",
+        "hotwords": "We, Proudhon's, Misère_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We may cite Proudhon's philosophy de la Misère as an example of this form.",
+          "start": 0.05,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9040754437446594
+            },
+            {
+              "text": " may",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9905102849006653
+            },
+            {
+              "text": " cite",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.9922128319740295
+            },
+            {
+              "text": " Proudhon's",
+              "start": 0.95,
+              "end": 1.57,
+              "probability": 0.9279126326243082
+            },
+            {
+              "text": " philosophy",
+              "start": 1.57,
+              "end": 2.11,
+              "probability": 0.8655288815498352
+            },
+            {
+              "text": " de",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.13864226639270782
+            },
+            {
+              "text": " la",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.8189062476158142
+            },
+            {
+              "text": " Misère",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.017125218408182263
+            },
+            {
+              "text": " as",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.9089440107345581
+            },
+            {
+              "text": " an",
+              "start": 3.37,
+              "end": 3.45,
+              "probability": 0.9979435801506042
+            },
+            {
+              "text": " example",
+              "start": 3.45,
+              "end": 3.79,
+              "probability": 0.9994196891784668
+            },
+            {
+              "text": " of",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.9981299042701721
+            },
+            {
+              "text": " this",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.9979382157325745
+            },
+            {
+              "text": " form.",
+              "start": 4.21,
+              "end": 4.55,
+              "probability": 0.9979434609413147
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "Misère",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon’s",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "acoustic_expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon's",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          14,
+          5,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "cite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57,
+          "key": "proudhons",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11,
+          "key": "philosophy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Misère",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "misère",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79,
+          "key": "example",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.55,
+          "key": "form",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Proudhon’s",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "text": "_Philosophie",
+          "start": 1.57,
+          "end": 1.84
+        },
+        {
+          "text": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "Misère_",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "text": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "text": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "text": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "form.",
+          "start": 4.21,
+          "end": 4.55
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 2.859879367000019
+    },
+    {
+      "asr_seconds": 2.761734880000006,
+      "alignment_seconds": 0.0007651260000329785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "We, Proudhon's, Misère_"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " We may cite Proudhon's philosophy de la Misère as an example of this form.",
+          "start": 0.05,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9040754437446594
+            },
+            {
+              "text": " may",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9905102849006653
+            },
+            {
+              "text": " cite",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.9922128319740295
+            },
+            {
+              "text": " Proudhon's",
+              "start": 0.95,
+              "end": 1.57,
+              "probability": 0.9279126326243082
+            },
+            {
+              "text": " philosophy",
+              "start": 1.57,
+              "end": 2.11,
+              "probability": 0.8655288815498352
+            },
+            {
+              "text": " de",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.13864226639270782
+            },
+            {
+              "text": " la",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.8189062476158142
+            },
+            {
+              "text": " Misère",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.017125218408182263
+            },
+            {
+              "text": " as",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.9089440107345581
+            },
+            {
+              "text": " an",
+              "start": 3.37,
+              "end": 3.45,
+              "probability": 0.9979435801506042
+            },
+            {
+              "text": " example",
+              "start": 3.45,
+              "end": 3.79,
+              "probability": 0.9994196891784668
+            },
+            {
+              "text": " of",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.9981299042701721
+            },
+            {
+              "text": " this",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.9979382157325745
+            },
+            {
+              "text": " form.",
+              "start": 4.21,
+              "end": 4.55,
+              "probability": 0.9979434609413147
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "Misère",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon’s",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "acoustic_expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon's",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          14,
+          5,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "cite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57,
+          "key": "proudhons",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11,
+          "key": "philosophy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Misère",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "misère",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79,
+          "key": "example",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.55,
+          "key": "form",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Proudhon’s",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "text": "_Philosophie",
+          "start": 1.57,
+          "end": 1.84
+        },
+        {
+          "text": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "Misère_",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "text": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "text": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "text": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "form.",
+          "start": 4.21,
+          "end": 4.55
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 2.762531502999991
+    },
+    {
+      "asr_seconds": 2.7077746580000053,
+      "alignment_seconds": 0.0007652659999735079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We may cite Proudhon's philosophy de la Massure as an example of this form.",
+          "start": 0.05,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9040754437446594
+            },
+            {
+              "text": " may",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9905102849006653
+            },
+            {
+              "text": " cite",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.9922128319740295
+            },
+            {
+              "text": " Proudhon's",
+              "start": 0.95,
+              "end": 1.57,
+              "probability": 0.9279126326243082
+            },
+            {
+              "text": " philosophy",
+              "start": 1.57,
+              "end": 2.11,
+              "probability": 0.8655288815498352
+            },
+            {
+              "text": " de",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.13864226639270782
+            },
+            {
+              "text": " la",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.8189062476158142
+            },
+            {
+              "text": " Massure",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.2798251137137413
+            },
+            {
+              "text": " as",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.9552424550056458
+            },
+            {
+              "text": " an",
+              "start": 3.37,
+              "end": 3.45,
+              "probability": 0.9978749752044678
+            },
+            {
+              "text": " example",
+              "start": 3.45,
+              "end": 3.79,
+              "probability": 0.9994634985923767
+            },
+            {
+              "text": " of",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.9978534579277039
+            },
+            {
+              "text": " this",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.9983489513397217
+            },
+            {
+              "text": " form.",
+              "start": 4.21,
+              "end": 4.53,
+              "probability": 0.9980397820472717
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "Massure",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.53
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon’s",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "acoustic_expected_tokens": [
+        "We",
+        "may",
+        "cite",
+        "Proudhon's",
+        "_Philosophie",
+        "de",
+        "la",
+        "Misère_",
+        "as",
+        "an",
+        "example",
+        "of",
+        "this",
+        "form."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          14,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cite",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "cite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Proudhon's",
+          "start": 0.95,
+          "end": 1.57,
+          "key": "proudhons",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "philosophy",
+          "start": 1.57,
+          "end": 2.11,
+          "key": "philosophy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Massure",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "massure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.37,
+          "end": 3.45,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "example",
+          "start": 3.45,
+          "end": 3.79,
+          "key": "example",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "form.",
+          "start": 4.21,
+          "end": 4.53,
+          "key": "form",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "may",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "cite",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Proudhon’s",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "text": "_Philosophie",
+          "start": 1.57,
+          "end": 1.84
+        },
+        {
+          "text": "de",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "la",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "Misère_",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "as",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "text": "an",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "text": "example",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "text": "of",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "this",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "form.",
+          "start": 4.21,
+          "end": 4.53
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 2.708569778000026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "703ab6ddf5c3fab19d5a9dc35376b219ed81a11d009de3a1a0ec181a1bf697f6",
+  "selected_reasons": []
+}

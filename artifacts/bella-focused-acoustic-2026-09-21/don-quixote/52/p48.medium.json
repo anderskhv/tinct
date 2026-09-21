@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "e067cfdb412b8c965c6a3d1da0ad1a783a3272727359cb8208e61c5a68b22f79",
+  "attempts": [
+    {
+      "asr_seconds": 3.2742913209999642,
+      "alignment_seconds": 9.247899993169995e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " DEDICATION OF VOLUME N",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " DEDICATION",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.790501169860363
+            },
+            {
+              "text": " OF",
+              "start": 0.99,
+              "end": 1.13,
+              "probability": 0.9738717675209045
+            },
+            {
+              "text": " VOLUME",
+              "start": 1.13,
+              "end": 1.61,
+              "probability": 0.9155244529247284
+            },
+            {
+              "text": " N",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.656395673751831
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "DEDICATION",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "OF",
+          "start": 0.99,
+          "end": 1.13
+        },
+        {
+          "raw": "VOLUME",
+          "start": 1.13,
+          "end": 1.61
+        },
+        {
+          "raw": "N",
+          "start": 1.61,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "DEDICATION",
+        "OF",
+        "VOLUME",
+        "II."
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "DEDICATION",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "dedication",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "OF",
+          "start": 0.99,
+          "end": 1.13,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "VOLUME",
+          "start": 1.13,
+          "end": 1.61,
+          "key": "volume",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "n",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "DEDICATION",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "VOLUME",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "II.",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.2743953199999396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a29a46ff3a6167f81312babcdb1f0f00d6b191a487b37f8e4e0af1ebf381fb3f",
+  "selected_reasons": []
+}

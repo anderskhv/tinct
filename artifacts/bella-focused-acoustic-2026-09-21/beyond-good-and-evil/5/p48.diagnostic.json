@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "5631b6057a7c5293211508805d632bf25e20aba1253494186b734582655e9b52",
+  "attempts": [
+    {
+      "asr_seconds": 2.310778522000021,
+      "alignment_seconds": 0.0007152020000376069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "111. Our vanity is most difficult to wound just when our pride has been wounded."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 111. Our vanity is most difficult to wound just when our pride has been wounded.",
+          "start": 0.02,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " 111.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.8168712854385376
+            },
+            {
+              "text": " Our",
+              "start": 2.04,
+              "end": 2.12,
+              "probability": 0.9705953598022461
+            },
+            {
+              "text": " vanity",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.9452540874481201
+            },
+            {
+              "text": " is",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.9982748031616211
+            },
+            {
+              "text": " most",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.9924688935279846
+            },
+            {
+              "text": " difficult",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.9972516894340515
+            },
+            {
+              "text": " to",
+              "start": 3.3,
+              "end": 3.58,
+              "probability": 0.999098539352417
+            },
+            {
+              "text": " wound",
+              "start": 3.58,
+              "end": 3.9,
+              "probability": 0.9968917965888977
+            },
+            {
+              "text": " just",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 0.9752995371818542
+            },
+            {
+              "text": " when",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.9984484910964966
+            },
+            {
+              "text": " our",
+              "start": 4.46,
+              "end": 4.6,
+              "probability": 0.9961813688278198
+            },
+            {
+              "text": " pride",
+              "start": 4.6,
+              "end": 4.9,
+              "probability": 0.958676278591156
+            },
+            {
+              "text": " has",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.9971666932106018
+            },
+            {
+              "text": " been",
+              "start": 5.1,
+              "end": 5.24,
+              "probability": 0.9995525479316711
+            },
+            {
+              "text": " wounded.",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.9984318614006042
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "111.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Our",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "raw": "vanity",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "raw": "is",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "most",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "difficult",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "to",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "raw": "wound",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "raw": "just",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "when",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "our",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "raw": "pride",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "raw": "has",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "been",
+          "start": 5.1,
+          "end": 5.24
+        },
+        {
+          "raw": "wounded.",
+          "start": 5.24,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "111.",
+        "Our",
+        "vanity",
+        "is",
+        "most",
+        "difficult",
+        "to",
+        "wound",
+        "just",
+        "when",
+        "our",
+        "pride",
+        "has",
+        "been",
+        "wounded."
+      ],
+      "acoustic_expected_tokens": [
+        "111.",
+        "Our",
+        "vanity",
+        "is",
+        "most",
+        "difficult",
+        "to",
+        "wound",
+        "just",
+        "when",
+        "our",
+        "pride",
+        "has",
+        "been",
+        "wounded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "111.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "111",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.04,
+          "end": 2.12,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vanity",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "vanity",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.44,
+          "end": 2.72,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "difficult",
+          "start": 2.94,
+          "end": 3.3,
+          "key": "difficult",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.3,
+          "end": 3.58,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wound",
+          "start": 3.58,
+          "end": 3.9,
+          "key": "wound",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.9,
+          "end": 4.24,
+          "key": "just",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.24,
+          "end": 4.46,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.46,
+          "end": 4.6,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pride",
+          "start": 4.6,
+          "end": 4.9,
+          "key": "pride",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "has",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 5.1,
+          "end": 5.24,
+          "key": "been",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wounded.",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "wounded",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "111.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Our",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "text": "vanity",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "text": "is",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "most",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "difficult",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "to",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "text": "wound",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "text": "just",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "when",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "our",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "text": "pride",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "text": "has",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "been",
+          "start": 5.1,
+          "end": 5.24
+        },
+        {
+          "text": "wounded.",
+          "start": 5.24,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.311526822000019
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ccf0b341a7d44cbbbe5a5c57464cbc1a163259b154bb773e3818ca4490d0e3ab",
+  "selected_reasons": []
+}

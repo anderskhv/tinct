@@ -1,0 +1,618 @@
+{
+  "complete": true,
+  "signature": "dd78b96c274d53929e59ba2fee97fa120967c27cde58c4e2c69cd2f9a26672c0",
+  "attempts": [
+    {
+      "asr_seconds": 9.74637278299997,
+      "alignment_seconds": 0.001130680000017037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "147. From old Florentine novels--moreover, from life: Buona femmina e mala femmina vuol bastone.--Sacchetti, Nov. 86.",
+        "hotwords": "Florentine, Buona, Nov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 147. From old Florentine novels moreover, from life. Buona femmina e mala femmina vuol bastone.--Sacchetti, Nov. 86.",
+          "start": 0.05,
+          "end": 10.55,
+          "words": [
+            {
+              "text": " 147.",
+              "start": 0.05,
+              "end": 1.27,
+              "probability": 0.42205920815467834
+            },
+            {
+              "text": " From",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9115288853645325
+            },
+            {
+              "text": " old",
+              "start": 2.35,
+              "end": 2.67,
+              "probability": 0.5776272416114807
+            },
+            {
+              "text": " Florentine",
+              "start": 2.67,
+              "end": 3.33,
+              "probability": 0.9982228676478068
+            },
+            {
+              "text": " novels",
+              "start": 3.33,
+              "end": 3.63,
+              "probability": 0.9861981272697449
+            },
+            {
+              "text": " moreover,",
+              "start": 3.63,
+              "end": 4.01,
+              "probability": 0.8166343569755554
+            },
+            {
+              "text": " from",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.9273279905319214
+            },
+            {
+              "text": " life.",
+              "start": 4.49,
+              "end": 4.89,
+              "probability": 0.6120577454566956
+            },
+            {
+              "text": " Buona",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.8453830778598785
+            },
+            {
+              "text": " femmina",
+              "start": 5.77,
+              "end": 6.35,
+              "probability": 0.3364216046478153
+            },
+            {
+              "text": " e",
+              "start": 6.35,
+              "end": 6.45,
+              "probability": 0.548967719078064
+            },
+            {
+              "text": " mala",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.6111643463373184
+            },
+            {
+              "text": " femmina",
+              "start": 6.71,
+              "end": 7.25,
+              "probability": 0.8199833830197653
+            },
+            {
+              "text": " vuol",
+              "start": 7.25,
+              "end": 7.57,
+              "probability": 0.36151830355326336
+            },
+            {
+              "text": " bastone.--Sacchetti,",
+              "start": 7.57,
+              "end": 9.09,
+              "probability": 0.5349704124618787
+            },
+            {
+              "text": " Nov.",
+              "start": 9.43,
+              "end": 9.67,
+              "probability": 0.08418697118759155
+            },
+            {
+              "text": " 86.",
+              "start": 10.51,
+              "end": 10.55,
+              "probability": 0.8759459853172302
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "147.",
+          "start": 0.05,
+          "end": 1.27
+        },
+        {
+          "raw": "From",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "old",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "raw": "Florentine",
+          "start": 2.67,
+          "end": 3.33
+        },
+        {
+          "raw": "novels",
+          "start": 3.33,
+          "end": 3.63
+        },
+        {
+          "raw": "moreover,",
+          "start": 3.63,
+          "end": 4.01
+        },
+        {
+          "raw": "from",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "life.",
+          "start": 4.49,
+          "end": 4.89
+        },
+        {
+          "raw": "Buona",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "femmina",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "raw": "e",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "raw": "mala",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "femmina",
+          "start": 6.71,
+          "end": 7.25
+        },
+        {
+          "raw": "vuol",
+          "start": 7.25,
+          "end": 7.57
+        },
+        {
+          "raw": "bastone.--Sacchetti,",
+          "start": 7.57,
+          "end": 9.09
+        },
+        {
+          "raw": "Nov.",
+          "start": 9.43,
+          "end": 9.67
+        },
+        {
+          "raw": "86.",
+          "start": 10.51,
+          "end": 10.55
+        }
+      ],
+      "expected_tokens": [
+        "147.",
+        "From",
+        "old",
+        "Florentine",
+        "novels--moreover,",
+        "from",
+        "life:",
+        "Buona",
+        "femmina",
+        "e",
+        "mala",
+        "femmina",
+        "vuol",
+        "bastone.--Sacchetti,",
+        "Nov.",
+        "86."
+      ],
+      "acoustic_expected_tokens": [
+        "147.",
+        "From",
+        "old",
+        "Florentine",
+        "novels--moreover,",
+        "from",
+        "life:",
+        "Buona",
+        "femmina",
+        "e",
+        "mala",
+        "femmina",
+        "vuol",
+        "bastone.--Sacchetti,",
+        "Nov.",
+        "86."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "147.",
+          "start": 0.05,
+          "end": 1.27,
+          "key": "147",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.35,
+          "end": 2.67,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Florentine",
+          "start": 2.67,
+          "end": 3.33,
+          "key": "florentine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "novels moreover,",
+          "start": 3.33,
+          "end": 4.01,
+          "key": "novelsmoreover",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.39,
+          "end": 4.49,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 4.49,
+          "end": 4.89,
+          "key": "life",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Buona",
+          "start": 5.47,
+          "end": 5.77,
+          "key": "buona",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "femmina",
+          "start": 5.77,
+          "end": 6.35,
+          "key": "femmina",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 6.35,
+          "end": 6.45,
+          "key": "e",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mala",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "mala",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "femmina",
+          "start": 6.71,
+          "end": 7.25,
+          "key": "femmina",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vuol",
+          "start": 7.25,
+          "end": 7.57,
+          "key": "vuol",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bastone.--Sacchetti,",
+          "start": 7.57,
+          "end": 9.09,
+          "key": "bastonesacchetti",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Nov.",
+          "start": 9.43,
+          "end": 9.67,
+          "key": "nov",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "86.",
+          "start": 10.51,
+          "end": 10.55,
+          "key": "eightysix",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "novels--moreover,",
+          "heard": "novels moreover,",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 3.33,
+          "end": 4.01
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "147.",
+          "start": 0.05,
+          "end": 1.27
+        },
+        {
+          "text": "From",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "old",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "text": "Florentine",
+          "start": 2.67,
+          "end": 3.33
+        },
+        {
+          "text": "novels--moreover,",
+          "start": 3.33,
+          "end": 4.01
+        },
+        {
+          "text": "from",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "life:",
+          "start": 4.49,
+          "end": 4.89
+        },
+        {
+          "text": "Buona",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "femmina",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "text": "e",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "text": "mala",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "femmina",
+          "start": 6.71,
+          "end": 7.25
+        },
+        {
+          "text": "vuol",
+          "start": 7.25,
+          "end": 7.57
+        },
+        {
+          "text": "bastone.--Sacchetti,",
+          "start": 7.57,
+          "end": 9.09
+        },
+        {
+          "text": "Nov.",
+          "start": 9.43,
+          "end": 9.67
+        },
+        {
+          "text": "86.",
+          "start": 10.51,
+          "end": 10.55
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 9.747541924000018
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf4fb830bf8d3e36ef522b473c38cd946a665cde4cb5326147f35cd2ba94dc02",
+  "selected_reasons": []
+}

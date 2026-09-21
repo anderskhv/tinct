@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "34f7c980e3fe2ed516720213723acb572c6fa83a9891880d89321d7eb16abf6e",
+  "attempts": [
+    {
+      "asr_seconds": 6.7140081130000056,
+      "alignment_seconds": 0.000519820999983267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No. Is she your sweetheart?\"",
+        "hotwords": "No, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, Is she your sweetheart?",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.4075423777103424
+            },
+            {
+              "text": " Is",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.06443877518177032
+            },
+            {
+              "text": " she",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.5263490080833435
+            },
+            {
+              "text": " your",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.8797911405563354
+            },
+            {
+              "text": " sweetheart?",
+              "start": 1.35,
+              "end": 1.79,
+              "probability": 0.9759697914123535
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Is",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "she",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "your",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "sweetheart?",
+          "start": 1.35,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "“No.",
+        "Is",
+        "she",
+        "your",
+        "sweetheart?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No.",
+        "Is",
+        "she",
+        "your",
+        "sweetheart?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweetheart?",
+          "start": 1.35,
+          "end": 1.79,
+          "key": "sweetheart",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Is",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "text": "she",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "your",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "sweetheart?”",
+          "start": 1.35,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.714546509000002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "207cf179fb49ffeab2beaf078d9f94a33963f3ef386362379d295ae75fc1bfe9",
+  "selected_reasons": []
+}

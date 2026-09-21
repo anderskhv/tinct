@@ -1,0 +1,183 @@
+{
+  "complete": true,
+  "signature": "8759658603ef6d3533676343719e53eea51ecbf5b4cefb1f0690098151b65206",
+  "attempts": [
+    {
+      "asr_seconds": 3.18928519699989,
+      "alignment_seconds": 0.00010020100012297917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To the count of Lemos",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.5015361309051514
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9725845456123352
+            },
+            {
+              "text": " count",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.9231768250465393
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.9993625283241272
+            },
+            {
+              "text": " Lemos",
+              "start": 1.02,
+              "end": 1.4,
+              "probability": 0.5769239738583565
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "count",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "Lemos",
+          "start": 1.02,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "TO",
+        "THE",
+        "COUNT",
+        "OF",
+        "LEMOS:"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lemos",
+          "start": 1.02,
+          "end": 1.4,
+          "key": "lemos",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "TO",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "THE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "COUNT",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "LEMOS:",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.1893978909999987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f7c263adf6049dc8725330200bfdbbae7b12bcf74f1a49f3ef4a85d3e374979",
+  "selected_reasons": []
+}

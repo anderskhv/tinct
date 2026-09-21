@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "b41d56fae5ac4557a027aac43edfe4b7377b8acbc2b48917ad08f2e86621ca9d",
+  "attempts": [
+    {
+      "asr_seconds": 2.571456600000033,
+      "alignment_seconds": 0.00039442399997824396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "2. Idem, Vol. 4, p. 438.",
+        "hotwords": "Idem, Vol"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 2. Idem, Vol. 4, p. 438.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " 2.",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.3495670557022095
+            },
+            {
+              "text": " Idem,",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.5494053103029728
+            },
+            {
+              "text": " Vol.",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.2703365385532379
+            },
+            {
+              "text": " 4,",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.9156202673912048
+            },
+            {
+              "text": " p.",
+              "start": 2.45,
+              "end": 2.55,
+              "probability": 0.49714577198028564
+            },
+            {
+              "text": " 438.",
+              "start": 2.83,
+              "end": 3.35,
+              "probability": 0.8627315163612366
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Idem,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "Vol.",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "4,",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "p.",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "raw": "438.",
+          "start": 2.83,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "2.",
+        "Idem,",
+        "Vol.",
+        "4,",
+        "p.",
+        "438."
+      ],
+      "acoustic_expected_tokens": [
+        "2.",
+        "Idem,",
+        "Vol.",
+        "4,",
+        "p.",
+        "438."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Idem,",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "idem",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vol.",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "vol",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "4,",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "four",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "p.",
+          "start": 2.45,
+          "end": 2.55,
+          "key": "p",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "438.",
+          "start": 2.83,
+          "end": 3.35,
+          "key": "438",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "2.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Idem,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "Vol.",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "4,",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "p.",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "text": "438.",
+          "start": 2.83,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5718693720000374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4d874cc93b6b8c311af09eab01b9025c593f1d01e7c06f4d30ff4b6d688c551",
+  "selected_reasons": []
+}

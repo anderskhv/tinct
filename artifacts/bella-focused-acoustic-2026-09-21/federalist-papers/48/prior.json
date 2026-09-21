@@ -1,0 +1,88 @@
+{
+ "bookId": "federalist-papers",
+ "edition": "original-en",
+ "chapter": 48,
+ "editionContentHash": "dae685ea31249485f86645a83d7a9b37e0618ad5652990fa5202ab697d81ca2b",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:56:07.196891+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "45e7fab24d4cda79555db72bf456bb976b81cb3f3a626f78d095235035ddfb98",
+ "manifestMetadata": {
+  "chapter": 48,
+  "title": "No. 48 — These Departments Should Not Be So Far Separated as to Have No Constitutional Control Over Each Other. (Madison)"
+ },
+ "durationSeconds": 716.232,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "federalist-papers",
+  "edition": "original-en",
+  "chapter": 48,
+  "textParagraphs": 16,
+  "textParagraphsWithWords": 16,
+  "manifestSpokenParagraphs": 16,
+  "durationSeconds": 706.2,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 471213
+   },
+   {
+    "file": "p8.mp3",
+    "status": 206,
+    "bytes": 965037
+   },
+   {
+    "file": "p15.mp3",
+    "status": 206,
+    "bytes": 309165
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/collect-report.json",
+   "record": {
+    "key": "federalist-papers/original-en/ch48",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9994614970382337,
+      "reasons": [
+       {
+        "paragraph": 11,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch48/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9876144318793754,
+      "reasons": [
+       {
+        "paragraph": 11,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch48/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}

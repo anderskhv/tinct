@@ -1,0 +1,183 @@
+{
+  "complete": true,
+  "signature": "5f1dd83956db3087694c955c908a9aca6a8421a95765b5fc0de1e70cbecf18ad",
+  "attempts": [
+    {
+      "asr_seconds": 2.238468097000009,
+      "alignment_seconds": 9.99400000409878e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 2. conservative or bourgeois socialism",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " 2.",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7250496745109558
+            },
+            {
+              "text": " conservative",
+              "start": 1.15,
+              "end": 1.65,
+              "probability": 0.41867774724960327
+            },
+            {
+              "text": " or",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.9651870727539062
+            },
+            {
+              "text": " bourgeois",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.9606432914733887
+            },
+            {
+              "text": " socialism",
+              "start": 2.29,
+              "end": 2.97,
+              "probability": 0.8910388946533203
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "conservative",
+          "start": 1.15,
+          "end": 1.65
+        },
+        {
+          "raw": "or",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "bourgeois",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "raw": "socialism",
+          "start": 2.29,
+          "end": 2.97
+        }
+      ],
+      "expected_tokens": [
+        "2.",
+        "CONSERVATIVE,",
+        "OR",
+        "BOURGEOIS,",
+        "SOCIALISM"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "conservative",
+          "start": 1.15,
+          "end": 1.65,
+          "key": "conservative",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "or",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bourgeois",
+          "start": 1.87,
+          "end": 2.29,
+          "key": "bourgeois",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 2.29,
+          "end": 2.97,
+          "key": "socialism",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "2.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "CONSERVATIVE,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OR",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "BOURGEOIS,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "SOCIALISM",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.238579264000009
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34370d7688b782296bea9dc09c95510c88ceb7f00c8b4a1df721d2b350b10ccc",
+  "selected_reasons": []
+}

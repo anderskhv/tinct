@@ -1,0 +1,687 @@
+{
+  "complete": true,
+  "signature": "f1664da80a239db4304c4a6b6cf632e9322f5f2419cee31d985f4e8afd45c308",
+  "attempts": [
+    {
+      "asr_seconds": 2.6707258480000178,
+      "alignment_seconds": 0.0008587130000137222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "140. Advice As A Riddle.--\"If the band is not to break, bite it first--secure to make!\"",
+        "hotwords": "Advice, As, A, Riddle.--\"If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If 140. Advice As A Riddle.--If the band is not to break, bite it first secure to make!\"",
+          "start": 0.02,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.008714490570127964
+            },
+            {
+              "text": " 140.",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 7.038031981210224e-06
+            },
+            {
+              "text": " Advice",
+              "start": 1.66,
+              "end": 2.06,
+              "probability": 0.9624320864677429
+            },
+            {
+              "text": " As",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.01140651572495699
+            },
+            {
+              "text": " A",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.5045134425163269
+            },
+            {
+              "text": " Riddle.--If",
+              "start": 2.58,
+              "end": 3.6,
+              "probability": 0.6787438441941731
+            },
+            {
+              "text": " the",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.7330054044723511
+            },
+            {
+              "text": " band",
+              "start": 3.74,
+              "end": 4.0,
+              "probability": 0.8659418225288391
+            },
+            {
+              "text": " is",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.9646400213241577
+            },
+            {
+              "text": " not",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.9697425961494446
+            },
+            {
+              "text": " to",
+              "start": 4.38,
+              "end": 4.54,
+              "probability": 0.9923909306526184
+            },
+            {
+              "text": " break,",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.9758388996124268
+            },
+            {
+              "text": " bite",
+              "start": 5.1,
+              "end": 5.14,
+              "probability": 0.86548912525177
+            },
+            {
+              "text": " it",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.6127854585647583
+            },
+            {
+              "text": " first",
+              "start": 5.3,
+              "end": 5.5,
+              "probability": 0.9889367818832397
+            },
+            {
+              "text": " secure",
+              "start": 5.5,
+              "end": 5.9,
+              "probability": 0.910615861415863
+            },
+            {
+              "text": " to",
+              "start": 5.9,
+              "end": 6.1,
+              "probability": 0.9924824833869934
+            },
+            {
+              "text": " make",
+              "start": 6.1,
+              "end": 6.34,
+              "probability": 0.9967213273048401
+            },
+            {
+              "text": "!\"",
+              "start": 6.34,
+              "end": 6.94,
+              "probability": 0.00021304699475876987
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "140.",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "Advice",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "raw": "As",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "raw": "A",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "Riddle.--If",
+          "start": 2.58,
+          "end": 3.6
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "band",
+          "start": 3.74,
+          "end": 4.0
+        },
+        {
+          "raw": "is",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "not",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "to",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "raw": "break,",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "bite",
+          "start": 5.1,
+          "end": 5.14
+        },
+        {
+          "raw": "it",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "first",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "raw": "secure",
+          "start": 5.5,
+          "end": 5.9
+        },
+        {
+          "raw": "to",
+          "start": 5.9,
+          "end": 6.1
+        },
+        {
+          "raw": "make",
+          "start": 6.1,
+          "end": 6.34
+        },
+        {
+          "raw": "!\"",
+          "start": 6.34,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "140.",
+        "ADVICE",
+        "AS",
+        "A",
+        "RIDDLE.--\"If",
+        "the",
+        "band",
+        "is",
+        "not",
+        "to",
+        "break,",
+        "bite",
+        "it",
+        "first--secure",
+        "to",
+        "make!\""
+      ],
+      "acoustic_expected_tokens": [
+        "140.",
+        "Advice",
+        "As",
+        "A",
+        "Riddle.--\"If",
+        "the",
+        "band",
+        "is",
+        "not",
+        "to",
+        "break,",
+        "bite",
+        "it",
+        "first--secure",
+        "to",
+        "make!\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ],
+        [
+          "insert",
+          16,
+          16,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "insert",
+          16,
+          16,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "140.",
+          "start": 0.9,
+          "end": 0.9,
+          "key": "140",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Advice",
+          "start": 1.66,
+          "end": 2.06,
+          "key": "advice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 2.06,
+          "end": 2.42,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Riddle.--If",
+          "start": 2.58,
+          "end": 3.6,
+          "key": "riddleif",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "band",
+          "start": 3.74,
+          "end": 4.0,
+          "key": "band",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.0,
+          "end": 4.16,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.38,
+          "end": 4.54,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "break,",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "break",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bite",
+          "start": 5.1,
+          "end": 5.14,
+          "key": "bite",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "first secure",
+          "start": 5.3,
+          "end": 5.9,
+          "key": "firstsecure",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.9,
+          "end": 6.1,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 6.1,
+          "end": 6.34,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 6.34,
+          "end": 6.94,
+          "key": "",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 13,
+          "text": "first--secure",
+          "heard": "first secure",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 5.3,
+          "end": 5.9
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "140.",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "ADVICE",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "text": "AS",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "A",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "RIDDLE.--\"If",
+          "start": 2.58,
+          "end": 3.6
+        },
+        {
+          "text": "the",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "band",
+          "start": 3.74,
+          "end": 4.0
+        },
+        {
+          "text": "is",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "not",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "to",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "break,",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "bite",
+          "start": 5.1,
+          "end": 5.14
+        },
+        {
+          "text": "it",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "first--secure",
+          "start": 5.3,
+          "end": 5.9
+        },
+        {
+          "text": "to",
+          "start": 5.9,
+          "end": 6.1
+        },
+        {
+          "text": "make!\"",
+          "start": 6.1,
+          "end": 6.34
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.671619949999979
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f431840dc3bf6373016aa0caec25a56e94cbefa3ae42e0a51cade593c52c8b0",
+  "selected_reasons": []
+}

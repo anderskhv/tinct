@@ -1,0 +1,1631 @@
+{
+  "complete": true,
+  "signature": "6d54e3784142d47a433acb0ce664f9fe75c606e77783d61c1bba5a85e986e95b",
+  "attempts": [
+    {
+      "asr_seconds": 4.4759526899999855,
+      "alignment_seconds": 0.002453174999914154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here Dulcinea lies. Plump was she and robust: Now she is ashes and dust: The end of all flesh that dies. A lady of high degree, With the port of a lofty dame, And the great Don Quixote's flame, And the pride of her village was she.",
+        "hotwords": "Here, Dulcinea, Plump, Now, With, Don, Quixote's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here Dulcinea lies. Plump was she and robust. Now she is ashes and dust. The end of all flesh",
+          "start": 0.02,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.6342027187347412
+            },
+            {
+              "text": " Dulcinea",
+              "start": 0.56,
+              "end": 1.02,
+              "probability": 0.7634980380535126
+            },
+            {
+              "text": " lies.",
+              "start": 1.02,
+              "end": 1.56,
+              "probability": 0.992601215839386
+            },
+            {
+              "text": " Plump",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.8691932857036591
+            },
+            {
+              "text": " was",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.994513750076294
+            },
+            {
+              "text": " she",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.9901734590530396
+            },
+            {
+              "text": " and",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.9189342260360718
+            },
+            {
+              "text": " robust.",
+              "start": 2.94,
+              "end": 3.32,
+              "probability": 0.9833364486694336
+            },
+            {
+              "text": " Now",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.9938099980354309
+            },
+            {
+              "text": " she",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.9570212364196777
+            },
+            {
+              "text": " is",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.8378801345825195
+            },
+            {
+              "text": " ashes",
+              "start": 4.58,
+              "end": 4.94,
+              "probability": 0.9945584535598755
+            },
+            {
+              "text": " and",
+              "start": 4.94,
+              "end": 5.24,
+              "probability": 0.9958778619766235
+            },
+            {
+              "text": " dust.",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.9967455863952637
+            },
+            {
+              "text": " The",
+              "start": 6.04,
+              "end": 6.12,
+              "probability": 0.9929550290107727
+            },
+            {
+              "text": " end",
+              "start": 6.12,
+              "end": 6.3,
+              "probability": 0.993870735168457
+            },
+            {
+              "text": " of",
+              "start": 6.3,
+              "end": 6.44,
+              "probability": 0.9972766041755676
+            },
+            {
+              "text": " all",
+              "start": 6.44,
+              "end": 6.62,
+              "probability": 0.9988856911659241
+            },
+            {
+              "text": " flesh",
+              "start": 6.62,
+              "end": 6.94,
+              "probability": 0.9982933402061462
+            }
+          ]
+        },
+        {
+          "text": " that dies. A lady of high degree, With the port of a lofty dame, And the great Don Quixote's",
+          "start": 6.94,
+          "end": 12.78,
+          "words": [
+            {
+              "text": " that",
+              "start": 6.94,
+              "end": 7.22,
+              "probability": 0.9933210015296936
+            },
+            {
+              "text": " dies.",
+              "start": 7.22,
+              "end": 7.52,
+              "probability": 0.9850226044654846
+            },
+            {
+              "text": " A",
+              "start": 8.2,
+              "end": 8.36,
+              "probability": 0.9879952073097229
+            },
+            {
+              "text": " lady",
+              "start": 8.36,
+              "end": 8.6,
+              "probability": 0.5857722163200378
+            },
+            {
+              "text": " of",
+              "start": 8.6,
+              "end": 8.78,
+              "probability": 0.9975760579109192
+            },
+            {
+              "text": " high",
+              "start": 8.78,
+              "end": 9.02,
+              "probability": 0.9907850027084351
+            },
+            {
+              "text": " degree,",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.9942347407341003
+            },
+            {
+              "text": " With",
+              "start": 9.58,
+              "end": 9.7,
+              "probability": 0.02410987764596939
+            },
+            {
+              "text": " the",
+              "start": 9.7,
+              "end": 9.86,
+              "probability": 0.9948208332061768
+            },
+            {
+              "text": " port",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.970054030418396
+            },
+            {
+              "text": " of",
+              "start": 10.02,
+              "end": 10.14,
+              "probability": 0.9977344274520874
+            },
+            {
+              "text": " a",
+              "start": 10.14,
+              "end": 10.28,
+              "probability": 0.9942507743835449
+            },
+            {
+              "text": " lofty",
+              "start": 10.28,
+              "end": 10.62,
+              "probability": 0.9932865500450134
+            },
+            {
+              "text": " dame,",
+              "start": 10.62,
+              "end": 11.02,
+              "probability": 0.9741836488246918
+            },
+            {
+              "text": " And",
+              "start": 11.24,
+              "end": 11.32,
+              "probability": 0.9391648173332214
+            },
+            {
+              "text": " the",
+              "start": 11.32,
+              "end": 11.44,
+              "probability": 0.9929677248001099
+            },
+            {
+              "text": " great",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.9313440918922424
+            },
+            {
+              "text": " Don",
+              "start": 11.7,
+              "end": 12.06,
+              "probability": 0.05144822224974632
+            },
+            {
+              "text": " Quixote's",
+              "start": 12.06,
+              "end": 12.78,
+              "probability": 0.9492674320936203
+            }
+          ]
+        },
+        {
+          "text": " flame, And the pride of her village was she.",
+          "start": 12.78,
+          "end": 15.14,
+          "words": [
+            {
+              "text": " flame,",
+              "start": 12.78,
+              "end": 13.08,
+              "probability": 0.9612454175949097
+            },
+            {
+              "text": " And",
+              "start": 13.52,
+              "end": 13.68,
+              "probability": 0.9676303267478943
+            },
+            {
+              "text": " the",
+              "start": 13.68,
+              "end": 13.78,
+              "probability": 0.9955680966377258
+            },
+            {
+              "text": " pride",
+              "start": 13.78,
+              "end": 14.04,
+              "probability": 0.9942182302474976
+            },
+            {
+              "text": " of",
+              "start": 14.04,
+              "end": 14.18,
+              "probability": 0.9982619881629944
+            },
+            {
+              "text": " her",
+              "start": 14.18,
+              "end": 14.32,
+              "probability": 0.9991273283958435
+            },
+            {
+              "text": " village",
+              "start": 14.32,
+              "end": 14.58,
+              "probability": 0.9969148635864258
+            },
+            {
+              "text": " was",
+              "start": 14.58,
+              "end": 14.86,
+              "probability": 0.9250544905662537
+            },
+            {
+              "text": " she.",
+              "start": 14.86,
+              "end": 15.14,
+              "probability": 0.9981485605239868
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Dulcinea",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "raw": "lies.",
+          "start": 1.02,
+          "end": 1.56
+        },
+        {
+          "raw": "Plump",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "was",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "she",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "robust.",
+          "start": 2.94,
+          "end": 3.32
+        },
+        {
+          "raw": "Now",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "she",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "is",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "ashes",
+          "start": 4.58,
+          "end": 4.94
+        },
+        {
+          "raw": "and",
+          "start": 4.94,
+          "end": 5.24
+        },
+        {
+          "raw": "dust.",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "raw": "The",
+          "start": 6.04,
+          "end": 6.12
+        },
+        {
+          "raw": "end",
+          "start": 6.12,
+          "end": 6.3
+        },
+        {
+          "raw": "of",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "raw": "all",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "raw": "flesh",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "raw": "that",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "raw": "dies.",
+          "start": 7.22,
+          "end": 7.52
+        },
+        {
+          "raw": "A",
+          "start": 8.2,
+          "end": 8.36
+        },
+        {
+          "raw": "lady",
+          "start": 8.36,
+          "end": 8.6
+        },
+        {
+          "raw": "of",
+          "start": 8.6,
+          "end": 8.78
+        },
+        {
+          "raw": "high",
+          "start": 8.78,
+          "end": 9.02
+        },
+        {
+          "raw": "degree,",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "With",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "raw": "the",
+          "start": 9.7,
+          "end": 9.86
+        },
+        {
+          "raw": "port",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "of",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "raw": "a",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "raw": "lofty",
+          "start": 10.28,
+          "end": 10.62
+        },
+        {
+          "raw": "dame,",
+          "start": 10.62,
+          "end": 11.02
+        },
+        {
+          "raw": "And",
+          "start": 11.24,
+          "end": 11.32
+        },
+        {
+          "raw": "the",
+          "start": 11.32,
+          "end": 11.44
+        },
+        {
+          "raw": "great",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "Don",
+          "start": 11.7,
+          "end": 12.06
+        },
+        {
+          "raw": "Quixote's",
+          "start": 12.06,
+          "end": 12.78
+        },
+        {
+          "raw": "flame,",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "raw": "And",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "raw": "the",
+          "start": 13.68,
+          "end": 13.78
+        },
+        {
+          "raw": "pride",
+          "start": 13.78,
+          "end": 14.04
+        },
+        {
+          "raw": "of",
+          "start": 14.04,
+          "end": 14.18
+        },
+        {
+          "raw": "her",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "raw": "village",
+          "start": 14.32,
+          "end": 14.58
+        },
+        {
+          "raw": "was",
+          "start": 14.58,
+          "end": 14.86
+        },
+        {
+          "raw": "she.",
+          "start": 14.86,
+          "end": 15.14
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "Dulcinea",
+        "lies.",
+        "Plump",
+        "was",
+        "she",
+        "and",
+        "robust:",
+        "Now",
+        "she",
+        "is",
+        "ashes",
+        "and",
+        "dust:",
+        "The",
+        "end",
+        "of",
+        "all",
+        "flesh",
+        "that",
+        "dies.",
+        "A",
+        "lady",
+        "of",
+        "high",
+        "degree,",
+        "With",
+        "the",
+        "port",
+        "of",
+        "a",
+        "lofty",
+        "dame,",
+        "And",
+        "the",
+        "great",
+        "Don",
+        "Quixote’s",
+        "flame,",
+        "And",
+        "the",
+        "pride",
+        "of",
+        "her",
+        "village",
+        "was",
+        "she."
+      ],
+      "acoustic_expected_tokens": [
+        "Here",
+        "Dulcinea",
+        "lies.",
+        "Plump",
+        "was",
+        "she",
+        "and",
+        "robust:",
+        "Now",
+        "she",
+        "is",
+        "ashes",
+        "and",
+        "dust:",
+        "The",
+        "end",
+        "of",
+        "all",
+        "flesh",
+        "that",
+        "dies.",
+        "A",
+        "lady",
+        "of",
+        "high",
+        "degree,",
+        "With",
+        "the",
+        "port",
+        "of",
+        "a",
+        "lofty",
+        "dame,",
+        "And",
+        "the",
+        "great",
+        "Don",
+        "Quixote's",
+        "flame,",
+        "And",
+        "the",
+        "pride",
+        "of",
+        "her",
+        "village",
+        "was",
+        "she."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dulcinea",
+          "start": 0.56,
+          "end": 1.02,
+          "key": "dulcinea",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lies.",
+          "start": 1.02,
+          "end": 1.56,
+          "key": "lies",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Plump",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "plump",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "robust.",
+          "start": 2.94,
+          "end": 3.32,
+          "key": "robust",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 4.02,
+          "end": 4.16,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ashes",
+          "start": 4.58,
+          "end": 4.94,
+          "key": "ashes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.94,
+          "end": 5.24,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dust.",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "dust",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.04,
+          "end": 6.12,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 6.12,
+          "end": 6.3,
+          "key": "end",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.3,
+          "end": 6.44,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.44,
+          "end": 6.62,
+          "key": "all",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "flesh",
+          "start": 6.62,
+          "end": 6.94,
+          "key": "flesh",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.94,
+          "end": 7.22,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 7.22,
+          "end": 7.52,
+          "key": "dies",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 8.2,
+          "end": 8.36,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 8.36,
+          "end": 8.6,
+          "key": "lady",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.6,
+          "end": 8.78,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 8.78,
+          "end": 9.02,
+          "key": "high",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "degree,",
+          "start": 9.02,
+          "end": 9.36,
+          "key": "degree",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 9.58,
+          "end": 9.7,
+          "key": "with",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.7,
+          "end": 9.86,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "port",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "port",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.02,
+          "end": 10.14,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.14,
+          "end": 10.28,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "lofty",
+          "start": 10.28,
+          "end": 10.62,
+          "key": "lofty",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "dame,",
+          "start": 10.62,
+          "end": 11.02,
+          "key": "dame",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.24,
+          "end": 11.32,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.32,
+          "end": 11.44,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 11.44,
+          "end": 11.7,
+          "key": "great",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 11.7,
+          "end": 12.06,
+          "key": "don",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Quixote's",
+          "start": 12.06,
+          "end": 12.78,
+          "key": "quixotes",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "flame,",
+          "start": 12.78,
+          "end": 13.08,
+          "key": "flame",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.52,
+          "end": 13.68,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.68,
+          "end": 13.78,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "pride",
+          "start": 13.78,
+          "end": 14.04,
+          "key": "pride",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.04,
+          "end": 14.18,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 14.18,
+          "end": 14.32,
+          "key": "her",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "village",
+          "start": 14.32,
+          "end": 14.58,
+          "key": "village",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 14.58,
+          "end": 14.86,
+          "key": "was",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "she.",
+          "start": 14.86,
+          "end": 15.14,
+          "key": "she",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Dulcinea",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "text": "lies.",
+          "start": 1.02,
+          "end": 1.56
+        },
+        {
+          "text": "Plump",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "was",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "she",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "and",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "robust:",
+          "start": 2.94,
+          "end": 3.32
+        },
+        {
+          "text": "Now",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "she",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "is",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "ashes",
+          "start": 4.58,
+          "end": 4.94
+        },
+        {
+          "text": "and",
+          "start": 4.94,
+          "end": 5.24
+        },
+        {
+          "text": "dust:",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "text": "The",
+          "start": 6.04,
+          "end": 6.12
+        },
+        {
+          "text": "end",
+          "start": 6.12,
+          "end": 6.3
+        },
+        {
+          "text": "of",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "text": "all",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "text": "flesh",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "text": "that",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "text": "dies.",
+          "start": 7.22,
+          "end": 7.52
+        },
+        {
+          "text": "A",
+          "start": 8.2,
+          "end": 8.36
+        },
+        {
+          "text": "lady",
+          "start": 8.36,
+          "end": 8.6
+        },
+        {
+          "text": "of",
+          "start": 8.6,
+          "end": 8.78
+        },
+        {
+          "text": "high",
+          "start": 8.78,
+          "end": 9.02
+        },
+        {
+          "text": "degree,",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "With",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "text": "the",
+          "start": 9.7,
+          "end": 9.86
+        },
+        {
+          "text": "port",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "of",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "text": "a",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "text": "lofty",
+          "start": 10.28,
+          "end": 10.62
+        },
+        {
+          "text": "dame,",
+          "start": 10.62,
+          "end": 11.02
+        },
+        {
+          "text": "And",
+          "start": 11.24,
+          "end": 11.32
+        },
+        {
+          "text": "the",
+          "start": 11.32,
+          "end": 11.44
+        },
+        {
+          "text": "great",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "Don",
+          "start": 11.7,
+          "end": 12.06
+        },
+        {
+          "text": "Quixote’s",
+          "start": 12.06,
+          "end": 12.78
+        },
+        {
+          "text": "flame,",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "text": "And",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "text": "the",
+          "start": 13.68,
+          "end": 13.78
+        },
+        {
+          "text": "pride",
+          "start": 13.78,
+          "end": 14.04
+        },
+        {
+          "text": "of",
+          "start": 14.04,
+          "end": 14.18
+        },
+        {
+          "text": "her",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "text": "village",
+          "start": 14.32,
+          "end": 14.58
+        },
+        {
+          "text": "was",
+          "start": 14.58,
+          "end": 14.86
+        },
+        {
+          "text": "she.",
+          "start": 14.86,
+          "end": 15.14
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.478487749999999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb116fbbf0ebe3c8c929df29568be956998ce0ef75795b4d5ecf0a5574d897ea",
+  "selected_reasons": []
+}

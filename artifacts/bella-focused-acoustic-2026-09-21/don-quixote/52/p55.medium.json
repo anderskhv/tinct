@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "a6543ce70f3c6b91aa07e02506e8e69fcae5ddd10a826012a5f0fc98e5e2e8e4",
+  "attempts": [
+    {
+      "asr_seconds": 3.3038659540000026,
+      "alignment_seconds": 9.09559998945042e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miguel de Cervantes Saavedra",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Miguel",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9216418266296387
+            },
+            {
+              "text": " de",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.8837840557098389
+            },
+            {
+              "text": " Cervantes",
+              "start": 0.89,
+              "end": 1.37,
+              "probability": 0.980291485786438
+            },
+            {
+              "text": " Saavedra",
+              "start": 1.37,
+              "end": 2.03,
+              "probability": 0.8233287334442139
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miguel",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "de",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "Cervantes",
+          "start": 0.89,
+          "end": 1.37
+        },
+        {
+          "raw": "Saavedra",
+          "start": 1.37,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "MIGUEL",
+        "DE",
+        "CERVANTES",
+        "SAAVEDRA"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miguel",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "miguel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "de",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cervantes",
+          "start": 0.89,
+          "end": 1.37,
+          "key": "cervantes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Saavedra",
+          "start": 1.37,
+          "end": 2.03,
+          "key": "saavedra",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "MIGUEL",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "CERVANTES",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "SAAVEDRA",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.303968002000147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63c7a07e6bbdd83da5d21163a4f11d550a604f8d1e0e1b51b0eaf345f3ee8c78",
+  "selected_reasons": []
+}

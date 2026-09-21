@@ -1,0 +1,307 @@
+{
+  "complete": true,
+  "signature": "85d1e147947c49ba0f726309ca1f4fa095e4c973eb8beccf794debbe4bdbb88d",
+  "attempts": [
+    {
+      "asr_seconds": 4.93853908799997,
+      "alignment_seconds": 0.00022103199989942368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Peni Aguado, Academician of Argemisilla, in Laudum Dulcini del Tabos.",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Peni",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.30725356191396713
+            },
+            {
+              "text": " Aguado,",
+              "start": 0.75,
+              "end": 1.33,
+              "probability": 0.8777260184288025
+            },
+            {
+              "text": " Academician",
+              "start": 1.75,
+              "end": 2.25,
+              "probability": 0.6541896859804789
+            },
+            {
+              "text": " of",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.9899033308029175
+            },
+            {
+              "text": " Argemisilla,",
+              "start": 2.41,
+              "end": 3.05,
+              "probability": 0.5641953200101852
+            },
+            {
+              "text": " in",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.9029589891433716
+            },
+            {
+              "text": " Laudum",
+              "start": 3.49,
+              "end": 3.81,
+              "probability": 0.5856760442256927
+            },
+            {
+              "text": " Dulcini",
+              "start": 3.81,
+              "end": 4.29,
+              "probability": 0.7385366261005402
+            },
+            {
+              "text": " del",
+              "start": 4.29,
+              "end": 4.55,
+              "probability": 0.8361826539039612
+            },
+            {
+              "text": " Tabos.",
+              "start": 4.55,
+              "end": 5.01,
+              "probability": 0.5364402532577515
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peni",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Aguado,",
+          "start": 0.75,
+          "end": 1.33
+        },
+        {
+          "raw": "Academician",
+          "start": 1.75,
+          "end": 2.25
+        },
+        {
+          "raw": "of",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.41,
+          "end": 3.05
+        },
+        {
+          "raw": "in",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "Laudum",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "raw": "Dulcini",
+          "start": 3.81,
+          "end": 4.29
+        },
+        {
+          "raw": "del",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "raw": "Tabos.",
+          "start": 4.55,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "PANIAGUADO,",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "IN",
+        "LAUDEM",
+        "DULCINEAE",
+        "DEL",
+        "TOBOSO"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peni",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "peni",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aguado,",
+          "start": 0.75,
+          "end": 1.33,
+          "key": "aguado",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Academician",
+          "start": 1.75,
+          "end": 2.25,
+          "key": "academician",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.41,
+          "end": 3.05,
+          "key": "argemisilla",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Laudum",
+          "start": 3.49,
+          "end": 3.81,
+          "key": "laudum",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dulcini",
+          "start": 3.81,
+          "end": 4.29,
+          "key": "dulcini",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "del",
+          "start": 4.29,
+          "end": 4.55,
+          "key": "del",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tabos.",
+          "start": 4.55,
+          "end": 5.01,
+          "key": "tabos",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "PANIAGUADO,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "IN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "LAUDEM",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DULCINEAE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DEL",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "TOBOSO",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 10,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.938780040999973
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3dc4d8ec7fe9bdd515c1bf378c6d73c33cb4043dc9aec14a590b867cce74d59f",
+  "selected_reasons": []
+}

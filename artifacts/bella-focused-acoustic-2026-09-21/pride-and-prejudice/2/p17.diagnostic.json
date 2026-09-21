@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "44f49dd2ecf66029b6990544ad3c9d24a5abfdfcdc3a17b80cf8fec93227b952",
+  "attempts": [
+    {
+      "asr_seconds": 2.4183718999999826,
+      "alignment_seconds": 0.0006052670000258331,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mary wished to say something very sensible, but knew not how.",
+        "hotwords": "Mary"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mary wished to say something very sensible, but knew not how.",
+          "start": 0.02,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Mary",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.640813946723938
+            },
+            {
+              "text": " wished",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.9793285131454468
+            },
+            {
+              "text": " to",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.9983664155006409
+            },
+            {
+              "text": " say",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9968697428703308
+            },
+            {
+              "text": " something",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.9972959160804749
+            },
+            {
+              "text": " very",
+              "start": 1.5,
+              "end": 1.82,
+              "probability": 0.9952765703201294
+            },
+            {
+              "text": " sensible,",
+              "start": 1.82,
+              "end": 2.24,
+              "probability": 0.9962390661239624
+            },
+            {
+              "text": " but",
+              "start": 2.78,
+              "end": 2.86,
+              "probability": 0.9962728023529053
+            },
+            {
+              "text": " knew",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.9984764456748962
+            },
+            {
+              "text": " not",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.9976557493209839
+            },
+            {
+              "text": " how.",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.9981986880302429
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mary",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "wished",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "say",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "something",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "very",
+          "start": 1.5,
+          "end": 1.82
+        },
+        {
+          "raw": "sensible,",
+          "start": 1.82,
+          "end": 2.24
+        },
+        {
+          "raw": "but",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "raw": "knew",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "not",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "how.",
+          "start": 3.24,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "Mary",
+        "wished",
+        "to",
+        "say",
+        "something",
+        "very",
+        "sensible,",
+        "but",
+        "knew",
+        "not",
+        "how."
+      ],
+      "acoustic_expected_tokens": [
+        "Mary",
+        "wished",
+        "to",
+        "say",
+        "something",
+        "very",
+        "sensible,",
+        "but",
+        "knew",
+        "not",
+        "how."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mary",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mary",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wished",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "wished",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "something",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.5,
+          "end": 1.82,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sensible,",
+          "start": 1.82,
+          "end": 2.24,
+          "key": "sensible",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.78,
+          "end": 2.86,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "knew",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "how.",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Mary",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "wished",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "to",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "say",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "something",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "very",
+          "start": 1.5,
+          "end": 1.82
+        },
+        {
+          "text": "sensible,",
+          "start": 1.82,
+          "end": 2.24
+        },
+        {
+          "text": "but",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "text": "knew",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "not",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "how.",
+          "start": 3.24,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4190035469999884
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15dd732ffdb442e875c91c63e2fcd7888130ac353ba11e4025ba97097b2041c3",
+  "selected_reasons": []
+}

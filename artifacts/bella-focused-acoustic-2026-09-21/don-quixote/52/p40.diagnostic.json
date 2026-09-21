@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "signature": "1756ac444e0cf20afa3a01b2e7b4c5201726794dce531b969255b2c23723599e",
+  "attempts": [
+    {
+      "asr_seconds": 2.0798836539999,
+      "alignment_seconds": 0.0002048860000058994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Epitaph",
+        "hotwords": "Epitaph"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Epitaph",
+          "start": 0.14,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Epitaph",
+              "start": 0.14,
+              "end": 0.9,
+              "probability": 0.8254196643829346
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Epitaph",
+          "start": 0.14,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "EPITAPH"
+      ],
+      "acoustic_expected_tokens": [
+        "Epitaph"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Epitaph",
+          "start": 0.14,
+          "end": 0.9,
+          "key": "epitaph",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "EPITAPH",
+          "start": 0.14,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.080100171999902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e5f882c67208be72bb83f1f8851d38fa64fa428410c07b581fb58ec75fc2cee",
+  "selected_reasons": []
+}

@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "8bd18b7240febd87d3f10d9c0a00805819282576d69d4e6555c90167c2334c46",
+  "attempts": [
+    {
+      "asr_seconds": 2.168004383999971,
+      "alignment_seconds": 0.000678721999975096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "167. To vigorous men intimacy is a matter of shame--and something precious.",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 167. To vigorous men intimacy is a matter of shame and something precious.",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " 167.",
+              "start": 0.05,
+              "end": 1.25,
+              "probability": 0.8908883333206177
+            },
+            {
+              "text": " To",
+              "start": 2.33,
+              "end": 2.39,
+              "probability": 0.2646133601665497
+            },
+            {
+              "text": " vigorous",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.9103559851646423
+            },
+            {
+              "text": " men",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.9718447327613831
+            },
+            {
+              "text": " intimacy",
+              "start": 3.01,
+              "end": 3.39,
+              "probability": 0.9514260292053223
+            },
+            {
+              "text": " is",
+              "start": 3.39,
+              "end": 3.89,
+              "probability": 0.9466963410377502
+            },
+            {
+              "text": " a",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.9917994737625122
+            },
+            {
+              "text": " matter",
+              "start": 4.01,
+              "end": 4.23,
+              "probability": 0.9959521293640137
+            },
+            {
+              "text": " of",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.9975650310516357
+            },
+            {
+              "text": " shame",
+              "start": 4.47,
+              "end": 4.69,
+              "probability": 0.9987164735794067
+            },
+            {
+              "text": " and",
+              "start": 4.69,
+              "end": 5.01,
+              "probability": 0.974244236946106
+            },
+            {
+              "text": " something",
+              "start": 5.01,
+              "end": 5.37,
+              "probability": 0.9689901471138
+            },
+            {
+              "text": " precious.",
+              "start": 5.37,
+              "end": 5.83,
+              "probability": 0.9951125979423523
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "167.",
+          "start": 0.05,
+          "end": 1.25
+        },
+        {
+          "raw": "To",
+          "start": 2.33,
+          "end": 2.39
+        },
+        {
+          "raw": "vigorous",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "men",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "intimacy",
+          "start": 3.01,
+          "end": 3.39
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.89
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "matter",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "shame",
+          "start": 4.47,
+          "end": 4.69
+        },
+        {
+          "raw": "and",
+          "start": 4.69,
+          "end": 5.01
+        },
+        {
+          "raw": "something",
+          "start": 5.01,
+          "end": 5.37
+        },
+        {
+          "raw": "precious.",
+          "start": 5.37,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "167.",
+        "To",
+        "vigorous",
+        "men",
+        "intimacy",
+        "is",
+        "a",
+        "matter",
+        "of",
+        "shame--and",
+        "something",
+        "precious."
+      ],
+      "acoustic_expected_tokens": [
+        "167.",
+        "To",
+        "vigorous",
+        "men",
+        "intimacy",
+        "is",
+        "a",
+        "matter",
+        "of",
+        "shame--and",
+        "something",
+        "precious."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "167.",
+          "start": 0.05,
+          "end": 1.25,
+          "key": "167",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.33,
+          "end": 2.39,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vigorous",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "vigorous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "men",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "intimacy",
+          "start": 3.01,
+          "end": 3.39,
+          "key": "intimacy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.89,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 4.01,
+          "end": 4.23,
+          "key": "matter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shame and",
+          "start": 4.47,
+          "end": 5.01,
+          "key": "shameand",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 5.01,
+          "end": 5.37,
+          "key": "something",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "precious.",
+          "start": 5.37,
+          "end": 5.83,
+          "key": "precious",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "shame--and",
+          "heard": "shame and",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 4.47,
+          "end": 5.01
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "167.",
+          "start": 0.05,
+          "end": 1.25
+        },
+        {
+          "text": "To",
+          "start": 2.33,
+          "end": 2.39
+        },
+        {
+          "text": "vigorous",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "men",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "intimacy",
+          "start": 3.01,
+          "end": 3.39
+        },
+        {
+          "text": "is",
+          "start": 3.39,
+          "end": 3.89
+        },
+        {
+          "text": "a",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "matter",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "text": "of",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "shame--and",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "text": "something",
+          "start": 5.01,
+          "end": 5.37
+        },
+        {
+          "text": "precious.",
+          "start": 5.37,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.168713265000008
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6dd19ec7db68eb9ced599436d83d4fc6d469296891245fe3d9d771c8537f7676",
+  "selected_reasons": []
+}
