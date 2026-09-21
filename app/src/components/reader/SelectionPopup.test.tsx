@@ -161,7 +161,9 @@ describe('compact selection popup', () => {
     render(<SelectionPopup {...input} />)
     expect(screen.queryByText(/No definition found/)).toBeNull()
     await screen.findByText(/Gennesaret is a plain/)
-    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret')
+    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret', 'define')
+    expect(screen.getByText('AI definition')).toBeTruthy()
+    expect(document.querySelector('.lab-contextual-explain')).toBeNull()
   })
 
   it('keeps the plain not-found line when there is no explanation to fall back to', () => {

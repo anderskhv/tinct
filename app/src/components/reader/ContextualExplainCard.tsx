@@ -10,13 +10,13 @@ export function splitExplanation(text: string): { opener: string; rest: string }
   return { opener: text.slice(0, boundary), rest: text.slice(boundary + 2).trim() }
 }
 
-export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady }: {
+export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady, onClose, onHighlight }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
   onReady?: (answer: string) => void
   onAsk: (answer: string) => void
   onTalk?: (answer: string) => void
-  /** Kept for callers that still pass it; the expanded card closes with the popup. */
+  onHighlight?: () => void
   onClose?: () => void
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
@@ -62,6 +62,13 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
 
   return (
     <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
+      <header className="lab-reader-window-head" data-reader-window-handle>
+        <span className="lab-reader-window-title">Explanation</span>
+        {hasMore && <button type="button" className="lab-window-control" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" /></svg>
+        </button>}
+        {onClose && <button type="button" className="lab-window-control" aria-label="Close explanation" onClick={onClose}>×</button>}
+      </header>
       <div className="lab-contextual-explain-scroll">
         <div role="status" aria-live="polite" aria-busy={status === 'loading' || streaming}>
           {status === 'loading' && (
@@ -93,6 +100,9 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
         </div>
       </div>
       <footer>
+        {onHighlight && <button className="lab-contextual-explain-tool" type="button" aria-label="Highlight this passage" onClick={onHighlight}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m5 15 10-10 4 4L9 19H5zM4 22h16" /></svg>
+        </button>
         <button className="lab-contextual-explain-tool" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
           <RowIcon id="chat" />
         </button>

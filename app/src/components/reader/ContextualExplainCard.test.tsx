@@ -100,3 +100,17 @@ it('records displayed prose quietly when dismissed before the stream completes',
  unmount()
  expect(onReady).toHaveBeenCalledWith('The visible opening.')
 })
+
+it('keeps close available after expansion and opens highlights without a new explanation', async () => {
+  const request = vi.fn().mockResolvedValue('Opening.\n\nDetail.')
+  const onClose = vi.fn(), onHighlight = vi.fn()
+  render(<ContextualExplainCard passage="A passage" request={request} onAsk={vi.fn()} onClose={onClose} onHighlight={onHighlight} />)
+  await screen.findByText('Opening.')
+  fireEvent.click(screen.getByRole('button', { name: 'Expand explanation' }))
+  expect(screen.getByText('Detail.')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight this passage' }))
+  expect(onHighlight).toHaveBeenCalledOnce()
+  fireEvent.click(screen.getByRole('button', { name: 'Close explanation' }))
+  expect(onClose).toHaveBeenCalledOnce()
+  expect(request).toHaveBeenCalledOnce()
+})

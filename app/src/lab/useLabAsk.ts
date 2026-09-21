@@ -804,12 +804,13 @@ export function useLabAsk(options: UseLabAskOptions) {
     paragraphs: string[]
     paragraphIndex: number
     speculative?: boolean
+    intent?: 'define'
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     if (!text || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -847,13 +848,15 @@ export function useLabAsk(options: UseLabAskOptions) {
         signal: entry.abort.signal,
         body: JSON.stringify({
           model: COMPANION_MODEL,
-          max_tokens: 450,
+          max_tokens: input.intent === 'define' ? 160 : 450,
           stream: true,
           effort: COMPANION_EFFORT_VOICE,
           system: buildLabAskInstructions(context),
           messages: [{
             role: 'user',
-            content: `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
+            content: input.intent === 'define'
+              ? `Define the word in <word> as a dictionary entry: part of speech and a concise meaning. Identify archaic inflections and their modern form. Use context only to choose the sense. Plain text, no passage interpretation, preamble, sources, or follow-up question.\n<word>${text}</word>`
+              : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
           ...labCompanionBookFields(context),
         }),

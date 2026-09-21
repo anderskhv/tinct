@@ -74,6 +74,7 @@ import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
+  labLineHeight, labMarginScale, labParagraphGap,
   LAB_LIBRARY_URL,
   labAccountUrl,
   bibleEditions,
@@ -2604,7 +2605,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [progressMeasured])
   const liveProgressLabels = {
     phone: labReaderProgressLabel(progressInput),
-    book: `${bookPageEstimate.percent}%`,
+    book: readerProgressMode === 'book' ? `${bookPageEstimate.percent}% of book` : `${chapterProgress.percent}% of chapter`,
   }
   const measuredProgressLabelsRef = useRef(liveProgressLabels)
   if (progressMeasured) measuredProgressLabelsRef.current = liveProgressLabels
@@ -2619,7 +2620,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
-      : desktopPaging ? `${desktopProgressLabel} of book` : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
+      : desktopProgressLabel
 
   useEffect(() => {
     if (!showHearing) return
@@ -3938,15 +3939,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
         ['--lab-font-size' as string]: String(prefs.fontSize),
         ['--lab-text-align' as string]: prefs.alignment,
-        ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
-        ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
+        ['--lab-line-height' as string]: String(labLineHeight(prefs.lineSpacing)),
+        ['--lab-reader-margin' as string]: typeof prefs.margins === 'number' ? `${1.55 * prefs.margins}rem` : prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
         // The V2 desktop leaves set their side padding from their own measured
         // scale, not from a rem figure sized for the phone, so the Margins
         // preference reaches them as a factor on that scale. Both the painted
         // passage and the hidden measure box read it, so pagination and paint
         // stay in step. V1 reads nothing of it, and its DOM stays as it was.
-        ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: prefs.margins === 'narrow' ? '0.7' : prefs.margins === 'wide' ? '1.45' : '1' } : {}),
-        ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
+        ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: String(labMarginScale(prefs.margins)) } : {}),
+        ['--lab-paragraph-gap' as string]: `${labParagraphGap(prefs.paragraphSpacing)}em`,
       }}
     >
       {fullscreen && !showPhoneChrome && (
@@ -4089,6 +4090,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         error={bookSwitcherError}
         onClose={() => setBookSwitcherOpen(false)}
         onSelect={switchQuickBook}
+        onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
       />}
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
@@ -4240,7 +4242,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
             <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(bookPageEstimate.page)}</span></span>
-            <span>{desktopCompareActive ? <><b>Compare · {editionLabelFor(prefs.compareEdition, bookEditions)}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
+            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
@@ -4455,19 +4457,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
               {chromeV2 && mobileCompareActive ? (
-                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">Compare version</span>
+                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
               ) : (
                 <span className="lab-chapter-progress-info">{footProgressLabel}</span>
               )}
             </button>
           ) : (
-            <div
-              className="lab-chapter-progress"
+            <button type="button"
+              className="lab-chapter-progress is-interactive"
               data-testid="lab-chapter-progress"
-              title={footProgress}
+              aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
+              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
               <span className="lab-chapter-progress-info">{footProgressLabel}</span>
-            </div>
+            </button>
           )}
           {chapterEndNeedsPage && !chapterEndPage || chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
@@ -4918,11 +4921,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             // Let the explanation enter the hook's context before starting voice.
             requestAnimationFrame(() => handleTalk())
           }}
-          onRequestExplanation={(onDelta, text) => {
+          onRequestExplanation={(onDelta, text, intent) => {
             const editionKey = selectionPopup.editionKey || readerEditionKey
             const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
             return ask.explainSelection({
               text: text ?? selectionPopup.text,
+              intent,
               editionKey,
               editionLabel: editionLabelFor(editionKey, bookEditions),
               paragraphs: compare ? book.compareParagraphs : book.paragraphs,
