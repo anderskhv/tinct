@@ -134,9 +134,13 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     })
     expect(h.result.current.currentTime).toBe(0)
     expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 })
+    // A lock-screen seek must use the pending clip's clock, not the previous
+    // element's ended time that we retained to preserve the media session.
+    act(() => h.result.current.seek(0))
     await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 1, 3: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
     expect(h.audio.src).toContain('hash-1-0.mp3')
+    expect(h.audio.currentTime).toBe(0)
     expect(h.audio.pause).not.toHaveBeenCalled()
     h.unmount()
   })

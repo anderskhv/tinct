@@ -119,6 +119,10 @@ function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
   return paragraphs.some(paragraph => paragraphHasWordTimings(paragraph))
 }
 
+function waitingForNarration(clip: LabAudioClip | undefined, audio: HTMLAudioElement): boolean {
+  return clip?.kind === 'paragraph' && !!clip.narration && (!clip.url || !audio.src.endsWith(clip.url))
+}
+
 function defaultCreateAudio(): HTMLAudioElement {
   const audio = new Audio()
   audio.preload = 'auto'
@@ -526,14 +530,14 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleTimeUpdate = () => {
       const current = clipsRef.current[clipIndexRef.current]
-      if (current?.kind === 'paragraph' && current.narration && !current.url) return
+      if (waitingForNarration(current, audio)) return
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
       if (!playingRef.current || !audio.src) return
       const pending = clipsRef.current[clipIndexRef.current]
-      if (pending?.kind === 'paragraph' && pending.narration && !pending.url) return
+      if (waitingForNarration(pending, audio)) return
       if (switchingRef.current) {
         const current = clipsRef.current[clipIndexRef.current]
         // Ignore Safari's stale post-swap event at time zero, but do not lose
@@ -599,7 +603,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const tick = () => {
       const audio = audioRef.current
       const current = clipsRef.current[clipIndexRef.current]
-      const preparing = current?.kind === 'paragraph' && !!current.narration && !current.url
+      const preparing = audio && waitingForNarration(current, audio)
       if (audio && !preparing) {
         const time = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time)
         if (time > 0 || positionRef.current.time === 0) {
@@ -971,16 +975,17 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const seek = useCallback((deltaSeconds: number) => {
     const audio = ensureAudio()
-    const live = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time || currentTime)
+    const preparing = waitingForNarration(clipsRef.current[clipIndexRef.current], audio)
+    const live = preparing ? positionRef.current.time : playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time || currentTime)
     const point = seekAcrossClips({
       clips: clipsRef.current,
       clipIndex: clipIndexRef.current,
       currentTime: live,
       deltaSeconds,
-      knownDuration: Number.isFinite(audio.duration) ? audio.duration : undefined,
+      knownDuration: !preparing && Number.isFinite(audio.duration) ? audio.duration : undefined,
     })
     positionRef.current = { clipIndex: point.clipIndex, time: point.offsetSeconds }
-    const sameClip = point.clipIndex === clipIndexRef.current && audio.src
+    const sameClip = !preparing && point.clipIndex === clipIndexRef.current && audio.src
     if (sameClip) {
       try { audio.currentTime = point.offsetSeconds } catch { /* ignore */ }
       syncFollow(point.clipIndex, point.offsetSeconds)
