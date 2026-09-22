@@ -43,6 +43,11 @@ async function inspect(page, scenario) {
     const markers = [...root.querySelectorAll('.lab-verse-break')].filter(visible)
     return { desktop: root.classList.contains('is-desktop'), layout: root.dataset.shakespeareLayout, align: root.style.getPropertyValue('--lab-text-align'), place: root.dataset.place,
       words: words.map(n => ({ key: `${n.dataset.paragraphIndex}:${n.dataset.wordIndex}`, text: n.textContent })),
+      openingOffsets: [...root.querySelectorAll('.lab-verse-line')].filter(n => visible(n) && n.querySelector('.lab-verse-speaker')).map(n => {
+        const speaker = n.querySelector('.lab-verse-speaker [data-testid="lab-word"]')
+        const dialogue = n.querySelector('.lab-verse-dialogue [data-testid="lab-word"]')
+        return speaker && dialogue ? Math.abs(speaker.getBoundingClientRect().left - dialogue.getBoundingClientRect().left) : 0
+      }),
       lineDisplays: lines.map(n => getComputedStyle(n).display),
       speakers: speakers.map(n => ({ display: getComputedStyle(n).display, font: parseFloat(getComputedStyle(n).fontSize), parentFont: parseFloat(getComputedStyle(n.parentElement).fontSize) })),
       markers: markers.map(n => { const previous = [...n.parentElement.querySelectorAll('[data-testid="lab-word"]')].at(-1); const r = n.getBoundingClientRect(), p = previous?.getClientRects(); const last = p?.[p.length - 1]; return { attached: !last || (r.top < last.bottom && r.bottom > last.top), content: getComputedStyle(n, '::after').content, text: n.textContent } }),
@@ -54,6 +59,7 @@ async function inspect(page, scenario) {
   assert(state.words.length > 0, 'reader paints indexed words')
   assert.equal(new Set(state.words.map(w => w.key)).size, state.words.length, 'word indices are unique')
   assert(!state.overflow, 'no horizontal overflow')
+  if (state.desktop) for (const offset of state.openingOffsets) assert(offset < 2, 'speaker and first dialogue line share the verse margin')
   for (const display of state.lineDisplays) assert.equal(display, state.layout === 'flowing' ? 'inline' : 'block')
   for (const speaker of state.speakers) if (state.layout === 'flowing' || state.desktop) { assert.equal(speaker.display, 'block'); assert(speaker.font >= 14 && Math.abs(speaker.font - Math.max(14, speaker.parentFont * .63)) < 1) }
   for (const marker of state.markers) { assert(marker.attached, 'verse marker stays with preceding word'); assert.equal(marker.text, '', 'marker is not added to source text'); assert(marker.content.includes('·')) }

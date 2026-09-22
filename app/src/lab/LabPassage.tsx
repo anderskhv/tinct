@@ -169,7 +169,7 @@ export function renderWordGroups<T extends { text: string }>(
     const speakerEnd = verseSpeakerWords(lineation?.text)
     return <span className="lab-verse-line" key={`verse-line-${index}`}>
       {start < speakerEnd && <span className="lab-verse-speaker">{items.filter(item => base + item.at < speakerEnd).map(item => item.node)}</span>}
-      {items.filter(item => base + item.at >= speakerEnd).map(item => item.node)}
+      <span className="lab-verse-dialogue">{items.filter(item => base + item.at >= speakerEnd).map(item => item.node)}</span>
       {verseLineStarts(lineation?.text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
     </span>
   })
@@ -189,7 +189,7 @@ function asVerseLines(text: string | undefined, from: number, nodes: ReactNode[]
   const speakerEnd = verseSpeakerWords(text)
   return ranges.map(([start, end], index) => <span className="lab-verse-line" key={`verse-line-${index}`}>
     {start < speakerEnd && <span className="lab-verse-speaker">{nodes.slice(start - from, Math.min(end, speakerEnd) - from)}</span>}
-    {nodes.slice(Math.max(start, speakerEnd) - from, end - from)}
+    <span className="lab-verse-dialogue">{nodes.slice(Math.max(start, speakerEnd) - from, end - from)}</span>
     {verseLineStarts(text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
   </span>)
 }

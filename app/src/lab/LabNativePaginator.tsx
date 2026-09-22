@@ -247,7 +247,7 @@ function nativeVerseLines(text: string, rendered: Array<{ at: number; node: Reac
   const speakerEnd = verseSpeakerWords(text)
   return ranges.map(([start, end], index) => <span className="lab-verse-line" key={`verse-line-${index}`}>
     {start < speakerEnd && <span className="lab-verse-speaker">{rendered.filter(item => item.at >= start && item.at < Math.min(end, speakerEnd)).map(item => item.node)}</span>}
-    {rendered.filter(item => item.at >= Math.max(start, speakerEnd) && item.at < end).map(item => item.node)}
+    <span className="lab-verse-dialogue">{rendered.filter(item => item.at >= Math.max(start, speakerEnd) && item.at < end).map(item => item.node)}</span>
     {verseLineStarts(text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
   </span>)
 }

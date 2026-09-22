@@ -113,7 +113,10 @@ export function labMeasureParagraphInto(
       speaker.append(...items.filter(child => base + child.at < speakerEnd).map(child => child.node))
       line.append(speaker)
     }
-    line.append(...items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
+    const dialogue = document.createElement('span')
+    dialogue.className = 'lab-verse-dialogue'
+    dialogue.append(...items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
+    line.append(dialogue)
     if (verseLineStarts(lineation?.text)?.has(end)) {
       const marker = document.createElement('span')
       marker.className = 'lab-verse-break'
