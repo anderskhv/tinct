@@ -3361,7 +3361,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (audioUnavailable) { setAudioUnavailableNotice(true); return }
+    if (audioUnavailable && !narrationOption && !retainedBella) { setAudioUnavailableNotice(true); return }
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
@@ -3430,7 +3430,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [audioUnavailable, narrationOption, retainedBella, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 

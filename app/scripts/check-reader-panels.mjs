@@ -21,6 +21,13 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   page.on('pageerror', error => errors.push(error.message))
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
+    if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
+      return route.fulfill({json:{enabled:fixture.narrationEnabled,voices:fixture.narrationEnabled?[{key:'f',label:'Female',persona:'female'}]:[]}})
+    }
+    if (url.pathname==='/api/narration/ensure' && fixture.narrationEnabled) {
+      requests.push({narration:req.postDataJSON()})
+      return route.fulfill({status:401,json:{error:'unauthenticated'}})
+    }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
       return route.fulfill({ contentType:'text/event-stream', body:sse(JSON.stringify(body.messages).includes('<word>') ? definition : explanation) })
@@ -300,7 +307,7 @@ async function checkFullPageFold(page) {
   assert(fold.content!=='none'&&fold.width>=40,'binding must be visible')
   const center=(fold.foldLeft+fold.foldRight)/2
   assert(Math.abs(center-fold.viewportWidth/2)<1,'binding stays centered in the viewport')
-  assert(Math.abs(center-(fold.columnsRect.left+fold.columnsRect.right)/2)<1,'binding stays centered between the text columns')
+  if(fold.columnsRect.width>0) assert(Math.abs(center-(fold.columnsRect.left+fold.columnsRect.right)/2)<1,'binding stays centered between visible text columns: '+JSON.stringify(fold))
   assert(Math.abs(fold.height-fold.pageHeight)<1 && fold.top===0 && fold.bottom===0,
     'binding must span the full sheet, including margins: '+JSON.stringify(fold))
   assert(fold.width<=fold.gutter,'binding stays within the reserved gutter')
@@ -726,18 +733,27 @@ async function antigoneAudioAvailability(engine,name) {
   let state
   const result={engine:name,layout:'antigone-audio-availability',live}
   try {
-    state=await boot(browser,false,'antigone','modern-en',1)
+    state=await boot(browser,false,'antigone','modern-en',1,{narrationEnabled:false})
     await state.page.getByRole('button',{name:'Play',exact:true}).click()
     await state.page.getByTestId('lab-desktop-audio-dock').waitFor()
     assert.equal(await state.page.locator('.lab-audio-unavailable').count(),0,'repaired Prologue is playable')
     await state.context.close()
-    state=await boot(browser,false,'antigone','modern-en',10)
+    state=await boot(browser,false,'antigone','modern-en',10,{narrationEnabled:false})
     const place=await state.page.getByTestId('lab-root').getAttribute('data-place')
     await state.page.getByRole('button',{name:'Play',exact:true}).click()
     await state.page.getByText('Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.',{exact:true}).waitFor()
     assert.equal(await state.page.getByTestId('lab-root').getAttribute('data-place'),place,'unavailable audio preserves the reading place')
+    await state.context.close()
+    state=await boot(browser,false,'antigone','modern-en',10,{narrationEnabled:true})
+    await state.page.getByRole('button',{name:'Play',exact:true}).click()
+    await state.page.getByText('Sign in to hear this chapter narrated.',{exact:true}).waitFor()
+    assert(state.requests.some(r=>r.narration?.bookId==='antigone' && r.narration.chapter===10),'on-demand narration bypasses a legacy recording hold')
+    assert.equal(await state.page.getByText('Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.',{exact:true}).count(),0)
     result.passed=true
-  } catch(error) { result.passed=false;result.error=error.stack }
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state) result.diagnostics={requests:state.requests,errors:state.errors,ui:(await state.page.locator('body').innerText()).slice(-2500)}
+  }
   finally { await browser.close();results.push(result) }
 }
 
