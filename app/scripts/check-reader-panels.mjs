@@ -121,6 +121,8 @@ async function run(engine,name,phone) {
     await page.getByRole('button',{name:'Explain',exact:true}).click()
     await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
     await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
+    assert.equal(await page.getByRole('button',{name:'Collapse explanation',exact:true}).count(),0)
+    assert.equal(await page.locator('.lab-reader-window-title').filter({hasText:'Explanation'}).count(),0)
     const popup=page.locator('.selection-popup')
     let box=await popup.boundingBox()
     assert(box.height<650,'short explanation must fit its content')
@@ -365,7 +367,7 @@ async function contentsAndSameEdition(engine,name,phone){
     await page.getByTestId('lab-header-chapter').click()
     const picker=page.getByTestId('lab-contents-v2')
     await picker.waitFor()
-    assert.equal(await picker.locator('header .actions button').count(),2)
+    assert.equal(await picker.locator('header .actions button').count(),3)
     assert.equal(await picker.locator('[aria-current="page"]').count(),1)
     assert.equal(await picker.getByRole('button',{name:'Cover',exact:true}).count(),1)
     assert.equal(await picker.getByRole('button',{name:'Preface',exact:true}).count(),1)
@@ -418,7 +420,7 @@ async function contentsAndSameEdition(engine,name,phone){
       await contentsPage.evaluate(()=>document.fonts.ready)
       assert.equal(await contents.locator('[aria-current="page"]').count(),1)
       if(book==='frederick-douglass') {
-        assert.equal(await contents.locator('.tree').getByRole('button',{name:'Chapters',exact:true}).getAttribute('aria-expanded'),'true')
+        assert.equal(await contents.locator('.tree').getByRole('button',{name:'Chapters',exact:true}).count(),0)
         const heading=contents.locator('header .title')
         const titleGeometry=await heading.evaluate(node=>{
           const box=node.getBoundingClientRect(), icons=node.parentElement.querySelector('.actions').getBoundingClientRect()
@@ -428,8 +430,9 @@ async function contentsAndSameEdition(engine,name,phone){
         assert.equal(titleGeometry.overflow,'ellipsis')
         assert.equal(titleGeometry.wrap,'nowrap')
         await heading.click()
-        await contents.locator('.full-title').getByText('Narrative of the Life of Frederick Douglass',{exact:true}).waitFor()
-        await heading.click()
+        await contentsPage.getByRole('button',{name:/Full library/}).waitFor()
+        await contentsPage.keyboard.press('Escape')
+        await contentsPage.getByTestId('lab-header-chapter').click()
       }
       await contentsPage.screenshot({path:output+'/'+name+'-'+result.layout+'-'+book+'.png'})
       assert.deepEqual(state.errors,[])
@@ -635,14 +638,14 @@ async function mobileChromeRegression(engine,name){
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').dataset.readerControls==='hidden')
       await page.waitForFunction(()=>{
         const header=document.querySelector('.lab-header-brand'),progress=document.querySelector('.lab-chapter-progress-info')
-        return [header,progress].every(n=>Math.abs(Number(getComputedStyle(n).opacity)-.58)<.001)
+        return Math.abs(Number(getComputedStyle(header).opacity)-.58)<.001 && Math.abs(Number(getComputedStyle(progress).opacity)-.8)<.001
       },null,{timeout:3000}).catch(()=>{})
       const quiet=await page.evaluate(()=>{
         const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
         return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
       })
       ;(result.quiet??=[]).push({theme,...quiet})
-      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
+      assert(Math.abs(Number(quiet.progressOpacity)-.8)<.001 && Number(quiet.progressOpacity)>Number(quiet.headerOpacity),'quiet progress retains higher contrast than the header: '+JSON.stringify(quiet))
       const rgba=value=>{const values=value.match(/[0-9.]+/g).map(Number);return values.length===3?[...values,1]:values}
       assert.deepEqual(rgba(quiet.progress),rgba(quiet.title),'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
@@ -679,11 +682,47 @@ async function designReference(){
     }
   }finally{await browser.close()}
 }
+async function feedbackRegression(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const result={engine:name,layout:phone?'phone-feedback':'desktop-feedback',live}
+  let state
+  try {
+    state=await boot(browser,phone,'antigone','original-en',1)
+    const {page}=state
+    const place=await page.getByTestId('lab-root').getAttribute('data-place')
+    await page.getByTestId('lab-header-chapter').click()
+    const contents=page.getByTestId('lab-contents-v2')
+    assert.equal(await contents.getByRole('button',{name:'Chapters',exact:true}).count(),0)
+    assert.equal(await contents.locator('.crumbs').count(),0)
+    assert.equal(await contents.locator('.front-matter').evaluate(e=>getComputedStyle(e).borderBottomWidth),'0px')
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-flat-toc.png'})
+    await contents.getByRole('button',{name:'Preface',exact:true}).click()
+    await page.getByRole('heading',{name:'Preface',exact:true}).waitFor()
+    await page.waitForTimeout(800)
+    const cover=await page.locator('.lab-preparation-background').boundingBox()
+    const frame=await page.locator('.lab-preparation-frame').boundingBox()
+    assert(cover.width>40 && cover.height>60,'preface retains a visible cover')
+    if(phone) assert(cover.width<100 && cover.y+cover.height<=frame.y,'phone cover remains a small object above the preface')
+    else assert(cover.x+cover.width<=frame.x,'desktop cover sits alongside the preface')
+    assert.equal(await page.locator('.lab-preparation-background').evaluate(e=>getComputedStyle(e).opacity),'1')
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-preface.png'})
+    await page.getByRole('button',{name:'Back to cover',exact:true}).click()
+    await page.getByTestId('lab-book-preface').waitFor({state:'hidden'})
+    await page.locator('.lab-chapter-cover-art').waitFor({state:'visible'})
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'cover and preface preserve the saved place')
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state) await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
+  for(const phone of [false,true])await feedbackRegression(engine,name,phone)
   await compareLabel(engine,name)
   await bookSurface(engine,name)
   await highlightRegression(engine,name)
@@ -691,5 +730,6 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
+console.log('ACCEPTANCE_SUMMARY '+JSON.stringify(results.map(({engine,layout,passed,error})=>({engine,layout,passed,error}))))
 console.log(JSON.stringify({live,results},null,2))
-if(results.some(r=>!r.passed))process.exit(1)
+if(results.some(r=>!r.passed))process.exitCode=1

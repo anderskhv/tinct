@@ -126,22 +126,20 @@ describe('Design 1 contents', () => {
     expect(screen.getByTestId('lab-tree-chapter-1')).toBeTruthy()
     expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
   })
-  it('shows a long title on demand, with only Search then Highlights in the header', () => {
-    const title = 'Narrative of the Life of Frederick Douglass, an American Slave'
-    render(<LabContentsV2 {...props()} title={title} />)
-    const heading = screen.getByRole('button',{name:'Show full title: ' + title})
-    expect(heading.getAttribute('aria-expanded')).toBe('false')
-    fireEvent.click(heading)
-    expect(heading.getAttribute('aria-expanded')).toBe('true')
-    expect(screen.getAllByText(title)).toHaveLength(2)
-    expect(Array.from(document.querySelectorAll('header .actions button')).map(n=>n.getAttribute('aria-label'))).toEqual(['Search contents','Highlights'])
+  it('opens the book switcher from its title and offers a direct return to reading', () => {
+    const p = props(), onSwitchBook = vi.fn()
+    render(<LabContentsV2 {...p} onSwitchBook={onSwitchBook} />)
+    fireEvent.click(screen.getByRole('button', {name: 'Switch books, currently The Bible'}))
+    expect(onSwitchBook).toHaveBeenCalledTimes(1)
+    fireEvent.click(screen.getByRole('button', {name: 'Back to book'}))
+    expect(p.onClose).toHaveBeenCalledTimes(1)
+    expect(screen.getAllByText('The Bible')).toHaveLength(1)
   })
 })
 
 it('matches the flat-book Chapters root and simplifies repeated part labels', () => {
   const flatBook=contentsTree([{number:1,title:'Chapter 1'},{number:2,title:'Appendix'}],undefined,false)
-  expect(flatBook[0].label).toBe('Chapters')
-  expect(flatBook[0].children?.map(n=>n.label)).toEqual(['Chapter 1','Appendix'])
+  expect(flatBook.map(n=>n.label)).toEqual(['Chapter 1','Appendix'])
   const parts=contentsTree([{number:1,title:'Part 1, Chapter 1'}],[{title:'Part 1 — Underground',chapters:[1]}],false)
   expect(parts[0].label).toBe('Part 1 — Underground')
   expect(parts[0].children?.[0].label).toBe('Chapter 1')

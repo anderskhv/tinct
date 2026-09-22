@@ -44,7 +44,7 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
     for (const line of root.querySelectorAll('.lab-hearing-line')) {
       let color: string | undefined
       let range: Range | undefined
-      for (const word of line.querySelectorAll('[data-testid="lab-word"]')) {
+      for (const word of line.querySelectorAll('[data-testid="lab-word"], [data-fragment-word]')) {
         const next = word.classList.contains('is-selecting') ? 'warm'
           : Object.keys(colors).find(key => word.classList.contains(`is-hl-${key}`))
         if (!next) { color = undefined; range = undefined; continue }

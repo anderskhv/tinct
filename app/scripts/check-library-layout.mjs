@@ -108,7 +108,7 @@ try {
   const beforeExpand=await frame.boundingBox()
   const artwork=await prep.locator('.lab-preparation-background').boundingBox()
   if(viewport.width>=768) assert(artwork.x+artwork.width<=beforeExpand.x,'cover expands to the left of preparation')
-  else {assert.equal(beforeExpand.x,0);assert.equal(beforeExpand.width,viewport.width);assert.equal(beforeExpand.height,viewport.height)}
+  else {assert(artwork.width>40 && artwork.width<100);assert(artwork.y+artwork.height<=beforeExpand.y);assert(beforeExpand.x>=0 && beforeExpand.x+beforeExpand.width<=viewport.width);assert(beforeExpand.height<viewport.height)}
 
   assert.equal(await prep.locator('.lab-preface-full p').first().evaluate(n=>getComputedStyle(n).textAlign),'left')
   assert.equal(await prep.getByRole('button',{name:'Characters',exact:true}).getAttribute('aria-expanded'),'false')

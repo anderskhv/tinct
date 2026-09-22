@@ -31,7 +31,7 @@ export function contentsTree(chapters: LabChapter[], sections: Section[] | undef
   }
   const tree = (sections || []).flatMap((section, index) => branch(section, 'section-' + index))
   const remaining = chapters.flatMap(ch => leaf(ch.number))
-  return tree.length ? [...tree, ...remaining] : remaining.length ? [{ id: 'chapters', label: 'Chapters', children: remaining }] : []
+  return tree.length ? [...tree, ...remaining] : remaining
 }
 
 export function flattenContents(nodes: ContentsNode[], parents: ContentsNode[] = []): Array<ContentsNode & { parents: ContentsNode[] }> {

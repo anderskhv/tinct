@@ -162,6 +162,7 @@ export function SelectionPopup({
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
   useReaderSelectionCopy(lab ? selection.text : null)
+  const compactAnchor = useRef<{ x: number; y: number; selectionX: number; selectionY: number } | null>(null)
   const contextualExplain = lab && !!onRequestExplanation
   const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
   const openContextualExplanation = () => {
@@ -191,9 +192,17 @@ export function SelectionPopup({
       const low = window.innerHeight - 32
       const above = top - 12 - height
       const below = bottom + 12
-      const y = below + height <= low ? below : above >= 76 ? above
+      let y = below + height <= low ? below : above >= 76 ? above
         : Math.max(76, Math.min(low - height, top - height - 12))
-      const x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, selection.x - el.offsetWidth / 2))
+      let x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, selection.x - el.offsetWidth / 2))
+      const saved = compactAnchor.current
+      if (popupMode === 'colors' && saved?.selectionX === selection.x && saved.selectionY === selection.y) {
+        x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, saved.x))
+        y = Math.max(76, Math.min(low - height, saved.y))
+      }
+      if (popupMode === 'main' || popupMode === 'define') {
+        compactAnchor.current = { x, y, selectionX: selection.x, selectionY: selection.y }
+      }
       el.style.setProperty('--anchored-popup-x', `${x}px`)
       el.style.setProperty('--anchored-popup-y', `${y}px`)
     }

@@ -1,4 +1,3 @@
-import { createCoverReel } from '../public/lab/cover-reel.js'
 /**
  * Returning-reader sections for the locked /lab library.
  *
@@ -773,34 +772,37 @@ function setNowFocus(index: number, scroll = false): void {
   nowFocus = next
   nowFocusChosen = true
   renderNowCaption()
-  nowReel?.setIndex(next)
   if (!scroll) return
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
   const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${next}"]`)
   if (shelf && item) centreNowItem(shelf, item)
 }
 
-let nowReel: ReturnType<typeof createCoverReel> | null = null
-let nowReelShelf: HTMLElement | null = null
-function centreNowItem(_shelf: HTMLElement, item: HTMLElement): void {
-  nowReel?.setIndex(Number(item.dataset.nowIndex))
+function centreNowItem(shelf: HTMLElement, item: HTMLElement): void {
+  shelf.scrollLeft = Math.max(0, item.offsetLeft - shelf.offsetLeft)
 }
+const observedNowShelves = new WeakSet<HTMLElement>()
 function fitNowShelf(): void {
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
   if (!shelf) return
-  shelf.classList.remove('is-flush', 'is-grid')
-  shelf.classList.add('is-reel')
-  // The former native scroller may retain a snapped offset after boot paint.
-  shelf.scrollLeft = 0
-  if (nowReelShelf !== shelf) {
-    nowReel?.destroy()
-    nowReelShelf = shelf
-    nowReel = createCoverReel(shelf, {selector:'[data-now-index]', index:nowFocus, centreFirst:true, onSelect:(index: number)=>setNowFocus(index)})
+  shelf.classList.remove('is-reel', 'is-grid')
+  shelf.classList.toggle('is-single', lastList.readingNow.length === 1)
+  if (!observedNowShelves.has(shelf)) {
+    observedNowShelves.add(shelf)
+    let settled: ReturnType<typeof setTimeout>
+    shelf.addEventListener('scroll', () => {
+      clearTimeout(settled)
+      settled = setTimeout(() => {
+        const left = shelf.getBoundingClientRect().left
+        const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
+        const nearest = items.sort((a, b) => Math.abs(a.getBoundingClientRect().left - left) - Math.abs(b.getBoundingClientRect().left - left))[0]
+        if (nearest) setNowFocus(Number(nearest.dataset.nowIndex))
+      }, 120)
+    }, { passive: true })
   }
-  nowReel?.setIndex(nowFocus)
 }
 
-/** Repaint the shared reel after viewport or font metrics change. */
+/** Refresh shelf measurements after viewport or font metrics change. */
 let nowResizeFrame = 0
 function refitNowShelfOnResize(): void {
   if (nowResizeFrame) return
@@ -815,7 +817,7 @@ function refitNowShelfOnResize(): void {
   })
 }
 
-/** Reconcile newly loaded covers with the shared reel. */
+/** Reconcile newly loaded covers with the native shelf. */
 function observeNowShelf(): void { fitNowShelf() }
 
 /**
@@ -890,9 +892,8 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   renderNowCaption(true)
   fitNowShelf()
   observeNowShelf()
-  const shelf = section.querySelector<HTMLElement>('[data-now-shelf]')
-  const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${nowFocus}"]`)
-  if (shelf && item) requestAnimationFrame(() => { fitNowShelf(); observeNowShelf(); centreNowItem(shelf, item) })
+  // Native scroll belongs to the reader. Async recap/cloud repaints must not
+  // reset it before the scroll listener has settled the selected cover.
 }
 
 async function performRender(): Promise<void> {

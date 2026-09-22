@@ -63,8 +63,8 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
   return (
     <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
       <header className="lab-reader-window-head" data-reader-window-handle>
-        <span className="lab-reader-window-title">Explanation</span>
-        {hasMore && <button type="button" className="lab-window-control" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
+        <span className="lab-reader-window-title" aria-hidden="true" />
+        {hasMore && !expanded && <button type="button" className="lab-window-control" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" /></svg>
         </button>}
         {onClose && <button type="button" className="lab-window-control" aria-label="Close explanation" onClick={onClose}>×</button>}

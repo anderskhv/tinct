@@ -42,3 +42,18 @@ it('uses full row bounds for background paint without including raised verse gly
   {left:15,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
  ])
 })
+
+it('joins a split word fragment to the same painted range and includes its preceding space', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  function SplitPassage() {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref)
+    return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-hl-sage">you,</span>{' '}<span data-fragment-word="1" className="lab-word-fragment is-hl-sage" aria-hidden="true">inas</span></p></article>
+  }
+  render(<SplitPassage />)
+  const ranges = [...registry.values()].flatMap(h => h.ranges)
+  expect(ranges).toHaveLength(1)
+  expect(ranges[0].toString()).toBe('you, inas')
+})

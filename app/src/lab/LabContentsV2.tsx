@@ -17,6 +17,7 @@ interface Props {
   chaptersReady: boolean
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
+  onSwitchBook?: () => void
   onOpenCover?: () => void
   onOpenPreface?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
@@ -54,7 +55,6 @@ export function LabContentsV2(props: Props) {
   const [query, setQuery] = useState('')
   const [chapterFilter, setChapterFilter] = useState<number | null>(null)
   const [selection, setSelection] = useState<LabHighlight | null>(null)
-  const [fullTitle, setFullTitle] = useState(false)
   const [crumbs, setCrumbs] = useState<ContentsNode[]>([])
   const [limit, setLimit] = useState(30)
   const panelRef = useRef<HTMLDivElement>(null)
@@ -74,7 +74,7 @@ export function LabContentsV2(props: Props) {
   const quote = (h: LabHighlight) => h.text || contentsQuote(h, data)
   const showOverlay = (next: View, chapter: number | null = null) => {
     returnFocus.current = document.activeElement as HTMLElement | null
-    setView(next); setChapterFilter(chapter); setFullTitle(false); setLimit(30)
+    setView(next); setChapterFilter(chapter); setLimit(30)
     if (next === 'search') { setQuery(''); setScope('all') }
   }
   const closeOverlay = () => { setView(null); setSelection(null); requestAnimationFrame(() => returnFocus.current?.focus({ preventScroll: true })) }
@@ -82,13 +82,12 @@ export function LabContentsV2(props: Props) {
   closeAction.current = () => {
     if (view === 'highlight') { setView('highlights'); setSelection(null) }
     else if (view) closeOverlay()
-    else if (fullTitle) setFullTitle(false)
     else onClose()
   }
 
   useEffect(() => {
     if (!open) return
-    setExpanded(new Set(current?.parents.map(n => n.id))); setView(null); setFullTitle(false)
+    setExpanded(new Set(current?.parents.map(n => n.id))); setView(null)
     setCrumbs([]); reveal.current = true
   }, [open, bookId, currentChapter, props.chaptersReady])
   useEffect(() => { setLoadedText(null); setLoadError(false); setView(null) }, [bookId, editionKey])
@@ -210,10 +209,9 @@ export function LabContentsV2(props: Props) {
     <button className="lc-scrim" onClick={onClose} aria-label="Close contents" tabIndex={-1} />
     <div className="menu" role="dialog" aria-modal="true" aria-label="Contents and conversations" ref={panelRef} data-testid="lab-contents-v2">
       <header inert={view ? true : undefined}>
-        <button className="title" aria-label={'Show full title: ' + title} aria-expanded={fullTitle} onClick={() => setFullTitle(value => !value)}>{title}</button>
-        <div className="actions"><button onClick={() => showOverlay('search')} aria-label="Search contents" disabled={!props.chaptersReady}><Icon name="search" /></button><button onClick={() => showOverlay('highlights')} aria-label="Highlights" disabled={!props.chaptersReady}><Icon name="highlight" /></button></div>
+        <button className="title" aria-label={'Switch books, currently ' + title} onClick={props.onSwitchBook}>{title}</button>
+        <div className="actions"><button onClick={() => showOverlay('search')} aria-label="Search contents" disabled={!props.chaptersReady}><Icon name="search" /></button><button onClick={() => showOverlay('highlights')} aria-label="Highlights" disabled={!props.chaptersReady}><Icon name="highlight" /></button><button onClick={onClose} aria-label="Back to book"><Icon name="close" /></button></div>
       </header>
-      {fullTitle && <div className="full-title">{title}</div>}
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters"><div className="front-matter">{props.onOpenCover && <div className="node"><button className="label" onClick={props.onOpenCover}><span className="text">Cover</span><Icon name="next" /></button></div>}{props.onOpenPreface && <div className="node"><button className="label" onClick={props.onOpenPreface}><span className="text">Preface</span><Icon name="next" /></button></div>}</div>{tree(nodes)}</nav> : <p className="status" role="status">Loading contents…</p>}
