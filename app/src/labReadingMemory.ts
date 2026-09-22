@@ -802,7 +802,7 @@ function fitNowShelf(): void {
   }
 }
 
-/** Repaint the shared reel after viewport or font metrics change. */
+/** Refresh shelf measurements after viewport or font metrics change. */
 let nowResizeFrame = 0
 function refitNowShelfOnResize(): void {
   if (nowResizeFrame) return
@@ -817,7 +817,7 @@ function refitNowShelfOnResize(): void {
   })
 }
 
-/** Reconcile newly loaded covers with the shared reel. */
+/** Reconcile newly loaded covers with the native shelf. */
 function observeNowShelf(): void { fitNowShelf() }
 
 /**
@@ -892,9 +892,8 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   renderNowCaption(true)
   fitNowShelf()
   observeNowShelf()
-  const shelf = section.querySelector<HTMLElement>('[data-now-shelf]')
-  const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${nowFocus}"]`)
-  if (shelf && item) requestAnimationFrame(() => { fitNowShelf(); observeNowShelf(); centreNowItem(shelf, item) })
+  // Native scroll belongs to the reader. Async recap/cloud repaints must not
+  // reset it before the scroll listener has settled the selected cover.
 }
 
 async function performRender(): Promise<void> {

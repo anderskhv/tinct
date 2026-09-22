@@ -730,5 +730,6 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
+console.log('ACCEPTANCE_SUMMARY '+JSON.stringify(results.map(({engine,layout,passed,error})=>({engine,layout,passed,error}))))
 console.log(JSON.stringify({live,results},null,2))
-if(results.some(r=>!r.passed))process.exit(1)
+if(results.some(r=>!r.passed))process.exitCode=1
