@@ -1,4 +1,4 @@
-name: Desktop speaker visual acceptance
+name: Desktop speaker production acceptance
 on:
   push:
     branches: ['codex/desktop-speakers-preview-check']
@@ -19,14 +19,17 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
-      - run: npm run build
-        env:
-          CI: true
-      - run: npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
-      - run: node scripts/check-shakespeare-layout.mjs
+      - name: Wait for corrected production bundle
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl -sf https://tinct.app/reader | grep -q '/assets/index-CAc7hXSW.js'; then exit 0; fi
+            sleep 5
+          done
+          exit 1
+      - run: SHAKESPEARE_LIVE=1 node scripts/check-shakespeare-layout.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: desktop-speakers-preview
+          name: desktop-speakers-production
           path: app/artifacts/shakespeare-layout

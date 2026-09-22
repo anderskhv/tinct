@@ -84,7 +84,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       try {
         await boot(page, scenario)
         const state = await inspect(page, scenario)
-        if (index === 0 || index === 7 || index === 15 || index >= 24) {
+        if (index === 0 || scenario.width === 1440) {
           await page.screenshot({ path: `${output}/${engine}-${index}.png` })
           if (scenario.width === 1440 && scenario.size === 1.3 && scenario.explicit && scenario.alignment === 'left') {
             const shot = await page.screenshot({ type: 'jpeg', quality: 65 })
