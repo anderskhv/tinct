@@ -638,14 +638,14 @@ async function mobileChromeRegression(engine,name){
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').dataset.readerControls==='hidden')
       await page.waitForFunction(()=>{
         const header=document.querySelector('.lab-header-brand'),progress=document.querySelector('.lab-chapter-progress-info')
-        return [header,progress].every(n=>Math.abs(Number(getComputedStyle(n).opacity)-.58)<.001)
+        return Math.abs(Number(getComputedStyle(header).opacity)-.58)<.001 && Math.abs(Number(getComputedStyle(progress).opacity)-.8)<.001
       },null,{timeout:3000}).catch(()=>{})
       const quiet=await page.evaluate(()=>{
         const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
         return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
       })
       ;(result.quiet??=[]).push({theme,...quiet})
-      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
+      assert(Math.abs(Number(quiet.progressOpacity)-.8)<.001 && Number(quiet.progressOpacity)>Number(quiet.headerOpacity),'quiet progress retains higher contrast than the header: '+JSON.stringify(quiet))
       const rgba=value=>{const values=value.match(/[0-9.]+/g).map(Number);return values.length===3?[...values,1]:values}
       assert.deepEqual(rgba(quiet.progress),rgba(quiet.title),'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
