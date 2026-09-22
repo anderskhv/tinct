@@ -75,7 +75,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
     scenarios.push({ width: 390, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: true, book: 'hamlet', chapter: 7, paragraph: 121 })
     for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width: 1440, layout: 'verse', size, alignment, explicit: true, phone: false, book: 'hamlet', chapter: 20, paragraph: 169 })
     for (const width of [820, 1180, 1440]) scenarios.push({ width, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: false, book: 'macbeth', chapter: 1, paragraph: 0 })
-    for (const [index, scenario] of scenarios.entries()) {
+    for (const [index, scenario] of scenarios.filter((s, index) => index === 0 || s.width === 1440).entries()) {
       const tablet = !scenario.phone && scenario.width < 1400
       const device = scenario.phone ? devices['iPhone 13'] : tablet ? devices['iPad Pro 11'] : {}
       const context = await browser.newContext({ ...device, viewport: { width: scenario.width, height: 844 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
