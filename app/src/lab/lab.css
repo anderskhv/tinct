@@ -5339,6 +5339,30 @@
 .lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
 .lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
 
+/* Shared by visible paragraphs and their pagination measurement copies. */
+.lab-verse-speaker { display: contents; }
+.lab-verse-break { display: none; }
+.lab[data-shakespeare] .lab-verse-line { text-align: var(--lab-text-align, left); }
+.lab[data-shakespeare-layout="flowing"] .lab-verse-line {
+  display: inline; padding-left: 0; text-indent: 0; text-align: inherit;
+}
+.lab[data-shakespeare-layout="flowing"] .lab-verse-speaker {
+  display: block; font-size: max(14px, .63em); line-height: inherit;
+  text-indent: 0; text-align: left;
+}
+.lab[data-shakespeare-layout="flowing"] .lab-verse-break {
+  display: inline; font-size: .8em; color: var(--lab-ink-muted);
+  white-space: nowrap; -webkit-user-select: none; user-select: none;
+}
+.lab[data-shakespeare-layout="flowing"] .lab-verse-break::after { content: '\00a0·'; }
+.lab-cover-library {
+  position: absolute; z-index: 3; top: max(16px, env(safe-area-inset-top)); left: 16px;
+  display: flex; align-items: center; gap: 7px; min-height: 40px; padding: 8px 15px;
+  border: 1px solid var(--lab-border); border-radius: 999px;
+  background: var(--lab-paper); color: var(--lab-ink); font: inherit; font-size: 15px;
+  cursor: pointer; box-shadow: 0 2px 10px #0002;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
 

@@ -132,3 +132,18 @@
  .library-voice-wrap .lab-call-circle{width:120px!important;height:120px!important}
  .library-voice-wrap .lab-call{min-height:250px;padding:12px 20px}
 }
+
+/* One metallic perimeter, leaving the three shared actions untouched. */
+.library-glass-dock {
+  border-color: rgba(221,228,229,.4);
+  border-top-color: rgba(255,249,231,.58);
+  border-bottom-color: rgba(176,194,203,.3);
+  box-shadow: 0 8px 28px rgba(0,0,0,.4), 0 0 8px rgba(197,218,226,.08), inset 0 1px 1px rgba(255,255,255,.25);
+}
+.library-glass-dock > .library-dock-edge {
+  position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;
+  pointer-events: none; fill: none; stroke: #f4ead7; stroke-width: 1.6;
+  filter: drop-shadow(0 0 2px rgba(231,239,243,.5));
+}
+.library-dock-edge rect { stroke-dasharray: 7 93; opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .library-dock-edge { display: none; } }

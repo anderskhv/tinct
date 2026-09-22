@@ -107,3 +107,23 @@ describe('verse lines in the hidden measurement copy', () => {
     expect(measured.querySelectorAll('.lab-verse-line')).toHaveLength(0)
   })
 })
+
+it('uses identical decorative boundaries for measurement and painting without changing text or word indices', () => {
+  registerVerseLines(PARAGRAPHS, OFFSETS)
+  render(<LabPassage {...passageProps(wholeChapter)} />)
+  const painted = screen.getByTestId('lab-reading-stage')
+  expect([...painted.querySelectorAll('.lab-verse-speaker')].map(n => n.textContent)).toEqual(['FIRST WITCH.', 'SECOND WITCH.'])
+  expect(painted.querySelectorAll('.lab-verse-break')).toHaveLength(2)
+  const words = tokenizeHearingWords(WITCHES)
+  const measured = labMeasureParagraphInto(document.createElement('p'), words, { text: WITCHES, from: 0 })
+  expect(measured.querySelectorAll('.lab-verse-break')).toHaveLength(1)
+  expect(measured.textContent).toBe(WITCHES)
+  expect(measured.querySelector('.lab-verse-break')?.getAttribute('aria-hidden')).toBe('true')
+  expect(measured.querySelectorAll('.lab-hearing-word')).toHaveLength(words.length)
+  // A page ending at a real source break owns its marker; the next page
+  // never opens with a marker or repeats the character label.
+  const tail = labMeasureParagraphInto(document.createElement('p'), words.slice(0, 8), { text: WITCHES, from: 0 })
+  const next = labMeasureParagraphInto(document.createElement('p'), words.slice(8), { text: WITCHES, from: 8 })
+  expect(tail.querySelectorAll('.lab-verse-break')).toHaveLength(1)
+  expect(next.querySelectorAll('.lab-verse-break, .lab-verse-speaker')).toHaveLength(0)
+})

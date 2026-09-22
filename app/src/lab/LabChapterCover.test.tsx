@@ -14,3 +14,12 @@ it('keeps preparation first, Start reading second, and does not turn the cover p
   fireEvent.click(actions[1])
   expect(start).toHaveBeenCalledTimes(1)
 })
+
+it('returns to the library without triggering cover navigation', () => {
+  const library = vi.fn(), turn = vi.fn()
+  render(<LabChapterCover title="Macbeth" series="Shakespeare" editionLabel="Original" onPageTurn={turn} onToggleControls={vi.fn()} onLibrary={library} />)
+  const back = screen.getByRole('button', { name: '← Back to Library' })
+  fireEvent.pointerDown(back); fireEvent.pointerUp(back); fireEvent.keyDown(back, { key: ' ' }); fireEvent.click(back)
+  expect(library).toHaveBeenCalledTimes(1)
+  expect(turn).not.toHaveBeenCalled()
+})

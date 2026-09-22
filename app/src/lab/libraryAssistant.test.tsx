@@ -95,3 +95,25 @@ it('phone conversation owns scrolling and Escape ends voice and restores the lib
   expect(screen.queryByRole('dialog',{name:'Talk with the librarian'})).toBeNull()
   expect(document.body.style.overflow).toBe('')
 })
+
+it('introduces the same shared pill once per visit, with exactly three laps', async () => {
+  vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }))
+  const animate = vi.fn(() => ({ cancel: vi.fn() }))
+  const original = SVGElement.prototype.animate
+  SVGElement.prototype.animate = animate as any
+  try {
+    const host = document.createElement('section')
+    host.dataset.viewPanel = 'library'; host.className = 'is-current'; document.body.append(host)
+    const view = render(<LibraryAssistant />, { container: host })
+    expect(animate).toHaveBeenCalledTimes(1)
+    expect(animate.mock.calls[0][1]).toEqual({ duration: 3200, iterations: 3 })
+    fireEvent.click(screen.getByRole('button', { name: 'Search' }))
+    view.rerender(<LibraryAssistant />)
+    expect(animate).toHaveBeenCalledTimes(1)
+    host.classList.remove('is-current')
+    await waitFor(() => expect(animate.mock.results[0].value.cancel).toHaveBeenCalled())
+    host.classList.add('is-current')
+    await waitFor(() => expect(animate).toHaveBeenCalledTimes(2))
+    view.unmount(); host.remove()
+  } finally { SVGElement.prototype.animate = original }
+})

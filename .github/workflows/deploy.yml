@@ -101,6 +101,8 @@ jobs:
         run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
       - name: Verify responsive landing and library
         run: LIBRARY_LIVE=1 node scripts/check-entry-responsive.mjs
+      - name: Verify production Shakespeare layout and library perimeter
+        run: SHAKESPEARE_LIVE=1 node scripts/check-shakespeare-layout.mjs
       - name: Verify currently reading reel
         if: ${{ !cancelled() }}
         run: LIBRARY_LIVE=1 node scripts/check-reading-reel.mjs
@@ -117,6 +119,7 @@ jobs:
             app/artifacts/brand
             app/artifacts/voice-capture
             app/artifacts/featured-preview
+            app/artifacts/shakespeare-layout
             app/artifacts/reading-reel
             app/artifacts/library-layout
             app/artifacts/entry-responsive

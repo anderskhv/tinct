@@ -10,6 +10,7 @@ interface LabChapterCoverProps {
   accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
   onToggleControls: () => void
+  onLibrary?: () => void
   onBefore?: () => void
   onStart?: () => void
   continued?: boolean
@@ -21,7 +22,7 @@ export function labCoverTone(title: string): number {
   return hash % 5
 }
 
-export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls, onBefore, onStart, continued = false }: LabChapterCoverProps) {
+export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls, onLibrary, onBefore, onStart, continued = false }: LabChapterCoverProps) {
   const coverRef = useRef<HTMLElement>(null)
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
 
@@ -73,6 +74,7 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
         else if (tap == null && Math.abs(deltaX) <= 10 && Math.abs(deltaY) <= 10) onToggleControls()
       }}
     >
+      {onLibrary && <button type="button" className="lab-cover-library" onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onKeyDown={event => event.stopPropagation()} onClick={onLibrary}>← <span>Back to Library</span></button>}
       {imageSrc ? <img className="lab-chapter-cover-art" src={imageSrc} alt={`${title} cover`} draggable={false} onLoad={event => { const image = event.currentTarget; if (image.naturalHeight) coverRef.current?.style.setProperty('--lab-cover-ratio', String(image.naturalWidth / image.naturalHeight)) }} /> : <div className="lab-chapter-cover-book">
         <span className="lab-chapter-cover-series">{series}</span>
         <span className="lab-chapter-cover-mark" aria-hidden="true">{title.slice(0, 1)}</span>
