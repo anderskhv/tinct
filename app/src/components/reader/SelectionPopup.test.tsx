@@ -224,3 +224,18 @@ it('offers a definition retry when the provider returns no text', async () => {
   await screen.findByText('verb. To look for.')
   expect(request).toHaveBeenCalledTimes(2)
 })
+
+it('keeps the palette at the action menu anchor when its shorter height would fit on the other side', () => {
+  const height = vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(function(this: HTMLElement) {
+    return this.dataset.popupMode === 'main' ? 220 : 60
+  })
+  const width = vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(280)
+  try {
+    const input = props({ lab: true, popupMode: 'main', selection: selection({x:200,y:500}) })
+    const view = render(<SelectionPopup {...input} />)
+    const menu = view.container.querySelector<HTMLElement>('.selection-popup')!
+    const anchor = menu.style.getPropertyValue('--anchored-popup-y')
+    view.rerender(<SelectionPopup {...input} popupMode="colors" />)
+    expect(menu.style.getPropertyValue('--anchored-popup-y')).toBe(anchor)
+  } finally { height.mockRestore(); width.mockRestore() }
+})

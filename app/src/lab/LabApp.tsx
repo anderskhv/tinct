@@ -1190,7 +1190,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [authToken, authUser?.id])
 
   const openBookSwitcher = useCallback(() => {
-    if (showPhoneChrome && !readerControlsVisible) {
+    if (showPhoneChrome && !readerControlsVisible && !tocOpen) {
       setReaderControlsVisible(true)
       return
     }
@@ -1213,7 +1213,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
       .finally(() => setBookSwitcherLoading(false))
-  }, [book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome])
+  }, [book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, tocOpen])
 
   const switchQuickBook = useCallback((row: QuickBookRow) => {
     const intent = continueHandoff(row.target)
@@ -4811,6 +4811,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         }}
       />}
       {chromeV2 && <LabContentsV2
+        onSwitchBook={openBookSwitcher}
         open={tocOpen}
         bookId={book.bookId || 'bible'}
         title={book.bookTitle}
