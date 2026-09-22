@@ -7673,12 +7673,12 @@
 /* Definitions use the headword itself as the draggable title. */
 .lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
 
-/* The crease needs a little reflected light on dark paper. */
+/* Balance reflected light around the crease so dark paper reads centered. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night:not(.is-frontispiece) .lab-page-wrap::after {
   background:
-    linear-gradient(90deg, transparent calc(50% - 2px), rgb(0 0 0 / .5) 50%, rgb(242 230 207 / .1) calc(50% + 1px), transparent calc(50% + 3px)),
-    linear-gradient(90deg, transparent, rgb(0 0 0 / .04) 20%, rgb(0 0 0 / .24) 48%, rgb(0 0 0 / .16) 52%, transparent 80%),
-    linear-gradient(90deg, transparent 53%, var(--lab-fold-light) 76%, transparent);
+    linear-gradient(90deg, transparent calc(50% - 2px), rgb(0 0 0 / .5) 50%, transparent calc(50% + 2px)),
+    linear-gradient(90deg, transparent, rgb(0 0 0 / .04) 20%, rgb(0 0 0 / .24) 50%, rgb(0 0 0 / .04) 80%, transparent),
+    linear-gradient(90deg, transparent, rgb(242 230 207 / .045) 24%, transparent 47%, transparent 53%, rgb(242 230 207 / .045) 76%, transparent);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-compare-active="true"] .lab-page-wrap::after { content:none; }
 .lab[data-chrome-version="v2"] .lab-compare-divider {

@@ -449,10 +449,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [bookSwitcherOpen])
 
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
-  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey)
+  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
   const audioUnavailable = audioHeld || !resolvedAudioIsAvailable(audioEditionKey, prefs.primaryEdition, bookEditions)
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
-  useEffect(() => setAudioUnavailableNotice(false), [book.bookId, audioEditionKey])
+  useEffect(() => setAudioUnavailableNotice(false), [book.bookId, book.chapterNumber, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), bookEditions)
     setPrefs(synced)
@@ -3361,7 +3361,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (audioUnavailable) { setAudioUnavailableNotice(true); return }
+    if (audioUnavailable && !narrationOption && !retainedBella) { setAudioUnavailableNotice(true); return }
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
@@ -3430,7 +3430,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [audioUnavailable, narrationOption, retainedBella, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -4734,7 +4734,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       />
 
       {audioUnavailableNotice && <div className="lab-audio-unavailable" role="status">
-        <span>Audio is temporarily unavailable for this edition. You can keep reading.</span>
+        <span>{audioHeld && !isAudioHeld(book.bookId || 'bible', audioEditionKey) ? 'Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.' : 'Audio is temporarily unavailable for this edition. You can keep reading.'}</span>
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
       {listen.narration.status !== 'idle' && <div className="lab-audio-unavailable lab-narration-notice" role="status" data-testid="lab-narration-notice" data-status={listen.narration.status}>
