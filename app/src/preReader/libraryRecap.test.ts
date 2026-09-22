@@ -49,6 +49,20 @@ function memoryOf(...sessions: ReadingSession[]) {
 }
 
 describe('library recap helpers', () => {
+  it('restores a removed Bible after reading a biblical pin and preserves its place across library rebuilds', () => {
+    const daniel = place({ bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, paragraphIndex: 4, updatedAt: T0 + 2000 })
+    const other = place({ bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 1, sequentialChapter: 1, updatedAt: T0 + 3000 })
+    const state = positions([daniel, other], 'hamlet')
+    state.hidden.bible = T0 + 1000
+    for (let visit = 0; visit < 3; visit++) {
+      const list = readingList({ memory: emptyReadingMemory(), viewer: null, positions: state, books })
+      expect(list.readingNow.map(row => row.bookId)).toEqual(['hamlet', 'bible'])
+      expect(list.readingNow[1].target).toMatchObject({ chapterNumber: 857, paragraphIndex: 4 })
+    }
+    state.hidden.bible = T0 + 4000
+    expect(readingList({ memory: emptyReadingMemory(), viewer: null, positions: state, books }).readingNow.map(row => row.bookId)).toEqual(['hamlet'])
+  })
+
   it('decides returning only when something is being read or finished', () => {
     expect(libraryModeFor(null)).toBe('new')
     expect(libraryModeFor(undefined)).toBe('new')

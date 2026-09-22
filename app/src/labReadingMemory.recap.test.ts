@@ -211,6 +211,20 @@ afterEach(() => {
 })
 
 describe('recap hero: a short absence is not summarised', () => {
+  it('keeps a re-added Bible after local paint, cloud reconciliation, and a library refresh', async () => {
+    const state = positionState([biblePlace(ago(MINUTE)), place({bookId: 'plato-republic', sequentialChapter: 1, updatedAt: NOW})], 'plato-republic')
+    state.hidden = { bible: ago(DAY) }
+    cloudPosition = { ...state, books: {}, updatedAt: ago(DAY) }
+    const section = await renderLibrary([], state)
+    for (let visit = 0; visit < 3; visit++) {
+      window.dispatchEvent(new Event('focus'))
+      await flush()
+      expect(section.querySelectorAll('[data-now-book]')).toHaveLength(2)
+      expect(section.querySelector('[data-recap-open="bible"]')?.getAttribute('data-continue-chapter')).toBe('645')
+    }
+    expect(JSON.parse(localStorage.getItem(LAB_POSITION_STORAGE_KEY)!).books.proverbs.paragraphIndex).toBe(2)
+  })
+
   it('shows the position line only and sends no request five minutes after reading', async () => {
     const section = await renderLibrary(
       [bibleSession(ago(5 * MINUTE))],

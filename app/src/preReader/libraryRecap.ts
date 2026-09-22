@@ -20,7 +20,7 @@
  */
 import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type ReadingSession } from '../readingMemory'
 import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
-import { biblicalBookId, isHiddenFromReadingNow, parseBiblicalPlaceTitle } from '../lab/labPosition'
+import { biblicalBookId, parseBiblicalPlaceTitle } from '../lab/labPosition'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
 import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
 
@@ -379,7 +379,10 @@ export function readingList(input: ReadingListInput): ReadingList {
     // Taken off the list by the reader. Nothing about the book was deleted —
     // the place, the notes, the highlights and the chat are all still there,
     // and reading it again writes a newer place, which lists it once more.
-    if (input.positions && isHiddenFromReadingNow(input.positions, bookId)) continue
+    // A catalogue book can have a different position key (Bible -> Matthew).
+    // Compare the removal with the resolved reading activity, never books[bible].
+    const hiddenAt = input.positions?.hidden?.[bookId] ?? 0
+    if (hiddenAt > 0 && hiddenAt >= Math.max(place?.updatedAt ?? 0, session?.lastActiveAt ?? 0)) continue
     const finishedChapters = new Set<number>(input.positions?.finished?.[bookId] ?? [])
     const progress = chapterProgress({
       paragraphIndex: target.paragraphIndex,
