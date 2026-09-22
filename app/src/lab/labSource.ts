@@ -5,7 +5,7 @@ import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
-import { loadVerseLines, registerVerseLines } from './labVerseLines'
+import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
 
 export const LAB_BOOK_ID = 'bible'
 export const LAB_EDITION_KEY = 'kjv-en'
@@ -536,6 +536,10 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
   }
   const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
+  if (registryBook.author === 'William Shakespeare') {
+    registerShakespeareSpeakers(entry.paragraphs)
+    registerShakespeareSpeakers(compareParagraphs)
+  }
   await applyVerseLines(linesPromise, entry.number, [
     [primaryEdition.key, entry.paragraphs],
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),

@@ -35,6 +35,7 @@ export interface VerseLineSidecar {
 
 /** Paragraph text -> word indexes at which a new verse line begins. */
 const lineated = new Map<string, ReadonlySet<number>>()
+const speakers = new Map<string, Array<[number, number]>>()
 
 const WORD = /\S+/g
 
@@ -132,6 +133,7 @@ export function verseLineRanges(text: string | undefined, from: number, to: numb
 /** Test seam: forget every registered lineation. */
 export function resetVerseLines(): void {
   lineated.clear()
+  speakers.clear()
 }
 
 export async function loadVerseLines(bookId: string, version: string): Promise<VerseLineSidecar | null> {
@@ -145,10 +147,71 @@ export async function loadVerseLines(bookId: string, version: string): Promise<V
   }
 }
 
-/** Only a known verse speech gets presentation markup. Never guess verse
- * breaks from punctuation. The leading uppercase label is existing text. */
+/** Speaker typography is independent of verse metadata. Only paragraphs from
+ * a registry-confirmed Shakespeare book are registered here. Existing labels,
+ * including joint speakers and italic abbreviations, remain source words. */
+export function shakespeareSpeakerWords(text: string): number {
+  // Verified labels missing their period in the shipped original editions.
+  const unpunctuated = text.match(/^(VAUGHAN|RATCLIFFE|ALL PEOPLE|LORDS|CLEOMENES|BALTHASAR)(?=\s)/)
+  if (unpunctuated) return unpunctuated[1].split(/\s+/).length
+  const italic = text.match(/^_([^_]{1,100}\.)_(?:[.}])?(?=\s|$)/u)
+  const plain = text.match(/^([^.[\]_:]{1,100}[.:])(?=\s|$)/u)
+  const label = italic?.[1] ?? plain?.[1]
+  if (!label) return 0
+  const words = label.replace(/[.,:]/g, '').trim().split(/\s+/)
+  if (/^(?:I|O|ENTER|RE-ENTER|EXIT|EXEUNT|SCENE|ACT|FLOURISH|ALARUM|MUSIC|SONG|DURING|SINGS|EPILOGUE)$/i.test(words[0])) return 0
+  const connector = /^(?:and|of|the|&|&c|etc)$/
+  const name = italic ? /^[\p{Lu}][\p{L}\p{N}’'-]*$/u : /^[\p{Lu}][\p{Lu}\p{N}’'-]*$/u
+  if (!words.every(word => connector.test(word) || name.test(word))) return 0
+  return (italic?.[0] ?? plain![0]).split(/\s+/).length
+}
+
+export function registerShakespeareSpeakers(paragraphs: string[]): void {
+  for (const text of paragraphs) {
+    const words = [...text.matchAll(/\S+/g)]
+    const labels: Array<[number, number]> = []
+    for (let index = 0; index < words.length; index += 1) {
+      const start = words[index].index!
+      if (index && !/[.!?;:\]_]$/.test(text.slice(0, start).trimEnd())) continue
+      if (!/^[_\p{Lu}]/u.test(words[index][0])) continue
+      const count = shakespeareSpeakerWords(text.slice(start))
+      if (!count) continue
+      labels.push([index, index + count])
+      index += count - 1
+    }
+    if (labels.length) speakers.set(text, labels)
+  }
+}
+
+function speakerRanges(text: string | undefined): Array<[number, number]> {
+  if (!text) return []
+  const registered = speakers.get(text)
+  if (registered) return registered
+  const count = verseLineStarts(text) ? shakespeareSpeakerWords(text) : 0
+  return count ? [[0, count]] : []
+}
+
 export function verseSpeakerWords(text: string | undefined): number {
-  if (!text || !verseLineStarts(text)) return 0
-  const label = text.match(/^([A-Z][A-Z\d '\u2019-]*\.)\s/)
-  return label ? label[1].split(/\s+/).length : 0
+  return speakerRanges(text).find(([from]) => from === 0)?.[1] ?? 0
+}
+
+export function verseSpeakerEnd(text: string | undefined, at: number): number {
+  return speakerRanges(text).find(([from, to]) => at >= from && at < to)?.[1] ?? 0
+}
+
+export function isInternalVerseBreak(text: string | undefined, at: number): boolean {
+  return !!verseLineStarts(text)?.has(at) && !speakerRanges(text).some(([from]) => from === at)
+}
+
+/** Speaker boundaries are presentation runs, not invented verse breaks. */
+export function presentationLineRanges(text: string | undefined, from: number, to: number): Array<[number, number]> | null {
+  if (to <= from) return null
+  const verse = verseLineRanges(text, from, to)
+  const labels = speakerRanges(text)
+  if (!verse && !labels.length) return null
+  const boundaries = new Set([from, to])
+  for (const [start] of verse ?? []) boundaries.add(start)
+  for (const [start] of labels) if (start > from && start < to) boundaries.add(start)
+  const sorted = [...boundaries].sort((a, b) => a - b)
+  return sorted.slice(0, -1).map((start, index) => [start, sorted[index + 1]])
 }

@@ -1,5 +1,5 @@
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
-import { verseLineRanges, verseLineStarts, verseSpeakerWords } from './labVerseLines'
+import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface MeasurableWord {
   text: string
@@ -95,7 +95,7 @@ export function labMeasureParagraphInto(
   // last verse line, never as a line of its own.
   const ownedCount = words.filter(word => !word.fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
+    ? presentationLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) {
     p.replaceChildren(...children.map(child => child.node))
@@ -104,9 +104,9 @@ export function labMeasureParagraphInto(
   const base = lineation!.from
   p.replaceChildren(...ranges.map(([start, end]) => {
     const line = document.createElement('span')
-    line.className = 'lab-verse-line'
+    line.className = verseLineStarts(lineation?.text) ? 'lab-verse-line' : 'lab-speech-run'
     const items = children.filter(child => base + child.at >= start && base + child.at < end)
-    const speakerEnd = verseSpeakerWords(lineation?.text)
+    const speakerEnd = verseSpeakerEnd(lineation?.text, start)
     if (start < speakerEnd) {
       const speaker = document.createElement('span')
       speaker.className = 'lab-verse-speaker'
@@ -117,7 +117,7 @@ export function labMeasureParagraphInto(
     dialogue.className = 'lab-verse-dialogue'
     dialogue.append(...items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
     line.append(dialogue)
-    if (verseLineStarts(lineation?.text)?.has(end)) {
+    if (isInternalVerseBreak(lineation?.text, end)) {
       const marker = document.createElement('span')
       marker.className = 'lab-verse-break'
       marker.setAttribute('aria-hidden', 'true')
