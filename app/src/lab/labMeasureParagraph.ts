@@ -1,5 +1,5 @@
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
-import { verseLineRanges } from './labVerseLines'
+import { verseLineRanges, verseLineStarts, verseSpeakerWords } from './labVerseLines'
 
 export interface MeasurableWord {
   text: string
@@ -105,7 +105,21 @@ export function labMeasureParagraphInto(
   p.replaceChildren(...ranges.map(([start, end]) => {
     const line = document.createElement('span')
     line.className = 'lab-verse-line'
-    line.append(...children.filter(child => base + child.at >= start && base + child.at < end).map(child => child.node))
+    const items = children.filter(child => base + child.at >= start && base + child.at < end)
+    const speakerEnd = verseSpeakerWords(lineation?.text)
+    if (start < speakerEnd) {
+      const speaker = document.createElement('span')
+      speaker.className = 'lab-verse-speaker'
+      speaker.append(...items.filter(child => base + child.at < speakerEnd).map(child => child.node))
+      line.append(speaker)
+    }
+    line.append(...items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
+    if (verseLineStarts(lineation?.text)?.has(end)) {
+      const marker = document.createElement('span')
+      marker.className = 'lab-verse-break'
+      marker.setAttribute('aria-hidden', 'true')
+      line.append(marker)
+    }
     return line
   }))
   return p

@@ -71,6 +71,8 @@ jobs:
       - name: Verify library and preparation
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
+      - name: Verify Shakespeare layout and library perimeter
+        run: node scripts/check-shakespeare-layout.mjs
       - name: Verify currently reading shelf
         if: ${{ !cancelled() }}
         run: node scripts/check-reading-reel.mjs
@@ -85,6 +87,7 @@ jobs:
         with:
           name: library-preparation-acceptance
           path: |
+            app/artifacts/shakespeare-layout
             app/artifacts/reading-reel
             app/artifacts/library-layout
             app/artifacts/entry-responsive

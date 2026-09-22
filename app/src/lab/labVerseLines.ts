@@ -144,3 +144,11 @@ export async function loadVerseLines(bookId: string, version: string): Promise<V
     return null
   }
 }
+
+/** Only a known verse speech gets presentation markup. Never guess verse
+ * breaks from punctuation. The leading uppercase label is existing text. */
+export function verseSpeakerWords(text: string | undefined): number {
+  if (!text || !verseLineStarts(text)) return 0
+  const label = text.match(/^([A-Z][A-Z\d '\u2019-]*\.)\s/)
+  return label ? label[1].split(/\s+/).length : 0
+}

@@ -73,6 +73,8 @@ export interface LabAppearancePrefs {
   fontFamily: LabFontFamily | null
   fontSize: number
   alignment: LabTextAlignment
+  alignmentExplicit?: boolean
+  shakespeareLayout?: 'verse' | 'flowing'
   lineSpacing: LabLineSpacing
   margins: LabMargins
   paragraphSpacing: LabParagraphSpacing
@@ -163,6 +165,8 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   fontFamily: null,
   fontSize: 1.3,
   alignment: 'justify',
+  alignmentExplicit: false,
+  shakespeareLayout: 'verse',
   lineSpacing: 'comfortable',
   margins: 'medium',
   paragraphSpacing: 'standard',
@@ -288,6 +292,10 @@ function parseAppearance(
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
     fontSize,
     alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
+    // Old records did not distinguish automatic writes from user choices.
+    // Preserve their alignment rather than risk erasing an explicit choice.
+    alignmentExplicit: typeof src.alignmentExplicit === 'boolean' ? src.alignmentExplicit : src.alignment === 'left' || src.alignment === 'justify',
+    shakespeareLayout: src.shakespeareLayout === 'flowing' ? 'flowing' : 'verse',
     lineSpacing: typeof src.lineSpacing === 'number' && Number.isFinite(src.lineSpacing) ? Math.max(1.25, Math.min(1.9, src.lineSpacing)) : src.lineSpacing === 'compact' || src.lineSpacing === 'open'
       ? src.lineSpacing
       : fallback.lineSpacing,
@@ -424,6 +432,8 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       fontFamily: prefs.fontFamily,
       fontSize: prefs.fontSize,
       alignment: prefs.alignment,
+      alignmentExplicit: prefs.alignmentExplicit ?? true,
+      shakespeareLayout: prefs.shakespeareLayout ?? 'verse',
       lineSpacing: prefs.lineSpacing,
       margins: prefs.margins,
       paragraphSpacing: prefs.paragraphSpacing,
@@ -638,6 +648,6 @@ export function labParagraphGap(value: LabParagraphSpacing): number {
 }
 export function restoreLabAppearance(prefs: LabPrefs): LabPrefs {
   return { ...prefs, theme: DEFAULT_LAB_PREFS.theme, darkMode: DEFAULT_LAB_PREFS.theme === 'dark',
-    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, alignment: DEFAULT_LAB_PREFS.alignment,
+    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, alignment: DEFAULT_LAB_PREFS.alignment, alignmentExplicit: false, shakespeareLayout: 'verse',
     lineSpacing: 'comfortable', margins: 'medium', paragraphSpacing: 'standard' }
 }

@@ -27,6 +27,7 @@ import {
 } from './labV2Sheet'
 
 export interface LabV2SheetProps {
+  phoneShakespeare?: boolean
   layer: LabV2SheetLayer | null
   onLayer: (layer: LabV2SheetLayer) => void
   onClose: () => void
@@ -164,7 +165,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions, compare = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions, compare = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
@@ -342,13 +343,23 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                     aria-label="Alignment"
                     data-testid="lab-v2-alignment"
                     value={prefs.alignment}
-                    onChange={event => onPrefs({ ...prefs, alignment: event.target.value as LabTextAlignment })}
+                    onChange={event => onPrefs({ ...prefs, alignment: event.target.value as LabTextAlignment, alignmentExplicit: true })}
                   >
                     <option value="justify">Justified</option>
                     <option value="left">Left</option>
                   </select>
                 </div>
               </Group>
+              {phoneShakespeare && <Group label="Shakespeare">
+                <div className="lab-v2-row is-select">
+                  <span className="lab-v2-row-icon" aria-hidden="true"><ParagraphIcon /></span>
+                  <span className="lab-v2-row-label">Shakespeare layout</span>
+                  <Value>{prefs.shakespeareLayout === 'flowing' ? 'Flowing text' : 'Verse lines'}</Value>
+                  <select className="lab-v2-row-select" aria-label="Shakespeare layout" value={prefs.shakespeareLayout || 'verse'} onChange={event => onPrefs({ ...prefs, shakespeareLayout: event.target.value as 'verse' | 'flowing' })}>
+                    <option value="verse">Verse lines</option><option value="flowing">Flowing text</option>
+                  </select>
+                </div>
+              </Group>}
               <Group label="Line spacing">
                 <LayoutSlider label="Line spacing" testId="lab-v2-line-spacing" icon={<LineIcon />}
                   value={labLineHeight(prefs.lineSpacing)} min={1.25} max={1.9} step={.01}

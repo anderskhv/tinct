@@ -100,6 +100,35 @@ function BookActions({ books }: { books: LibraryCatalogueBook[] }) {
 }
 
 export function LibraryAssistant() {
+  const perimeterRef = useRef<SVGRectElement>(null)
+  useEffect(() => {
+    const edge = perimeterRef.current
+    if (!edge) return
+    const panel = edge.closest('[data-view-panel]')
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')
+    let animation: Animation | undefined
+    let active = false
+    const visit = () => {
+      const visible = !panel || panel.classList.contains('is-current')
+      if (visible && !active && !reduced?.matches && typeof edge.animate === 'function') {
+        animation?.cancel()
+        animation = edge.animate([
+          { strokeDashoffset: '0', opacity: .65 },
+          { strokeDashoffset: '-100', opacity: .65 },
+        ], { duration: 3200, iterations: 3 })
+      }
+      if (!visible) animation?.cancel()
+      active = visible
+    }
+    const reduce = () => { if (reduced?.matches) animation?.cancel() }
+    visit()
+    const observer = new MutationObserver(visit)
+    if (panel) observer.observe(panel, { attributes: true, attributeFilter: ['class'] })
+    const restored = (event: PageTransitionEvent) => { if (event.persisted) { active = false; visit() } }
+    window.addEventListener('pageshow', restored)
+    reduced?.addEventListener?.('change', reduce)
+    return () => { animation?.cancel(); observer.disconnect(); window.removeEventListener('pageshow', restored); reduced?.removeEventListener?.('change', reduce) }
+  }, [])
   const auth = useAuth()
   const [voicePersona, setVoicePersona] = useState<VoicePersona>(readLibraryVoicePersona)
   useVoicePersonaSync({
@@ -364,6 +393,7 @@ export function LibraryAssistant() {
       </div>}
     </section>}
     <nav className={`library-glass-dock${mode === 'chat' || mode === 'talk' ? ' is-conversation-open' : ''}`} aria-label="Find a book">
+      <svg className="library-dock-edge" aria-hidden="true" focusable="false"><rect ref={perimeterRef} x="1" y="1" width="calc(100% - 2px)" height="calc(100% - 2px)" rx="999" pathLength="100" /></svg>
       <button type="button" aria-pressed={mode === 'search'} onClick={() => { if (mode === 'talk') voice.stop(); setAccountAction(null); setMode('search') }}>{icon('search')}<span>Search</span></button>
       <button type="button" aria-pressed={mode === 'talk'} onClick={() => void startTalk()}>{icon('talk')}<span>Talk</span></button>
       <button type="button" aria-pressed={mode === 'chat'} onClick={() => { if (mode === 'talk') voice.stop(); setAccountAction(null); setMode('chat') }}>{icon('chat')}<span>Chat</span></button>

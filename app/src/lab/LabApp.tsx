@@ -141,6 +141,7 @@ import {
   type LabPlaybackNavigationOutcome,
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
+import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -404,6 +405,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
+  const isShakespeare = getBook(book.bookId || 'bible')?.author === 'William Shakespeare'
+  // Tablet reader chrome can look like a phone. Flowing verse is a physical
+  // phone preference, independent of that responsive chrome breakpoint.
+  const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
+  const flowingShakespeare = phoneShakespeare && prefs.shakespeareLayout === 'flowing'
+  const readingAlignment = prefs.alignmentExplicit === false ? (isShakespeare ? 'left' : 'justify') : prefs.alignment
+  const displayPrefs = { ...prefs, alignment: readingAlignment }
   const readingFont = labReadingFont(prefs.fontFamily, chromeV2)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
@@ -1516,7 +1524,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
-  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
+  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
     if (measuredPaging) return
@@ -1556,7 +1564,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     unmeasuredTriesRef.current = 0
     setSettleIndex(measuredPaging ? null : 0)
     settleIndexRef.current = measuredPaging ? null : 0
-  }, [readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
+  }, [readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -2086,7 +2094,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, prefs.alignment, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
 
   useLayoutEffect(() => {
     if (
@@ -2376,7 +2384,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     editionKey,
     readingFont,
     prefs.fontSize,
-    prefs.alignment,
+    readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
     prefs.paragraphSpacing,
@@ -2394,7 +2402,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const readerLayoutKey = [
     readingFont,
     prefs.fontSize,
-    prefs.alignment,
+    readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
     prefs.paragraphSpacing,
@@ -3939,6 +3947,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
       data-playing={listen.playing ? 'true' : 'false'}
       data-fullscreen={fullscreen ? 'true' : 'false'}
+      data-shakespeare={isShakespeare || undefined}
+      data-shakespeare-layout={isShakespeare ? (flowingShakespeare ? 'flowing' : 'verse') : undefined}
       data-reader-controls={frontispieceVisible
         ? 'hidden'
         : showPhoneChrome || desktopPaging ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
@@ -3962,7 +3972,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
         ['--lab-font-size' as string]: String(prefs.fontSize),
-        ['--lab-text-align' as string]: prefs.alignment,
+        ['--lab-text-align' as string]: readingAlignment,
         ['--lab-line-height' as string]: String(labLineHeight(prefs.lineSpacing)),
         ['--lab-reader-margin' as string]: typeof prefs.margins === 'number' ? `${1.55 * prefs.margins}rem` : prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
         // The V2 desktop leaves set their side padding from their own measured
@@ -4129,7 +4139,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           layer={superSheet}
           onLayer={setSuperSheet}
           onClose={() => setSuperSheet(null)}
-          prefs={prefs}
+          prefs={displayPrefs}
+          phoneShakespeare={phoneShakespeare}
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
@@ -4173,6 +4184,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           {chapterCoverTitle ? (
             <LabChapterCover
               imageSrc={chromeV2 && chapterCoverTitle === book.bookTitle ? `/covers/v2/${book.bookId || 'bible'}.webp` : undefined}
+              onLibrary={chapterCoverTitle === book.bookTitle ? () => handleSuperMenuSelect('library') : undefined}
               title={chapterCoverTitle}
               series={chapterCoverTitle === book.bookTitle ? book.bookAuthor : book.bookTitle}
               editionLabel={book.editionLabel}
@@ -4749,7 +4761,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         section={settingsSection}
         onSection={setSettingsSection}
         onClose={() => setGearOpen(false)}
-        prefs={prefs}
+        prefs={displayPrefs}
+        phoneShakespeare={phoneShakespeare}
         onPrefs={updatePrefs}
         editions={bookEditions.filter(edition => isEditionDiscoverable(book.bookId || 'bible', edition) || edition.key === prefs.primaryEdition || edition.key === prefs.compareEdition)}
         unavailableEditionKeys={bookEditions.filter(edition => !isEditionDiscoverable(book.bookId || 'bible', edition)).map(edition => edition.key)}

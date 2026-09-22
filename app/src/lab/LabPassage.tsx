@@ -16,7 +16,7 @@ import {
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
-import { verseLineRanges } from './labVerseLines'
+import { verseLineRanges, verseLineStarts, verseSpeakerWords } from './labVerseLines'
 import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
@@ -164,11 +164,15 @@ export function renderWordGroups<T extends { text: string }>(
     : null
   if (!ranges) return rendered.map(item => item.node)
   const base = lineation!.from
-  return ranges.map(([start, end], index) => (
-    <span className="lab-verse-line" key={`verse-line-${index}`}>
-      {rendered.filter(item => base + item.at >= start && base + item.at < end).map(item => item.node)}
+  return ranges.map(([start, end], index) => {
+    const items = rendered.filter(item => base + item.at >= start && base + item.at < end)
+    const speakerEnd = verseSpeakerWords(lineation?.text)
+    return <span className="lab-verse-line" key={`verse-line-${index}`}>
+      {start < speakerEnd && <span className="lab-verse-speaker">{items.filter(item => base + item.at < speakerEnd).map(item => item.node)}</span>}
+      {items.filter(item => base + item.at >= speakerEnd).map(item => item.node)}
+      {verseLineStarts(lineation?.text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
     </span>
-  ))
+  })
 }
 
 /**
@@ -182,9 +186,12 @@ export function renderWordGroups<T extends { text: string }>(
 function asVerseLines(text: string | undefined, from: number, nodes: ReactNode[]): ReactNode[] {
   const ranges = verseLineRanges(text, from, from + nodes.length)
   if (!ranges) return nodes
-  return ranges.map(([start, end], index) => (
-    <span className="lab-verse-line" key={`verse-line-${index}`}>{nodes.slice(start - from, end - from)}</span>
-  ))
+  const speakerEnd = verseSpeakerWords(text)
+  return ranges.map(([start, end], index) => <span className="lab-verse-line" key={`verse-line-${index}`}>
+    {start < speakerEnd && <span className="lab-verse-speaker">{nodes.slice(start - from, Math.min(end, speakerEnd) - from)}</span>}
+    {nodes.slice(Math.max(start, speakerEnd) - from, end - from)}
+    {verseLineStarts(text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
+  </span>)
 }
 
 /**
@@ -242,7 +249,7 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
       const padRight = parseFloat(style?.paddingRight || '0') || 0
       const fragments: TailRect[] = []
       line.querySelectorAll<HTMLElement>(
-        ':scope > span:not(.lab-verse-line), :scope > .lab-verse-unit > span, :scope > .lab-verse-line > span',
+        ':scope > span:not(.lab-verse-line), :scope > .lab-verse-unit > span, :scope > .lab-verse-line > span:not(.lab-verse-speaker):not(.lab-verse-break), :scope > .lab-verse-line > .lab-verse-speaker > span',
       ).forEach((word) => {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
