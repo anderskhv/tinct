@@ -5340,7 +5340,7 @@
 .lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
 
 /* Shared by visible paragraphs and their pagination measurement copies. */
-.lab-verse-speaker, .lab-verse-dialogue { display: contents; }
+.lab-verse-speaker, .lab-verse-dialogue, .lab-speech-run { display: contents; }
 .lab-verse-break { display: none; }
 .lab[data-shakespeare] .lab-verse-line { text-align: var(--lab-text-align, left); }
 .lab[data-shakespeare-layout="flowing"] .lab-verse-line {

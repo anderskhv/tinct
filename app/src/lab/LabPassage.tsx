@@ -16,7 +16,7 @@ import {
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
-import { verseLineRanges, verseLineStarts, verseSpeakerWords } from './labVerseLines'
+import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
@@ -160,17 +160,17 @@ export function renderWordGroups<T extends { text: string }>(
   // it must not extend the verse-line ranges by one.
   const ownedCount = words.filter(word => !(word as { fragment?: boolean }).fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
+    ? presentationLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) return rendered.map(item => item.node)
   const base = lineation!.from
   return ranges.map(([start, end], index) => {
     const items = rendered.filter(item => base + item.at >= start && base + item.at < end)
-    const speakerEnd = verseSpeakerWords(lineation?.text)
-    return <span className="lab-verse-line" key={`verse-line-${index}`}>
+    const speakerEnd = verseSpeakerEnd(lineation?.text, start)
+    return <span className={verseLineStarts(lineation?.text) ? "lab-verse-line" : "lab-speech-run"} key={`verse-line-${index}`}>
       {start < speakerEnd && <span className="lab-verse-speaker">{items.filter(item => base + item.at < speakerEnd).map(item => item.node)}</span>}
       <span className="lab-verse-dialogue">{items.filter(item => base + item.at >= speakerEnd).map(item => item.node)}</span>
-      {verseLineStarts(lineation?.text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
+      {isInternalVerseBreak(lineation?.text, end) && <span className="lab-verse-break" aria-hidden="true" />}
     </span>
   })
 }
@@ -184,14 +184,16 @@ export function renderWordGroups<T extends { text: string }>(
  * Returns the nodes untouched for prose.
  */
 function asVerseLines(text: string | undefined, from: number, nodes: ReactNode[]): ReactNode[] {
-  const ranges = verseLineRanges(text, from, from + nodes.length)
+  const ranges = presentationLineRanges(text, from, from + nodes.length)
   if (!ranges) return nodes
-  const speakerEnd = verseSpeakerWords(text)
-  return ranges.map(([start, end], index) => <span className="lab-verse-line" key={`verse-line-${index}`}>
+  return ranges.map(([start, end], index) => {
+    const speakerEnd = verseSpeakerEnd(text, start)
+    return <span className={verseLineStarts(text) ? "lab-verse-line" : "lab-speech-run"} key={`verse-line-${index}`}>
     {start < speakerEnd && <span className="lab-verse-speaker">{nodes.slice(start - from, Math.min(end, speakerEnd) - from)}</span>}
     <span className="lab-verse-dialogue">{nodes.slice(Math.max(start, speakerEnd) - from, end - from)}</span>
-    {verseLineStarts(text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
-  </span>)
+    {isInternalVerseBreak(text, end) && <span className="lab-verse-break" aria-hidden="true" />}
+  </span>
+  })
 }
 
 /**

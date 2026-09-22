@@ -19,7 +19,7 @@ import {
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages } from './LabDesktopPaginator'
-import { verseLineRanges, verseLineStarts, verseSpeakerWords } from './labVerseLines'
+import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
   pageIndex: number
@@ -242,14 +242,16 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
  * always starts at word 0.
  */
 function nativeVerseLines(text: string, rendered: Array<{ at: number; node: ReactNode }>): ReactNode[] {
-  const ranges = verseLineRanges(text, 0, rendered.length ? rendered[rendered.length - 1].at + 1 : 0)
+  const ranges = presentationLineRanges(text, 0, rendered.length ? rendered[rendered.length - 1].at + 1 : 0)
   if (!ranges) return rendered.map(item => item.node)
-  const speakerEnd = verseSpeakerWords(text)
-  return ranges.map(([start, end], index) => <span className="lab-verse-line" key={`verse-line-${index}`}>
+  return ranges.map(([start, end], index) => {
+    const speakerEnd = verseSpeakerEnd(text, start)
+    return <span className={verseLineStarts(text) ? "lab-verse-line" : "lab-speech-run"} key={`verse-line-${index}`}>
     {start < speakerEnd && <span className="lab-verse-speaker">{rendered.filter(item => item.at >= start && item.at < Math.min(end, speakerEnd)).map(item => item.node)}</span>}
     <span className="lab-verse-dialogue">{rendered.filter(item => item.at >= Math.max(start, speakerEnd) && item.at < end).map(item => item.node)}</span>
-    {verseLineStarts(text)?.has(end) && <span className="lab-verse-break" aria-hidden="true" />}
-  </span>)
+    {isInternalVerseBreak(text, end) && <span className="lab-verse-break" aria-hidden="true" />}
+  </span>
+  })
 }
 
 export const LabNativePaginator = memo(function LabNativePaginator({
