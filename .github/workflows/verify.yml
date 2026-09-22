@@ -71,7 +71,7 @@ jobs:
       - name: Verify library and preparation
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
-      - name: Verify currently reading reel
+      - name: Verify currently reading shelf
         if: ${{ !cancelled() }}
         run: node scripts/check-reading-reel.mjs
       - name: Verify hyphenation hardening

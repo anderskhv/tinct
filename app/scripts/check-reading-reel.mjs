@@ -7,11 +7,11 @@ await fs.mkdir(output,{recursive:true})
 const results=[]
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch({headless:true,args:engine==='chromium'?['--mute-audio']:[]})
- try{for(const width of [390,1440]){
+ try{for(const width of [390,1440])for(const count of [1,4]){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block',reducedMotion:'reduce'})
   const page=await context.newPage();page.setDefaultTimeout(15000)
   let phase='boot'; const errors=[];page.on('pageerror',e=>errors.push(e.message))
-  const now=Date.now(), ids=['beowulf','the-prince','notes-from-underground','frankenstein']
+  const now=Date.now(), ids=['beowulf','the-prince','notes-from-underground','frankenstein'].slice(0,count)
   const books=Object.fromEntries(ids.map((id,i)=>[id,{bookId:id,headerBook:id,chapterNumber:1,sequentialChapter:1,paragraphIndex:2,wordIndex:0,primaryEditionKey:'original-en',deviceId:'fixture',rev:1,updatedAt:now-i*1000}]))
   const positions={owner:null,books,finished:{},hidden:{},lastSettledBookId:'beowulf',lastSettledAt:now,updatedAt:now,deviceId:'fixture'}
   await page.addInitScript(positions=>{
@@ -32,41 +32,46 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   })
   try{
    await page.goto(origin+'/library')
-   await page.waitForFunction(()=>document.querySelectorAll('[data-now-index]').length===4 && document.querySelector('[data-now-shelf]')?.classList.contains('is-reel'))
+   await page.waitForFunction(count=>document.querySelectorAll('[data-now-index]').length===count,count)
    await page.evaluate(()=>document.fonts.ready)
    const shelf=page.locator('[data-now-shelf]')
    const geometry=await shelf.evaluate(n=>{
-    const r=n.getBoundingClientRect(),cards=[...n.querySelectorAll('[data-now-index]')].map(c=>({id:c.dataset.nowBook,x:c.getBoundingClientRect().x+c.getBoundingClientRect().width/2}))
-    return {center:r.x+r.width/2,cards,overflow:document.documentElement.scrollWidth>innerWidth}
+    const r=n.getBoundingClientRect(),cards=[...n.querySelectorAll('[data-now-index]')].map(c=>({id:c.dataset.nowBook,x:c.getBoundingClientRect().x,width:c.getBoundingClientRect().width,height:c.getBoundingClientRect().height}))
+    return {left:r.left,height:r.height,cards,overflow:document.documentElement.scrollWidth>innerWidth,display:getComputedStyle(n).display}
    })
-   phase='centred geometry';
+   phase='native shelf geometry'
    assert(!geometry.overflow)
-   assert(Math.abs(geometry.cards.find(c=>c.id==='beowulf').x-geometry.center)<3,'latest book centred: '+JSON.stringify(geometry))
-   assert(geometry.cards.some(c=>c.x<geometry.center-20)&&geometry.cards.some(c=>c.x>geometry.center+20),'neighbours on both sides')
-   phase='drag';
+   assert.equal(geometry.display,'flex')
+   assert(geometry.height>80 && geometry.cards[0].height>80,'even one current book remains visible')
+   assert(Math.abs(geometry.cards[0].x-geometry.left)<6,'first cover starts at shelf edge')
+   assert.equal(await shelf.evaluate(n=>n.classList.contains('is-reel')),false)
    const before=await page.evaluate(()=>localStorage.getItem('tinct-lab-position'))
-   const box=await shelf.boundingBox()
-   await page.mouse.move(box.x+box.width/2,box.y+100)
-   await page.mouse.down();await page.mouse.move(box.x+box.width/2-190,box.y+100,{steps:12});await page.mouse.up()
-   await page.waitForFunction(()=>document.querySelector('[data-reading-memory-recap]')?.dataset.book!=='beowulf')
+   if(count>1){
+    phase='native scroll or card focus'
+    if(width<600) await shelf.evaluate(n=>n.scrollLeft=n.scrollWidth)
+    else await page.locator('[data-now-index="1"] .lib-now-open').click()
+    await page.waitForFunction(()=>document.querySelector('[data-reading-memory-recap]')?.dataset.book!=='beowulf')
+   }
    assert.equal(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')),before,'browsing does not write position')
    const selected=await page.locator('[data-reading-memory-recap]').getAttribute('data-book')
    assert.equal(await page.locator('[data-recap-continue]').getAttribute('data-recap-continue'),selected)
-   await page.screenshot({path:output+'/'+engine+'-'+width+'.png'})
-   phase='remove';
-   await page.locator('[data-now-book="'+selected+'"] [data-now-remove]').click()
-   await page.waitForFunction(id=>!document.querySelector('[data-now-book="'+id+'"]'),selected)
-   const after=JSON.parse(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')))
-   assert.deepEqual(after.books,JSON.parse(before).books,'remove keeps all saved reading tuples')
-   assert.equal(await page.locator('[data-now-index]').count(),3)
+   await page.screenshot({path:output+'/'+engine+'-'+width+'-'+count+'.png'})
+   if(count>1){
+    phase='remove'
+    await page.locator('[data-now-book="'+selected+'"] [data-now-remove]').click()
+    await page.waitForFunction(id=>!document.querySelector('[data-now-book="'+id+'"]'),selected)
+    const after=JSON.parse(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')))
+    assert.deepEqual(after.books,JSON.parse(before).books,'remove keeps all saved reading tuples')
+    assert.equal(await page.locator('[data-now-index]').count(),count-1)
+   }
    phase='continue';
    await page.locator('[data-recap-continue]').click()
    await page.waitForURL('**/reader**')
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
    assert.equal(await page.locator('[data-testid="lab-book-preface"][open]').count(),0,'Continue returns directly to saved text')
    assert.deepEqual(errors,[])
-   results.push({engine,width,geometry,selected,passed:true})
-  }catch(error){await page.screenshot({path:output+'/'+engine+'-'+width+'-failure.png'});results.push({engine,width,passed:false,phase,error:error.stack||String(error)});process.exitCode=1}
+   results.push({engine,width,count,geometry,selected,passed:true})
+  }catch(error){await page.screenshot({path:output+'/'+engine+'-'+width+'-'+count+'-failure.png'});results.push({engine,width,count,passed:false,phase,error:error.stack||String(error)});process.exitCode=1}
   await context.close()
  }}finally{await browser.close()}
 }
