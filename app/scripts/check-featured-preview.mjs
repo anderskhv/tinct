@@ -20,8 +20,12 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  const context=await browser.newContext({viewport:{width,height},isMobile:touch,hasTouch:touch,deviceScaleFactor:touch?2:1,serviceWorkers:'block'})
  const page=await context.newPage()
  const errors=[]
- page.on('pageerror',e=>errors.push(e.message))
+ page.on('pageerror',e=>{errors.push(e.message); console.log('PREVIEW_ERROR',name,label,e.message); for(const f of page.frames()) void f.evaluate(()=>({observer:window.__qaResizeStack,ready:document.readyState,width:innerWidth,height:innerHeight})).then(value=>console.log('RESIZE_DIAGNOSTICS',JSON.stringify(value))).catch(()=>{})})
  await context.addInitScript(()=>{
+  const Original = window.ResizeObserver
+  window.ResizeObserver = class extends Original {
+    constructor(callback) { const stack = new Error('ResizeObserver registration').stack; super((entries,observer)=>{window.__qaResizeStack=stack;callback(entries,observer)}) }
+  }
   HTMLMediaElement.prototype.play=()=>Promise.resolve()
   if(navigator.mediaDevices)navigator.mediaDevices.getUserMedia=async()=>{throw Error('Disabled')}
   localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token',JSON.stringify({access_token:'preview-browser-fixture',refresh_token:'fixture',expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer',user:{id:'11111111-1111-4111-8111-111111111111',aud:'authenticated',role:'authenticated',email:'fixture@example.test'}}))

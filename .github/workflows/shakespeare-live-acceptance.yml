@@ -1,0 +1,61 @@
+name: Shakespeare live acceptance and diagnostics
+on:
+  push:
+    branches: ['codex/shakespeare-live-acceptance']
+permissions:
+  contents: read
+jobs:
+  requested-features:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify requested features on production
+        run: SHAKESPEARE_LIVE=1 node scripts/check-shakespeare-layout.mjs
+      - name: Verify production hyphenation
+        if: always()
+        run: HYPHENATION_LIVE=1 node scripts/check-hyphenation-hardening.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: requested-features-live
+          path: |
+            app/artifacts/shakespeare-layout
+            app/artifacts/hyphenation-hardening
+  live-diagnostics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Trace production navigation and layout
+        run: LIBRARY_LIVE=1 node scripts/check-entry-responsive.mjs
+      - name: Trace admin preview observer notification
+        if: always()
+        run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-diagnostics
+          path: |
+            app/artifacts/entry-responsive
+            app/artifacts/featured-preview

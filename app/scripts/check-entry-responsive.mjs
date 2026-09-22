@@ -16,6 +16,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   ]){
    const context=await browser.newContext({viewport:{width,height},hasTouch:touch,isMobile:touch,deviceScaleFactor:touch?2:1,serviceWorkers:'block'})
    const page=await context.newPage()
+   const pending = new Set()
+   page.on('request', request => pending.add(request))
+   page.on('requestfinished', request => pending.delete(request))
+   page.on('requestfailed', request => { pending.delete(request); console.log('NETWORK_FAILURE', engine, name, new URL(request.url()).pathname, request.failure()?.errorText) })
    await page.bringToFront()
    try {
    await page.addInitScript(()=>{
@@ -176,6 +180,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    assert.notEqual(await page.evaluate(()=>document.body.style.overflow),'hidden','close restores library scrolling')
    results.push({engine,name,landing,library})
    } catch(error) {
+    console.log('NAVIGATION_DIAGNOSTICS', JSON.stringify({engine,name,pending:[...pending].map(r=>{const u=new URL(r.url());return u.origin+u.pathname}),document:await page.evaluate(()=>({ready:document.readyState,appReady:window.__tinctLabPreReader?.ready,title:document.title})).catch(()=>null)}))
     failures.push({engine,name,error:String(error)})
     console.log('CASE_FAILURE '+engine+' '+name+' '+String(error))
     await page.screenshot({path:out+'/'+engine+'-'+name+'-failure.png'}).catch(()=>{})

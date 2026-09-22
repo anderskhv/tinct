@@ -66,6 +66,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
     const scenarios = []
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })
     for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width: 320, layout, size, alignment, explicit: true, phone: true, book: 'hamlet', chapter: 8, paragraph: 23 })
+    for (const layout of ['verse', 'flowing']) for (const alignment of ['left', 'justify']) scenarios.push({ width: 320, layout, size: 2.2, alignment, explicit: true, phone: true, book: 'hamlet', chapter: 20, paragraph: 169 })
     scenarios.push({ width: 390, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: true, book: 'hamlet', chapter: 7, paragraph: 121 })
     for (const width of [820, 1180, 1440]) scenarios.push({ width, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: false, book: 'macbeth', chapter: 1, paragraph: 0 })
     for (const [index, scenario] of scenarios.entries()) {
@@ -92,6 +93,11 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
             assert.equal(await page.getByTestId('lab-root').getAttribute('data-shakespeare-layout'), 'flowing')
             const prefs = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-prefs')))
             assert.equal(prefs.phone.shakespeareLayout, 'flowing')
+            await page.getByTestId('lab-header-chapter').click({ force: true })
+            await page.getByTestId('lab-contents-v2').getByRole('button', { name: 'Cover', exact: true }).click()
+            await page.getByRole('button', { name: '← Back to Library', exact: true }).click()
+            await page.waitForURL('**/library')
+            console.log('COVER_RETURN_PASS', engine)
           }
         }
         results.push({ engine, scenario, state })
