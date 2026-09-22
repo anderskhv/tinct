@@ -11,9 +11,9 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block',reducedMotion:'reduce'})
   const page=await context.newPage();page.setDefaultTimeout(15000)
   let phase='boot'; const errors=[];page.on('pageerror',e=>errors.push(e.message))
-  const now=Date.now(), ids=['beowulf','the-prince','notes-from-underground','frankenstein'].slice(0,count)
-  const books=Object.fromEntries(ids.map((id,i)=>[id,{bookId:id,headerBook:id,chapterNumber:1,sequentialChapter:1,paragraphIndex:2,wordIndex:0,primaryEditionKey:'original-en',deviceId:'fixture',rev:1,updatedAt:now-i*1000}]))
-  const positions={owner:null,books,finished:{},hidden:{},lastSettledBookId:'beowulf',lastSettledAt:now,updatedAt:now,deviceId:'fixture'}
+  const now=Date.now(), ids=['antigone','bible','notes-from-underground','frankenstein'].slice(0,count)
+  const books=Object.fromEntries(ids.map((id,i)=>[id==='bible'?'genesis':id,{bookId:id==='bible'?'genesis':id,headerBook:id==='bible'?'Genesis':id,chapterNumber:1,sequentialChapter:1,paragraphIndex:2,wordIndex:0,primaryEditionKey:'original-en',deviceId:'fixture',rev:1,updatedAt:now-i*1000}]))
+  const positions={owner:null,books,finished:{},hidden:count>1?{bible:now-86400000}:{},lastSettledBookId:'antigone',lastSettledAt:now,updatedAt:now,deviceId:'fixture'}
   await page.addInitScript(positions=>{
    if(!localStorage.getItem('tinct-lab-position'))localStorage.setItem('tinct-lab-position',JSON.stringify(positions))
    HTMLMediaElement.prototype.play=async function(){this.muted=true}
@@ -35,11 +35,33 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    await page.waitForFunction(count=>document.querySelectorAll('[data-now-index]').length===count,count)
    await page.evaluate(()=>document.fonts.ready)
    const shelf=page.locator('[data-now-shelf]')
+   const loading=await page.evaluate(()=>({
+    catalogue:performance.getEntriesByType('resource').filter(e=>e.name.includes('/lab/catalogue.json')).map(e=>({start:e.startTime,end:e.responseEnd})),
+    hiddenBookRequests:performance.getEntriesByType('resource').filter(e=>/\/data\/(onboarding|editions[^/]*)\/odyssey/.test(e.name)).map(e=>e.name),
+    domReady:performance.getEntriesByType('navigation')[0]?.domContentLoadedEventEnd,
+   }))
+   assert.equal(loading.hiddenBookRequests.length,0,'library entry does not prepare hidden Odyssey content')
    const geometry=await shelf.evaluate(n=>{
     const r=n.getBoundingClientRect(),cards=[...n.querySelectorAll('[data-now-index]')].map(c=>({id:c.dataset.nowBook,x:c.getBoundingClientRect().x,width:c.getBoundingClientRect().width,height:c.getBoundingClientRect().height}))
     return {left:r.left,height:r.height,cards,overflow:document.documentElement.scrollWidth>innerWidth,display:getComputedStyle(n).display}
    })
    phase='native shelf geometry'
+   if(width>=900){
+    const layout=await page.evaluate(()=>{
+     const shelf=document.querySelector('[data-now-shelf]').getBoundingClientRect(),caption=document.querySelector('[data-now-caption]').getBoundingClientRect()
+     return {top:shelf.top,shelfRight:shelf.right,captionLeft:caption.left,captionTop:caption.top,header:getComputedStyle(document.querySelector('.lib-hdr')).display}
+    })
+    assert.equal(layout.header,'none','no redundant account header')
+    assert(layout.top<70,'books start near the top')
+    assert(layout.captionLeft>=layout.shelfRight,'details sit beside covers')
+   }
+   if(count>1){
+    assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'re-added Bible survives resolved library')
+    await page.reload()
+    await page.waitForFunction(()=>document.querySelectorAll('[data-now-index]').length===4)
+    assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'Bible survives another library visit')
+   }
+
    assert(!geometry.overflow)
    assert.equal(geometry.display,'flex')
    assert(geometry.height>80 && geometry.cards[0].height>80,'even one current book remains visible')
@@ -50,7 +72,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     phase='native scroll or card focus'
     if(width<600) await shelf.evaluate(n=>n.scrollLeft=n.scrollWidth)
     else await page.locator('[data-now-index="1"] .lib-now-open').click()
-    await page.waitForFunction(()=>document.querySelector('[data-reading-memory-recap]')?.dataset.book!=='beowulf')
+    await page.waitForFunction(()=>document.querySelector('[data-reading-memory-recap]')?.dataset.book!=='antigone')
    }
    assert.equal(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')),before,'browsing does not write position')
    const selected=await page.locator('[data-reading-memory-recap]').getAttribute('data-book')
@@ -70,7 +92,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
    assert.equal(await page.locator('[data-testid="lab-book-preface"][open]').count(),0,'Continue returns directly to saved text')
    assert.deepEqual(errors,[])
-   results.push({engine,width,count,geometry,selected,passed:true})
+   results.push({engine,width,count,geometry,loading,selected,passed:true})
   }catch(error){await page.screenshot({path:output+'/'+engine+'-'+width+'-'+count+'-failure.png'});results.push({engine,width,count,passed:false,phase,error:error.stack||String(error)});process.exitCode=1}
   await context.close()
  }}finally{await browser.close()}

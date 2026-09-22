@@ -1656,6 +1656,12 @@ import {
     const routeView = libraryViewFromLocation(location.pathname, location.search) ? 'library' : 'landing'
     const requestedView = params.get('view') || (requested ? 'book-detail' : null)
     const allowedViews = new Set(['landing', 'library', 'library-index', 'book-detail', 'edition'])
+    // Entering the library does not need a hidden Odyssey cover, edition
+    // samples, or preparation content. Only prepare a book when opening one.
+    if (!requested && !['book-detail', 'edition'].includes(requestedView)) {
+      showView(allowedViews.has(requestedView) ? requestedView : routeView)
+      return { openRequestedBook: false }
+    }
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
       .then(() => ({ openRequestedBook: Boolean(requested && requestedView === 'book-detail') }))
   }).then(({ openRequestedBook }) => {

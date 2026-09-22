@@ -139,3 +139,14 @@
 ::view-transition-old(tinct-book-cover),::view-transition-new(tinct-book-cover){animation-duration:.6s;animation-timing-function:cubic-bezier(.22,.8,.22,1)}
 
 @media(prefers-reduced-motion:reduce){::view-transition-group(*){animation-duration:0s}}
+
+/* Returning library: spend the first screen on books, not account chrome. */
+#tinct-onboarding-worlds-v5 .lib .lib-hdr{display:none}
+#tinct-onboarding-worlds-v5 .lib[data-library-mode="returning"] .lib-main{padding-top:max(20px,env(safe-area-inset-top));gap:28px}
+@media(min-width:900px){
+ #tinct-onboarding-worlds-v5 .lib-reading-now{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(280px,1fr);column-gap:36px;row-gap:12px;align-items:center}
+ #tinct-onboarding-worlds-v5 .lib-reading-now>.lib-sec-head{grid-column:1/-1}
+ #tinct-onboarding-worlds-v5 .lib-now-caption{padding-top:0}
+ #tinct-onboarding-worlds-v5 .lib .lib-now-item{flex-basis:150px}
+ #tinct-onboarding-worlds-v5 .lib .lib-now-open .lib-cover{width:150px;height:auto;aspect-ratio:2/3}
+}
