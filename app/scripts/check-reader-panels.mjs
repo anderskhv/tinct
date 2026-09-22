@@ -291,12 +291,16 @@ async function checkFullPageFold(page) {
       bottom:parseFloat(paint.bottom), width:parseFloat(paint.width), events:paint.pointerEvents,
       oldDivider:columns&&getComputedStyle(columns,'::after').content, shadow:style.boxShadow,
       rect:rect.toJSON(), content:paint.content,
+      viewportWidth:innerWidth, columnsRect:columns.getBoundingClientRect().toJSON(),
       gutter:parseFloat(getComputedStyle(columns).columnGap),
       ink:[...node.querySelectorAll('.lab-book-columns [data-testid="lab-word"],.lab-book-columns .lab-chapter-end')].flatMap(n=>[...n.getClientRects()].filter(b=>b.width&&b.height).map(b=>({left:b.left,right:b.right}))),
       foldLeft:rect.left+node.clientLeft+node.clientWidth/2-parseFloat(paint.width)/2,
       foldRight:rect.left+node.clientLeft+node.clientWidth/2+parseFloat(paint.width)/2}
   })
   assert(fold.content!=='none'&&fold.width>=40,'binding must be visible')
+  const center=(fold.foldLeft+fold.foldRight)/2
+  assert(Math.abs(center-fold.viewportWidth/2)<1,'binding stays centered in the viewport')
+  assert(Math.abs(center-(fold.columnsRect.left+fold.columnsRect.right)/2)<1,'binding stays centered between the text columns')
   assert(Math.abs(fold.height-fold.pageHeight)<1 && fold.top===0 && fold.bottom===0,
     'binding must span the full sheet, including margins: '+JSON.stringify(fold))
   assert(fold.width<=fold.gutter,'binding stays within the reserved gutter')
@@ -717,6 +721,26 @@ async function feedbackRegression(engine,name,phone) {
   } finally {await browser.close();results.push(result)}
 }
 
+async function antigoneAudioAvailability(engine,name) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'antigone-audio-availability',live}
+  try {
+    state=await boot(browser,false,'antigone','modern-en',1)
+    await state.page.getByRole('button',{name:'Play',exact:true}).click()
+    await state.page.getByTestId('lab-desktop-audio-dock').waitFor()
+    assert.equal(await state.page.locator('.lab-audio-unavailable').count(),0,'repaired Prologue is playable')
+    await state.context.close()
+    state=await boot(browser,false,'antigone','modern-en',10)
+    const place=await state.page.getByTestId('lab-root').getAttribute('data-place')
+    await state.page.getByRole('button',{name:'Play',exact:true}).click()
+    await state.page.getByText('Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.',{exact:true}).waitFor()
+    assert.equal(await state.page.getByTestId('lab-root').getAttribute('data-place'),place,'unavailable audio preserves the reading place')
+    result.passed=true
+  } catch(error) { result.passed=false;result.error=error.stack }
+  finally { await browser.close();results.push(result) }
+}
+
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 await designReference()
 
@@ -727,6 +751,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   await bookSurface(engine,name)
   await highlightRegression(engine,name)
   await mobileChromeRegression(engine,name)
+  await antigoneAudioAvailability(engine,name)
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))

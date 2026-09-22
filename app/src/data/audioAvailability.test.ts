@@ -14,8 +14,8 @@ describe('reversible edition discovery availability', () => {
     expect(reviewed).toEqual(actual)
     // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text).
     expect(new Set(reviewed).size).toBe(200)
-    expect(manifest.eligible_editions).toHaveLength(153)
-    expect(manifest.held_editions).toHaveLength(47)
+    expect(manifest.eligible_editions).toHaveLength(154)
+    expect(manifest.held_editions).toHaveLength(46)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
@@ -45,6 +45,15 @@ describe('reversible edition discovery availability', () => {
     expect(bible.editions.map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
     expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
     expect(isBookDiscoverable('bible')).toBe(true)
+  })
+  it('releases repaired Antigone audio while holding only the chapter with a missing recording', () => {
+    expect(isEditionDiscoverable('antigone', { key: 'modern-en', language: 'en' })).toBe(true)
+    expect(isAudioHeld('antigone', 'modern-en')).toBe(false)
+    for (let chapter = 1; chapter <= 11; chapter++) {
+      expect(isAudioHeld('antigone', 'modern-en', chapter)).toBe(chapter === 10)
+      expect(isAudioHeld('antigone', 'original-en', chapter)).toBe(false)
+    }
+    expect(isAudioHeld('apology', 'modern-en', 1)).toBe(true)
   })
   it('never holds the lab default audio source', () => {
     // The lab's own hardcoded audio default (bible/kjv-en) was on the hold

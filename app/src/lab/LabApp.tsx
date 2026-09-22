@@ -449,10 +449,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [bookSwitcherOpen])
 
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
-  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey)
+  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
   const audioUnavailable = audioHeld || !resolvedAudioIsAvailable(audioEditionKey, prefs.primaryEdition, bookEditions)
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
-  useEffect(() => setAudioUnavailableNotice(false), [book.bookId, audioEditionKey])
+  useEffect(() => setAudioUnavailableNotice(false), [book.bookId, book.chapterNumber, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), bookEditions)
     setPrefs(synced)
@@ -4734,7 +4734,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       />
 
       {audioUnavailableNotice && <div className="lab-audio-unavailable" role="status">
-        <span>Audio is temporarily unavailable for this edition. You can keep reading.</span>
+        <span>{audioHeld && !isAudioHeld(book.bookId || 'bible', audioEditionKey) ? 'Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.' : 'Audio is temporarily unavailable for this edition. You can keep reading.'}</span>
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
       {listen.narration.status !== 'idle' && <div className="lab-audio-unavailable lab-narration-notice" role="status" data-testid="lab-narration-notice" data-status={listen.narration.status}>

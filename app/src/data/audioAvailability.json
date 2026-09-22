@@ -13,6 +13,7 @@
     "a-little-princess/modern-en",
     "a-little-princess/original-en",
     "anna-karenina/modern-en",
+    "antigone/modern-en",
     "antigone/original-en",
     "antony-and-cleopatra/modern-en",
     "antony-and-cleopatra/original-en",
@@ -167,12 +168,6 @@
   "held_editions": [
     {
       "key": "anna-karenina/original-en",
-      "issues": [
-        "missing_audio"
-      ]
-    },
-    {
-      "key": "antigone/modern-en",
       "issues": [
         "missing_audio"
       ]
@@ -463,5 +458,16 @@
       ]
     }
   ],
-  "basis": "September 10 structural audio audit; Antigone and Confessions original-en reclassified September 14 after missing paragraph recordings and word sidecars were repaired and served-hash verified. This is not whole-library acoustic certification."
+  "basis": "September 10 structural audio audit; Antigone and Confessions original-en reclassified September 14 after missing paragraph recordings and word sidecars were repaired and served-hash verified. This is not whole-library acoustic certification. Antigone modern-en rechecked September 22: 10 complete chapters pass timing/text validation; chapter 10 remains held for missing p12.mp3.",
+  "held_chapters": [
+    {
+      "key": "antigone/modern-en",
+      "chapters": [
+        10
+      ],
+      "issues": [
+        "missing_audio:ch10/p12.mp3"
+      ]
+    }
+  ]
 }
