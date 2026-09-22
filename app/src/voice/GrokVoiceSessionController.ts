@@ -1,4 +1,5 @@
 import { apiUrl } from '../utils/apiUrl'
+import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
 import { VOICE_TOOLS } from './context'
 import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
@@ -132,6 +133,7 @@ export class GrokVoiceSessionController {
   private turnNumber = 0
   private startedAt = 0
   private visibilityListening = false
+  private releaseAudioSession: (() => void) | null = null
   private lookupAcknowledgement: { resolve: () => void } | null = null
 
   private readonly handleVisibilityChange = () => {
@@ -176,7 +178,7 @@ export class GrokVoiceSessionController {
       this.analyser = null
       try { this.context = new AudioContext() } catch { return }
     }
-    if (this.context.state === 'suspended') void this.context.resume().catch(() => {})
+    if (this.context.state !== 'running' && this.context.state !== 'closed') void this.context.resume().catch(() => {})
   }
 
   getAssistantLevel(): number | null {
@@ -247,6 +249,7 @@ export class GrokVoiceSessionController {
       }
       // Do not mint a billable single-use provider session until microphone
       // permission has actually succeeded.
+      this.releaseAudioSession = acquireBrowserAudioSession('play-and-record')
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
@@ -569,6 +572,9 @@ export class GrokVoiceSessionController {
       while (this.pendingCaptureLength > maximum && this.pendingCapture.length > 1) {
         this.pendingCaptureLength -= this.pendingCapture.shift()!.length
       }
+      // Delivery follows captured frames even if background timers are
+      // throttled. The interval still flushes a final, shorter batch.
+      if (this.pendingCaptureLength >= GROK_AUDIO_RATE * SEND_INTERVAL_MS / 1000) this.flushCapture()
     }
     // Keep the microphone graph connected to an inaudible destination. A
     // zero-output worklet is not a reliable continuously rendered graph.
@@ -599,11 +605,11 @@ export class GrokVoiceSessionController {
     if (!current()) return
     this.sendTimer = setInterval(() => {
       if (!current()) return
-      // Browsers may suspend microphone delivery and JavaScript timers while
-      // locked. A hidden-page gap is not proof that the capture graph died.
-      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return
-      if (context.state !== 'running') void context.resume().catch(() => {})
-      if (Date.now() - this.lastCaptureAt > 5000) {
+      // A hidden-page gap is not proof that capture died. Only the watchdog
+      // is visibility-gated; captured audio must still reach the conversation.
+      const visible = typeof document === 'undefined' || document.visibilityState !== 'hidden'
+      if (visible && context.state !== 'running') void context.resume().catch(() => {})
+      if (visible && Date.now() - this.lastCaptureAt > 5000) {
         this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.')
         return
       }
@@ -714,6 +720,8 @@ export class GrokVoiceSessionController {
     this.captureSource = null
     this.stream?.getTracks().forEach(track => { track.onended = null; track.stop() })
     this.stream = null
+    this.releaseAudioSession?.()
+    this.releaseAudioSession = null
     try { this.socket?.close() } catch { /* ignore */ }
     this.socket = null
     this.instructions = ''

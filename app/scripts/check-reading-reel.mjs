@@ -70,6 +70,24 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    assert(geometry.height>80 && geometry.cards[0].height>80,'even one current book remains visible')
    assert(Math.abs(geometry.cards[0].x-geometry.left)<6,'first cover starts at shelf edge')
    assert.equal(await shelf.evaluate(n=>n.classList.contains('is-reel')),false)
+   phase='long title truncation'
+   const titleGeometry=await page.evaluate(()=>{
+    const caption=document.querySelector('[data-now-caption]'),title=caption.querySelector('.lib-lede'),action=document.querySelector('[data-recap-continue]')
+    const original=title.textContent,results=[]
+    for(const text of ['Antigone','Strange Case of Dr Jekyll and Mr Hyde','An extraordinarily long book title '.repeat(12)]){
+     title.textContent=text
+     const t=title.getBoundingClientRect(),c=caption.getBoundingClientRect(),b=action.getBoundingClientRect()
+     results.push({text,top:b.top,left:t.left,right:t.right,captionRight:c.right,height:t.height,ellipsis:getComputedStyle(title).textOverflow,overflow:document.documentElement.scrollWidth>innerWidth})
+    }
+    title.textContent=original
+    return results
+   })
+   for(const item of titleGeometry){
+    assert.equal(item.ellipsis,'ellipsis','long title ends with an ellipsis')
+    assert(!item.overflow && item.right<=item.captionRight+1,'title stays within its caption')
+    assert(Math.abs(item.top-titleGeometry[0].top)<1,'reading action does not move with title length')
+    assert(Math.abs(item.height-titleGeometry[0].height)<1,'title retains one line')
+   }
    const before=await page.evaluate(()=>localStorage.getItem('tinct-lab-position'))
    if(count>1){
     phase='native scroll or card focus'

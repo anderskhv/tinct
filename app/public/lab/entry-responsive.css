@@ -150,3 +150,10 @@
  #tinct-onboarding-worlds-v5 .lib .lib-now-item{flex-basis:150px}
  #tinct-onboarding-worlds-v5 .lib .lib-now-open .lib-cover{width:150px;height:auto;aspect-ratio:2/3}
 }
+
+/* Keep long current-book titles inside the caption and the reading action steady. */
+#tinct-onboarding-worlds-v5 .lib .lib-now-caption{min-width:0;max-width:100%}
+#tinct-onboarding-worlds-v5 .lib .lib-now-caption .lib-h1,
+#tinct-onboarding-worlds-v5 .lib .lib-now-caption .lib-lede,
+#tinct-onboarding-worlds-v5 .lib .lib-now-caption .lib-byline,
+#tinct-onboarding-worlds-v5 .lib .lib-now-caption .lib-eyebrow{width:100%;min-width:0;max-width:100%;flex:none;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

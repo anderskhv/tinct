@@ -113,6 +113,37 @@ const last = (h: ReturnType<typeof harness>) => h.calls[h.calls.length - 1]
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 
 describe('useLabListen narration pilot (sentence groups)', () => {
+  it('retains the ended media element while the next generated clip arrives and ignores stale media events', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { await h.answer(h.calls[0], { 0: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    Object.assign(h.audio, { ended: true, currentTime: 4 })
+    vi.mocked(h.audio.pause).mockClear()
+    const previous = h.audio.src
+    act(() => h.audio.dispatchEvent(new Event('ended')))
+    expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 })
+    expect(h.audio.src).toBe(previous)
+    expect(h.audio.pause).not.toHaveBeenCalled()
+    act(() => {
+      h.audio.dispatchEvent(new Event('timeupdate'))
+      h.audio.dispatchEvent(new Event('ended'))
+    })
+    expect(h.result.current.currentTime).toBe(0)
+    expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 })
+    // A lock-screen seek must use the pending clip's clock, not the previous
+    // element's ended time that we retained to preserve the media session.
+    act(() => h.result.current.seek(0))
+    await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 1, 3: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    expect(h.audio.src).toContain('hash-1-0.mp3')
+    expect(h.audio.currentTime).toBe(0)
+    expect(h.audio.pause).not.toHaveBeenCalled()
+    h.unmount()
+  })
   it('prepares the first sentence group before playing it and never touches the Kokoro manifest', async () => {
     const h = harness()
     let started: Promise<boolean> | undefined
