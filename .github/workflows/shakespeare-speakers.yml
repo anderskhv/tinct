@@ -13,6 +13,7 @@ on:
       - '.github/workflows/shakespeare-speakers.yml'
 permissions:
   contents: read
+  actions: read
 jobs:
   all-shakespeare:
     runs-on: ubuntu-latest
@@ -33,20 +34,33 @@ jobs:
       - run: npm run build
       - run: npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
-      - name: Wait for this production build
+      - name: Wait for the matching release smoke check
         if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          expected=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
-          test -n "$expected"
-          for attempt in $(seq 1 120); do
-            actual=$(curl -sf https://tinct.app/reader | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
-            if [ "$actual" = "$expected" ]; then
-              echo "Verified production bundle $expected"
-              exit 0
-            fi
-            sleep 5
-          done
-          exit 1
+          node --input-type=module <<'JS'
+          const base = `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}`
+          const headers = { Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json' }
+          async function get(path) {
+            const response = await fetch(base + path, { headers })
+            if (!response.ok) throw Error(`GitHub release check: HTTP ${response.status}`)
+            return response.json()
+          }
+          for (let attempt = 0; attempt < 60; attempt++) {
+            const data = await get(`/actions/runs?head_sha=${process.env.GITHUB_SHA}&event=push&per_page=30`)
+            const release = data.workflow_runs.find(run => run.path === '.github/workflows/deploy.yml')
+            if (release) {
+              const { jobs } = await get(`/actions/runs/${release.id}/jobs`)
+              if (jobs.some(job => job.steps.some(step => step.name === 'Smoke test production' && step.conclusion === 'success'))) {
+                console.log(`Matching release ${release.id} verified its exact deployed bundle and passed smoke`)
+                process.exit(0)
+              }
+            }
+            await new Promise(resolve => setTimeout(resolve, 10000))
+          }
+          throw Error('Matching release has not passed its production smoke check')
+          JS
       - name: Verify all Shakespeare editions and the reported passage
         env:
           SHAKESPEARE_LIVE: ${{ github.event_name == 'push' && '1' || '0' }}
