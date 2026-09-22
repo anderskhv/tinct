@@ -13,6 +13,7 @@ import {
 } from './labListen'
 import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
+import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
 import { narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
@@ -129,6 +130,7 @@ function defaultCreateAudio(): HTMLAudioElement {
 
 export function useLabListen(options: UseLabListenOptions) {
   const [playing, setPlaying] = useState(false)
+  useEffect(() => playing ? acquireBrowserAudioSession('playback') : undefined, [playing])
   const [follow, setFollow] = useState<FollowTarget>({ kind: 'none' })
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
@@ -326,7 +328,11 @@ export function useLabListen(options: UseLabListenOptions) {
   const enterPreparing = useCallback((index: number, offsetSeconds: number) => {
     const audio = audioRef.current
     switchingRef.current = true
-    if (audio) {
+    // An ended native element can retain its media session while the next
+    // generated clip arrives. Clearing it here breaks locked-screen handoff.
+    // Manual seeks still silence and clear a recording that has not ended.
+    const continuousBoundary = Boolean(playingRef.current && audio?.ended)
+    if (audio && !continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
       try { audio.removeAttribute('src') } catch { /* ignore */ }
     }
@@ -399,17 +405,18 @@ export function useLabListen(options: UseLabListenOptions) {
         if (!current || current.kind !== 'paragraph') return
         const indexes: number[] = []
         let buffered = 0
-        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < NARRATION_BUFFER_TARGET_SECONDS; position += 1) {
+        const targetSeconds = NARRATION_BUFFER_TARGET_SECONDS * (audioRef.current?.playbackRate || 1)
+        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
           const clip = clipsRef.current[position]
           if (clip.kind !== 'paragraph') continue
-          if (clip.url && typeof clip.duration === 'number') {
+          if (clip.url && typeof clip.duration === 'number' && indexes.length === 0) {
             buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
-          } else if (!indexes.includes(clip.index)) {
+          } else if (!clip.url && !indexes.includes(clip.index)) {
             indexes.push(clip.index)
             if (indexes.length >= 3) break
           }
         }
-        if (buffered >= NARRATION_BUFFER_TARGET_SECONDS || indexes.length === 0) return
+        if (buffered >= targetSeconds || indexes.length === 0) return
         const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete))
         if (!outcome.ok && outcome.reason === 'cancelled') return
@@ -518,11 +525,15 @@ export function useLabListen(options: UseLabListenOptions) {
       setSrc(null)
     }
     const handleTimeUpdate = () => {
+      const current = clipsRef.current[clipIndexRef.current]
+      if (current?.kind === 'paragraph' && current.narration && !current.url) return
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
       if (!playingRef.current || !audio.src) return
+      const pending = clipsRef.current[clipIndexRef.current]
+      if (pending?.kind === 'paragraph' && pending.narration && !pending.url) return
       if (switchingRef.current) {
         const current = clipsRef.current[clipIndexRef.current]
         // Ignore Safari's stale post-swap event at time zero, but do not lose

@@ -374,6 +374,40 @@ describe('pcm helpers', () => {
 })
 
 describe('microphone and response recovery', () => {
+  it('sends microphone frames while hidden without waiting for a timer, and honors mute and stop', () => {
+    vi.useFakeTimers()
+    vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
+    const sent: Sent[] = []
+    const controller = new GrokVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+    const node = { connect: vi.fn(), disconnect: vi.fn(), onaudioprocess: null as any }
+    const gain = { gain: { value: 1 }, connect: vi.fn(), disconnect: vi.fn() }
+    const track = { stop: vi.fn(), onended: null, readyState: 'live', enabled: true }
+    const context = { state: 'running', sampleRate: 48000, destination: {},
+      createMediaStreamSource: () => node, createScriptProcessor: () => node, createGain: () => gain }
+    vi.stubGlobal('AudioContext', vi.fn())
+    Object.assign(controller, { context, ready: true,
+      socket: { readyState: 1, send: (value: string) => sent.push(JSON.parse(value)), close: vi.fn() },
+      stream: { getAudioTracks: () => [track], getTracks: () => [track] },
+      ui: { ...controller.getSnapshot(), isActive: true, activity: 'listening' } })
+    ;(controller as any).startCapture()
+    const capture = node.onaudioprocess
+    const frame = { inputBuffer: { getChannelData: () => new Float32Array(4800).fill(0.1) } }
+    capture(frame)
+    expect(sent.filter(event => event.type === 'input_audio_buffer.append')).toHaveLength(1)
+    // The shorter tail is still flushed by the fallback timer while hidden.
+    capture({ inputBuffer: { getChannelData: () => new Float32Array(480) } })
+    vi.advanceTimersByTime(100)
+    expect(sent.filter(event => event.type === 'input_audio_buffer.append')).toHaveLength(2)
+    controller.setMicMuted(true)
+    capture(frame)
+    vi.advanceTimersByTime(100)
+    expect(sent.filter(event => event.type === 'input_audio_buffer.append')).toHaveLength(2)
+    controller.stop()
+    capture(frame)
+    expect(sent.filter(event => event.type === 'input_audio_buffer.append')).toHaveLength(2)
+    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
+  })
   it('ignores completion and audio from an older cancelled response', () => {
     const onTurn = vi.fn()
     const { controller } = connected({ onTurn })
