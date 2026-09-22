@@ -32,7 +32,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   })
   try{
    await page.goto(origin+'/library')
-   await page.waitForFunction(count=>document.querySelectorAll('[data-now-index]').length===count,count)
+   await page.waitForFunction(count=>{
+    const section=document.querySelector('[data-reading-memory-recap]')
+    return Boolean(section?.dataset.book) && document.querySelectorAll('[data-now-index]').length===count
+   },count)
    await page.evaluate(()=>document.fonts.ready)
    const shelf=page.locator('[data-now-shelf]')
    const loading=await page.evaluate(()=>({
@@ -58,7 +61,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    if(count>1){
     assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'re-added Bible survives resolved library')
     await page.reload()
-    await page.waitForFunction(()=>document.querySelectorAll('[data-now-index]').length===4)
+    await page.waitForFunction(()=>Boolean(document.querySelector('[data-reading-memory-recap]')?.dataset.book) && document.querySelectorAll('[data-now-index]').length===4)
     assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'Bible survives another library visit')
    }
 
@@ -72,7 +75,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     phase='native scroll or card focus'
     if(width<600) await shelf.evaluate(n=>n.scrollLeft=n.scrollWidth)
     else await page.locator('[data-now-index="1"] .lib-now-open').click()
-    await page.waitForFunction(()=>document.querySelector('[data-reading-memory-recap]')?.dataset.book!=='antigone')
+    await page.waitForFunction(()=>{const book=document.querySelector('[data-reading-memory-recap]')?.dataset.book;return Boolean(book) && book!=='antigone'})
    }
    assert.equal(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')),before,'browsing does not write position')
    const selected=await page.locator('[data-reading-memory-recap]').getAttribute('data-book')
