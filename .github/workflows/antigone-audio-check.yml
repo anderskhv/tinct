@@ -1,0 +1,50 @@
+name: antigone-audio-check
+on:
+  push:
+    branches: ['codex/antigone-audio-check-20260922']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify published Antigone recordings without playback
+        run: |
+          python3 - <<'PY'
+          import sys,json,concurrent.futures
+          sys.path.insert(0,'tools/audio-highlight')
+          import prodapi,verify_timings
+          status,text=prodapi.edition_text('antigone','modern-en')
+          assert status==200 and text
+          chapters=[c['number'] for c in text['chapters']]
+          def check(ch):
+              status,manifest=prodapi.chapter_manifest('antigone','modern-en',ch)
+              assert status==200 and manifest, (ch,status)
+              entries=manifest.get('paragraphs',[])
+              assert entries,(ch,'empty manifest')
+              files=[e['file'] for e in entries if e.get('file')]
+              assert files,(ch,'no recordings')
+              def probe(file):
+                  status,size=prodapi.audio_object_size(f'antigone/modern-en/ch{ch}/{file}')
+                  return {'file':file,'status':status,'bytes':size,'ok':status in (200,206) and (size is None or size>0)}
+              with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+                  recordings=list(pool.map(probe,files))
+              timing=verify_timings.check_chapter('antigone','modern-en',ch,text)
+              return {'chapter':ch,'recordings':recordings,'timing':timing}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+              results=list(pool.map(check,chapters))
+          open('antigone-audio-report.json','w').write(json.dumps(results,indent=2))
+          print(json.dumps([{'chapter':r['chapter'],'recordings':len(r['recordings']),'missing':[x for x in r['recordings'] if not x['ok']],'timing':r['timing']} for r in results]))
+          assert all(x['ok'] for r in results for x in r['recordings'])
+          assert all(r['timing']['ok'] for r in results if r['chapter']!=10)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: antigone-audio-report
+          path: antigone-audio-report.json
