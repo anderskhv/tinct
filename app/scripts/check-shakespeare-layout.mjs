@@ -41,7 +41,7 @@ async function inspect(page, scenario) {
     const lines = [...root.querySelectorAll('.lab-verse-line')].filter(visible)
     const speakers = [...root.querySelectorAll('.lab-verse-speaker')].filter(node => !node.closest('.lab-page-measure'))
     const markers = [...root.querySelectorAll('.lab-verse-break')].filter(visible)
-    return { layout: root.dataset.shakespeareLayout, align: root.style.getPropertyValue('--lab-text-align'), place: root.dataset.place,
+    return { desktop: root.classList.contains('is-desktop'), layout: root.dataset.shakespeareLayout, align: root.style.getPropertyValue('--lab-text-align'), place: root.dataset.place,
       words: words.map(n => ({ key: `${n.dataset.paragraphIndex}:${n.dataset.wordIndex}`, text: n.textContent })),
       lineDisplays: lines.map(n => getComputedStyle(n).display),
       speakers: speakers.map(n => ({ display: getComputedStyle(n).display, font: parseFloat(getComputedStyle(n).fontSize), parentFont: parseFloat(getComputedStyle(n.parentElement).fontSize) })),
@@ -55,7 +55,7 @@ async function inspect(page, scenario) {
   assert.equal(new Set(state.words.map(w => w.key)).size, state.words.length, 'word indices are unique')
   assert(!state.overflow, 'no horizontal overflow')
   for (const display of state.lineDisplays) assert.equal(display, state.layout === 'flowing' ? 'inline' : 'block')
-  for (const speaker of state.speakers) if (state.layout === 'flowing') { assert.equal(speaker.display, 'block'); assert(speaker.font >= 14 && Math.abs(speaker.font - Math.max(14, speaker.parentFont * .63)) < 1) }
+  for (const speaker of state.speakers) if (state.layout === 'flowing' || state.desktop) { assert.equal(speaker.display, 'block'); assert(speaker.font >= 14 && Math.abs(speaker.font - Math.max(14, speaker.parentFont * .63)) < 1) }
   for (const marker of state.markers) { assert(marker.attached, 'verse marker stays with preceding word'); assert.equal(marker.text, '', 'marker is not added to source text'); assert(marker.content.includes('·')) }
   if (state.layout === 'verse') assert.equal(state.markers.length, 0)
   return state
@@ -67,6 +67,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })
     for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width: 320, layout, size, alignment, explicit: true, phone: true, book: 'hamlet', chapter: 8, paragraph: 23 })
     scenarios.push({ width: 390, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: true, book: 'hamlet', chapter: 7, paragraph: 121 })
+    for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width: 1440, layout: 'verse', size, alignment, explicit: true, phone: false, book: 'hamlet', chapter: 20, paragraph: 169 })
     for (const width of [820, 1180, 1440]) scenarios.push({ width, layout: 'flowing', size: 1.3, alignment: 'justify', explicit: false, phone: false, book: 'macbeth', chapter: 1, paragraph: 0 })
     for (const [index, scenario] of scenarios.entries()) {
       const tablet = !scenario.phone && scenario.width < 1400
@@ -77,7 +78,16 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       try {
         await boot(page, scenario)
         const state = await inspect(page, scenario)
-        if (index === 0 || index === 7 || index === 15 || index >= 24) await page.screenshot({ path: `${output}/${engine}-${index}.png` })
+        if (index === 0 || index === 7 || index === 15 || index >= 24) {
+          await page.screenshot({ path: `${output}/${engine}-${index}.png` })
+          if (scenario.width === 1440 && scenario.size === 1.3 && scenario.explicit && scenario.alignment === 'left') {
+            const shot = await page.screenshot({ type: 'jpeg', quality: 65 })
+            console.log('REVIEW_BEGIN', engine + '-desktop-speakers')
+            const encoded = shot.toString('base64')
+            for (let offset = 0; offset < encoded.length; offset += 4000) console.log('REVIEW_CHUNK', encoded.slice(offset, offset + 4000))
+            console.log('REVIEW_END', engine + '-desktop-speakers')
+          }
+        }
         // Use actual settings once to verify persistence and no font-triggered switching.
         if (index === 0 || tablet || scenario.width === 1440) {
           await page.getByTestId('lab-super').click({ force: true })
