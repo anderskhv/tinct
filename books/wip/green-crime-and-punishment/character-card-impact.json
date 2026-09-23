@@ -1,0 +1,5822 @@
+{
+ "summary": {
+  "cardPackage": "app/public/data/characters/crime-and-punishment.v1.json",
+  "releaseRevision": "2026-09-12.1",
+  "liveModernEnSha256": "914bcdfae396792477d90f788ce30ed684732dc89eb4abc76d4c126a9c963834",
+  "candidateSha256": "e4c8ae7d2b28ecf3db2ead16e640d710186ef5051396b944907aeda8c0cea425",
+  "changedParagraphs": 279,
+  "mentionsTotal": 3664,
+  "mentionsInChangedParagraphs": 703,
+  "mentionsAutoRelocatable": 294,
+  "mentionsTextNoLongerPresent": 409,
+  "mentionsNeedingReview": 0,
+  "lostTextByForm": {
+   "Sonya": 25,
+   "Dunya": 99,
+   "Svidrigailov": 168,
+   "Pyotr Petrovich Luzhin": 1,
+   "Pyotr Petrovich": 12,
+   "Rodion Romanovich Raskolnikov": 1,
+   "Razumikhin": 82,
+   "Ilya Petrovich": 19,
+   "Raskolnikov": 1,
+   "Arkady Ivanovitch Svidrigailov": 1
+  },
+  "anchorsInChangedParagraphs": [
+   {
+    "characterId": "sonya",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 2,
+    "paragraphIndex": 20,
+    "offset": 3811
+   },
+   {
+    "characterId": "sonya",
+    "anchor": "firstMention",
+    "chapterNumber": 2,
+    "paragraphIndex": 20,
+    "offset": 3811
+   },
+   {
+    "characterId": "sonya",
+    "anchor": "snapshot:sonya-1",
+    "chapterNumber": 2,
+    "paragraphIndex": 20,
+    "offset": 3811
+   },
+   {
+    "characterId": "razumikhin",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 4,
+    "paragraphIndex": 49,
+    "offset": 176
+   },
+   {
+    "characterId": "razumikhin",
+    "anchor": "firstMention",
+    "chapterNumber": 4,
+    "paragraphIndex": 49,
+    "offset": 176
+   },
+   {
+    "characterId": "razumikhin",
+    "anchor": "snapshot:razumikhin-1",
+    "chapterNumber": 4,
+    "paragraphIndex": 49,
+    "offset": 176
+   },
+   {
+    "characterId": "dunya",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 276
+   },
+   {
+    "characterId": "dunya",
+    "anchor": "firstMention",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 276
+   },
+   {
+    "characterId": "dunya",
+    "anchor": "snapshot:dunya-1",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 276
+   },
+   {
+    "characterId": "luzhin",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 9699
+   },
+   {
+    "characterId": "luzhin",
+    "anchor": "firstMention",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 9699
+   },
+   {
+    "characterId": "luzhin",
+    "anchor": "snapshot:luzhin-1",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 9699
+   },
+   {
+    "characterId": "svidrigailov",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 2530
+   },
+   {
+    "characterId": "svidrigailov",
+    "anchor": "firstMention",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 2530
+   },
+   {
+    "characterId": "svidrigailov",
+    "anchor": "snapshot:svidrigailov-1",
+    "chapterNumber": 3,
+    "paragraphIndex": 38,
+    "offset": 2530
+   },
+   {
+    "characterId": "zosimov",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 10,
+    "paragraphIndex": 12,
+    "offset": 268
+   },
+   {
+    "characterId": "zosimov",
+    "anchor": "firstMention",
+    "chapterNumber": 10,
+    "paragraphIndex": 12,
+    "offset": 268
+   },
+   {
+    "characterId": "zosimov",
+    "anchor": "snapshot:zosimov-1",
+    "chapterNumber": 10,
+    "paragraphIndex": 12,
+    "offset": 268
+   },
+   {
+    "characterId": "ilya-petrovich",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 8,
+    "paragraphIndex": 112,
+    "offset": 15
+   },
+   {
+    "characterId": "ilya-petrovich",
+    "anchor": "firstMention",
+    "chapterNumber": 8,
+    "paragraphIndex": 112,
+    "offset": 15
+   },
+   {
+    "characterId": "ilya-petrovich",
+    "anchor": "snapshot:ilya-petrovich-1",
+    "chapterNumber": 8,
+    "paragraphIndex": 112,
+    "offset": 15
+   },
+   {
+    "characterId": "zamyotov",
+    "anchor": "roleVisibleAt",
+    "chapterNumber": 10,
+    "paragraphIndex": 63,
+    "offset": 327
+   },
+   {
+    "characterId": "zamyotov",
+    "anchor": "firstMention",
+    "chapterNumber": 10,
+    "paragraphIndex": 63,
+    "offset": 327
+   },
+   {
+    "characterId": "zamyotov",
+    "anchor": "snapshot:zamyotov-1",
+    "chapterNumber": 10,
+    "paragraphIndex": 63,
+    "offset": 327
+   }
+  ]
+ },
+ "mentions": [
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Lebeziatnikov",
+   "oldStart": 1191,
+   "suggestedNewStart": 1191
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 3657,
+   "suggestedNewStart": 3657
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 3806,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Lebeziatnikov",
+   "oldStart": 4251,
+   "suggestedNewStart": 4251
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 4960,
+   "suggestedNewStart": 4961
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 5371,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 5490,
+   "suggestedNewStart": 5491
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 5673,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 5716,
+   "suggestedNewStart": 5717
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 6028,
+   "suggestedNewStart": 6029
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 6145,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 6272,
+   "suggestedNewStart": 6273
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Katerina Ivanovna",
+   "oldStart": 6643,
+   "suggestedNewStart": 6644
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 6694,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 20,
+   "text": "Sonya",
+   "oldStart": 6751,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Sofya Semyonovna",
+   "oldStart": 268,
+   "suggestedNewStart": 268
+  },
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Lebeziatnikov",
+   "oldStart": 513,
+   "suggestedNewStart": 513
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Katerina Ivanovna",
+   "oldStart": 574,
+   "suggestedNewStart": 574
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Sonya",
+   "oldStart": 607,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Sonya",
+   "oldStart": 645,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Katerina Ivanovna",
+   "oldStart": 795,
+   "suggestedNewStart": 795
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Sonya",
+   "oldStart": 885,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Katerina Ivanovna",
+   "oldStart": 938,
+   "suggestedNewStart": 938
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Sonya",
+   "oldStart": 1196,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "marmeladov",
+   "chapter": 2,
+   "paragraph": 22,
+   "text": "Marmeladov",
+   "oldStart": 1618,
+   "suggestedNewStart": 1618
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 24,
+   "text": "Katerina Ivanovna",
+   "oldStart": 50,
+   "suggestedNewStart": 50
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 24,
+   "text": "Sonya",
+   "oldStart": 72,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 24,
+   "text": "Katerina Ivanovna",
+   "oldStart": 717,
+   "suggestedNewStart": 717
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 24,
+   "text": "Sonya",
+   "oldStart": 1162,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 24,
+   "text": "Katerina Ivanovna",
+   "oldStart": 1415,
+   "suggestedNewStart": 1415
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 28,
+   "text": "Sonya",
+   "oldStart": 28,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 35,
+   "text": "Sonya",
+   "oldStart": 1090,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 35,
+   "text": "Katerina Ivanovna",
+   "oldStart": 2100,
+   "suggestedNewStart": 2100
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 2,
+   "paragraph": 42,
+   "text": "Katerina Ivanovna",
+   "oldStart": 10,
+   "suggestedNewStart": 10
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 42,
+   "text": "Sonya",
+   "oldStart": 503,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "marmeladov",
+   "chapter": 2,
+   "paragraph": 51,
+   "text": "Marmeladov",
+   "oldStart": 371,
+   "suggestedNewStart": 371
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 2,
+   "paragraph": 51,
+   "text": "Raskolnikov",
+   "oldStart": 744,
+   "suggestedNewStart": 744
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 52,
+   "text": "Sonya",
+   "oldStart": 56,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 52,
+   "text": "Sonya",
+   "oldStart": 247,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 52,
+   "text": "Sonya",
+   "oldStart": 368,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 2,
+   "paragraph": 52,
+   "text": "Sonya",
+   "oldStart": 565,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 9,
+   "suggestedNewStart": 9
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 271,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 1151,
+   "suggestedNewStart": 1153
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 1450,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 1875,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 2127,
+   "suggestedNewStart": 2131
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 2299,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 2448,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 2518,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 2768,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 2822,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 2870,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3048,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3288,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3458,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3795,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3894,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 3991,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4056,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4419,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4508,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4634,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4725,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 4945,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 5329,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 5535,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 5959,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 6298,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 6475,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 6552,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 6624,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 6666,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 6779,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 6807,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 7182,
+   "suggestedNewStart": 7209
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 7350,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 7408,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 7586,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 7885,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 8071,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 8189,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 8214,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 8791,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 9000,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 9260,
+   "suggestedNewStart": 9294
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 9272,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Pyotr Petrovich Luzhin",
+   "oldStart": 9677,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 10619,
+   "suggestedNewStart": 10655
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Pyotr Petrovich",
+   "oldStart": 11006,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 11397,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Rodya",
+   "oldStart": 11538,
+   "suggestedNewStart": 11576
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 11701,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 12064,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 12220,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 12571,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 12645,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 13192,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 13206,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 13299,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 26,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 332,
+   "suggestedNewStart": 333
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 395,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 606,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 682,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 1041,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 1226,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 1342,
+   "suggestedNewStart": 1348
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 1442,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 1513,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 1714,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 1845,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 2064,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 2197,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 2364,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 2563,
+   "suggestedNewStart": 2576
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 2628,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 3243,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 3326,
+   "suggestedNewStart": 3341
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 3484,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 3608,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 3931,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 4041,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 4461,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 4479,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Pyotr Petrovich",
+   "oldStart": 4729,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 5002,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 5206,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 5477,
+   "suggestedNewStart": 5502
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Dunya",
+   "oldStart": 5551,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 5571,
+   "suggestedNewStart": 5597
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 5699,
+   "suggestedNewStart": 5725
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 39,
+   "text": "Rodya",
+   "oldStart": 5823,
+   "suggestedNewStart": 5849
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 3,
+   "paragraph": 42,
+   "text": "Raskolnikov",
+   "oldStart": 33,
+   "suggestedNewStart": 33
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Luzhin",
+   "oldStart": 245,
+   "suggestedNewStart": 245
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Dunya",
+   "oldStart": 391,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Pyotr Petrovich",
+   "oldStart": 584,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Dunya",
+   "oldStart": 693,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 1016,
+   "suggestedNewStart": 1019
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Dunya",
+   "oldStart": 1262,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 0,
+   "text": "Dunya",
+   "oldStart": 1325,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 1,
+   "text": "Luzhin",
+   "oldStart": 136,
+   "suggestedNewStart": 136
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 1,
+   "text": "Dunya",
+   "oldStart": 567,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 1,
+   "text": "Dunya",
+   "oldStart": 588,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 1,
+   "text": "Dunya",
+   "oldStart": 784,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 1,
+   "text": "Rodya",
+   "oldStart": 791,
+   "suggestedNewStart": 794
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 3,
+   "text": "Luzhin",
+   "oldStart": 175,
+   "suggestedNewStart": 175
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 3,
+   "text": "Luzhin",
+   "oldStart": 650,
+   "suggestedNewStart": 650
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 3,
+   "text": "Dunya",
+   "oldStart": 1684,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 3,
+   "text": "Luzhin",
+   "oldStart": 2180,
+   "suggestedNewStart": 2182
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 3,
+   "text": "Luzhin",
+   "oldStart": 2743,
+   "suggestedNewStart": 2745
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 74,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 81,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 217,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 393,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Svidrigailov",
+   "oldStart": 459,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Luzhin",
+   "oldStart": 602,
+   "suggestedNewStart": 606
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 938,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 947,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Luzhin",
+   "oldStart": 1206,
+   "suggestedNewStart": 1212
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 1226,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Luzhin",
+   "oldStart": 1720,
+   "suggestedNewStart": 1727
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Rodion Romanovich Raskolnikov",
+   "oldStart": 2625,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Rodya",
+   "oldStart": 2988,
+   "suggestedNewStart": 2996
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Rodya",
+   "oldStart": 3004,
+   "suggestedNewStart": 3012
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3167,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3183,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3190,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "marmeladov",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Marmeladov",
+   "oldStart": 3196,
+   "suggestedNewStart": 3204
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 3405,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3412,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Luzhin",
+   "oldStart": 3456,
+   "suggestedNewStart": 3465
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Luzhin",
+   "oldStart": 3745,
+   "suggestedNewStart": 3754
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3793,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 3868,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Sonya",
+   "oldStart": 3914,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 3982,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 4,
+   "text": "Dunya",
+   "oldStart": 4371,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 4,
+   "paragraph": 13,
+   "text": "Svidrigailov",
+   "oldStart": 11,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 4,
+   "paragraph": 48,
+   "text": "Dunya",
+   "oldStart": 1097,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 49,
+   "text": "Razumikhin",
+   "oldStart": 166,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 49,
+   "text": "Razumikhin",
+   "oldStart": 251,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 50,
+   "text": "Razumikhin",
+   "oldStart": 24,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 50,
+   "text": "Raskolnikov",
+   "oldStart": 104,
+   "suggestedNewStart": 103
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Razumikhin",
+   "oldStart": 5,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Razumikhin",
+   "oldStart": 167,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Razumikhin",
+   "oldStart": 935,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Raskolnikov",
+   "oldStart": 1460,
+   "suggestedNewStart": 1457
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Razumikhin",
+   "oldStart": 1508,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Raskolnikov",
+   "oldStart": 1616,
+   "suggestedNewStart": 1612
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 4,
+   "paragraph": 51,
+   "text": "Razumikhin",
+   "oldStart": 1703,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 0,
+   "text": "Razumikhin",
+   "oldStart": 40,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 5,
+   "paragraph": 0,
+   "text": "Raskolnikov",
+   "oldStart": 128,
+   "suggestedNewStart": 127
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 0,
+   "text": "Razumikhin",
+   "oldStart": 463,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 1,
+   "text": "Razumikhin",
+   "oldStart": 38,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 2,
+   "text": "Razumikhin",
+   "oldStart": 77,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 4,
+   "text": "Razumikhin",
+   "oldStart": 11,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 5,
+   "paragraph": 4,
+   "text": "Razumikhin",
+   "oldStart": 110,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 5,
+   "paragraph": 7,
+   "text": "Nastasya",
+   "oldStart": 1443,
+   "suggestedNewStart": 1444
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 6,
+   "paragraph": 1,
+   "text": "Raskolnikov",
+   "oldStart": 4,
+   "suggestedNewStart": 4
+  },
+  {
+   "characterId": "alyona-ivanovna",
+   "chapter": 6,
+   "paragraph": 1,
+   "text": "Alyona Ivanovna",
+   "oldStart": 461,
+   "suggestedNewStart": 460
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 6,
+   "paragraph": 1,
+   "text": "Raskolnikov",
+   "oldStart": 506,
+   "suggestedNewStart": 505
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 112,
+   "text": "Ilya Petrovich",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 118,
+   "text": "Ilya Petrovich",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 120,
+   "text": "Raskolnikov",
+   "oldStart": 414,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 129,
+   "text": "Raskolnikov",
+   "oldStart": 54,
+   "suggestedNewStart": 54
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 129,
+   "text": "Ilya Petrovich",
+   "oldStart": 137,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 130,
+   "text": "Ilya Petrovich",
+   "oldStart": 79,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 130,
+   "text": "Raskolnikov",
+   "oldStart": 138,
+   "suggestedNewStart": 139
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 132,
+   "text": "Ilya Petrovich",
+   "oldStart": 54,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 137,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 137,
+   "text": "Ilya Petrovich",
+   "oldStart": 786,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 143,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 143,
+   "text": "Ilya Petrovich",
+   "oldStart": 685,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 150,
+   "text": "Ilya Petrovich",
+   "oldStart": 31,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 155,
+   "text": "Ilya Petrovich",
+   "oldStart": 33,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 166,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 166,
+   "text": "Ilya Petrovich",
+   "oldStart": 110,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 168,
+   "text": "Ilya Petrovich",
+   "oldStart": 13,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 8,
+   "paragraph": 170,
+   "text": "Ilya Petrovich",
+   "oldStart": 19,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 8,
+   "paragraph": 171,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 9,
+   "paragraph": 10,
+   "text": "Ilya Petrovich",
+   "oldStart": 236,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 16,
+   "text": "Razumikhin",
+   "oldStart": 175,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 17,
+   "text": "Razumikhin",
+   "oldStart": 14,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 18,
+   "text": "Razumikhin",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 18,
+   "text": "Razumikhin",
+   "oldStart": 142,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 20,
+   "text": "Raskolnikov",
+   "oldStart": 5,
+   "suggestedNewStart": 5
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 20,
+   "text": "Razumikhin",
+   "oldStart": 98,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 23,
+   "text": "Razumikhin",
+   "oldStart": 28,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 25,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 25,
+   "text": "Razumikhin",
+   "oldStart": 57,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 25,
+   "text": "Razumikhin",
+   "oldStart": 358,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 32,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 32,
+   "text": "Razumikhin",
+   "oldStart": 98,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 32,
+   "text": "Raskolnikov",
+   "oldStart": 152,
+   "suggestedNewStart": 151
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 32,
+   "text": "Razumikhin",
+   "oldStart": 226,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 33,
+   "text": "Razumikhin",
+   "oldStart": 36,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 9,
+   "paragraph": 35,
+   "text": "Razumikhin",
+   "oldStart": 34,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 35,
+   "text": "Raskolnikov",
+   "oldStart": 64,
+   "suggestedNewStart": 63
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 9,
+   "paragraph": 50,
+   "text": "Raskolnikov",
+   "oldStart": 681,
+   "suggestedNewStart": 681
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 9,
+   "paragraph": 50,
+   "text": "Ilya Petrovich",
+   "oldStart": 745,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 9,
+   "paragraph": 50,
+   "text": "Ilya Petrovich",
+   "oldStart": 763,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 9,
+   "paragraph": 50,
+   "text": "Ilya Petrovich",
+   "oldStart": 1615,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 9,
+   "paragraph": 56,
+   "text": "Ilya Petrovich",
+   "oldStart": 31,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 6,
+   "text": "Razumikhin",
+   "oldStart": 95,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 10,
+   "text": "Razumikhin",
+   "oldStart": 24,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 10,
+   "text": "Razumikhin",
+   "oldStart": 110,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Razumikhin",
+   "oldStart": 19,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 143,
+   "suggestedNewStart": 142
+  },
+  {
+   "characterId": "zosimov",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Zossimov",
+   "oldStart": 260,
+   "suggestedNewStart": 259
+  },
+  {
+   "characterId": "zosimov",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Zossimov",
+   "oldStart": 296,
+   "suggestedNewStart": 295
+  },
+  {
+   "characterId": "zosimov",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Zossimov",
+   "oldStart": 585,
+   "suggestedNewStart": 584
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 12,
+   "text": "Rodya",
+   "oldStart": 763,
+   "suggestedNewStart": 762
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 17,
+   "text": "Raskolnikov",
+   "oldStart": 194,
+   "suggestedNewStart": 194
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 18,
+   "text": "Raskolnikov",
+   "oldStart": 33,
+   "suggestedNewStart": 32
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 19,
+   "text": "Razumikhin",
+   "oldStart": 38,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Razumikhin",
+   "oldStart": 63,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Raskolnikov",
+   "oldStart": 149,
+   "suggestedNewStart": 148
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Raskolnikov",
+   "oldStart": 369,
+   "suggestedNewStart": 368
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Razumikhin",
+   "oldStart": 464,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zosimov",
+   "chapter": 10,
+   "paragraph": 48,
+   "text": "Zossimov",
+   "oldStart": 522,
+   "suggestedNewStart": 520
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 59,
+   "text": "Razumikhin",
+   "oldStart": 90,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 61,
+   "text": "Rodya",
+   "oldStart": 32,
+   "suggestedNewStart": 32
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 63,
+   "text": "Nastasya",
+   "oldStart": 217,
+   "suggestedNewStart": 217
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 10,
+   "paragraph": 63,
+   "text": "Ilya Petrovich",
+   "oldStart": 271,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 63,
+   "text": "Zametov",
+   "oldStart": 320,
+   "suggestedNewStart": 322
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 63,
+   "text": "Nastasya",
+   "oldStart": 429,
+   "suggestedNewStart": 431
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 68,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 68,
+   "text": "Razumikhin",
+   "oldStart": 53,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 69,
+   "text": "Razumikhin",
+   "oldStart": 47,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 73,
+   "text": "Razumikhin",
+   "oldStart": 20,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 75,
+   "text": "Rodya",
+   "oldStart": 374,
+   "suggestedNewStart": 375
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 76,
+   "text": "Razumikhin",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 76,
+   "text": "Raskolnikov",
+   "oldStart": 39,
+   "suggestedNewStart": 38
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 76,
+   "text": "Razumikhin",
+   "oldStart": 109,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 80,
+   "text": "Zametov",
+   "oldStart": 1,
+   "suggestedNewStart": 1
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 80,
+   "text": "Raskolnikov",
+   "oldStart": 37,
+   "suggestedNewStart": 37
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 80,
+   "text": "Razumikhin",
+   "oldStart": 83,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "ilya-petrovich",
+   "chapter": 10,
+   "paragraph": 87,
+   "text": "Ilya Petrovich",
+   "oldStart": 252,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 87,
+   "text": "Zametov",
+   "oldStart": 404,
+   "suggestedNewStart": 406
+  },
+  {
+   "characterId": "zosimov",
+   "chapter": 10,
+   "paragraph": 87,
+   "text": "Zossimov",
+   "oldStart": 1004,
+   "suggestedNewStart": 1006
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 87,
+   "text": "Nastasya",
+   "oldStart": 1105,
+   "suggestedNewStart": 1107
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 88,
+   "text": "Nastasya",
+   "oldStart": 47,
+   "suggestedNewStart": 47
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 88,
+   "text": "Razumikhin",
+   "oldStart": 260,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 91,
+   "text": "Razumikhin",
+   "oldStart": 548,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 91,
+   "text": "Zametov",
+   "oldStart": 681,
+   "suggestedNewStart": 680
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 92,
+   "text": "Zametov",
+   "oldStart": 8,
+   "suggestedNewStart": 8
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 10,
+   "paragraph": 92,
+   "text": "Zametov",
+   "oldStart": 223,
+   "suggestedNewStart": 223
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 92,
+   "text": "Razumikhin",
+   "oldStart": 251,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 92,
+   "text": "Razumikhin",
+   "oldStart": 813,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 94,
+   "text": "Razumikhin",
+   "oldStart": 70,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 94,
+   "text": "Raskolnikov",
+   "oldStart": 132,
+   "suggestedNewStart": 131
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 95,
+   "text": "Nastasya",
+   "oldStart": 30,
+   "suggestedNewStart": 30
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 95,
+   "text": "Razumikhin",
+   "oldStart": 62,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 100,
+   "text": "Razumikhin",
+   "oldStart": 25,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 106,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 106,
+   "text": "Razumikhin",
+   "oldStart": 118,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 107,
+   "text": "Razumikhin",
+   "oldStart": 12,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 116,
+   "text": "Raskolnikov",
+   "oldStart": 35,
+   "suggestedNewStart": 35
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 116,
+   "text": "Razumikhin",
+   "oldStart": 87,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 117,
+   "text": "Razumikhin",
+   "oldStart": 60,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 10,
+   "paragraph": 117,
+   "text": "Nastasya",
+   "oldStart": 82,
+   "suggestedNewStart": 81
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 117,
+   "text": "Raskolnikov",
+   "oldStart": 141,
+   "suggestedNewStart": 140
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 10,
+   "paragraph": 120,
+   "text": "Raskolnikov",
+   "oldStart": 18,
+   "suggestedNewStart": 18
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 10,
+   "paragraph": 120,
+   "text": "Razumikhin",
+   "oldStart": 65,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "alyona-ivanovna",
+   "chapter": 11,
+   "paragraph": 49,
+   "text": "Alyona Ivanovna",
+   "oldStart": 1860,
+   "suggestedNewStart": 1860
+  },
+  {
+   "characterId": "lizaveta",
+   "chapter": 11,
+   "paragraph": 49,
+   "text": "Lizaveta Ivanovna",
+   "oldStart": 1891,
+   "suggestedNewStart": 1891
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 19,
+   "paragraph": 125,
+   "text": "Porfiry",
+   "oldStart": 12,
+   "suggestedNewStart": 12
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 20,
+   "paragraph": 7,
+   "text": "Rodya",
+   "oldStart": 1024,
+   "suggestedNewStart": 1025
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Sonia",
+   "oldStart": 84,
+   "suggestedNewStart": 84
+  },
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Lebeziatnikov",
+   "oldStart": 178,
+   "suggestedNewStart": 179
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Katerina Ivanovna",
+   "oldStart": 300,
+   "suggestedNewStart": 301
+  },
+  {
+   "characterId": "lizaveta",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Lizaveta",
+   "oldStart": 332,
+   "suggestedNewStart": 333
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Katerina Ivanovna",
+   "oldStart": 427,
+   "suggestedNewStart": 428
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Sonia",
+   "oldStart": 554,
+   "suggestedNewStart": 555
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 24,
+   "paragraph": 61,
+   "text": "Katerina Ivanovna",
+   "oldStart": 972,
+   "suggestedNewStart": 973
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 28,
+   "paragraph": 34,
+   "text": "Katerina Ivanovna",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 30,
+   "paragraph": 91,
+   "text": "Sonia",
+   "oldStart": 5,
+   "suggestedNewStart": 5
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 30,
+   "paragraph": 91,
+   "text": "Razumikhin",
+   "oldStart": 165,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Sonia",
+   "oldStart": 5,
+   "suggestedNewStart": 5
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Razumikhin",
+   "oldStart": 664,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Sonia",
+   "oldStart": 847,
+   "suggestedNewStart": 846
+  },
+  {
+   "characterId": "nastasya",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Nastasya",
+   "oldStart": 1071,
+   "suggestedNewStart": 1070
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Sonia",
+   "oldStart": 1733,
+   "suggestedNewStart": 1732
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 30,
+   "paragraph": 128,
+   "text": "Sonia",
+   "oldStart": 1991,
+   "suggestedNewStart": 1990
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 18,
+   "text": "Dunya",
+   "oldStart": 112,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 31,
+   "paragraph": 18,
+   "text": "Sonia",
+   "oldStart": 218,
+   "suggestedNewStart": 219
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 19,
+   "text": "Dunya",
+   "oldStart": 56,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 21,
+   "text": "Dunya",
+   "oldStart": 884,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 23,
+   "text": "Dunya",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 23,
+   "text": "Raskolnikov",
+   "oldStart": 9,
+   "suggestedNewStart": 10
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 31,
+   "paragraph": 23,
+   "text": "Razumikhin",
+   "oldStart": 62,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 24,
+   "text": "Dunya",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 26,
+   "text": "Dunya",
+   "oldStart": 73,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 27,
+   "text": "Dunya",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 31,
+   "paragraph": 38,
+   "text": "Dunya",
+   "oldStart": 167,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 31,
+   "paragraph": 38,
+   "text": "Sonia",
+   "oldStart": 184,
+   "suggestedNewStart": 185
+  },
+  {
+   "characterId": "polenka",
+   "chapter": 31,
+   "paragraph": 53,
+   "text": "Polenka",
+   "oldStart": 101,
+   "suggestedNewStart": 101
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Katerina Ivanovna",
+   "oldStart": 102,
+   "suggestedNewStart": 102
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Sonia",
+   "oldStart": 140,
+   "suggestedNewStart": 140
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Raskolnikov",
+   "oldStart": 253,
+   "suggestedNewStart": 253
+  },
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Lebeziatnikov",
+   "oldStart": 266,
+   "suggestedNewStart": 266
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Sonia",
+   "oldStart": 307,
+   "suggestedNewStart": 307
+  },
+  {
+   "characterId": "polenka",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Polenka",
+   "oldStart": 417,
+   "suggestedNewStart": 417
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Svidrigailov",
+   "oldStart": 732,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Raskolnikov",
+   "oldStart": 764,
+   "suggestedNewStart": 764
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 72,
+   "text": "Raskolnikov",
+   "oldStart": 942,
+   "suggestedNewStart": 942
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 100,
+   "text": "Rodion Romanovitch",
+   "oldStart": 1,
+   "suggestedNewStart": 1
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 100,
+   "text": "Svidrigailov",
+   "oldStart": 51,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "lebezyatnikov",
+   "chapter": 31,
+   "paragraph": 101,
+   "text": "Lebeziatnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 101,
+   "text": "Svidrigailov",
+   "oldStart": 65,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 101,
+   "text": "Raskolnikov",
+   "oldStart": 83,
+   "suggestedNewStart": 83
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 104,
+   "text": "Svidrigailov",
+   "oldStart": 19,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 31,
+   "paragraph": 104,
+   "text": "Luzhin",
+   "oldStart": 300,
+   "suggestedNewStart": 300
+  },
+  {
+   "characterId": "polenka",
+   "chapter": 31,
+   "paragraph": 104,
+   "text": "Polenka",
+   "oldStart": 390,
+   "suggestedNewStart": 390
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 105,
+   "text": "Raskolnikov",
+   "oldStart": 73,
+   "suggestedNewStart": 73
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 105,
+   "text": "Raskolnikov",
+   "oldStart": 86,
+   "suggestedNewStart": 86
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 31,
+   "paragraph": 105,
+   "text": "Sonia",
+   "oldStart": 144,
+   "suggestedNewStart": 144
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 105,
+   "text": "Svidrigailov",
+   "oldStart": 215,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 31,
+   "paragraph": 109,
+   "text": "Svidrigailov",
+   "oldStart": 7,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 31,
+   "paragraph": 109,
+   "text": "Rodion Romanovitch",
+   "oldStart": 86,
+   "suggestedNewStart": 86
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 34,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 68,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 134,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Sonia",
+   "oldStart": 195,
+   "suggestedNewStart": 195
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Katerina Ivanovna",
+   "oldStart": 224,
+   "suggestedNewStart": 224
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Raskolnikov",
+   "oldStart": 366,
+   "suggestedNewStart": 366
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 611,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 895,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 32,
+   "paragraph": 2,
+   "text": "Katerina Ivanovna",
+   "oldStart": 35,
+   "suggestedNewStart": 35
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 2,
+   "text": "Svidrigailov",
+   "oldStart": 81,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 2,
+   "text": "Sonia",
+   "oldStart": 116,
+   "suggestedNewStart": 116
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Katerina Ivanovna",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Svidrigailov",
+   "oldStart": 56,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Sonia",
+   "oldStart": 101,
+   "suggestedNewStart": 101
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Svidrigailov",
+   "oldStart": 149,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Raskolnikov",
+   "oldStart": 167,
+   "suggestedNewStart": 167
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Katerina Ivanovna",
+   "oldStart": 235,
+   "suggestedNewStart": 235
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Sonia",
+   "oldStart": 571,
+   "suggestedNewStart": 571
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 3,
+   "text": "Raskolnikov",
+   "oldStart": 602,
+   "suggestedNewStart": 602
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 4,
+   "text": "Svidrigailov",
+   "oldStart": 59,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 4,
+   "text": "Raskolnikov",
+   "oldStart": 91,
+   "suggestedNewStart": 91
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 4,
+   "text": "Rodion Romanovitch",
+   "oldStart": 163,
+   "suggestedNewStart": 163
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 4,
+   "text": "Rodion Romanovitch",
+   "oldStart": 390,
+   "suggestedNewStart": 390
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Svidrigailov",
+   "oldStart": 115,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Svidrigailov",
+   "oldStart": 175,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Raskolnikov",
+   "oldStart": 205,
+   "suggestedNewStart": 205
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Sonia",
+   "oldStart": 278,
+   "suggestedNewStart": 278
+  },
+  {
+   "characterId": "polenka",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Polenka",
+   "oldStart": 674,
+   "suggestedNewStart": 674
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 5,
+   "text": "Sonia",
+   "oldStart": 707,
+   "suggestedNewStart": 707
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 32,
+   "paragraph": 7,
+   "text": "Sonia",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 7,
+   "text": "Raskolnikov",
+   "oldStart": 20,
+   "suggestedNewStart": 20
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 7,
+   "text": "Porfiry",
+   "oldStart": 1256,
+   "suggestedNewStart": 1256
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 7,
+   "text": "Svidrigailov",
+   "oldStart": 1276,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 32,
+   "paragraph": 7,
+   "text": "Dunya",
+   "oldStart": 1419,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 9,
+   "text": "Razumikhin",
+   "oldStart": 20,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 10,
+   "text": "Razumikhin",
+   "oldStart": 43,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 10,
+   "text": "Raskolnikov",
+   "oldStart": 111,
+   "suggestedNewStart": 110
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 20,
+   "text": "Razumikhin",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 23,
+   "text": "Razumikhin",
+   "oldStart": 85,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 24,
+   "text": "Razumikhin",
+   "oldStart": 75,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 32,
+   "text": "Razumikhin",
+   "oldStart": 148,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 35,
+   "text": "Razumikhin",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 32,
+   "paragraph": 36,
+   "text": "Dunya",
+   "oldStart": 134,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 55,
+   "text": "Razumikhin",
+   "oldStart": 60,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 32,
+   "paragraph": 55,
+   "text": "Avdotya Romanovna",
+   "oldStart": 185,
+   "suggestedNewStart": 184
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 32,
+   "paragraph": 56,
+   "text": "Dunya",
+   "oldStart": 14,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 57,
+   "text": "Razumikhin",
+   "oldStart": 11,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 57,
+   "text": "Raskolnikov",
+   "oldStart": 28,
+   "suggestedNewStart": 27
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 59,
+   "text": "Svidrigailov",
+   "oldStart": 5,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 59,
+   "text": "Svidrigailov",
+   "oldStart": 138,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 59,
+   "text": "Svidrigailov",
+   "oldStart": 152,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 59,
+   "text": "Porfiry",
+   "oldStart": 195,
+   "suggestedNewStart": 195
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Porfiry",
+   "oldStart": 4,
+   "suggestedNewStart": 4
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Razumikhin",
+   "oldStart": 40,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Porfiry",
+   "oldStart": 131,
+   "suggestedNewStart": 130
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Porfiry",
+   "oldStart": 158,
+   "suggestedNewStart": 157
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Raskolnikov",
+   "oldStart": 394,
+   "suggestedNewStart": 393
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Porfiry",
+   "oldStart": 453,
+   "suggestedNewStart": 452
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 60,
+   "text": "Porfiry",
+   "oldStart": 635,
+   "suggestedNewStart": 634
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 61,
+   "text": "Razumikhin",
+   "oldStart": 24,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 61,
+   "text": "Porfiry",
+   "oldStart": 148,
+   "suggestedNewStart": 147
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 61,
+   "text": "Porfiry",
+   "oldStart": 171,
+   "suggestedNewStart": 170
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 32,
+   "paragraph": 61,
+   "text": "Razumikhin",
+   "oldStart": 241,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 61,
+   "text": "Porfiry",
+   "oldStart": 413,
+   "suggestedNewStart": 411
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 32,
+   "paragraph": 62,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 62,
+   "text": "Svidrigailov",
+   "oldStart": 145,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 32,
+   "paragraph": 62,
+   "text": "Porfiry",
+   "oldStart": 364,
+   "suggestedNewStart": 364
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 32,
+   "paragraph": 62,
+   "text": "Svidrigailov",
+   "oldStart": 375,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Porfiry",
+   "oldStart": 62,
+   "suggestedNewStart": 62
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Rodion Romanovitch",
+   "oldStart": 835,
+   "suggestedNewStart": 835
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Rodion Romanovitch",
+   "oldStart": 1326,
+   "suggestedNewStart": 1326
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Razumikhin",
+   "oldStart": 3263,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Razumikhin",
+   "oldStart": 3412,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 33,
+   "paragraph": 13,
+   "text": "Zametov",
+   "oldStart": 3459,
+   "suggestedNewStart": 3457
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 14,
+   "text": "Razumikhin",
+   "oldStart": 239,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "zamyotov",
+   "chapter": 33,
+   "paragraph": 14,
+   "text": "Zametov",
+   "oldStart": 372,
+   "suggestedNewStart": 371
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 17,
+   "text": "Razumikhin",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 19,
+   "text": "Razumikhin",
+   "oldStart": 5,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 33,
+   "paragraph": 19,
+   "text": "Porfiry",
+   "oldStart": 18,
+   "suggestedNewStart": 17
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 33,
+   "paragraph": 19,
+   "text": "Raskolnikov",
+   "oldStart": 90,
+   "suggestedNewStart": 89
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 19,
+   "text": "Razumikhin",
+   "oldStart": 131,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 33,
+   "paragraph": 19,
+   "text": "Razumikhin",
+   "oldStart": 191,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 0,
+   "text": "Svidrigailov",
+   "oldStart": 14,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 0,
+   "text": "Svidrigailov",
+   "oldStart": 83,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 58,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 34,
+   "paragraph": 1,
+   "text": "Porfiry",
+   "oldStart": 83,
+   "suggestedNewStart": 83
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 4,
+   "text": "Svidrigailov",
+   "oldStart": 140,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "porfiry",
+   "chapter": 34,
+   "paragraph": 4,
+   "text": "Porfiry",
+   "oldStart": 167,
+   "suggestedNewStart": 167
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 4,
+   "text": "Svidrigailov",
+   "oldStart": 233,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 27,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 254,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 307,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Sonia",
+   "oldStart": 350,
+   "suggestedNewStart": 350
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Sonia",
+   "oldStart": 380,
+   "suggestedNewStart": 380
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Sonia",
+   "oldStart": 436,
+   "suggestedNewStart": 436
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Sonia",
+   "oldStart": 447,
+   "suggestedNewStart": 447
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 616,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Raskolnikov",
+   "oldStart": 49,
+   "suggestedNewStart": 49
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Svidrigailov",
+   "oldStart": 189,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Svidrigailov",
+   "oldStart": 220,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Dunya",
+   "oldStart": 278,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Svidrigailov",
+   "oldStart": 407,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 8,
+   "text": "Dunya",
+   "oldStart": 459,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Svidrigailov",
+   "oldStart": 114,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Dunya",
+   "oldStart": 279,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Dunya",
+   "oldStart": 352,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Dunya",
+   "oldStart": 410,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Luzhin",
+   "oldStart": 482,
+   "suggestedNewStart": 485
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Razumikhin",
+   "oldStart": 503,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Razumikhin",
+   "oldStart": 544,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 34,
+   "paragraph": 9,
+   "text": "Razumikhin",
+   "oldStart": 619,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 10,
+   "text": "Svidrigailov",
+   "oldStart": 27,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 10,
+   "text": "Svidrigailov",
+   "oldStart": 206,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 34,
+   "paragraph": 10,
+   "text": "Dunya",
+   "oldStart": 241,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 613,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 698,
+   "suggestedNewStart": 698
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 745,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 817,
+   "suggestedNewStart": 817
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 907,
+   "suggestedNewStart": 907
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 1081,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 1260,
+   "suggestedNewStart": 1260
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Raskolnikov",
+   "oldStart": 1351,
+   "suggestedNewStart": 1351
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 1395,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 1483,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 14,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 14,
+   "text": "Svidrigailov",
+   "oldStart": 44,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 14,
+   "text": "Svidrigailov",
+   "oldStart": 287,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 15,
+   "text": "Svidrigailov",
+   "oldStart": 17,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 15,
+   "text": "Raskolnikov",
+   "oldStart": 45,
+   "suggestedNewStart": 45
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 16,
+   "text": "Svidrigailov",
+   "oldStart": 25,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 19,
+   "text": "Svidrigailov",
+   "oldStart": 123,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 19,
+   "text": "Svidrigailov",
+   "oldStart": 288,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 20,
+   "text": "Svidrigailov",
+   "oldStart": 44,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 24,
+   "text": "Svidrigailov",
+   "oldStart": 39,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 24,
+   "text": "Rodion Romanovitch",
+   "oldStart": 270,
+   "suggestedNewStart": 270
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 26,
+   "text": "Svidrigailov",
+   "oldStart": 33,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 32,
+   "text": "Svidrigailov",
+   "oldStart": 33,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 39,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 39,
+   "text": "Svidrigailov",
+   "oldStart": 108,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 39,
+   "text": "Svidrigailov",
+   "oldStart": 499,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 41,
+   "text": "Svidrigailov",
+   "oldStart": 19,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 43,
+   "text": "Svidrigailov",
+   "oldStart": 94,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 45,
+   "text": "Svidrigailov",
+   "oldStart": 534,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 61,
+   "text": "Svidrigailov",
+   "oldStart": 12,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 69,
+   "text": "Svidrigailov",
+   "oldStart": 12,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 77,
+   "text": "Svidrigailov",
+   "oldStart": 19,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 34,
+   "paragraph": 78,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 78,
+   "text": "Svidrigailov",
+   "oldStart": 124,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 34,
+   "paragraph": 79,
+   "text": "Svidrigailov",
+   "oldStart": 23,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Svidrigailov",
+   "oldStart": 46,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 2847,
+   "suggestedNewStart": 2847
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 2967,
+   "suggestedNewStart": 2967
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 3220,
+   "suggestedNewStart": 3220
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 3300,
+   "suggestedNewStart": 3300
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 0,
+   "text": "Avdotya Romanovna",
+   "oldStart": 3581,
+   "suggestedNewStart": 3581
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 2,
+   "text": "Svidrigailov",
+   "oldStart": 46,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 4,
+   "text": "Svidrigailov",
+   "oldStart": 33,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 6,
+   "text": "Raskolnikov",
+   "oldStart": 40,
+   "suggestedNewStart": 40
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 117,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 280,
+   "suggestedNewStart": 280
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 437,
+   "suggestedNewStart": 437
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Rodion Romanovitch",
+   "oldStart": 951,
+   "suggestedNewStart": 951
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Razumikhin",
+   "oldStart": 1713,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 2160,
+   "suggestedNewStart": 2159
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 2664,
+   "suggestedNewStart": 2663
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 5107,
+   "suggestedNewStart": 5106
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 5221,
+   "suggestedNewStart": 5220
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Rodion Romanovitch",
+   "oldStart": 5685,
+   "suggestedNewStart": 5684
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Rodion Romanovitch",
+   "oldStart": 6265,
+   "suggestedNewStart": 6264
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Avdotya Romanovna",
+   "oldStart": 6303,
+   "suggestedNewStart": 6302
+  },
+  {
+   "characterId": "luzhin",
+   "chapter": 35,
+   "paragraph": 7,
+   "text": "Luzhin",
+   "oldStart": 7028,
+   "suggestedNewStart": 7027
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 8,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 8,
+   "text": "Raskolnikov",
+   "oldStart": 73,
+   "suggestedNewStart": 73
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 8,
+   "text": "Svidrigailov",
+   "oldStart": 278,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 10,
+   "text": "Svidrigailov",
+   "oldStart": 16,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 29,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 12,
+   "text": "Avdotya Romanovna",
+   "oldStart": 348,
+   "suggestedNewStart": 348
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 35,
+   "paragraph": 13,
+   "text": "Dunya",
+   "oldStart": 98,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 14,
+   "text": "Svidrigailov",
+   "oldStart": 42,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 18,
+   "text": "Svidrigailov",
+   "oldStart": 23,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 26,
+   "text": "Svidrigailov",
+   "oldStart": 48,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 30,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 33,
+   "text": "Svidrigailov",
+   "oldStart": 32,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 33,
+   "text": "Raskolnikov",
+   "oldStart": 64,
+   "suggestedNewStart": 64
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Raskolnikov",
+   "oldStart": 43,
+   "suggestedNewStart": 43
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Svidrigailov",
+   "oldStart": 65,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Raskolnikov",
+   "oldStart": 301,
+   "suggestedNewStart": 301
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Raskolnikov",
+   "oldStart": 391,
+   "suggestedNewStart": 391
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 35,
+   "paragraph": 34,
+   "text": "Svidrigailov",
+   "oldStart": 478,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 21,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 9,
+   "text": "Svidrigailov",
+   "oldStart": 57,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 9,
+   "text": "Raskolnikov",
+   "oldStart": 116,
+   "suggestedNewStart": 116
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 16,
+   "text": "Svidrigailov",
+   "oldStart": 20,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 36,
+   "paragraph": 16,
+   "text": "Sofya Semyonovna",
+   "oldStart": 212,
+   "suggestedNewStart": 212
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 23,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 23,
+   "text": "Raskolnikov",
+   "oldStart": 42,
+   "suggestedNewStart": 42
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 23,
+   "text": "Svidrigailov",
+   "oldStart": 255,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 23,
+   "text": "Svidrigailov",
+   "oldStart": 459,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 25,
+   "text": "Raskolnikov",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 25,
+   "text": "Svidrigailov",
+   "oldStart": 97,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 25,
+   "text": "Raskolnikov",
+   "oldStart": 208,
+   "suggestedNewStart": 208
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 25,
+   "text": "Svidrigailov",
+   "oldStart": 239,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 27,
+   "text": "Svidrigailov",
+   "oldStart": 257,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 28,
+   "text": "Raskolnikov",
+   "oldStart": 146,
+   "suggestedNewStart": 146
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 29,
+   "text": "Svidrigailov",
+   "oldStart": 69,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 30,
+   "text": "Svidrigailov",
+   "oldStart": 20,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 36,
+   "paragraph": 30,
+   "text": "Rodion Romanovitch",
+   "oldStart": 65,
+   "suggestedNewStart": 65
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 33,
+   "text": "Svidrigailov",
+   "oldStart": 63,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 37,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 39,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 36,
+   "paragraph": 39,
+   "text": "Sonia",
+   "oldStart": 24,
+   "suggestedNewStart": 24
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 41,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 41,
+   "text": "Svidrigailov",
+   "oldStart": 225,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 41,
+   "text": "Svidrigailov",
+   "oldStart": 457,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 41,
+   "text": "Svidrigailov",
+   "oldStart": 609,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 36,
+   "paragraph": 45,
+   "text": "Avdotya Romanovna",
+   "oldStart": 7,
+   "suggestedNewStart": 7
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 45,
+   "text": "Svidrigailov",
+   "oldStart": 407,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 56,
+   "text": "Svidrigailov",
+   "oldStart": 31,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 36,
+   "paragraph": 64,
+   "text": "Sofya Semyonovna",
+   "oldStart": 15,
+   "suggestedNewStart": 15
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 68,
+   "text": "Svidrigailov",
+   "oldStart": 44,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 71,
+   "text": "Svidrigailov",
+   "oldStart": 26,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 36,
+   "paragraph": 71,
+   "text": "Avdotya Romanovna",
+   "oldStart": 71,
+   "suggestedNewStart": 71
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 77,
+   "text": "Svidrigailov",
+   "oldStart": 16,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 83,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 89,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 93,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 93,
+   "text": "Svidrigailov",
+   "oldStart": 257,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 96,
+   "text": "Svidrigailov",
+   "oldStart": 49,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 107,
+   "text": "Svidrigailov",
+   "oldStart": 41,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 108,
+   "text": "Svidrigailov",
+   "oldStart": 43,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 114,
+   "text": "Svidrigailov",
+   "oldStart": 25,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 116,
+   "text": "Svidrigailov",
+   "oldStart": 29,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 120,
+   "text": "Svidrigailov",
+   "oldStart": 56,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 125,
+   "text": "Svidrigailov",
+   "oldStart": 25,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 36,
+   "paragraph": 127,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 2,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 2,
+   "text": "Svidrigailov",
+   "oldStart": 730,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 2,
+   "text": "Svidrigailov",
+   "oldStart": 1193,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 5,
+   "text": "Svidrigailov",
+   "oldStart": 105,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 6,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 6,
+   "text": "Sonia",
+   "oldStart": 45,
+   "suggestedNewStart": 45
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 7,
+   "text": "Sofya Semyonovna",
+   "oldStart": 28,
+   "suggestedNewStart": 28
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 7,
+   "text": "Svidrigailov",
+   "oldStart": 52,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 7,
+   "text": "Sonia",
+   "oldStart": 248,
+   "suggestedNewStart": 248
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 7,
+   "text": "Sofya Semyonovna",
+   "oldStart": 843,
+   "suggestedNewStart": 843
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Sofya Semyonovna",
+   "oldStart": 15,
+   "suggestedNewStart": 15
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Rodion Romanovitch",
+   "oldStart": 123,
+   "suggestedNewStart": 123
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Sonia",
+   "oldStart": 195,
+   "suggestedNewStart": 195
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Sofya Semyonovna",
+   "oldStart": 791,
+   "suggestedNewStart": 791
+  },
+  {
+   "characterId": "katerina-ivanovna",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Katerina Ivanovna",
+   "oldStart": 816,
+   "suggestedNewStart": 816
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Rodion Romanovitch",
+   "oldStart": 1166,
+   "suggestedNewStart": 1166
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Razumikhin",
+   "oldStart": 1240,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 37,
+   "paragraph": 11,
+   "text": "Razumikhin",
+   "oldStart": 1273,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 12,
+   "text": "Sonia",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 12,
+   "text": "Svidrigailov",
+   "oldStart": 45,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 37,
+   "paragraph": 14,
+   "text": "Sofya Semyonovna",
+   "oldStart": 91,
+   "suggestedNewStart": 91
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 37,
+   "paragraph": 14,
+   "text": "Razumikhin",
+   "oldStart": 191,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 14,
+   "text": "Arkady Ivanovitch Svidrigailov",
+   "oldStart": 233,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 16,
+   "text": "Svidrigailov",
+   "oldStart": 389,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 16,
+   "text": "Svidrigailov",
+   "oldStart": 497,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 16,
+   "text": "Svidrigailov",
+   "oldStart": 885,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 17,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 17,
+   "text": "Svidrigailov",
+   "oldStart": 629,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 17,
+   "text": "Svidrigailov",
+   "oldStart": 1142,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 18,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 18,
+   "text": "Svidrigailov",
+   "oldStart": 1056,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 19,
+   "text": "Svidrigailov",
+   "oldStart": 16,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 27,
+   "text": "Svidrigailov",
+   "oldStart": 26,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 28,
+   "text": "Svidrigailov",
+   "oldStart": 85,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 29,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 30,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 30,
+   "text": "Svidrigailov",
+   "oldStart": 989,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 31,
+   "text": "Svidrigailov",
+   "oldStart": 174,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 37,
+   "paragraph": 32,
+   "text": "Dunya",
+   "oldStart": 68,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 37,
+   "paragraph": 32,
+   "text": "Raskolnikov",
+   "oldStart": 94,
+   "suggestedNewStart": 95
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 37,
+   "paragraph": 32,
+   "text": "Razumikhin",
+   "oldStart": 124,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 37,
+   "paragraph": 32,
+   "text": "Raskolnikov",
+   "oldStart": 178,
+   "suggestedNewStart": 178
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 37,
+   "paragraph": 32,
+   "text": "Raskolnikov",
+   "oldStart": 243,
+   "suggestedNewStart": 243
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 37,
+   "paragraph": 33,
+   "text": "Dunya",
+   "oldStart": 29,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 37,
+   "paragraph": 34,
+   "text": "Dunya",
+   "oldStart": 43,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 38,
+   "text": "Svidrigailov",
+   "oldStart": 2058,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 39,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 39,
+   "text": "Svidrigailov",
+   "oldStart": 495,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 42,
+   "text": "Svidrigailov",
+   "oldStart": 405,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 43,
+   "text": "Svidrigailov",
+   "oldStart": 534,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 43,
+   "text": "Svidrigailov",
+   "oldStart": 1524,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 43,
+   "text": "Svidrigailov",
+   "oldStart": 1686,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 46,
+   "text": "Svidrigailov",
+   "oldStart": 38,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 47,
+   "text": "Svidrigailov",
+   "oldStart": 317,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 47,
+   "text": "Svidrigailov",
+   "oldStart": 477,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 49,
+   "text": "Svidrigailov",
+   "oldStart": 34,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 55,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 37,
+   "paragraph": 62,
+   "text": "Svidrigailov",
+   "oldStart": 0,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 16,
+   "suggestedNewStart": 16
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 59,
+   "suggestedNewStart": 59
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Dounia",
+   "oldStart": 119,
+   "suggestedNewStart": 119
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Svidrigailov",
+   "oldStart": 192,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 218,
+   "suggestedNewStart": 218
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Dounia",
+   "oldStart": 350,
+   "suggestedNewStart": 350
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 431,
+   "suggestedNewStart": 431
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 528,
+   "suggestedNewStart": 528
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Dounia",
+   "oldStart": 581,
+   "suggestedNewStart": 581
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 635,
+   "suggestedNewStart": 635
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 708,
+   "suggestedNewStart": 708
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Dounia",
+   "oldStart": 773,
+   "suggestedNewStart": 773
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Dounia",
+   "oldStart": 803,
+   "suggestedNewStart": 803
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Raskolnikov",
+   "oldStart": 882,
+   "suggestedNewStart": 882
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 0,
+   "text": "Sonia",
+   "oldStart": 917,
+   "suggestedNewStart": 917
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Dounia",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Sonia",
+   "oldStart": 46,
+   "suggestedNewStart": 46
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Sonia",
+   "oldStart": 164,
+   "suggestedNewStart": 164
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Dounia",
+   "oldStart": 222,
+   "suggestedNewStart": 222
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Sonia",
+   "oldStart": 427,
+   "suggestedNewStart": 427
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Svidrigailov",
+   "oldStart": 448,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 39,
+   "paragraph": 1,
+   "text": "Raskolnikov",
+   "oldStart": 494,
+   "suggestedNewStart": 494
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 39,
+   "paragraph": 24,
+   "text": "Raskolnikov",
+   "oldStart": 364,
+   "suggestedNewStart": 365
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 39,
+   "paragraph": 33,
+   "text": "Raskolnikov",
+   "oldStart": 36,
+   "suggestedNewStart": 36
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 33,
+   "text": "Sonia",
+   "oldStart": 444,
+   "suggestedNewStart": 445
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 39,
+   "paragraph": 33,
+   "text": "Raskolnikov",
+   "oldStart": 596,
+   "suggestedNewStart": 597
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 39,
+   "paragraph": 33,
+   "text": "Sonia",
+   "oldStart": 644,
+   "suggestedNewStart": 645
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 57,
+   "text": "Svidrigailov",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 59,
+   "text": "Svidrigailov",
+   "oldStart": 1,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 59,
+   "text": "Svidrigailov",
+   "oldStart": 15,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 39,
+   "paragraph": 60,
+   "text": "Svidrigailov",
+   "oldStart": 18,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "pulkheria",
+   "chapter": 40,
+   "paragraph": 9,
+   "text": "Pulcheria Alexandrovna",
+   "oldStart": 24,
+   "suggestedNewStart": 24
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 40,
+   "paragraph": 9,
+   "text": "Rodya",
+   "oldStart": 147,
+   "suggestedNewStart": 147
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 40,
+   "paragraph": 9,
+   "text": "Dounia",
+   "oldStart": 265,
+   "suggestedNewStart": 265
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 40,
+   "paragraph": 9,
+   "text": "Dounia",
+   "oldStart": 501,
+   "suggestedNewStart": 501
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 40,
+   "paragraph": 9,
+   "text": "Svidrigailov",
+   "oldStart": 630,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Raskolnikov",
+   "oldStart": 34,
+   "suggestedNewStart": 34
+  },
+  {
+   "characterId": "dunya",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Dounia",
+   "oldStart": 166,
+   "suggestedNewStart": 166
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Sonia",
+   "oldStart": 285,
+   "suggestedNewStart": 285
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Svidrigailov",
+   "oldStart": 340,
+   "status": "text-no-longer-present"
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Sonia",
+   "oldStart": 367,
+   "suggestedNewStart": 367
+  },
+  {
+   "characterId": "raskolnikov",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Raskolnikov",
+   "oldStart": 496,
+   "suggestedNewStart": 496
+  },
+  {
+   "characterId": "razumikhin",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Razumihin",
+   "oldStart": 633,
+   "suggestedNewStart": 633
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 40,
+   "paragraph": 11,
+   "text": "Sonia",
+   "oldStart": 798,
+   "suggestedNewStart": 798
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 40,
+   "paragraph": 17,
+   "text": "Sonia",
+   "oldStart": 0,
+   "suggestedNewStart": 0
+  },
+  {
+   "characterId": "svidrigailov",
+   "chapter": 41,
+   "paragraph": 7,
+   "text": "Svidrigailov",
+   "oldStart": 213,
+   "status": "text-no-longer-present"
+  }
+ ]
+}
