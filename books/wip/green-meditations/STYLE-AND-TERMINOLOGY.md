@@ -78,7 +78,7 @@ interpretation the text does not support. Keep Marcus's "if", "perhaps",
 Kept as Long spells them (Verus, Rusticus, Apollonius, Sextus, Alexander the
 grammarian, Fronto, Alexander the Platonist, Catulus, Severus, Maximus,
 Antoninus, Epictetus, Chrysippus, Theophrastus, Monimus, Carnuntum, the Granua,
-etc.). Brief glosses only where a reader cannot follow the thought without them.
+etc.). Peoples take their ordinary English names (the Chaldaeans, the Greeks for Long's Hellenes). Obvious misprints in Long's printed names are corrected and logged (Baiae for "Briae", Pergamus for "Fergamus"). Brief glosses only where a reader cannot follow the thought without them.
 
 ## Lessons from the Book II pilot (apply everywhere)
 
@@ -94,6 +94,9 @@ etc.). Brief glosses only where a reader cannot follow the thought without them.
 - Words that modern listeners hear in another sense: avoid "unaffected"
   (→ unpretentious), "plays a part" (→ puts on an act), bare "substance" for
   the body (→ the stuff we are made of), "unsocial" (→ set against others).
+- Glosses are given ONCE, at first use in reading order. Per-book accessibility
+  reviewers see one book at a time and will report terms as "unexplained"; those
+  findings are rejected when the gloss exists earlier.
 - Book II glosses already given (do not repeat the full gloss later; the short
   term alone is enough): ruling faculty (II.2), providence (II.3), divine spirit
   within (II.13), opinion (II.15), the oldest city and commonwealth = the
@@ -101,3 +104,8 @@ etc.). Brief glosses only where a reader cannot follow the thought without them.
 - Keep Marcus's switches between "I" and "you" where Long has them.
 - Where the source is corrupt or ambiguous, follow Long's reading and log it in
   `AMBIGUITIES.md`.
+
+## Typography
+
+Straight ASCII quotation marks and apostrophes, as in the live edition. Em
+dashes for asides and for the dash-marked objections in Long's dialogues.
