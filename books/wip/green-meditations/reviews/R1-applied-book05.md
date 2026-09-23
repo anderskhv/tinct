@@ -50,3 +50,15 @@ Sources: `R1-fidelity-book05.md` (0 blocking, 12 minor, 2 ambiguity) and `R1-acc
 | 5.35 | ACC BLOCKING: anecdote compressed; referents; unmarked voices | Applied what is faithful: the objection now names its subject ("—Yes, but these things matter a great deal to these people.—") and the reply keeps it ("made a fool over these things too"), so "these things" runs through the exchange. Rejected the reviewer's additions ("in the story", "as if it mattered", "help, but do not mistake the loss for real harm", "Someone laments"): Long gives the anecdote and the lament without source, moral or speaker; the draft keeps them as obscure as Long does (drafter's note; logged) |
 
 All changed passages sent for independent re-verification (`R1-reverify-book05.md`).
+
+## After re-verification R1 (`R1-reverify-book05.md`: 17 clean, 4 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 5.7 | "judges good to be" misparsed | Applied verifier's text: "Judge that the completion … is the same kind of thing as your own health." |
+| 5.15 | stray space before dash | Fixed |
+| 5.16 | Long's repeated "impossible" dropped | Applied verifier's text: "and it is impossible for bad people not to do things of this kind." |
+| 5.28 | "departed" reads as "died" only | Applied: "once you have left …" (open, echoes "leave life"); ambiguity row updated |
+| 5.18 | optional placement of "for itself" | Not applied (optional; clear as is) |
+
+All are the verifier's own text; included in the final whole-book re-verification pass.

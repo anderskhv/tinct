@@ -58,3 +58,13 @@ Sources: `R1-fidelity-book04.md` (0 blocking, 11 minor, 2 ambiguity) and `R1-acc
 New glosses (all lexical or grounded in Marcus): 4.2 "the life-breath of the body" (II.2); 4.19 "purple cloth"; 4.22 "of Athens"; 4.26 "each affecting the others". One gloss removed: 4.13 "the seed of reason from which things grow".
 
 All changed passages sent for independent re-verification (`R1-reverify-book04.md`).
+
+## After re-verification R1 (`R1-reverify-book04.md`: 29 clean, 2 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 4.28 | "this" now misreadable as the abscess | Applied verifier's text: "for the same nature that brings about what happens brought you about too." |
+| 4.48 | "in general" ≠ Long's "in all cases" | Applied Long's wording (verifier's closer alternative): "Do you, in all cases, call something…" |
+| — | Book IV ambiguity rows not yet in AMBIGUITIES.md | Merged from `ambiguities-book04.md` at assembly |
+
+Both one-line changes are the verifier's own text; included in the final whole-book re-verification pass.
