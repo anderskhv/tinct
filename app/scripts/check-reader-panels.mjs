@@ -806,10 +806,11 @@ async function menuRedesign(engine,name,phone) {
 }
 
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
-await designReference()
+if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
+  if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)
   await compareLabel(engine,name)
