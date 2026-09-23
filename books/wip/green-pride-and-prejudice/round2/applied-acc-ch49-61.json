@@ -1,0 +1,222 @@
+[
+ {
+  "ch": 50,
+  "idx": 3,
+  "old": "In terms of grateful acknowledgment for his brother's kindness, though expressed as briefly as possible, he then set down on paper",
+  "new": "In a brief note of grateful thanks for his brother's kindness, he then set down on paper",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'In terms of' is used where 'in' or 'with' is meant, so the opening clause doesn't attach to anything and the sentence has to be re-read.",
+  "lead_note": "'In terms of' (old sense: in words of) untangled"
+ },
+ {
+  "ch": 50,
+  "idx": 3,
+  "old": "He would be scarcely ten pounds a year worse off by the hundred that was to be paid them",
+  "new": "Paying them the hundred a year would leave him scarcely ten pounds a year worse off than before",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The arithmetic (paying out £100 a year costs him barely £10 more than Lydia already cost him) is packed into a compressed phrase that listeners will lose.",
+  "lead_note": "Arithmetic made explicit; same claim"
+ },
+ {
+  "ch": 50,
+  "idx": 9,
+  "old": "That his anger could reach such a point of unimaginable resentment as to deny his daughter a privilege without which her marriage would hardly seem real exceeded everything she thought possible.",
+  "new": "It exceeded everything she thought possible that his anger could reach such a point of unimaginable resentment as to deny his daughter a privilege without which her marriage would hardly seem real.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "A long noun-clause subject ('That his anger ... real') holds the verb back to the very end; readers lose the thread before 'exceeded' arrives.",
+  "lead_note": "Main verb moved forward; every element of the source is kept (including 'resentment', restored in round 1)"
+ },
+ {
+  "ch": 50,
+  "idx": 11,
+  "old": "Not, however, from any fear of personal harm to herself",
+  "new": "Not, however, from any fear of disadvantage to herself",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Personal harm' suggests physical danger; what is meant is that she had nothing to lose, since her hopes of Darcy were already gone.",
+  "lead_note": "The source's 'disadvantage' replaces the misleading 'personal harm'"
+ },
+ {
+  "ch": 50,
+  "idx": 11,
+  "old": "a family to whose existing objections would now be added an alliance with the man he most justly despised",
+  "new": "a family that already had its drawbacks and would now also be related to the man he most justly despised",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The inverted relative clause ('to whose existing objections would now be added') is hard to parse aloud.",
+  "lead_note": "Inverted relative clause untangled"
+ },
+ {
+  "ch": 50,
+  "idx": 22,
+  "old": "His daughter's request—for such it might be considered—to be welcomed back into the family before heading north was initially met with a flat refusal.",
+  "new": "Lydia's request—for such it might be considered—to be welcomed back into the family before heading north was at first flatly refused by her father.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The paragraph before is Mrs. Bennet speaking, so 'His' has no near antecedent; Mr. Bennet is only identified later by 'urged him'.",
+  "lead_note": "Referent made explicit; Mr. Bennet's refusal, as in the source"
+ },
+ {
+  "ch": 51,
+  "idx": 35,
+  "old": "Elizabeth was forced to put it out of her power by running away",
+  "new": "Elizabeth was forced to make asking impossible by running away",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Put it out of her power' (to ask) is a period construction, and 'it' has no clear referent.",
+  "lead_note": "Keeps the irony of the source ('put it out of her power') in plain words"
+ },
+ {
+  "ch": 52,
+  "idx": 3,
+  "old": "he'd been forced to leave the regiment because of pressing debts of honor",
+  "new": "because of pressing debts of honor from gambling",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Debts of honor' (gambling debts, not legally enforceable) will be misread as something honorable; the meaning matters to Wickham's character.",
+  "lead_note": "Keeps the period term and makes clear these are gambling debts"
+ },
+ {
+  "ch": 52,
+  "idx": 29,
+  "old": "that's the living I ought to have had",
+  "new": "that's the parish I ought to have had",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Living' in the sense of a church post with its income is unfamiliar to most modern readers; 'rectory' helps, but only after the fact.",
+  "lead_note": "Edition-wide convention: 'living' is rendered 'parish' (also applied at 52.32)"
+ },
+ {
+  "ch": 53,
+  "idx": 17,
+  "old": "Had she not seen him in Derbyshire, she might have supposed he was coming with no intention beyond what was openly stated",
+  "new": "Had she not seen Bingley in Derbyshire, she might have supposed he was coming with no intention beyond what was openly stated",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The previous paragraph is Jane speaking of Bingley, but Darcy is the man most associated with Derbyshire, so 'him' is briefly ambiguous until 'his friend's permission'.",
+  "lead_note": "Referent made explicit (Bingley)"
+ },
+ {
+  "ch": 53,
+  "idx": 48,
+  "old": "People did say you meant to leave the place entirely at Michaelmas",
+  "new": "People did say you meant to leave the place entirely at Michaelmas, in the autumn",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Michaelmas (late September, a quarter-day when leases ended) is unfamiliar; the meaning is recoverable but a gloss helps.",
+  "lead_note": "Minimal gloss of Michaelmas"
+ },
+ {
+  "ch": 54,
+  "idx": 11,
+  "old": "He appeared nobly indifferent; and she would have imagined Bingley had received Darcy's blessing to be happy, had she not seen his eyes also turn toward Mr. Darcy with an expression of half-amused alarm.",
+  "new": "He appeared nobly indifferent; and she would have imagined Bingley had received Darcy's blessing to be happy, had she not seen Bingley's own eyes turn toward Mr. Darcy with an expression of half-amused alarm.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'He' is Darcy, then 'his eyes' switch to Bingley without warning, so for a moment Darcy seems to be looking at himself.",
+  "lead_note": "Referent made explicit (Bingley's eyes), as in the source"
+ },
+ {
+  "ch": 54,
+  "idx": 13,
+  "old": "Anxious and restless, the period in the drawing room before the gentlemen arrived was tedious and dull to a degree that almost made her rude.",
+  "new": "Anxious and restless, she found the time in the drawing room before the gentlemen arrived so tedious and dull that it almost made her rude.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Dangling modifier: 'Anxious and restless' grammatically describes 'the period', not Elizabeth.",
+  "lead_note": "Dangling modifier fixed (the source dangles as well, but in modern English the modifier attaches to the wrong noun)"
+ },
+ {
+  "ch": 55,
+  "idx": 17,
+  "old": "with a patience and composure particularly grateful to the daughter",
+  "new": "with a patience and composure that the daughter particularly appreciated",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Grateful' in the old sense of 'pleasing' reads as though the daughter's gratitude were being described in the wrong place.",
+  "lead_note": "'Grateful' in the old sense of pleasing"
+ },
+ {
+  "ch": 55,
+  "idx": 20,
+  "old": "The latter was much more agreeable than his companion had expected. There was nothing foolish or presumptuous about Bingley to provoke his ridicule or put him off; and he was more talkative and less eccentric than Mr. Bennet had ever seen him.",
+  "new": "Mr. Bennet was much more agreeable than Bingley had expected. There was nothing foolish or presumptuous about Bingley to provoke his ridicule or put him off; and Mr. Bennet was more talkative and less eccentric than Bingley had ever seen him.",
+  "category": "accessibility",
+  "blocking": true,
+  "reason": "'The latter' is Mr. Bennet (more agreeable than Bingley expected), but the last clause says Bingley was more talkative and 'less eccentric' than Mr. Bennet had seen him, which reverses the logic; 'eccentric' only fits Mr. Bennet. The passage contradicts itself.",
+  "lead_note": "FIDELITY: the baseline reversed the source ('he was more communicative, and less eccentric, than the other had ever seen him': he is Mr. Bennet, the other is Bingley)"
+ },
+ {
+  "ch": 55,
+  "idx": 20,
+  "old": "she wouldn't be missed to counteract her mother's plots",
+  "new": "she wasn't needed to counteract her mother's plots",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Wouldn't be missed to counteract' is not idiomatic. The meaning is that her presence wasn't needed to counter her mother's schemes.",
+  "lead_note": "Idiom fixed; the source says she 'was not wanted to counteract her mother's schemes'"
+ },
+ {
+  "ch": 56,
+  "idx": 16,
+  "old": "there seemed to be a rather pretty little wilderness on one side of your lawn",
+  "new": "there seemed to be a rather pretty little wilderness—a planted grove—on one side of your lawn",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Wilderness' as a planted, deliberately informal area of garden is a period term; modern readers picture wild land. (The 'hermitage' in 56.17 raises the same issue.)",
+  "lead_note": "Gloss added, and the period word kept"
+ },
+ {
+  "ch": 56,
+  "idx": 61,
+  "old": "\"You can now have nothing further to say,\" she answered angrily.",
+  "new": "\"You can now have nothing further to say,\" Elizabeth answered angrily.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The previous paragraph is Lady Catherine's speech, so 'she' could be either woman on first hearing, especially aloud.",
+  "lead_note": "Speaker made explicit (Elizabeth)"
+ },
+ {
+  "ch": 58,
+  "idx": 8,
+  "old": "dwelling on every word of the latter which, in her Ladyship's view, showed particular defiance and audacity, in the belief that such a report would help her obtain from her nephew the promise Elizabeth had refused to give",
+  "new": "She had dwelt on every word of Elizabeth's that seemed to her particularly defiant and audacious, believing this would help her get from her nephew the promise Elizabeth had refused to give.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "A long sentence already carries two clauses when 'the latter' and a trailing 'in the belief that' clause are added; the chain of referents is hard to follow.",
+  "lead_note": "Split, with referents clarified; same content"
+ },
+ {
+  "ch": 60,
+  "idx": 27,
+  "old": "seeing Mr. Darcy subjected to all the fawning and obsequious politeness of her husband",
+  "new": "seeing Mr. Darcy subjected to all the fawning and obsequious politeness of Charlotte's husband",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The subject of the sentence is Elizabeth, so 'her husband' reads at first as Elizabeth's husband (Darcy), not Charlotte's (Mr. Collins).",
+  "lead_note": "Referent made explicit (Charlotte's husband)"
+ },
+ {
+  "ch": 61,
+  "idx": 9,
+  "old": "even after peace was restored",
+  "new": "even after the war ended and they were settled in a home",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "This means the end of the war, which frees Wickham from the army, but it reads as peace within the family.",
+  "lead_note": "The source's 'restoration of peace' means the end of the war (discharge from the militia)"
+ },
+ {
+  "ch": 61,
+  "idx": 12,
+  "old": "from the visits of her uncle and aunt from the city",
+  "new": "from the visits of Elizabeth's uncle and aunt from the city",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The sentence's subject is Lady Catherine, so 'her uncle and aunt' reads as hers rather than Elizabeth's. 'From the city' (London trade) also carries the snobbery and needs to land.",
+  "lead_note": "Only the referent is fixed; 'from the city' (trade) is kept as the snub"
+ }
+]

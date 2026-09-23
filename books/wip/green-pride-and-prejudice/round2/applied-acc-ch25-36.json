@@ -1,0 +1,142 @@
+[
+ {
+  "ch": 29,
+  "idx": 37,
+  "old": "Elizabeth suspected she was the first person who had ever dared to trifle with such grand impertinence.",
+  "new": "Elizabeth suspected she was the first person who had ever dared to trifle with so much dignified rudeness.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Such grand impertinence' reads as if Elizabeth is the impertinent one; the point is that Lady Catherine's own lofty rudeness has never been teased before.",
+  "lead_note": "Source 'dignified impertinence'; the rudeness is clearly Lady Catherine's"
+ },
+ {
+  "ch": 29,
+  "idx": 40,
+  "old": "Lady Catherine, Sir William, and Mr. and Mrs. Collins sat down to quadrille. Since Miss de Bourgh chose to play casino,",
+  "new": "Lady Catherine, Sir William, and Mr. and Mrs. Collins sat down to the card game quadrille. Since Miss de Bourgh chose to play casino, another card game,",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Quadrille and casino are period card games; 'play casino' in particular now suggests gambling at a casino.",
+  "lead_note": "Brief glosses; 'casino' would otherwise suggest a gambling house"
+ },
+ {
+  "ch": 30,
+  "idx": 7,
+  "old": "There were two nephews of Lady Catherine requiring them,",
+  "new": "There were two nephews of Lady Catherine to whom he owed his respects,",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Them' refers back to 'his respects' in the previous sentence, which is too far away and too abstract; the clause reads as if the nephews need something.",
+  "lead_note": "Referent clarified; the source says 'to require them' (his respects)"
+ },
+ {
+  "ch": 30,
+  "idx": 5,
+  "old": "And though there were not many of her acquaintances she did not prefer to him,",
+  "new": "And though she preferred most of her acquaintances to him,",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Stacked negatives ('not many ... she did not prefer') make readers stop to work out that she dislikes him.",
+  "lead_note": "Stacked negative resolved; the source means she preferred most of them"
+ },
+ {
+  "ch": 31,
+  "idx": 2,
+  "old": "_His_ eyes had been quickly and repeatedly turned toward them with a look of curiosity, and that her Ladyship eventually shared the feeling was more openly shown, for she did not hesitate to call out:",
+  "new": "_His_ eyes had quickly and repeatedly turned toward them with a look of curiosity, and her Ladyship soon showed the same curiosity more openly, for she did not hesitate to call out:",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "A 'that'-clause as subject ('that her Ladyship ... shared the feeling was more openly shown') has to be re-read.",
+  "lead_note": "Subject clause untangled; same content"
+ },
+ {
+  "ch": 31,
+  "idx": 12,
+  "old": "by coming over in such state to listen",
+  "new": "by coming over with such ceremony to listen",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'In such state' (meaning with such ceremony or grandeur) is no longer understood and may read as 'in such a state' (agitated).",
+  "lead_note": "'In such state' means with ceremony"
+ },
+ {
+  "ch": 31,
+  "idx": 28,
+  "old": "that he might just as easily have married _her_, had she been his relative.",
+  "new": "that he might just as well have married Miss Bingley, had she been his relative.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The sentence mentions Miss de Bourgh just before, so '_her_' seems to mean Miss de Bourgh; it actually means Miss Bingley. That reverses the joke.",
+  "lead_note": "Restores the source's order: in the source Miss Bingley is the antecedent of _her_"
+ },
+ {
+  "ch": 34,
+  "idx": 1,
+  "old": "Colonel Fitzwilliam had made it clear that he had no intentions at all,",
+  "new": "Colonel Fitzwilliam had made it clear that he had no intentions toward her at all,",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'No intentions at all' is too bare now; it means he has no intention of courting or marrying her.",
+  "lead_note": "'Intentions' in the period's marriage sense, made clear"
+ },
+ {
+  "ch": 34,
+  "idx": 4,
+  "old": "His sense of her inferiority, of it being beneath him,",
+  "new": "His sense of her inferiority, of such a match being beneath him,",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'It' has no antecedent (it means the match, or marrying her).",
+  "lead_note": "Referent clarified"
+ },
+ {
+  "ch": 35,
+  "idx": 1,
+  "old": "But the approaching figure was now close enough to see her, and stepping forward eagerly, called her name.",
+  "new": "But he was now close enough to see her, and, stepping forward eagerly, he called her name.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The second clause has no subject. As written, 'the approaching figure' does the calling, which is awkward, and the 'and' clause is missing 'he'.",
+  "lead_note": "Missing subject supplied"
+ },
+ {
+  "ch": 35,
+  "idx": 4,
+  "old": "who had chances to observe him in unguarded moments that Mr. Darcy never had.",
+  "new": "who had chances to observe him in unguarded moments that my father never had.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Darcy is the letter-writer, so 'Mr. Darcy' here reads as Darcy referring to himself in the third person. It actually means his father.",
+  "lead_note": "In the letter Darcy calls his father 'Mr. Darcy'; 'my father' removes the confusion"
+ },
+ {
+  "ch": 36,
+  "idx": 4,
+  "old": "make up for those minor failings she would try to classify Mr. Darcy's description of years of idleness and vice as being.",
+  "new": "make up for those casual errors—which was how she would try to class what Mr. Darcy had described as years of idleness and vice.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Tangled clause ending in a stranded 'as being'. Readers have to reverse-engineer it.",
+  "lead_note": "Untangled, and brought closer to the source ('casual errors, under which she would endeavour to class')"
+ },
+ {
+  "ch": 36,
+  "idx": 6,
+  "old": "had long ago confirmed his blamelessness in the affair",
+  "new": "had long ago confirmed Darcy's blamelessness in the affair",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "One very long chain of 'that ...' clauses joined by dashes, with 'his' switching between Bingley and Darcy. A listener loses the thread; 'his blamelessness' seems to mean Bingley's.",
+  "lead_note": "Only the referent is fixed; Austen's long chain of admissions is kept as it is"
+ },
+ {
+  "ch": 36,
+  "idx": 8,
+  "old": "satisfied my vanity with useless or pointless suspicion",
+  "new": "satisfied my vanity with useless suspicion, or suspicion of the blameless",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Useless or pointless' is redundant and flat, which weakens the climax of the self-reproach.",
+  "lead_note": "Fidelity: the source's 'useless or blameless distrust' was flattened to 'useless or pointless'. The fix restores 'blameless'."
+ }
+]

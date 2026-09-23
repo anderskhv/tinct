@@ -1,0 +1,122 @@
+[
+ {
+  "ch": 2,
+  "idx": 8,
+  "old": "\"Kitty has no sense of timing with her coughs,\" said her father.",
+  "new": "\"Kitty has no discretion in her coughs,\" said her father.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The second sentence merely repeats the first, so Mr. Bennet's quip goes flat and reads like two drafts stitched together.",
+  "lead_note": "Restores the source's 'discretion', removing the doubled joke"
+ },
+ {
+  "ch": 4,
+  "idx": 11,
+  "old": "many who knew his easygoing nature doubted whether he might not spend the rest of his days at Netherfield",
+  "new": "many who knew his easygoing nature suspected he might spend the rest of his days at Netherfield",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Doubted whether he might not' is an old double-negative construction. Modern readers are likely to take it the wrong way, as though people doubted he would stay, when the meaning is that they suspected he would.",
+  "lead_note": "Old construction meant they suspected he would stay; the fix keeps the meaning"
+ },
+ {
+  "ch": 5,
+  "idx": 0,
+  "old": "By nature harmless, friendly, and obliging, his presentation at the royal court had made him courteous.",
+  "new": "Harmless, friendly, and obliging by nature, he had been made courteous by his presentation at the royal court.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "This is a dangling modifier: grammatically it is his 'presentation' that is harmless, friendly and obliging. Readers can recover the meaning, but the sentence trips them.",
+  "lead_note": "Dangling modifier fixed; same meaning"
+ },
+ {
+  "ch": 6,
+  "idx": 21,
+  "old": "save mine to power my song",
+  "new": "save mine to swell my song",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Power' is a mechanical, modern-sounding verb, and it muddies the joke on the proverb about saving breath.",
+  "lead_note": "Restores the source's verb 'swell'"
+ },
+ {
+  "ch": 8,
+  "idx": 15,
+  "old": "they have another one who lives somewhere near Cheapside",
+  "new": "they have another one who lives somewhere near Cheapside, in the merchants' part of London",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The sneer rests on knowing that Cheapside was an unfashionable commercial district of London, full of merchants and trade. Without that, the sisters' laughter in the next line makes no sense.",
+  "lead_note": "Short gloss; the sneer depends on it"
+ },
+ {
+  "ch": 8,
+  "idx": 58,
+  "old": "recommended sending an express to London",
+  "new": "recommended sending an urgent messenger to London",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Few readers will know 'an express' as an urgent courier or messenger, so the noun reads as though it is missing something.",
+  "lead_note": "'Express' glossed as an urgent messenger"
+ },
+ {
+  "ch": 9,
+  "idx": 0,
+  "old": "the two elegant ladies who attended his sisters",
+  "new": "the two elegant ladies who waited on his sisters",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "These are the sisters' ladies' maids, but 'elegant ladies who attended his sisters' can be read as companions or guests, which is confusing because no such guests exist.",
+  "lead_note": "Keeps Austen's joke (the maids called 'elegant ladies'); the source's 'waited on' makes clear they are servants"
+ },
+ {
+  "ch": 9,
+  "idx": 1,
+  "old": "After sitting a while with Jane, on Miss Bingley's appearance and invitation, the mother and three daughters all followed her into the breakfast room.",
+  "new": "After they had sat a while with Jane, Miss Bingley appeared and invited them down, and the mother and three daughters all followed her into the breakfast room.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The sentence is overloaded and 'her' is unclear: it could be Jane, who is ill in bed, or Miss Bingley. The word order also makes the invitation hard to parse.",
+  "lead_note": "Referent clarified; same sequence as the source"
+ },
+ {
+  "ch": 10,
+  "idx": 10,
+  "old": "I'm afraid you don't like your pen. Let me fix it for you. I fix pens remarkably well.",
+  "new": "I'm afraid you don't like your pen. Let me mend it for you. I mend pens remarkably well.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Modern readers think of a pen as something you do not 'fix'. The meaning is re-cutting a quill's nib, and without that the exchange sounds odd.",
+  "lead_note": "Restores the source's 'mend' (a quill pen is recut). 'Pen' is kept."
+ },
+ {
+  "ch": 11,
+  "idx": 6,
+  "old": "as soon as Nicholls has made enough white soup",
+  "new": "as soon as Nicholls, the housekeeper, has made enough white soup",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Readers are not told who Nicholls is, and 'white soup', a traditional dish served at balls, is unfamiliar. The line is readable, but the reference is lost.",
+  "lead_note": "Identifies Nicholls (Mrs. Nicholls, housekeeper at Netherfield, ch. 53). 'White soup' is left as it is."
+ },
+ {
+  "ch": 11,
+  "idx": 11,
+  "old": "What could he mean? She was desperate to know—and asked Elizabeth whether she could make any sense of it.",
+  "new": "What could he mean? Miss Bingley was desperate to know, and asked Elizabeth whether she could make any sense of it.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'She' here is Miss Bingley, but the nearest female antecedent is Elizabeth, the subject earlier in the paragraph, and the sentence then has two different 'she's.",
+  "lead_note": "Referent clarified"
+ },
+ {
+  "ch": 12,
+  "idx": 1,
+  "old": "enough was said about wishing them to stay at least until the next day to work on Jane, so their departure was postponed by a day",
+  "new": "enough was said about wishing them to stay at least until the next day to persuade Jane, and their departure was put off until then",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "This is a tangled chain: 'enough was said ... to work on Jane' is hard to parse, and 'work on' is informal.",
+  "lead_note": "Untangled; 'to work on Jane' becomes 'to persuade Jane' and nothing is added"
+ }
+]

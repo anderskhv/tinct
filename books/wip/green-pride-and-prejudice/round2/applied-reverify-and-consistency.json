@@ -1,0 +1,65 @@
+[
+ {
+  "ch": 30,
+  "idx": 2,
+  "old": "that there might be that the family might have other church posts to hand out",
+  "new": "that Lady Catherine's family might have other church posts to hand out",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Botched splice: 'that there might be that the family might have' duplicates the clause and is ungrammatical. Source: 'there might be other family livings to be disposed of' (livings in the gift of Lady Catherine's family). Fix names the referent so 'the family' is not ambiguous."
+ },
+ {
+  "ch": 42,
+  "idx": 0,
+  "old": "seek comfort for the disappointment his own poor judgment had brought on in the pleasures",
+  "new": "seek comfort, for the disappointment his own poor judgment had brought on, in the pleasures",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Restoring 'the disappointment ... had brought on' is correct to the source, but the new relative clause runs straight into 'in the pleasures', giving a garden-path reading ('brought on in the pleasures'). Commas set off the clause and make the sentence parse."
+ },
+ {
+  "ch": 44,
+  "idx": 10,
+  "old": "ventured to accept on her niece's behalf",
+  "new": "ventured to promise her niece's attendance",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "'engage for her attendance' is now correctly given as Mrs. Gardiner committing Elizabeth, but 'ventured to accept' repeats 'accept' for the third time in two lines ('felt about accepting', 'willingness to accept, she ventured to accept'). 'promise her niece's attendance' is closer to the source and removes the clumsy repetition."
+ },
+ {
+  "ch": 47,
+  "idx": 9,
+  "old": "for a whole year— she's",
+  "new": "for a whole year—she's",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Restored 'for the last half year, nay, for a twelvemonth' correctly, but the closing em dash has a stray space after it ('year— she's'); the edition uses closed em dashes."
+ },
+ {
+  "ch": 53,
+  "idx": 26,
+  "old": "her neighbors might all see Mr. Bingley before they did because of it.",
+  "new": "her neighbors might all, because of it, see Mr. Bingley before they did.",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "'in consequence of it' moved to the end ('see Mr. Bingley before they did because of it') now reads as if the Bennets' own seeing were caused by it; the phrase should attach to the neighbours' seeing him first, as in the source."
+ },
+ {
+  "ch": 22,
+  "idx": 4,
+  "old": "neither clever nor pleasant",
+  "new": "neither sensible nor agreeable",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "Source 'neither sensible nor agreeable'; round 1 restored 'sensible' at 15.0 (the book's key word for judgment), noted by re-verifier 1."
+ },
+ {
+  "ch": 52,
+  "idx": 32,
+  "old": "that the living was left to you",
+  "new": "that the parish was left to you",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "Edition-wide convention renders 'living' as 'parish'; aligned with 52.29."
+ }
+]

@@ -1,0 +1,152 @@
+[
+ {
+  "ch": 13,
+  "idx": 14,
+  "old": "until the following Saturday week",
+  "new": "until Saturday of the following week",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "\"Saturday week\" (a week from Saturday) is a British/period idiom many readers will not parse; the length of the visit matters later (he leaves on a Saturday).",
+  "lead_note": "'Saturday week' explained; same date"
+ },
+ {
+  "ch": 13,
+  "idx": 17,
+  "old": "\"There is some sense in what he says about the girls, though, and if he is willing to make them some kind of amends, I shall not be the one to discourage him.\"",
+  "new": "\"There is some sense in what he says about the girls, though,\" said Mrs. Bennet, \"and if he is willing to make them some kind of amends, I shall not be the one to discourage him.\"",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "No speech tag, and it directly follows Mr. Bennet's speech, so it reads as his continuation; it is Mrs. Bennet softening (13.23 confirms). A listener cannot tell the speaker changed.",
+  "lead_note": "Adds only a speaker tag; the source paragraph is Mrs. Bennet's (confirmed by 13.23)"
+ },
+ {
+  "ch": 15,
+  "idx": 10,
+  "old": "She was eagerly expressing her surprise at their sudden return home—which, since their own carriage had not come for them, she would have known nothing about, had she not happened to see Mr. Jones's shop boy in the street, who told her they were not to send any more medicine to Netherfield because the Miss Bennets had left—when her attention was claimed for Mr. Collins, whom Jane introduced to her.",
+  "new": "She was eagerly expressing her surprise at their sudden return home. Since their own carriage had not come for them, she would have known nothing about it had she not happened to see Mr. Jones's shop boy in the street, who told her they were not to send any more medicine to Netherfield because the Miss Bennets had left. Then her attention was claimed for Mr. Collins, whom Jane introduced to her.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The main clause is suspended across a long dash-interruption with a nested conditional and reported speech; readers lose the thread before 'when her attention was claimed'.",
+  "lead_note": "Long sentence split; all content kept"
+ },
+ {
+  "ch": 15,
+  "idx": 10,
+  "old": "a nice comfortable noisy game of lottery tickets",
+  "new": "a nice comfortable noisy card game of lottery tickets",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Lottery tickets' here is a card game, not actual lottery tickets; readers will picture a raffle. It recurs in 16.7 and 16.59 (bets, prizes, counters).",
+  "lead_note": "One-word gloss: 'lottery tickets' is a card game"
+ },
+ {
+  "ch": 16,
+  "idx": 2,
+  "old": "Elizabeth felt that she had neither been looking at him before nor thinking of him since with the slightest degree of unreasonable admiration",
+  "new": "Elizabeth felt that none of her admiration for him, at their first meeting or in thinking of him since, had been unreasonable",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The double negative with 'unreasonable' is hard to parse and easily read as her admiring him not at all. The intended sense is that her high opinion of him was fully justified.",
+  "lead_note": "Clarified double negative; the source's sense (none of her admiration was unreasonable) is kept"
+ },
+ {
+  "ch": 16,
+  "idx": 15,
+  "old": "\"I cannot pretend to be sorry,\" said Wickham after a brief pause, \"that he or any man should not be valued beyond what he deserves. But with _him_ I believe it rarely happens.",
+  "new": "\"I cannot pretend to be sorry,\" said Wickham after a brief pause, \"when any man is valued no higher than he deserves. But with _him_ I believe that rarely happens.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Negative-within-negative ('cannot ... sorry ... not be valued beyond') and an unclear 'it' make readers re-read to work out that 'it' means Darcy being judged at his true worth.",
+  "lead_note": "Nested negative untangled; same sense as the source ('should not be estimated beyond their deserts')"
+ },
+ {
+  "ch": 16,
+  "idx": 25,
+  "old": "the late Mr. Darcy left me the next appointment to the best parish in his gift",
+  "new": "the late Mr. Darcy left me the next appointment to the best parish that was his to give",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'In his gift' (a parish whose clergyman he had the right to appoint) is a period term, and the whole grievance depends on understanding it.",
+  "lead_note": "'In his gift' glossed in plain words"
+ },
+ {
+  "ch": 16,
+  "idx": 56,
+  "old": "useless her affection for his sister and her praise of himself—if he had already destined himself for another",
+  "new": "useless her affection for Darcy's sister and her praise of Darcy himself—if he had already destined himself for another",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The only man named in the sentence is implied by 'Miss Bingley', so 'his sister' and 'he' can be taken as Bingley; they mean Darcy.",
+  "lead_note": "Referent made explicit (Darcy); matches the source"
+ },
+ {
+  "ch": 18,
+  "idx": 49,
+  "old": "is perfectly convinced that Mr. Wickham has deserved much less attention from Mr. Darcy than he has received",
+  "new": "is perfectly convinced that Mr. Wickham has received far more kindness from Mr. Darcy than he deserved",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Modern readers will take 'attention' as Darcy's hostility, reversing the sense; it means kindness or favour Wickham received and did not deserve.",
+  "lead_note": "'Attention' here means favor; the source's sense is kept"
+ },
+ {
+  "ch": 18,
+  "idx": 66,
+  "old": "for though he was not always looking at her mother, she was sure his attention was invariably fixed on her",
+  "new": "for though he was not always looking at her mother, she was sure he was always listening to her",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Her' at the end can mean Elizabeth or her mother; the point is that he is always listening to her mother.",
+  "lead_note": "Referent clarified; the source says his attention was 'fixed by her' (the mother)"
+ },
+ {
+  "ch": 22,
+  "idx": 2,
+  "old": "the pure and disinterested desire for an establishment of her own, did not care how soon that establishment was gained",
+  "new": "the pure and unselfish desire for a home and income of her own, did not care how soon she gained them",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'Disinterested' is widely read as 'uninterested', and 'establishment' as a business; the irony (she wants a home and security, not love) is lost if either is misread.",
+  "lead_note": "Keeps the irony ('pure and unselfish') and avoids the likely misreadings of 'disinterested' and 'establishment'"
+ },
+ {
+  "ch": 22,
+  "idx": 12,
+  "old": "and though by no means as clever as herself, she thought that if encouraged to read and improve himself by her example",
+  "new": "and though he was by no means as clever as herself, she thought that if encouraged to read and improve himself by her example",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "The opening phrase grammatically attaches to 'she' (Mary), so it reads as Mary being less clever than herself; it means Mr. Collins.",
+  "lead_note": "Dangling phrase attached to Mr. Collins, as in the source"
+ },
+ {
+  "ch": 23,
+  "idx": 15,
+  "old": "Whenever Charlotte came to visit, she assumed she was counting the hours until she took possession.",
+  "new": "Whenever Charlotte came to visit, Mrs. Bennet assumed she was counting the hours until she took possession.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Three 'she's in one sentence refer to Mrs. Bennet, then Charlotte, then Charlotte; readers have to sort them out.",
+  "lead_note": "Referent made explicit; matches the source ('she concluded her to be anticipating')"
+ },
+ {
+  "ch": 24,
+  "idx": 2,
+  "old": "She could think of nothing else—and yet whether Bingley's feelings had truly faded, or were being suppressed by his friends' interference, whether he had known of Jane's attachment or it had escaped his notice—whichever was the case, though her opinion of him would be greatly affected by which it was, her sister's situation was the same, her peace equally damaged.",
+  "new": "She could think of nothing else. Yet whether Bingley's feelings had truly faded or were being suppressed by his friends, and whether he had known of Jane's attachment or not, her sister's situation was the same, her peace equally damaged—however much the answer would affect her own opinion of him.",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "Stacked alternatives, a dash, a resumptive 'whichever', and an embedded concession before the main clause; 'and yet' also sets up a contrast that does not come.",
+  "lead_note": "Untangled; all the alternatives and the concession are kept"
+ },
+ {
+  "ch": 24,
+  "idx": 23,
+  "old": "I am not ashamed of having been mistaken—or at least, it is slight",
+  "new": "I am not ashamed of having been mistaken—or if I am, it is slight",
+  "category": "accessibility",
+  "blocking": false,
+  "reason": "'It' has no antecedent (the shame was just denied), so the self-correction does not parse.",
+  "lead_note": "Jane's self-correction made to parse; the source's anacoluthon is kept in spirit"
+ }
+]
