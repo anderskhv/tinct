@@ -15,6 +15,7 @@ import {
   applyNarrationPilotFlag,
   ensureNarration,
   fetchNarrationPilotInfo,
+  initialNarrationPilotInfo,
   narrationPilotApplies,
   narrationPilotFlag,
   resolveNarrationVoice,
@@ -479,7 +480,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
   const narrationFlag = narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : ''))
-  const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>({ enabled: false, provider: 'grok', voices: [] })
+  const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>(initialNarrationPilotInfo)
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {
@@ -3369,7 +3370,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (audioUnavailable && !narrationOption && !retainedBella) { setAudioUnavailableNotice(true); return }
+    if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
+    setAudioUnavailableNotice(false)
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
@@ -3438,7 +3440,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, narrationOption, retainedBella, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 

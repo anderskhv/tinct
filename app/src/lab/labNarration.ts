@@ -47,6 +47,11 @@ export interface NarrationPilotInfo {
   voices: NarrationVoiceOption[]
 }
 
+/** Until configuration is known, English playback must not select legacy audio. */
+export function initialNarrationPilotInfo(): NarrationPilotInfo {
+  return { enabled: false, provider: 'grok', voices: [] }
+}
+
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
 export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number, provider?: string): boolean {
   return isPilotScope(bookId, editionKey, chapter) && (provider === 'grok' || !usesRetainedBella(bookId, editionKey, prefs.voicePersona))
