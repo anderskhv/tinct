@@ -1,0 +1,155 @@
+[
+  {
+    "ch": 2,
+    "idx": 8,
+    "quote": "\"Kitty has no sense of timing with her coughs,\" said her father. \"She times them badly.\"",
+    "problem": "jarring",
+    "blocking": false,
+    "why": "The second sentence merely repeats the first, so Mr. Bennet's quip goes flat and reads like two drafts stitched together.",
+    "suggestion": "\"Kitty has no discretion in her coughs,\" said her father. \"She times them badly.\""
+  },
+  {
+    "ch": 2,
+    "idx": 14,
+    "quote": "But if _we_ don't make the effort, someone else will. After all, Mrs. Long and her nieces must take their chances.",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "The reasoning is hard to follow: 'someone else will' seems to argue that the Bennets should not bother, which works against the next sentence and his decision to make the introduction himself. Readers have to re-read to see why he ends up taking on the duty.",
+    "suggestion": "But if _we_ don't venture, somebody else will; and after all, Mrs. Long and her nieces must take their chance like everyone else."
+  },
+  {
+    "ch": 3,
+    "idx": 3,
+    "quote": "Lady Lucas eased her fears somewhat by suggesting that he had",
+    "problem": "garbled",
+    "blocking": true,
+    "why": "The paragraph breaks in the middle of a sentence ('that he had' / 'gone to London...'), and the sentence finishes at the start of [3.4]. Anyone reading or listening meets a broken sentence and then a fragment.",
+    "suggestion": "Rejoin [3.3] and [3.4] so that the sentence reads '...by suggesting that he had gone to London only to gather a large party for the ball.' in one paragraph (or break after it)."
+  },
+  {
+    "ch": 3,
+    "idx": 4,
+    "quote": "he had brought only six from London—his five sisters and a cousin",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "Later in the same paragraph the party turns out to include 'his two sisters'. Because the six-person report is not clearly marked as another rumour, 'five sisters' reads like a factual contradiction.",
+    "suggestion": "it was said that he had brought only six from London—his five sisters and a cousin"
+  },
+  {
+    "ch": 4,
+    "idx": 11,
+    "quote": "many who knew his easygoing nature doubted whether he might not spend the rest of his days at Netherfield",
+    "problem": "archaic",
+    "blocking": false,
+    "why": "'Doubted whether he might not' is an old double-negative construction. Modern readers are likely to take it the wrong way, as though people doubted he would stay, when the meaning is that they suspected he would.",
+    "suggestion": "many who knew his easygoing nature suspected he might spend the rest of his days at Netherfield"
+  },
+  {
+    "ch": 5,
+    "idx": 0,
+    "quote": "By nature harmless, friendly, and obliging, his presentation at the royal court had made him courteous.",
+    "problem": "garbled",
+    "blocking": false,
+    "why": "This is a dangling modifier: grammatically it is his 'presentation' that is harmless, friendly and obliging. Readers can recover the meaning, but the sentence trips them.",
+    "suggestion": "Harmless, friendly, and obliging by nature, he had been made courteous by his presentation at the royal court."
+  },
+  {
+    "ch": 6,
+    "idx": 21,
+    "quote": "and I shall save mine to power my song",
+    "problem": "jarring",
+    "blocking": false,
+    "why": "'Power' is a mechanical, modern-sounding verb, and it muddies the joke on the proverb about saving breath.",
+    "suggestion": "and I shall keep mine to swell my song"
+  },
+  {
+    "ch": 7,
+    "idx": 28,
+    "quote": "\"But if you have them today,\" said Elizabeth, \"my mother's purpose will be served.\"",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "'Have them' is unclear: it could mean Jane having the horses or Mr. Bennet having them. Elizabeth means that if her father keeps the horses for the farm, Jane must ride, which is what her mother wants.",
+    "suggestion": "\"But if you keep them for the farm today,\" said Elizabeth, \"my mother's purpose will be served.\""
+  },
+  {
+    "ch": 8,
+    "idx": 15,
+    "quote": "they have another one who lives somewhere near Cheapside",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "The sneer rests on knowing that Cheapside was an unfashionable commercial district of London, full of merchants and trade. Without that, the sisters' laughter in the next line makes no sense.",
+    "suggestion": "they have another one who lives somewhere near Cheapside, in the merchants' quarter of the City"
+  },
+  {
+    "ch": 8,
+    "idx": 58,
+    "quote": "recommended sending an express to London",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "Few readers will know 'an express' as an urgent courier or messenger, so the noun reads as though it is missing something.",
+    "suggestion": "recommended sending an urgent messenger to London"
+  },
+  {
+    "ch": 9,
+    "idx": 0,
+    "quote": "shortly afterward from the two elegant ladies who attended his sisters",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "These are the sisters' ladies' maids, but 'elegant ladies who attended his sisters' can be read as companions or guests, which is confusing because no such guests exist.",
+    "suggestion": "shortly afterward from the two elegant maids who waited on his sisters"
+  },
+  {
+    "ch": 9,
+    "idx": 1,
+    "quote": "After sitting a while with Jane, on Miss Bingley's appearance and invitation, the mother and three daughters all followed her into the breakfast room.",
+    "problem": "referent",
+    "blocking": false,
+    "why": "The sentence is overloaded and 'her' is unclear: it could be Jane, who is ill in bed, or Miss Bingley. The word order also makes the invitation hard to parse.",
+    "suggestion": "After they had sat a while with Jane, Miss Bingley appeared and invited them down, and the mother and three daughters all followed her into the breakfast room."
+  },
+  {
+    "ch": 9,
+    "idx": 37,
+    "quote": "I shall insist on their giving one too.",
+    "problem": "referent",
+    "blocking": false,
+    "why": "'Their' has no antecedent at this point. The officers are implied only through Colonel Forster in the next sentence.",
+    "suggestion": "I shall insist on the officers giving one too."
+  },
+  {
+    "ch": 10,
+    "idx": 10,
+    "quote": "I'm afraid you don't like your pen. Let me fix it for you. I fix pens remarkably well.",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "Modern readers think of a pen as something you do not 'fix'. The meaning is re-cutting a quill's nib, and without that the exchange sounds odd.",
+    "suggestion": "I'm afraid your quill isn't writing well. Let me mend it for you. I mend quills remarkably well."
+  },
+  {
+    "ch": 11,
+    "idx": 6,
+    "quote": "as soon as Nicholls has made enough white soup",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "Readers are not told who Nicholls is, and 'white soup', a traditional dish served at balls, is unfamiliar. The line is readable, but the reference is lost.",
+    "suggestion": "as soon as Nicholls, the housekeeper, has made enough white soup for the supper"
+  },
+  {
+    "ch": 11,
+    "idx": 11,
+    "quote": "What could he mean? She was desperate to know—and asked Elizabeth whether she could make any sense of it.",
+    "problem": "referent",
+    "blocking": false,
+    "why": "'She' here is Miss Bingley, but the nearest female antecedent is Elizabeth, the subject earlier in the paragraph, and the sentence then has two different 'she's.",
+    "suggestion": "What could he mean? Miss Bingley was desperate to know, and asked Elizabeth whether she could make any sense of it."
+  },
+  {
+    "ch": 12,
+    "idx": 1,
+    "quote": "enough was said about wishing them to stay at least until the next day to work on Jane, so their departure was postponed by a day",
+    "problem": "overloaded",
+    "blocking": false,
+    "why": "This is a tangled chain: 'enough was said ... to work on Jane' is hard to parse, and 'work on' is informal.",
+    "suggestion": "so much was said about wishing them to stay at least until the next day that Jane gave way, and their departure was put off by a day"
+  }
+]

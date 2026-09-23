@@ -1,0 +1,226 @@
+[
+  {
+    "ch": 37,
+    "idx": 4,
+    "quote": "Lady Catherine remarked, after dinner, that Miss Bennet seemed out of spirits",
+    "problem": "referent",
+    "blocking": false,
+    "why": "Elsewhere in these chapters 'Miss Bennet' means Jane (40.1, 40.21, 45.9), but here (and again in 44.10, 'Mr. and Mrs. Gardiner and Miss Bennet') it means Elizabeth, the eldest sister present. A reader who has learned 'Miss Bennet = Jane' will briefly think Jane is at Rosings.",
+    "suggestion": "Lady Catherine remarked, after dinner, that Miss Bennet (as Elizabeth was called here, in her sister's absence) seemed out of spirits"
+  },
+  {
+    "ch": 37,
+    "idx": 9,
+    "quote": "And since Dawson doesn't mind riding on top",
+    "problem": "referent",
+    "blocking": false,
+    "why": "Dawson has not been introduced; readers will not know this is Lady Catherine's maid, or what 'riding on top' of the carriage means.",
+    "suggestion": "And since my maid Dawson doesn't mind riding up on the box outside"
+  },
+  {
+    "ch": 37,
+    "idx": 16,
+    "quote": "by restoring Bingley to all her former good opinion",
+    "problem": "referent",
+    "blocking": false,
+    "why": "The sentence is about Jane, so 'her' reads as Jane's good opinion, but it means Elizabeth's.",
+    "suggestion": "by restoring Bingley to all of Elizabeth's former good opinion"
+  },
+  {
+    "ch": 38,
+    "idx": 2,
+    "quote": "must make her feel the grateful one",
+    "problem": "garbled",
+    "blocking": false,
+    "why": "Stitched-together phrasing; the clause does not clearly say that it is Elizabeth who ought to be thanking the Collinses.",
+    "suggestion": "made her feel that she was the one who should be grateful"
+  },
+  {
+    "ch": 39,
+    "idx": 18,
+    "quote": "Mr. Bennet said voluntarily to Elizabeth",
+    "problem": "archaic",
+    "blocking": false,
+    "why": "'Voluntarily' in this sense is dated and reads oddly; the point is that the undemonstrative Mr. Bennet said it unprompted.",
+    "suggestion": "Mr. Bennet said to Elizabeth, quite unprompted"
+  },
+  {
+    "ch": 39,
+    "idx": 21,
+    "quote": "if Kitty hadn't gotten carsick",
+    "problem": "jarring",
+    "blocking": false,
+    "why": "'Carsick' is a motor-age word and jars in a horse-drawn carriage.",
+    "suggestion": "if Kitty hadn't felt sick from the jolting"
+  },
+  {
+    "ch": 41,
+    "idx": 7,
+    "quote": "\"A little sea-bathing would set me up forever.\"",
+    "problem": "speaker",
+    "blocking": false,
+    "why": "Unattributed line between Lydia (41.6) and Kitty (41.8, 'added Kitty'); it could be Mrs. Bennet or Lydia.",
+    "suggestion": "\"A little sea-bathing would set me up forever,\" said Mrs. Bennet."
+  },
+  {
+    "ch": 43,
+    "idx": 53,
+    "quote": "Never in her life had she seen his manners so little dignified",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "To a modern reader 'so little dignified' sounds like a criticism (undignified), whereas the point is that he was far less stiff and lofty than usual.",
+    "suggestion": "Never in her life had she seen his manners so free of stiffness and hauteur"
+  },
+  {
+    "ch": 43,
+    "idx": 54,
+    "quote": "Perhaps he had been polite only because he felt comfortable",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "The intended sense is 'because he no longer cared about her and so felt at ease'; 'felt comfortable' doesn't carry the indifference, so the contrast with the next clause is weak.",
+    "suggestion": "Perhaps he had been polite only because he felt at ease with her now that he no longer cared"
+  },
+  {
+    "ch": 44,
+    "idx": 0,
+    "quote": "Elizabeth had assumed that Mr. Darcy would bring his sister to visit her the day after she arrived at Pemberley",
+    "problem": "referent",
+    "blocking": false,
+    "why": "'She' reads as Elizabeth, who has not arrived at Pemberley; it means Miss Darcy (confirmed in 44.16). The opening sentence of the chapter thus misleads.",
+    "suggestion": "Elizabeth had assumed that Mr. Darcy would bring his sister to visit her the day after Miss Darcy reached Pemberley"
+  },
+  {
+    "ch": 44,
+    "idx": 0,
+    "quote": "While these newly formed ideas were forming in their heads",
+    "problem": "jarring",
+    "blocking": false,
+    "why": "Redundant 'newly formed ... forming' reads like an editing slip.",
+    "suggestion": "While these new ideas were taking shape in their minds"
+  },
+  {
+    "ch": 44,
+    "idx": 7,
+    "quote": "Nothing passed between them that could justify his sister's hopes.",
+    "problem": "referent",
+    "blocking": false,
+    "why": "In a sentence about Bingley and Miss Darcy, 'his sister' could be read as Darcy's sister (Miss Darcy herself); it means Miss Bingley.",
+    "suggestion": "Nothing passed between them that could justify Miss Bingley's hopes."
+  },
+  {
+    "ch": 44,
+    "idx": 15,
+    "quote": "and it was now heightened into something friendlier by the testimony so strongly in his favor, casting his character in such a good light, that yesterday had produced",
+    "problem": "overloaded",
+    "blocking": false,
+    "why": "The relative clause 'that yesterday had produced' is separated from 'testimony' by a long interruption, so the reader has to re-read to connect them.",
+    "suggestion": "and it was now warmed into something friendlier by yesterday's testimony, which had shown his character in so good a light"
+  },
+  {
+    "ch": 45,
+    "idx": 9,
+    "quote": "because of the very wish Elizabeth had long ago attributed to him: that they might one day become his sister's own",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "'That they might one day become his sister's own' is opaque; readers must work out that it means Georgiana marrying into Bingley's family.",
+    "suggestion": "because of the very wish Elizabeth had long ago attributed to him: that his sister might one day marry into that family"
+  },
+  {
+    "ch": 46,
+    "idx": 2,
+    "quote": "His choice is at least disinterested",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "Many readers take 'disinterested' to mean 'uninterested'; here it means he is not marrying for money, which is the point of the sentence.",
+    "suggestion": "His choice is at least not mercenary"
+  },
+  {
+    "ch": 46,
+    "idx": 2,
+    "quote": "They left Saturday night around midnight",
+    "problem": "garbled",
+    "blocking": false,
+    "why": "Contradicts 46.15, where Elizabeth says 'They left Brighton together on Sunday night'. Attentive readers will notice the mismatch (may be inherited from the source; align one or the other)."
+  },
+  {
+    "ch": 46,
+    "idx": 4,
+    "quote": "for there they switched from their hired carriage to a hackney coach",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "'Hackney coach' is unfamiliar, and the distinction matters to the plot (it signals London, not Scotland); 'turnpikes' in the same letter is also opaque.",
+    "suggestion": "for there they switched from their hired carriage to a hackney coach (a London cab for hire)"
+  },
+  {
+    "ch": 46,
+    "idx": 10,
+    "quote": "Darcy, in miserable suspense, could only murmur something indistinct about his",
+    "problem": "garbled",
+    "blocking": true,
+    "why": "The paragraph breaks mid-sentence ('about his' / 'concern') and continues in 46.11; on screen this appears as a broken paragraph. Merge 46.10 and 46.11.",
+    "suggestion": "Darcy, in miserable suspense, could only murmur something indistinct about his concern, and watch her in sympathetic silence."
+  },
+  {
+    "ch": 46,
+    "idx": 31,
+    "quote": "and Mr. Gardiner, having settled the account at the inn, there was nothing left but to go",
+    "problem": "garbled",
+    "blocking": false,
+    "why": "The sentence switches subject midway and is ungrammatical.",
+    "suggestion": "and once Mr. Gardiner had settled the account at the inn, there was nothing left but to go"
+  },
+  {
+    "ch": 47,
+    "idx": 8,
+    "quote": "\"But can you believe Lydia is so lost to everything but her feelings for him",
+    "problem": "speaker",
+    "blocking": false,
+    "why": "Unattributed; it follows a long speech by Elizabeth and precedes 'replied Elizabeth', so it must be Mrs. Gardiner, but the reader has to infer that.",
+    "suggestion": "\"But can you believe,\" said her aunt, \"that Lydia is so lost to everything but her feelings for him"
+  },
+  {
+    "ch": 47,
+    "idx": 15,
+    "quote": "for what good would it apparently do anyone",
+    "problem": "jarring",
+    "blocking": false,
+    "why": "'Apparently' makes no sense here and reads as a slip.",
+    "suggestion": "for what good could it do anyone"
+  },
+  {
+    "ch": 47,
+    "idx": 49,
+    "quote": "that in Lydia's last letter she had been prepared for something like this",
+    "problem": "referent",
+    "blocking": false,
+    "why": "'She' reads as Lydia; it means Kitty, who had been prepared by Lydia's letter.",
+    "suggestion": "that Lydia's last letter had prepared her for something like this"
+  },
+  {
+    "ch": 47,
+    "idx": 56,
+    "quote": "\"But to expose someone's past faults without knowing what their present feelings were seemed wrong.\"",
+    "problem": "speaker",
+    "blocking": false,
+    "why": "After 'replied her sister' in 47.55, this unattributed line and the next ('We acted with the best intentions.') leave it unclear which sister says which; the scruple sounds like Jane but the alternation suggests Elizabeth.",
+    "suggestion": "Add a tag, e.g. \"...seemed wrong,\" said Elizabeth."
+  },
+  {
+    "ch": 47,
+    "idx": 73,
+    "quote": "If he could somehow discover which house the coachman had previously dropped off his fare at, he intended to investigate there, hoping he might find the stand and number of the coach.",
+    "problem": "overloaded",
+    "blocking": false,
+    "why": "The chain of reasoning (which fare, which house, 'stand and number') is hard to follow, and 'stand' (cab rank) is unfamiliar.",
+    "suggestion": "If he could find out where the coachman had set down his earlier passenger, he meant to ask there, in the hope of learning the coach's number and the cab rank it worked from."
+  },
+  {
+    "ch": 48,
+    "idx": 11,
+    "quote": "as my dear Charlotte informs me, that this moral",
+    "problem": "garbled",
+    "blocking": true,
+    "why": "The letter paragraph breaks mid-sentence ('this moral' / 'depravity') and continues in 48.12; on screen it appears broken. Merge 48.11 and 48.12.",
+    "suggestion": "as my dear Charlotte informs me, that this moral depravity in your daughter has resulted from an excessive degree of indulgence;"
+  }
+]

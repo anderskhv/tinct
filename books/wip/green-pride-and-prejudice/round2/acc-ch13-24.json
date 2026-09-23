@@ -1,0 +1,155 @@
+[
+  {
+    "ch": 13,
+    "idx": 14,
+    "quote": "until the following Saturday week",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "\"Saturday week\" (a week from Saturday) is a British/period idiom many readers will not parse; the length of the visit matters later (he leaves on a Saturday).",
+    "suggestion": "until Saturday of the following week"
+  },
+  {
+    "ch": 13,
+    "idx": 17,
+    "quote": "\"There is some sense in what he says about the girls, though, and if he is willing to make them some kind of amends, I shall not be the one to discourage him.\"",
+    "problem": "speaker",
+    "blocking": false,
+    "why": "No speech tag, and it directly follows Mr. Bennet's speech, so it reads as his continuation; it is Mrs. Bennet softening (13.23 confirms). A listener cannot tell the speaker changed.",
+    "suggestion": "\"There is some sense in what he says about the girls, though,\" said Mrs. Bennet, \"and if he is willing to make them some kind of amends, I shall not be the one to discourage him.\""
+  },
+  {
+    "ch": 14,
+    "idx": 12,
+    "quote": "When tea was over, he was glad to invite him",
+    "problem": "garbled",
+    "blocking": true,
+    "why": "The paragraph breaks mid-sentence: 14.12 ends 'invite him' and 14.13 begins 'to read aloud to the ladies.' The reader/audio will render a broken sentence across two paragraphs. The repeated 'was glad ... was glad' also reads as an error.",
+    "suggestion": "Merge 14.12 and 14.13 into one paragraph: \"When tea was over, he was glad to invite him to read aloud to the ladies.\""
+  },
+  {
+    "ch": 15,
+    "idx": 10,
+    "quote": "She was eagerly expressing her surprise at their sudden return home—which, since their own carriage had not come for them, she would have known nothing about, had she not happened to see Mr. Jones's shop boy in the street, who told her they were not to send any more medicine to Netherfield because the Miss Bennets had left—when her attention was claimed for Mr. Collins, whom Jane introduced to her.",
+    "problem": "overloaded",
+    "blocking": false,
+    "why": "The main clause is suspended across a long dash-interruption with a nested conditional and reported speech; readers lose the thread before 'when her attention was claimed'.",
+    "suggestion": "She was eagerly expressing her surprise at their sudden return home. Since their own carriage had not come for them, she would have known nothing about it had she not happened to see Mr. Jones's shop boy in the street, who told her they were not to send any more medicine to Netherfield because the Miss Bennets had left. Then her attention was claimed for Mr. Collins, whom Jane introduced to her."
+  },
+  {
+    "ch": 15,
+    "idx": 10,
+    "quote": "a nice comfortable noisy game of lottery tickets",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "'Lottery tickets' here is a card game, not actual lottery tickets; readers will picture a raffle. It recurs in 16.7 and 16.59 (bets, prizes, counters).",
+    "suggestion": "a nice comfortable noisy game of lottery tickets, a card game played for small stakes,"
+  },
+  {
+    "ch": 16,
+    "idx": 2,
+    "quote": "Elizabeth felt that she had neither been looking at him before nor thinking of him since with the slightest degree of unreasonable admiration",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "The double negative with 'unreasonable' is hard to parse and easily read as her admiring him not at all. The intended sense is that her high opinion of him was fully justified.",
+    "suggestion": "Elizabeth felt that none of her admiration for him, at their first meeting or in thinking of him since, had been unreasonable"
+  },
+  {
+    "ch": 16,
+    "idx": 15,
+    "quote": "\"I cannot pretend to be sorry,\" said Wickham after a brief pause, \"that he or any man should not be valued beyond what he deserves. But with _him_ I believe it rarely happens.",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "Negative-within-negative ('cannot ... sorry ... not be valued beyond') and an unclear 'it' make readers re-read to work out that 'it' means Darcy being judged at his true worth.",
+    "suggestion": "\"I cannot pretend to be sorry,\" said Wickham after a brief pause, \"when any man is valued no higher than he deserves. But with _him_ I believe that rarely happens."
+  },
+  {
+    "ch": 16,
+    "idx": 25,
+    "quote": "the late Mr. Darcy left me the next appointment to the best parish in his gift",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "'In his gift' (a parish whose clergyman he had the right to appoint) is a period term, and the whole grievance depends on understanding it.",
+    "suggestion": "the late Mr. Darcy left me the next appointment to the best parish that he had the right to fill"
+  },
+  {
+    "ch": 16,
+    "idx": 56,
+    "quote": "useless her affection for his sister and her praise of himself—if he had already destined himself for another",
+    "problem": "referent",
+    "blocking": false,
+    "why": "The only man named in the sentence is implied by 'Miss Bingley', so 'his sister' and 'he' can be taken as Bingley; they mean Darcy.",
+    "suggestion": "useless her affection for Darcy's sister and her praise of Darcy himself—if he had already destined himself for another"
+  },
+  {
+    "ch": 18,
+    "idx": 49,
+    "quote": "is perfectly convinced that Mr. Wickham has deserved much less attention from Mr. Darcy than he has received",
+    "problem": "ambiguous",
+    "blocking": false,
+    "why": "Modern readers will take 'attention' as Darcy's hostility, reversing the sense; it means kindness or favour Wickham received and did not deserve.",
+    "suggestion": "is perfectly convinced that Mr. Wickham has received far more kindness from Mr. Darcy than he deserved"
+  },
+  {
+    "ch": 18,
+    "idx": 66,
+    "quote": "for though he was not always looking at her mother, she was sure his attention was invariably fixed on her",
+    "problem": "referent",
+    "blocking": false,
+    "why": "'Her' at the end can mean Elizabeth or her mother; the point is that he is always listening to her mother.",
+    "suggestion": "for though he was not always looking at her mother, she was sure he was always listening to her"
+  },
+  {
+    "ch": 22,
+    "idx": 2,
+    "quote": "who accepted him solely from the pure and disinterested desire for an establishment of her own",
+    "problem": "vocabulary",
+    "blocking": false,
+    "why": "'Disinterested' is widely read as 'uninterested', and 'establishment' as a business; the irony (she wants a home and security, not love) is lost if either is misread.",
+    "suggestion": "who accepted him solely from the pure and unselfish desire for a home and a settled position of her own"
+  },
+  {
+    "ch": 22,
+    "idx": 3,
+    "quote": "Lady Lucas immediately began to calculate, with more interest than the matter had ever",
+    "problem": "garbled",
+    "blocking": true,
+    "why": "Paragraph breaks mid-sentence: 22.3 ends 'had ever' and 22.4 begins 'inspired before'. Renders as a broken sentence in reader and audio.",
+    "suggestion": "Merge 22.3 and 22.4 into one paragraph."
+  },
+  {
+    "ch": 22,
+    "idx": 12,
+    "quote": "and though by no means as clever as herself, she thought that if encouraged to read and improve himself by her example",
+    "problem": "referent",
+    "blocking": false,
+    "why": "The opening phrase grammatically attaches to 'she' (Mary), so it reads as Mary being less clever than herself; it means Mr. Collins.",
+    "suggestion": "and though he was by no means as clever as herself, she thought that if encouraged to read and improve himself by her example"
+  },
+  {
+    "ch": 23,
+    "idx": 15,
+    "quote": "Whenever Charlotte came to visit, she assumed she was counting the hours until she took possession.",
+    "problem": "referent",
+    "blocking": false,
+    "why": "Three 'she's in one sentence refer to Mrs. Bennet, then Charlotte, then Charlotte; readers have to sort them out.",
+    "suggestion": "Whenever Charlotte came to visit, Mrs. Bennet assumed she was counting the hours until she took possession."
+  },
+  {
+    "ch": 24,
+    "idx": 2,
+    "quote": "She could think of nothing else—and yet whether Bingley's feelings had truly faded, or were being suppressed by his friends' interference, whether he had known of Jane's attachment or it had escaped his notice—whichever was the case, though her opinion of him would be greatly affected by which it was, her sister's situation was the same, her peace equally damaged.",
+    "problem": "overloaded",
+    "blocking": false,
+    "why": "Stacked alternatives, a dash, a resumptive 'whichever', and an embedded concession before the main clause; 'and yet' also sets up a contrast that does not come.",
+    "suggestion": "She could think of nothing else. Yet whether Bingley's feelings had truly faded or were being suppressed by his friends, and whether he had known of Jane's attachment or not, her sister's situation was the same, her peace equally damaged—however much the answer would affect her own opinion of him."
+  },
+  {
+    "ch": 24,
+    "idx": 23,
+    "quote": "I am not ashamed of having been mistaken—or at least, it is slight",
+    "problem": "garbled",
+    "blocking": false,
+    "why": "'It' has no antecedent (the shame was just denied), so the self-correction does not parse.",
+    "suggestion": "I am not ashamed of having been mistaken—or if I am, it is slight"
+  }
+]
