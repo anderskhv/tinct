@@ -22,6 +22,19 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  const errors=[]
  page.on('pageerror',e=>errors.push(e.message))
  await context.addInitScript(()=>{
+  window.__resizeTrace=[]
+  const NativeResizeObserver=window.ResizeObserver
+  window.ResizeObserver=class extends NativeResizeObserver{
+   constructor(callback){
+    const stack=new Error('ResizeObserver created').stack
+    super((entries,observer)=>{
+     window.__resizeTrace.push({at:performance.now(),stack,entries:entries.map(e=>({tag:e.target.tagName,className:e.target.className,width:e.contentRect.width,height:e.contentRect.height}))})
+     if(window.__resizeTrace.length>80)window.__resizeTrace.shift()
+     callback(entries,observer)
+    })
+   }
+  }
+  window.addEventListener('error',e=>window.__resizeTrace.push({error:e.message,at:performance.now(),url:location.href}))
   HTMLMediaElement.prototype.play=()=>Promise.resolve()
   if(navigator.mediaDevices)navigator.mediaDevices.getUserMedia=async()=>{throw Error('Disabled')}
   localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token',JSON.stringify({access_token:'preview-browser-fixture',refresh_token:'fixture',expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer',user:{id:'11111111-1111-4111-8111-111111111111',aud:'authenticated',role:'authenticated',email:'fixture@example.test'}}))
@@ -105,6 +118,9 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  assert.equal(await frame.locator('.caption.active').evaluate(n=>getComputedStyle(n).animationName),'none')
  const bookUrl=await frame.locator('.caption.active .open-book').getAttribute('href')
  assert(bookUrl.startsWith('/library?view=book-detail&book='))
+ const diagnostics=await Promise.all(page.frames().map(async f=>({url:f.url(),trace:await f.evaluate(()=>window.__resizeTrace||[]).catch(()=>[])})))
+ await fs.writeFile(out+'/'+name+'-'+label+'-resize.json',JSON.stringify({errors,diagnostics},null,2))
+ if(errors.length)console.log('RESIZE_DIAGNOSTIC '+name+' '+label+' '+JSON.stringify(diagnostics))
  assert.deepEqual(errors,[])
  report.push({engine:name,label,...first})
  await context.close()
