@@ -13,7 +13,7 @@ async function signed(path, method='GET', body=''){
  const signature=await releaseWarmSignature(process.env.XAI_API_KEY,method,path,timestamp,body)
  return fetch(origin+path,{method,headers:{'Content-Type':'application/json','x-narration-provider':'grok','x-narration-release-time':timestamp,'x-narration-release-signature':signature},...(body?{body}:{}),signal:AbortSignal.timeout(90000)})
 }
-const voices=await (await signed('/api/narration/voices')).json()
+const voices=await (await (stage?signed('/api/narration/voices'):fetch(origin+'/api/narration/voices'))).json()
 assert.equal(voices.provider,'grok')
 assert.deepEqual(voices.voices.map(v=>v.key),['f','m','orion','eve'])
 async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,paragraph=0}={}){
@@ -31,14 +31,15 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
    const body=req.postDataJSON()
    assert.equal(body.bookId,entry.bookId);assert.equal(body.editionKey,entry.editionKey);assert.equal(body.voice,voice)
    // Cloud-signed proxy only; credentials never enter the browser.
-   const response=await signed('/api/narration/warm','POST',JSON.stringify({...body,mode:cold?'next':'cache'}))
+   const call={body,result:null,at:Date.now()};calls.push(call)
+   const response=await (!stage && !cold ? route.fetch() : signed('/api/narration/warm','POST',JSON.stringify({...body,mode:cold?'next':'cache'})))
    const json=await response.json()
-   assert.equal(response.status,200,JSON.stringify(json))
+   assert.equal(typeof response.status==='function'?response.status():response.status,200,JSON.stringify(json))
    report.generated+=json.generated||0
    assert(report.generated<=40,'Bounded real-playback synthesis budget')
    if(!cold)assert.equal(json.generated,0)
-   calls.push({body,result:json,at:Date.now()})
-   return route.fulfill({status:200,json})
+   call.result=json
+   return route.fulfill({status:200,json}).catch(()=>{})
   }
   if(url.pathname==='/api/narration/prepare')throw Error('Legacy preparation request')
   return route.continue()
@@ -84,20 +85,38 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
   const count=calls.length
   await page.waitForTimeout(1800)
   assert.equal(calls.length,count,'Pause must stop new preparation')
-  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result.generated||0),0),media:initial,errors}
+  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
   assert.deepEqual(errors,[])
   assert(paint>0,'Narration must paint its timed word')
   report.cases.push(row)
   await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+(cold?'-cold':'')+'.png'})
   await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))
   console.log(JSON.stringify({engine,bookId:entry.bookId,voice,cold,startMs,paint}))
+ }catch(error){
+  report.cases.push({engine,bookId:entry.bookId,voice,cold,failed:true,error:String(error),calls,errors,body:(await page.locator('body').innerText()).slice(-4000)})
+  await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))
+  await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+'-failure.png'}).catch(()=>{})
+  throw error
  }finally{await context.close()}
+}
+// Two simultaneous real requests must publish one shared recording.
+{
+ const entry=plan.entries[0]
+ const body=JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:2,voice:'orion',mode:'next',paragraphs:[{index:1}]})
+ const answers=await Promise.all([1,2].map(async()=>{const r=await signed('/api/narration/warm','POST',body);assert.equal(r.status,200);return r.json()}))
+ const generated=answers.reduce((n,r)=>n+(r.generated||0),0)
+ assert(generated<=1,'Concurrent identical synthesis paid more than once')
+ assert(answers.some(r=>r.paragraphs[0]?.readyChunks>0))
+ const hashes=answers.flatMap(r=>r.paragraphs[0]?.chunks?.filter(c=>c.ready).map(c=>c.hash)||[])
+ assert.equal(new Set(hashes).size,1)
+ report.generated+=generated
+ report.concurrency={requests:2,generated,sharedHash:hashes[0],reused:generated===0}
 }
 const chrome=await chromium.launch({headless:true,args:['--mute-audio']})
 try{
  for(const entry of plan.entries)for(const voice of entry.voices)await run(chrome,'chromium',entry,voice)
  const entry=plan.entries[0]
- for(const voice of ['f','m']){
+ if(stage)for(const voice of ['f','m']){
   const row=warmed.entries.find(e=>e.bookId===entry.bookId&&e.voice===voice)
   const last=row.recordings.at(-1)
   const source=JSON.parse(await fs.readFile('public/data/editions/'+entry.bookId+'-'+entry.editionKey+'.json','utf8'))
@@ -105,7 +124,7 @@ try{
   const p=last.paragraph+1
   await run(chrome,'chromium',entry,voice,{cold:true,chapter:p<ch.paragraphs.length?ch.number:ch.number+1,paragraph:p<ch.paragraphs.length?p:0})
  }
- for(const voice of ['orion','eve'])await run(chrome,'chromium',entry,voice,{cold:true})
+ if(stage)for(const voice of ['orion','eve'])await run(chrome,'chromium',entry,voice,{cold:true})
 }finally{await chrome.close()}
 const safari=await webkit.launch({headless:true})
 try{for(const voice of ['f','m'])await run(safari,'webkit',plan.entries[0],voice)}finally{await safari.close()}

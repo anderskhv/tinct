@@ -23,6 +23,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: npm run build
       - run: node scripts/plan-grok-openings.mjs
+      - run: node --check scripts/check-grok-reader.mjs
       - name: Prepare and verify only the approved twenty openings
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
