@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
+import { narrationTextForParagraph, sha256Hex } from '../src/narration/narrationCore.ts'
 import { releaseWarmSignature } from '../src/narration/narrationReleaseAuth.ts'
 const origin=process.env.NARRATION_ORIGIN || 'https://tinct.app'
 assert(process.env.XAI_API_KEY,'Missing cloud release credential')
@@ -30,7 +31,7 @@ async function warm(entry,voice){
         assert(++totalRequests<=1600,'Bounded warm request ceiling')
         const start=performance.now()
         const response=await releaseFetch('/api/narration/warm',{method:'POST',
-          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:'next',paragraphs:[{index:p}]}),
+          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:'next',paragraphs:[{index:p,textHash:await sha256Hex(narrationTextForParagraph(chapter.paragraphs[p]))}]}),
           signal:AbortSignal.timeout(95000)})
         assert.equal(response.status,200,'warm HTTP status')
         const result=await response.json()
