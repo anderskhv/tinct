@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { handleNarration, narrationConfig, synthesizeWithGoogle, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
+import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
 import { NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
 import { fishTimestampSseFor, syntheticMp3 } from './narration/narrationTestFixtures'
@@ -692,5 +692,67 @@ describe('narration recordings are found by identity, not only by the map', () =
     const repaired = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: unknown[]; complete: boolean }
     expect(repaired.chunks).toHaveLength(1)
     expect(repaired.complete).toBe(true)
+  })
+})
+
+describe('Grok narration rollout', () => {
+  function grokHarness() {
+    const held = new Map<string, string>()
+    const reservations: number[] = []
+    const h = makeHarness({ NARRATION_PROVIDER: 'grok', XAI_API_KEY: 'grok-test',
+      NARRATION_COORDINATOR: { getByName: (name: string) => ({
+        claim: async (token: string) => { if (held.has(name)) return false; held.set(name, token); return true },
+        release: async (token: string) => { if (held.get(name) === token) held.delete(name) },
+        reserve: async (_day: string, bytes: number) => { reservations.push(bytes); return true },
+        usage: async () => [],
+      }) } as unknown as DurableObjectNamespace,
+    })
+    h.fish.respond = (({ body }: { body: string }) => {
+      const text = JSON.parse(body).text
+      const duration = 5.224
+      const chars = Array.from(text) as string[]
+      return Response.json({ audio: btoa(String.fromCharCode(...syntheticMp3(200))), duration,
+        audio_timestamps: { graph_chars: chars, graph_times: chars.map((_, i) => [i * duration / chars.length, (i + 1) * duration / chars.length]) } })
+    }) as typeof h.fish.respond
+    return { h, reservations }
+  }
+  it('offers only the four approved voices and keeps provider identities separate', () => {
+    const { h } = grokHarness()
+    expect(narrationConfig(h.env).voices.map(v => v.id)).toEqual(['ara','helios','orion','eve'])
+  })
+  it('does not generate through the legacy opening preparation route', async () => {
+    const { h } = grokHarness()
+    const res = await handleNarration(new Request('https://tinct.app/api/narration/prepare', {method:'POST'}), h.env, h.ctx, h.deps)
+    expect(res.status).toBe(204)
+    expect(h.fish.calls).toHaveLength(0)
+  })
+  it('generates only a seek target, reuses it across editions, and preserves sparse maps', async () => {
+    const { h, reservations } = grokHarness()
+    const last = chunkNarrationText(PARAGRAPHS[4]).length - 1
+    const first = await ensure(h, { voice:'f', mode:'next', paragraphs:[{index:4,fromChunk:last}] })
+    expect(first.json.generated).toBe(1)
+    const chunks = (first.json.paragraphs[0] as Result).chunks!
+    expect(chunks.filter(c=>c.ready).map(c=>c.index)).toEqual([last])
+    expect(h.fish.calls).toHaveLength(1)
+    await ensure(h, { voice:'f', editionKey:'modern-en', mode:'next', paragraphs:[{index:4,fromChunk:last}] })
+    expect(h.fish.calls).toHaveLength(1)
+    await ensure(h, { voice:'f', mode:'next', paragraphs:[{index:4,fromChunk:0}] })
+    const mapKey = narrationMapKey('odyssey','original-en',1,'f',4,'grok')
+    const map = await (await h.env.AUDIO_BUCKET.get(mapKey))!.json()
+    expect(map.chunks.map((c:{index:number})=>c.index)).toEqual([0,last])
+    expect(reservations).toHaveLength(2)
+  })
+  it('fails closed without the coordinator and never spends', async () => {
+    const { h } = grokHarness(); h.env.NARRATION_COORDINATOR = undefined
+    const res = await ensure(h, {voice:'f',paragraphs:[{index:0}]})
+    expect(res.status).toBe(503); expect(h.fish.calls).toHaveLength(0)
+  })
+  it('reserves each retry and stops before a rejected spending reservation', async () => {
+    const reserve = vi.fn().mockResolvedValueOnce(true).mockResolvedValueOnce(false)
+    const fetchImpl = vi.fn().mockResolvedValue(new Response('', {status:503}))
+    await expect(synthesizeWithGrok({apiKey:'test',baseUrl:'https://grok.test',voiceId:'ara',text:'A passage.',
+      settings:narrationConfig(makeHarness().env).settings,fetchImpl,now:()=>0,sleep:async()=>{},reserve
+    })).rejects.toMatchObject({code:'budget_exhausted'})
+    expect(fetchImpl).toHaveBeenCalledTimes(1)
   })
 })
