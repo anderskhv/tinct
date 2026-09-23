@@ -16,3 +16,8 @@ repair-first; `candidate-v1.json` is the reviewed draft (per-paragraph dispositi
 | v2→v3 re-verification | Same | ¶9 | **VERIFIED CLEAN** |
 
 Evidence: `review-2026-09-23/`.
+
+## Edition-consistency successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `a2b75e42e0d77b387616e1b7bfd51118b590075b273dc2cb8c76c1e8c86ec368`: "mixing bowl" → "mixing-bowl" at ¶7 (×2) and ¶8 (PUNCTUATION §4 table).
+Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).

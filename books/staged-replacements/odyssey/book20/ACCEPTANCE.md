@@ -16,3 +16,8 @@ repair-first; `candidate-v1.json` is the reviewed draft (per-paragraph dispositi
 | v2→v3 re-verification | Same | ¶0, 3, 27 | **VERIFIED CLEAN** |
 
 Evidence: `review-2026-09-23/`.
+
+## Edition-consistency successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `e1792c20bec736b4b56cfdac686f2c55eeb0c55f9a9d066907c923d06f6ff378`: ¶21 "mixing bowls" → "mixing-bowls" (Butler's own form; PUNCTUATION §4).
+Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).

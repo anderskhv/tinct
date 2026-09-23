@@ -16,3 +16,8 @@ repair-first; `candidate-v1.json` is the reviewed draft (per-paragraph dispositi
 | v2→v3 re-verification | Same | ¶3, 11, 42, 53 | **VERIFIED CLEAN** |
 
 Evidence: `review-2026-09-23/`.
+
+## Edition-consistency successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `42cdf8484f653f363d74647a8dd7eaa04268547f2991c08100ecb9dceb472ba7`: ¶7 "belonging to the sun god" → "belonging to the sun" (Butler: "the sun"; "god" was added).
+Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).

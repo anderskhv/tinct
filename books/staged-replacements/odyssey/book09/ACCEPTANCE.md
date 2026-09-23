@@ -146,3 +146,8 @@ Butler's convention is preserved exactly. In the app it wants an affordance —
 a persistent *"Odysseus is speaking"* attribution across chapters 9-12 — and
 not a punctuation change, because any punctuation change here is a change to
 Butler. `../PUNCTUATION.md` §2.
+
+## Edition-consistency successor v3 (2026-09-23), now the accepted file
+
+`candidate-v3.json`, sha256 `081ff03c5605ac3bb16b0f0fe928434264603cbddbc28078790bdc3c58cd97b9`: title "Ulysses declares himself … story—-the Cicons" → "Odysseus declares himself … story—the Cicons" (Roman name left in the title; PG's stray "—-"). Paragraphs unchanged.
+Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).
