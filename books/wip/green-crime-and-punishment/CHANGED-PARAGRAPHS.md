@@ -4,7 +4,7 @@ Coordinates are `chapter.paragraph`, with a 1-based chapter number (Part/Chapter
 Hashes are the first 16 hex characters of the sha256 of the paragraph text.
 The full old and new text of every edit is in `ledger/changes.jsonl`.
 
-Total changed paragraphs: **1269** of 3,904.
+Total changed paragraphs: **1270** of 3,904.
 
 | Ch.Para | Old sha16 | New sha16 | Rounds | Reasons |
 |---|---|---|---|---|
@@ -89,7 +89,7 @@ Total changed paragraphs: **1269** of 3,904.
 | 7.29 | 30a8b38e507bb1a0 | 362be5e6bdefc837 | b02-F | invented: Source: 'standing unfastened and at least six inches open. No lock, no bolt, all the time, all that time!'; 'wide open' is invented and the repetition lost. / invented: Source: 'had not shut it after him perhaps as a precaution'; the stated motive is invented. |
 | 7.30 | 2d21efe04963a921 | 95af95c5266ff6a6 | b02-F | meaning: Source: 'fastened the latch'; keeps consistent with 7.32 and the hook/latch, not a bolt. |
 | 7.32 | 10a434e9268b6e02 | ec6a2520f42557ea | b02-F | meaning: Source: 'He unfastened the latch'. |
-| 7.34 | c9204c4a14437f54 | f645a9f9a6e4a80c | b02-F, assembly-3 | emphasis: Source: 'Now _he_ had passed the first floor' with italic _he_. / invented: Source: 'He could hear his heavy breathing. And now the third storey had been reached.' The trailing '....' was invented (flagged by the committed classify gate as a truncated quotation), and 'his' (the climber's) had become 'the'. |
+| 7.34 | c9204c4a14437f54 | 6ef55910a9fedc97 | b02-F, assembly-3, assembly-4 | emphasis: Source: 'Now _he_ had passed the first floor' with italic _he_. / invented: Source: 'He could hear his heavy breathing. And now the third storey had been reached.' The trailing '....' was invented (flagged by the committed classify gate as a truncated quotation), and 'his' (the climber's) had become 'the'. / meaning: Source: 'Now _he_ had passed the first floor... He could hear his heavy breathing. And now the third storey had been reached. Coming here!' The breathing is the climber's, marked by the italic _he_. In the modern text, 'He could hear his heavy breathing' most naturally reads as Raskolnikov hearing his own breath, which reverses the edit's intended fix. The added subject in 'he had reached the third floor' also reads as Raskolnikov, who is already on the fourth floor. Naming the stranger (the text's own 'the unknown' in 7.35) settles whose breathing it is. Restoring the source's subjectless passive keeps the clipped, approaching tension. [lead: 'the man's' rather than 'the stranger's', a lighter clarification] |
 | 7.37 | f295d7c9306ee38b | cc1212a14d909985 | b02-F | emphasis: Source: 'but _he_ might be aware of it'; italic lost and 'feel the resistance' is added. |
 | 7.38 | 38b3744707ddc802 | 63ce3db5fb4afca0 | b02-F | hesitation: Source: 'Are they asleep or murdered? D-damn them!'; the ironic 'murdered' and the drunken stammer were lost. |
 | 7.44 | c0b469df1123f1e4 | 1438e6831c685c11 | b02-AV | access-reference: A listener cannot tell that Gambrinus's is a tavern; one word locates it. |
@@ -464,7 +464,7 @@ Total changed paragraphs: **1269** of 3,904.
 | 15.40 | 87ec025c17740081 | d31bfc61259e3154 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 15.42 | e2ec80546ad7429c | 9705334ca414b894 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 15.44 | 44e066d230e2e631 | 5c4edfa9a14bc847 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
-| 15.48 | 2b73f6602a702b3d | 413ea1805917b48a | b05-F, assembly-typography | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. / consistency: Spelling normalized to 'fiancée' as used everywhere else in the edition. |
+| 15.48 | 2b73f6602a702b3d | 19e3521fb105e39d | b05-F, assembly-typography, assembly-4 | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. / consistency: Spelling normalized to 'fiancée' as used everywhere else in the edition. / consistency: The assembly edit accented 'fiancée' in this paragraph but left the source's italic '_fiancé_' unaccented. Source: 'your _fiancé_ is a scoundrel'. The edition's other uses are 12.25 and 17.86 '_fiancé_'. |
 | 15.50 | c3e2d75a47734136 | 9c3c233bbc764d6d | b05-F | hesitation: Source: 'not because I'm in... hm! Well, anyway, I won't say why, I daren't' -- restores his near-confession of love (the invented 'Let us leave it at that' hid it) and the repeated 'a fool, a fool'; also F3 contractions throughout Razumihin's rush. |
 | 15.52 | 13c6a3c303a31d3b | c1a77d507d0fefe9 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 15.53 | 5d5dbc9179661f21 | 95c880c1f0cbf73d | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
@@ -487,6 +487,7 @@ Total changed paragraphs: **1269** of 3,904.
 | 15.85 | 73d19bff3cb7a3a9 | 157ee6a8e57a24ec | b05-F | meaning: Source: 'Then why have you fascinated her?' -- 'lead her on' implies deliberate deception; the source means charmed/captivated. |
 | 15.86 | 904e97e7601f454e | ef156a5a4ba83402 | b05-F | meaning: Source: 'I haven't fascinated her; perhaps I was fascinated myself' -- matches the 15.85 fix ('led on' implied deception); also F3 contractions. |
 | 15.88 | bcad8f445095fb3a | 4bb91472e8100fea | b05-F, b05-AV | certainty: Source ends 'But there can't be....' (trailing, more certain than 'should not'); also F3 contractions. / access-reference: The folk-cosmology image of three fish holding up the earth is obscure to a listener; a short cue unlocks it. |
+| 16.1 | c91f61295c7910a2 | 577f667839bf8828 | assembly-4 | consistency: Source italic '_fiancé_'; accent restored to match the edition (12.25, 17.86). |
 | 16.2 | 62e6f1ece6811622 | c2b8c5f1d7dbe104 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 16.4 | e178a2ee336a6558 | 314d17aa1ac256da | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 16.5 | 38447d49605f3381 | 899c793f32394bf5 | b05-F | hesitation: Source: 'and... and even admitting' and 'Confound it! So be it! Well, he'd make a point' -- restores the stammer and the outburst; also F3 contractions in inner speech. |
@@ -518,7 +519,7 @@ Total changed paragraphs: **1269** of 3,904.
 | 16.61 | 65389ce8bff7e34b | 0f2c26d02c609cf9 | b05-F | meaning: Source: 'now we are ordered not to receive Rodya' -- 'told' softens Luzhin's peremptory demand; also F3 contractions. |
 | 16.63 | a9873ccdc41496f5 | 715dc3a3e75ddbd7 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 16.65 | 68153d14d771fbee | e30ab3590d6bd3e2 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. / register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
-| 16.66 | f143fcdcfa5f9b96 | 0f447942b0d959b1 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
+| 16.66 | f143fcdcfa5f9b96 | 4a3b90a0a9911041 | b05-F, assembly-4 | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. / consistency: Source italic '_fiancé_'; accent restored to match the edition (12.25, 17.86). |
 | 16.67 | 90072eab62464e0d | 795ab77c7db381d1 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
 | 16.68 | d50bf370f556b58e | aabd4f940ed36dc0 | b05-AV | access-reference: The unnamed allusion is hard to place by ear; naming the queen unlocks it. |
 | 16.69 | 8ba5c9ac365fb86e | 7c5130adef1a4c01 | b05-F | register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. / register: F3: restore natural modern contractions in dialogue, matching the source's colloquial speech. |
