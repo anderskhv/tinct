@@ -414,6 +414,15 @@
   "reason": "Source: 'but you... never after this...'; Luzhin breaks off rather than concluding."
  },
  {
+  "chapter": 12,
+  "paragraph": 113,
+  "old": "\"Will you have some tea now?\"",
+  "new": "\"Won't you have some tea now?\"",
+  "category": "register",
+  "blocking": false,
+  "reason": "Source: 'Won't you have some tea now?'; Nastasya's coaxing negative question was flattened."
+ },
+ {
   "chapter": 11,
   "paragraph": 1,
   "old": "\"I have ",
@@ -461,17 +470,8 @@
  {
   "chapter": 11,
   "paragraph": 5,
-  "old": "\"I am fine",
-  "new": "\"I'm fine",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 11,
-  "paragraph": 5,
-  "old": ", I am perfectly",
-  "new": ", I'm perfectly",
+  "old": "I am fine, I am",
+  "new": "I'm fine, I'm",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -793,6 +793,24 @@
  },
  {
   "chapter": 11,
+  "paragraph": 31,
+  "old": "Have I not",
+  "new": "Haven't I",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 35,
+  "old": "Did you not",
+  "new": "Didn't you",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
   "paragraph": 40,
   "old": "that is",
   "new": "that's",
@@ -883,6 +901,15 @@
  },
  {
   "chapter": 11,
+  "paragraph": 44,
+  "old": "did he not",
+  "new": "didn't he",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
   "paragraph": 45,
   "old": ", he is a",
   "new": ", he's a",
@@ -965,17 +992,8 @@
  {
   "chapter": 11,
   "paragraph": 49,
-  "old": "me he would with",
-  "new": "me he'd with",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 11,
-  "paragraph": 49,
-  "old": "he would",
-  "new": "he'd",
+  "old": "- he would drink",
+  "new": "- he'd drink",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1118,6 +1136,15 @@
  {
   "chapter": 11,
   "paragraph": 49,
+  "old": "will you not",
+  "new": "won't you",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 49,
   "old": "have not",
   "new": "haven't",
   "category": "register",
@@ -1145,17 +1172,8 @@
  {
   "chapter": 11,
   "paragraph": 51,
-  "old": "that is",
-  "new": "that's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 11,
-  "paragraph": 51,
-  "old": "you are",
-  "new": "you're",
+  "old": "that is what you are",
+  "new": "that's what you're",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1174,6 +1192,15 @@
   "paragraph": 51,
   "old": "did not",
   "new": "didn't",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 51,
+  "old": "did you not",
+  "new": "didn't you",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1271,6 +1298,15 @@
  {
   "chapter": 11,
   "paragraph": 59,
+  "old": "did you not",
+  "new": "didn't you",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 59,
   "old": "I would",
   "new": "I'd",
   "category": "register",
@@ -1325,17 +1361,26 @@
  {
   "chapter": 11,
   "paragraph": 62,
-  "old": "That is",
-  "new": "That's",
+  "old": "That is nonsense. You are",
+  "new": "That's nonsense. You're",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
  },
  {
   "chapter": 11,
-  "paragraph": 62,
-  "old": "You are",
-  "new": "You're",
+  "paragraph": 63,
+  "old": "Can you not",
+  "new": "Can't you",
+  "category": "register",
+  "blocking": false,
+  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 64,
+  "old": "did he not",
+  "new": "didn't he",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1558,42 +1603,6 @@
  },
  {
   "chapter": 12,
-  "paragraph": 7,
-  "old": ", I am Raskolnikov",
-  "new": ", I'm Raskolnikov",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 9,
-  "old": "name is not entirely",
-  "new": "name isn't entirely",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 11,
-  "old": "have not",
-  "new": "haven't",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 13,
-  "old": "\"I had assumed",
-  "new": "\"I'd assumed",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
   "paragraph": 14,
   "old": "Here is",
   "new": "Here's",
@@ -1648,15 +1657,6 @@
  },
  {
   "chapter": 12,
-  "paragraph": 24,
-  "old": "you had",
-  "new": "you'd",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
   "paragraph": 25,
   "old": "you are",
   "new": "you're",
@@ -1669,42 +1669,6 @@
   "paragraph": 25,
   "old": "that is",
   "new": "that's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 29,
-  "old": "\"I am deeply",
-  "new": "\"I'm deeply",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 29,
-  "old": "I would",
-  "new": "I'd",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 29,
-  "old": ". I am expecting",
-  "new": ". I'm expecting",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 31,
-  "old": ". I have found",
-  "new": ". I've found",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1732,78 +1696,6 @@
   "paragraph": 36,
   "old": ". It is cheap",
   "new": ". It's cheap",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 37,
-  "old": "could not",
-  "new": "couldn't",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 37,
-  "old": "since it is only",
-  "new": "since it's only",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 37,
-  "old": ". I have already",
-  "new": ". I've already",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 37,
-  "old": "and I am having",
-  "new": "and I'm having",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 43,
-  "old": ", it has been",
-  "new": ", it's been",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 43,
-  "old": "And it is my",
-  "new": "And it's my",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 43,
-  "old": ", I am delighted",
-  "new": ", I'm delighted",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 45,
-  "old": "That is",
-  "new": "That's",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1864,24 +1756,6 @@
  },
  {
   "chapter": 12,
-  "paragraph": 48,
-  "old": "I cannot agree",
-  "new": "I can't agree",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 48,
-  "old": "will not",
-  "new": "won't",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
   "paragraph": 49,
   "old": "\"He has ",
   "new": "\"He's ",
@@ -1894,33 +1768,6 @@
   "paragraph": 51,
   "old": "That is",
   "new": "That's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 52,
-  "old": "there has",
-  "new": "there's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 54,
-  "old": "will not",
-  "new": "won't",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 54,
-  "old": "unfortunately it has been",
-  "new": "unfortunately it's been",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -1993,15 +1840,6 @@
   "paragraph": 57,
   "old": "that is",
   "new": "that's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 59,
-  "old": "you are",
-  "new": "you're",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -2089,36 +1927,9 @@
  },
  {
   "chapter": 12,
-  "paragraph": 70,
-  "old": "You are",
-  "new": "You're",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
   "paragraph": 71,
   "old": "You have",
   "new": "You've",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 74,
-  "old": "I cannot say",
-  "new": "I can't say",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 74,
-  "old": "peasants do not pawn",
-  "new": "peasants don't pawn",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -2152,45 +1963,9 @@
  },
  {
   "chapter": 12,
-  "paragraph": 87,
-  "old": "There is",
-  "new": "There's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 87,
-  "old": "idea is not an",
-  "new": "idea isn't an",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
   "paragraph": 88,
   "old": "because it is better",
   "new": "because it's better",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 89,
-  "old": "that has",
-  "new": "that's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 89,
-  "old": "she would",
-  "new": "she'd",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
@@ -2209,15 +1984,6 @@
   "paragraph": 93,
   "old": "What is",
   "new": "What's",
-  "category": "register",
-  "blocking": false,
-  "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
- },
- {
-  "chapter": 12,
-  "paragraph": 94,
-  "old": "that is",
-  "new": "that's",
   "category": "register",
   "blocking": false,
   "reason": "F3: restore natural contraction in dialogue, matching the rest of the edition."
