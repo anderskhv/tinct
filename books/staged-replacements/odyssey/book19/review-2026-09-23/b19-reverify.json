@@ -1,0 +1,47 @@
+[
+ {
+  "book": 19,
+  "paragraph": 13,
+  "old": "‘Sweethearts, Odysseus is dead, it’s true, but don’t press me to marry again just yet—wait, because I wouldn’t want my skill in needlework to perish unrecorded—until I’ve finished a pall for the hero Laertes, ready for when death comes to take him. He’s very rich, and the women here would talk if he were laid out without a pall.’",
+  "new": "‘Sweethearts, Odysseus is indeed dead, but do not press me to marry again just yet—wait, for I would not have my skill in needlework perish unrecorded—until I have finished a pall for the hero Laertes, ready for the time when death takes him. He is very rich, and the women of the place will talk if he is laid out without a pall.’",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler’s quoted speech here (“Ulysses is indeed dead, still, do not press me … to be ready against the time when death shall take him … the women of the place will talk if he is laid out without a pall”) is word-for-word B02-P005, but ¶13 still differs from accepted book02/candidate-v6 ¶5 in “is dead, it’s true” (for “is indeed dead”), “because I wouldn’t want … to perish” (for “for I would not have … perish”), “ready for when death comes to take him” (for “ready for the time when death takes him”) and “the women here would talk if he were laid out” (for “the women of the place will talk if he is laid out”); the replacement is B02-P005 verbatim, keeping Butler’s Book 19 “my skill”, as ¶0 was made to match B16-P27 verbatim."
+ },
+ {
+  "book": 19,
+  "paragraph": 8,
+  "old": "be careful you don’t lose that pride",
+  "new": "be careful that you too don’t lose that pride",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Butler: “it pleased Jove to take all away from me; therefore, woman, beware lest you too come to lose that pride and place”; the “too” ties her possible fall to his own and is the point of the warning, and the draft drops it."
+ },
+ {
+  "book": 19,
+  "paragraph": 12,
+  "old": "But even so, sitting here in your house, ask me something else",
+  "new": "But even so, as I sit here in your house, ask me something else",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Butler: “Nevertheless, as I sit here in your house, ask me some other question”; before an imperative, the dangling “sitting here in your house” attaches to Penelope (the implied “you”), not to the speaker who is the guest."
+ },
+ {
+  "book": 19,
+  "paragraph": 12,
+  "old": "don’t try to learn my family and my homeland",
+  "new": "don’t try to learn my lineage and my family",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: “do not seek to know my race and family”; “race” here is descent, not place, and “learn my family and my homeland” is also awkward English."
+ },
+ {
+  "book": 19,
+  "paragraph": 30,
+  "old": "and let me say this too, and take it to heart:",
+  "new": "furthermore let me say—and take my words to heart—",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Butler: “furthermore let me say, and lay my saying to your heart,” is the same deliberately repeated formula as ¶16 and ¶35 (and B11-P37, B16-P27), which this Book now renders “and take my words to heart”; ¶30 alone becomes “and let me say this too, and take it to heart”."
+ }
+]

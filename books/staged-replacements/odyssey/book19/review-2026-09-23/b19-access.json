@@ -1,0 +1,74 @@
+[
+  {
+    "book": 19,
+    "paragraph": 8,
+    "old": "watch that you don’t fall out of favor with your mistress, and that Odysseus doesn’t come home, for there’s still a chance he may.",
+    "new": "watch out that Odysseus doesn’t come home and find you’ve fallen out of favor with your mistress, for there’s still a chance he may.",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "As written, 'watch that you don't fall out of favor... and that Odysseus doesn't come home' reads as two parallel instructions the maid must obey (don't lose favor; prevent Odysseus's return), which is backwards — Odysseus is warning her that his return is the thing that will expose her bad behavior. A listener hearing this once will likely parse it as telling the maid to keep Odysseus away, the opposite of the intended threat."
+  },
+  {
+    "book": 19,
+    "paragraph": 13,
+    "old": "So I used to work at my great web all day long",
+    "new": "So I used to work at my great weaving all day long",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'Web' meaning 'the cloth on the loom' is an archaic sense a modern listener will not have; today 'web' means spider web or internet, so it causes a brief stumble even though the surrounding sentences about weaving make the intent recoverable."
+  },
+  {
+    "book": 19,
+    "paragraph": 14,
+    "old": "got subscriptions of wine and oxen so they could sacrifice as much as they liked",
+    "new": "got contributions of wine and oxen from my neighbors so they could sacrifice as much as they liked",
+    "category": "archaic",
+    "blocking": true,
+    "reason": "'Subscriptions' now means a recurring paid service (a magazine or streaming subscription); the older sense of 'collected contributions from the community' will actively mislead a modern listener rather than just sound quaint."
+  },
+  {
+    "book": 19,
+    "paragraph": 14,
+    "old": "carrying him off course from Cape Malea and leaving him at Amnisus, off the cave of Ilithuia, where the harbors are hard to enter and he could barely find shelter from the storm then raging",
+    "new": "carrying him off course from Cape Malea to Amnisus, near the cave of Ilithuia, where the harbors are hard to enter; he could barely find shelter there from the storm that was raging",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "One sentence stacks four place names and clauses (off course from X, leaving him at Y, off the cave of Z, where the harbors..., he could barely find shelter) with no breaks; heard aloud it is hard to keep the geography straight even though no single fact is confusing on its own. Splitting the final clause into its own sentence lets a listener land each piece before the next arrives."
+  },
+  {
+    "book": 19,
+    "paragraph": 18,
+    "old": "the ship was ready by the water and the crew found who would take Odysseus to his own country",
+    "new": "the ship was ready by the water and the crew was found who would take Odysseus to his own country",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The second clause drops the auxiliary ('crew found' instead of 'crew was found'), so on first hearing 'the crew found' sounds like the crew is the one doing the finding, and the listener has to backtrack when 'who would take Odysseus' arrives. Restoring 'was' removes the false start without changing the meaning."
+  },
+  {
+    "book": 19,
+    "paragraph": 18,
+    "old": "and he had enough lying in King Pheidon’s house to keep his family for ten generations",
+    "new": "and Odysseus had enough of it lying in King Pheidon’s house to keep his own family for ten generations",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "The subject of the sentence up to this point is Pheidon ('he showed me... and he had enough...'), so 'he' and 'his family' read as continuing to refer to Pheidon, when the treasure and family in question are Odysseus's. A listener will likely attach the wealth to the wrong man."
+  },
+  {
+    "book": 19,
+    "paragraph": 24,
+    "old": "Hermes himself had endowed him with this gift, for he used to burn the thighbones of goats and kids to him, and so the god took pleasure in his company.",
+    "new": "Hermes himself had given Autolycus this gift, for Autolycus used to burn the thighbones of goats and kids in offering to him, and so the god took pleasure in his company.",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "Four pronouns in one sentence (him/he/him/his) swap back and forth between Autolycus and Hermes with only 'the god' at the very end to anchor one of them; a listener has no way to track who is receiving the gift, who is burning the offerings, and who is being honored until the sentence is already over. Naming Autolycus once resolves the chain without adding any fact not already in the text."
+  },
+  {
+    "book": 19,
+    "paragraph": 35,
+    "old": "like the stays on which a ship is built",
+    "new": "like the timbers a ship is built on",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'Stays' today means the rigging cables that hold up a mast; a listener picturing sailing rigging will misread the image of axes lined up like a ship's foundation supports. 'Timbers' keeps the same building-frame image without the false sailing association."
+  }
+]
