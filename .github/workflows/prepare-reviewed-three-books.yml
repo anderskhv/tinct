@@ -39,6 +39,8 @@ jobs:
           npm run verify-bundle
       - name: Commit only the reviewed publication outputs
         run: |
+          # The build refreshes sitemap dates in this clean ephemeral checkout.
+          git restore -- app/public/sitemap.xml
           python3 - <<'PY'
           import subprocess
           allowed = {
