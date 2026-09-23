@@ -1,0 +1,92 @@
+[
+ {
+  "chapter": 13,
+  "paragraph": 20,
+  "old": "soldier,\nDon't",
+  "new": "soldier, Don't",
+  "category": "verify-typography",
+  "blocking": false,
+  "reason": "The source runs the song fragment on one line ('Oh, my handsome soldier Don't beat me for nothing,'); this is the only literal line break in the whole edition and renders inconsistently. Replace it with a space; the comma is kept as a readable pause."
+ },
+ {
+  "chapter": 13,
+  "paragraph": 153,
+  "old": "God, the idiotic ideas that come into one's head.",
+  "new": "What idiotic ideas come into one's head.",
+  "category": "verify-invented",
+  "blocking": false,
+  "reason": "Source: 'What idiotic ideas come into one's head.' The exclamation 'God,' is not in the source (inherited from the baseline); it adds an invocation that the source does not have, so religious language gets invented. The contraction edits in this paragraph are otherwise correct."
+ },
+ {
+  "chapter": 13,
+  "paragraph": 108,
+  "old": "He had gone terribly pale",
+  "new": "Raskolnikov had gone terribly pale",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The preceding sentence has Zametov as subject, so 'He had gone pale' first reads as Zametov; naming Raskolnikov fixes it for a listener."
+ },
+ {
+  "chapter": 13,
+  "paragraph": 154,
+  "old": "\"Shut up and the door freshly painted.",
+  "new": "\"Closed up, and the door freshly painted.",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "Heard aloud, 'Shut up' sounds like a rude command rather than 'closed and locked'. [verifier-modified: The need is real because 'Shut up' heard aloud sounds like a command. But source 'It's shut up' means closed, not necessarily locked; 'Closed up' is faithful.]"
+ },
+ {
+  "chapter": 13,
+  "paragraph": 182,
+  "old": "\"Is the assistant there?\"",
+  "new": "\"Is the assistant superintendent there?\"",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "'The assistant' alone leaves a listener unsure who is meant; the police rank points to the officer Raskolnikov is thinking of."
+ },
+ {
+  "chapter": 13,
+  "paragraph": 204,
+  "old": "He stumbled forward",
+  "new": "Raskolnikov stumbled forward",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Right after 'he flung him', the next 'He' reads as the manager; naming Raskolnikov makes it clear."
+ },
+ {
+  "chapter": 14,
+  "paragraph": 16,
+  "old": "a kammerjunker just arrived",
+  "new": "a kammerjunker -- a gentleman of the court -- just arrived",
+  "category": "access-vocabulary",
+  "blocking": false,
+  "reason": "'Kammerjunker' is an obscure court title; a brief gloss keeps Katerina Ivanovna's boast intelligible."
+ },
+ {
+  "chapter": 14,
+  "paragraph": 39,
+  "old": "The prince knew me as a girl",
+  "new": "The prince -- the Governor-General -- knew me as a girl",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "No prince has been mentioned, so a listener cannot tell that 'the prince' is the Governor-General just named."
+ },
+ {
+  "chapter": 14,
+  "paragraph": 63,
+  "old": "a kerchief from the chest over",
+  "new": "a kerchief from the trunk over",
+  "category": "access-vocabulary",
+  "blocking": false,
+  "reason": "In a scene about a crushed chest, 'from the chest' is ambiguous aloud; 'trunk' names the piece of furniture."
+ },
+ {
+  "chapter": 14,
+  "paragraph": 94,
+  "old": "She was at the bottom of the staircase, stopped one step above him.",
+  "new": "She had reached the bottom of the staircase and stopped short one step above him.",
+  "category": "access-syntax",
+  "blocking": true,
+  "reason": "As written the sentence is garbled and self-contradictory: she can't be at the bottom and also a step above him. [verifier-modified: The need is real because the candidate's comma splice is garbled. But the proposal changes the subject to 'He', and the source's subject is 'She': 'She was at the bottom of the staircase and stopped short a step above him' (she had caught up with him at the foot of the stairs). Keep her as the subject and fix the syntax.]"
+ }
+]

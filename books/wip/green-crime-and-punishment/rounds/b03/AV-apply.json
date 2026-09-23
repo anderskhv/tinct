@@ -1,0 +1,56 @@
+[
+ {
+  "chapter": 11,
+  "paragraph": 77,
+  "old": "\"Ach!\" Razumihin was exclaiming",
+  "new": "\"A-ach!\" Razumihin was exclaiming",
+  "category": "verify-hesitation",
+  "blocking": false,
+  "reason": "The fix replaced baseline 'Ha!' with 'Ach!', but the source has the drawn-out 'A-ach!' (Razumihin is cut off mid-exclamation by the door opening). Keep the source's elongation."
+ },
+ {
+  "chapter": 12,
+  "paragraph": 69,
+  "old": "he isn't cunning, not experienced",
+  "new": "he is not cunning, not experienced",
+  "category": "verify-register",
+  "blocking": false,
+  "reason": "Contraction pass: source 'he is not cunning, not practised' is an emphatic parallel of negations in Razumihin's pronouncement ('I maintain'). 'isn't cunning, not experienced' breaks the parallel and weakens the stress; keep the long form here."
+ },
+ {
+  "chapter": 10,
+  "paragraph": 75,
+  "old": "I wanted to blow him up too",
+  "new": "I wanted to give him a piece of my mind too",
+  "category": "access-vocabulary",
+  "blocking": false,
+  "reason": "\"Blow him up\" is heard as \"explode him\"; the meaning is to scold him."
+ },
+ {
+  "chapter": 11,
+  "paragraph": 73,
+  "old": "in the empty apartment while Nikolay and Dmitri had just run out",
+  "new": "in the empty apartment, which Nikolay and Dmitri had just run out of",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "\"While ... had just run out\" is tense-tangled and hard to parse on first hearing."
+ },
+ {
+  "chapter": 12,
+  "paragraph": 19,
+  "old": "Razumihin continued, whose easy familiarity seemed",
+  "new": "Razumihin continued. His easy familiarity seemed",
+  "category": "access-syntax",
+  "blocking": true,
+  "reason": "The relative clause \"whose\" hangs off the verb instead of a noun, which is ungrammatical."
+ },
+ {
+  "chapter": 12,
+  "paragraph": 27,
+  "old": "His dark mutton-chop whiskers framed both sides nicely, growing thick on his shining, clean-shaven chin.",
+  "new": "His dark mutton-chop whiskers framed his face nicely on both sides, growing thick down around his shining, clean-shaven chin.",
+  "category": "access-syntax",
+  "blocking": true,
+  "reason": "Whiskers \"growing thick on\" a \"clean-shaven chin\" sounds self-contradictory. [verifier-modified: The need is real, but the proposal moves the thick growth to the cheeks. Source: whiskers 'made an agreeable setting on both sides, growing thickly upon his shining, clean-shaven chin' (i.e. thickening toward/around the chin). Keep the thickening at the chin while removing the contradiction.]"
+ }
+]

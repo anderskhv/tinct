@@ -184,9 +184,8 @@
   },
   {
    "index": 6,
-   "verdict": "modify",
-   "new": "And then the great moment came,[*] and",
-   "reason": "Source 12.78 anchors the translator's note with 'the great hour struck,[*]' and 12.79 keeps the note with '[*]'; the candidate dropped the anchor (inherited from baseline), leaving a dangling note. Restore the anchor in the source's position (after the comma), matching 12.79 which already matches the source."
+   "verdict": "reject",
+   "reason": "LEAD OVERRIDE: edition-wide convention for the three translator's notes (12.79, 33.20, 39.42) is a labelled \"Translator's note:\" paragraph with no inline [*] marker (a marker is noise when read aloud). Applied uniformly at assembly. Original verifier reason: Source 12.78 anchors the translator's note with 'the great hour struck,[*]' and 12.79 keeps the note with '[*]'; the candidate dropped the anchor (inherited from baseline), leaving a dangling note. Restore the anchor in the source's position (after the comma), matching 12.79 which already matches the source."
   }
  ]
 }

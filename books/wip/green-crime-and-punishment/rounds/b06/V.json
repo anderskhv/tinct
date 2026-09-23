@@ -1,0 +1,215 @@
+{
+ "verified_clean": [
+  "18.0",
+  "18.1",
+  "18.2",
+  "18.4",
+  "18.5",
+  "18.11",
+  "18.17",
+  "18.20",
+  "18.21",
+  "18.22",
+  "18.23",
+  "18.27",
+  "18.42",
+  "18.63",
+  "18.64",
+  "18.65",
+  "18.66",
+  "18.68",
+  "18.75",
+  "18.80",
+  "18.82",
+  "18.83",
+  "18.90",
+  "18.95",
+  "18.99",
+  "18.100",
+  "18.102",
+  "18.109",
+  "18.111",
+  "18.113",
+  "18.125",
+  "19.0",
+  "19.14",
+  "19.17",
+  "19.25",
+  "19.36",
+  "19.38",
+  "19.40",
+  "19.48",
+  "19.56",
+  "19.58",
+  "19.61",
+  "19.62",
+  "19.65",
+  "19.71",
+  "19.83",
+  "19.84",
+  "19.85",
+  "19.86",
+  "19.87",
+  "19.94",
+  "19.103",
+  "19.105",
+  "19.106",
+  "19.109",
+  "19.116",
+  "19.120",
+  "19.121",
+  "19.125",
+  "19.137",
+  "19.138",
+  "19.139",
+  "19.141",
+  "19.149",
+  "19.154",
+  "19.156",
+  "20.1",
+  "20.6",
+  "20.7",
+  "20.12",
+  "20.13",
+  "20.21",
+  "20.25",
+  "20.26",
+  "20.39",
+  "20.41",
+  "20.48",
+  "20.55",
+  "20.56",
+  "20.57",
+  "20.60",
+  "20.61",
+  "20.68"
+ ],
+ "defects": [
+  {
+   "chapter": 19,
+   "paragraph": 74,
+   "old": "in a phalanstery, one of their socialist communes!",
+   "new": "in a phalanstery, one of their socialist communal houses!",
+   "category": "accuracy",
+   "blocking": false,
+   "reason": "The gloss is broadly right but imprecise: a phalanstery is Fourier's communal building that houses a socialist community, not the community itself. The sentence is about walls, rooms and corridors, so the building sense is the accurate one."
+  },
+  {
+   "chapter": 19,
+   "paragraph": 100,
+   "old": "almost correctly—perhaps perfectly so.",
+   "new": "almost correctly—perhaps, if you like, perfectly so.",
+   "category": "certainty",
+   "blocking": false,
+   "reason": "Source \"perhaps, if you like, perfectly so\": the hedge 'if you like' is dropped, so he concedes more firmly than the source."
+  },
+  {
+   "chapter": 19,
+   "paragraph": 100,
+   "old": "Napoleon, and so on—were without exception",
+   "new": "Napoleon, and so on, were without exception",
+   "category": "grammar",
+   "blocking": false,
+   "reason": "The fidelity edit replaced 'men—Lycurgus' with 'men, such as Lycurgus' but left the closing dash, which now has no opening partner."
+  },
+  {
+   "chapter": 19,
+   "paragraph": 118,
+   "old": "might at last produce one person in a thousand",
+   "new": "might at last produce perhaps one person in a thousand",
+   "category": "certainty",
+   "blocking": false,
+   "reason": "Source \"to bring into the world at last perhaps one man out of a thousand\": his 'perhaps' is dropped, which makes his figure more certain than the source. This passage is his 'roughly, approximately' theory."
+  },
+  {
+   "chapter": 19,
+   "paragraph": 159,
+   "old": "I don't think there was any apartment open. No,",
+   "new": "I don't think there was a flat open anywhere. No,",
+   "category": "consistency",
+   "blocking": false,
+   "reason": "The same paragraph now says 'a flat like that open'; the source says 'a flat open anywhere' both times. Mixing 'flat' and 'apartment' within one answer is the defect the reviewer fixed at 19.62, and 'anywhere' is part of his over-insistence."
+  },
+  {
+   "chapter": 20,
+   "paragraph": 11,
+   "old": "\"At last he sees through Zametov!\"",
+   "new": "\"At last he sees through him!\"",
+   "category": "invented",
+   "blocking": false,
+   "reason": "Source \"At last he sees through him!\" leaves the referent open, and the Russian ('At last he's guessed!') names no one. Naming Zametov adds an interpretation. Directly after 'As for Zametov—', 'him' is already clear to a listener."
+  },
+  {
+   "chapter": 20,
+   "paragraph": 58,
+   "old": "waiting for 'universal happiness.'",
+   "new": "waiting for the 'happiness of all.'",
+   "category": "repetition",
+   "blocking": false,
+   "reason": "The source repeats the quoted slogan 'the happiness of all' four times in this monologue. Varying it to 'universal happiness' breaks the obsessive repetition of a phrase he is quoting."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "accept",
+   "reason": "In the source this is Raskolnikov's inner comment on Razumihin, following 18.94's 'Raskolnikov thought to himself'. The attribution only makes explicit what the source implies."
+  },
+  {
+   "index": 1,
+   "verdict": "accept",
+   "reason": "This is clearly a private thought (he calls Razumihin 'this man' who 'will go to the stake for me'), and the next paragraph begins 'he asked suddenly'. Marking it as a thought is faithful."
+  },
+  {
+   "index": 2,
+   "verdict": "accept",
+   "reason": "Source 'impose on people, or rather to make fun of them'. 'Fool' is faithful and replaces a modern Americanism."
+  },
+  {
+   "index": 3,
+   "verdict": "accept",
+   "reason": "This is his inner monologue (it continues 18.111), and without a tag it follows Razumihin's spoken line. The tag is faithful."
+  },
+  {
+   "index": 4,
+   "verdict": "accept",
+   "reason": "The speaker is Razumihin: he argues against 'environment' and 19.78 continues his argument. The attribution is correct."
+  },
+  {
+   "index": 5,
+   "verdict": "modify",
+   "new": "that good a pretender?",
+   "reason": "Source 'dissembler' means one who pretends or conceals, which fits Porfiry's staged hoaxes. 'Deceiver' adds moral weight. 'Pretender' is plain and keeps the sense."
+  },
+  {
+   "index": 6,
+   "verdict": "accept",
+   "reason": "Garnett leaves the French untranslated. A short appositive gloss is accurate ('long live eternal war') and adds no interpretation."
+  },
+  {
+   "index": 7,
+   "verdict": "accept",
+   "reason": "Both mean killed. 'Did away with' is clearer on first hearing and keeps Zametov's casual register."
+  },
+  {
+   "index": 8,
+   "verdict": "accept",
+   "reason": "The source's Dmitri is the second painter (13.154: 'Nikolay and Dmitri had been painting'). Razumihin is repeatedly addressed as 'Dmitri Prokofitch' and is in the room, so the gloss is factual and prevents a real misreading."
+  },
+  {
+   "index": 9,
+   "verdict": "reject",
+   "reason": "The source says 'two days before' here (20.16) and in 20.17, and 'three days before' in 19.160. The inconsistency is in the source (Garnett); the candidate follows it, so the edition keeps it."
+  },
+  {
+   "index": 10,
+   "verdict": "reject",
+   "reason": "Same as index 9: the source 20.17 reads 'could not have been there two days before'. Follow the source."
+  },
+  {
+   "index": 11,
+   "verdict": "reject",
+   "reason": "The source's 'real _Master_' is a generic type ('those men'), whose allusions the next paragraph resolves by naming Napoleon (20.57). Napoleon was also named in 19.100 and 19.149-150. Inserting 'a Napoleon' makes his feverish thought more explicit than the source."
+  }
+ ]
+}

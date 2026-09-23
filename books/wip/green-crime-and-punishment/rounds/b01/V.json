@@ -1,0 +1,131 @@
+{
+ "verified_clean": [
+  "1.2",
+  "1.4",
+  "1.5",
+  "1.8",
+  "1.9",
+  "1.10",
+  "1.45",
+  "2.6",
+  "2.8",
+  "2.15",
+  "2.17",
+  "2.20",
+  "2.22",
+  "2.24",
+  "2.26",
+  "2.27",
+  "2.28",
+  "2.30",
+  "2.35",
+  "2.39",
+  "2.42",
+  "2.44",
+  "2.45",
+  "2.51",
+  "2.52",
+  "3.1",
+  "3.9",
+  "3.24",
+  "3.39",
+  "3.42",
+  "4.0",
+  "4.1",
+  "4.3",
+  "4.4",
+  "4.6",
+  "4.7",
+  "4.10",
+  "4.12",
+  "4.13",
+  "4.36",
+  "4.48",
+  "4.49",
+  "4.50",
+  "4.51",
+  "5.0",
+  "5.1",
+  "5.2",
+  "5.3",
+  "5.4",
+  "5.7",
+  "5.10",
+  "5.44",
+  "5.59",
+  "5.64",
+  "5.73",
+  "5.75",
+  "6.1",
+  "6.3",
+  "6.4",
+  "6.13",
+  "6.19",
+  "6.21",
+  "6.50",
+  "6.55",
+  "6.61"
+ ],
+ "defects": [
+  {
+   "chapter": 3,
+   "paragraph": 38,
+   "old": "Would you believe that this ridiculous man had been in love",
+   "new": "Would you believe that the crazy fellow had been in love",
+   "category": "meaning",
+   "blocking": false,
+   "reason": "Source: 'Would you believe that the crazy fellow had conceived a passion for Dounia'. The fidelity edit later in this paragraph restored 'treating the crazy fellow too harshly' on the grounds that it echoes her earlier phrase, but the earlier phrase still reads 'this ridiculous man', so the echo is missing. 'Ridiculous' also shifts her pitying 'crazy' toward scorn."
+  },
+  {
+   "chapter": 5,
+   "paragraph": 54,
+   "old": "and jumped up in terror",
+   "new": "and stood up in terror",
+   "category": "meaning",
+   "blocking": false,
+   "reason": "Source: 'and stood up in terror'. The fix from 'sat up' was right, but 'jumped up' adds an abruptness the source does not have. Use the source verb."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "reject",
+   "reason": "Marmeladov deliberately avoids naming it. Putting 'the prostitute's pass' in his mouth breaks his euphemistic, shamed voice and adds an interpretation. His own '(for my daughter holds a yellow passport' follows at once, and 2.22 and 2.35 make the meaning plain."
+  },
+  {
+   "index": 1,
+   "verdict": "accept",
+   "reason": "This is the first time the name appears. The landlady has already been introduced without a name in 3.1 ('His landlady had ... given up sending him in meals'), and the source confirms Praskovya Pavlovna is the landlady. The short appositive adds no new fact and helps a listener."
+  },
+  {
+   "index": 2,
+   "verdict": "reject",
+   "reason": "The source itself prints 'Vassily Ivanovitch Vahrushin' in 3.38 and 'Afanasy Ivanovitch' in 3.39 and 4.6 ('Afanasy Ivanovitch Vahrushin'). The inconsistency is the author's own, so the candidate must follow the source."
+  },
+  {
+   "index": 3,
+   "verdict": "accept",
+   "reason": "The source says only 'the fast of Our Lady'. That is the Dormition fast, which begins on 1 August. 'In August' is accurate, adds no interpretation, and turns an obscure church-calendar reference into a time a listener can place. It fits the letter's July timeframe."
+  },
+  {
+   "index": 4,
+   "verdict": "accept",
+   "reason": "'Lett' means Latvian, and Garnett's 'a Lett with a German master' is a Latvian peasant bound to a Baltic German landowner. 'Latvian peasant' is accurate and keeps the image of servitude through 'with a German master'. It also removes the 'let' mishearing. 'Lett' is also not the period point the lead restored against 'serf', so the meaning is kept."
+  },
+  {
+   "index": 5,
+   "verdict": "accept",
+   "reason": "The source reads 'Lots of our fellows have had dealings with her'. 'Fellows' is the source word, and 'guys' is modern slang."
+  },
+  {
+   "index": 6,
+   "verdict": "reject",
+   "reason": "The source says 'whom the wretched little creature was continually beating'. The grammar is unambiguous: 'whom' is Lizaveta and 'the creature' is the one who beats. The contemptuous 'creature' and the 'little' against six-foot Lizaveta are the student's voice, and b01-F just restored 'little' deliberately."
+  },
+  {
+   "index": 7,
+   "verdict": "reject",
+   "reason": "The source prints 'One flat indeed on the first floor was wide open' and then 'it's two storeys above them'. The mismatch is in the source (Russian and British floor numbering), and the candidate follows the source."
+  }
+ ]
+}
