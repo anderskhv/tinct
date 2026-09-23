@@ -1631,6 +1631,7 @@
           "reason": "changed mention text lacks explicit mapping approval"
         }
       ],
+      "relocatedExactNames": [],
       "reviewEvidenceVerified": {
         "paragraphHashes": 764,
         "changedParagraphs": 301,
@@ -2582,7 +2583,7 @@
           "paragraph": 27
         }
       ],
-      "retainedMentions": 487,
+      "retainedMentions": 504,
       "droppedMentions": [
         {
           "characterId": "jekyll",
@@ -2593,7 +2594,9 @@
           "text": "Henry Jekyll",
           "resolution": "reviewed-name",
           "reason": "source span removed"
-        },
+        }
+      ],
+      "relocatedExactNames": [
         {
           "characterId": "jekyll",
           "chapterNumber": 3,
@@ -2602,7 +2605,9 @@
           "endOffset": 34,
           "text": "Jekyll",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 23,
+          "newEndOffset": 29,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "jekyll",
@@ -2612,7 +2617,9 @@
           "endOffset": 214,
           "text": "Henry Jekyll",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 219,
+          "newEndOffset": 231,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "poole",
@@ -2622,7 +2629,9 @@
           "endOffset": 121,
           "text": "Poole",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 88,
+          "newEndOffset": 93,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "jekyll",
@@ -2632,7 +2641,9 @@
           "endOffset": 40,
           "text": "Jekyll",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 25,
+          "newEndOffset": 31,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "jekyll",
@@ -2642,7 +2653,9 @@
           "endOffset": 29,
           "text": "Jekyll",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 15,
+          "newEndOffset": 21,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2652,7 +2665,9 @@
           "endOffset": 822,
           "text": "Mr. Hyde",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 786,
+          "newEndOffset": 794,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "utterson",
@@ -2662,7 +2677,9 @@
           "endOffset": 38,
           "text": "Utterson",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 21,
+          "newEndOffset": 29,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2672,7 +2689,9 @@
           "endOffset": 986,
           "text": "Hyde",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 976,
+          "newEndOffset": 980,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "enfield",
@@ -2682,8 +2701,9 @@
           "endOffset": 69,
           "text": "Enfield",
           "resolution": "reviewed-name",
-          "projectedText": "Enfield replied",
-          "reason": "changed mention text lacks explicit mapping approval"
+          "newStartOffset": 49,
+          "newEndOffset": 56,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "poole",
@@ -2693,7 +2713,9 @@
           "endOffset": 49,
           "text": "Poole",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 33,
+          "newEndOffset": 38,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "poole",
@@ -2703,8 +2725,9 @@
           "endOffset": 158,
           "text": "Poole",
           "resolution": "reviewed-name",
-          "projectedText": "Pool",
-          "reason": "changed mention text lacks explicit mapping approval"
+          "newStartOffset": 140,
+          "newEndOffset": 145,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "poole",
@@ -2714,7 +2737,9 @@
           "endOffset": 47,
           "text": "Poole",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 36,
+          "newEndOffset": 41,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "utterson",
@@ -2724,8 +2749,9 @@
           "endOffset": 24,
           "text": "Utterson",
           "resolution": "reviewed-name",
-          "projectedText": "Utterson went on",
-          "reason": "changed mention text lacks explicit mapping approval"
+          "newStartOffset": 7,
+          "newEndOffset": 15,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2735,8 +2761,9 @@
           "endOffset": 1002,
           "text": "Hyde",
           "resolution": "reviewed-name",
-          "projectedText": "e",
-          "reason": "changed mention text lacks explicit mapping approval"
+          "newStartOffset": 1015,
+          "newEndOffset": 1019,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2746,8 +2773,9 @@
           "endOffset": 270,
           "text": "Hyde",
           "resolution": "reviewed-name",
-          "projectedText": "e",
-          "reason": "changed mention text lacks explicit mapping approval"
+          "newStartOffset": 249,
+          "newEndOffset": 253,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2757,7 +2785,9 @@
           "endOffset": 90,
           "text": "Hyde",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 72,
+          "newEndOffset": 76,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         },
         {
           "characterId": "hyde",
@@ -2767,7 +2797,9 @@
           "endOffset": 2613,
           "text": "Hyde",
           "resolution": "reviewed-name",
-          "reason": "source span removed"
+          "newStartOffset": 2643,
+          "newEndOffset": 2647,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
         }
       ],
       "reviewEvidenceVerified": {
