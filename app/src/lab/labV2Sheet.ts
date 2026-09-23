@@ -19,7 +19,7 @@ import {
   type LabTheme,
 } from './labPrefs'
 
-export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account'
+export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition'
 
 /**
  * One height, in pixels, for every layer. Capped against the viewport so a
@@ -29,8 +29,8 @@ export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account'
 export const LAB_V2_SHEET_HEIGHT_PX = 452
 
 /** The sheets take more fill than the menu: they carry more, and smaller, type. */
-export const LAB_SHEET_FILL_PAPER = 0.46
-export const LAB_SHEET_FILL_NIGHT = 0.52
+export const LAB_SHEET_FILL_PAPER = 0.9
+export const LAB_SHEET_FILL_NIGHT = 0.9
 
 /** Reading settings offers three themes. "Match system" is not one of them. */
 export const LAB_V2_THEMES: Array<{ theme: LabTheme; label: string }> = [
@@ -105,7 +105,11 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
 ]
 
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: 'Reading settings',
+  reading: 'Settings',
+  editions: 'Book editions',
+  mainEdition: 'Main version',
+  audioEdition: 'Audiobook version',
+  compareEdition: 'Compare version',
   advanced: 'Advanced settings',
   font: 'Font',
   account: 'Account',

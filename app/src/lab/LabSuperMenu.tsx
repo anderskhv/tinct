@@ -10,7 +10,7 @@ export interface LabSuperMenuProps {
 
 /** The monoline icons from the canvas, all on the same 22 px, 1.6 weight. */
 export function RowIcon({ id }: { id: LabSuperMenuId }) {
-  const common = { width: 22, height: 22, viewBox: '0 0 24 24', 'aria-hidden': true } as const
+  const common = { width: 18, height: 18, viewBox: '0 0 24 24', 'aria-hidden': true } as const
   if (id === 'chat') {
     return (
       <svg {...common} fill="none">
@@ -28,7 +28,9 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  if (id === 'library') {
+  if (id === 'summarize') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.1M3 12h.1M3 18h.1" /></svg>
+  if (id === 'library') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18" /></svg>
+  if (id === 'editions') {
     return (
       <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="4" width="4" height="16" rx="0.8" />

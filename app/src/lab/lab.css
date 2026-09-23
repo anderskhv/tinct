@@ -5377,15 +5377,15 @@
    can match, so today's chrome is untouched.
 
    Values come off the reader-chrome canvas (round 8) and the super-button
-   canvas (artboards 16–17): a 16px blur living in the panel, 35% fill on
-   paper and 45% on night, a light dim over a page that is never blurred, a
-   56px icon gutter with 22px icons, 17px labels and 52px rows.
+   canvas (artboards 16–17): a 16px blur living in the panel, 86% fill on
+   paper and 88% on night, a light dim over a page that is never blurred, a
+   40px icon gutter with 18px icons, 16px labels and 44px rows.
    ───────────────────────────────────────────────────────────────────────── */
 
 .lab[data-chrome-version="v2"] {
   --lab-v2-panel-ink: 250, 247, 239;
-  --lab-v2-panel-fill: 0.35;
-  --lab-v2-panel-fill-top: 0.44;
+  --lab-v2-panel-fill: 0.86;
+  --lab-v2-panel-fill-top: 0.92;
   --lab-v2-panel-blur: 16px;
   --lab-v2-page-dim: rgba(28, 24, 18, 0.08);
   --lab-v2-hairline: rgba(32, 26, 19, 0.12);
@@ -5397,8 +5397,8 @@
 
 .lab[data-chrome-version="v2"].is-night {
   --lab-v2-panel-ink: 52, 46, 39;
-  --lab-v2-panel-fill: 0.45;
-  --lab-v2-panel-fill-top: 0.54;
+  --lab-v2-panel-fill: 0.88;
+  --lab-v2-panel-fill-top: 0.94;
   --lab-v2-page-dim: rgba(0, 0, 0, 0.14);
   --lab-v2-hairline: rgba(250, 246, 238, 0.13);
   --lab-v2-chevron: #b8b0a4;
@@ -5416,8 +5416,8 @@
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill)) 42%,
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill))
   );
-  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
-  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  backdrop-filter: blur(16px) saturate(1.06);
+  -webkit-backdrop-filter: blur(16px) saturate(1.06);
   box-shadow: 0 14px 40px rgba(20, 15, 8, 0.2);
 }
 
@@ -5611,17 +5611,17 @@
   position: absolute;
   top: var(--lab-v2-menu-top);
   right: 12px;
-  width: 300px;
+  width: 214px;
   max-width: calc(100% - 24px);
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 22px;
 }
 
 .lab[data-chrome-version="v2"] .lab-super-row {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 52px;
+  min-height: 44px;
   padding: 0 18px 0 0;
   border: 0;
   background: transparent;
@@ -5631,13 +5631,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.lab[data-chrome-version="v2"] .lab-super-row + .lab-super-row {
+.lab[data-chrome-version="v2"] .lab-super-row.has-rule {
+  margin-top: 6px;
   border-top: 1px solid var(--lab-v2-hairline);
 }
 
 .lab[data-chrome-version="v2"] .lab-super-row-icon {
-  flex: 0 0 56px;
-  width: 56px;
+  flex: 0 0 40px;
+  width: 40px;
   display: grid;
   place-items: center;
   color: inherit;
@@ -5650,7 +5651,7 @@
 .lab[data-chrome-version="v2"] .lab-super-row-label {
   flex: 1 1 auto;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
@@ -5697,8 +5698,8 @@
 
 .lab[data-chrome-version="v2"] {
   --lab-v2-sheet-height: min(452px, 88vh);
-  --lab-v2-sheet-fill: 0.46;
-  --lab-v2-sheet-fill-top: 0.55;
+  --lab-v2-sheet-fill: 0.9;
+  --lab-v2-sheet-fill-top: 0.95;
   --lab-v2-well: rgba(251, 248, 242, 0.42);
   --lab-v2-track: rgba(32, 26, 19, 0.14);
   --lab-v2-track-fill: rgba(32, 26, 19, 0.45);
@@ -5708,8 +5709,8 @@
 }
 
 .lab[data-chrome-version="v2"].is-night {
-  --lab-v2-sheet-fill: 0.52;
-  --lab-v2-sheet-fill-top: 0.61;
+  --lab-v2-sheet-fill: 0.9;
+  --lab-v2-sheet-fill-top: 0.95;
   --lab-v2-well: rgba(58, 52, 44, 0.42);
   --lab-v2-track: rgba(250, 246, 238, 0.16);
   --lab-v2-track-fill: rgba(250, 246, 238, 0.5);
@@ -5742,8 +5743,8 @@
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill)) 42%,
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-sheet-fill))
   );
-  backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
-  -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
+  backdrop-filter: blur(16px) saturate(1.06);
+  -webkit-backdrop-filter: blur(16px) saturate(1.06);
   box-shadow: 0 -12px 36px rgba(20, 15, 8, 0.2);
 }
 
@@ -7744,3 +7745,23 @@
 
 .lab[data-chrome-version="v2"] .selection-popup.is-lab[data-popup-mode="colors"] .popup-highlight-palette { animation:lab-palette-reveal 150ms ease-out; }
 @media(prefers-reduced-motion:reduce){.lab[data-chrome-version="v2"] .popup-highlight-palette{animation:none!important}}
+
+/* Edition choices retain the existing bottom card; badges sit beside names. */
+.lab[data-chrome-version="v2"] .lab-v2-editions .lab-v2-row,
+.lab[data-chrome-version="v2"] .lab-v2-rows .lab-v2-row { box-shadow: none; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-link { min-height: 68px; justify-content: space-between; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-current { font: 12px/1.4 'IBM Plex Mono', monospace; opacity: .75; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-divider { height: 1px; background: var(--lab-v2-hairline); margin: 8px 0; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px;
+  padding: 10px 0; border: 0; background: transparent; color: inherit; font: 16px/1.5 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-name { flex: 1; min-width: 0; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-check { width: 18px; margin-left: auto; flex-shrink: 0; }
+.lab[data-chrome-version="v2"] .lab-v2-difficulty { display: inline-block; vertical-align: middle; margin-left: 7px; padding: 2px 7px;
+  border-radius: 20px; background: rgba(128,128,128,.16); border: 1px solid rgba(128,128,128,.3);
+  color: #555; font: 10px/1.4 'IBM Plex Mono', monospace; white-space: nowrap; }
+.lab[data-chrome-version="v2"].is-night .lab-v2-difficulty { color: #d0d0d0; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-option:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 6px; }
+
+/* Literal blur lengths above avoid WebKitGTK's variable-resolution bug:
+   https://bugs.webkit.org/show_bug.cgi?id=289800 */

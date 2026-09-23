@@ -337,8 +337,9 @@ async function languageAcceptance(name, viewport) {
   const before = await pageState(page)
   assert(patternRequests.some(value => value.includes('/en-us-')), 'English patterns must be requested lazily')
   await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-settings').click()
-  await page.getByTestId('lab-v2-main-edition').selectOption('modern-da')
+  await page.getByTestId('lab-super-row-editions').click()
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator('[data-edition="modern-da"]').click()
   await page.waitForFunction(() => {
     const root = document.querySelector('[data-testid="lab-root"]')
     return root?.dataset.readerEdition === 'modern-da' && root.lang === 'da'
@@ -354,7 +355,8 @@ async function languageAcceptance(name, viewport) {
   assert.equal(afterStaleEnglish.lang, 'da')
   assert.deepEqual(afterStaleEnglish.keys, danishKeys, 'late English completion must not repaginate the Danish edition')
   await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-danish.png` })
-  await page.getByTestId('lab-v2-main-edition').selectOption('original-en')
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator('[data-edition="original-en"]').click()
   await page.waitForFunction(() => {
     const root = document.querySelector('[data-testid="lab-root"]')
     return root?.dataset.readerEdition === 'original-en' && root.lang === 'en'

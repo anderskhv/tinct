@@ -128,6 +128,14 @@ jobs:
       - run: npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
       - run: node scripts/check-featured-preview.mjs
+      - name: Verify compact reader menu
+        run: READER_MENU_ONLY=1 node scripts/check-reader-panels.mjs
+      - name: Save menu design screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: menu-design-acceptance
+          path: app/artifacts/reader-panels
       - uses: actions/upload-artifact@v4
         if: always()
         with:

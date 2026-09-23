@@ -256,7 +256,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Chat', 'Talk', 'Library', 'Reading settings', 'Account'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Book editions', 'Settings', 'Library', 'Account'])
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
@@ -264,7 +264,7 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['chat', 'talk', 'library', 'settings', 'account'])
+      .toEqual(['chat', 'talk', 'summarize', 'editions', 'settings', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -285,7 +285,7 @@ describe('the super-menu', () => {
     />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
   })
 
@@ -531,10 +531,10 @@ describe('the V2 surface', () => {
 
   it('blurs in the panel and only dims the page', () => {
     expect(css).toContain('--lab-v2-panel-blur: 16px')
-    expect(css).toContain('--lab-v2-panel-fill: 0.35')
-    expect(css).toContain('--lab-v2-panel-fill-top: 0.44')
-    expect(css).toContain('--lab-v2-panel-fill: 0.45')
-    expect(css).toContain('--lab-v2-panel-fill-top: 0.54')
+    expect(css).toContain('--lab-v2-panel-fill: 0.86')
+    expect(css).toContain('--lab-v2-panel-fill-top: 0.92')
+    expect(css).toContain('--lab-v2-panel-fill: 0.88')
+    expect(css).toContain('--lab-v2-panel-fill-top: 0.94')
     expect(css).toContain('--lab-v2-page-dim: rgba(28, 24, 18, 0.08)')
     expect(css).toContain('--lab-v2-page-dim: rgba(0, 0, 0, 0.14)')
     // The blur belongs to the panel; nothing filters the page itself.
@@ -552,14 +552,14 @@ describe('the V2 surface', () => {
     }
   })
 
-  it('gives the menu its 56px gutter, 22px icons, 17px labels and 52px rows', () => {
-    expect(css).toMatch(/lab-super-row-icon\s*\{[^}]*flex: 0 0 56px/)
-    expect(css).toMatch(/lab-super-row-label\s*\{[^}]*font-size: 17px/)
-    expect(css).toMatch(/lab-super-row\s*\{[^}]*min-height: 52px/)
+  it('gives the menu its 40px gutter, 18px icons, 16px labels and 44px rows', () => {
+    expect(css).toMatch(/lab-super-row-icon\s*\{[^}]*flex: 0 0 40px/)
+    expect(css).toMatch(/lab-super-row-label\s*\{[^}]*font-size: 16px/)
+    expect(css).toMatch(/lab-super-row\s*\{[^}]*min-height: 44px/)
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     for (const icon of screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-icon svg')) {
-      expect(icon.getAttribute('width')).toBe('22')
+      expect(icon.getAttribute('width')).toBe('18')
     }
   })
 })

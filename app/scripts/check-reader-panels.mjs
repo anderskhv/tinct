@@ -261,8 +261,9 @@ async function compareLabel(engine,name){
   try{
     state=await boot(browser,false,'notes-from-underground','original-en')
     const {page}=state
-    await clickMenu(page,'settings')
-    await page.getByTestId('lab-v2-compare-edition').selectOption('modern-en')
+    await clickMenu(page,'editions')
+    await page.getByTestId('lab-v2-compare-edition').click()
+    await page.locator('[data-edition="modern-en"]').click()
     await page.getByTestId('lab-v2-show-compare').click()
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
     const footers=page.getByTestId('lab-desktop-page-footers')
@@ -757,10 +758,59 @@ async function antigoneAudioAvailability(engine,name) {
   finally { await browser.close();results.push(result) }
 }
 
+
+async function menuRedesign(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-new-menu':'desktop-new-menu',live}
+  try {
+    state=await boot(browser,phone,'notes-from-underground','original-en')
+    const {page,requests}=state
+    const place=await page.getByTestId('lab-root').getAttribute('data-place')
+    await page.getByTestId('lab-super').click()
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Book editions','Settings','Library','Account'])
+    assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
+    assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
+    await page.getByTestId('lab-super-row-editions').click()
+    await page.getByTestId('lab-v2-main-edition').click()
+    const modern=page.locator('[data-edition="modern-en"]')
+    assert.match(await modern.innerText(),/Tinct Modern English.*Easy.*AI-generated/s)
+    const original=page.locator('[data-edition="original-en"]')
+    assert.match(await original.innerText(),/Hard/)
+    const neutral=await page.locator('.lab-v2-difficulty').evaluateAll(nodes=>nodes.map(node=>{
+      const s=getComputedStyle(node);return {background:s.backgroundColor,border:s.borderColor}
+    }))
+    assert(neutral.length>=3)
+    assert(neutral.every(item=>JSON.stringify(item)===JSON.stringify(neutral[0])),'all difficulty levels share the same neutral style')
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-editions.png'})
+    await page.getByTestId('lab-v2-sheet-back').click()
+    await page.getByTestId('lab-v2-sheet-close').click()
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
+    await clickMenu(page,'settings')
+    await page.getByTestId('lab-v2-narration-voice').selectOption('male')
+    await page.getByTestId('lab-v2-audio-speed').selectOption('1.25')
+    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
+    await page.getByTestId('lab-v2-sheet-close').click()
+    await clickMenu(page,'summarize')
+    await page.getByText('A compact opening grounded in the selected passage.').waitFor()
+    assert(requests.some(body=>JSON.stringify(body.messages).includes('Recap this chapter.')),'summary uses existing chapter chat')
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
-await designReference()
+if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
+  for(const phone of [false,true])await menuRedesign(engine,name,phone)
+  if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)
   await compareLabel(engine,name)
