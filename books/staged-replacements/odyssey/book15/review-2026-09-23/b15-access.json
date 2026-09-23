@@ -1,0 +1,47 @@
+[
+  {
+    "book": 15,
+    "paragraph": 9,
+    "old": "have something for you as a keepsake from Helen’s hand",
+    "new": "have something for you as a keepsake from my own hand",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "Helen is the speaker (\"I too, my son,\" she said), but mid-sentence she refers to herself in the third person as \"Helen’s hand.\" On audio, a first-time listener may briefly think a second woman is being introduced rather than recognizing self-reference."
+  },
+  {
+    "book": 15,
+    "paragraph": 15,
+    "old": "They swayed the yoke on their necks and traveled all day long",
+    "new": "The horses strained against the yoke on their necks and traveled all day long",
+    "category": "flow",
+    "blocking": false,
+    "reason": "\"Swayed the yoke\" is an unclear, ambiguous verb choice for a modern reader/listener — it's not obvious whether the horses are shaking it off, straining against it, or something else. The image of horses running hard doesn't land clearly."
+  },
+  {
+    "book": 15,
+    "paragraph": 19,
+    "old": "He quarreled with his father and went to live in Hyperesia",
+    "new": "Polypheides quarreled with his father and went to live in Hyperesia",
+    "category": "reference",
+    "blocking": true,
+    "reason": "The pronoun \"He\" is ambiguous: the immediately preceding clause names both Apollo and Amphiaraus (who has just died), and \"his father\" adds a second unnamed referent. A first-time listener has no way to resolve that \"He\" means Polypheides without replaying the sentence."
+  },
+  {
+    "book": 15,
+    "paragraph": 19,
+    "old": "Eos, enthroned in gold, carried off Cleitus for his beauty’s sake",
+    "new": "Dawn, enthroned in gold, carried off Cleitus for his beauty’s sake",
+    "category": "consistency",
+    "blocking": false,
+    "reason": "The dawn goddess is introduced earlier in this same Book as \"Dawn, the rosy-fingered child of morning\" (paragraph 15) but here is suddenly called \"Eos\" with no link back to that identity. A listener has no way to know this is the same figure, and \"Eos\" alone reads as an unexplained proper name."
+  },
+  {
+    "book": 15,
+    "paragraph": 24,
+    "old": "hoisted their white sails with sheets of twisted oxhide",
+    "new": "hoisted their white sails with ropes of twisted oxhide",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Sheets\" is nautical jargon for ropes/lines, but a general reader will default to the everyday meaning (cloth/paper) and picture something like fabric strips holding up the sail, which is confusing and inaccurate to the intended image."
+  }
+]
