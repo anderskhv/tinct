@@ -1,0 +1,74 @@
+[
+  {
+    "chapter": 4,
+    "paragraph": 38,
+    "old": "terrible the storm that struck the gallant vessel on its course and wrecked it — thus!",
+    "new": "and terrible was the storm that struck the gallant vessel on its course and wrecked it — thus!",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "Inverted word order (\"terrible the storm that struck...\") is archaic sentence construction dropped into otherwise modernized prose; a listener would likely have to replay it to parse subject/verb. A more standard order (or simply ending on the more natural 'wrecked it thus!') would read more smoothly aloud."
+  },
+  {
+    "chapter": 5,
+    "paragraph": 8,
+    "old": "one of the schiavi ognor frementi — the \"ever-chafing slaves\"",
+    "new": null,
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The Italian phrase is immediately translated, so the meaning is clear on the page, but a listener hearing an untranslated Italian phrase mid-sentence (with no pronunciation cue) may be jarred or momentarily lose the thread before the gloss lands. Not a comprehension blocker since the English gloss follows immediately."
+  },
+  {
+    "chapter": 6,
+    "paragraph": 1,
+    "old": "characters drawn from the heroes of Roncesvalles, where Roland and Charlemagne's knights made their last stand, King Arthur's Round Table, and the crusading knights who shed their blood to rescue the Holy Sepulchre, Christ's tomb in Jerusalem, from the hands of the infidels",
+    "new": null,
+    "category": "aloud",
+    "blocking": false,
+    "reason": "This single sentence stacks four separate historical/legendary references (Roncesvalles, Arthur's Round Table, the Crusades, the Holy Sepulchre) each with its own parenthetical gloss. Individually each gloss is clear, but strung together in one breath it is a lot to track by ear; breaking it into two sentences would ease the load. Not blocking because each reference is explained as it appears."
+  },
+  {
+    "chapter": 7,
+    "paragraph": 16,
+    "old": "cried the soul of Frankenstein",
+    "new": "cried something within me",
+    "category": "reference",
+    "blocking": false,
+    "reason": "The narration briefly switches from first-person (\"my mind\") to referring to the narrator as \"the soul of Frankenstein\" in the third person, then immediately snaps back to \"I\" (\"will I achieve\"). A first-time reader could momentarily think a different character named Frankenstein has entered the scene, since the surname hasn't yet been directly self-applied by the narrator in this manuscript. Not marked blocking because the surrounding \"I\" sentences make the referent recoverable, but it is a genuine stumble point."
+  },
+  {
+    "chapter": 8,
+    "paragraph": 11,
+    "old": "Cæsar would have spared his country",
+    "new": "Caesar would have spared his country",
+    "category": "consistency",
+    "blocking": false,
+    "reason": "The ligature spelling \"Cæsar\" is the only place in the reviewed chapters where a classical æ-ligature is used; everywhere else in the text spelling is fully modernized. Also, the reference itself (Caesar's ambition costing Rome its republic) is asserted rather than explained, so a reader unfamiliar with that history may not see why the example fits the sentence's point about passion overriding domestic love — though the sentence's overall rhetorical thrust (list of historical disasters) still comes through without it."
+  },
+  {
+    "chapter": 9,
+    "paragraph": 8,
+    "old": "[Coleridge's \"Ancient Mariner.\"]",
+    "new": null,
+    "category": "consistency",
+    "blocking": false,
+    "reason": "This citation is dropped in as its own standalone paragraph immediately after the quoted verse, reading like a stray footnote rather than narration — inconsistent with how the same poem was glossed earlier (in Letter 2, the reference was folded into a full sentence: \"the 'Ancient Mariner' — the sailor in Coleridge's poem who brings disaster on his ship by shooting an albatross\"). In an audio read-through this bracketed citation would be read aloud exactly like a sentence, which is confusing since it isn't one. Not blocking on its own since the verse's sense doesn't depend on the citation, but the inconsistency in handling is worth normalizing."
+  },
+  {
+    "chapter": 10,
+    "paragraph": 8,
+    "old": "He already has one or two little _wives_",
+    "new": "He already has one or two little sweethearts",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Calling a small child's playmates his \"wives\" is an old idiom for childhood crushes; a modern reader could genuinely misread this as literal (confusing, since he's a small child) before the next clause (\"his favorite is Louisa Biron, a pretty little girl of five\") clarifies the joke. A word like \"sweethearts\" would land immediately without needing the following sentence to resolve it."
+  },
+  {
+    "chapter": 14,
+    "paragraph": 3,
+    "old": "We rest; a dream has power to poison sleep. We rise; one wandering thought pollutes the day. We feel, conceive, or reason; laugh or weep, Embrace fond woe, or cast our cares away; It is the same: for, be it joy or sorrow, The path of its departure still is free. Man's yesterday may never be like his morrow; nothing may endure but mutability — change itself!",
+    "new": null,
+    "category": "consistency",
+    "blocking": true,
+    "reason": "This is a quoted poem (Percy Shelley's \"Mutability\") dropped into the narrative with no lead-in (no \"as the poet says,\" no attribution, no visual/verbal marker that a quotation is starting) — it simply follows a plain sentence of first-person narration and then the story resumes on the next paragraph as if nothing shifted. The register lurches from clear modern prose into dense, syntactically inverted verse (\"be it joy or sorrow,\" \"nothing may endure but mutability\") with no signal that a different voice/genre has begun. A first-time reader, and especially a listener with no visual cue that this is set off as verse, would likely be confused about who is speaking and why the language suddenly becomes so much harder to parse. This is a genuine comprehension blocker as currently presented — it needs some framing (even a single clause of narration introducing it as a remembered/quoted poem) to read clearly."
+  }
+]

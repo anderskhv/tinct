@@ -1,0 +1,56 @@
+[
+ {
+  "chapter": 15,
+  "paragraph": 3,
+  "old": "a radiant form rising from among the trees. [The moon] I stared at it in wonder.",
+  "new": "a radiant form rising from among the trees — the moon. I stared at it in wonder.",
+  "category": "flow",
+  "blocking": true,
+  "reason": "The bracketed gloss '[The moon]' reads as an editorial insertion dropped into the middle of the sentence rather than as prose. In an audio narration a listener hears an abrupt, unexplained fragment ('The moon') with no connective tissue — it breaks the sentence's flow and sounds like a stage direction rather than the narrator's own words. Folding it into the sentence (e.g. with a dash) reads naturally and keeps the same information."
+ },
+ {
+  "chapter": 22,
+  "paragraph": 21,
+  "old": "[Wordsworth's \"Tintern Abbey.\"]",
+  "new": "— Wordsworth, \"Tintern Abbey\"",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "A bracketed citation dropped in as its own paragraph is a print-footnote convention that doesn't translate to audio (a listener hears an odd, disconnected fragment right after the quoted verse). It's also inconsistent with how the rest of the text handles borrowed phrases elsewhere in this range (e.g. the unattributed quotation 'the very poetry of nature' two paragraphs earlier, and \"'The path of my departure was free'\" in Chapter 15, both left uncredited). Making attribution consistent — either always crediting quoted lines the same way or never using bracketed footnotes — would read more naturally aloud."
+ },
+ {
+  "chapter": 22,
+  "paragraph": 19,
+  "old": "He was a being formed in \"the very poetry of nature.\"",
+  "new": "He was a being formed in the very poetry of nature.",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "This phrase is set off in quotation marks with no indication of why (no speaker, no citation), unlike the Wordsworth quotation two paragraphs later which gets a bracketed source note. A general listener has no way to know this is itself a borrowed phrase; the quotation marks just read as an odd emphasis. Not blocking on its own, but part of an inconsistent pattern of how quoted/borrowed phrases are marked across this stretch of text."
+ },
+ {
+  "chapter": 19,
+  "paragraph": 5,
+  "old": "'The path of my departure was free,' and there was no one who would mourn my destruction.",
+  "new": "My path was free to go wherever I chose, and there was no one who would mourn my destruction.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "This sentence is dropped in quotation marks mid-paragraph with no signal of who is being quoted or why the register suddenly shifts to a more formal, distanced phrasing. A first-time reader/listener has nothing to anchor it to and will likely read past it as a stray, oddly formal aside without grasping it's meant as a quotation of something. Paraphrasing it into the narrator's own voice keeps the meaning without the confusing unmarked quotation."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 7,
+  "old": "the likable Falkland, the arrogant Goring, his queen, and his son",
+  "new": "the likable Falkland, the arrogant Goring, his queen, and his son — men and women of Charles's own court",
+  "category": "reference",
+  "blocking": false,
+  "reason": "Falkland and Goring are named with no introduction beyond a single adjective each; a general reader/listener unfamiliar with the English Civil War has no way to place who they are relative to Charles I, mentioned in the same paragraph. The adjectives ('likable', 'arrogant') carry some of the sense, so this is a minor stumble rather than a blocking one, but a brief anchoring phrase would help it land while listening rather than reading."
+ },
+ {
+  "chapter": 22,
+  "paragraph": 20,
+  "old": "That had no need of a remoter charm, By thought supplied, or any interest Unborrow'd from the eye.",
+  "new": "That had no need of a remoter charm, By thought supplied, or any interest Unborrow'd from the eye.",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "The inverted syntax and archaic diction ('Unborrow'd from the eye') is genuinely hard to parse on a single listen. Flagging for awareness only, not proposing a change: this is a verbatim quotation of a real historical poem (Wordsworth's Tintern Abbey), and rewriting the poem itself would misrepresent it as something Mary Shelley/the narrator wrote. Not blocking."
+ }
+]
