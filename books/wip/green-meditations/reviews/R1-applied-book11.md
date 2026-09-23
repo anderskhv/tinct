@@ -50,3 +50,14 @@ Sources: `R1-fidelity-book11.md` (1 blocking, 5 minor, 4 ambiguity) and `R1-acce
 New glosses in this pass: "the Spartans" (11.23); "for deciding which impressions to agree to" (11.36). Gloss removed: "neither good nor bad" after "indifferent" (11.15).
 
 All changed passages sent for independent re-verification (`R1-reverify-book11.md`).
+
+## After re-verification R1 (`R1-reverify-book11.md`: 17 clean, 1 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 11.23 | unpaired comma after gloss | Applied verifier's exact text: "The Lacedaemonians—the Spartans—used to set out seats in the shade for strangers at their public shows, but sat down anywhere themselves." |
+| 11.14 | "straightforwardness" vs "simplicity" elsewhere | Kept (the crooked-stick image needs it); recorded in the standard |
+| 11.19 | optional "required of it" | Not applied (Long's "imposed" kept) |
+| 11.17 | typography | Ellipsis normalised to "..." (edition-wide convention) |
+
+Included in the final whole-book re-verification pass.

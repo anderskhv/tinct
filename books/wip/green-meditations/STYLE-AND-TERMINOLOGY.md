@@ -109,3 +109,6 @@ etc.). Peoples take their ordinary English names (the Chaldaeans, the Greeks for
 
 Straight ASCII quotation marks and apostrophes, as in the live edition. Em
 dashes for asides and for the dash-marked objections in Long's dialogues.
+
+- "Simplicity" (ἁπλότης) is the stable rendering; 11.14 (section 15) uses "straightforwardness" where the crooked-stick image requires it.
+- Ellipses are ASCII "..." throughout.
