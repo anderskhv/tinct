@@ -1,0 +1,123 @@
+{
+ "verified_clean": [
+  "30.0",
+  "30.22",
+  "30.34",
+  "30.54",
+  "30.59",
+  "30.61",
+  "30.64",
+  "30.80",
+  "30.85",
+  "30.90",
+  "30.91",
+  "30.93",
+  "30.95",
+  "30.96",
+  "30.97",
+  "30.98",
+  "30.102",
+  "30.113",
+  "30.115",
+  "30.119",
+  "30.126",
+  "30.128",
+  "30.130",
+  "30.136",
+  "30.142",
+  "30.145",
+  "30.147",
+  "30.158",
+  "31.7",
+  "31.9",
+  "31.18",
+  "31.19",
+  "31.21",
+  "31.23",
+  "31.24",
+  "31.26",
+  "31.27",
+  "31.31",
+  "31.33",
+  "31.38",
+  "31.44",
+  "31.46",
+  "31.47",
+  "31.48",
+  "31.52",
+  "31.53",
+  "31.60",
+  "31.61",
+  "31.72",
+  "31.78",
+  "31.80",
+  "31.82",
+  "31.83",
+  "31.85",
+  "31.86",
+  "31.94",
+  "31.100",
+  "31.101",
+  "31.104",
+  "31.105",
+  "31.109"
+ ],
+ "defects": [
+  {
+   "chapter": 30,
+   "paragraph": 134,
+   "old": "Whether I was a trembling creature, or whether I have the _right_",
+   "new": "Whether I am a trembling creature, or whether I have the _right_",
+   "category": "grammar",
+   "blocking": true,
+   "reason": "The restored present-tense 'have the _right_' (source: 'whether I am a trembling creature or whether I have the _right_') now clashes with 'was' in the same clause. The source uses present tense for both halves, so the mixed tense is a break the edit introduced."
+  },
+  {
+   "chapter": 30,
+   "paragraph": 134,
+   "old": "it proved she wasn't one, at least not for me, though she might be for someone",
+   "new": "it proved that for me a human being wasn't one, though it might be for someone",
+   "category": "meaning",
+   "blocking": false,
+   "reason": "Source: 'if I asked myself whether a human being is a louse it proved that it wasn't so for me, though it might be for a man who would go straight to his goal'. The baseline narrows the general 'a human being' to 'she' (the old woman) and adds the hedge 'at least', which reshapes his reasoning."
+  },
+  {
+   "chapter": 31,
+   "paragraph": 11,
+   "old": "a loud, persistent hammering — someone seemed to be hammering...",
+   "new": "a loud, persistent knocking — someone seemed to be hammering...",
+   "category": "style",
+   "blocking": false,
+   "reason": "The restored clause repeats 'hammering' twice in one sentence. The source has 'a loud continuous knocking; someone seemed to be hammering...'."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "accept",
+   "reason": "Sonia's line answers for him ('No, of course not' in the source means he has no cross). 'of course you don't' keeps that meaning and removes the risk of attributing the line to him."
+  },
+  {
+   "index": 1,
+   "verdict": "reject",
+   "reason": "This adds an English translation to Katerina Ivanovna's speech that the source does not have. The chapter's other French (parlez-moi français, Glissez, Cinq sous) is left unglossed, and her order to Lida is clear from context."
+  },
+  {
+   "index": 2,
+   "verdict": "modify",
+   "new": "nearly a pint of blood",
+   "reason": "The anachronism is real, but 'tumblerful' is not in the source either. The source (Garnett) says 'nearly a pint of blood'."
+  },
+  {
+   "index": 3,
+   "verdict": "accept",
+   "reason": "Source: 'At last she asked to be raised'. The subject is Katerina Ivanovna, and the preceding clause ends on Sonia, so naming her is faithful and clearer."
+  },
+  {
+   "index": 4,
+   "verdict": "modify",
+   "new": "She looked at Sonia with a face of suffering.",
+   "reason": "Naming Sonia is right: Katerina looks at Sonia. The source says 'with a face of suffering', and bare 'with suffering' is awkward, so the source phrase is restored."
+  }
+ ]
+}
