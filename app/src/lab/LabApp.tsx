@@ -4461,7 +4461,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'error' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
-        <span title={listen.narration.message} aria-label={listen.narration.message}>Audio couldn’t start.</span>
+        <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
+          ? listen.narration.message
+          : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
+          : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
+          : 'Audio couldn’t start.'}</span>
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
