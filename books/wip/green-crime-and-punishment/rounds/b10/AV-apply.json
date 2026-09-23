@@ -1,0 +1,65 @@
+[
+ {
+  "chapter": 30,
+  "paragraph": 134,
+  "old": "Whether I was a trembling creature, or whether I have the _right_",
+  "new": "Whether I am a trembling creature, or whether I have the _right_",
+  "category": "verify-grammar",
+  "blocking": true,
+  "reason": "The restored present-tense 'have the _right_' (source: 'whether I am a trembling creature or whether I have the _right_') now clashes with 'was' in the same clause. The source uses present tense for both halves, so the mixed tense is a break the edit introduced."
+ },
+ {
+  "chapter": 30,
+  "paragraph": 134,
+  "old": "it proved she wasn't one, at least not for me, though she might be for someone",
+  "new": "it proved that for me a human being wasn't one, though it might be for someone",
+  "category": "verify-meaning",
+  "blocking": false,
+  "reason": "Source: 'if I asked myself whether a human being is a louse it proved that it wasn't so for me, though it might be for a man who would go straight to his goal'. The baseline narrows the general 'a human being' to 'she' (the old woman) and adds the hedge 'at least', which reshapes his reasoning."
+ },
+ {
+  "chapter": 31,
+  "paragraph": 11,
+  "old": "a loud, persistent hammering — someone seemed to be hammering...",
+  "new": "a loud, persistent knocking — someone seemed to be hammering...",
+  "category": "verify-style",
+  "blocking": false,
+  "reason": "The restored clause repeats 'hammering' twice in one sentence. The source has 'a loud continuous knocking; someone seemed to be hammering...'."
+ },
+ {
+  "chapter": 30,
+  "paragraph": 162,
+  "old": "\"No, of course not. Here, take this one",
+  "new": "\"No, of course you don't. Here, take this one",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Sonia answers for him, but \"No, of course not\" sounds like Raskolnikov's reply; the attribution comes only at the end of the paragraph, so a listener assigns the speech to the wrong person."
+ },
+ {
+  "chapter": 31,
+  "paragraph": 70,
+  "old": "nearly half a liter of blood",
+  "new": "nearly a pint of blood",
+  "category": "access-anachronism",
+  "blocking": false,
+  "reason": "A metric 'liter' in a Petersburg official's speech of the 1860s jars with the period world. [verifier-modified: The anachronism is real, but 'tumblerful' is not in the source either. The source (Garnett) says 'nearly a pint of blood'.]"
+ },
+ {
+  "chapter": 31,
+  "paragraph": 73,
+  "old": "At last she asked to be raised up.",
+  "new": "At last Katerina Ivanovna asked to be raised up.",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The preceding sentence ends on Sonia, so 'she' reads as Sonia though it is the dying Katerina Ivanovna who asks."
+ },
+ {
+  "chapter": 31,
+  "paragraph": 77,
+  "old": "She looked at her with suffering.",
+  "new": "She looked at Sonia with a face of suffering.",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Two bare pronouns for two women in one short sentence; naming Sonia makes the look clear to a listener. [verifier-modified: Naming Sonia is right: Katerina looks at Sonia. The source says 'with a face of suffering', and bare 'with suffering' is awkward, so the source phrase is restored.]"
+ }
+]
