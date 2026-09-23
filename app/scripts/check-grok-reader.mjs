@@ -104,7 +104,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   if(chapterBoundary){
    // A saved place opens its containing page. Seek through the reader's own
    // word control so this check starts at the actual final spoken word.
-   await page.locator('.lab-hearing-stage [data-paragraph-index="'+paragraph+'"][data-word-index="'+word+'"]').click()
+   await page.getByTestId('lab-hearing-stage').locator('[data-paragraph-index="'+paragraph+'"][data-word-index="'+word+'"]').click()
    await page.waitForFunction(previous=>Number(document.querySelector('[data-testid="lab-root"]')?.dataset.chapter)!==previous,chapter,{timeout:25000})
    await page.waitForFunction(()=>window.__audio && !window.__audio.paused && window.__audio.currentTime>0.05,null,{timeout:20000})
    chapterHandoff={from:chapter,to:Number(await page.getByTestId('lab-root').getAttribute('data-chapter')),playing:true}
