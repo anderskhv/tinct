@@ -1,0 +1,70 @@
+name: Voice audition — Frankenstein
+on:
+  push:
+    branches: [codex/voice-audition-20260923]
+    paths: [.github/workflows/voice-audition.yml]
+permissions:
+  contents: read
+concurrency:
+  group: voice-audition-20260923
+  cancel-in-progress: false
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Install audio validator
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate four matched samples
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          FISH_AUDIO_API_KEY: ${{ secrets.FISH_AUDIO_API_KEY }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os, json, pathlib, urllib.request, urllib.error, subprocess
+          out=pathlib.Path("voice-samples")
+          out.mkdir(exist_ok=True)
+          text="I am by birth a Genevese, and my family is one of the most distinguished of that republic. My ancestors had been for many years counsellors and syndics, and my father had filled several public situations with honour and reputation. He was respected by all who knew him for his integrity and indefatigable attention to public business. He passed his younger days perpetually occupied by the affairs of his country; a variety of circumstances had prevented his marrying early, nor was it until the decline of life that he became a husband and the father of a family."
+          (out/"passage.txt").write_text(text+"\n")
+          items=[
+          ("11-grok-ara","Grok TTS · Ara","Grok TTS","ara","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"ara","language":"en"}),
+          ("12-grok-orion","Grok TTS · Orion","Grok TTS","orion","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"orion","language":"en"}),
+          ("13-fish-abby","Fish S2.1 Pro · Abby","s2.1-pro","f6a19fe5ab494e1fa51bb1476d583a44","FISH_AUDIO_API_KEY","https://api.fish.audio/v1/tts",{"text":text,"reference_id":"f6a19fe5ab494e1fa51bb1476d583a44","format":"mp3","latency":"normal"}),
+          ("14-fish-nathan","Fish S2.1 Pro · Nathan","s2.1-pro","bbb58d698b5f46719fd04688dfac7359","FISH_AUDIO_API_KEY","https://api.fish.audio/v1/tts",{"text":text,"reference_id":"bbb58d698b5f46719fd04688dfac7359","format":"mp3","latency":"normal"})]
+          rows=[]
+          for name,label,model,voice,secret,url,body in items:
+           key=os.environ.get(secret,"").strip()
+           if not key:
+            rows.append({"file":name+".mp3","label":label,"error":"Missing repository secret "+secret})
+            print(label+": missing secret",flush=True)
+            continue
+           headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"}
+           if model=="s2.1-pro": headers["model"]=model
+           try:
+            req=urllib.request.Request(url,data=json.dumps(body).encode(),headers=headers)
+            with urllib.request.urlopen(req,timeout=150) as response: data=response.read()
+            f=out/(name+".mp3");f.write_bytes(data)
+            subprocess.run(["ffmpeg","-v","error","-i",str(f),"-f","null","-"],check=True,capture_output=True)
+            duration=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1",str(f)]))
+            if not 15<duration<90: raise ValueError("Unexpected audio duration")
+            rows.append({"file":f.name,"label":label,"model":model,"voice":voice,"request":body,"duration_seconds":duration})
+            print(label+": generated and decoded, "+str(round(duration,1))+" seconds",flush=True)
+           except Exception as e:
+            if isinstance(e,urllib.error.HTTPError):
+             reason="HTTP "+str(e.code)
+            else: reason=type(e).__name__
+            (out/(name+".mp3")).unlink(missing_ok=True)
+            rows.append({"file":name+".mp3","label":label,"error":reason})
+            print(label+": "+reason,flush=True)
+          (out/"manifest.json").write_text(json.dumps(rows,indent=2))
+          if any("error" in r for r in rows): raise SystemExit(1)
+          PY
+      - name: Save audio and generation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frankenstein-grok-fish-samples
+          path: voice-samples/
+          retention-days: 14
+          if-no-files-found: error
