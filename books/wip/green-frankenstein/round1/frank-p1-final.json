@@ -1,0 +1,596 @@
+[
+ {
+  "chapter": 1,
+  "paragraph": 1,
+  "old": "St. Petersburg,",
+  "new": "St. Petersburgh,",
+  "category": "other",
+  "blocking": false,
+  "reason": "Source prints the place name 'St. Petersburgh'; rules forbid normalizing source proper nouns (sounds identical aloud)."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "streets of Petersburg,",
+  "new": "streets of Petersburgh,",
+  "category": "other",
+  "blocking": false,
+  "reason": "Source spelling 'Petersburgh' preserved per proper-noun rule."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "Inspired by it,",
+  "new": "Inspired by this wind of promise,",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'Inspirited by this wind of promise' — the image of the promising wind is dropped."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "Its features may be unlike anything known, just as the heavenly bodies behave strangely in those unexplored regions.",
+  "new": "What it produces and how it looks may be unlike anything known, just as the phenomena of the heavens undoubtedly are in those unexplored regions.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'Its productions and features may be without example, as the phenomena of the heavenly bodies undoubtedly are' — 'productions' and the certainty 'undoubtedly' are lost, and 'behave strangely' is an added claim."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "I may make a thousand astronomical observations that only this voyage can confirm.",
+  "new": "I may bring order to a thousand astronomical observations whose apparent irregularities need only this voyage to be explained for good.",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Source 'may regulate a thousand celestial observations that require only this voyage to render their seeming eccentricities consistent for ever' is about reconciling existing observations, not making new ones."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "setting out in a little boat on his first adventure up the river.",
+  "new": "setting out in a little boat with his holiday friends to explore the river near his home.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'embarks in a little boat, with his holiday mates, on an expedition of discovery up his native river' — companions and 'native' river dropped, 'first' invented."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 3,
+  "old": "benefit I'll bring to all of humanity by discovering a passage near the pole, or by unlocking the secret of magnetism — something that can only be achieved by an expedition like mine.",
+  "new": "benefit I'll bring to all of humanity, down to the last generation, by discovering a passage near the pole to those countries that now take so many months to reach, or by unlocking the secret of the magnet — something that, if it can be done at all, can only be achieved by an expedition like mine.",
+  "category": "omission",
+  "blocking": true,
+  "reason": "Source includes 'to the last generation', 'to those countries, to reach which at present so many months are requisite', and the hedge 'if at all possible'; all three are missing."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 4,
+  "old": "an enthusiasm that lifts me up,",
+  "new": "an enthusiasm that lifts me to heaven,",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'an enthusiasm which elevates me to heaven' — the image is flattened."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 6,
+  "old": "I must admit I felt proud",
+  "new": "I must admit I felt a little proud",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source hedge 'I felt a little proud' dropped."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 9,
+  "old": "If I succeed, many months,",
+  "new": "If I succeed, many, many months,",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source's deliberate repetition 'many, many months' flattened."
+ },
+ {
+  "chapter": 1,
+  "paragraph": 10,
+  "old": "so that I may again show my gratitude",
+  "new": "so that I may show my gratitude again and again",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'again and again testify my gratitude' — the repetition is reduced to a single 'again'."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 3,
+  "old": "someone who could improve or refine my plans. How such a friend would correct my faults!",
+  "new": "someone who could approve or amend my plans. How such a friend would make up for the faults of your poor brother!",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'to approve or amend my plans' (not 'improve or refine') and 'repair the faults of your poor brother' (self-pitying address lost)."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 3,
+  "old": "but they lack — as painters say — \"keeping.\"",
+  "new": "but they lack what painters call \"keeping\" — the proper balance and proportion among the parts of a picture.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "The painters' term 'keeping' (harmony/proportion of parts in a painting) is opaque to a listener; one brief accurate gloss."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 4,
+  "old": "He's madly ambitious for advancement in his profession.",
+  "new": "He's madly eager for glory — or rather, to put it in terms that suit him better, for advancement in his profession.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'madly desirous of glory, or rather, to word my phrase more characteristically, of advancement' — Walton's ironic self-correction is lost."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 5,
+  "old": "When I heard of a captain equally noted",
+  "new": "When I heard of a sailor equally noted",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'a mariner'; 'captain' is confusing aloud since Walton himself is 'our captain' and this man is the master."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 5,
+  "old": "Having saved a considerable sum in prize money, the girl's father agreed to the match.",
+  "new": "Because he had saved a considerable sum in prize money, the girl's father agreed to the match.",
+  "category": "aloud",
+  "blocking": true,
+  "reason": "Dangling modifier makes the father the one who saved the prize money; source means the master had amassed it."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 5,
+  "old": "He's as silent as a stone,",
+  "new": "He's as silent as a Turk,",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source simile 'as silent as a Turk' replaced with a different image; rules say do not soften period language."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 6,
+  "old": "It may be a remarkably early season, so perhaps",
+  "new": "People consider it a remarkably early season, so perhaps",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'it is considered as a remarkably early season' is a stated fact, not a possibility; the hedge belongs only to the sailing date."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 7,
+  "old": "as worn and woeful as the \"Ancient Mariner.\"",
+  "new": "as worn and woeful as the \"Ancient Mariner\" — the sailor in Coleridge's poem who brings disaster on his ship by shooting an albatross.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "The albatross joke depends on knowing Coleridge's Rime of the Ancient Mariner; brief accurate gloss at first need."
+ },
+ {
+  "chapter": 2,
+  "paragraph": 8,
+  "old": "I may receive your letters when I need them most.",
+  "new": "I may receive your letters when I need them most to keep my spirits up.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'when I need them most to support my spirits' — purpose dropped."
+ },
+ {
+  "chapter": 3,
+  "paragraph": 3,
+  "old": "the southern winds that blow us toward my destination carry",
+  "new": "the southern winds that blow us swiftly toward the shores I so long to reach carry",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'blow us speedily towards those shores which I so ardently desire to attain' — speed and Walton's ardor dropped."
+ },
+ {
+  "chapter": 3,
+  "paragraph": 6,
+  "old": "with the very stars as witnesses to my progress.",
+  "new": "with the very stars as witnesses to my triumph.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'witnesses and testimonies of my triumph' — 'progress' weakens Walton's hubris."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 3,
+  "old": "Our situation was dangerous,",
+  "new": "Our situation was somewhat dangerous,",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source hedge 'somewhat dangerous' dropped."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 4,
+  "old": "Sitting in it was a figure shaped like a man",
+  "new": "Sitting in it was a being shaped like a man",
+  "category": "epithet",
+  "blocking": true,
+  "reason": "Source 'a being which had the shape of a man' — first sighting of the Creature; narrator's term 'being' should be kept."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 4,
+  "old": "We watched through our telescopes as the traveler disappeared",
+  "new": "We watched the traveler's rapid progress through our telescopes until he disappeared",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'We watched the rapid progress of the traveller' — speed dropped."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 5,
+  "old": "Yet this figure seemed to prove",
+  "new": "Yet this apparition seemed to suggest",
+  "category": "epithet",
+  "blocking": false,
+  "reason": "Source 'this apparition seemed to denote' — narrator's term 'apparition' neutralized, and 'prove' overstates 'denote'/'seemed'."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 11,
+  "old": "as if crushed by the weight of his misery.",
+  "new": "as if he could not bear the weight of misery pressing on him.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'as if impatient of the weight of woes that oppresses him' — impatience/chafing, not being crushed."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 18,
+  "old": "It would be deeply wrong of me to trouble you with my own curiosity.",
+  "new": "It would be rude and heartless of me to trouble you with my own curiosity.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'very impertinent and inhuman' — the two specific faults are generalized away."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 23,
+  "old": "I would have been proud to call",
+  "new": "I would have been happy to call",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'I should have been happy to have possessed'."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 27,
+  "old": "One man's life or death seemed a small price for the knowledge I sought, for the power I would gain over the forces of nature.",
+  "new": "One man's life or death was only a small price to pay for the knowledge I sought, and for the mastery I would win over nature's forces — the enemies of our race — and hand down to those who came after.",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Source 'were but a small price ... for the dominion I should acquire and transmit over the elemental foes of our race' — 'seemed' softens Walton's declaration, and 'transmit' and 'foes of our race' are lost."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 30,
+  "old": "and so I'm qualified to judge.",
+  "new": "and so I'm qualified to judge what friendship is.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'entitled, therefore, to judge respecting friendship' — the object of judgment is dropped, leaving it vague aloud."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 33,
+  "old": "this extraordinary wanderer?",
+  "new": "this divine wanderer?",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'this divine wanderer' — Walton's exalted term is flattened."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 35,
+  "old": "that would provoke laughter elsewhere.",
+  "new": "that would make people laugh if they had never seen how endlessly varied nature's powers are.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'would provoke the laughter of those unacquainted with the ever-varied powers of nature' — the reason is dropped."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 36,
+  "old": "You can imagine how eager I was to hear him,",
+  "new": "You can imagine how pleased I was by his offer,",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'I was much gratified by the offered communication'; eagerness is stated in the next sentence, so the candidate says it twice."
+ },
+ {
+  "chapter": 4,
+  "paragraph": 38,
+  "old": "with what interest I'll reread it someday!",
+  "new": "with what interest and sympathy I'll reread it someday!",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'with what interest and sympathy shall I read it'."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 0,
+  "old": "with honor and integrity. Everyone who knew him respected his dedication to public service.",
+  "new": "with honor and a fine reputation. Everyone who knew him respected his integrity and his tireless dedication to public service.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source: offices filled 'with honour and reputation'; respected 'for his integrity and indefatigable attention' — integrity moved to the wrong sentence and 'reputation'/'indefatigable' lost."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 0,
+  "old": "counselors and syndics for many years.",
+  "new": "counselors and syndics — chief magistrates of Geneva — for many years.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "'Syndics' is unfamiliar to most listeners; syndics were Geneva's chief magistrates."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 2,
+  "old": "while he hoped to find respectable employment. But the waiting was spent in idleness.",
+  "new": "while he hoped to find respectable employment in a merchant's house. So the waiting was spent in idleness.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'employment in a merchant's house. The interval was, consequently, spent in inaction' — place dropped and causal 'consequently' turned into contrastive 'But'."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 5,
+  "old": "he'd been hurt by the unworthiness of someone he'd loved,",
+  "new": "he'd been hurt by discovering, too late, the unworthiness of someone he'd loved,",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'the late-discovered unworthiness of one beloved' — the lateness of the discovery is the point."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 6,
+  "old": "Deeply attached to each other, they seemed to draw inexhaustible stores of affection to pour upon me.",
+  "new": "As attached as they were to each other, they seemed to draw inexhaustible stores of affection from a very mine of love to pour upon me.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'Much as they were attached to each other ... from a very mine of love' is concessive and has the mine image; both lost."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 6,
+  "old": "whose future happiness or misery lay in their hands.",
+  "new": "whom they were to raise to be good, and whose future happiness or misery lay in their hands, depending on how well they fulfilled their duties toward me.",
+  "category": "omission",
+  "blocking": true,
+  "reason": "Source 'whom to bring up to good, and whose future lot it was in their hands to direct to happiness or misery, according as they fulfilled their duties towards me' — the condition on parental duty (thematically central) is dropped."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 6,
+  "old": "what they owed to the life they'd created,",
+  "new": "what they owed to the being they had given life to,",
+  "category": "other",
+  "blocking": false,
+  "reason": "Source 'what they owed towards the being to which they had given life' — the novel's key parental-duty phrasing about a 'being' given life is flattened."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 6,
+  "old": "Yet I was guided so gently that",
+  "new": "Yet I was guided so gently, as if by a silken cord, that",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source image 'guided by a silken cord' dropped."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 7,
+  "old": "Half-clothed children gathered around it, speaking of extreme poverty.",
+  "new": "The crowd of half-clothed children gathered around it spoke of poverty in its worst form.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Aloud the participle makes the children 'speaking'; source 'the number of half-clothed children ... spoke of penury in its worst shape' (number dropped too)."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 7,
+  "old": "She found a peasant and his wife, bent with care",
+  "new": "She found a peasant and his wife, hardworking and bent with care",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'hard working, bent down by care and labour'."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 7,
+  "old": "Among them was one who stood out from the rest.",
+  "new": "Among them was one who drew my mother far more than all the rest.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'one which attracted my mother far above all the rest' — the mother's response is the subject; candidate makes it an objective claim."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 8,
+  "old": "The baby had been placed with these good people as a nurse.",
+  "new": "The baby had been placed with these good people to be nursed.",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Candidate makes the baby the nurse; source 'placed with these good people to nurse' means placed in their care to be nursed."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 8,
+  "old": "one of the rebels who fought for his country's freedom.",
+  "new": "one of the schiavi ognor frementi — the \"ever-chafing slaves\" — who worked to win his country's freedom.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source quotes the Italian phrase 'schiavi ognor frementi' and says he 'exerted himself to obtain the liberty'; quotation dropped and 'rebels who fought' is an interpretation. Brief literal gloss keeps it followable aloud. [lead: italic underscores removed to match candidate house style]"
+ },
+ {
+  "chapter": 5,
+  "paragraph": 9,
+  "old": "whose movements were lighter than a mountain deer's.",
+  "new": "whose form and movements were lighter than those of a chamois, the nimble wild goat of the hills.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'lighter than the chamois of the hills' — a chamois is not a deer; keep the named animal with a brief gloss (and 'form')."
+ },
+ {
+  "chapter": 5,
+  "paragraph": 10,
+  "old": "The passionate, almost reverential devotion everyone felt for her became my pride and delight.",
+  "new": "The passionate, almost reverential devotion everyone felt for her, which I shared, became my pride and delight.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'became, while I shared it, my pride and my delight' — Victor's sharing of the devotion is dropped."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 1,
+  "old": "about three miles from the city.",
+  "new": "a little more than three miles from the city.",
+  "category": "other",
+  "blocking": false,
+  "reason": "Source 'rather more than a league' — the 'rather more than' is dropped."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 1,
+  "old": "the heroes of Roncesvalles, King Arthur's Round Table, and the crusaders who shed their blood to reclaim the Holy Land.",
+  "new": "the heroes of Roncesvalles, where Roland and Charlemagne's knights made their last stand, King Arthur's Round Table, and the crusading knights who shed their blood to rescue the Holy Sepulchre, Christ's tomb in Jerusalem, from the hands of the infidels.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "Source 'the chivalrous train who shed their blood to redeem the holy sepulchre from the hands of the infidels' is generalized; Roncesvalles and the Holy Sepulchre get brief accurate glosses."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 3,
+  "old": "the mysterious depths of the human mind, my inquiries were always directed toward the fundamental secrets of the world.",
+  "new": "the mysterious soul of man, my inquiries were always directed toward the metaphysical secrets of the world — or, in the highest sense of the word, its physical secrets.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'the mysterious soul of man' and 'directed to the metaphysical, or in its highest sense, the physical secrets' — soul→mind shift and the metaphysical/physical distinction erased."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 4,
+  "old": "shone like a lamp in our peaceful home.",
+  "new": "shone like a lamp in a shrine in our peaceful home.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'like a shrine-dedicated lamp' — the sacred image is dropped. [lead: wording simplified]"
+ },
+ {
+  "chapter": 6,
+  "paragraph": 4,
+  "old": "but she was there to draw out my gentleness.",
+  "new": "but she was there to soften me into something like her own gentleness.",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Source 'she was there to subdue me to a semblance of her own gentleness' — the gentleness is hers imposed on him, not his drawn out."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 4,
+  "old": "Perhaps. But he might not have been so perfectly humane, so generous and kind",
+  "new": "Yet he might not have been so perfectly humane, so thoughtful in his generosity, so full of kindness and tenderness",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Candidate adds 'Perhaps.', answering the source's rhetorical question 'could aught ill entrench on the noble spirit of Clerval?' in the opposite sense; also drops 'thoughtful' and 'tenderness'."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 5,
+  "old": "bright visions of purpose",
+  "new": "bright visions of being widely useful",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'bright visions of extensive usefulness' — contrasts with 'narrow reflections upon self'."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 6,
+  "old": "There I happened to find a book by Cornelius Agrippa.",
+  "new": "There I happened to find a volume of the works of Cornelius Agrippa, the sixteenth-century writer on magic and the occult.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "The whole chapter turns on Agrippa; a listener needs to know he was a Renaissance occultist to follow the father's dismissal."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 6,
+  "old": "but his theories and the extraordinary claims he made quickly",
+  "new": "but the theory he tries to prove and the wonderful facts he relates quickly",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'the theory which he attempts to demonstrate and the wonderful facts which he relates' — 'claims' imports modern skepticism the narrator withholds here."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 7,
+  "old": "I would certainly have tossed the book aside and returned eagerly to my previous studies.",
+  "new": "I would certainly have tossed Agrippa aside and satisfied my imagination, fired up as it was, by returning with greater enthusiasm to my previous studies.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'have contented my imagination, warmed as it was, by returning with greater ardour' — the imagination clause is dropped."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 8,
+  "old": "His successors in every branch of natural science seemed to me",
+  "new": "Those of his successors I knew of, in every branch of natural science, seemed to me",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'Those of his successors ... with whom I was acquainted' limits the claim; candidate generalizes to all successors."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 9,
+  "old": "But the underlying causes — not to mention any ultimate cause — were utterly unknown to him.",
+  "new": "But even the secondary and tertiary causes of things — not to mention any final cause — were utterly unknown to him.",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'not to speak of a final cause, causes in their secondary and tertiary grades were utterly unknown' — the graded causes are lost."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 12,
+  "old": "Nothing remained but a charred stump.",
+  "new": "Nothing remained but a blasted stump.",
+  "category": "addition",
+  "blocking": false,
+  "reason": "Source 'a blasted stump'; 'charred' adds burning, while the next sentences stress shattering into ribbons."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 13,
+  "old": "he explained a theory he'd developed about electricity and galvanism.",
+  "new": "he explained a theory he'd developed about electricity and galvanism — the electricity produced by chemical action, famous for making the muscles of dead animals twitch.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "'Galvanism' is unfamiliar and essential to the novel; brief gloss accurate to Galvani's experiments."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 13,
+  "old": "as a deformed creation",
+  "new": "as a deformed and abortive creation",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Source 'a deformed and abortive creation' — 'abortive' dropped from a phrase that foreshadows the Creature."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 14,
+  "old": "abandonment of those ancient, tormenting studies.",
+  "new": "abandonment of my old studies, which had lately become a torment.",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Source 'my ancient and latterly tormenting studies' — 'ancient' means former (not antique), and 'latterly' is dropped."
+ }
+]
