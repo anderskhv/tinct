@@ -1,0 +1,35 @@
+{
+ "verified_clean": [
+  "12.79",
+  "33.20",
+  "8.121",
+  "8.123",
+  "8.124",
+  "8.125",
+  "17.5",
+  "17.65",
+  "25.23",
+  "19.158",
+  "20.12"
+ ],
+ "defects": [
+  {
+   "chapter": 7,
+   "paragraph": 34,
+   "old": "He could hear his heavy breathing. And now he had reached the third floor. Coming here!",
+   "new": "He could hear the stranger's heavy breathing. And now the third floor had been reached. Coming here!",
+   "category": "meaning",
+   "blocking": true,
+   "reason": "Source: 'Now _he_ had passed the first floor... He could hear his heavy breathing. And now the third storey had been reached. Coming here!' The breathing is the climber's, marked by the italic _he_. In the modern text, 'He could hear his heavy breathing' most naturally reads as Raskolnikov hearing his own breath, which reverses the edit's intended fix. The added subject in 'he had reached the third floor' also reads as Raskolnikov, who is already on the fourth floor. Naming the stranger (the text's own 'the unknown' in 7.35) settles whose breathing it is. Restoring the source's subjectless passive keeps the clipped, approaching tension."
+  },
+  {
+   "chapter": 15,
+   "paragraph": 48,
+   "old": "your _fiance_ is a scoundrel",
+   "new": "your _fiancé_ is a scoundrel",
+   "category": "consistency",
+   "blocking": false,
+   "reason": "The assembly edit accented 'fiancée' in this paragraph but left the source's italic '_fiancé_' unaccented. Source: 'your _fiancé_ is a scoundrel'. The edition's other uses are 12.25 and 17.86 '_fiancé_'."
+  }
+ ]
+}
