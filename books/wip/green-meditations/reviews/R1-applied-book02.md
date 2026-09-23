@@ -42,3 +42,7 @@ All changed passages sent for independent re-verification (`R1-reverify-book02.m
 | 2.16 | "stuff we are made of … made of stuff that rots" echo | Applied: "the whole body, as it is put together, is bound to rot" |
 
 Changed passages (2.2, 2.14, 2.16) sent to a second re-verification (`R2-reverify-book02.md`).
+
+## After re-verification R2 (`R2-reverify-book02.md`: 2.2 and 2.14 clean; 2.16 minor)
+
+| 2.16 | "bound to rot" overstates Long's "subject to putrefaction" | Applied the verifier's exact proposed text: "is prone to rot". The one-word change is included in the final whole-book re-verification pass. |
