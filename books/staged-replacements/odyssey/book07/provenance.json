@@ -1,0 +1,98 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 7,
+  "title_source": "Book 7 — Reception of Ulysses at the palace of king Alcinous",
+  "title_candidate": "Book 7 — Reception of Odysseus at the palace of king Alcinous",
+  "title_note": "Mapped through the closed table by scripts/build_book_package.py; the one row that fires is Ulysses -> Odysseus. Butler's lower-case 'king' in the TITLE is left exactly as he set it, because the build maps names and nothing else; the body normalizes 'king Alcinous' to 'King Alcinous' as an ordinary modern title-before-a-name, and the divergence is recorded in continuity.md rather than hidden.",
+  "paragraphs": 29,
+  "extraction": "found by chapter.number == 7 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book7_json_sha256": "1c3c67f99747b2e919845a310867f190e592131be953b34e4f5b66c895d35152",
+ "candidate_v1_json_sha256": "bf8cf2f76f4670daab55daf1da265ba7b1839c0cd6680e3c5691fac8d382dc33",
+ "candidate_v1_readable_md_sha256": "7ca1fbf2e313ec7832644a2ce64469bc9ecf2211d8acc410b718e5d43a5bcd4f",
+ "manifest_json_sha256": "af2a24457ea4156f0cfdd500457d852799d7b867c2d104261ae717903a20511d",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read). The served odyssey-modern-en.json was NOT opened at all for this Book.",
+ "source_verification": {
+  "script": "scripts/verify_source_book7.py",
+  "method": "A TENTH kind of rule, and the first that reads no character of Butler's at all in its locating clause. The nine rules used before are all about the text - needles, headings in bytes, a digit-blind token block, occurrence-unique needles, paragraph fingerprints, residue, a global monotone diff, a suffix-automaton resemblance profile, and letter-blind typographic shape - and even the ninth, which destroys every letter, still reads his punctuation and his word lengths. This one's instrument is PG #1727 as a PUBLISHED ARTEFACT: the transcriber's hard wrapping. The whole file is cut into blank-line blocks and each block is reduced to ONE INTEGER, its line count. The served chapter is reduced the same way. Twenty-nine integers locate it.",
+  "premise_asserted_not_assumed": "Clause 0. The rule is only available because the served odyssey-original-en.json PRESERVES PG's line breaks inside its paragraph strings - the newlines are still there - so the chapter already carries PG's typesetting and its line counts are read off rather than re-wrapped and guessed. 29 of 29 served paragraphs carry them, and the assertion fails the rule if fewer than 26 do.",
+  "result": "The 29-integer signature [10, 6, 3, 7, 7, 10, 6, 8, 9, 16, 18, 11, 7, 4, 8, 10, 3, 17, 13, 11, 15, 15, 17, 3, 4, 16, 3, 7, 3] occurs EXACTLY ONCE in the file's 1,382 blocks, at block 314. Characters restored at the located blocks are character-identical to the served paragraphs once PG's footnote numerals are removed; both ends printed.",
+  "second_best_match": "4 blocks, REPORTED rather than bounded, at signature offset 24 and block 530 - the Book 6 drafter's discipline, and it is the clause the audit had to repair twice before it meant anything.",
+  "the_apparatus_as_an_ordinal_index": "Clause 4, and it is the half of the rule that uses Butler's own edition against itself. His footnote numerals run straight through the poem, so they are an ordinal index and a gap inside one chapter would mean the span had jumped. The located span carries 57, 58, 59, 60, 61, 62, 63, 64 - a contiguous ascending run of eight.",
+  "audit_of_the_rule": "FAILED THREE TIMES as first written, which is now the package's expectation rather than its surprise. (1) The block splitter kept leading and trailing newlines wherever PG separates blocks by three or more - which it does at every chapter boundary - so every line count was too high and the signature occurred ZERO times; the rule REPORTED the zero, and the block total was identical either way, so nothing else looked wrong. Clause 1 now fails on any count that is not exactly 1. (2) Clause 2 excluded only the occurrence beginning at the true start, so the 28-value run at signature offset 1 was 'found' one block along - inside the chapter - and the rule announced that the longest shape shared with anywhere else was 28 blocks, about a chapter 29 blocks long. Every OVERLAPPING occurrence is now excluded and the answer is 4. (3) Control D's re-wrap turned a line break into a space and inserted another forty characters on: a real change to the text and exactly zero change to the line count, so clause (b) failed, correctly - that is a re-wrap to the SAME HEIGHT, which is inside the declared blindness.",
+  "verdict_shape": "The verdict is the PAIR (occurrences, last recovered block) = (1, 342), never a count alone. A prefix of a unique sequence is also unique, so an occurrence count cannot see a truncation - the blindness that caught Book 6's review rule.",
+  "negative_controls": "Four, under D18 (scripts/controls.py), each asserting BOTH that its mutation changed the input and that the verdict changed: the chapter truncated by one paragraph, two paragraphs merged into one block, two paragraphs of unequal length swapped, and one paragraph re-wrapped to a different height without one character changing.",
+  "declared_blindness": "Two, each naming the check that carries the class: (1) any change that leaves every paragraph's LINE COUNT alone - a changed letter, a changed word - because the locating instrument is twenty-nine integers and reads no character of Butler's, which is the whole point of using a tenth channel; carried by clause 3 of this same rule, and by the nine earlier rules, every one of which reads the letters. (2) A defect PG itself carries; carried by PROVENANCE.md section 1.",
+  "bracket_census": "No square bracket occurs in the served Book 7 or in the candidate. D12 does not fire."
+ },
+ "checks": {
+  "note": "This is the FIRST Book in the package whose v1 candidate was gated by anything. Substantive finding S-2 of Book 6's round 1: until scripts/checks.py existed, build_book_package.py called no check at all, D17's gate lived only in Books 4's and 5's correction scripts and had never gated a v1 candidate, and no Book had a checks-v1.md. The manifest is now written ONLY after the gates pass and records the checks file's sha256, so a package whose checks did not run has no manifest.",
+  "file": "book07/checks-v1.md",
+  "gates_fired_during_drafting": "TWICE, and both were real. (1) The D20 aligned growth gate caught a sentence grown from 51 words to 52 at B07-P021 - a growth the maximum-against-maximum form could never have seen, because the paragraph's maximum did not move. (2) B07-P024 came out byte-identical to Butler. Both were repaired rather than declared."
+ },
+ "word_counts": {
+  "source": 3347,
+  "candidate": 3365,
+  "ratio": 1.00538,
+  "min_paragraph_ratio": 0.976,
+  "min_paragraph_id": "B07-P027",
+  "butler_token_retention": 0.93943,
+  "retention_note": "The measure is the aggregate-join form of token_retention() and only that form - see GLOSSARY.md, 'The retention measure'. BASIS: all 29 paragraphs (records finding R-1 of Book 6's round 1 - a figure without the paragraph set it is computed over is not a figure).",
+  "paragraphs_byte_identical_to_butler": [],
+  "paragraphs_byte_identical_note": "NONE. The empty list is asserted by scripts/checks.py, which gates on the list each Book DECLARES rather than on a blanket ban - accepted Book 4 carries seven deliberately.",
+  "bag_retention": 0.9522,
+  "move_gap": 0.01277,
+  "move_gap_note": "D20. An UPPER BOUND on clause movement - it counts any relocation of a surviving token, phrase-internal ones included. The strict lower bound is the displaced-runs witness, which returns ONE for this Book: the blessing at B07-P013, moved out of Butler's parenthesis to the end of the petition.",
+  "displaced_runs": 1
+ },
+ "splitting_rate": {
+  "note": "D17 raw, and D20's NORM RATE beside it - which is the number that is compared. The splitter is the Book 4 reviewer's own, taken verbatim.",
+  "sentences_source": 103,
+  "sentences_candidate": 129,
+  "percent_added_raw": 25.2,
+  "norm_rate_percent": 7.5,
+  "normalized_sentences": "133 -> 143",
+  "sixty_word_sentences_source": 7,
+  "sixty_word_sentences_candidate": 0,
+  "percent_broken": 100,
+  "sixty_word_note": "Two sixty-word sentences survived the first draft and PASSED the D17 survival gate at 7 -> 2. They were divided anyway - B07-P015's 63-word instruction from Echeneus, at the second imperative, and B07-P026's 66-word voyage sentence, at Butler's own em dash, where the relative clause 'Euboea - which those of my people ... tell me is the furthest' becomes a main clause and the subject closes up with its verb. A gate is a floor to clear, not a target."
+ },
+ "semicolons": {
+  "note": "D19, reported; D20, compared as a rate.",
+  "source": 30,
+  "candidate": 14,
+  "at_most_conversions_of_the_26_added_sentences": 16,
+  "what_says_the_rest_is_real": "NOT the retention figure - that argument was ruled invalid at Book 6's round 1, because D17 was written about a vocabulary swap that lowers retention and moves nothing. What says it is MOVE-GAP 0.01277, higher than every accepted Book except 1 and 3 and above Book 6 v2's 0.01156, with substitution divided out; and NORM RATE +7.5%, which prices the semicolon conversions out of the headline and is still the highest in the package after Book 5 v2's +8.0%.",
+  "fourteen_kept_and_why": "Butler's serial semicolons in the vineyard of B07-P011 are a LIST - raisins, gathering, treading, blossom, colour - and periods would make five mechanically short sentences out of one survey of a garden. Keeping a semicolon that is doing a semicolon's work is not a failure to modernize; converting it would raise the raw rate and leave NORM RATE untouched, which is exactly what D20 exists to say."
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md D5-D8, applied from the closed table.",
+  "counts": "Ulysses->Odysseus 18, Minerva->Athena 8, Jove->Zeus 6, Neptune->Poseidon 4, Mercury->Hermes 1, Vulcan->Hephaestus 1; every one matching the source's count exactly. No Roman form survives.",
+  "table_extension": "NONE. Every Roman name in Book 7 is already in the closed table. A Book that adds no row says so, because the table grows only by enumeration (D6).",
+  "the_hazard_worth_naming": "ARETE, the queen, named seven times, and the whole of Athena's instruction turns on her. The closed table has nothing to say about her and she is untouched; a general or stem-based deity pass - or a careless 'Ares' rule - would have had something to say and would have been wrong. Apollo, Atlas, Calypso, Gaia and Erechtheus are likewise Butler's own Greek forms and are untouched.",
+  "d8_does_not_fire": "No figure in this Book has a Cast display name that differs from Butler's spelling.",
+  "heaven": "6 in the candidate against 6 in the source - no break is taken.",
+  "names_first_met": "Eurymedusa, Apeira, Arete, Rhexenor, Periboea, Eurymedon, Echeneus, Laodamas, Pontonous, Erechtheus, Marathon, Athens, Rhadamanthus, Tityus, Gaia, Euboea - all already Greek in Butler and left exactly as he spells them."
+ },
+ "punctuation": {
+  "d4": "FIRES TWICE, as in Book 6. Athena's instruction runs B07-P006 -> B07-P007 -> B07-P008; Odysseus's account of his wanderings runs B07-P021 -> B07-P022 -> B07-P023. 23 opening and 19 closing double marks in source and candidate alike, with the same four paragraphs unbalanced in both (P006, P007, P021, P022).",
+  "nested_single_quotation": "B07-P021 carries Odysseus naming the island - 'the Ogygian.' - inside his own speech. One opening single mark and its close, preserved; the other four single marks in the Book are apostrophes.",
+  "d16": "FIRES ONCE, at B07-P021. Butler writes 'It would be a long story Madam, were I to relate' - a vocative with no comma before it, which a modern reader reads as an error rather than as an old-fashioned but correct pointing. Repaired to 'a long story, madam, were I to relate', with the comma supplied and the capital dropped.",
+  "typographic": "No ASCII apostrophe and no ASCII double quote in the candidate.",
+  "capitalization": "Butler writes both 'king Alcinous' and 'King Alcinous' in this one chapter. One class, two dispositions - the shape D16 exists to forbid for punctuation - so the body normalizes to the modern usage: 'King Alcinous' before the name, 'the king' otherwise. The chapter TITLE is untouched, because the build maps names and changes nothing else; the divergence is recorded rather than hidden."
+ },
+ "compound_rule": {
+  "note": "D15, PUNCTUATION.md section 4.",
+  "closed": "maid servants -> maidservants, sea-faring -> seafaring, town's people -> townspeople",
+  "kept_open": "wine tubs, drink offering(s) - and the second is a decision, not an omission: Butler sets it BOTH ways inside this one chapter, open at B07-P012 and B07-P020 and hyphenated at B07-P016 and B07-P017. D15's own table records 'drink offering' as the standard open form, so the open form is taken in all four places; leaving Butler's split would have put one compound in two settings inside one Book.",
+  "hyphenated": "well disposed -> well-disposed, and the same reason: Butler sets it open at B07-P015 and hyphenated at B07-P016. The accepted Books print the hyphen.",
+  "untouched": "son-in-law, yellow-haired, ill-fated, mid-ocean, gatehouse",
+  "drift_check": "scripts/compound_drift.py re-run with Book 7 in the corpus: no compound carries more than one setting across the seven Books."
+ },
+ "generation": "All candidate text drafted in the agent conversation and written to scripts/candidates/book7.py. Zero Anthropic API spend; generate-editions.cjs was not run."
+}

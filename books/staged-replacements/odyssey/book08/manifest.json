@@ -1,0 +1,193 @@
+{
+ "book": 8,
+ "source_paragraph_count": 50,
+ "candidate_paragraph_count": 50,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "B08-P001",
+    "B08-P002",
+    "B08-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "B08-P004",
+    "B08-P005",
+    "B08-P006"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-03.md",
+   "assigned_paragraph_ids": [
+    "B08-P007",
+    "B08-P008",
+    "B08-P009"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-04.md",
+   "assigned_paragraph_ids": [
+    "B08-P010",
+    "B08-P011",
+    "B08-P012"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-05.md",
+   "assigned_paragraph_ids": [
+    "B08-P013",
+    "B08-P014",
+    "B08-P015"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-06.md",
+   "assigned_paragraph_ids": [
+    "B08-P016",
+    "B08-P017",
+    "B08-P018"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-07.md",
+   "assigned_paragraph_ids": [
+    "B08-P019",
+    "B08-P020",
+    "B08-P021"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-08.md",
+   "assigned_paragraph_ids": [
+    "B08-P022",
+    "B08-P023",
+    "B08-P024"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-09.md",
+   "assigned_paragraph_ids": [
+    "B08-P025",
+    "B08-P026",
+    "B08-P027"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-10.md",
+   "assigned_paragraph_ids": [
+    "B08-P028",
+    "B08-P029",
+    "B08-P030"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-11.md",
+   "assigned_paragraph_ids": [
+    "B08-P031",
+    "B08-P032",
+    "B08-P033"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-12.md",
+   "assigned_paragraph_ids": [
+    "B08-P034",
+    "B08-P035",
+    "B08-P036"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-13.md",
+   "assigned_paragraph_ids": [
+    "B08-P037",
+    "B08-P038",
+    "B08-P039"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-14.md",
+   "assigned_paragraph_ids": [
+    "B08-P040",
+    "B08-P041",
+    "B08-P042"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-15.md",
+   "assigned_paragraph_ids": [
+    "B08-P043",
+    "B08-P044",
+    "B08-P045"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-16.md",
+   "assigned_paragraph_ids": [
+    "B08-P046",
+    "B08-P047",
+    "B08-P048"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-17.md",
+   "assigned_paragraph_ids": [
+    "B08-P049",
+    "B08-P050"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "B08-P001",
+  "last_id": "B08-P050"
+ },
+ "candidate_v1_json_sha256": "e758790c58e0ace5c97159b2fa4e6d0f987f0b0edeba9120542ed772ec6ce012",
+ "checks": {
+  "written_by": "scripts/checks.py",
+  "file": "book08/checks-v2.md",
+  "sha256": "899531901fa767ad3902e2d427434bf22200a1c328cb810dde73aa9757ca99de",
+  "candidate_file": "book08/candidate-v2.json",
+  "candidate_sha256": "12f2904e6e40ac839a608797cf8f866d1f1e5227ae415f11aee6c0238f43de22",
+  "source_file": "book08/source-book8.json",
+  "source_sha256": "5140b989049ffd9aefaa818f4abf652b7ced16816defe0748b57fa72424090a6",
+  "pg_file": "source-texts/pg1727-butler-1900.txt",
+  "pg_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+  "basis": "all 50 paragraphs",
+  "retention": 0.94093,
+  "sentences": [
+   192,
+   235
+  ],
+  "splitting_rate_raw_pct": 22.4,
+  "norm_rate_pct": 3.4,
+  "norm_rate_butler_pct": 3.4,
+  "sixty_word": [
+   11,
+   1
+  ],
+  "semicolons": [
+   42,
+   7
+  ],
+  "semicolons_kept_added": [
+   7,
+   0
+  ],
+  "dividing_marks": [
+   62,
+   31
+  ],
+  "dividing_marks_kept_added": [
+   24,
+   7
+  ],
+  "norm_rate_ext_pct": 4.7,
+  "norm_rate_butler_ext_pct": 2.0,
+  "move_gap": 0.00692,
+  "all_gates_passed": true
+ }
+}

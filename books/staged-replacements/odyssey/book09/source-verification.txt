@@ -1,0 +1,40 @@
+The **FOURTEENTH** kind of source rule — an ARITHMETIC-ONLY location.
+
+clause A — file arithmetic, body-blind
+  ✓ each structural marker occurs exactly once
+  ✓ front + body + licence = the file, with zero residue  — 841 + 678833 + 18443 = 698117
+  ✓ the body is a strict interior slice
+
+clause B — the locating clause, on 44 integers and nothing else
+  ✓ the word-count vector occurs EXACTLY once in the whole body (1321 paragraphs, prefaces and footnotes included)  — hits: [387]
+  ✓ the page-number normalization is NECESSARY, not decorative  — without it the rule reports a false divergence in Book 8, and clause B passes Book 9 for the wrong reason
+  ✓ the served chapter carries no numeral at all, which is what makes the normalization safe
+
+clause C — a second word-blind stream, punctuation only
+  ✓ the sentence-count vector of the located region matches, position by position  — 44 paragraphs
+  ✓ and the same vector searched on its own contains the located region  — 1 candidate region(s) on this stream alone
+
+clause D — verification, the first clause that reads a character
+  ✓ all 44 paragraphs are word-for-word identical  — 44/44 word-for-word, 36 byte-identical
+  ✓ and the word totals agree  — 5800 words
+
+the whole-file verdict — the rule run over all 24 chapters
+  ✓ 22 chapters locate uniquely and exactly two do not  — located 22; NOT located [1, 3]
+      chapter 1 — B01-P025, PG's space before an em dash (one token); chapter 3 — B03-P038, the D14 splice (196 words).
+      chapter 4's recorded divergence is B04-P001's capital `They`, which no word count can see, and the rule locates chapter 4. The instrument's verdict is exactly the recorded set, split by what arithmetic can reach.
+
+the audit — every control on both clauses (D18)
+  ✓ the B03-P038 SPLICE, planted at B09-P038: 208 words where Butler has 12  — hits: []
+  ✓ a paragraph of Butler's own BOOK VIII substituted at B09-P020  — hits: []
+  ✓ a paragraph of Butler's own BOOK XXII substituted at B09-P005  — hits: []
+  ✓ the vector shifted by one paragraph (the thirteenth rule's own failure mode)  — hits: []
+  ✓ ONE word added to B09-P022  — hits: []
+  ✓ the same 44 paragraphs in reverse order  — hits: []
+  ✓ two adjacent paragraphs transposed  — hits: []
+  ✓ one paragraph split in two, total word count unchanged  — hits: []
+  ✓ clause C fires on its own: one period lowered to a comma moves the sentence-count vector
+  ! blind to any substitution inside a paragraph that preserves both its word count and its sentence count — the locating clause reads no character, by construction. Clause D is what carries that, and clause D is a word-for-word comparison.
+  ! blind to B04-P001's capital `They`, and to any case change: a word count cannot see one. Declared rather than waved away, and it is why the whole-file verdict above is 22 and not 23.
+  ! blind to a defect PG and the served file SHARE. Every rule in this package is; the served file is derived from PG and no comparison between them can see an error they both carry.
+
+Source verified by the fourteenth kind of rule. Book 9 is PG #1727's Book IX, located on 44 integers, and the same rule's verdict over the other 23 chapters reproduces the recorded divergences exactly.

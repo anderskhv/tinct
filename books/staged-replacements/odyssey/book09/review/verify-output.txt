@@ -1,0 +1,72 @@
+PG #1727 body blocks between the Gutenberg markers: 1117
+served chapters: 24
+
+========================================================================
+THE RULE
+========================================================================
+  PASS  clause 0: the Preface to the First Edition states the region
+          Butler: “the account of Ulysses’ adventures as told by himself in Books ix.-xii.”
+  PASS  clause 0: the region Butler names is Books ix.-xii. (got 9-12)
+          argmax interval: blocks [389..578], length 190, sum +164
+  PASS  clause 1: the argmax sum is positive (+164) — a count of zero is NOT a pass
+          best DISJOINT interval: [183..202] length 20 sum +20
+  PASS  clause 1: the runner-up (+20) is less than half the winner (+164)
+  PASS  clause 2: the span (190 blocks) is the four Books the Preface names (186 paragraphs plus their headings and argument lines)
+  PASS  clause 3: there is a block before the run
+          Book IX predicted at blocks [388..431] (44 paragraphs)
+  PASS  clause 5: PG blocks [388..431], footnote numerals stripped, are the served chapter 9 paragraph for paragraph
+  PASS  clause 6: the served chapter 9 occurs in PG exactly once, at block 388 (found [388])
+
+========================================================================
+AUDIT — nine controls and three declared blindnesses
+========================================================================
+  PASS  C1 the B03-P038 splice planted at B09-P021                 fired
+  PASS  C2 a paragraph of Butler's Book VIII                       fired
+  PASS  C3 a paragraph of Butler's Book XXII                       fired
+  PASS  C4 one word added at B09-P031                              fired
+  PASS  C5 two paragraphs transposed                               fired
+  PASS  C6 chapter 9 replaced: locator unmoved, clause 5 fires     interval (389, 578) -> (389, 578)
+  PASS  C7 quotation marks removed: the locator collapses          sum -1, length 1
+  PASS  C8 Preface sentence deleted: clause 0 refuses              refused
+  PASS  C9 one letter changed: locator blind, clause 5 fires       as declared
+
+  DECLARED BLINDNESSES
+    - (1) a defect PG and the served file SHARE. Every source rule in this package is blind to it by construction.
+    - (2) the LOCATING clause reads two characters and nothing else. It cannot see a substitution, a transposition or a deletion inside a paragraph; clause 5 is what sees those, and C9 asserts the division of labour instead of leaving it implied.
+    - (3) the locator finds the FOUR-Book region, not the Book. The cut between Book IX and Book X is made by arithmetic on the served chapter's own paragraph count, so a served chapter 9 that had absorbed Book X's first paragraphs would be located and verified as a longer run. Clause 6's uniqueness is what bounds this, not the locator.
+
+========================================================================
+WHAT IT SAYS ABOUT THE REST — the four Books Butler names
+========================================================================
+  (whitespace is normalized on both sides, so a divergence that is
+   a line break alone — B01-P025's — is invisible here and is NOT
+   reported as a difference. The fourteenth rule sees it; this one
+   does not, and that is a difference of channel, not a defect.)
+  chapter  1   32 paragraphs  occurrences in PG: [44]         
+  chapter  2   35 paragraphs  occurrences in PG: [78]         
+  chapter  3   38 paragraphs  occurrences in PG: []           
+  chapter  4   81 paragraphs  occurrences in PG: []           
+  chapter  5   37 paragraphs  occurrences in PG: [238]        
+  chapter  6   26 paragraphs  occurrences in PG: [277]        
+  chapter  7   29 paragraphs  occurrences in PG: [305]        
+  chapter  8   50 paragraphs  occurrences in PG: [336]        
+  chapter  9   44 paragraphs  occurrences in PG: [388]        in the Preface's region
+  chapter 10   49 paragraphs  occurrences in PG: [434]        in the Preface's region
+  chapter 11   54 paragraphs  occurrences in PG: [485]        in the Preface's region
+  chapter 12   39 paragraphs  occurrences in PG: [541]        in the Preface's region
+  chapter 13   38 paragraphs  occurrences in PG: [582]        
+  chapter 14   35 paragraphs  occurrences in PG: [622]        
+  chapter 15   48 paragraphs  occurrences in PG: [659]        
+  chapter 16   45 paragraphs  occurrences in PG: [709]        
+  chapter 17   63 paragraphs  occurrences in PG: [756]        
+  chapter 18   41 paragraphs  occurrences in PG: [821]        
+  chapter 19   39 paragraphs  occurrences in PG: [864]        
+  chapter 20   36 paragraphs  occurrences in PG: [905]        
+  chapter 21   42 paragraphs  occurrences in PG: [943]        
+  chapter 22   52 paragraphs  occurrences in PG: [987]        
+  chapter 23   29 paragraphs  occurrences in PG: [1041]       
+  chapter 24   45 paragraphs  occurrences in PG: [1072]       
+
+========================================================================
+VERDICT: the served Odyssey chapter 9 IS PG #1727's Book IX
+========================================================================

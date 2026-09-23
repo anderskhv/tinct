@@ -1,0 +1,99 @@
+Prove, by planting the defects, that the manifest and the three
+
+1. control — the package as committed
+  ✓ checks.py 7 passes on the accepted candidate
+      | → 152) — THE COMPARED FIGURE
+      | semicolons Butler → cand   30 → 7  (D19)
+      | of which kept / added      5 kept + 2 added  (S-1)
+      | sentences grown to 40+     2 (0 may fail at 50+)
+  ✓ --manifests verifies every Book
+      | a61ce39 over book08/candidate-v2.json, gates re-run and passing
+      | ✓ book09  checks e7c4e70a over book09/candidate-v1.json, gates re-run and passing
+      | 
+      | Every manifest names files that exist and hash to what it recorded, and every `all_gates_passed` is backed by 
+
+2. S-2 — a stale checks hash (the defect that was actually there)
+  ✓ --manifests rejects the stale hash and exits non-zero
+      | ✗ manifest: book07 records checks.sha256 00000000 but book07/checks-v2.md hashes to f3c1ab1c — STALE
+  ✓ checks.py 7 also rejects it, in the Book's own run
+      | own to 40+     2 (0 may fail at 50+)
+      | candidate sentences 40+    10 (absolute)
+      | displaced runs             1
+      | H.1 head-noun pairs        23
+
+3. S-2 — the candidate moved under the manifest
+  ✓ --manifests rejects a candidate whose bytes moved
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to b16e2466 — the can
+
+4. S-2 — a failing candidate cannot acquire a manifest
+  ✓ checks.py 7 fails the planted candidate
+      | /candidate-v2.json gives 8.3
+      | ✗ manifest: book07 records norm_rate_butler_ext_pct = 4.8, and book07/candidate-v2.json gives 5.5
+      | ✗ manifest: book07 records move_gap = 0.01217, and book07/candidate-v2.json gives 0.01188
+      | ✗ manifest: book07 asserts all_gates_passed: true, and 1 gate(s) just failed
+  ✓ --write-manifest REFUSES to write a manifest for it
+      | n
+      | block = manifest_checks_block(f, g)     # raises unless evaluated+passed
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      | File "/tmp/odyssey-prove-56w0l0ss/odyssey/scripts/checks.py", line 1123, in manifest_checks_block
+  ✓ the manifest already on disk no longer vouches for it
+      | cords checks.sha256 9a61ce39, and the checks file the CODE would write now hashes to aed4b646 — the generated 
+      | ✗ manifest: book09 records checks.sha256 e7c4e70a, and the checks file the CODE would write now hashes to db2e
+      | 
+      | 18 manifest failure(s).
+
+5. S-2 — an empty failure list is not a pass
+  ✓ a never-evaluated Gate is refused (evaluated=False, failures=[])
+      | manifest_checks_block: the gates were never evaluated for this candidate. A manifest may not be written from a
+
+6. S-3 and R-5 — the enumerations, both directions
+  ✓ byte-identical: an UNDECLARED instance appears (Book 7 declares none)
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to 53ce584f — the can
+      | ✗ manifest: book07 records retention = 0.93438, and book07/candidate-v2.json gives 0.93527
+      | ✗ manifest: book07 records norm_rate_pct = 9.0, and book07/candidate-v2.json gives 9.8
+      | ✗ manifest: book07 records norm_rate_butler_pct = 7.5, and book07/candidate-v2.json gives 8.3
+  ✓ byte-identical: a DECLARED instance goes away (Book 4 declares seven)
+      | ✗ byte-identical paragraphs [54, 61, 63, 70, 79, 80], but book04/candidate-v2.json declares [39, 54, 61, 63, 7
+  ✓ thin paragraphs: an UNDECLARED thin paragraph appears in Book 1
+      | ✗ paragraphs below 0.90 of their source's length: [1, 3, 9, 11, 16, 17], but book01/candidate-v2.json declares
+  ✓ thin paragraphs: a DECLARED one is no longer thin
+      | ✗ paragraphs below 0.90 of their source's length: [1, 9, 11, 16], but book01/candidate-v2.json declares [1, 9,
+
+6b. R-5 — a SECOND identical growth, against DECLARED end to end
+  ✓ R-5: two identical growths in one paragraph, ONE declared — the gate fires exactly once; both declared — it is silent
+      | control silent=True; one-declared fires once=True
+
+7. the attacks — each is the cheapest next move after the last
+  ✓ A1  defect + rewrite candidate_sha256 (the attack that landed)
+      | ✗ manifest: book06 records checks.sha256 3765dcdc, and the checks file the CODE would write now hashes to d13f
+      | ✗ manifest: book07 records retention = 0.93438, and book07/candidate-v2.json gives 0.93527
+      | ✗ manifest: book07 records norm_rate_pct = 9.0, and book07/candidate-v2.json gives 9.8
+      | ✗ manifest: book0
+  ✓ A2  the same, with all_gates_passed withdrawn (false)
+      | ✗ manifest: book06 records checks.sha256 3765dcdc, and the checks file the CODE would write now hashes to d13f
+      | ✗ manifest: book07 records retention = 0.93438, and book07/candidate-v2.json gives 0.93527
+      | ✗ manifest: book07 records norm_rate_pct = 9.0, and book07/candidate-v2.json gives 9.8
+      | ✗ manifest: book0
+  ✓ A3  defect left in place, candidate_file repointed at a clean file
+      | ✗ manifest: book06 records checks.sha256 3765dcdc, and the checks file the CODE would write now hashes to d13f
+      | ✗ manifest: book07 names book07/candidate-v1.json, but the file this Book stands behind is book07/candidate-v2
+      | ✗ manifest: book0
+  ✓ A4  the whole `checks` block deleted
+      | ✗ manifest: book07 carries no `checks` block and is not declared in MANIFEST_PREDATES_CHECKS
+  ✓ A5  a figure edited in the manifest, every hash left sound
+      | ✗ manifest: book07 records retention = 0.99999, and book07/candidate-v2.json gives 0.93438
+  ✓ A6  defect planted in book02/candidate-v3.json, which no invocation used to reach
+      | ✗ book02/candidate-v3.json         1 gate failure(s)
+  ✓ A7  a new candidate file appears in neither table
+      | ✗ coverage: book07/candidate-v3.json is on disk and is in neither DECLARED nor SUPERSEDED — every candidate fi
+  ✓ A8  a successor written, ACCEPTED's shipping column left stale
+      | ✗ coverage: ACCEPTED[2] ships book02/candidate-v6.json, but the highest declared candidate for that Book is bo
+  ✓ A10 the renderer changes and the generated checks file no longer reproduces — no candidate touched, every hash internally consistent
+      | ✗ manifest: book06 records checks.sha256 3765dcdc, and the checks file the CODE would write now hashes to b3cd
+      | ✗ manifest: book07 records checks.sha256 f3c1ab1c, and the checks file the CODE would write now hashes to eb83
+  ✓ A9  the residue: DECLARING the defect is not enough (exit 1 — the figures and every generated checks file move); declaring it AND regenerating EVERY Book's manifest passes, as the intended workflow must
+      | declared only -> exit 1;  declared + the full ceremony -> exit 0
+  ✓ the package itself is byte-unchanged by this proof
+      | 420461a449e7669a == 420461a449e7669a
+
+25 assertions, 25 passed.

@@ -1,0 +1,54 @@
+A11 — the source file is the unheld end of every comparison
+
+0. control — the package as committed
+  ✓ --manifests exits 0 on the untouched package
+      | Every manifest names files that exist and hash to what it recorded, and every `all_gates_passed` is backed by 
+
+1. A11(b) — one comma removed from Butler, nothing regenerated
+      | B08-P001: 'Now when the child of morning, rosy-fingered Dawn, appeared,' -> 'Now when the child of morning rosy-fingered Dawn, appeared, '
+  ✓ checks.py 8 still passes over a corrupted Butler
+      | ['  all gates pass']
+  ✓ --manifests still exits 0
+  ✓ --all still exits 0 — every published figure 'reproduces'
+  ✓ and the source on disk really did change
+
+2. A11(a) — Butler rewritten to flatter the candidate, on the Book
+   under review, then the ordinary workflow: `checks.py 9 --write-manifest`
+      | 12 of Butler's full stops turned into semicolons
+  ✓ BEFORE regenerating, --manifests catches it — clause (b3) recomputes the figures
+      | ['  ✗ manifest: book09 records sentences = [171, 207], and book09/candidate-v1.json gives [159, 207]', '  ✗ ma
+  ✓ after --write-manifest, checks.py 9 passes
+  ✓ --manifests exits 0 over a rewritten Butler
+      | Every manifest names files that exist and hash to what it recorded, and every `all_gates_passed` is backed by 
+  ✓ --all exits 0
+  ✓ --declarations exits 0
+      | published raw D17 21.1% -> 30.2%
+      | published retention 0.92181 -> 0.92181
+  ✓ and no declaration was needed — checks.py is byte-identical
+
+2b. the same attack on ACCEPTED Book 8 — caught, but not by any
+    clause about the source
+  ✓ checks.py 8 --write-manifest passes over a rewritten Butler
+  ✓ --manifests then FAILS — and the failures name book01..book07, not book08
+      | ['  ✗ manifest: book06 records checks.sha256 3765dcdc, and the checks file the CODE would write now hashes to 
+      | it is the A10 clause: Book 8 is ACCEPTED, so its figures are
+      | printed in every other Book's cross-Book table, and those
+      | generated files stop reproducing. An accidental coupling —
+      | and Book 9 is not in that table, which is why step 2 lands.
+      | The documented remedy (re-run `checks.py N --write-manifest`
+      | for every Book) is also the attacker's next move.
+
+3. what would close it
+      | book01/source-book1.json  sha256 fd364c78c4e87d0c
+      | book02/source-book2.json  sha256 3cc4f38c171e0e1d
+      | book03/source-book3.json  sha256 a3dc00566e0f4517
+      | book04/source-book4.json  sha256 b4899064632724ca
+      | book05/source-book5.json  sha256 c84e4bb2924d8925
+      | book06/source-book6.json  sha256 351c2f4647245348
+      | book07/source-book7.json  sha256 1c3c67f99747b2e9
+      | book08/source-book8.json  sha256 5140b989049ffd9a
+      | book09/source-book9.json  sha256 575f8c8693ccefbd
+      | none of these appears in any manifest, in ACCEPTED, in DECLARED,
+      | in SUPERSEDED or in any assertion of prove_manifest.py.
+
+13/13 assertions held.

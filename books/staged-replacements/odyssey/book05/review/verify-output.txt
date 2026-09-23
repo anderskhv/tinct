@@ -1,0 +1,35 @@
+seventh rule — one global monotone diff, whole edition vs whole file
+  PG file tokens      : 132902
+  served edition tokens: 118031
+  PG sha256           : ffbdb29c3dda284b…
+
+  [as served] chapter 5: 4709 tokens, 4709 aligned (1.00000), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 0
+
+  monotone pinning (same alignment, read per chapter):
+    chapter  3: PG tokens [11354, 16096]
+    chapter  4: PG tokens [16101, 24216]
+    chapter  5: PG tokens [24226, 28934]
+    chapter  6: PG tokens [28943, 32393]
+    chapter  7: PG tokens [32405, 35768]
+    -> chapter 5's span lies strictly between chapter 4's and chapter 6's.
+
+  per-paragraph alignment of chapter 5 (37 paragraphs):
+    all 37 paragraphs aligned token for token, 100%.
+
+  source-book5.json vs served chapter 5:
+    paragraphs 37 vs 37; byte-identical: True
+
+  negative controls (each asserts its own mutation changed the text):
+  [swap two adjacent words, P014] chapter 5: 4709 tokens, 4708 aligned (0.99979), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 1
+    control detected (alignment 0.99979 < clean 1.00000; 1 PG tokens left unclaimed (clean 0))
+  [delete a 12-word run, P019] chapter 5: 4696 tokens, 4696 aligned (1.00000), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 13
+    control detected (13 PG tokens left unclaimed (clean 0))
+  [replace longest word, P030] chapter 5: 4708 tokens, 4707 aligned (0.99979), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 2
+    control detected (alignment 0.99979 < clean 1.00000; 2 PG tokens left unclaimed (clean 0))
+  [reverse two paragraphs, P007/8] chapter 5: 4709 tokens, 4678 aligned (0.99342), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 31
+    control detected (alignment 0.99342 < clean 1.00000; 31 PG tokens left unclaimed (clean 0))
+  [import a Book 9 paragraph, P022] chapter 5: 4797 tokens, 4619 aligned (0.96289), PG span [24226, 28935), length 4709, unclaimed PG tokens inside the span: 90
+    control detected (alignment 0.96289 < clean 1.00000; 90 PG tokens left unclaimed (clean 0))
+
+VERDICT: served chapter 5 is Butler's PG #1727 text, token for token,
+         located by an alignment that was never told it existed.

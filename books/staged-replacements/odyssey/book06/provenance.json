@@ -1,0 +1,110 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 6,
+  "title_source": "Book 6 — The meeting between Nausicaa and Ulysses",
+  "title_candidate": "Book 6 — The meeting between Nausicaa and Odysseus",
+  "title_note": "Mapped through the closed table by scripts/build_book_package.py; the one row that fires is Ulysses -> Odysseus.",
+  "paragraphs": 26,
+  "extraction": "found by chapter.number == 6 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book6_json_sha256": "351c2f4647245348450458e2309214b96cf6f6af5e670e9efbc6ddbcdaec5668",
+ "candidate_v1_json_sha256": "9391ca16778a8225c1710b24296c51a2d3ba33f26ed3ac9fcf7c677c3c0413f0",
+ "candidate_v1_readable_md_sha256": "155b00cc4d2de5cf8a7b934d4a8a824660cd07f79640d49b9fa419a9dcffc6e2",
+ "manifest_json_sha256": "aaf991c118b542bc9eb7f6565b526426f1e6e5068f866eb55b5925ef8149c0d7",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read). The served odyssey-modern-en.json was NOT opened at all for this Book.",
+ "source_verification": {
+  "script": "scripts/verify_source_book6.py",
+  "method": "An EIGHTH kind of rule, and the first that asks a question none of the seven asks. All seven establish PRESENCE - is the served chapter there, and there once? This one asks the complement: is there anywhere ELSE in PG that this chapter could have come from, and how closely does the rest of the file resemble it? A SUFFIX AUTOMATON is built over the served chapter's token stream, and the WHOLE PG file is walked through it once from token zero, recording at every PG position the length of the longest substring of the chapter ending there. One pass yields a resemblance PROFILE of the entire file against this one chapter. Nothing is searched for; no region, anchor, heading, Book number or digit is used; the walk is in PG's own order, so the served file cannot steer where the check looks.",
+  "result": "133,038 PG letter tokens against 3,459 chapter tokens. The profile reaches |S| at EXACTLY ONE PG position; located span [28997, 32456), an OUTPUT. 26 blank-line blocks in the region against 26 served paragraphs; 24 byte-identical; 2 classified footnote markers (55, 56), ascending, no repeats; 0 letter-case, 0 whitespace and 0 other differences; 3,435 words compared word for word, 0 mismatches.",
+  "second_best_match": "37 tokens, REPORTED with its text rather than merely bounded: 'made him look taller and stronger than before ... she glorified him about the head and shoulders' - Athena's beautification of Odysseus at B06-P018, which Homer repeats at Book 23. A constant bound would have been wrong: Homeric formulas recur by design, and the length of the longest recurrence is a property of the poem.",
+  "corroboration": "The span starts at PG token 28997, which is the number scripts/verify_source_book5.py (the sixth rule, identification by residue) read out independently as chapter 6's start, from an alignment that never looked at chapter 6. The tokens on each side of the span are checked against the served file's OWN title field for chapters 6 and 7.",
+  "audit_of_the_rule": "The audit FAILED the rule as first written, as the last three audits did. Recovering a character span from a token span, it ran raw[start_of_token(lo):end_of_token(hi-1)], which stops on the last LETTER of the chapter and drops its terminal full stop; the rule then reported a word-for-word mismatch, 'home' against 'home.', on a file that is byte-clean. The recovery must run to the first character of the NEXT token. Fixed in place, with the bug named in the source.",
+  "negative_controls": "Six, under D18 (scripts/controls.py), each asserting BOTH that its mutation changed the input and that the check's verdict changed: one letter changed, one word dropped, two paragraphs swapped, a sentence that is not Butler's appended, a changed NUMBER-WORD, and a TWELVE-WORD RUN DELETED - the mutation that defeated the Book 5 reviewer's rule at records finding R-2.",
+  "declared_blindness": "Two, each with the check that carries the class named: (1) a changed DIGIT inside the region, because the profile is letter-only - carried by the assertion that every digit run in the located region is one of the classified markers; (2) a defect PG #1727 itself carries, because both sides of the comparison would carry it - carried by the other seven source rules, which agree with this one on the same regions.",
+  "bracket_census": "No square bracket occurs in the served Book 6 or in the candidate. D12 does not fire."
+ },
+ "word_counts": {
+  "source": 3435,
+  "candidate": 3432,
+  "ratio": 0.99913,
+  "min_paragraph_ratio": 0.946,
+  "min_paragraph_id": "B06-P002",
+  "butler_token_retention": 0.93669,
+  "butler_token_retention_book1_v2_accepted": 0.72703,
+  "butler_token_retention_book2_v2_accepted": 0.90232,
+  "butler_token_retention_book3_v2_accepted": 0.89662,
+  "butler_token_retention_book4_v2_accepted": 0.95872,
+  "butler_token_retention_book5_v2_accepted": 0.93808,
+  "retention_note": "The measure is the aggregate-join form of token_retention() and only that form - see GLOSSARY.md, 'The retention measure'.",
+  "paragraphs_byte_identical_to_butler": [],
+  "paragraphs_byte_identical_note": "NONE. The empty list is asserted.",
+  "per_paragraph_word_counts": "book06/word-counts-v1.json"
+ },
+ "splitting_rate": {
+  "note": "D17. The splitter is the Book 4 reviewer's own, taken verbatim.",
+  "sentences_source": 116,
+  "sentences_candidate": 148,
+  "percent_added": 27.6,
+  "sixty_word_sentences_source": 7,
+  "sixty_word_sentences_candidate": 1,
+  "percent_broken": 86,
+  "accepted_books_percent_added": {
+   "1": 20.5,
+   "2": 16.1,
+   "3": 5.5,
+   "4": 8.9,
+   "5": 23.5
+  },
+  "accepted_books_percent_broken": {
+   "1": 100,
+   "2": 43,
+   "3": 33,
+   "4": 82,
+   "5": 89
+  },
+  "one_left_long": "B06-P009, the Artemis simile, at 60 words against Butler's 67 - SHORTER than his, not longer (Book 5's finding 30.2). The chain is the figure; this is the B04-P038 disposition applied to a simile."
+ },
+ "semicolons": {
+  "note": "D19, written at Book 5's step 6 from substantive finding S-1 and records finding R-6. A semicolon rewritten as a period adds a sentence, moves no clause, drops no word and costs no retention, so it scores at full value on BOTH of D17's axes. The count is the denominator D17 is missing.",
+  "source": 27,
+  "candidate": 4,
+  "at_most_conversions_of_the_32_added_sentences": 23,
+  "what_says_the_rest_is_real": "retention 0.93669, below Book 5 v1's 0.94211 (convicted of doing nothing but convert) and below accepted Book 5 v2's 0.93808. Division costs no retention; only moving clauses does. The four paragraphs really recast are B06-P004, P005, P012 and P013.",
+  "accepted_books": {
+   "1": "47 -> 13",
+   "2": "36 -> 21",
+   "3": "39 -> 32",
+   "4": "68 -> 50",
+   "5": "34 -> 13"
+  }
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md D5-D8, applied from the closed table.",
+  "counts": "Ulysses->Odysseus 14, Minerva->Athena 11, Jove->Zeus 6, Neptune->Poseidon 3, Diana->Artemis 2, Vulcan->Hephaestus 1; every one matching the source's count exactly. No Roman form survives.",
+  "table_extension": "NONE. Every Roman name in Book 6 is already in the closed table. A Book that adds no row should say so, because the table grows only by enumeration (D6).",
+  "the_hazard_that_did_not_fire": "Butler writes the GREEK 'Leto' at B06-P009, not the Roman 'Latona'. A general deity list run in either direction would have had something to say about her; the closed table has nothing to say, and she is untouched. So are Apollo (his Greek name as well as his Roman one) and Hades.",
+  "d8_does_not_fire": "No figure in this Book has a Cast display name that differs from Butler's spelling.",
+  "heaven": "7 in the candidate against 7 in the source - NO break is taken. None of the seven is a position in the sky being measured, which is the one case Book 4 broke. Butler's own difference inside the census is KEPT: he writes 'live in heaven' once and 'dwell in heaven' twice, and B06-P019 carries both eleven words apart.",
+  "possessive": "D7 applied: Zeus's x2 (from Butler's Jove's) and Dymas's (Butler's own, kept). No bare possessive survives.",
+  "one_count_that_does_not_match": "Nausicaa is 11 in the candidate against 10 in the source. B06-P005 supplies her name where Butler writes 'she' and the nearer subject is her mother - a defective-reference repair of the same class as accepted B05-P012's supplied 'and'. Asserted by name rather than hidden in a total, and put to the reviewer as question 1."
+ },
+ "punctuation": {
+  "d4": "FIRES TWICE, the first Book since Book 4 in which it does. Odysseus's speech runs B06-P013 -> B06-P014; Nausicaa's runs B06-P021 -> B06-P022 -> B06-P023. Each continued paragraph opens its own mark and only the last of each run closes. 18 opening and 15 closing double marks in source and candidate alike, with the same three paragraphs unbalanced in both (P013, P021, P022).",
+  "nested_single_quotation": "B06-P022 carries Nausicaa quoting the imagined speech of a low fellow in the town. One opening single mark and its close, preserved; the other eleven single marks in the Book are apostrophes.",
+  "typographic": "No ASCII apostrophe and no ASCII double quote in the candidate."
+ },
+ "compound_rule": {
+  "note": "D15, PUNCTUATION.md section 4.",
+  "closed": "maid servants -> maidservants, goat skin -> goatskin, market place -> marketplace, road side -> roadside, water side -> waterside, sea side -> seaside, sea-faring -> seafaring, farm lands -> farmlands",
+  "hyphenated": "well made -> well-made, well fenced -> well-fenced, good looking -> good-looking",
+  "kept_open": "washing cisterns (Butler sets it both ways in one Book), sea captain, linen room, washing day, well dressed (predicative), salt water, mountain tops (matching accepted B05-P030), land's end, garden ground",
+  "untouched": "aegis-bearing, bearing-posts, fine-looking, ill-natured, well-disposed",
+  "reopened_book_2": "water side -> waterside made accepted book02 wrong. 'water-side' occurs NOWHERE in PG, so the hyphen-keyed compound_drift() that produced the seashore successors could not see this pair - blind spot 1 of Book 5's round 1. The check was extended to a CLOSED-WORD axis (a pair is also admitted when its concatenation is printed as a single word somewhere in the corpus, guarded by a function-word stoplist and a three-letter minimum), it raised the pair, and book02/candidate-v5.json answers it. The fourth successor the compound rule has cost, and the FIRST found by a check rather than by a reader."
+ },
+ "generation": "All candidate text drafted in the agent conversation and written to scripts/candidates/book6.py. Zero Anthropic API spend; generate-editions.cjs was not run."
+}

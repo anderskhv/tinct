@@ -1,0 +1,137 @@
+{
+ "book": 7,
+ "source_paragraph_count": 29,
+ "candidate_paragraph_count": 29,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "B07-P001",
+    "B07-P002",
+    "B07-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "B07-P004",
+    "B07-P005",
+    "B07-P006"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-03.md",
+   "assigned_paragraph_ids": [
+    "B07-P007",
+    "B07-P008",
+    "B07-P009"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-04.md",
+   "assigned_paragraph_ids": [
+    "B07-P010",
+    "B07-P011",
+    "B07-P012"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-05.md",
+   "assigned_paragraph_ids": [
+    "B07-P013",
+    "B07-P014",
+    "B07-P015"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-06.md",
+   "assigned_paragraph_ids": [
+    "B07-P016",
+    "B07-P017",
+    "B07-P018"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-07.md",
+   "assigned_paragraph_ids": [
+    "B07-P019",
+    "B07-P020",
+    "B07-P021"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-08.md",
+   "assigned_paragraph_ids": [
+    "B07-P022",
+    "B07-P023",
+    "B07-P024"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-09.md",
+   "assigned_paragraph_ids": [
+    "B07-P025",
+    "B07-P026",
+    "B07-P027"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-10.md",
+   "assigned_paragraph_ids": [
+    "B07-P028",
+    "B07-P029"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "B07-P001",
+  "last_id": "B07-P029"
+ },
+ "candidate_v1_json_sha256": "bf8cf2f76f4670daab55daf1da265ba7b1839c0cd6680e3c5691fac8d382dc33",
+ "checks": {
+  "written_by": "scripts/checks.py",
+  "file": "book07/checks-v2.md",
+  "sha256": "a2cfed9b18f99fd2a3cea392d20b8a685e897fe50ba22e5bee676d38ddc3a60a",
+  "candidate_file": "book07/candidate-v2.json",
+  "candidate_sha256": "e79eb82b5ce6051dc3c61ca39c4480406cf0e2a106c0d53f5182fafe1d3163ac",
+  "source_file": "book07/source-book7.json",
+  "source_sha256": "1c3c67f99747b2e919845a310867f190e592131be953b34e4f5b66c895d35152",
+  "pg_file": "source-texts/pg1727-butler-1900.txt",
+  "pg_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+  "basis": "all 29 paragraphs",
+  "retention": 0.93438,
+  "sentences": [
+   103,
+   138
+  ],
+  "splitting_rate_raw_pct": 34.0,
+  "norm_rate_pct": 9.0,
+  "norm_rate_butler_pct": 7.5,
+  "sixty_word": [
+   7,
+   0
+  ],
+  "semicolons": [
+   30,
+   7
+  ],
+  "semicolons_kept_added": [
+   5,
+   2
+  ],
+  "dividing_marks": [
+   42,
+   18
+  ],
+  "dividing_marks_kept_added": [
+   14,
+   4
+  ],
+  "norm_rate_ext_pct": 7.6,
+  "norm_rate_butler_ext_pct": 4.8,
+  "move_gap": 0.01217,
+  "all_gates_passed": true
+ }
+}
