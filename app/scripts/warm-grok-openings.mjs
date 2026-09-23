@@ -31,7 +31,7 @@ async function warm(entry,voice){
         assert(++totalRequests<=1600,'Bounded warm request ceiling')
         const start=performance.now()
         const response=await releaseFetch('/api/narration/warm',{method:'POST',
-          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:'next',paragraphs:[{index:p,textHash:await sha256Hex(narrationTextForParagraph(chapter.paragraphs[p]))}]}),
+          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:rounds===0?'cache':'next',paragraphs:[{index:p,textHash:await sha256Hex(narrationTextForParagraph(chapter.paragraphs[p]))}]}),
           signal:AbortSignal.timeout(95000)})
         assert.equal(response.status,200,'warm HTTP status')
         const result=await response.json()
@@ -40,6 +40,7 @@ async function warm(entry,voice){
         const paragraph=result.paragraphs[0]
         assert(paragraph && !['failed','text_mismatch'].includes(paragraph.status),JSON.stringify(paragraph))
         assert(!paragraph.failure,JSON.stringify(paragraph.failure))
+        const beforeKnown=known.size
         for(const chunk of paragraph.chunks.filter(c=>c.ready)){
           if(known.has(chunk.index))continue
           assert(chunk.timingsUsable && chunk.words?.length && chunk.duration>0)
@@ -48,10 +49,10 @@ async function warm(entry,voice){
         }
         if(seconds>=entry.targetSeconds)break outer
         if(paragraph.status==='ready')break
-        if(!result.generated && !paragraph.readyChunks){
+        if(rounds>0 && !result.generated && known.size===beforeKnown){
           assert(++retries<=8,'Narration did not progress')
           await new Promise(r=>setTimeout(r,1500))
-        }
+        } else { retries=0 }
       }
     }
   }
