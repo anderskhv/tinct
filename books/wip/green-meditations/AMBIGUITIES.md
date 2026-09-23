@@ -15,3 +15,4 @@ own reading, or keeps Long's openness, and the case is recorded here. Ids are
 | 2.0 | "not [only] of the same blood or seed, but …" | "not only because we share the same blood or seed, but because …" | Long supplies "[only]"; the Greek reads a plain "not … but". Long followed. |
 | 2.5 | "Every man's life is sufficient." | "Each person's life is enough;" | Corrupt Greek. Editors read "life is short for each", "each has but one life", or (Long) "each life suffices". Long's reading only. |
 | 2.14 | "what was said by the Cynic Monimus is manifest" | "For what the Cynic Monimus said is plain" | The Greek may mean words said *to* or *against* Monimus. Long's "by" followed. |
+| 3.5 | "rationally and politically [or, practically] good" | "good for a rational being and a member of the community" | Manuscript variant πολιτικῶς / πρακτικῶς. Long prints "politically" and offers "practically"; Long's main reading followed. |

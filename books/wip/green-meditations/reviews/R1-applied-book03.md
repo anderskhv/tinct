@@ -31,3 +31,13 @@ Sources: `R1-fidelity-book03.md` (0 blocking, 7 minor, 1 ambiguity) and `R1-acce
 | 3.15 | ACC: long infinitive chain | Applied split: "… spun for him. It is also not to defile …" |
 
 All changed passages sent for independent re-verification (`R1-reverify-book03.md`).
+
+## After re-verification R1 (`R1-reverify-book03.md`: 11 clean, 3 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 3.5 | Ambiguity row missing from AMBIGUITIES.md | Added |
+| 3.10 | "See, of this thing…" turned an item into a command; you/me clash | Applied verifier's exact text: "It lifts the mind, too, to see what each thing is, …" |
+| 3.15 | "It is also not to defile…" heard as a negation | Applied verifier's exact text: "It also means not defiling … but keeping it at peace, …" (remaining participles follow) |
+
+Both are the verifier's own replacement text; included in the final whole-book re-verification pass.
