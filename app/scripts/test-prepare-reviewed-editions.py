@@ -39,6 +39,13 @@ class ReanchorTests(unittest.TestCase):
         self.assertEqual(snapshot["body"], "Existing reviewed prose.")
         self.assertEqual(snapshot["name"], "Existing name")
 
+    def test_strict_release_does_not_invent_changed_epithet_mapping(self):
+        old, asset = fixture("the creature spoke.", "the creature", ("the fiend",))
+        new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["the fiend spoke."]}]}).encode()
+        output, report = module.reanchor(asset, old, new, "new", allow_alias_changes=False)
+        self.assertEqual(output["editions"]["modern-en"]["mentions"], [])
+        self.assertEqual(report["droppedMentions"][0]["reason"], "changed mention text lacks explicit mapping approval")
+
     def test_unreviewed_replacement_is_omitted_instead_of_guessed(self):
         old, asset = fixture("John spoke.", "John")
         new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["James spoke."]}]}).encode()
