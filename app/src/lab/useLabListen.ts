@@ -15,7 +15,7 @@ import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTi
 import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
-import { narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
+import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -66,7 +66,7 @@ export interface UseLabListenOptions {
 export interface LabNarrationOption {
   voice: string
   /** One call generates at most one missing sentence group (`mode: 'next'`) and reports every requested paragraph's state. */
-  ensure: (paragraphIndexes: number[], signal: AbortSignal, mode?: NarrationEnsureRequest['mode']) => Promise<NarrationParagraphResult[]>
+  ensure: (paragraphIndexes: number[], signal: AbortSignal, mode?: NarrationEnsureRequest['mode'], fromChunks?: Record<number, number>) => Promise<NarrationParagraphResult[]>
   /** Paragraphs kept complete ahead of the one playing (default 2, at most 3). */
   lookAhead?: number
 }
@@ -165,6 +165,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
+  const pendingPlaceRef = useRef<PlaceInput | null>(null)
   const playPlaceRef = useRef<(clips: LabAudioClip[], place: PlaceInput, andPlay: boolean, includeTitle?: boolean) => boolean>(() => false)
   const optionsRef = useRef(options)
   optionsRef.current = options
@@ -212,20 +213,16 @@ export function useLabListen(options: UseLabListenOptions) {
       const textHash = hashes.get(paragraph.index)
       if (textHash == null) continue
       const entry = narrationPreparedRef.current.get(paragraph.index)
-      if (!entry || entry.textHash !== textHash || entry.chunkCount === 0) {
-        clips.push({ kind: 'paragraph', index: paragraph.index, file: `narration-p${paragraph.index}.mp3`, narration: { textHash, ready: false } })
-        continue
-      }
-      for (let c = 0; c < entry.chunkCount; c += 1) {
-        const chunk = entry.chunks[c]
+      const layout = chunkNarrationTokens(narrationTokens(paragraph.text))
+      for (const expected of layout) {
+        const chunk = entry?.textHash === textHash ? entry.chunks[expected.index] : undefined
         clips.push({
-          kind: 'paragraph',
-          index: paragraph.index,
-          file: `narration-p${paragraph.index}-c${c}.mp3`,
+          kind: 'paragraph', index: paragraph.index,
+          file: `narration-p${paragraph.index}-c${expected.index}.mp3`,
           url: chunk?.ready ? chunk.url : undefined,
           duration: chunk?.ready ? chunk.duration : undefined,
           words: chunk?.ready ? chunk.words : undefined,
-          chunk: { index: c, count: entry.chunkCount, wordFrom: chunk?.wordFrom ?? 0, wordTo: chunk?.wordTo ?? 0 },
+          chunk: { index: expected.index, count: layout.length, wordFrom: expected.wordFrom, wordTo: expected.wordTo },
           narration: { textHash, ready: Boolean(chunk?.ready) },
         })
       }
@@ -256,9 +253,9 @@ export function useLabListen(options: UseLabListenOptions) {
       if (!paragraph) continue
       // A stale answer never shortens what is already playable.
       const known = prepared.get(result.paragraph)
-      if (known && known.textHash === result.textHash && known.chunks.filter(chunk => chunk.ready).length > result.readyChunks) continue
       const tokens = narrationTokens(paragraph.text)
       const chunks: PreparedChunk[] = result.chunks.map((chunk) => {
+        if (!chunk.ready && known?.textHash === result.textHash && known.chunks[chunk.index]?.ready) return known.chunks[chunk.index]
         const chunkText = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
         const words = chunk.ready && chunk.words
           ? alignTimedWordsToText(chunkText, wordsFromManifestParagraph({ words: chunk.words }))
@@ -289,7 +286,8 @@ export function useLabListen(options: UseLabListenOptions) {
    * requested paragraph. Rounds are serialised so two loops never race the
    * same chunk; a caller that finds a round in flight awaits it.
    */
-  const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean): Promise<NarrationOutcome> => {
+  const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean, fromChunks?: Record<number, number>): Promise<NarrationOutcome> => {
+    const generation = playRequestRef.current
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
     while (narrationRoundRef.current) {
@@ -297,8 +295,9 @@ export function useLabListen(options: UseLabListenOptions) {
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
     }
+    if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
     const signal = narrationSignal()
-    const round = narration.ensure(indexes, signal, 'next')
+    const round = fromChunks ? narration.ensure(indexes, signal, 'next', fromChunks) : narration.ensure(indexes, signal, 'next')
     narrationRoundRef.current = round
     try {
       const results = await round
@@ -312,7 +311,7 @@ export function useLabListen(options: UseLabListenOptions) {
         return { ok: false, reason: first.status === 'failed' ? first.reason || 'failed' : first.status, retryAfterMs: first.retryAfterMs }
       }
       if (first.failure) return { ok: false, reason: first.failure.reason, retryAfterMs: first.failure.retryAfterMs }
-      if (first.status === 'pending' && first.readyChunks === 0) return { ok: false, reason: 'pending', retryAfterMs: first.retryAfterMs ?? 1500 }
+      if ((first.status === 'pending' && first.readyChunks === 0) || (first.retryAfterMs && satisfied && !satisfied())) return { ok: false, reason: 'pending', retryAfterMs: first.retryAfterMs ?? 1500 }
       return { ok: true }
     } catch (error) {
       if ((error as Error)?.name === 'AbortError' || signal.aborted) return { ok: false, reason: 'cancelled' }
@@ -366,7 +365,7 @@ export function useLabListen(options: UseLabListenOptions) {
     // Each round lands one chunk; a chunk beyond the ready prefix needs as
     // many rounds as it is deep, plus a few for waits on other generators.
     for (let round = 0; round < target.chunkIndex + 6 && !chunkReady(target); round += 1) {
-      outcome = await ensureRound([target.paragraphIndex], () => chunkReady(target))
+      outcome = await ensureRound([target.paragraphIndex], () => chunkReady(target), { [target.paragraphIndex]: target.chunkIndex })
       if (superseded()) return
       if (!outcome.ok) {
         if (outcome.reason !== 'pending' || polls >= 3) break
@@ -408,6 +407,7 @@ export function useLabListen(options: UseLabListenOptions) {
         const current = clipsRef.current[clipIndexRef.current]
         if (!current || current.kind !== 'paragraph') return
         const indexes: number[] = []
+        const fromChunks: Record<number, number> = {}
         let buffered = 0
         const targetSeconds = NARRATION_BUFFER_TARGET_SECONDS * (audioRef.current?.playbackRate || 1)
         for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
@@ -417,12 +417,13 @@ export function useLabListen(options: UseLabListenOptions) {
             buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
           } else if (!clip.url && !indexes.includes(clip.index)) {
             indexes.push(clip.index)
+            fromChunks[clip.index] = clip.chunk?.index ?? 0
             if (indexes.length >= 3) break
           }
         }
         if (buffered >= targetSeconds || indexes.length === 0) return
         const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
-        const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete))
+        const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete), fromChunks)
         if (!outcome.ok && outcome.reason === 'cancelled') return
         const after = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         if (after === before) {
@@ -456,6 +457,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
+    pendingPlaceRef.current = null
     narrationPreparedRef.current = new Map()
     narrationHashesRef.current = new Map()
     narrationRoundRef.current = null
@@ -630,6 +632,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
 
   const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
+    pendingPlaceRef.current = null
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = ensureAudio()
@@ -641,6 +644,7 @@ export function useLabListen(options: UseLabListenOptions) {
       // cannot leak into the follow paint or the progress bar while we wait.
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
       enterPreparing(index, offsetSeconds)
+      if (!andPlay) return true
       void prepareThenRun(target, () => {
         const ready = findClipIndex(target)
         if (ready >= 0) playClipRef.current(ready, offsetSeconds, andPlay)
@@ -741,10 +745,12 @@ export function useLabListen(options: UseLabListenOptions) {
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
       ensureAudio()
       enterPreparing(index, 0)
-      if (!andPlay) { playingRef.current = false; setPlaying(false) }
+      pendingPlaceRef.current = { paragraphIndex, wordIndex }
+      if (!andPlay) { playingRef.current = false; setPlaying(false); return true }
       void prepareThenRun(target, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
       return true
     }
+    pendingPlaceRef.current = null
     const words = clip?.kind === 'paragraph' ? clip.words : undefined
     const localIndex = clip?.kind === 'paragraph' && clip.chunk ? wordIndex - clip.chunk.wordFrom : wordIndex
     const clamped = words && words.length > 0
@@ -898,6 +904,10 @@ export function useLabListen(options: UseLabListenOptions) {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
+    if (pendingPlaceRef.current) {
+      playPlaceRef.current(clipsRef.current, pendingPlaceRef.current, true)
+      return
+    }
     // Narration: the current clip may still need preparing, or its recording
     // arrived while paused and the element still holds the previous chunk;
     // either way re-enter through playClip rather than replaying the element.
@@ -937,6 +947,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [applyRate, playClip, speed, start, syncFollow])
 
   const stop = useCallback(() => {
+    pendingPlaceRef.current = null
     chapterHandoffRef.current = false
     playRequestRef.current += 1
     narrationRequestRef.current += 1

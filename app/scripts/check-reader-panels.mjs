@@ -295,7 +295,7 @@ async function checkFullPageFold(page) {
   const fold=await page.getByTestId('lab-page-wrap').evaluate(node=>{
     const rect=node.getBoundingClientRect(), style=getComputedStyle(node), paint=getComputedStyle(node,'::after')
     const columns=node.querySelector('.lab-book-columns')
-    return {pageHeight:node.clientHeight, height:parseFloat(paint.height), top:parseFloat(paint.top),
+    return {night:node.closest('.lab').classList.contains('is-night'), pageHeight:node.clientHeight, height:parseFloat(paint.height), top:parseFloat(paint.top),
       bottom:parseFloat(paint.bottom), width:parseFloat(paint.width), events:paint.pointerEvents,
       oldDivider:columns&&getComputedStyle(columns,'::after').content, shadow:style.boxShadow,
       rect:rect.toJSON(), content:paint.content,
@@ -305,7 +305,9 @@ async function checkFullPageFold(page) {
       foldLeft:rect.left+node.clientLeft+node.clientWidth/2-parseFloat(paint.width)/2,
       foldRight:rect.left+node.clientLeft+node.clientWidth/2+parseFloat(paint.width)/2}
   })
-  assert(fold.content!=='none'&&fold.width>=40,'binding must be visible')
+  assert(fold.content!=='none'&&fold.width>0,'binding must be visible')
+  if(fold.night) assert(fold.width>=20&&fold.width<=24,'dark binding is narrow and subtle')
+  else assert(fold.width>=40,'light binding retains the paper fold')
   const center=(fold.foldLeft+fold.foldRight)/2
   assert(Math.abs(center-fold.viewportWidth/2)<1,'binding stays centered in the viewport')
   if(fold.columnsRect.width>0) assert(Math.abs(center-(fold.columnsRect.left+fold.columnsRect.right)/2)<1,'binding stays centered between visible text columns: '+JSON.stringify(fold))

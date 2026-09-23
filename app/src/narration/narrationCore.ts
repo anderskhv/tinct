@@ -23,7 +23,7 @@ export const NARRATION_CACHE_VERSION = 2
 /** Bump when `chunkNarrationTokens` changes where it cuts; chunk audio depends on it. */
 export const NARRATION_CHUNKER_VERSION = 1
 
-export type NarrationProvider = 'fish' | 'google'
+export type NarrationProvider = 'fish' | 'google' | 'grok'
 
 /** Production on-demand narration provider. Fish remains readable for its pilot cache. */
 export const NARRATION_PROVIDER: NarrationProvider = 'fish'
@@ -34,22 +34,16 @@ export const NARRATION_PROVIDER: NarrationProvider = 'fish'
  * catalogue in; `narrationScope.test.ts` pins it to `LAB_POPULAR_BOOK_IDS`.
  */
 export const NARRATION_SCOPE_BOOK_IDS: readonly string[] = [
-  'odyssey',
-  'hamlet',
-  'the-republic',
-  'pride-and-prejudice',
-  'bible',
   'frankenstein',
-  'the-art-of-war',
-  'the-histories',
+  'odyssey',
+  'jekyll-and-hyde',
+  'pride-and-prejudice',
+  'meditations',
   'crime-and-punishment',
   'jane-eyre',
-  'meditations',
-  'moby-dick',
-  'divine-comedy',
-  'iliad',
-  'walden',
-  'frederick-douglass',
+  'the-prince',
+  'julius-caesar',
+  'candide',
 ]
 
 export const NARRATION_PILOT_SCOPE = {

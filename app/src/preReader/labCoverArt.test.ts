@@ -47,16 +47,13 @@ describe('lab cover art assets', () => {
   it('serializes the popular row in shelf order, all published with art', () => {
     const serialized = serializePreReaderCatalogue()
     expect(serialized.popular).toEqual([...LAB_POPULAR_BOOK_IDS])
-    expect(serialized.popular).toHaveLength(16)
+    expect(serialized.popular).toHaveLength(10)
     for (const id of serialized.popular) {
       const book = PRE_READER_CATALOGUE.booksById.get(id)
       expect(book, id).toBeDefined()
       expect(book?.art, id).not.toBeNull()
     }
-    // The first eight are the phone's row; the rest only fill a wide desktop.
-    expect(serialized.popular.slice(0, 8)).toEqual([
-      'odyssey', 'hamlet', 'the-republic', 'pride-and-prejudice',
-      'bible', 'frankenstein', 'the-art-of-war', 'the-histories',
-    ])
+    // The opening-ready shelf follows the approved ten-book order.
+    expect(serialized.popular).toEqual(["frankenstein","odyssey","jekyll-and-hyde","pride-and-prejudice","meditations","crime-and-punishment","jane-eyre","the-prince","julius-caesar","candide"])
   })
 })

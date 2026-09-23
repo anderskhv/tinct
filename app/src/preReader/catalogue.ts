@@ -67,22 +67,16 @@ export const LAB_COVER_ART_2X_BOOK_IDS: readonly string[] = [
  * a given viewport shows is `popularShelfSize` in lab/library-model.js.
  */
 export const LAB_POPULAR_BOOK_IDS: readonly string[] = [
-  'odyssey',
-  'hamlet',
-  'the-republic',
-  'pride-and-prejudice',
-  'bible',
   'frankenstein',
-  'the-art-of-war',
-  'the-histories',
+  'odyssey',
+  'jekyll-and-hyde',
+  'pride-and-prejudice',
+  'meditations',
   'crime-and-punishment',
   'jane-eyre',
-  'meditations',
-  'moby-dick',
-  'divine-comedy',
-  'iliad',
-  'walden',
-  'frederick-douglass',
+  'the-prince',
+  'julius-caesar',
+  'candide',
 ]
 
 export function labCoverArt(bookId: string): PreReaderCoverArt | null {

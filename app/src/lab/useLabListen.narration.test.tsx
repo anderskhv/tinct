@@ -56,7 +56,7 @@ async function state(index: number, ready: number, options: { words?: boolean; d
   }
 }
 
-interface EnsureCall { indexes: number[]; mode?: string; signal: AbortSignal; resolve: (results: NarrationParagraphResult[]) => void; reject: (error: Error) => void }
+interface EnsureCall { fromChunks?: Record<number, number>; indexes: number[]; mode?: string; signal: AbortSignal; resolve: (results: NarrationParagraphResult[]) => void; reject: (error: Error) => void }
 
 function harness(options: { voice?: string } = {}) {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
@@ -69,8 +69,8 @@ function harness(options: { voice?: string } = {}) {
     play: vi.fn(() => new Promise<void>((resolve, reject) => pending.push({ resolve, reject }))),
   })
   const calls: EnsureCall[] = []
-  const ensure = vi.fn((indexes: number[], signal: AbortSignal, mode?: string) => new Promise<NarrationParagraphResult[]>((resolve, reject) => {
-    calls.push({ indexes, mode, signal, resolve, reject })
+  const ensure = vi.fn((indexes: number[], signal: AbortSignal, mode?: string, fromChunks?: Record<number, number>) => new Promise<NarrationParagraphResult[]>((resolve, reject) => {
+    calls.push({ indexes, mode, fromChunks, signal, resolve, reject })
     signal.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')))
   }))
   // Kokoro manifest words for the same paragraphs must never paint over Fish audio.
@@ -113,6 +113,48 @@ const last = (h: ReturnType<typeof harness>) => h.calls[h.calls.length - 1]
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 
 describe('useLabListen narration pilot (sentence groups)', () => {
+  it('seeks directly to an uncached sentence group without preparing skipped groups', async () => {
+    const h = harness()
+    const layout = chunkNarrationText(PARAGRAPHS[2])
+    const target = layout[layout.length - 1]
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: target.wordFrom }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    expect(h.calls[0].indexes).toEqual([2])
+    expect(h.calls[0].fromChunks).toEqual({ 2: target.index })
+    const ready = await state(2, layout.length)
+    ready.chunks = ready.chunks.map(chunk => chunk.index === target.index ? chunk : { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false })
+    ready.status = 'partial'; ready.readyChunks = 1; ready.duration = undefined; ready.words = null
+    await act(async () => h.calls[0].resolve([ready]))
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.audio.src).toContain('hash-2-' + target.index)
+    expect(h.result.current.chapterDuration).toBeGreaterThan(4)
+    h.unmount()
+  })
+
+  it('remembers an uncached word chosen while paused until explicit resume', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({paragraphIndex:0,wordIndex:0}) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    act(() => h.result.current.pause())
+    await act(async () => { await Promise.resolve() })
+    act(() => h.result.current.seekToPlace(3, 3))
+    expect(h.calls.length).toBe(1)
+    act(() => h.result.current.resume())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    expect(h.calls[1].indexes).toEqual([3])
+    await act(async () => { await h.answer(h.calls[1], {3:1}) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.audio.currentTime).toBe(2)
+    h.unmount()
+  })
+
+  it('opening a reader schedules no synthesis', async () => {
+    const h = harness()
+    await act(async () => { await Promise.resolve() })
+    expect(h.ensure).not.toHaveBeenCalled()
+    h.unmount()
+  })
+
   it('retains the ended media element while the next generated clip arrives and ignores stale media events', async () => {
     const h = harness()
     await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
@@ -392,11 +434,9 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     act(() => h.result.current.pause())
     await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead round
     act(() => { h.result.current.seek(30) })
-    await waitFor(() => expect(h.calls.length).toBe(3))
-    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
-    await act(async () => { await h.answer(h.calls[2], { 0: 1, 1: 1, 2: 0 }) })
     await act(async () => { await Promise.resolve() })
-    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'idle' }))
+    expect(h.calls.length).toBe(2) // Seeking while paused cannot synthesize.
+    expect(h.result.current.narration).toEqual({ status: 'idle' })
     expect(h.audio.play).toHaveBeenCalledTimes(1)
     expect(h.result.current.playing).toBe(false)
     expect(h.result.current.clipIndex).toBe(1)

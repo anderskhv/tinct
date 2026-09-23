@@ -167,7 +167,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, returnTo }: LabV2SheetProps) {
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
@@ -289,12 +289,16 @@ export function LabV2Sheet({ bookId = 'bible', phoneShakespeare = false, layer, 
                   <SelectRow
                     label="Voice"
                     testId="lab-v2-narration-voice"
-                    value={prefs.voicePersona}
-                    options={[
-                      { value: 'female', label: 'Female' },
-                      { value: 'male', label: 'Male' },
-                    ]}
-                    onChange={value => onPrefs({ ...prefs, voicePersona: value === 'male' ? 'male' : 'female' })}
+                    value={narrationPilot?.info?.provider === 'grok' ? prefs.audiobookVoice || prefs.voicePersona : prefs.voicePersona}
+                    options={narrationPilot?.info?.provider === 'grok' ? [
+                      { value: 'female', label: 'Ara · Female' },
+                      { value: 'male', label: 'Helios · Male' },
+                      { value: 'orion', label: 'Orion · Male' },
+                      { value: 'eve', label: 'Eve · Female' },
+                    ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
+                    onChange={value => onPrefs(value === 'orion' || value === 'eve'
+                      ? { ...prefs, audiobookVoice: value }
+                      : { ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female' })}
                   />
                 <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
                   options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}

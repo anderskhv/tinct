@@ -1,3 +1,6 @@
+import { isEditionWithheld } from '../../data/withheldEditions'
+import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
+import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
 /**
  * Fish Audio narration pilot — Worker routes.
  *
@@ -66,6 +69,9 @@ import { usesRetainedBella } from '../../narration/bellaRetention'
 export type NarrationEnv = SupabaseEnv & {
   FISH_AUDIO_API_KEY?: string
   GOOGLE_TTS_API_KEY?: string
+  XAI_API_KEY?: string
+  NARRATION_GROK_BASE_URL?: string
+  NARRATION_COORDINATOR?: DurableObjectNamespace<import('../narrationCoordinator').NarrationCoordinator>
   /** '1' switches the pilot routes on; anything else answers "not configured". */
   NARRATION_PILOT?: string
   NARRATION_PROVIDER?: string
@@ -88,6 +94,8 @@ export type NarrationEnv = SupabaseEnv & {
 }
 
 export interface NarrationDeps {
+  /** Verified by the router, never accepted from request JSON. */
+  warmAuthorized?: boolean
   verifyUser: (env: NarrationEnv, request: Request) => Promise<{ id: string; email: string } | null>
   verifySiteAdmin: (env: NarrationEnv, request: Request) => Promise<boolean>
   checkRateLimit: (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -133,9 +141,16 @@ export interface NarrationConfig {
 }
 
 export function narrationConfig(env: NarrationEnv): NarrationConfig {
-  const provider: NarrationProvider = env.NARRATION_PROVIDER === 'google' ? 'google' : 'fish'
+  const provider: NarrationProvider = env.NARRATION_PROVIDER === 'grok' ? 'grok' : env.NARRATION_PROVIDER === 'google' ? 'google' : 'fish'
   const voices: NarrationVoice[] = []
-  if (provider === 'google') {
+  if (provider === 'grok') {
+    voices.push(
+      { key: 'f', id: 'ara', label: 'Ara', persona: 'female' },
+      { key: 'm', id: 'helios', label: 'Helios', persona: 'male' },
+      { key: 'orion', id: 'orion', label: 'Orion', persona: 'male' },
+      { key: 'eve', id: 'eve', label: 'Eve', persona: 'female' },
+    )
+  } else if (provider === 'google') {
     voices.push(
       { key: 'f', id: 'en-US-Wavenet-F', label: 'Female', persona: 'female' },
       { key: 'm', id: 'en-US-Wavenet-J', label: 'Male', persona: 'male' },
@@ -146,15 +161,15 @@ export function narrationConfig(env: NarrationEnv): NarrationConfig {
   }
   const base = {
     provider,
-    model: provider === 'google' ? GOOGLE_NARRATION_MODEL : (env.NARRATION_MODEL || NARRATION_DEFAULT_MODEL),
+    model: provider === 'grok' ? 'grok-tts-v1' : provider === 'google' ? GOOGLE_NARRATION_MODEL : (env.NARRATION_MODEL || NARRATION_DEFAULT_MODEL),
     voices,
     settings: DEFAULT_NARRATION_SETTINGS,
     dailyBytes: positiveInt(env.NARRATION_DAILY_BYTES, NARRATION_DEFAULT_DAILY_BYTES),
     monthlyBytes: positiveInt(env.NARRATION_MONTHLY_BYTES, NARRATION_DEFAULT_MONTHLY_BYTES),
-    baseUrl: provider === 'google' ? (env.NARRATION_GOOGLE_BASE_URL || GOOGLE_TTS_BASE_URL) : (env.NARRATION_FISH_BASE_URL || FISH_API_BASE_URL),
+    baseUrl: provider === 'grok' ? (env.NARRATION_GROK_BASE_URL || 'https://api.x.ai') : provider === 'google' ? (env.NARRATION_GOOGLE_BASE_URL || GOOGLE_TTS_BASE_URL) : (env.NARRATION_FISH_BASE_URL || FISH_API_BASE_URL),
   }
   if (env.NARRATION_PILOT !== '1') return { ...base, enabled: false, reason: 'pilot_off' }
-  if (provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY) return { ...base, enabled: false, reason: 'missing_api_key' }
+  if (provider === 'grok' ? !env.XAI_API_KEY : provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY) return { ...base, enabled: false, reason: 'missing_api_key' }
   if (voices.length === 0) return { ...base, enabled: false, reason: 'missing_voices' }
   if (!env.AUDIO_BUCKET) return { ...base, enabled: false, reason: 'missing_bucket' }
   return { ...base, enabled: true }
@@ -182,12 +197,16 @@ function positiveInt(value: string | undefined, fallback: number): number {
 
 export async function handleNarration(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
   const url = new URL(request.url)
+  const warmAuthorized = isWarmCaller(request, env) || await verifyReleaseWarmRequest(request, env.XAI_API_KEY, (deps.now || Date.now)())
+  deps = { ...deps, warmAuthorized }
+  // Admin-only prepopulation can verify Grok before the public provider cutover.
+  if (request.headers.get('x-narration-provider') === 'grok' && warmAuthorized) env = { ...env, NARRATION_PROVIDER: 'grok' }
   const sub = url.pathname.replace(/^\/api\/narration\/?/, '')
   switch (sub) {
     case 'voices': return handleVoices(request, env)
     case 'chapter': return handleChapter(request, env, deps)
     case 'ensure': return handleEnsure(request, env, ctx, deps, 'reader')
-    case 'prepare': return handleEnsure(request, env, ctx, deps, 'prepare')
+    case 'prepare': return new Response(null, { status: 204 }) // Opening/browsing must never synthesize.
     case 'warm': return handleEnsure(request, env, ctx, deps, 'warm')
     case 'usage': return handleUsage(request, env, deps)
     default: return jsonResponse({ error: 'Not found' }, 404, request)
@@ -258,7 +277,7 @@ function parseScope(url: URL): { bookId: string; editionKey: string; chapter: nu
   const voiceKey = url.searchParams.get('voice') || ''
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey)) return null
   if (!Number.isInteger(chapter) || chapter < 1) return null
-  if (!/^[a-z]$/.test(voiceKey)) return null
+  if (!/^[a-z]{1,16}$/.test(voiceKey)) return null
   return { bookId, editionKey, chapter, voiceKey }
 }
 
@@ -345,17 +364,14 @@ async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider,
   const entry = await readMapEntry(bucket, mapKey)
   if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
   const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings)
-  for (let position = 0; position < entry.chunks.length; position += 1) {
-    const listed = entry.chunks[position]
+  for (const listed of entry.chunks) {
+    const position = listed.index
     const expected = chunks[position]
-    if (!listed || !expected || listed.index !== position || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || typeof listed.hash !== 'string') break
-    // The listed recording must be the one this text, model, voice and
-    // settings would produce today; any changed setting is a different hash.
-    if (listed.hash !== hashes[position]) break
+    if (!expected || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || listed.hash !== hashes[position]) continue
     const ready = await readReadyChunk(bucket, provider, position, expected, listed.hash, textHash)
-    if (!ready) break
-    state.ready.push(ready)
+    if (ready) state.ready.push(ready)
   }
+  state.ready.sort((a, b) => a.index - b.index)
   return state
 }
 
@@ -367,15 +383,14 @@ async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider,
  * it: readers validate on read and regenerate only the chunk that fails.
  */
 function listedChunksForMap(existing: NarrationMapEntry | null, ready: ReadyChunk[], chunks: NarrationChunk[], identities: string[], textHash: string, voiceId: string, model: string): NarrationMapEntry['chunks'] {
-  const listed = ready.map(item => ({ index: item.index, hash: item.hash, wordFrom: item.wordFrom, wordTo: item.wordTo }))
-  if (!mapEntryMatches(existing, textHash, chunks.length, voiceId, model)) return listed
-  for (let position = listed.length; position < chunks.length; position += 1) {
-    const entry = existing.chunks[position]
-    const expected = chunks[position]
-    if (!entry || entry.index !== position || entry.hash !== identities[position] || entry.wordFrom !== expected.wordFrom || entry.wordTo !== expected.wordTo) break
-    listed.push({ index: position, hash: entry.hash, wordFrom: entry.wordFrom, wordTo: entry.wordTo })
+  const listed = new Map(ready.map(item => [item.index, { index: item.index, hash: item.hash, wordFrom: item.wordFrom, wordTo: item.wordTo }]))
+  if (mapEntryMatches(existing, textHash, chunks.length, voiceId, model)) {
+    for (const entry of existing.chunks) {
+      const expected = chunks[entry.index]
+      if (expected && entry.hash === identities[entry.index] && entry.wordFrom === expected.wordFrom && entry.wordTo === expected.wordTo && !listed.has(entry.index)) listed.set(entry.index, entry)
+    }
   }
-  return listed
+  return [...listed.values()].sort((a, b) => a.index - b.index)
 }
 
 function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined, provider: NarrationProvider) {
@@ -406,7 +421,7 @@ function listedParagraphPayload(paragraph: number, textHash: string, chunks: Nar
     readyChunks: listed.length,
     listedOnly: true,
     chunks: chunks.map((chunk, position) => {
-      const entry = listed[position]
+      const entry = listed.find(item => item.index === position)
       if (!entry) return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false as const }
       return {
         index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: true as const, hash: entry.hash,
@@ -421,7 +436,7 @@ function paragraphPayload(paragraph: number, state: ParagraphState, provider: Na
   const complete = state.chunks.length > 0 && state.ready.length === state.chunks.length
   const status = complete ? 'ready' as const : state.ready.length > 0 ? 'partial' as const : 'pending' as const
   const merged = complete
-    ? paragraphWordsFromChunks(state.ready.map(chunk => ({ words: chunk.words ?? [], duration: chunk.duration })))
+    ? paragraphWordsFromChunks([...state.ready].sort((a, b) => a.index - b.index).map(chunk => ({ words: chunk.words ?? [], duration: chunk.duration })))
     : null
   const allTimed = complete && state.ready.every(chunk => chunk.timingsUsable && chunk.words)
   return {
@@ -430,7 +445,7 @@ function paragraphPayload(paragraph: number, state: ParagraphState, provider: Na
     textHash: state.textHash,
     chunkCount: state.chunks.length,
     readyChunks: state.ready.length,
-    chunks: state.chunks.map(chunk => chunkPayload(chunk, state.ready[chunk.index], provider)),
+    chunks: state.chunks.map(chunk => chunkPayload(chunk, state.ready.find(item => item.index === chunk.index), provider)),
     duration: merged?.duration,
     words: allTimed && merged ? merged.words : null,
     timingsUsable: allTimed,
@@ -448,7 +463,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   // Listing costs an edition parse, a prefix list and one R2 read per
   // paragraph, so it is throttled per address like the patch endpoint.
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!isWarmCaller(request, env) && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
+  if (!deps.warmAuthorized && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
@@ -553,7 +568,7 @@ async function recordProviderOutcome(kv: KVNamespace | undefined, now: number, o
 
 async function handleUsage(request: Request, env: NarrationEnv, deps: NarrationDeps): Promise<Response> {
   if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  if (!await deps.verifySiteAdmin(env, request)) return jsonResponse({ error: 'Forbidden' }, 403, request)
+  if (!deps.warmAuthorized && !await deps.verifySiteAdmin(env, request)) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
   const now = (deps.now || Date.now)()
   const keys = usageKeys(now)
@@ -562,6 +577,8 @@ async function handleUsage(request: Request, env: NarrationEnv, deps: NarrationD
     ...publicConfig(config),
     ceilings: { dailyBytes: config.dailyBytes, monthlyBytes: config.monthlyBytes },
     day, month,
+    reservations: config.provider === 'grok' && env.NARRATION_COORDINATOR
+      ? await env.NARRATION_COORDINATOR.getByName('budget:' + new Date(now).toISOString().slice(0, 7)).usage() : undefined,
     breaker: { failures: breaker.failures, open: breaker.openUntil > now, openUntil: breaker.openUntil || null },
     accounting: { unit: 'utf8_text_bytes', note: 'Operational ceiling only; verify provider billing against the account statement.' },
   }, 200, request)
@@ -573,13 +590,13 @@ export interface NarrationSynthesisResult {
   audio: Uint8Array
   segments: TimingSegment[]
   reportedDuration: number
-  timingsSource: 'with-timestamp' | 'ssml-mark' | 'none'
+  timingsSource: 'with-timestamp' | 'ssml-mark' | 'grok-grapheme' | 'none'
   attempts: number
   providerMs: number
 }
 
 export class NarrationProviderError extends Error {
-  constructor(message: string, readonly code: 'provider_auth' | 'provider_payment' | 'provider_unavailable' | 'provider_rejected' | 'provider_empty' | 'storage_failed', readonly status?: number) {
+  constructor(message: string, readonly code: 'provider_auth' | 'provider_payment' | 'provider_unavailable' | 'provider_rejected' | 'provider_empty' | 'storage_failed' | 'budget_exhausted', readonly status?: number) {
     super(message)
   }
 }
@@ -774,6 +791,58 @@ export async function synthesizeWithGoogle(input: {
   throw lastError || new NarrationProviderError('Google unavailable', 'provider_unavailable')
 }
 
+
+/** Every paid attempt reserves its maximum text cost before sending bytes. */
+export async function synthesizeWithGrok(input: {
+  apiKey: string; baseUrl: string; voiceId: string; text: string
+  settings: NarrationSynthesisSettings; fetchImpl: typeof fetch
+  sleep: (ms: number) => Promise<void>; now: () => number; deadlineAt?: number
+  reserve: () => Promise<boolean>
+}): Promise<NarrationSynthesisResult> {
+  const startedAt = input.now()
+  let attempts = 0
+  let lastError: NarrationProviderError | null = null
+  for (let attempt = 0; attempt <= PROVIDER_RETRY_DELAYS_MS.length; attempt++) {
+    if (attempt) await input.sleep(PROVIDER_RETRY_DELAYS_MS[attempt - 1])
+    if (attempt && input.deadlineAt != null && input.now() + PROVIDER_TIMEOUT_MS > input.deadlineAt) break
+    if (!await input.reserve()) throw new NarrationProviderError('Narration ceiling reached', 'budget_exhausted')
+    attempts++
+    const exchange = fetchWithDeadline(input.fetchImpl, input.baseUrl + '/v1/tts', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + input.apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: input.text, voice_id: input.voiceId, language: 'en',
+        with_timestamps: true, text_normalization: input.settings.normalize, speed: input.settings.speed,
+        output_format: { codec: 'mp3', sample_rate: 24000, bit_rate: input.settings.mp3Bitrate * 1000 } }),
+    }, PROVIDER_TIMEOUT_MS)
+    try {
+      let response: Response
+      try { response = await exchange.response } catch {
+        lastError = new NarrationProviderError('Grok network timeout', 'provider_unavailable')
+        continue
+      }
+      if (response.status === 401 || response.status === 403) throw new NarrationProviderError('Grok authentication failed', 'provider_auth', response.status)
+      if (response.status === 402) throw new NarrationProviderError('Grok account credit unavailable', 'provider_payment', response.status)
+      if (response.status === 429 || response.status >= 500) {
+        await response.body?.cancel()
+        lastError = new NarrationProviderError('Grok temporarily unavailable', 'provider_unavailable', response.status)
+        continue
+      }
+      if (!response.ok) throw new NarrationProviderError('Grok rejected synthesis', 'provider_rejected', response.status)
+      let payload: GrokTimingEnvelope
+      try { payload = await response.json() as GrokTimingEnvelope } catch {
+        lastError = new NarrationProviderError('Grok incomplete response', 'provider_unavailable')
+        continue
+      }
+      if (typeof payload.audio !== 'string' || !payload.audio || payload.audio.length > 8_000_000) throw new NarrationProviderError('Grok audio missing or oversized', 'provider_empty')
+      let segments: TimingSegment[]
+      try { segments = grokWordSegments(payload, input.text) } catch { throw new NarrationProviderError('Grok timestamps do not match', 'provider_rejected') }
+      return { audio: decodeBase64(payload.audio), segments, reportedDuration: payload.duration,
+        timingsSource: 'grok-grapheme', attempts, providerMs: input.now() - startedAt }
+    } finally { exchange.release() }
+  }
+  throw lastError || new NarrationProviderError('Grok unavailable', 'provider_unavailable')
+}
+
 // ===== POST /api/narration/ensure (and /warm) =====
 
 interface EnsureRequestBody {
@@ -781,9 +850,9 @@ interface EnsureRequestBody {
   editionKey?: string
   chapter?: number
   voice?: string
-  paragraphs?: Array<{ index?: number; textHash?: string }>
+  paragraphs?: Array<{ index?: number; textHash?: string; fromChunk?: number }>
   /** 'next': generate at most one missing chunk, then answer. 'all': everything missing, within the time budget. */
-  mode?: 'next' | 'all'
+  mode?: 'next' | 'all' | 'cache'
   /** Initial speculative target. The Worker stops after reaching this much ready audio. */
   targetSeconds?: number
 }
@@ -795,17 +864,22 @@ type EnsureParagraphResult =
 
 async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'prepare' | 'warm'): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  if (caller === 'warm' && !isWarmCaller(request, env)) return jsonResponse({ error: 'Forbidden' }, 403, request)
+  if (caller === 'warm' && !deps.warmAuthorized) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
-  if (!config.enabled || !env.AUDIO_BUCKET || (config.provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY)) {
+  if (config.provider === 'grok' && !env.NARRATION_COORDINATOR) return jsonResponse({ error: 'Narration coordinator unavailable' }, 503, request)
+  if (!config.enabled || !env.AUDIO_BUCKET || (config.provider === 'grok' ? !env.XAI_API_KEY : config.provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY)) {
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
   let userId: string
+  let cacheOnlyGuest = false
   if (caller === 'warm') {
     userId = 'warm'
   } else {
     const user = await deps.verifyUser(env, request)
-    if (caller === 'reader' && !user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+    if (caller === 'reader' && !user) {
+      if (config.provider !== 'grok') return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+      cacheOnlyGuest = true
+    }
     if (caller === 'prepare' && user?.email.trim().toLowerCase() === 'ahvelplund@fastmail.com') {
       return new Response(null, { status: 204 })
     }
@@ -818,14 +892,14 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const editionKey = typeof body.editionKey === 'string' ? body.editionKey : ''
   const chapter = typeof body.chapter === 'number' ? body.chapter : NaN
   const voiceKey = typeof body.voice === 'string' ? body.voice : ''
-  const mode: 'next' | 'all' = body.mode === 'all' ? 'all' : 'next'
+  const mode: 'next' | 'all' | 'cache' = body.mode === 'cache' ? 'cache' : body.mode === 'all' ? 'all' : 'next'
   const targetSeconds = caller === 'prepare'
     ? Math.max(30, Math.min(60, Number(body.targetSeconds) || 45))
     : Number.POSITIVE_INFINITY
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey) || !Number.isInteger(chapter) || chapter < 1) {
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
-  if (!isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  if (isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
@@ -852,7 +926,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
-  let generationDone = false
+  let generationDone = mode === 'cache' || cacheOnlyGuest
   let preparedDuration = 0
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
@@ -870,6 +944,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const tokens = narrationTokens(text.paragraphs[index])
     const chunks = chunkNarrationTokens(tokens)
     const textHash = await sha256Hex(tokens.join(' '))
+    const fromChunk = Number.isInteger(item.fromChunk) && Number(item.fromChunk) >= 0 && Number(item.fromChunk) < chunks.length ? Number(item.fromChunk) : 0
     if (typeof item.textHash === 'string' && item.textHash !== textHash) {
       results.push({ paragraph: index, status: 'text_mismatch', textHash })
       continue
@@ -883,10 +958,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
     preparedDuration += state.ready.reduce((sum, ready) => sum + ready.duration, 0)
     if (preparedDuration >= targetSeconds) generationDone = true
-    let countedReady = state.ready.length
+    const countedReady = new Set(state.ready.map(item => item.index))
     const countNewReadyDuration = () => {
-      preparedDuration += state.ready.slice(countedReady).reduce((sum, ready) => sum + ready.duration, 0)
-      countedReady = state.ready.length
+      preparedDuration += state.ready.filter(item => !countedReady.has(item.index)).reduce((sum, ready) => sum + ready.duration, 0)
+      state.ready.forEach(item => countedReady.add(item.index))
       if (preparedDuration >= targetSeconds) generationDone = true
     }
     if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
@@ -917,8 +992,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
 
     while (state.ready.length < chunks.length && !generationDone && !failure) {
       if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) { generationDone = true; break }
-      const chunk = chunks[state.ready.length]
-      const identity = { hash: identities[state.ready.length] }
+      const chunk = chunks.find(item => item.index >= fromChunk && !state.ready.some(ready => ready.index === item.index))
+      if (!chunk) break
+      const identity = { hash: identities[chunk.index] }
 
       // The map is an index, not the truth: keys are content-addressed, so
       // probe the recording itself before paying for a synthesis. A map that
@@ -936,7 +1012,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       const lockKey = `narration:lock:${identity.hash}`
       let locked = false
       try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
-      if (locked) {
+      if (locked && config.provider !== 'grok') {
         const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, now, sleep)
         if (arrived) { extra.waited = true; countNewReadyDuration(); if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
@@ -958,10 +1034,34 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       }
 
       const lockToken = `${now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
-      try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: userId.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
+      if (config.provider === 'grok') {
+        // Strongly consistent per-identity lease: fail closed, never pay twice.
+        const claimed = await env.NARRATION_COORDINATOR!.getByName('chunk:' + identity.hash).claim(lockToken)
+        if (!claimed) { extra.retryAfterMs = 1000; break }
+        // A previous holder may have published between our probe and claim.
+        const arrived = await readReadyChunk(bucket, config.provider, chunk.index, chunk, identity.hash, textHash)
+        if (arrived) {
+          state.ready.push(arrived); adoptedByProbe++
+          await env.NARRATION_COORDINATOR!.getByName('chunk:' + identity.hash).release(lockToken)
+          continue
+        }
+      } else {
+        try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: userId.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* legacy pilot */ }
+      }
       const generationStartedAt = now()
       try {
-        const synthesis = config.provider === 'google'
+        const synthesis = config.provider === 'grok'
+          ? await synthesizeWithGrok({
+            apiKey: env.XAI_API_KEY as string, baseUrl: config.baseUrl, voiceId: voice.id,
+            text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+            deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
+            reserve: async () => {
+              if (!env.NARRATION_COORDINATOR) return false
+              return env.NARRATION_COORDINATOR.getByName('budget:' + new Date(now()).toISOString().slice(0, 7))
+                .reserve(new Date(now()).toISOString().slice(0, 10), textBytes, config.dailyBytes, config.monthlyBytes)
+            },
+          })
+          : config.provider === 'google'
           ? await synthesizeWithGoogle({
             apiKey: env.GOOGLE_TTS_API_KEY as string, baseUrl: config.baseUrl, voiceId: voice.id,
             text: chunk.text, fetchImpl, sleep, now,
@@ -1025,14 +1125,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
             timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
           })
         }
-        const listed = await writeMap()
-        // Adopt the listed recordings beyond our prefix that validate, so the
-        // next chunk we generate is the first one truly missing.
-        for (let position = state.ready.length; position < listed.length; position += 1) {
-          const adopted = await readReadyChunk(bucket, config.provider, position, chunks[position], listed[position].hash, textHash)
-          if (!adopted) break
-          state.ready.push(adopted)
-        }
+        await writeMap()
+        // Each seek may fill a non-prefix chunk; merge by its stable index.
+        state.ready.sort((a, b) => a.index - b.index)
         generatedThisRequest += 1
         countNewReadyDuration()
         bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
@@ -1058,6 +1153,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         // Release only a lock this request took; a lock another generator has
         // since written (after ours expired) stays in place.
         try {
+          if (config.provider === 'grok') await env.NARRATION_COORDINATOR!.getByName('chunk:' + identity.hash).release(lockToken)
           const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
           if (held?.token === lockToken) await kv?.delete(lockKey)
         } catch { /* lock expires on its own */ }
@@ -1078,6 +1174,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     if (failure && (failure as { reason: string }).reason === 'provider_payment') break
   }
 
+  if (cacheOnlyGuest && !results.some(result => 'readyChunks' in result && Number(result.readyChunks) > 0)) {
+    return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+  }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
   return jsonResponse({
     bookId, editionKey, chapter, voice: voice.key, model: config.model, mode,

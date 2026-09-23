@@ -96,6 +96,8 @@ export interface LabSharedPrefs {
    */
   narrationProvider?: 'fish' | null
   narrationVoice?: string | null
+  /** Optional audiobook voice; Talk keeps the shared persona's existing voice. */
+  audiobookVoice?: 'orion' | 'eve' | null
   /** Account-synced persona shared by audiobook narration and voice assistant. */
   voicePersona: 'female' | 'male'
 }
@@ -338,6 +340,7 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
       : fallback.audioEdition,
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
+    ...(src.audiobookVoice === 'orion' || src.audiobookVoice === 'eve' ? { audiobookVoice: src.audiobookVoice } : {}),
     compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
     voicePersona: src.voicePersona === 'male' || src.voicePersona === 'female'
       ? src.voicePersona
