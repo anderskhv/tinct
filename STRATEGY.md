@@ -24,6 +24,29 @@ The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md
 
 This is a design direction for current work, not a request to implement a localization framework, change schemas or dependencies, generate translations, or deploy now. Concrete implementation remains subject to the relevant work plan. Other dated metrics and historical completion claims in this document have not been reverified by this language-scope update.
 
+## Featured ten-book selection
+
+**Approved by Anders, 2026-09-23.** These ten books, in the supplied order, are the selection for the featured-book and opening-audio rollout. This supersedes the earlier suggestion to take the first ten entries from the existing 16-book popular shelf. Recording this decision does not itself change the live shelf or generate audio.
+
+The assessments below are Anders’s supplied editorial rationale, preserved as given. They describe the value of modernization with the current source, not a blanket claim that every classic requires rewriting or that each modern edition has passed full quality acceptance.
+
+| Book | Value of modernization | Rationale |
+|---|---|---|
+| Frankenstein | Helpful | The original is readable, but long sentences and older phrasing create friction, especially in audio. Our modernization appears worthwhile. |
+| The Odyssey | High with our current source | It needs an English translation; how accessible it is depends on that translation. Modernizing our older English source offers substantial benefit. |
+| Jekyll and Hyde | Helpful | Short doesn’t always mean easy: Victorian vocabulary, indirect phrasing and allusions can impede listening. Our version improves access. |
+| Pride and Prejudice | Low–moderate | Already lively and understandable for many readers. Light explanations of social customs and unfamiliar words may help more than extensive rewriting. |
+| Meditations | High with our current source | Older translation language and unexplained Stoic concepts obscure otherwise useful observations. A strong case for clearer English. |
+| Crime and Punishment | Moderate; translation-dependent | An English translation is essential, but an older translation can still be readable. Target awkward language; preserve psychological detail and voice. |
+| Jane Eyre | Helpful, selectively | Much of the original is engaging and clear. Some elaborate passages benefit from modernization, but our current losses show the danger of over-compression. |
+| The Prince | Helpful with our current source | Clearer syntax and explanations of historical terms help. The political arguments themselves need not be simplified. |
+| Julius Caesar | High | Shakespeare’s vocabulary, syntax and wordplay are real barriers. Modern English can make the drama immediately accessible. |
+| Candide | Low–moderate; translation-dependent | Fundamentally brisk and readable in a good English translation. Historical references often need more help than the storytelling. |
+
+Stable book IDs in the same order: `frankenstein`, `odyssey`, `jekyll-and-hyde`, `pride-and-prejudice`, `meditations`, `crime-and-punishment`, `jane-eyre`, `the-prince`, `julius-caesar`, `candide`.
+
+Opening-audio planning follows [the audiobook plan](docs/audiobook-architecture-2026-09-21.md#approved-next-rollout--23-september-2026): Grok Ara and Helios, bounded opening preparation for this selection, then shared on-demand generation and caching. The previous deployed voice contract remains historical implementation evidence until the migration is implemented and verified.
+
 ## 1. Mission
 
 The books that shaped the West — Homer, Dante, Dostoevsky, Shakespeare, the Bible — have been passed hand to hand for thirty centuries. They survived because each generation read them, argued with them, and handed them on.
