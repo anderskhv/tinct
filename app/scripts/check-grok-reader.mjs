@@ -7,6 +7,7 @@ const plan=JSON.parse(await fs.readFile('artifacts/grok-openings/plan.json','utf
 const warmed=JSON.parse(await fs.readFile('artifacts/grok-openings/warm-report.json','utf8'))
 const output='artifacts/grok-openings'
 const stage=process.env.GROK_RELEASE_STAGE==='1'
+const webkitOnly=process.env.GROK_ACCEPTANCE_ONLY==='webkit'
 const report={stage,startedAt:new Date().toISOString(),cases:[],generated:0,requests:0}
 async function signed(path, method='GET', body=''){
  const timestamp=String(Date.now())
@@ -53,7 +54,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
    this.muted=true;window.__audio=this
    if(!this.dataset.acceptance){
     this.dataset.acceptance='1'
-    for(const type of ['playing','ended','pause','error'])this.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:this.currentSrc,currentTime:this.currentTime,duration:this.duration}),{capture:true})
+    for(const type of ['playing','ended','pause','error','loadstart','loadedmetadata','durationchange','canplay','seeking','seeked','stalled','waiting'])this.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:this.currentSrc,currentTime:this.currentTime,duration:this.duration}),{capture:true})
    }
    return play.call(this)
   }
@@ -79,7 +80,8 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+(cold?'-cold':continuous?'-continuous':'')+'-playing.png'})
   // Test native ended -> next chunk using actual decoded audio.
   if(entry.bookId==='frankenstein' && voice==='f' && !cold && !continuous){
-   await page.evaluate(()=>{window.__audio.currentTime=Math.max(0,window.__audio.duration-.15)})
+   // The opening recording lasts only two seconds. Let it finish naturally;
+   // seeking an incompletely buffered MP3 tests WebKit seeking, not handoff.
    await page.waitForFunction(previous=>window.__audio?.currentSrc!==previous && !window.__audio.paused && window.__audio.currentTime>0.05,initial.src,{timeout:20000})
   }
   let chapterHandoff
@@ -120,7 +122,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))
   console.log(JSON.stringify({engine,bookId:entry.bookId,voice,cold,startMs,paint}))
  }catch(error){
-  report.cases.push({engine,bookId:entry.bookId,voice,cold,failed:true,error:String(error),calls,errors,body:(await page.locator('body').innerText()).slice(-4000)})
+  report.cases.push({engine,bookId:entry.bookId,voice,cold,failed:true,error:String(error),calls,errors,media:await page.evaluate(()=>({events:window.__audioEvents,state:window.__audio?{src:window.__audio.currentSrc,currentTime:window.__audio.currentTime,duration:window.__audio.duration,paused:window.__audio.paused,ended:window.__audio.ended,readyState:window.__audio.readyState,networkState:window.__audio.networkState,error:window.__audio.error?.message}:null})),body:(await page.locator('body').innerText()).slice(-4000)})
   await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))
   await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+'-failure.png'}).catch(()=>{})
   throw error
@@ -139,6 +141,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
  report.generated+=generated
  report.concurrency={requests:2,generated,sharedHash:hashes[0],reused:generated===0}
 }
+if(!webkitOnly){
 const chrome=await chromium.launch({headless:true,args:['--mute-audio']})
 try{
  for(const entry of plan.entries)for(const voice of entry.voices)await run(chrome,'chromium',entry,voice)
@@ -160,6 +163,7 @@ try{
   await run(chrome,'chromium',prince,'f',{chapterBoundary:true,chapter:ch.number,paragraph,word})
  }
 }finally{await chrome.close()}
+}
 const safari=await webkit.launch({headless:true})
 try{for(const voice of ['f','m'])await run(safari,'webkit',plan.entries[0],voice)}finally{await safari.close()}
 report.completedAt=new Date().toISOString()
