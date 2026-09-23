@@ -15,10 +15,9 @@ jobs:
     steps:
       - name: Install audio validator
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Generate four matched samples
+      - name: Generate Ursa and Helios samples
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          FISH_AUDIO_API_KEY: ${{ secrets.FISH_AUDIO_API_KEY }}
         shell: bash
         run: |
           python3 - <<'PY'
@@ -28,10 +27,8 @@ jobs:
           text="I am by birth a Genevese, and my family is one of the most distinguished of that republic. My ancestors had been for many years counsellors and syndics, and my father had filled several public situations with honour and reputation. He was respected by all who knew him for his integrity and indefatigable attention to public business. He passed his younger days perpetually occupied by the affairs of his country; a variety of circumstances had prevented his marrying early, nor was it until the decline of life that he became a husband and the father of a family."
           (out/"passage.txt").write_text(text+"\n")
           items=[
-          ("11-grok-ara","Grok TTS · Ara","Grok TTS","ara","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"ara","language":"en"}),
-          ("12-grok-orion","Grok TTS · Orion","Grok TTS","orion","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"orion","language":"en"}),
-          ("13-fish-abby","Fish S2.1 Pro · Abby","s2.1-pro","f6a19fe5ab494e1fa51bb1476d583a44","FISH_AUDIO_API_KEY","https://api.fish.audio/v1/tts",{"text":text,"reference_id":"f6a19fe5ab494e1fa51bb1476d583a44","format":"mp3","latency":"normal"}),
-          ("14-fish-nathan","Fish S2.1 Pro · Nathan","s2.1-pro","bbb58d698b5f46719fd04688dfac7359","FISH_AUDIO_API_KEY","https://api.fish.audio/v1/tts",{"text":text,"reference_id":"bbb58d698b5f46719fd04688dfac7359","format":"mp3","latency":"normal"})]
+          ("15-grok-ursa","Grok TTS · Ursa · Current female AI voice","Grok TTS","ursa","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"ursa","language":"en"}),
+          ("16-grok-helios","Grok TTS · Helios · Current male AI voice","Grok TTS","helios","XAI_API_KEY","https://api.x.ai/v1/tts",{"text":text,"voice_id":"helios","language":"en"})]
           rows=[]
           for name,label,model,voice,secret,url,body in items:
            key=os.environ.get(secret,"").strip()
@@ -64,7 +61,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: frankenstein-grok-fish-samples
+          name: frankenstein-ursa-helios-samples
           path: voice-samples/
           retention-days: 14
           if-no-files-found: error
