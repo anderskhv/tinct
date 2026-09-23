@@ -19,7 +19,7 @@ import {
   type LabTheme,
 } from './labPrefs'
 
-export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account'
+export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition'
 
 /**
  * One height, in pixels, for every layer. Capped against the viewport so a
@@ -105,7 +105,11 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
 ]
 
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: 'Reading settings',
+  reading: 'Settings',
+  editions: 'Book editions',
+  mainEdition: 'Main version',
+  audioEdition: 'Audiobook version',
+  compareEdition: 'Compare version',
   advanced: 'Advanced settings',
   font: 'Font',
   account: 'Account',

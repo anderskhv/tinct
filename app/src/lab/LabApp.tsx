@@ -3752,16 +3752,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else openSuperMenu()
   }, [openSuperMenu, superMenuOpen])
 
-  const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
-    setSuperMenuOpen(false)
-    if (id === 'chat') { handleChat(); return }
-    if (id === 'talk') { handleTalk(); return }
-    if (id === 'settings') { setSuperSheet('reading'); return }
-    if (id === 'account') { setSuperSheet('account'); return }
-    rememberLibraryPlace()
-    if (typeof window === 'undefined') return
-    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
-  }, [chromeV2, handleChat, handleTalk, rememberLibraryPlace])
+
 
   // The first view: the mark spins once per reader load, 400 ms after the
   // first page has laid out, and never over playing audio. `superFirstViewRef`
@@ -3887,6 +3878,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (showPhoneChrome) setPhoneAskOpen(true)
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
+
+  const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
+    setSuperMenuOpen(false)
+    if (id === 'chat') { handleChat(); return }
+    if (id === 'talk') { handleTalk(); return }
+    if (id === 'summarize') { handleChapterChat('discuss'); return }
+    if (id === 'editions') { setSuperSheet('editions'); return }
+    if (id === 'settings') { setSuperSheet('reading'); return }
+    if (id === 'account') { setSuperSheet('account'); return }
+    rememberLibraryPlace()
+    if (typeof window === 'undefined') return
+    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
+  }, [chromeV2, handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
 
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
@@ -4136,6 +4140,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
       {chromeV2 && !frontispieceVisible && (
         <LabV2Sheet
+          bookId={book.bookId || 'bible'}
           layer={superSheet}
           onLayer={setSuperSheet}
           onClose={() => setSuperSheet(null)}

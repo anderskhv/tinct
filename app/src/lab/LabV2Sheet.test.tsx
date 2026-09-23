@@ -89,17 +89,23 @@ describe('reading settings', () => {
     fireEvent.change(screen.getByTestId('lab-v2-size'), { target: { value: '1.8' } })
     expect(readLabPrefs().fontSize).toBeCloseTo(1.8)
 
-    const compare = screen.getByTestId('lab-v2-compare-edition') as HTMLSelectElement
-    const other = [...compare.options].map(option => option.value).find(value => value !== compare.value)!
-    fireEvent.change(compare, { target: { value: other } })
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    fireEvent.change(screen.getByTestId('lab-v2-narration-voice'), { target: { value: 'male' } })
+    expect(readLabPrefs().voicePersona).toBe('male')
+    fireEvent.change(screen.getByTestId('lab-v2-audio-speed'), { target: { value: '1.25' } })
+    expect(readLabPrefs().audioSpeed).toBe(1.25)
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
+    const option = screen.getByTestId('lab-v2-sheet').querySelector<HTMLButtonElement>('[data-edition]')!
+    const other = option.dataset.edition
+    fireEvent.click(option)
     expect(readLabPrefs().compareEdition).toBe(other)
-
     expect(readLabPrefs().compareOpen).toBe(true)
-    // No compare text in this source, so no page to switch to and no switch.
-    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
-    fireEvent.change(compare, { target: { value: '' } })
+    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
+    fireEvent.click(screen.getByRole('button', { name: 'None' }))
     expect(readLabPrefs().compareOpen).toBe(false)
-    expect(compare.value).toBe('')
     expect(localStorage.getItem(LAB_PREFS_KEY)).toBeTruthy()
   })
 })
@@ -198,15 +204,21 @@ describe('account', () => {
 
 it('makes audiobook following an explicit setting in the current reader menu', () => {
   openSheet()
-  const select = screen.getByTestId('lab-v2-audio-edition') as HTMLSelectElement
-  expect(select.value).toBe('')
-  expect(select.textContent).toContain('Follow primary edition')
+  fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  fireEvent.click(screen.getByTestId('lab-v2-audio-edition'))
+  expect(screen.getByRole('button', { name: 'Follow main version' }).getAttribute('aria-pressed')).toBe('true')
 })
 
 it('restores a non-Bible audiobook before opening reader settings', () => {
   writeLabPrefs({ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false }, 'phone')
   render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
   openReading()
-  expect((screen.getByTestId('lab-v2-audio-edition') as HTMLSelectElement).value).toBe('original-en')
-  expect((screen.getByTestId('lab-v2-main-edition') as HTMLSelectElement).value).toBe('modern-en')
+  fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct Modern English')
+  fireEvent.click(screen.getByTestId('lab-v2-audio-edition'))
+  expect(screen.getByTestId('lab-v2-sheet').querySelector('[data-edition="original-en"]')?.getAttribute('aria-pressed')).toBe('true')
 })

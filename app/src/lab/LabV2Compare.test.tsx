@@ -91,7 +91,7 @@ describe('the compare gesture', () => {
     // The pointer's way into Compare is the switch in Reading settings.
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.getByTestId('lab-v2-show-compare')).toBeTruthy()
   })
 
@@ -105,7 +105,7 @@ describe('the compare gesture', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
     expect(labSuperMenuRows({ phone: true }).some(row => row.id === 'compare')).toBe(false)
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
   })
 })
@@ -250,7 +250,7 @@ it('swaps to the compare version from the Reading settings switch and back, clos
   renderPhone()
   const openSwitch = () => {
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     return screen.getByTestId('lab-v2-show-compare')
   }
   const first = openSwitch()

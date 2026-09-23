@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'chat' | 'talk' | 'library' | 'settings' | 'account'
+export type LabSuperMenuId = 'chat' | 'talk' | 'summarize' | 'editions' | 'library' | 'settings' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -18,15 +18,16 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * Five rows. Compare is not one of them (2026-09-19): on the phone it is a
- * swipe away, and on both chromes it is a switch in Reading settings.
+ * Seven rows: chapter actions, reading choices, then library and account.
  */
 export function labSuperMenuRows(_input: { phone?: boolean } = {}): LabSuperMenuRow[] {
   return [
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
+    { id: 'summarize', label: 'Summarize' },
+    { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
+    { id: 'settings', label: 'Settings', chevron: true },
     { id: 'library', label: 'Library', ruleBefore: true },
-    { id: 'settings', label: 'Reading settings', chevron: true },
     { id: 'account', label: 'Account', chevron: true },
   ]
 }
@@ -48,8 +49,8 @@ export const LAB_PANEL_TOP_BOOST = 0.09
 export const LAB_PAGE_DIM_PAPER = 0.08
 export const LAB_PAGE_DIM_NIGHT = 0.14
 
-/** Matter: a 56 px icon gutter, 22 px monoline icons, 17 px labels, 52 px rows. */
-export const LAB_MENU_GUTTER_PX = 56
-export const LAB_MENU_ICON_PX = 22
-export const LAB_MENU_LABEL_PX = 17
-export const LAB_MENU_ROW_PX = 52
+/** Matter: a 40 px icon gutter, 18 px monoline icons, 16 px labels, 44 px rows. */
+export const LAB_MENU_GUTTER_PX = 40
+export const LAB_MENU_ICON_PX = 18
+export const LAB_MENU_LABEL_PX = 16
+export const LAB_MENU_ROW_PX = 44
