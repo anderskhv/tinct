@@ -610,3 +610,18 @@ describe('cancellable inline playback loading', () => {
     expect(h.audio.play).not.toHaveBeenCalled()
   })
 })
+
+it('ends a stalled start with a retryable timeout and aborts its preparation', async () => {
+  const h = harness()
+  vi.useFakeTimers()
+  try {
+    await act(async () => { await h.result.current.start() })
+    expect(h.calls).toHaveLength(1)
+    await act(async () => { await vi.advanceTimersByTimeAsync(45_000) })
+    expect(h.calls[0].signal.aborted).toBe(true)
+    expect(h.result.current.pending).toBe(false)
+    expect(h.result.current.loading).toBe(false)
+    expect(h.result.current.narration).toMatchObject({ status: 'error', reason: 'timeout' })
+    expect(h.audio.play).not.toHaveBeenCalled()
+  } finally { vi.useRealTimers() }
+})

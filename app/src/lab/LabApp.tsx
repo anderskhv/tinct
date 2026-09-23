@@ -4461,7 +4461,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'error' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
-        <span>{listen.narration.message}</span>
+        <span title={listen.narration.message} aria-label={listen.narration.message}>Audio couldn’t start.</span>
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
@@ -4571,12 +4571,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               }}
             ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
-          {chromeV2 && !listen.playing && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
+          {chromeV2 && !listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>
       )}
 
-      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !phoneAsk && <button
+      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
         type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
         onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
       >×</button>}

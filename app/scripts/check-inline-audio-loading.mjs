@@ -98,7 +98,12 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     await header.click()
     await page.getByTestId('lab-narration-error').waitFor()
     assert.equal(await page.getByTestId('lab-audio-spinner').count(), 0)
-    assert.equal(await page.getByTestId('lab-narration-error').evaluate(el => getComputedStyle(el).position), 'static')
+    assert.notEqual(await page.getByTestId('lab-narration-error').evaluate(el => getComputedStyle(el).position), 'fixed')
+    if (phone) {
+      const errorBox = await page.getByTestId('lab-narration-error').boundingBox()
+      const transportBox = await page.getByTestId('lab-phone-bar').boundingBox()
+      assert(errorBox.y + errorBox.height <= transportBox.y + 2, 'Inline error clears transport')
+    }
     await page.screenshot({ path: output + '/' + label + '-retry.png' })
     const start = await page.evaluate(() => performance.now())
     await page.getByTestId('lab-narration-retry').click()

@@ -1,7 +1,9 @@
+.lab.is-phone .lab-narration-inline, .lab.has-phone-chrome .lab-narration-inline { position: absolute; left: 0; right: 0; bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px)); padding: 0 16px; }
+.lab-narration-inline ~ .lab-page-turn .lab-chapter-progress { visibility: hidden; }
 /* Audio preparation stays inside the existing Play button. */
 .lab-audio-spinner { flex: none; animation: lab-narration-spin .9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .lab-audio-spinner { animation: none; } }
-.lab-narration-inline { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 4px 16px; color: var(--lab-ink-muted); font: 13px/1.35 system-ui, sans-serif; }
+.lab-narration-inline { pointer-events: auto; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 4px 16px; color: var(--lab-ink-muted); font: 13px/1.35 system-ui, sans-serif; }
 .lab-narration-inline span { min-width: 0; }
 .lab-narration-inline button { flex: none; border: 0; padding: 8px 4px; background: transparent; color: var(--lab-ink); font: inherit; text-decoration: underline; cursor: pointer; }
 
