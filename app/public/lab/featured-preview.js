@@ -88,9 +88,9 @@ reel.addEventListener('click',event=>{
 reel.addEventListener('wheel',stopMotion,{passive:true})
 reel.addEventListener('dragstart',event=>event.preventDefault())
 let resizeFrame
-new ResizeObserver(()=>{
+const resizeObserver=new ResizeObserver(()=>{
  cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{if(selected>=0)centre(selected,false);requestPaint()})
-}).observe(reel)
+})
 try{
  const response=await fetch(LAB_CATALOGUE_URL)
  if(!response.ok)throw Error('Catalogue unavailable')
@@ -110,6 +110,9 @@ try{
  await document.fonts.ready
  centre(initial,false);paint()
  document.documentElement.dataset.ready='true'
+ // Observe only the populated, font-stable reel. Observing its empty loading
+ // height causes WebKit to report undelivered resize notifications on insert.
+ requestAnimationFrame(()=>resizeObserver.observe(reel))
 }catch(error){document.querySelector('.error').hidden=false;document.querySelector('.featured').hidden=true;console.error(error)}
 
 document.querySelector('#retry').addEventListener('click',()=>parent.location.reload())
