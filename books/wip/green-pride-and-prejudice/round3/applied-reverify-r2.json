@@ -1,0 +1,119 @@
+[
+ {
+  "ch": 10,
+  "idx": 10,
+  "old": "Let me mend it for you. I mend pens remarkably well.",
+  "new": "Let me fix it for you. I fix pens remarkably well.",
+  "category": "reverify-revert",
+  "blocking": false,
+  "reason": "'fix' -> 'mend' is a wording preference (same meaning) and now clashes with the next paragraph, where Darcy replies 'I always fix my own.' Restore baseline: 'Let me fix it for you. I fix pens remarkably well.'"
+ },
+ {
+  "ch": 16,
+  "idx": 15,
+  "old": "when any man is valued no higher than he deserves",
+  "new": "when he or any man is valued no higher than he deserves",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Dropped the source's pointed 'he or' (\"that he or that any man should not be estimated beyond their deserts\"). Wickham's jab at Darcy comes before the general point; the candidate keeps only the general point."
+ },
+ {
+  "ch": 29,
+  "idx": 37,
+  "old": "so much dignified rudeness",
+  "new": "so much dignified impertinence",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Source reads 'dignified impertinence'. 'Impertinence' (intrusive questioning, usually a fault of inferiors) is the ironic point when it is turned on Lady Catherine. 'Rudeness' flattens this. The change 'grand' -> 'dignified' is good, so keep it."
+ },
+ {
+  "ch": 30,
+  "idx": 5,
+  "old": "she preferred most of her acquaintances to him",
+  "new": "she preferred nearly all of her acquaintances to him",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Source: 'there were not many of her acquaintance whom she did not prefer' means she preferred nearly all of them to him. 'Most' understates this."
+ },
+ {
+  "ch": 31,
+  "idx": 2,
+  "old": "and her Ladyship soon showed the same curiosity more openly",
+  "new": "and her Ladyship, after a while, showed the same curiosity more openly",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Source contrasts Darcy's eyes turning 'soon' with Lady Catherine sharing the curiosity 'after a while'. 'Soon' reverses that timing. The rest of the untangling is good."
+ },
+ {
+  "ch": 31,
+  "idx": 28,
+  "old": "that he might just as well have married Miss Bingley, had she been his relative.",
+  "new": "that he might have been just as likely to marry _Miss Bingley_, had she been his relative.",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Replacing the pronoun is fine, but it drops the source's emphasis (_her_) and changes 'just as likely to marry' into 'might just as well have married', which reads as 'there'd be no reason not to'. Keep the likelihood sense and the italics."
+ },
+ {
+  "ch": 44,
+  "idx": 15,
+  "old": "warmed into something friendlier by yesterday's testimony, which had shown",
+  "new": "heightened into something friendlier by yesterday's testimony, so strongly in his favor, which had shown",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Repair of the broken baseline sentence is right, but 'heightened' became 'warmed' (preference) and the source's 'testimony so highly in his favour' was dropped. Restore both."
+ },
+ {
+  "ch": 47,
+  "idx": 8,
+  "old": "\"But can you believe,\" said her aunt, \"that Lydia",
+  "new": "\"But can you believe that Lydia",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Added speaker tag 'said her aunt' settles an attribution the source leaves open. Austen gives no tag, and either Gardiner could be speaking (Mr. Gardiner has carried the argument in 47.4 and 47.6). Remove the tag."
+ },
+ {
+  "ch": 47,
+  "idx": 15,
+  "old": "for what good could it do anyone to destroy",
+  "new": "for what good could it do anyone, as far as we could see, to destroy",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Deleting 'apparently' (rather than fixing its placement) drops Elizabeth's hedge 'of what use could it apparently be': it only seemed useless at the time. Restore the qualification."
+ },
+ {
+  "ch": 52,
+  "idx": 3,
+  "old": "Wickham admitted because of pressing debts of honor from gambling",
+  "new": "Wickham admitted he'd been forced to leave the regiment because of pressing debts of honor from gambling",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Grammar broken: the repair deleted \"he'd been forced to leave the regiment\" while adding the gloss, leaving 'Wickham admitted because of pressing debts...'. The source says he was obliged to leave the regiment. The gloss 'from gambling' is accurate."
+ },
+ {
+  "ch": 58,
+  "idx": 8,
+  "old": "Longbourn—its purpose and the substance of her conversation with Elizabeth—She had dwelt on every word of Elizabeth's that seemed to her particularly defiant and audacious, believing this would help her get from her nephew the promise Elizabeth had refused to give..",
+  "new": "Longbourn, its purpose, and the substance of her conversation with Elizabeth. She had dwelt on every word of Elizabeth's that seemed to her particularly defiant and audacious, believing this would help her get from her nephew the promise Elizabeth had refused to give.",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Punctuation broken: the sentence split leaves a capital 'She' after an em dash (so the dash after 'Longbourn' is unbalanced) and a double period 'give..'. Content ('Elizabeth had refused'; defiant/audacious as Lady Catherine's view) is faithful."
+ },
+ {
+  "ch": 61,
+  "idx": 9,
+  "old": "and they were settled in a home and they were settled in a home,",
+  "new": "and they were settled in a home,",
+  "category": "reverify-defect",
+  "blocking": true,
+  "reason": "Duplicated phrase: 'after the war ended and they were settled in a home and they were settled in a home'. The gloss itself ('restoration of peace dismissed them to a home') is accurate."
+ },
+ {
+  "ch": 61,
+  "idx": 9,
+  "old": "Lydia was an occasional visitor when",
+  "new": "Lydia was an occasional visitor at Pemberley when",
+  "category": "reverify-defect (pre-existing)",
+  "blocking": true,
+  "reason": "Pre-existing omission: source 'Lydia was occasionally a visitor there' (at Pemberley); candidate drops 'there', so where she visited is lost."
+ }
+]
