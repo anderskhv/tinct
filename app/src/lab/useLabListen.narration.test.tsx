@@ -131,6 +131,23 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     h.unmount()
   })
 
+  it('remembers an uncached word chosen while paused until explicit resume', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({paragraphIndex:0,wordIndex:0}) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    act(() => h.result.current.pause())
+    await act(async () => { await Promise.resolve() })
+    act(() => h.result.current.seekToPlace(3, 3))
+    expect(h.calls.length).toBe(1)
+    act(() => h.result.current.resume())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    expect(h.calls[1].indexes).toEqual([3])
+    await act(async () => { await h.answer(h.calls[1], {3:1}) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.audio.currentTime).toBe(2)
+    h.unmount()
+  })
+
   it('opening a reader schedules no synthesis', async () => {
     const h = harness()
     await act(async () => { await Promise.resolve() })

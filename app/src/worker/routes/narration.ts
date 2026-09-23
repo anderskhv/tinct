@@ -1,3 +1,4 @@
+import { isEditionWithheld } from '../../data/withheldEditions'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
 /**
@@ -870,11 +871,15 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
   let userId: string
+  let cacheOnlyGuest = false
   if (caller === 'warm') {
     userId = 'warm'
   } else {
     const user = await deps.verifyUser(env, request)
-    if (caller === 'reader' && !user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+    if (caller === 'reader' && !user) {
+      if (config.provider !== 'grok') return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+      cacheOnlyGuest = true
+    }
     if (caller === 'prepare' && user?.email.trim().toLowerCase() === 'ahvelplund@fastmail.com') {
       return new Response(null, { status: 204 })
     }
@@ -894,7 +899,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey) || !Number.isInteger(chapter) || chapter < 1) {
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
-  if (!isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  if (isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
@@ -921,7 +926,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
-  let generationDone = mode === 'cache'
+  let generationDone = mode === 'cache' || cacheOnlyGuest
   let preparedDuration = 0
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
@@ -1169,6 +1174,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     if (failure && (failure as { reason: string }).reason === 'provider_payment') break
   }
 
+  if (cacheOnlyGuest && !results.some(result => 'readyChunks' in result && Number(result.readyChunks) > 0)) {
+    return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+  }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
   return jsonResponse({
     bookId, editionKey, chapter, voice: voice.key, model: config.model, mode,

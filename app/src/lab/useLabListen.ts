@@ -165,6 +165,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
+  const pendingPlaceRef = useRef<PlaceInput | null>(null)
   const playPlaceRef = useRef<(clips: LabAudioClip[], place: PlaceInput, andPlay: boolean, includeTitle?: boolean) => boolean>(() => false)
   const optionsRef = useRef(options)
   optionsRef.current = options
@@ -310,7 +311,7 @@ export function useLabListen(options: UseLabListenOptions) {
         return { ok: false, reason: first.status === 'failed' ? first.reason || 'failed' : first.status, retryAfterMs: first.retryAfterMs }
       }
       if (first.failure) return { ok: false, reason: first.failure.reason, retryAfterMs: first.failure.retryAfterMs }
-      if (first.status === 'pending' && first.readyChunks === 0) return { ok: false, reason: 'pending', retryAfterMs: first.retryAfterMs ?? 1500 }
+      if ((first.status === 'pending' && first.readyChunks === 0) || (first.retryAfterMs && satisfied && !satisfied())) return { ok: false, reason: 'pending', retryAfterMs: first.retryAfterMs ?? 1500 }
       return { ok: true }
     } catch (error) {
       if ((error as Error)?.name === 'AbortError' || signal.aborted) return { ok: false, reason: 'cancelled' }
@@ -456,6 +457,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
+    pendingPlaceRef.current = null
     narrationPreparedRef.current = new Map()
     narrationHashesRef.current = new Map()
     narrationRoundRef.current = null
@@ -630,6 +632,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
 
   const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
+    pendingPlaceRef.current = null
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = ensureAudio()
@@ -742,10 +745,12 @@ export function useLabListen(options: UseLabListenOptions) {
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
       ensureAudio()
       enterPreparing(index, 0)
+      pendingPlaceRef.current = { paragraphIndex, wordIndex }
       if (!andPlay) { playingRef.current = false; setPlaying(false); return true }
       void prepareThenRun(target, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
       return true
     }
+    pendingPlaceRef.current = null
     const words = clip?.kind === 'paragraph' ? clip.words : undefined
     const localIndex = clip?.kind === 'paragraph' && clip.chunk ? wordIndex - clip.chunk.wordFrom : wordIndex
     const clamped = words && words.length > 0
@@ -899,6 +904,10 @@ export function useLabListen(options: UseLabListenOptions) {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
+    if (pendingPlaceRef.current) {
+      playPlaceRef.current(clipsRef.current, pendingPlaceRef.current, true)
+      return
+    }
     // Narration: the current clip may still need preparing, or its recording
     // arrived while paused and the element still holds the previous chunk;
     // either way re-enter through playClip rather than replaying the element.
@@ -938,6 +947,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [applyRate, playClip, speed, start, syncFollow])
 
   const stop = useCallback(() => {
+    pendingPlaceRef.current = null
     chapterHandoffRef.current = false
     playRequestRef.current += 1
     narrationRequestRef.current += 1

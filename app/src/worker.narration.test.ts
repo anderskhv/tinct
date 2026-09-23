@@ -749,6 +749,22 @@ describe('Grok narration rollout', () => {
     expect(h.fish.calls).toHaveLength(0)
     expect(res.json.paragraphs[0].status).toBe('pending')
   })
+  it('allows anonymous cached playback but never anonymous synthesis', async () => {
+    const { h } = grokHarness()
+    await ensure(h, {voice:'f',paragraphs:[{index:0}]})
+    h.deps.verifyUser = async () => null
+    const cached = await ensure(h, {voice:'f',paragraphs:[{index:0}]})
+    expect(cached.status).toBe(200)
+    expect(cached.json.generated).toBe(0)
+    expect(cached.json.paragraphs[0].status).toBe('ready')
+    expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
+    expect(h.fish.calls).toHaveLength(1)
+  })
+  it('rejects withdrawn editions before looking up audio', async () => {
+    const { h } = grokHarness()
+    expect((await ensure(h, {bookId:'bible',editionKey:'modern-en',voice:'f',paragraphs:[{index:0}]})).status).toBe(403)
+    expect(h.fish.calls).toHaveLength(0)
+  })
   it('fails closed without the coordinator and never spends', async () => {
     const { h } = grokHarness(); h.env.NARRATION_COORDINATOR = undefined
     const res = await ensure(h, {voice:'f',paragraphs:[{index:0}]})
