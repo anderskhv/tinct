@@ -16,7 +16,7 @@ async function signed(path, method='GET', body=''){
 const voices=await (await (stage?signed('/api/narration/voices'):fetch(origin+'/api/narration/voices'))).json()
 assert.equal(voices.provider,'grok')
 assert.deepEqual(voices.voices.map(v=>v.key),['f','m','orion','eve'])
-async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,paragraph=0}={}){
+async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapter=entry.chapter,paragraph=0}={}){
  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block',hasTouch:true})
  const page=await context.newPage()
  const calls=[],errors=[]
@@ -32,12 +32,12 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
    assert.equal(body.bookId,entry.bookId);assert.equal(body.editionKey,entry.editionKey);assert.equal(body.voice,voice)
    // Cloud-signed proxy only; credentials never enter the browser.
    const call={body,result:null,at:Date.now()};calls.push(call)
-   const response=await (!stage && !cold ? route.fetch() : signed('/api/narration/warm','POST',JSON.stringify({...body,mode:cold?'next':'cache'})))
+   const response=await (!stage && !cold && !continuous ? route.fetch() : signed('/api/narration/warm','POST',JSON.stringify({...body,mode:cold||continuous?'next':'cache'})))
    const json=await response.json()
    assert.equal(typeof response.status==='function'?response.status():response.status,200,JSON.stringify(json))
    report.generated+=json.generated||0
    assert(report.generated<=40,'Bounded real-playback synthesis budget')
-   if(!cold)assert.equal(json.generated,0)
+   if(!cold&&!continuous)assert.equal(json.generated,0)
    call.result=json
    return route.fulfill({status:200,json}).catch(()=>{})
   }
@@ -53,7 +53,7 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
    this.muted=true;window.__audio=this
    if(!this.dataset.acceptance){
     this.dataset.acceptance='1'
-    for(const type of ['playing','ended','pause','error'])this.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:this.currentSrc,currentTime:this.currentTime}))
+    for(const type of ['playing','ended','pause','error'])this.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:this.currentSrc,currentTime:this.currentTime,duration:this.duration}),{capture:true})
    }
    return play.call(this)
   }
@@ -75,9 +75,26 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
   await page.waitForTimeout(400)
   const paint=await page.locator('[data-testid="lab-word"].is-current').count()
   // Test native ended -> next chunk using actual decoded audio.
-  if(entry.bookId==='frankenstein' && voice==='f' && !cold){
+  if(entry.bookId==='frankenstein' && voice==='f' && !cold && !continuous){
    await page.evaluate(()=>{window.__audio.currentTime=Math.max(0,window.__audio.duration-.15)})
    await page.waitForFunction(previous=>window.__audio?.currentSrc!==previous && !window.__audio.paused && window.__audio.currentTime>0.05,initial.src,{timeout:20000})
+  }
+  let continuousEvidence
+  if(continuous){
+   const prepared=warmed.entries.find(e=>e.bookId===entry.bookId&&e.voice===voice)
+   await page.waitForFunction(seconds=>{
+    const completed=window.__audioEvents.filter(e=>e.type==='ended').reduce((n,e)=>n+e.duration,0)
+    return completed+(window.__audio?.currentTime||0)>seconds && !window.__audio.paused
+   },prepared.seconds+10,{timeout:420000})
+   const events=await page.evaluate(()=>window.__audioEvents)
+   const cached=new Set(prepared.recordings.map(r=>r.hash))
+   const beyond=events.filter(e=>e.type==='playing').some(e=>{
+    const path=new URL(e.src).searchParams.get('path')||''
+    const hash=path.split('/').at(-1)?.replace('.mp3','')
+    return hash&&!cached.has(hash)
+   })
+   assert(beyond,'Continuous playback must reach a recording beyond the prepared opening')
+   continuousEvidence={preparedSeconds:prepared.seconds,beyondPreparedOpening:true,events}
   }
   const pause=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible').first()
   await pause.click()
@@ -85,7 +102,7 @@ async function run(browser,engine,entry,voice,{cold=false,chapter=entry.chapter,
   const count=calls.length
   await page.waitForTimeout(1800)
   assert.equal(calls.length,count,'Pause must stop new preparation')
-  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
+  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,continuous,continuousEvidence,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
   assert.deepEqual(errors,[])
   assert(paint>0,'Narration must paint its timed word')
   report.cases.push(row)
@@ -125,6 +142,7 @@ try{
   await run(chrome,'chromium',entry,voice,{cold:true,chapter:p<ch.paragraphs.length?ch.number:ch.number+1,paragraph:p<ch.paragraphs.length?p:0})
  }
  if(stage)for(const voice of ['orion','eve'])await run(chrome,'chromium',entry,voice,{cold:true})
+ if(stage)await run(chrome,'chromium',entry,'f',{continuous:true})
 }finally{await chrome.close()}
 const safari=await webkit.launch({headless:true})
 try{for(const voice of ['f','m'])await run(safari,'webkit',plan.entries[0],voice)}finally{await safari.close()}
