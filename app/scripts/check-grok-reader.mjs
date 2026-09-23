@@ -16,7 +16,7 @@ async function signed(path, method='GET', body=''){
 const voices=await (await (stage?signed('/api/narration/voices'):fetch(origin+'/api/narration/voices'))).json()
 assert.equal(voices.provider,'grok')
 assert.deepEqual(voices.voices.map(v=>v.key),['f','m','orion','eve'])
-async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapter=entry.chapter,paragraph=0}={}){
+async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapterBoundary=false,chapter=entry.chapter,paragraph=0,word=0}={}){
  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block',hasTouch:true})
  const page=await context.newPage()
  const calls=[],errors=[]
@@ -44,9 +44,9 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   if(url.pathname==='/api/narration/prepare')throw Error('Legacy preparation request')
   return route.continue()
  })
- await page.addInitScript(({entry,voice,chapter,paragraph})=>{
+ await page.addInitScript(({entry,voice,chapter,paragraph,word})=>{
   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',primaryEdition:entry.editionKey,voicePersona:voice==='m'?'male':'female',audiobookVoice:['orion','eve'].includes(voice)?voice:null}))
-  sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:entry.bookId,primaryEditionKey:entry.editionKey,savedPlace:{bookId:entry.bookId,chapterNumber:chapter,paragraphIndex:paragraph,wordIndex:0,page:0}}))
+  sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:entry.bookId,primaryEditionKey:entry.editionKey,savedPlace:{bookId:entry.bookId,chapterNumber:chapter,paragraphIndex:paragraph,wordIndex:word,page:0}}))
   window.__audioEvents=[];window.__audio=null
   const play=HTMLMediaElement.prototype.play
   HTMLMediaElement.prototype.play=function(){
@@ -58,7 +58,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
    return play.call(this)
   }
   Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
- },{entry,voice,chapter,paragraph})
+ },{entry,voice,chapter,paragraph,word})
  try{
   await page.goto(origin+'/lab/phone?chrome=v2',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
@@ -72,12 +72,22 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   const startMs=await page.evaluate(start=>Math.round(performance.now()-start),started)
   const initial=await page.evaluate(()=>({src:window.__audio.currentSrc,duration:window.__audio.duration,events:window.__audioEvents}))
   assert(initial.src.includes('narration%2Fgrok%2Fblob%2F')||initial.src.includes('narration/grok/blob/'))
-  await page.waitForTimeout(400)
-  const paint=await page.locator('[data-testid="lab-word"].is-current').count()
+  const painted=page.locator('.lab-hearing-stage .lab-hearing-word.is-current,[data-testid="lab-word"].is-current')
+  await painted.first().waitFor({state:'visible',timeout:8000})
+  const paint=await painted.count()
+  const paintedText=await painted.allTextContents()
+  await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+(cold?'-cold':continuous?'-continuous':'')+'-playing.png'})
   // Test native ended -> next chunk using actual decoded audio.
   if(entry.bookId==='frankenstein' && voice==='f' && !cold && !continuous){
    await page.evaluate(()=>{window.__audio.currentTime=Math.max(0,window.__audio.duration-.15)})
    await page.waitForFunction(previous=>window.__audio?.currentSrc!==previous && !window.__audio.paused && window.__audio.currentTime>0.05,initial.src,{timeout:20000})
+  }
+  let chapterHandoff
+  if(chapterBoundary){
+   await page.waitForFunction(previous=>Number(document.querySelector('[data-testid="lab-root"]')?.dataset.chapter)!==previous,chapter,{timeout:25000})
+   await page.waitForFunction(()=>window.__audio && !window.__audio.paused && window.__audio.currentTime>0.05,null,{timeout:20000})
+   chapterHandoff={from:chapter,to:Number(await page.getByTestId('lab-root').getAttribute('data-chapter')),playing:true}
+   assert.equal(chapterHandoff.to,chapter+1)
   }
   let continuousEvidence
   if(continuous){
@@ -102,7 +112,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   const count=calls.length
   await page.waitForTimeout(1800)
   assert.equal(calls.length,count,'Pause must stop new preparation')
-  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,continuous,continuousEvidence,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
+  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,continuous,continuousEvidence,chapterHandoff,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,paintedText,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
   assert.deepEqual(errors,[])
   assert(paint>0,'Narration must paint its timed word')
   report.cases.push(row)
@@ -119,7 +129,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
 // Two simultaneous real requests must publish one shared recording.
 {
  const entry=plan.entries[0]
- const body=JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:2,voice:'orion',mode:'next',paragraphs:[{index:1}]})
+ const body=JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:2,voice:'orion',mode:stage?'next':'cache',paragraphs:[{index:1}]})
  const answers=await Promise.all([1,2].map(async()=>{const r=await signed('/api/narration/warm','POST',body);assert.equal(r.status,200);return r.json()}))
  const generated=answers.reduce((n,r)=>n+(r.generated||0),0)
  assert(generated<=1,'Concurrent identical synthesis paid more than once')
@@ -143,6 +153,12 @@ try{
  }
  if(stage)for(const voice of ['orion','eve'])await run(chrome,'chromium',entry,voice,{cold:true})
  if(stage)await run(chrome,'chromium',entry,'f',{continuous:true})
+ if(!stage){
+  const prince=plan.entries.find(e=>e.bookId==='the-prince')
+  const source=JSON.parse(await fs.readFile('public/data/editions/'+prince.bookId+'-'+prince.editionKey+'.json','utf8'))
+  const ch=source.chapters[0],paragraph=ch.paragraphs.length-1,word=ch.paragraphs[paragraph].trim().split(/\s+/).length-1
+  await run(chrome,'chromium',prince,'f',{chapterBoundary:true,chapter:ch.number,paragraph,word})
+ }
 }finally{await chrome.close()}
 const safari=await webkit.launch({headless:true})
 try{for(const voice of ['f','m'])await run(safari,'webkit',plan.entries[0],voice)}finally{await safari.close()}

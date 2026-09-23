@@ -24,9 +24,10 @@ jobs:
       - run: npm run build
       - run: node scripts/plan-grok-openings.mjs
       - run: node --check scripts/check-grok-reader.mjs
-      - name: Prepare and verify only the approved twenty openings
+      - name: Verify the twenty cached openings without synthesis
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          NARRATION_CACHE_ONLY: '1'
         run: |
           npx esbuild scripts/warm-grok-openings.mjs --bundle --platform=node --format=esm --outfile=/tmp/tinct-warm-openings.mjs
           node /tmp/tinct-warm-openings.mjs
