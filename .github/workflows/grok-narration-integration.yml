@@ -29,5 +29,15 @@ jobs:
         run: node -e "console.log('warm credential available:', Boolean(process.env.NARRATION_ADMIN_TOKEN))"
       - run: npm run build
       - run: npm run verify-bundle
+      - run: node scripts/plan-grok-openings.mjs
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/check-reader-fold.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grok-reader-and-opening-plan
+          path: |
+            app/artifacts/reader-fold
+            app/artifacts/grok-openings
       - name: Validate Worker bindings
         run: npx wrangler deploy --dry-run

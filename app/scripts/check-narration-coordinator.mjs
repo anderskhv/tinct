@@ -12,7 +12,7 @@ export default { async fetch(request, env) {
   return Response.json(value ?? null)
 } }`)
 await fs.writeFile(dir+'/wrangler.json', JSON.stringify({name:'tinct-coordinator-check',main:'worker.ts',compatibility_date:'2025-09-27',durable_objects:{bindings:[{name:'COORD',class_name:'NarrationCoordinator'}]},migrations:[{tag:'v1',new_sqlite_classes:['NarrationCoordinator']}]}))
-const processHandle = spawn('npx',['wrangler','dev','--config',dir+'/wrangler.json','--port','8797','--persist-to',dir+'/state'],{stdio:['ignore','pipe','pipe']})
+const processHandle = spawn('npx',['wrangler','dev','--config',dir+'/wrangler.json','--port','8797','--persist-to',dir+'/state'],{stdio:['ignore','pipe','pipe'],detached:true})
 let logs=''; processHandle.stdout.on('data',b=>logs+=b);processHandle.stderr.on('data',b=>logs+=b)
 const call=async(name,method,args=[])=>{
   const r=await fetch('http://127.0.0.1:8797',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,method,args})})
@@ -36,4 +36,4 @@ try {
   const usage=await call('budget:'+nonce,'usage')
   assert.equal(usage.reduce((sum,row)=>sum+row.bytes,0),150)
   console.log('PASS actual Worker RPC: 30 simultaneous claims, wrong-owner release, daily/monthly ceilings')
-} finally { processHandle.kill('SIGTERM') }
+} finally { process.kill(-processHandle.pid,'SIGTERM') }
