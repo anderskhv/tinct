@@ -31,7 +31,7 @@ async function warm(entry,voice){
         assert(++totalRequests<=1600,'Bounded warm request ceiling')
         const start=performance.now()
         const response=await releaseFetch('/api/narration/warm',{method:'POST',
-          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:rounds===0?'cache':'next',paragraphs:[{index:p,textHash:await sha256Hex(narrationTextForParagraph(chapter.paragraphs[p]))}]}),
+          body:JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:chapter.number,voice,mode:rounds===0||process.env.NARRATION_CACHE_ONLY==='1'?'cache':'next',paragraphs:[{index:p,textHash:await sha256Hex(narrationTextForParagraph(chapter.paragraphs[p]))}]}),
           signal:AbortSignal.timeout(95000)})
         assert.equal(response.status,200,'warm HTTP status')
         const result=await response.json()
@@ -49,6 +49,7 @@ async function warm(entry,voice){
         }
         if(seconds>=entry.targetSeconds)break outer
         if(paragraph.status==='ready')break
+        assert(process.env.NARRATION_CACHE_ONLY!=='1','Prepared opening has a cache gap')
         if(rounds>0 && !result.generated && known.size===beforeKnown){
           assert(++retries<=8,'Narration did not progress')
           await new Promise(r=>setTimeout(r,1500))

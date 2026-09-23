@@ -119,7 +119,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
 // Two simultaneous real requests must publish one shared recording.
 {
  const entry=plan.entries[0]
- const body=JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:2,voice:'orion',mode:'next',paragraphs:[{index:1}]})
+ const body=JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter:2,voice:'orion',mode:stage?'next':'cache',paragraphs:[{index:1}]})
  const answers=await Promise.all([1,2].map(async()=>{const r=await signed('/api/narration/warm','POST',body);assert.equal(r.status,200);return r.json()}))
  const generated=answers.reduce((n,r)=>n+(r.generated||0),0)
  assert(generated<=1,'Concurrent identical synthesis paid more than once')
