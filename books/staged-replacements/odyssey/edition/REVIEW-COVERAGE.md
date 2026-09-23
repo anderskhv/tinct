@@ -1,0 +1,37 @@
+# Odyssey modern-en — per-Book review coverage
+
+Every Book had three things:
+- an independent fidelity review against Butler covering every paragraph;
+- a separate candidate-only accessibility review, by a reviewer who did not see the source;
+- independent re-verification of every correction applied after review.
+
+Each Book's `ACCEPTANCE.md` holds the exact review table, and the evidence folders hold the reports. Every blocking finding was either applied and re-verified, or overruled with a written reason (listed in the Book's acceptance record or in `edition-review-2026-09-23/books01-09-accessibility/SCREENING.md`).
+
+| Book | ¶ | Accepted file | Fidelity (source-based, all ¶) | Accessibility (candidate-only, all ¶) | Corrections verified |
+|---|---|---|---|---|---|
+| 1 | 32 | `book01/candidate-v4.json` | round 1 `review/findings-v1.md`; successors v3–v4 (collision backlog) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 2 | 35 | `book02/candidate-v8.json` | round 1; successors v3–v6 (compounds, spelling) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 3 | 38 | `book03/candidate-v3.json` | round 1 (D14 ruling at ¶38); successor v3 (seashore) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 4 | 81 | `book04/candidate-v6.json` | round 1; successors v3–v6 (compounds, the fifth successor, ¶16 'before noon' restored in v6) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 5 | 37 | `book05/candidate-v4.json` | round 1 + flow read; successor v3 (mountaintops) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 6 | 26 | `book06/candidate-v4.json` | round 1 + flow read; successor v3 (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 7 | 29 | `book07/candidate-v3.json` | round 1 (3 substantive, all 29 ¶) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 8 | 50 | `book08/candidate-v3.json` | round 1 (all 50 ¶) (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 9 | 44 | `book09/candidate-v4.json` | round 1 (7 substantive, all 44 ¶); v3 title fix (2026-09-12/13) | 2026-09-23, `edition-review-2026-09-23/books01-09-accessibility/` | Successors from v2 onward verified in `edition-review-2026-09-23/books1-9-successors-verify.md`; later successors (consistency, accessibility, colon) each VERIFIED CLEAN |
+| 10 | 49 | `book10/candidate-accepted.json` | `review-2026-09-23/b10-fidelity.md` (Opus) | `review-2026-09-23/b10-access.md` (Sonnet) | `review-2026-09-23/b10-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 11 | 54 | `book11/candidate-accepted.json` | `review-2026-09-23/b11-fidelity.md` (Opus) | `review-2026-09-23/b11-access.md` (Sonnet) | `review-2026-09-23/b11-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 12 | 39 | `book12/candidate-accepted.json` | `review-2026-09-23/b12-fidelity.md` (Opus) | `review-2026-09-23/b12-access.md` (Sonnet) | `review-2026-09-23/b12-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 13 | 38 | `book13/candidate-accepted.json` | `review-2026-09-23/b13-fidelity.md` (Opus) | `review-2026-09-23/b13-access.md` (Sonnet) | `review-2026-09-23/b13-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 14 | 35 | `book14/candidate-accepted.json` | `review-2026-09-23/b14-fidelity.md` (Opus) | `review-2026-09-23/b14-access.md` (Sonnet) | `review-2026-09-23/b14-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 15 | 48 | `book15/candidate-accepted.json` | `review-2026-09-23/b15-fidelity.md` (Opus) | `review-2026-09-23/b15-access.md` (Sonnet) | `review-2026-09-23/b15-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 16 | 45 | `book16/candidate-accepted.json` | `review-2026-09-23/b16-fidelity.md` (Opus) | `review-2026-09-23/b16-access.md` (Sonnet) | `review-2026-09-23/b16-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 17 | 63 | `book17/candidate-accepted.json` | `review-2026-09-23/b17-fidelity.md` (Opus) | `review-2026-09-23/b17-access.md` (Sonnet) | `review-2026-09-23/b17-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 18 | 41 | `book18/candidate-accepted.json` | `review-2026-09-23/b18-fidelity.md` (Opus) | `review-2026-09-23/b18-access.md` (Sonnet) | `review-2026-09-23/b18-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 19 | 39 | `book19/candidate-accepted.json` | `review-2026-09-23/b19-fidelity.md` (Opus) | `review-2026-09-23/b19-access.md` (Sonnet) | `review-2026-09-23/b19-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 20 | 36 | `book20/candidate-accepted.json` | `review-2026-09-23/b20-fidelity.md` (Opus) | `review-2026-09-23/b20-access.md` (Sonnet) | `review-2026-09-23/b20-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 21 | 42 | `book21/candidate-accepted.json` | `review-2026-09-23/b21-fidelity.md` (Opus) | `review-2026-09-23/b21-access.md` (Sonnet) | `review-2026-09-23/b21-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 22 | 52 | `book22/candidate-accepted.json` | `review-2026-09-23/b22-fidelity.md` (Opus) | `review-2026-09-23/b22-access.md` (Sonnet) | `review-2026-09-23/b22-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 23 | 29 | `book23/candidate-accepted.json` | `review-2026-09-23/b23-fidelity.md` (Opus) | `review-2026-09-23/b23-access.md` (Sonnet) | `review-2026-09-23/b23-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+| 24 | 45 | `book24/candidate-accepted.json` | `review-2026-09-23/b24-fidelity.md` (Opus) | `review-2026-09-23/b24-access.md` (Sonnet) | `review-2026-09-23/b24-reverify*.md`, to VERIFIED CLEAN; edition passes VERIFIED CLEAN |
+
+Book 10: the review was carried out against v1 as well as the earlier pilot text (all of whose findings were rechecked against v1); successor v4 (Tiresias) is verified. Edition-level passes: `EDITION-VERIFICATION.md` §2.

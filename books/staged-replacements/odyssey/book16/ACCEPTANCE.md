@@ -16,3 +16,12 @@ repair-first; `candidate-v1.json` is the reviewed draft (per-paragraph dispositi
 | v2→v3 re-verification | Same | ¶22 | **VERIFIED CLEAN** |
 
 Evidence: `review-2026-09-23/`.
+
+
+## Edition speech-formula successor(s), now the accepted file: `candidate-v5.json` (2026-09-23)
+
+sha256 `0c34afd1476af6837cbbfbb4cce2442e13008149801f520b8f7af24edaf59b3d`. Butler's speech-closing formulas are aligned edition-wide ("So he spoke", "So they talked"):
+- candidate-v3.json→candidate-v4.json ¶29: "While they talked, the ship" → "So they talked, and meanwhile the ship"
+- candidate-v3.json→candidate-v4.json ¶36: "His words pleased them, so they rose" → "So he spoke, and his words pleased them well, so they rose"
+- candidate-v4.json→candidate-v5.json ¶36: "So he spoke, and his words pleased them well, so they rose immediately" → "So he spoke, and his words pleased them well. They rose immediately"
+Independently verified: **VERIFIED CLEAN** (round 2). See `../edition-review-2026-09-23/edition-formula-verify.md`; the edits and their reasons are in the same folder.

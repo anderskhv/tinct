@@ -1,3 +1,5 @@
+> **2026-09-23: the edition is complete.** Start at `edition/RELEASE-PACKET.md`. The accepted file per Book is listed there (`candidate-accepted.json` for Books 10–24, and named vN files for Books 1–9).
+
 # RESUME — where this package stands, for the next worker
 
 Updated continuously. Read this first, then `WORKFLOW.md`.

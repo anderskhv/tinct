@@ -16,3 +16,11 @@ repair-first; `candidate-v1.json` is the reviewed draft (per-paragraph dispositi
 | v2→v3 re-verification | Same | ¶0, ¶39 | **VERIFIED CLEAN** |
 
 Evidence: `review-2026-09-23/`.
+
+
+## Edition speech-formula successor(s), now the accepted file: `candidate-v5.json` (2026-09-23)
+
+sha256 `d4896082617d79a6bcb46531faefa3ee3c4e3d7b9b5f57d4cf69785eb6f75c75`. Butler's speech-closing formulas are aligned edition-wide ("So he spoke", "So they talked"):
+- candidate-v3.json→candidate-v4.json ¶34: "This made them all laugh heartily, which put them" → "So he spoke, and they all laughed heartily, which put them"
+- candidate-v4.json→candidate-v5.json ¶34: "in a better mood with Telemachus. So Eumaeus brought" → "in a better mood with Telemachus. Then Eumaeus brought"
+Independently verified: **VERIFIED CLEAN** (round 2). See `../edition-review-2026-09-23/edition-formula-verify.md`; the edits and their reasons are in the same folder.

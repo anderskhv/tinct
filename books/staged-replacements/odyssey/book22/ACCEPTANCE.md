@@ -21,3 +21,12 @@ Evidence: `review-2026-09-23/`.
 
 `candidate-v4.json`, sha256 `192df6be84ea83985703cea57e6271c20796353efd276ebdc0077df7d0125329`: ¶33 "mixing bowl" → "mixing-bowl" (PUNCTUATION §4).
 Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).
+
+
+## Edition speech-formula successor(s), now the accepted file: `candidate-v5.json` (2026-09-23)
+
+sha256 `e84c31a2ca47459fa01b49029f2f80a8c9bd0f8c8632c601b9fdff1343cd34f5`. Butler's speech-closing formulas are aligned edition-wide ("So he spoke", "So they talked"):
+- candidate-v4.json→candidate-v5.json ¶2: "They spoke this way because they thought" → "So they spoke, for they thought"
+- candidate-v4.json→candidate-v5.json ¶18: "While they were talking, Melanthius was going" → "So they talked. Meanwhile Melanthius was going"
+- candidate-v4.json→candidate-v5.json ¶20: "They did exactly as he commanded." → "So he spoke, and they did exactly as he commanded."
+Independently verified: **VERIFIED CLEAN** (round 2). See `../edition-review-2026-09-23/edition-formula-verify.md`; the edits and their reasons are in the same folder.

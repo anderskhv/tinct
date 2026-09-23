@@ -21,3 +21,7 @@ Evidence: `review-2026-09-23/`.
 
 `candidate-v4.json`, sha256 `42cdf8484f653f363d74647a8dd7eaa04268547f2991c08100ecb9dceb472ba7`: ¶7 "belonging to the sun god" → "belonging to the sun" (Butler: "the sun"; "god" was added).
 Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).
+
+## Punctuation-convention successor v5 (2026-09-23), now the accepted file
+
+`candidate-v5.json`, sha256 `f957b876d42039a4e4ea00468256b301533679260e3c5607fcc926d0e8566bec`. PUNCTUATION §6: colons the modern text had added before a quotation are replaced with Butler's own mark (comma, full stop or dash). The edits and reasons are in `../edition-review-2026-09-23/edition-colon-edits.json`, independently verified **VERIFIED CLEAN** in `edition-colon-verify.md`.

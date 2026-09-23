@@ -1216,3 +1216,12 @@ against Butler's (**D19**). Every control under **D18**; run
   texts) is named differently from the Meditations package's `source/` for
   an environment reason specific to the original task's sandbox; no content
   difference is implied.
+
+- 2026-09-23 — **Edition complete and handed off, not live.** All 24 Books are accepted.
+  - Books 11–24 were repaired from the live text, each with an independent fidelity review, a candidate-only accessibility review and verified corrections.
+  - Books 1–9 received the candidate-only accessibility review they had never had; 6 successors were applied and verified.
+  - Four cross-Book consistency passes were run: titles, names and compounds; speech formulas; the B20 ¶2 omission; colons added before quotations. All are independently VERIFIED CLEAN.
+  - Assembled candidate: `edition/odyssey-modern-en.candidate.json`, sha256 `bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c`.
+  - Handoff documents: `edition/RELEASE-PACKET.md`, `EDITION-VERIFICATION.md`, `REVIEW-COVERAGE.md`, `CHANGED-PARAGRAPHS.md`.
+  - The coding agent owns publication and the character card's modern-en re-anchor (dry run: 632 of 662 mentions re-anchor, 30 drop). The original-en Book 3 ¶38 splice repair (A3) remains recommended.
+  - No audio prerequisite.

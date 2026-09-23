@@ -1,0 +1,849 @@
+{
+ "before_sha256": "813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc",
+ "after_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+ "card": "app/public/data/characters/odyssey.v1.json",
+ "card_contentVersion": "2026-09-12.1",
+ "changed_paragraphs": 1011,
+ "mentions_total": 662,
+ "mentions_in_changed_paragraphs": 660,
+ "retained": 632,
+ "dropped": [
+  {
+   "characterId": "odysseus",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "startOffset": 201,
+   "endOffset": 209,
+   "text": "Odysseus",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "odysseus",
+   "chapterNumber": 1,
+   "paragraphIndex": 14,
+   "startOffset": 20,
+   "endOffset": 28,
+   "text": "Odysseus",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "odysseus",
+   "chapterNumber": 1,
+   "paragraphIndex": 17,
+   "startOffset": 444,
+   "endOffset": 452,
+   "text": "Odysseus",
+   "projectedText": "him",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "poseidon",
+   "chapterNumber": 4,
+   "paragraphIndex": 31,
+   "startOffset": 211,
+   "endOffset": 219,
+   "text": "Poseidon",
+   "projectedText": "Poseidon’s head man",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "poseidon",
+   "chapterNumber": 4,
+   "paragraphIndex": 41,
+   "startOffset": 554,
+   "endOffset": 562,
+   "text": "Poseidon",
+   "projectedText": "he",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "zeus",
+   "chapterNumber": 3,
+   "paragraphIndex": 26,
+   "startOffset": 11,
+   "endOffset": 15,
+   "text": "Zeus",
+   "projectedText": "the",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "zeus",
+   "chapterNumber": 3,
+   "paragraphIndex": 30,
+   "startOffset": 405,
+   "endOffset": 409,
+   "text": "Zeus",
+   "projectedText": "aegis",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "zeus",
+   "chapterNumber": 4,
+   "paragraphIndex": 7,
+   "startOffset": 438,
+   "endOffset": 442,
+   "text": "Zeus",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "zeus",
+   "chapterNumber": 4,
+   "paragraphIndex": 65,
+   "startOffset": 538,
+   "endOffset": 542,
+   "text": "Zeus",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "hermes",
+   "chapterNumber": 8,
+   "paragraphIndex": 25,
+   "startOffset": 24,
+   "endOffset": 30,
+   "text": "Hermes",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "calypso",
+   "chapterNumber": 5,
+   "paragraphIndex": 20,
+   "startOffset": 643,
+   "endOffset": 650,
+   "text": "Calypso",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "calypso",
+   "chapterNumber": 6,
+   "paragraphIndex": 12,
+   "startOffset": 1188,
+   "endOffset": 1195,
+   "text": "Calypso",
+   "projectedText": "the Ogygia",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "circe",
+   "chapterNumber": 10,
+   "paragraphIndex": 11,
+   "startOffset": 656,
+   "endOffset": 661,
+   "text": "Circe",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "circe",
+   "chapterNumber": 10,
+   "paragraphIndex": 24,
+   "startOffset": 92,
+   "endOffset": 97,
+   "text": "Circe",
+   "projectedText": "the",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "circe",
+   "chapterNumber": 10,
+   "paragraphIndex": 34,
+   "startOffset": 177,
+   "endOffset": 182,
+   "text": "Circe",
+   "projectedText": "the",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "helios",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "startOffset": 404,
+   "endOffset": 410,
+   "text": "Helios",
+   "projectedText": "Hyperio",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "helios",
+   "chapterNumber": 12,
+   "paragraphIndex": 20,
+   "startOffset": 161,
+   "endOffset": 167,
+   "text": "Helios",
+   "projectedText": "Hyperio",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "eurycleia",
+   "chapterNumber": 19,
+   "paragraphIndex": 2,
+   "startOffset": 26,
+   "endOffset": 34,
+   "text": "Euryclea",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "antinous",
+   "chapterNumber": 2,
+   "paragraphIndex": 21,
+   "startOffset": 44,
+   "endOffset": 52,
+   "text": "Antinous",
+   "projectedText": "Antinous’s",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "antinous",
+   "chapterNumber": 15,
+   "paragraphIndex": 1,
+   "startOffset": 365,
+   "endOffset": 373,
+   "text": "Antinous",
+   "projectedText": "Eurymachus",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "laertes",
+   "chapterNumber": 4,
+   "paragraphIndex": 64,
+   "startOffset": 789,
+   "endOffset": 796,
+   "text": "Laertes",
+   "projectedText": "te",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "nestor",
+   "chapterNumber": 3,
+   "paragraphIndex": 20,
+   "startOffset": 355,
+   "endOffset": 361,
+   "text": "Nestor",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "nestor",
+   "chapterNumber": 3,
+   "paragraphIndex": 34,
+   "startOffset": 190,
+   "endOffset": 196,
+   "text": "Nestor",
+   "projectedText": "e",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "nestor",
+   "chapterNumber": 3,
+   "paragraphIndex": 37,
+   "startOffset": 56,
+   "endOffset": 62,
+   "text": "Nestor",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "helen",
+   "chapterNumber": 15,
+   "paragraphIndex": 9,
+   "startOffset": 70,
+   "endOffset": 75,
+   "text": "Helen",
+   "projectedText": "my own",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "helen",
+   "chapterNumber": 23,
+   "paragraphIndex": 18,
+   "startOffset": 575,
+   "endOffset": 580,
+   "text": "Helen",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "tiresias",
+   "chapterNumber": 12,
+   "paragraphIndex": 20,
+   "startOffset": 539,
+   "endOffset": 547,
+   "text": "Tiresias",
+   "projectedText": "the",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "agamemnon",
+   "chapterNumber": 4,
+   "paragraphIndex": 42,
+   "startOffset": 435,
+   "endOffset": 444,
+   "text": "Agamemnon",
+   "projectedText": "At that Agamemnon",
+   "reason": "not a reviewed spelling for this figure"
+  },
+  {
+   "characterId": "achilles",
+   "chapterNumber": 24,
+   "paragraphIndex": 6,
+   "startOffset": 584,
+   "endOffset": 592,
+   "text": "Achilles",
+   "reason": "source span removed"
+  },
+  {
+   "characterId": "aeolus",
+   "chapterNumber": 10,
+   "paragraphIndex": 3,
+   "startOffset": 411,
+   "endOffset": 417,
+   "text": "Aeolus",
+   "projectedText": "Aeol",
+   "reason": "not a reviewed spelling for this figure"
+  }
+ ],
+ "progression_points_in_changed_paragraphs": [
+  {
+   "character": "odysseus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 95
+  },
+  {
+   "character": "odysseus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 95
+  },
+  {
+   "character": "odysseus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 95
+  },
+  {
+   "character": "penelope",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 389
+  },
+  {
+   "character": "penelope",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 389
+  },
+  {
+   "character": "penelope",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 389
+  },
+  {
+   "character": "telemachus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 293
+  },
+  {
+   "character": "telemachus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 293
+  },
+  {
+   "character": "telemachus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 6,
+   "offset": 293
+  },
+  {
+   "character": "athena",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 4,
+   "offset": 5
+  },
+  {
+   "character": "athena",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 4,
+   "offset": 5
+  },
+  {
+   "character": "athena",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 4,
+   "offset": 5
+  },
+  {
+   "character": "poseidon",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 457
+  },
+  {
+   "character": "poseidon",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 457
+  },
+  {
+   "character": "poseidon",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 457
+  },
+  {
+   "character": "zeus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 507
+  },
+  {
+   "character": "zeus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 507
+  },
+  {
+   "character": "zeus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 507
+  },
+  {
+   "character": "hermes",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 3,
+   "offset": 214
+  },
+  {
+   "character": "hermes",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 3,
+   "offset": 214
+  },
+  {
+   "character": "hermes",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 3,
+   "offset": 214
+  },
+  {
+   "character": "calypso",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 170
+  },
+  {
+   "character": "calypso",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 170
+  },
+  {
+   "character": "calypso",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 1,
+   "offset": 170
+  },
+  {
+   "character": "circe",
+   "point": "firstMention",
+   "chapterNumber": 8,
+   "paragraphIndex": 41,
+   "offset": 86
+  },
+  {
+   "character": "circe",
+   "point": "roleVisibleAt",
+   "chapterNumber": 8,
+   "paragraphIndex": 41,
+   "offset": 86
+  },
+  {
+   "character": "circe",
+   "point": "snapshot",
+   "chapterNumber": 8,
+   "paragraphIndex": 41,
+   "offset": 86
+  },
+  {
+   "character": "polyphemus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 5,
+   "offset": 273
+  },
+  {
+   "character": "polyphemus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 5,
+   "offset": 273
+  },
+  {
+   "character": "polyphemus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 5,
+   "offset": 273
+  },
+  {
+   "character": "helios",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 404
+  },
+  {
+   "character": "helios",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 404
+  },
+  {
+   "character": "helios",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 0,
+   "offset": 404
+  },
+  {
+   "character": "eurycleia",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 31,
+   "offset": 300
+  },
+  {
+   "character": "eurycleia",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 31,
+   "offset": 300
+  },
+  {
+   "character": "eurycleia",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 31,
+   "offset": 300
+  },
+  {
+   "character": "eumaeus",
+   "point": "firstMention",
+   "chapterNumber": 14,
+   "paragraphIndex": 3,
+   "offset": 32
+  },
+  {
+   "character": "eumaeus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 14,
+   "paragraphIndex": 3,
+   "offset": 32
+  },
+  {
+   "character": "eumaeus",
+   "point": "snapshot",
+   "chapterNumber": 14,
+   "paragraphIndex": 3,
+   "offset": 32
+  },
+  {
+   "character": "antinous",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 27,
+   "offset": 85
+  },
+  {
+   "character": "antinous",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 27,
+   "offset": 85
+  },
+  {
+   "character": "antinous",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 27,
+   "offset": 85
+  },
+  {
+   "character": "eurymachus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 29,
+   "offset": 5
+  },
+  {
+   "character": "eurymachus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 29,
+   "offset": 5
+  },
+  {
+   "character": "eurymachus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 29,
+   "offset": 5
+  },
+  {
+   "character": "laertes",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 13,
+   "offset": 403
+  },
+  {
+   "character": "laertes",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 13,
+   "offset": 403
+  },
+  {
+   "character": "laertes",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 13,
+   "offset": 403
+  },
+  {
+   "character": "nestor",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 829
+  },
+  {
+   "character": "nestor",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 829
+  },
+  {
+   "character": "nestor",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 829
+  },
+  {
+   "character": "menelaus",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 870
+  },
+  {
+   "character": "menelaus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 870
+  },
+  {
+   "character": "menelaus",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 18,
+   "offset": 870
+  },
+  {
+   "character": "helen",
+   "point": "firstMention",
+   "chapterNumber": 4,
+   "paragraphIndex": 0,
+   "offset": 654
+  },
+  {
+   "character": "helen",
+   "point": "roleVisibleAt",
+   "chapterNumber": 4,
+   "paragraphIndex": 0,
+   "offset": 654
+  },
+  {
+   "character": "helen",
+   "point": "snapshot",
+   "chapterNumber": 4,
+   "paragraphIndex": 0,
+   "offset": 654
+  },
+  {
+   "character": "nausicaa",
+   "point": "firstMention",
+   "chapterNumber": 6,
+   "paragraphIndex": 1,
+   "offset": 104
+  },
+  {
+   "character": "nausicaa",
+   "point": "roleVisibleAt",
+   "chapterNumber": 6,
+   "paragraphIndex": 1,
+   "offset": 104
+  },
+  {
+   "character": "nausicaa",
+   "point": "snapshot",
+   "chapterNumber": 6,
+   "paragraphIndex": 1,
+   "offset": 104
+  },
+  {
+   "character": "alcinous",
+   "point": "firstMention",
+   "chapterNumber": 6,
+   "paragraphIndex": 0,
+   "offset": 548
+  },
+  {
+   "character": "alcinous",
+   "point": "roleVisibleAt",
+   "chapterNumber": 6,
+   "paragraphIndex": 0,
+   "offset": 548
+  },
+  {
+   "character": "alcinous",
+   "point": "snapshot",
+   "chapterNumber": 6,
+   "paragraphIndex": 0,
+   "offset": 548
+  },
+  {
+   "character": "tiresias",
+   "point": "firstMention",
+   "chapterNumber": 10,
+   "paragraphIndex": 40,
+   "offset": 285
+  },
+  {
+   "character": "tiresias",
+   "point": "roleVisibleAt",
+   "chapterNumber": 10,
+   "paragraphIndex": 40,
+   "offset": 285
+  },
+  {
+   "character": "tiresias",
+   "point": "snapshot",
+   "chapterNumber": 10,
+   "paragraphIndex": 40,
+   "offset": 285
+  },
+  {
+   "character": "agamemnon",
+   "point": "firstMention",
+   "chapterNumber": 1,
+   "paragraphIndex": 2,
+   "offset": 418
+  },
+  {
+   "character": "agamemnon",
+   "point": "roleVisibleAt",
+   "chapterNumber": 1,
+   "paragraphIndex": 2,
+   "offset": 418
+  },
+  {
+   "character": "agamemnon",
+   "point": "snapshot",
+   "chapterNumber": 1,
+   "paragraphIndex": 2,
+   "offset": 418
+  },
+  {
+   "character": "achilles",
+   "point": "firstMention",
+   "chapterNumber": 3,
+   "paragraphIndex": 11,
+   "offset": 139
+  },
+  {
+   "character": "achilles",
+   "point": "roleVisibleAt",
+   "chapterNumber": 3,
+   "paragraphIndex": 11,
+   "offset": 139
+  },
+  {
+   "character": "achilles",
+   "point": "snapshot",
+   "chapterNumber": 3,
+   "paragraphIndex": 11,
+   "offset": 139
+  },
+  {
+   "character": "aeolus",
+   "point": "firstMention",
+   "chapterNumber": 10,
+   "paragraphIndex": 0,
+   "offset": 47
+  },
+  {
+   "character": "aeolus",
+   "point": "roleVisibleAt",
+   "chapterNumber": 10,
+   "paragraphIndex": 0,
+   "offset": 47
+  },
+  {
+   "character": "aeolus",
+   "point": "snapshot",
+   "chapterNumber": 10,
+   "paragraphIndex": 0,
+   "offset": 47
+  },
+  {
+   "character": "melanthius",
+   "point": "firstMention",
+   "chapterNumber": 17,
+   "paragraphIndex": 17,
+   "offset": 755
+  },
+  {
+   "character": "melanthius",
+   "point": "roleVisibleAt",
+   "chapterNumber": 17,
+   "paragraphIndex": 17,
+   "offset": 755
+  },
+  {
+   "character": "melanthius",
+   "point": "snapshot",
+   "chapterNumber": 17,
+   "paragraphIndex": 17,
+   "offset": 755
+  }
+ ],
+ "original_en_block_unchanged": true
+}

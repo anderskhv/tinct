@@ -206,3 +206,7 @@ D17's raw rate is worth once the bookkeeping is priced out.
 
 `candidate-v7.json`, sha256 `acd85cb34043f41fe8323b4d4a495844446e8114f7e3dc07f13c416ac9c2583f`: ¶10 "take nothing by it" → "gain nothing by it".
 This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.
+
+## Punctuation-convention successor v8 (2026-09-23), now the accepted file
+
+`candidate-v8.json`, sha256 `028601a4330cc6474e54d834a5895bfabffeabf7960146cf1f27bad01211f997`. PUNCTUATION §6: colons the modern text had added before a quotation are replaced with Butler's own mark (comma, full stop or dash). The edits and reasons are in `../edition-review-2026-09-23/edition-colon-edits.json`, independently verified **VERIFIED CLEAN** in `edition-colon-verify.md`.
