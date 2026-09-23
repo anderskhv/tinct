@@ -1,0 +1,119 @@
+[
+ {
+  "book": 12,
+  "paragraph": 0,
+  "old": "the island where dawn and sunrise occur just as they do everywhere else",
+  "new": "the island where the Dawn has her house and her dancing-floor, and where the sun rises",
+  "category": "reference",
+  "blocking": false,
+  "reason": "As worded, the clause says nothing happens here (dawn is 'just as it does everywhere else'), which reads as a pointless aside to a first-time listener. The line exists to mark Aeaea as a mythic threshold place (home of Dawn / sunrise); the negation erases that meaning and just sounds like filler."
+ },
+ {
+  "book": 12,
+  "paragraph": 2,
+  "old": "You will have died twice while others die only once.",
+  "new": "You went down alive and came back — you have already faced death once, though your day still has to come like everyone else's.",
+  "category": "flow",
+  "blocking": false,
+  "reason": "Heard once, 'died twice while others die only once' is a riddle a listener has to stop and solve rather than absorb in the moment. The intended idea (you've already survived one brush with death that ordinary people never face) doesn't land from the wording alone."
+ },
+ {
+  "book": 12,
+  "paragraph": 5,
+  "old": "the timid doves that carry ambrosia to Father Zeus",
+  "new": "the timid doves that carry ambrosia to Father Zeus on Olympus",
+  "category": "reference",
+  "blocking": false,
+  "reason": "The dove-and-ambrosia detail is dropped in with no context; a first-time listener has no way to know why doves would be flying this route at all, so the image (and the point that even they don't survive it) doesn't register."
+ },
+ {
+  "book": 12,
+  "paragraph": 6,
+  "old": "turned toward Erebus",
+  "new": "turned toward Erebus, the dark region below the world",
+  "category": "reference",
+  "blocking": false,
+  "reason": "'Erebus' is used as if the listener already knows it names the underworld's darkness; on first hearing it's just an unexplained proper noun and the geographic point (the cave faces away from the light, toward the underworld) is lost."
+ },
+ {
+  "book": 12,
+  "paragraph": 9,
+  "old": "who is Scylla’s mother—curse her—and she will keep Scylla from making a second attack on you.",
+  "new": "who is Scylla’s mother, and bad luck to her, and she will keep Scylla from making a second attack on you.",
+  "category": "aloud",
+  "blocking": true,
+  "reason": "'Curse her' interrupts the sentence with no clear target: heard aloud it can sound like Circe is telling Odysseus to curse Crataiis as an action, rather than being a passing exclamation ('confound her'). Combined with 'she' right after (which has to loop back past the interruption to mean Crataiis, not Scylla, who was just mentioned), a listener can easily come away thinking Scylla's own mother is the one who will attack again."
+ },
+ {
+  "book": 12,
+  "paragraph": 10,
+  "old": "who are children of the sun-god Hyperion by Neaera",
+  "new": "whose father was the sun-god Hyperion and whose mother was Neaera",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "'Children of X by Y' is an old genealogical formula for naming a father and mother; a modern listener doesn't reliably parse 'by' this way and may miss that Neaera is the mother rather than, say, a place or an epithet."
+ },
+ {
+  "book": 12,
+  "paragraph": 19,
+  "old": "As a fisherman, seated with his spear in hand on some jutting rock, throws bait into the water to deceive the poor little fish, and spears them with the ox-horn tip of his spear, throwing them gasping onto the land as he catches them one by one—even so did Scylla lift these struggling men up to her rock and devour them at the mouth of her den",
+  "new": "Think of a fisherman on a jutting rock, casting bait to lure the little fish, then spearing them one by one with the ox-horn tip of his rod and flinging them gasping onto the land — that is how Scylla lifted these struggling men up to her rock and devoured them at the mouth of her den",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "The comparison runs nearly eighty words before its payoff ('even so did Scylla...'); by the time the sentence resolves, a listener has to hold the whole fisherman image in memory and may lose the thread of what is being compared to what."
+ },
+ {
+  "book": 12,
+  "paragraph": 20,
+  "old": "how carefully Aeaean Circe warned me to shun the island of the blessed sun-god, for it was here, she said, that our worst danger would lie.",
+  "new": "how carefully she had warned me to keep away from it, for our worst danger, she said, would be there.",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "This paragraph already says, two sentences earlier, 'how carefully Aeaean Circe had warned me to shun the island of the blessed sun-god.' Repeating the near-identical clause verbatim right after reads as a stitched-together duplicate rather than natural speech — Odysseus telling his men something he's just finished telling the listener."
+ },
+ {
+  "book": 12,
+  "paragraph": 21,
+  "old": "you are hard; you are very strong yourself and never wear out; you seem to be made of iron, and now, though your men are worn out with toil and lack of sleep, you will not let them land and cook themselves a good supper on this island, but tell them to put out to sea and go on faring fruitlessly through the watches of the swift night.",
+  "new": "you are hard. You are strong yourself and never wear out — you seem to be made of iron. Your men are worn out with toil and lack of sleep, yet you won't let them land and cook a good supper on this island; instead you tell them to put out to sea and go on faring fruitlessly through the watches of the night.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Four clauses chained by semicolons and 'and' in one breath; heard aloud it runs together and a listener loses track of which complaint (his strength, his men's exhaustion, the refusal to land) is being made at any given moment."
+ },
+ {
+  "book": 12,
+  "paragraph": 24,
+  "old": "In the third watch of the night, when the stars had shifted their places",
+  "new": "In the deep hours before dawn, when the stars had shifted their places",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "'The third watch of the night' assumes knowledge of the ancient division of the night into watches; a first-time listener has no way to place this in time (roughly just before dawn) without that context."
+ },
+ {
+  "book": 12,
+  "paragraph": 26,
+  "old": "with hook and line, catching birds and taking whatever they could lay their hands on",
+  "new": "fishing with hook and line, snaring birds, and taking whatever else they could lay their hands on",
+  "category": "flow",
+  "blocking": false,
+  "reason": "As written, 'with hook and line, catching birds' reads as if the birds themselves were being caught on a hook and line, which is confusing — hook and line is fishing gear, not bird-catching gear. The sentence needs to separate the two activities."
+ },
+ {
+  "book": 12,
+  "paragraph": 32,
+  "old": "I was told all this by Calypso, who said she had heard it from the mouth of Hermes.",
+  "new": "I heard all this only later, from Calypso, who said she had heard it from Hermes.",
+  "category": "consistency",
+  "blocking": false,
+  "reason": "Odysseus is narrating this whole book as a continuous eyewitness account of his own voyage; this single sentence suddenly breaks frame to cite a secondhand source he learned about afterward, with no signal that we've jumped outside the timeline he's otherwise telling in order. A first-time listener can be thrown by the sudden 'who told him that' shift."
+ },
+ {
+  "book": 12,
+  "paragraph": 37,
+  "old": "A juror is no more glad to get home to supper, after being long detained in court by troublesome cases, than I was to see my raft beginning to work its way out of the whirlpool again.",
+  "new": "Like a man kept late at a long, wearisome trial who is overjoyed to finally head home to supper, I was overjoyed to see my raft beginning to work its way out of the whirlpool again.",
+  "category": "reference",
+  "blocking": false,
+  "reason": "'Juror' and 'court' land as a jarringly modern courtroom image in the middle of a shipwreck-and-monster scene; a first-time listener can be jolted out of the story by the sudden shift in register even though the underlying comparison (relief after a long, tedious ordeal) is simple."
+ }
+]

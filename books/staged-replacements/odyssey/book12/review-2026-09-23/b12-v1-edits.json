@@ -1,0 +1,164 @@
+[
+ {
+  "book": 12,
+  "paragraph": 0,
+  "old": "we sailed until we came to Aeaea, the island where dawn",
+  "new": "we sailed until we came to the Aeaean island, where dawn",
+  "category": "name",
+  "blocking": true,
+  "reason": "Butler writes \"the Aeaean island\"; the form \"Aeaea\" occurs nowhere in PG #1727 or in any accepted Book (which print only \"Aeaean\", e.g. B10 \"came to the Aeaean island\"), so the draft introduces a name form Butler never uses, contrary to its own note that already-Greek names are kept exactly as Butler spells them."
+ },
+ {
+  "book": 12,
+  "paragraph": 6,
+  "old": "Halfway up it there is a large cave",
+  "new": "In the middle of it there is a large cave",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"In the middle of it there is a large cavern\"; \"halfway up\" supplies a vertical position Butler does not state."
+ },
+ {
+  "book": 12,
+  "paragraph": 7,
+  "old": "Three times a day she spits her waters out",
+  "new": "Three times a day she vomits her waters up",
+  "category": "voice",
+  "blocking": false,
+  "reason": "Butler: \"Three times in the day does she vomit forth her waters\"; \"spits\" softens the image, and the same verb is kept as \"vomited it up\" at P19, so one Butler word now has two renderings in this Book."
+ },
+ {
+  "book": 12,
+  "paragraph": 11,
+  "old": "began to show in heaven, whereon she returned inland",
+  "new": "began to show in heaven. At that she returned inland",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler's connective \"whereon\" is left standing as a dead archaism; GLOSSARY (rows added at Book 4) renders it \"at that\", and no accepted Book 9-11 keeps it, while this same draft renders the other Book 12 instance (P30) in modern English."
+ },
+ {
+  "book": 12,
+  "paragraph": 11,
+  "old": "the great and clever goddess Circe",
+  "new": "the great and cunning goddess Circe",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler: \"the great and cunning goddess Circe\", the same stock epithet accepted as \"great and cunning goddess\" at B10-P11 and B11-P0 (the latter in the identical fair-wind formula); \"clever\" breaks the recurring formula and weakens it."
+ },
+ {
+  "book": 12,
+  "paragraph": 19,
+  "old": "even so did Scylla lift these struggling men up to her rock and devour them at the mouth of her den",
+  "new": "even so did Scylla land these panting creatures on her rock and munch them up at the mouth of her den",
+  "category": "omission",
+  "blocking": true,
+  "reason": "Butler: \"even so did Scylla land these panting creatures on her rock and munch them up\"; the draft drops the simile's closing half (\"land\" as a fisherman lands fish, \"panting\" answering \"gasping\"), and the drafter's note claims \"munch them up\" is present when the candidate prints \"devour\"."
+ },
+ {
+  "book": 12,
+  "paragraph": 21,
+  "old": "The men were dismayed at this",
+  "new": "The men were in despair at this",
+  "category": "voice",
+  "blocking": false,
+  "reason": "Butler: \"The men were in despair at this\"; \"dismayed\" softens it and puts the edition's reserved \"dismay\" word (GLOSSARY: dismay vs. grief kept apart) where Butler has despair."
+ },
+ {
+  "book": 12,
+  "paragraph": 33,
+  "old": "the gods soon began to show signs",
+  "new": "the gods at once began to show signs",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"the gods began at once to show signs and wonders\"; \"soon\" loses the immediacy."
+ },
+ {
+  "book": 12,
+  "paragraph": 34,
+  "old": "raised the mast, spread sail",
+  "new": "raised our masts, spread sail",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Butler: \"raised our masts\"; the plural is Butler's and concrete detail is kept exactly (GLOSSARY Voice and form)."
+ },
+ {
+  "book": 12,
+  "paragraph": 34,
+  "old": "The mast struck the helmsman on the head as it fell, crushing",
+  "new": "The mast fell on the head of the helmsman in the ship’s stern, crushing",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Butler: \"The mast fell upon the head of the helmsman in the ship's stern\"; the draft drops where the helmsman stood."
+ },
+ {
+  "book": 12,
+  "paragraph": 35,
+  "old": "sea-gulls",
+  "new": "seagulls",
+  "category": "convention",
+  "blocking": true,
+  "reason": "PUNCTUATION §4 (D15) takes the modern standard form and accepted Books 3 and 5 print \"seagulls\"/\"seagull\"; scripts/compound_drift.py fails on this key (\"closed in book03; hyphenated in ody\"), contrary to the drafter's note that no rule applies."
+ },
+ {
+  "book": 12,
+  "paragraph": 36,
+  "old": "from her keel, which drifted off by itself, and tore",
+  "new": "from her keel (which drifted about by itself) and tore",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler: \"from her keel (which drifted about by itself)\"; ODY-RULES / PUNCTUATION §6 bind that Butler's parenthetical asides keep their parentheses, and \"drifted off\" changes \"drifted about\" (aimlessly) to \"away\"."
+ },
+ {
+  "book": 12,
+  "paragraph": 36,
+  "old": "a backstay of stout ox-hide still",
+  "new": "a backstay of stout ox hide still",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Accepted B02 (\"ropes of twisted ox hide\") and B10 (\"a prime ox hide\") print the noun open; the hyphenated noun here is a cross-Book compound drift (D15)."
+ },
+ {
+  "book": 12,
+  "paragraph": 37,
+  "old": "the salt sea water",
+  "new": "the salt seawater",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Accepted Book 5 prints \"seawater\"; scripts/compound_drift.py fails on this key (\"closed in book05; open in ody\") under D15."
+ },
+ {
+  "book": 12,
+  "paragraph": 9,
+  "old": "who is Scylla’s mother—curse her—and she will keep Scylla from making a second attack on you.",
+  "new": "who is Scylla’s mother (bad luck to her!), and she will keep Scylla from making a second attack on you.",
+  "category": "aloud",
+  "blocking": true,
+  "reason": "'Curse her' interrupts the sentence with no clear target: heard aloud it can sound like Circe is telling Odysseus to curse Crataiis as an action, rather than being a passing exclamation ('confound her'). Combined with 'she' right after (which has to loop back past the interruption to mean Crataiis, not Scylla, who was just mentioned), a listener can easily come away thinking Scylla's own mother is the one who will attack again. [lead: Butler’s own “bad luck to her” as an aside]"
+ },
+ {
+  "book": 12,
+  "paragraph": 10,
+  "old": "who are children of the sun-god Hyperion by Neaera",
+  "new": "whose father was the sun-god Hyperion and whose mother was Neaera",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "'Children of X by Y' is an old genealogical formula for naming a father and mother; a modern listener doesn't reliably parse 'by' this way and may miss that Neaera is the mother rather than, say, a place or an epithet."
+ },
+ {
+  "book": 12,
+  "paragraph": 21,
+  "old": "you are hard; you are very strong yourself and never wear out; you seem to be made of iron, and now, though your men are worn out with toil and lack of sleep, you will not let them land and cook themselves a good supper on this island, but tell them to put out to sea and go on faring fruitlessly through the watches of the swift night.",
+  "new": "you are cruel. You are very strong yourself and never wear out—you seem to be made of iron. Now, though your men are worn out with toil and lack of sleep, you will not let them land and cook themselves a good supper on this island; instead you tell them to put out to sea and go on faring fruitlessly through the watches of the swift night.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Four clauses chained by semicolons and 'and' in one breath; heard aloud it runs together and a listener loses track of which complaint (his strength, his men's exhaustion, the refusal to land) is being made at any given moment. [lead: merged with fidelity finding hard→cruel (Butler \"you are cruel\"); kept \"swift\", \"very\"; unspaced dashes]"
+ },
+ {
+  "book": 12,
+  "paragraph": 26,
+  "old": "with hook and line, catching birds and taking whatever they could lay their hands on",
+  "new": "fishing with hook and line, snaring birds, and taking whatever else they could lay their hands on",
+  "category": "flow",
+  "blocking": false,
+  "reason": "As written, 'with hook and line, catching birds' reads as if the birds themselves were being caught on a hook and line, which is confusing — hook and line is fishing gear, not bird-catching gear. The sentence needs to separate the two activities."
+ }
+]
