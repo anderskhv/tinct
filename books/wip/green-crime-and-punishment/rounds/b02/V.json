@@ -1,0 +1,170 @@
+{
+ "verified_clean": [
+  "7.3",
+  "7.5",
+  "7.7",
+  "7.9",
+  "7.14",
+  "7.22",
+  "7.26",
+  "7.27",
+  "7.29",
+  "7.30",
+  "7.32",
+  "7.34",
+  "7.37",
+  "7.38",
+  "7.73",
+  "7.79",
+  "7.85",
+  "7.88",
+  "8.8",
+  "8.10",
+  "8.17",
+  "8.63",
+  "8.67",
+  "8.75",
+  "8.92",
+  "8.101",
+  "8.106",
+  "8.110",
+  "8.111",
+  "8.112",
+  "8.118",
+  "8.120",
+  "8.125",
+  "8.127",
+  "8.129",
+  "8.130",
+  "8.131",
+  "8.132",
+  "8.133",
+  "8.137",
+  "8.143",
+  "8.146",
+  "8.149",
+  "8.150",
+  "8.152",
+  "8.153",
+  "8.155",
+  "8.166",
+  "8.167",
+  "8.168",
+  "8.169",
+  "8.170",
+  "8.171",
+  "9.3",
+  "9.5",
+  "9.10",
+  "9.16",
+  "9.17",
+  "9.18",
+  "9.20",
+  "9.23",
+  "9.25",
+  "9.31",
+  "9.32",
+  "9.33",
+  "9.35",
+  "9.50",
+  "9.56"
+ ],
+ "defects": [
+  {
+   "chapter": 7,
+   "paragraph": 6,
+   "old": "he thought he would have run away from her.",
+   "new": "he thought he would run away from her.",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "The certainty repair restored 'he thought', but 'would have run' after the present-tense condition 'if she kept staring' is a tense clash. 'Would run' keeps the hedge and matches 'kept'."
+  },
+  {
+   "chapter": 7,
+   "paragraph": 23,
+   "old": "it must be for some kind of strongbox, and that perhaps everything was hidden there",
+   "new": "it must be for some kind of strongbox, and perhaps everything was hidden there",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "The certainty repair ('and that perhaps everything was hidden there') restored the source's 'perhaps' but left a dangling 'that' after the dash-interrupted clause. Dropping 'that' keeps the hedge. Folds in accessibility item 0."
+  },
+  {
+   "chapter": 8,
+   "paragraph": 83,
+   "old": "He said a couple of words in French with a foreigner",
+   "new": "He said a couple of words in French to a foreigner",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "The invention repair removed 'even exchanged' but kept its preposition: 'said ... with a foreigner' is unidiomatic. The source has 'said a couple of words in French to a foreigner'."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "reject",
+   "reason": "folded into defect (7.23)."
+  },
+  {
+   "index": 1,
+   "verdict": "accept",
+   "reason": "The source has 'at Gambrinus''. Gambrinus was a common name for a St Petersburg beer hall, so 'tavern' is an accurate one-word gloss that adds no other content."
+  },
+  {
+   "index": 2,
+   "verdict": "accept",
+   "reason": "The source has 'That's queer'. 'Odd' is faithful and in period."
+  },
+  {
+   "index": 3,
+   "verdict": "modify",
+   "new": "\"That fellow's been on a spree!\"",
+   "reason": "The source has 'My word, he has been going it!', which is slang for drinking or living fast: the sweat-soaked man is taken for a drunk. 'Workout' is anachronistic, but 'hard at it' suggests he has been working. 'On a spree' keeps the drunkenness."
+  },
+  {
+   "index": 4,
+   "verdict": "accept",
+   "reason": "The source has 'persons of all sorts and both sexes'."
+  },
+  {
+   "index": 5,
+   "verdict": "accept",
+   "reason": "The source has 'without the slightest interest', so this restores it word for word."
+  },
+  {
+   "index": 6,
+   "verdict": "accept",
+   "reason": "The source's 'his honour came drunk' is her servant-style honorific for the writer. Next to 'Mr. Captain' it misleads the ear. 'The gentleman' keeps the deferential sense, and her German-accented voice survives through the rest of the paragraph."
+  },
+  {
+   "index": 7,
+   "verdict": "accept",
+   "reason": "The source has 'his sentimental effusions before Ilya Petrovitch'. He addressed Nikodim Fomitch (8.127, 8.129), so 'in front of' is faithful."
+  },
+  {
+   "index": 8,
+   "verdict": "accept",
+   "reason": "The source has 'retired at once when he recovered', meaning the sick man. Naming Raskolnikov resolves the ambiguity without changing any fact."
+  },
+  {
+   "index": 9,
+   "verdict": "accept",
+   "reason": "The decision in the night is the one stated in 9.3 ('Fling them into the canal... So he had decided in the night of his delirium') and questioned in 9.12, so the gloss is grounded in the text and invents nothing."
+  },
+  {
+   "index": 10,
+   "verdict": "modify",
+   "new": "Why, I've come to Razumihin's without meaning to!",
+   "reason": "The source has 'why, I have not come to Razumihin of my own accord!'. That is an exclamation of discovery, and his doubt only follows it ('have I come on purpose or...'). The proposed question weakens the assertion, so keep the exclamation and the 'Why,'. The meaning 'without meaning to' is right."
+  },
+  {
+   "index": 11,
+   "verdict": "reject",
+   "reason": "The source has 'the day _after_'. Garnett's bare italic is a deliberate veiled reference to the murder. Adding 'it' interprets the veil and moves the stress off the italicised word."
+  },
+  {
+   "index": 12,
+   "verdict": "accept",
+   "reason": "Checked for accuracy. A. N. Radishchev (1749-1802), author of 'A Journey from St. Petersburg to Moscow' (1790), was condemned to death for it, the sentence commuted to Siberian exile, and he is the standard 'first Russian radical'. He was himself a Rousseau admirer, which is why calling Rousseau 'a kind of Radishchev' is backwards and funny. 'Our Russian radical' is accurate and short, it fits Razumihin's voice, and it asserts nothing false."
+  }
+ ]
+}
