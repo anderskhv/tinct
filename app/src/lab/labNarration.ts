@@ -64,7 +64,7 @@ export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOpt
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {
   try {
     const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store' })
-    if (!response.ok) return { enabled: false, reason: `http_${response.status}`, voices: [] }
+    if (!response.ok) return { enabled: false, provider: 'grok', reason: `http_${response.status}`, voices: [] }
     const json = await response.json() as Partial<NarrationPilotInfo>
     return {
       enabled: json.enabled === true,
@@ -76,7 +76,7 @@ export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): 
         : [],
     }
   } catch {
-    return { enabled: false, reason: 'network', voices: [] }
+    return { enabled: false, provider: 'grok', reason: 'network', voices: [] }
   }
 }
 

@@ -760,6 +760,15 @@ describe('Grok narration rollout', () => {
     expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
     expect(h.fish.calls).toHaveLength(1)
   })
+  it('requires sign-in for an uncached seek even when other chunks are cached', async () => {
+    const { h } = grokHarness()
+    const last = chunkNarrationText(PARAGRAPHS[4]).length - 1
+    await ensure(h,{voice:'f',mode:'next',paragraphs:[{index:4,fromChunk:last}]})
+    h.deps.verifyUser=async()=>null
+    expect((await ensure(h,{voice:'f',paragraphs:[{index:4,fromChunk:last}]})).status).toBe(200)
+    expect((await ensure(h,{voice:'f',paragraphs:[{index:4,fromChunk:0}]})).status).toBe(401)
+    expect(h.fish.calls).toHaveLength(1)
+  })
   it('rejects withdrawn editions before looking up audio', async () => {
     const { h } = grokHarness()
     expect((await ensure(h, {bookId:'bible',editionKey:'modern-en',voice:'f',paragraphs:[{index:0}]})).status).toBe(403)

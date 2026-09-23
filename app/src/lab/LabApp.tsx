@@ -479,7 +479,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
   const narrationFlag = narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : ''))
-  const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>(null)
+  const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>({ enabled: false, provider: 'grok', voices: [] })
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {

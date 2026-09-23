@@ -15,13 +15,13 @@
     "run_worker_first": true
   },
   "vars": {
-    // English on-demand narration. GOOGLE_TTS_API_KEY is a Worker secret.
+    // English on-demand narration. XAI_API_KEY is a Worker secret.
     // Provider, model and exact voice are part of every content-addressed key.
     // Ceilings are UTF-8 text bytes per UTC day / month and bound spend even
     // though the provider's billing unit differs.
     // NARRATION_ADMIN_TOKEN (warm route) is a Worker secret, never a var.
     "NARRATION_PILOT": "1",
-    "NARRATION_PROVIDER": "google",
+    "NARRATION_PROVIDER": "grok",
     "NARRATION_DAILY_BYTES": "2000000",
     "NARRATION_MONTHLY_BYTES": "10000000"
   },
