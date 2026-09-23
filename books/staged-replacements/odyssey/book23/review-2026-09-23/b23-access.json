@@ -1,0 +1,74 @@
+[
+  {
+    "book": 23,
+    "paragraph": 1,
+    "old": "Why are you mocking me when I already have enough troubles, talking such nonsense and waking me from the sweet sleep that had taken possession of my eyes and closed them?",
+    "new": "Why are you mocking me with such nonsense, waking me from the sweet sleep that had taken possession of my eyes and closed them, when I already have enough troubles?",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The clause 'when I already have enough troubles' is wedged between two participial phrases ('mocking me... talking such nonsense' and 'waking me...') that both describe the same action, breaking the sentence in a way that's hard to parse by ear. Moving the interrupting clause to the end lets the two parallel complaints run together."
+  },
+  {
+    "book": 23,
+    "paragraph": 5,
+    "old": "they have come to a bad end because of their iniquity",
+    "new": "they have come to a bad end because of their wrongdoing",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'Iniquity' is an elevated/archaic word a general listener may not immediately place; 'wrongdoing' keeps the meaning without the stumble, and avoids restating 'wickedness' from earlier in the same sentence."
+  },
+  {
+    "book": 23,
+    "paragraph": 10,
+    "old": "we shall get to understand one another better by and by",
+    "new": "we shall come to understand one another better before long",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'By and by' is a dated idiom; a modern listener may not register it as 'soon/eventually' on first hearing."
+  },
+  {
+    "book": 23,
+    "paragraph": 11,
+    "old": "When one man has killed another—even though he was not one who would leave many friends to take up his quarrel—the man who has killed him must still say goodbye to his friends and flee the country.",
+    "new": "When one man has killed another, even if the dead man has few friends to avenge him, the killer must still say goodbye to his friends and flee the country.",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "The double negative ('not one who would leave many friends to take up his quarrel') plus the pronoun swap between the victim ('he') and killer ('the man who has killed him') is hard to track by ear; a listener can easily lose track of who is being talked about mid-sentence."
+  },
+  {
+    "book": 23,
+    "paragraph": 16,
+    "old": "I have no wish to set myself up, nor to depreciate you",
+    "new": "I have no wish to make myself out to be more than I am, nor to belittle you",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'Depreciate' meaning 'belittle' is an archaic usage; today the word almost always means a drop in monetary value, so a listener may momentarily misread the sentence."
+  },
+  {
+    "book": 23,
+    "paragraph": 17,
+    "old": "for it is a marvelous curiosity which I made with my very own hands",
+    "new": "for it is a marvelous thing which I made with my very own hands",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "'Curiosity' used to mean 'a remarkable object' is dated usage; a modern listener defaults to the 'feeling of curiosity' sense and may momentarily misparse the sentence."
+  },
+  {
+    "book": 23,
+    "paragraph": 17,
+    "old": "I then bored a hole down the middle, and made it the center post of my bed, at which I worked until I had finished it, inlaying it with gold and silver.",
+    "new": "I then bored a hole down through the trunk, and made the trunk the center post of my bed, working at it until I had finished it, inlaying it with gold and silver.",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "Three 'it's in a row shift reference between the hole and the trunk with no visual cue; naming 'the trunk' once removes the ambiguity. This is the bed-test's key physical evidence, so it should be unmistakable by ear even though it isn't strictly blocking (context still carries the sense)."
+  },
+  {
+    "book": 23,
+    "paragraph": 26,
+    "old": "so that all his men perished together, himself alone being left alive",
+    "new": "so that all his men perished, and he alone was left alive",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "The dangling absolute construction ('himself alone being left alive') has no live verb attached and reads as archaic/awkward aloud; a plain finite clause is immediate to hear."
+  }
+]
