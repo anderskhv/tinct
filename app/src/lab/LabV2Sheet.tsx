@@ -297,7 +297,7 @@ export function LabV2Sheet({ bookId = 'bible', phoneShakespeare = false, layer, 
                     onChange={value => onPrefs({ ...prefs, voicePersona: value === 'male' ? 'male' : 'female' })}
                   />
                 <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
-                  options={[0.75, 1, 1.25, 1.5, 1.75, 2].map(value => ({ value: String(value), label: value + '×' }))}
+                  options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
                   onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
               </div>
               <div className="lab-v2-foot">
