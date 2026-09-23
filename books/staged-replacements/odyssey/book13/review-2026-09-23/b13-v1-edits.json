@@ -1,0 +1,218 @@
+[
+ {
+  "book": 13,
+  "paragraph": 8,
+  "old": "both on the battlefield and on the restless sea",
+  "new": "both on the field of battle and on the waves of the weary sea",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler: \"both on the field of battle and by the waves of the weary sea\"; the same line is accepted at B08-P013 as \"on the field of battle and on the waves of the weary sea\", and the draft both replaces the epithet (weary → restless) and drops \"the waves of\" (the drafter's note that Book 8 was unavailable is wrong: book08/candidate-v2.json is in the accepted list)."
+ },
+ {
+  "book": 13,
+  "paragraph": 24,
+  "old": "both on the battlefield and on the restless sea",
+  "new": "both on the field of battle and on the waves of the weary sea",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler repeats the ¶8 line verbatim: \"both on the field of battle and by the waves of the weary sea\"; same repair as ¶8 so all three instances (B08-P013, B13-P8, B13-P24) read alike."
+ },
+ {
+  "book": 13,
+  "paragraph": 9,
+  "old": "stone mixing bowls",
+  "new": "stone mixing-bowls",
+  "category": "convention",
+  "blocking": true,
+  "reason": "Butler \"mixing bowls\"; PUNCTUATION §4 (D15) fixes the hyphenated \"mixing-bowl(s)\", printed in accepted Books 1, 2, 3, 4, 9 and 11; scripts/compound_drift.py fails on this key (\"mixingbowls hyphenated in book01/book02; open in ody\")."
+ },
+ {
+  "book": 13,
+  "paragraph": 10,
+  "old": "she ran halfway up onto the shore",
+  "new": "she ran half her own length onto the shore",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Butler: \"she ran half her own length on to the shore\"; \"halfway up onto the shore\" replaces a stated measure (half the ship's length) with a different, vaguer one."
+ },
+ {
+  "book": 13,
+  "paragraph": 36,
+  "old": "a torn wallet",
+  "new": "a bag all in holes",
+  "category": "aloud",
+  "blocking": true,
+  "reason": "Butler: \"a staff and a wallet all in holes\"; accepted B05-P020 and B09-P011 render Butler's \"wallet\" as \"bag\" (to a modern listener a wallet is a billfold, which cannot be slung by a thong), and \"torn\" drops \"all in holes\"."
+ },
+ {
+  "book": 13,
+  "paragraph": 27,
+  "old": "you’re so persuasive, shrewd, and clever",
+  "new": "you’re so persuasive, shrewd, and shifty",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Butler: \"you are so plausible, shrewd and shifty\"; \"clever\" turns Athena's teasing charge of shiftiness into a compliment, softening her characterization (she has just called him a \"shifty lying fellow\" at ¶25, which the draft keeps)."
+ },
+ {
+  "book": 13,
+  "paragraph": 27,
+  "old": "who stays home constantly grieving for you",
+  "new": "who stays at home grieving for you in vain",
+  "category": "meaning",
+  "blocking": true,
+  "reason": "Butler: \"your wife, who remains at home vainly grieving for you\"; \"constantly\" replaces Butler's qualifier \"vainly\" (in vain—her grief achieves nothing) with a different one, a change of meaning."
+ },
+ {
+  "book": 13,
+  "paragraph": 3,
+  "old": "by giving me safe passage and these generous gifts",
+  "new": "by giving me an escort and these generous gifts",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"by giving me an escort\"; \"escort\" is held in every accepted Book (B06-P022, B07-P017/19/25, B08-P002/47, B11-P026/30) and in this Book's ¶4, ¶13, ¶14, ¶17, where the Phaeacians' giving of escorts is the very thing Poseidon punishes."
+ },
+ {
+  "book": 13,
+  "paragraph": 19,
+  "old": "given me safe passage",
+  "new": "given me an escort",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"given me an escort\"; same held word as ¶3."
+ },
+ {
+  "book": 13,
+  "paragraph": 5,
+  "old": "to the blessed gods from where they sat",
+  "new": "to the blessed gods that live in heaven from where they sat",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Butler: \"made a drink-offering to the blessed gods that live in heaven\"; the epithet is dropped (and \"heaven\" count falls from 4 to 3 real instances; the draft's fourth match is ¶16's added \"Good heavens\")."
+ },
+ {
+  "book": 13,
+  "paragraph": 20,
+  "old": "the loud-roaring sea",
+  "new": "the sounding sea",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Butler: \"the shore of the sounding sea\"; accepted B06-P015 keeps \"the sounding sea\"; \"loud-roaring\" is an intensified new rendering of the stock epithet."
+ },
+ {
+  "book": 13,
+  "paragraph": 27,
+  "old": "the harbor of old Phorcys the merman",
+  "new": "the harbor of the old merman Phorcys",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Butler: \"the haven of the old merman Phorcys\", word for word as at ¶9, which the draft renders \"the old merman Phorcys\"; the drafter's note says both are rendered identically, but they are not."
+ },
+ {
+  "book": 13,
+  "paragraph": 31,
+  "old": "lording it over your house",
+  "new": "lording it in your house",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"who have been lording it in your house\"; the repair is right to restore the idiom but changes the preposition; D29 says a repair restores Butler's own words."
+ },
+ {
+  "book": 13,
+  "paragraph": 31,
+  "old": "how you can deal with these shameless men",
+  "new": "how you can lay hands on these shameless men",
+  "category": "voice",
+  "blocking": false,
+  "reason": "Butler: \"think how you can lay hands on these disreputable people\"; \"deal with\" softens the physical threat that ¶33's \"blood and brains\" makes explicit."
+ },
+ {
+  "book": 13,
+  "paragraph": 7,
+  "old": "cast off the hawser from the mooring stone",
+  "new": "cast off the hawser from the pierced stone it had been tied to",
+  "category": "omission",
+  "blocking": false,
+  "reason": "Butler: \"loosed the hawser from the pierced stone to which it had been bound\"; the concrete detail \"pierced\" is dropped (GLOSSARY Voice and form: concrete physical detail kept exactly)."
+ },
+ {
+  "book": 13,
+  "paragraph": 6,
+  "old": "claim you",
+  "new": "lay their hands on you",
+  "category": "voice",
+  "blocking": false,
+  "reason": "Butler: \"till age and death, the common lot of mankind, lay their hands upon you\"; the image of age and death laying hands on her is flattened to \"claim\"."
+ },
+ {
+  "book": 13,
+  "paragraph": 25,
+  "old": "me, who has always been with you",
+  "new": "me, who have always been with you",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Butler: \"me, who have been ever with you\"; after \"me\" the verb agrees in the first person (\"who have\"), and the rest of the clause (\"who watched… who made\") is hers speaking of herself."
+ },
+ {
+  "book": 13,
+  "paragraph": 25,
+  "old": "Bear everything silently and endure",
+  "new": "Bear everything and endure",
+  "category": "addition",
+  "blocking": false,
+  "reason": "Butler: \"Bear everything, and put up with every man's insolence, without a word\"; \"silently\" is added and duplicates Butler's own \"without a word\" at the end of the sentence."
+ },
+ {
+  "book": 13,
+  "paragraph": 8,
+  "old": "racing across the plain",
+  "new": "racing over the course",
+  "category": "meaning",
+  "blocking": false,
+  "reason": "Butler: \"as a four in hand chariot flies over the course\"; the simile is a chariot race on a racecourse, not across a plain."
+ },
+ {
+  "book": 13,
+  "paragraph": 9,
+  "old": "fresh water always flows within",
+  "new": "there is always water within",
+  "category": "addition",
+  "blocking": false,
+  "reason": "Butler: \"at all times there is water within it\"; \"fresh\" and \"flows\" are details Butler does not state."
+ },
+ {
+  "book": 13,
+  "paragraph": 1,
+  "old": "wrought gold",
+  "new": "worked gold",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Wrought\" outside the fixed phrase \"wrought iron\" is a low-frequency archaic word; a listener may not immediately parse it as \"shaped/crafted.\" \"Worked gold\" carries the identical meaning in plain contemporary vocabulary."
+ },
+ {
+  "book": 13,
+  "paragraph": 18,
+  "old": "so people wouldn’t know of his arrival, and so she could tell him everything without his wife, fellow citizens, or friends recognizing him until he had taken revenge on the wicked suitors.",
+  "new": "so people wouldn’t know of his arrival. She wanted to tell him everything herself, without his wife, fellow citizens, or friends recognizing him until he had taken revenge on the wicked suitors.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "The single sentence stacks two purpose clauses (\"so people wouldn't...\" and \"so she could...\") plus a long \"without...recognizing him until...\" tail, so on a first listen it's easy to lose track of which action goes with which reason. Splitting the two purposes into separate sentences keeps the same information but is easier to follow by ear."
+ },
+ {
+  "book": 13,
+  "paragraph": 33,
+  "old": "beechmast",
+  "new": "beech nuts",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Beechmast\" (the fallen nuts of beech trees, used as pig feed) is an obscure term almost no general listener will recognize, and nothing in the sentence clarifies it. \"Beech nuts\" is the same food in ordinary vocabulary."
+ },
+ {
+  "book": 13,
+  "paragraph": 36,
+  "old": "an undressed deerskin",
+  "new": "an untanned deerskin",
+  "category": "archaic",
+  "blocking": true,
+  "reason": "\"Undressed\" here means untanned/untreated, but a listener will default to the everyday sense of \"undressed\" (unclothed), producing a confusing image right next to \"as an outer garment.\" \"Raw deerskin\" gives the same meaning without the collision. [lead: \"untanned\" = Butler’s \"undressed\" (unprepared hide)]"
+ }
+]

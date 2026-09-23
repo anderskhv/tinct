@@ -1,0 +1,65 @@
+[
+ {
+  "book": 13,
+  "paragraph": 1,
+  "old": "wrought gold",
+  "new": "worked gold",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Wrought\" outside the fixed phrase \"wrought iron\" is a low-frequency archaic word; a listener may not immediately parse it as \"shaped/crafted.\" \"Worked gold\" carries the identical meaning in plain contemporary vocabulary."
+ },
+ {
+  "book": 13,
+  "paragraph": 7,
+  "old": "the hawser",
+  "new": "the mooring rope",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Hawser\" is a specialized nautical term most general listeners won't know; \"mooring rope\" is immediately clear and matches the \"mooring stone\" already in the same sentence."
+ },
+ {
+  "book": 13,
+  "paragraph": 9,
+  "old": "where the nymphs weave their sea-purple robes—a wondrous sight to see—and fresh water always flows within.",
+  "new": "where the nymphs weave their sea-purple robes—a wondrous sight to see. Fresh water always flows within the cave.",
+  "category": "flow",
+  "blocking": false,
+  "reason": "Three separate ideas (the looms, the aside about the sight, and the fresh water) are chained into one sentence after an em-dash aside, so \"fresh water\" can momentarily seem to modify the looms rather than the cave. Splitting into two sentences removes the ambiguity without cutting content."
+ },
+ {
+  "book": 13,
+  "paragraph": 18,
+  "old": "so people wouldn’t know of his arrival, and so she could tell him everything without his wife, fellow citizens, or friends recognizing him until he had taken revenge on the wicked suitors.",
+  "new": "so people wouldn’t know of his arrival. She wanted to tell him everything herself, without his wife, fellow citizens, or friends recognizing him until he had taken revenge on the wicked suitors.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "The single sentence stacks two purpose clauses (\"so people wouldn't...\" and \"so she could...\") plus a long \"without...recognizing him until...\" tail, so on a first listen it's easy to lose track of which action goes with which reason. Splitting the two purposes into separate sentences keeps the same information but is easier to follow by ear."
+ },
+ {
+  "book": 13,
+  "paragraph": 24,
+  "old": "as a vassal",
+  "new": "as his man",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Vassal\" carries strong medieval-feudal connotations that can feel out of place and may not register clearly with a general listener; \"his man\" (a subordinate follower) conveys the same relationship in plain language."
+ },
+ {
+  "book": 13,
+  "paragraph": 33,
+  "old": "beechmast",
+  "new": "beech nuts",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"Beechmast\" (the fallen nuts of beech trees, used as pig feed) is an obscure term almost no general listener will recognize, and nothing in the sentence clarifies it. \"Beech nuts\" is the same food in ordinary vocabulary."
+ },
+ {
+  "book": 13,
+  "paragraph": 36,
+  "old": "an undressed deerskin",
+  "new": "a raw deerskin",
+  "category": "archaic",
+  "blocking": true,
+  "reason": "\"Undressed\" here means untanned/untreated, but a listener will default to the everyday sense of \"undressed\" (unclothed), producing a confusing image right next to \"as an outer garment.\" \"Raw deerskin\" gives the same meaning without the collision."
+ }
+]
