@@ -435,7 +435,7 @@
   "chapter": 4,
   "paragraph": 1,
   "old": "he struck her as somewhat rude,",
-  "new": "he struck her as rude, _a little_,",
+  "new": "he struck her as _a little_ rude,",
   "category": "emphasis",
   "blocking": false,
   "reason": "Source: 'he struck her as rude _a little_'; his sarcastic italic on her understatement lost."
@@ -705,10 +705,19 @@
   "chapter": 6,
   "paragraph": 13,
   "old": "Dozens of families saved from poverty, ruin, depravity, disease -- all with her money.",
-  "new": "Dozens of families saved from destitution, from ruin, from vice, from the venereal hospitals -- all with her money. For one life, thousands would be saved from corruption and decay.",
+  "new": "Dozens of families saved from destitution, from ruin, from vice, from the venereal hospitals -- all with her money.",
+  "category": "period",
+  "blocking": false,
+  "reason": "Source: 'from destitution, from ruin, from vice, from the Lock hospitals'; the Lock (venereal) hospitals, the specific link to prostitution, were flattened to 'disease'."
+ },
+ {
+  "chapter": 6,
+  "paragraph": 13,
+  "old": "One life for a hundred lives in return",
+  "new": "For one life, thousands would be saved from corruption and decay. One life for a hundred lives in return",
   "category": "omission",
   "blocking": true,
-  "reason": "Source: 'from the Lock hospitals--and all with her money... For one life thousands would be saved from corruption and decay'; the specific reference was flattened to 'disease' and the whole 'For one life thousands would be saved' sentence was dropped. (Moved within this paragraph only.)"
+  "reason": "Source: 'For one life thousands would be saved from corruption and decay. One death, and a hundred lives in exchange'; the first sentence of the argument was dropped."
  },
  {
   "chapter": 6,
