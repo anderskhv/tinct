@@ -46,6 +46,7 @@ async function warm(entry,voice){
           assert(chunk.timingsUsable && chunk.words?.length && chunk.duration>0)
           known.add(chunk.index);seconds+=chunk.duration
           recordings.push({chapter:chapter.number,paragraph:p,chunk:chunk.index,hash:chunk.hash,duration:chunk.duration,url:chunk.url,requestMs:Math.round(performance.now()-start),wordCount:chunk.words.length,textHash:paragraph.textHash})
+          if(seconds>=entry.targetSeconds)break
         }
         if(seconds>=entry.targetSeconds)break outer
         if(paragraph.status==='ready')break
