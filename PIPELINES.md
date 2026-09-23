@@ -26,7 +26,7 @@ Translation instructions and publication requirements now cover English editions
 
 ## Current release policy — 23 September 2026
 
-Accepted text repairs publish with required character-card compatibility. Legacy Kokoro audio/manifests do not block them. Text releases authorize no GPU/TTS generation, audio regeneration or voice changes. The separately approved [Grok audiobook rollout](docs/audiobook-architecture-2026-09-21.md) defines the four voices, five-minute/two-default-voice preparation for the ten approved books, Play-only on-demand scheduling and acceptance/cleanup sequence. It remains a plan until deployed evidence is recorded.
+Accepted text repairs publish with required character-card compatibility. Legacy Kokoro audio/manifests do not block them. Text releases authorize no GPU/TTS generation, audio regeneration or voice changes. The separately approved [Grok audiobook rollout](docs/audiobook-architecture-2026-09-21.md) defines the four voices, five-minute/two-default-voice preparation for the ten approved books, Play-only on-demand scheduling and acceptance/cleanup sequence. The implementation, bounded opening preparation and production cutover are tracked in [Grok release evidence](docs/grok-narration-2026-09-23.md). Check its acceptance receipts and the production deployment before claiming release completion.
 
 ## Historical process snapshot — not current jobs
 

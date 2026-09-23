@@ -12,6 +12,14 @@ import { labSuperMenuRows } from './labSuperMenu'
 // Transport geometry uses a synthetic Bible fixture; availability has its own regression.
 vi.mock('../data/audioAvailability', async importOriginal => ({ ...await importOriginal<typeof import('../data/audioAvailability')>(), isAudioHeld: () => false }))
 
+// These UI regressions intentionally use their synthetic legacy MP3 fixtures.
+// Production Grok failure behavior is covered independently.
+vi.mock('./labNarration', async importOriginal => ({
+  ...await importOriginal<typeof import('./labNarration')>(),
+  initialNarrationPilotInfo: () => ({ enabled:false, provider:'google', voices:[] }),
+  fetchNarrationPilotInfo: async () => ({ enabled:false, provider:'google', voices:[] }),
+}))
+
 afterEach(() => {
   cleanup()
   vi.useRealTimers()

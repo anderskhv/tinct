@@ -148,9 +148,10 @@ over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
 ## Narration and text publication
 
 The authoritative runtime and approved next rollout are documented separately in
-[Audio architecture](docs/audiobook-architecture-2026-09-21.md). As inspected on
-23 September, current main selects Google on-demand narration with retained
-Bella paths; the Grok audiobook migration is approved, not yet deployed.
+[Audio architecture](docs/audiobook-architecture-2026-09-21.md). The Grok implementation and release acceptance are recorded in
+[Grok narration release](docs/grok-narration-2026-09-23.md). The production
+configuration selects Grok for English narration; historical Google/Bella
+paths remain rollback code and must not be selected as a failed-Grok fallback.
 
 - Accepted text repairs ship with required character-card compatibility. Legacy
   Kokoro recordings, manifests and timing regeneration are not release

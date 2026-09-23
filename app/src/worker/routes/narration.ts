@@ -1174,7 +1174,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     if (failure && (failure as { reason: string }).reason === 'provider_payment') break
   }
 
-  if (cacheOnlyGuest && !results.some(result => 'readyChunks' in result && Number(result.readyChunks) > 0)) {
+  const guestTarget = requested[0]
+  const guestResult = results.find(result => result.paragraph === guestTarget?.index)
+  const guestChunk = Number.isInteger(guestTarget?.fromChunk) ? Number(guestTarget.fromChunk) : 0
+  if (cacheOnlyGuest && !(guestResult && 'chunks' in guestResult && guestResult.chunks.some(chunk => chunk.index === guestChunk && chunk.ready))) {
     return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
   }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))

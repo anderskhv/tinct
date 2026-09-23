@@ -49,6 +49,20 @@ describe('narration pilot flag and prefs', () => {
   })
 })
 
+describe('Grok production routing', () => {
+  it('uses Grok for retained English originals and keeps optional voices separate from Talk', () => {
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','original-en',1,'grok')).toBe(true)
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','modern-da',1,'grok')).toBe(false)
+    const prefs = {...DEFAULT_LAB_PREFS,audiobookVoice:'orion' as const}
+    const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
+    expect(resolveNarrationVoice(prefs,voices)).toBe('orion')
+    expect(prefs.voicePersona).toBe(DEFAULT_LAB_PREFS.voicePersona)
+  })
+  it('fails closed to Grok when configuration cannot load', async () => {
+    const offline = (async()=>{throw new TypeError('offline')}) as typeof fetch
+    expect(await fetchNarrationPilotInfo(offline)).toMatchObject({enabled:false,provider:'grok',voices:[]})
+  })
+})
 describe('narration API client', () => {
   it('sends the displayed text hash with a bearer token and maps the answer', async () => {
     const paragraph = 'Tell me, O _Muse_, of that\ningenious hero.'

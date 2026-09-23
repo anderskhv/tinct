@@ -47,6 +47,11 @@ export interface NarrationPilotInfo {
   voices: NarrationVoiceOption[]
 }
 
+/** Until configuration is known, English playback must not select legacy audio. */
+export function initialNarrationPilotInfo(): NarrationPilotInfo {
+  return { enabled: false, provider: 'grok', voices: [] }
+}
+
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
 export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number, provider?: string): boolean {
   return isPilotScope(bookId, editionKey, chapter) && (provider === 'grok' || !usesRetainedBella(bookId, editionKey, prefs.voicePersona))
@@ -64,7 +69,7 @@ export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOpt
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {
   try {
     const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store' })
-    if (!response.ok) return { enabled: false, reason: `http_${response.status}`, voices: [] }
+    if (!response.ok) return { enabled: false, provider: 'grok', reason: `http_${response.status}`, voices: [] }
     const json = await response.json() as Partial<NarrationPilotInfo>
     return {
       enabled: json.enabled === true,
@@ -76,7 +81,7 @@ export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): 
         : [],
     }
   } catch {
-    return { enabled: false, reason: 'network', voices: [] }
+    return { enabled: false, provider: 'grok', reason: 'network', voices: [] }
   }
 }
 
