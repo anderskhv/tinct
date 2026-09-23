@@ -1,0 +1,128 @@
+[
+ {
+  "chapter": 7,
+  "paragraph": 6,
+  "old": "he thought he would have run away from her.",
+  "new": "he thought he would run away from her.",
+  "category": "verify-syntax",
+  "blocking": false,
+  "reason": "The certainty repair restored 'he thought', but 'would have run' after the present-tense condition 'if she kept staring' is a tense clash. 'Would run' keeps the hedge and matches 'kept'."
+ },
+ {
+  "chapter": 7,
+  "paragraph": 23,
+  "old": "it must be for some kind of strongbox, and that perhaps everything was hidden there",
+  "new": "it must be for some kind of strongbox, and perhaps everything was hidden there",
+  "category": "verify-syntax",
+  "blocking": false,
+  "reason": "The certainty repair ('and that perhaps everything was hidden there') restored the source's 'perhaps' but left a dangling 'that' after the dash-interrupted clause. Dropping 'that' keeps the hedge. Folds in accessibility item 0."
+ },
+ {
+  "chapter": 8,
+  "paragraph": 83,
+  "old": "He said a couple of words in French with a foreigner",
+  "new": "He said a couple of words in French to a foreigner",
+  "category": "verify-syntax",
+  "blocking": false,
+  "reason": "The invention repair removed 'even exchanged' but kept its preposition: 'said ... with a foreigner' is unidiomatic. The source has 'said a couple of words in French to a foreigner'."
+ },
+ {
+  "chapter": 7,
+  "paragraph": 44,
+  "old": "at billiards, at Gambrinus's.",
+  "new": "at billiards, at Gambrinus's tavern.",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "A listener cannot tell that Gambrinus's is a tavern; one word locates it."
+ },
+ {
+  "chapter": 7,
+  "paragraph": 46,
+  "old": "That's weird.",
+  "new": "That's odd.",
+  "category": "access-anachronism",
+  "blocking": false,
+  "reason": "Casual modern 'weird' jars in an 1860s voice; 'odd' does the same job."
+ },
+ {
+  "chapter": 7,
+  "paragraph": 86,
+  "old": "\"That fellow's had quite a workout!\"",
+  "new": "\"That fellow's been on a spree!\"",
+  "category": "access-anachronism",
+  "blocking": false,
+  "reason": "'Workout' is a twentieth-century gym word that breaks the period world. [verifier-modified: The source has 'My word, he has been going it!', which is slang for drinking or living fast: the sweat-soaked man is taken for a drunk. 'Workout' is anachronistic, but 'hard at it' suggests he has been working. 'On a spree' keeps the drunkenness.]"
+ },
+ {
+  "chapter": 8,
+  "paragraph": 69,
+  "old": "people of every sort and both genders",
+  "new": "people of every sort and both sexes",
+  "category": "access-anachronism",
+  "blocking": false,
+  "reason": "'Both genders' is modern usage; 'both sexes' is the period phrase."
+ },
+ {
+  "chapter": 8,
+  "paragraph": 75,
+  "old": "with zero interest",
+  "new": "without the slightest interest",
+  "category": "access-anachronism",
+  "blocking": false,
+  "reason": "'Zero interest' is modern slang."
+ },
+ {
+  "chapter": 8,
+  "paragraph": 114,
+  "old": "and his honor arrived drunk",
+  "new": "and the gentleman arrived drunk",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Heard aloud next to 'Mr. Captain', 'his honor' sounds like the officer, not the drunken writer."
+ },
+ {
+  "chapter": 8,
+  "paragraph": 137,
+  "old": "his sentimental outburst to Ilya Petrovitch",
+  "new": "his sentimental outburst in front of Ilya Petrovitch",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "He addressed Nikodim Fomitch, not Ilya Petrovitch, so 'to' misstates who he spoke to."
+ },
+ {
+  "chapter": 8,
+  "paragraph": 155,
+  "old": "but withdrew the moment he came to",
+  "new": "but withdrew the moment Raskolnikov came to",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The two 'he's make it sound as if Ilya Petrovitch had fainted and come to."
+ },
+ {
+  "chapter": 9,
+  "paragraph": 13,
+  "old": "even when he had decided in the night, without hesitation",
+  "new": "even when he had decided in the night to throw it all in the water, without hesitation",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The listener is not told what he decided, so the sentence loses its object."
+ },
+ {
+  "chapter": 9,
+  "paragraph": 16,
+  "old": "So I haven't come to Razumihin on purpose?",
+  "new": "Why, I've come to Razumihin's without meaning to!",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "The negative question reads backwards on first hearing; the thought is that he arrived without intending to. [verifier-modified: The source has 'why, I have not come to Razumihin of my own accord!'. That is an exclamation of discovery, and his doubt only follows it ('have I come on purpose or...'). The proposed question weakens the assertion, so keep the exclamation and the 'Why,'. The meaning 'without meaning to' is right.]"
+ },
+ {
+  "chapter": 9,
+  "paragraph": 31,
+  "old": "Rousseau was a kind of Radishchev.",
+  "new": "Rousseau was a kind of Radishchev, our Russian radical.",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Radishchev is obscure to an English listener and the joke depends on knowing he was a radical writer."
+ }
+]

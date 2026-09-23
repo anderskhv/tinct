@@ -1,0 +1,136 @@
+{
+ "verified_clean": [
+  "39.0",
+  "39.1",
+  "39.2",
+  "39.7",
+  "39.8",
+  "39.10",
+  "39.20",
+  "39.21",
+  "39.22",
+  "39.24",
+  "39.25",
+  "39.33",
+  "39.34",
+  "39.35",
+  "39.41",
+  "39.46",
+  "39.48",
+  "39.52",
+  "39.54",
+  "39.56",
+  "39.57",
+  "39.59",
+  "39.60",
+  "39.63",
+  "39.64",
+  "39.65",
+  "39.74",
+  "39.79",
+  "39.83",
+  "40.1",
+  "40.3",
+  "40.7",
+  "40.10",
+  "40.11",
+  "40.12",
+  "40.13",
+  "40.17",
+  "41.0",
+  "41.3",
+  "41.5",
+  "41.7",
+  "41.8",
+  "41.9",
+  "41.10",
+  "41.15",
+  "41.20",
+  "41.21",
+  "41.24",
+  "41.25",
+  "41.27",
+  "41.28"
+ ],
+ "defects": [
+  {
+   "chapter": 39,
+   "paragraph": 15,
+   "old": "He was beginning to feel for himself that",
+   "new": "He himself was beginning to feel that",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "Source: 'He began to feel himself that he was certainly forgetting things'. In modern English 'feel for himself' reads as 'pity himself'; 'He himself was beginning to feel' keeps the source sense."
+  },
+  {
+   "chapter": 39,
+   "paragraph": 50,
+   "old": "all the pleasures of life are _nihil est_ -- nothing --",
+   "new": "all the pleasures of life are nothing -- _nihil est_ --",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "Source: 'all the attractions of life _nihil est_'. 'are _nihil est_' reads 'are is nothing'; putting the English first and the Latin as his flourish keeps the italic Latin and the gloss without the doubled verb."
+  },
+  {
+   "chapter": 40,
+   "paragraph": 9,
+   "old": "(perhaps she saw that they were pretending) but she kept talking",
+   "new": "(perhaps she saw that they were pretending), but she kept talking",
+   "category": "typography",
+   "blocking": false,
+   "reason": "Source: '(she saw perhaps that they were pretending), but she still went on talking'. The comma before 'but' was lost when the dashes became parentheses."
+  },
+  {
+   "chapter": 41,
+   "paragraph": 16,
+   "old": "what was good; could not decide whom to blame",
+   "new": "what was good; they could not decide whom to blame",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "The restored clause put a semicolon before a subjectless 'could not decide'. Source: 'they did not know whom to blame, whom to justify'."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "reject",
+   "reason": "Source keeps 'Couldn't he stop and retract it all... and not go?' inside his quoted thought. The shift to 'he' is in the source; changing it to 'I' edits the source's voice."
+  },
+  {
+   "index": 1,
+   "verdict": "modify",
+   "new": "turned off his path, and crossed the bridge toward the Hay Market",
+   "reason": "Source: 'on reaching the bridge he stopped and turning out of his way along it went to the Hay Market'. The 'it' is the bridge. 'crossed it' would still leave 'it' pointing at 'his path', so name the bridge."
+  },
+  {
+   "index": 2,
+   "verdict": "accept",
+   "reason": "39.42 is Garnett's footnote, a separate paragraph in the source, so it stays for alignment. 'Translator's note:' labels it clearly as editorial; 'The translator's note read:' sounds like part of the story."
+  },
+  {
+   "index": 3,
+   "verdict": "reject",
+   "reason": "Source 39.75 says 'the same peasant who had pushed by on the stairs', although 39.74 says porter. The inconsistency is in the source; a modern edition should not correct it."
+  },
+  {
+   "index": 4,
+   "verdict": "accept",
+   "reason": "Faithful. In the source the student maintained his father 'almost from his thirteenth year'. Naming the student removes the ambiguity."
+  },
+  {
+   "index": 5,
+   "verdict": "accept",
+   "reason": "Faithful. Source: 'her mother had overheard her talking in her sleep', where 'her' is Dounia."
+  },
+  {
+   "index": 6,
+   "verdict": "accept",
+   "reason": "Faithful reorder of 'at his sister's and Razumihin's fervent anticipations'. It removes the garden-path reading."
+  },
+  {
+   "index": 7,
+   "verdict": "accept",
+   "reason": "Source: 'her poor old burnous'. 'cloak' glosses the word and keeps it."
+  }
+ ]
+}
