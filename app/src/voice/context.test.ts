@@ -21,7 +21,7 @@ const context: VoiceReaderContext = {
 
 describe('classic reader voice prompt', () => {
   it('maps the shared persona only to the approved Grok voices', () => {
-    expect(grokVoiceFor('female')).toBe('ursa')
+    expect(grokVoiceFor('female')).toBe('ara')
     expect(grokVoiceFor('male')).toBe('helios')
   })
 

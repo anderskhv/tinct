@@ -12,7 +12,7 @@ WebRTC delegating to a separate "Sol" backend model, plus the older Realtime
 transcription trial paths — is gone from the active path.
 
 - Model: `grok-voice-latest` (xAI alias for `grok-voice-think-fast-2.0`).
-  The synced Female/Male preference resolves to exact xAI voices `ursa` and
+  The synced Female/Male preference resolves to exact xAI voices `ara` and
   `helios`; provider IDs remain absent from the UI. Server VAD and PCM16 at
   24 kHz remain the transport defaults.
 - Transport: one browser WebSocket to `wss://api.x.ai/v1/realtime`,
@@ -198,3 +198,7 @@ Live path works again immediately. No user-facing comparison controls exist.
   bleed would stop playback early.
 - Danish is not in xAI's listed languages; auto-detection is untested.
 - Cost per session at $0.08/min audio was not measured across a long session.
+
+## Shared voice update — 23 September 2026
+
+Female Talk now requests Ara (`ara`); Male remains Helios (`helios`), matching the default narration identities. Prompts and conversation behavior are unchanged. The current handshake acceptance requires the provider to acknowledge the exact requested voice in `session.updated`. Earlier Ursa receipts above are historical.

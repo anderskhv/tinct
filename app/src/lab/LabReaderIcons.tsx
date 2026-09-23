@@ -37,3 +37,10 @@ export function TalkIcon() {
   )
 }
 
+
+/** Keeps exactly the same icon box as Play; reduced motion leaves a static arc. */
+export function LoadingIcon({ size = 21 }: { size?: number }) {
+  return <svg className="lab-audio-spinner" data-testid="lab-audio-spinner" width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 3a9 9 0 1 1-8.1 5.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+}

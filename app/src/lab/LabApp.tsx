@@ -1,6 +1,6 @@
 import { usesRetainedBella } from '../narration/bellaRetention'
 import { readCoverTransition } from '../../public/lab/cover-transition.js'
-import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
+import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
@@ -2461,15 +2461,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
   useEffect(() => {
-    if (chromeV2 && listen.playing) setPausedTransportVisible(true)
-  }, [chromeV2, listen.playing])
+    if (chromeV2 && (listen.playing || listen.pending)) setPausedTransportVisible(true)
+  }, [chromeV2, listen.playing, listen.pending])
   useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible
     && !phoneAsk
     && !mobileCompareActive
-    && (listen.playing || audioChapterTransitioning || (chromeV2 && pausedTransportVisible))
-  const desktopAudioBarActive = !showPhoneChrome && (listen.playing || (chromeV2 && pausedTransportVisible))
+    && (listen.pending || listen.playing || audioChapterTransitioning || (chromeV2 && pausedTransportVisible))
+  const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || (chromeV2 && pausedTransportVisible))
   // V2 has no reading bar. Play is in the top bar and Chat, Talk and Compare
   // are in the menu; what the foot holds is the progress line, and the
   // transport for as long as audio plays. The space the bar took goes to the
@@ -3370,6 +3370,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
+    if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
     mobileCompareReturnPlaceRef.current = null
@@ -3445,13 +3446,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   startHearingRef.current = () => startHearing({ force: true })
 
   const handleHeaderListen = useCallback(() => {
+    if (listen.isPending()) { listen.pause(); return }
     if (peekBook && chrome === 'hearing') {
       setPeekBook(false)
       setInTheBookOpen(false)
       return
     }
     startHearing()
-  }, [chrome, peekBook, startHearing])
+  }, [chrome, listen, peekBook, startHearing])
 
   const dictation = useLabDictation(book.bookId || 'bible', setDraft)
 
@@ -3713,6 +3715,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [desktopChatOpen, showPhoneChrome])
 
   const handleBarListen = useCallback(() => {
+    if (listen.isPending()) { listen.pause(); return }
     setGearOpen(false)
     if (phoneAskOpen || chrome === 'talking') {
       resumeListenAfterAsk()
@@ -4077,10 +4080,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
-                aria-label={listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+                aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+                aria-busy={listen.pending || undefined}
                 onClick={handleBarListen}
               >
-                {listen.playing ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
+                {listen.loading ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>
               <LabSuperButton
                 open={superMenuOpen}
@@ -4237,7 +4241,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
-              if (listen.playing) listen.pause()
+              if (listen.isPending() || listen.playing) listen.pause()
               else if (listen.src) listen.resume()
               else void listen.start()
             }}
@@ -4402,7 +4406,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               type="button"
               className={`lab-desktop-action is-play${desktopCompareActive || listen.playing ? ' is-active' : ''}`}
               onClick={desktopCompareActive ? handleDesktopCompare : handleHeaderListen}
-              aria-label={desktopCompareActive ? LAB_COPY.read : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}
+              aria-label={desktopCompareActive ? LAB_COPY.read : listen.pending ? 'Cancel audio loading' : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}
               data-reader-action={desktopCompareActive ? 'read' : 'listen'}
               data-testid="lab-listen"
             >
@@ -4413,7 +4417,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               >
                 {desktopCompareActive
                   ? <ReadIcon size={19} />
-                  : (listen.playing ? <PauseIcon size={19} /> : <PlayIcon size={19} />)}
+                  : listen.loading ? <LoadingIcon size={19} /> : (listen.playing && !listen.pending ? <PauseIcon size={19} /> : <PlayIcon size={19} />)}
               </span>
               <span>{desktopCompareActive ? LAB_COPY.read : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}</span>
             </button>
@@ -4454,7 +4458,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
       </div>
 
+      {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
+      {listen.narration.status === 'error' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
+        <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
+          ? listen.narration.message
+          : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
+          : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
+          : 'Audio couldn’t start.'}</span>
+        <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
+        <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
+      </div>}
       {chromeV2 && recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
         && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
@@ -4538,7 +4552,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
           <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
-          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-label={chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{chromeV2 && !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
@@ -4561,12 +4575,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               }}
             ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
-          {chromeV2 && !listen.playing && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
+          {chromeV2 && !listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>
       )}
 
-      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !phoneAsk && <button
+      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
         type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
         onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
       >×</button>}
@@ -4627,9 +4641,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 : ['pause', 'back', 'speed', 'forward', 'talk'] as const
               ).map(control => ({
                 pause: (
-                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-label={chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
+                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
                     <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{chromeV2 && !listen.playing ? 'Resume' : LAB_COPY.pause}</span>
-                    {chromeV2 && !listen.playing ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
+                    {listen.loading ? <LoadingIcon size={21} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
                   </button>
                 ),
                 back: (
@@ -4668,7 +4682,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                   type="button"
                   className="lab-phone-fat"
                   onClick={handleBarListen}
-                  aria-label={barPrimaryLabel}
+                  aria-label={listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
+                  aria-busy={listen.pending || undefined}
                   data-reader-action={mobileCompareActive ? 'read' : 'listen'}
                   data-testid="lab-listen"
                 >
@@ -4678,7 +4693,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                     </span>
                   ) : (
                     <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                      <PlayIcon size={18} />
+                      {listen.loading ? <LoadingIcon size={18} /> : <PlayIcon size={18} />}
                     </span>
                   )}
                   {barPrimaryLabel}
@@ -4755,13 +4770,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {audioUnavailableNotice && <div className="lab-audio-unavailable" role="status">
         <span>{audioHeld && !isAudioHeld(book.bookId || 'bible', audioEditionKey) ? 'Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.' : 'Audio is temporarily unavailable for this edition. You can keep reading.'}</span>
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
-      </div>}
-      {listen.narration.status !== 'idle' && <div className="lab-audio-unavailable lab-narration-notice" role="status" data-testid="lab-narration-notice" data-status={listen.narration.status}>
-        <span>{listen.narration.status === 'loading' ? 'Preparing narration…' : listen.narration.message}</span>
-        {listen.narration.status === 'error' && (
-          <button type="button" className="lab-narration-retry" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
-        )}
-        <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss narration notice">×</button>
       </div>}
       <LabSettingsSheet
         open={gearOpen}
