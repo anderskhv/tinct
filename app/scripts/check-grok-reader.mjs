@@ -21,6 +21,12 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block',hasTouch:true})
  const page=await context.newPage()
  const calls=[],errors=[]
+ let coldProof
+ if(cold){
+  const cached=await (await signed('/api/narration/warm','POST',JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter,voice,mode:'cache',paragraphs:[{index:paragraph,fromChunk:0}]}))).json()
+  coldProof={chapter,paragraph,chunk:0,ready:!!cached.paragraphs?.[0]?.chunks?.find(c=>c.index===0)?.ready}
+  assert(!coldProof.ready,'Cold playback target was already cached before page load')
+ }
  let explicitlyStarted=false
  page.on('pageerror',e=>errors.push(e.message))
  await page.route('**/api/narration/**',async route=>{
@@ -33,13 +39,19 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
    assert.equal(body.bookId,entry.bookId);assert.equal(body.editionKey,entry.editionKey);assert.equal(body.voice,voice)
    // Cloud-signed proxy only; credentials never enter the browser.
    const call={body,result:null,at:Date.now()};calls.push(call)
+   if(cold && calls.length===1){
+    const target=body.paragraphs[0]
+    assert.equal(body.chapter,chapter);assert.equal(target.index,paragraph);assert.equal(target.fromChunk||0,0)
+    call.coldProof=coldProof
+   }
    const response=await (!stage && !cold && !continuous ? route.fetch() : signed('/api/narration/warm','POST',JSON.stringify({...body,mode:cold||continuous?'next':'cache'})))
    const json=await response.json()
    assert.equal(typeof response.status==='function'?response.status():response.status,200,JSON.stringify(json))
+   if(cold && calls.length===1)assert.equal(json.generated,1,'The proved-cold target must actually synthesize')
    report.generated+=json.generated||0
    assert(report.generated<=40,'Bounded real-playback synthesis budget')
    if(!cold&&!continuous)assert.equal(json.generated,0)
-   call.result=json
+   call.result=json;call.completedAt=Date.now()
    return route.fulfill({status:200,json}).catch(()=>{})
   }
   if(url.pathname==='/api/narration/prepare')throw Error('Legacy preparation request')
@@ -49,15 +61,19 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',primaryEdition:entry.editionKey,voicePersona:voice==='m'?'male':'female',audiobookVoice:['orion','eve'].includes(voice)?voice:null}))
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:entry.bookId,primaryEditionKey:entry.editionKey,savedPlace:{bookId:entry.bookId,chapterNumber:chapter,paragraphIndex:paragraph,wordIndex:word,page:0}}))
   window.__audioEvents=[];window.__audio=null
-  const play=HTMLMediaElement.prototype.play
-  HTMLMediaElement.prototype.play=function(){
-   this.muted=true;window.__audio=this
-   if(!this.dataset.acceptance){
-    this.dataset.acceptance='1'
-    for(const type of ['playing','ended','pause','error','loadstart','loadedmetadata','durationchange','canplay','seeking','seeked','stalled','waiting'])this.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:this.currentSrc,currentTime:this.currentTime,duration:this.duration}),{capture:true})
-   }
-   return play.call(this)
+  const observed=new WeakSet()
+  function observe(audio){
+   audio.muted=true;window.__audio=audio
+   if(observed.has(audio))return
+   observed.add(audio)
+   for(const type of ['playing','ended','pause','error','loadstart','loadedmetadata','durationchange','canplay','seeking','seeked','stalled','waiting'])audio.addEventListener(type,()=>window.__audioEvents.push({type,time:performance.now(),src:audio.currentSrc,currentTime:audio.currentTime,duration:audio.duration}),{capture:true})
   }
+  const NativeAudio=window.Audio
+  window.Audio=function(...args){const audio=new NativeAudio(...args);observe(audio);return audio}
+  window.Audio.prototype=NativeAudio.prototype
+  Object.setPrototypeOf(window.Audio,NativeAudio)
+  const play=HTMLMediaElement.prototype.play
+  HTMLMediaElement.prototype.play=function(){observe(this);return play.call(this)}
   Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
  },{entry,voice,chapter,paragraph,word})
  try{
@@ -69,8 +85,8 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   explicitlyStarted=true
   const button=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible').first()
   await button.click()
-  await page.waitForFunction(()=>window.__audio && !window.__audio.paused && window.__audio.currentTime>0.05,null,{timeout:40000})
-  const startMs=await page.evaluate(start=>Math.round(performance.now()-start),started)
+  await page.waitForFunction(()=>window.__audio && !window.__audio.paused && window.__audioEvents.some(e=>e.type==='playing'&&e.src===window.__audio.currentSrc),null,{timeout:40000})
+  const startMs=await page.evaluate(start=>Math.round(window.__audioEvents.find(e=>e.type==='playing').time-start),started)
   const initial=await page.evaluate(()=>({src:window.__audio.currentSrc,duration:window.__audio.duration,events:window.__audioEvents}))
   assert(initial.src.includes('narration%2Fgrok%2Fblob%2F')||initial.src.includes('narration/grok/blob/'))
   const painted=page.locator('.lab-hearing-stage .lab-hearing-word.is-current,[data-testid="lab-word"].is-current')
@@ -114,7 +130,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   const count=calls.length
   await page.waitForTimeout(1800)
   assert.equal(calls.length,count,'Pause must stop new preparation')
-  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,continuous,continuousEvidence,chapterHandoff,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,paintedText,calls:calls.length,generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
+  const row={engine,bookId:entry.bookId,editionKey:entry.editionKey,voice,cold,continuous,continuousEvidence,chapterHandoff,chapter,paragraph,startMs,withinFiveSeconds:startMs<=5000,paintedWords:paint,paintedText,calls:calls.length,requestEvidence:calls.map(c=>({body:c.body,at:c.at,completedAt:c.completedAt,coldProof:c.coldProof,generated:c.result?.generated})),generated:calls.reduce((n,c)=>n+(c.result?.generated||0),0),media:initial,errors}
   assert.deepEqual(errors,[])
   assert(paint>0,'Narration must paint its timed word')
   report.cases.push(row)
@@ -146,15 +162,17 @@ const chrome=await chromium.launch({headless:true,args:['--mute-audio']})
 try{
  for(const entry of plan.entries)for(const voice of entry.voices)await run(chrome,'chromium',entry,voice)
  const entry=plan.entries[0]
- if(stage)for(const voice of ['f','m']){
-  const row=warmed.entries.find(e=>e.bookId===entry.bookId&&e.voice===voice)
-  const last=row.recordings.at(-1)
-  const source=JSON.parse(await fs.readFile('public/data/editions/'+entry.bookId+'-'+entry.editionKey+'.json','utf8'))
-  const ch=source.chapters.find(c=>c.number===last.chapter)
-  const p=last.paragraph+1
-  await run(chrome,'chromium',entry,voice,{cold:true,chapter:p<ch.paragraphs.length?ch.number:ch.number+1,paragraph:p<ch.paragraphs.length?p:0})
+ if(stage)for(const voice of ['f','m','orion','eve']){
+  // Use the exact chapter opening, not a page containing a later paragraph.
+  // Find a genuinely missing first chunk without causing any synthesis.
+  let coldChapter
+  for(let chapter=5;chapter<=12;chapter++){
+   const cached=await (await signed('/api/narration/warm','POST',JSON.stringify({bookId:entry.bookId,editionKey:entry.editionKey,chapter,voice,mode:'cache',paragraphs:[{index:0,fromChunk:0}]}))).json()
+   if(cached.paragraphs?.[0]?.chunks?.find(c=>c.index===0)?.ready===false){coldChapter=chapter;break}
+  }
+  assert(coldChapter,'No untouched cold chapter in the bounded probe range')
+  await run(chrome,'chromium',entry,voice,{cold:true,chapter:coldChapter})
  }
- if(stage)for(const voice of ['orion','eve'])await run(chrome,'chromium',entry,voice,{cold:true})
  if(stage)await run(chrome,'chromium',entry,'f',{continuous:true})
  if(!stage){
   const prince=plan.entries.find(e=>e.bookId==='the-prince')
