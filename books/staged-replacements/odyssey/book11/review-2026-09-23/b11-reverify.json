@@ -1,0 +1,38 @@
+[
+ {
+  "book": 11,
+  "paragraph": 42,
+  "old": "Many other Ceteians fell around him because a woman took bribes—his mother, bribed with gifts to send him to the war.",
+  "new": "Many other Ceteians fell around Eurypylus, all because of a woman’s bribes: his mother had been bribed with gifts to send him to the war.",
+  "category": "reference",
+  "blocking": true,
+  "reason": "Butler: 'many others also of the Ceteians fell around him by reason of a woman's bribes'; the gloss itself is accurate (Eurypylus's mother Astyoche was bribed by Priam to send him to Troy) and brief, but edit 29 replaced v1's 'around Eurypylus' with 'him' in a paragraph whose running 'he/him' is Neoptolemus, whom Odysseus has just said he fetched from Scyros for the war, so a listener can attach 'his mother, bribed … to send him to the war' to Neoptolemus's mother; restoring the name fixes the referent and removes the 'took bribes … bribed' echo."
+ },
+ {
+  "book": 11,
+  "paragraph": 3,
+  "old": "So I beg you, in the name of everyone",
+  "new": "Now I beg you, in the name of everyone",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Butler: 'And now I beseech you'; edit 24 replaced v1's 'Now' with 'So', which drops Butler's 'now' and lands straight after '…so my soul came down to Hades’ realm.', giving a 'so … So' echo aloud."
+ },
+ {
+  "book": 11,
+  "paragraph": 53,
+  "old": "At this, Heracles went back down",
+  "new": "At this Heracles went back down",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Butler: 'On this Hercules went down again … On this I hastened'; the same paragraph now prints 'At this, Heracles' and 'At this I hurried', and the accepted Books print sentential 'At this' without a comma (16 of 17 occurrences, Books 4–10)."
+ },
+ {
+  "book": 11,
+  "paragraph": 11,
+  "old": "At this, Tiresias’s ghost returned",
+  "new": "At this Tiresias’s ghost returned",
+  "category": "convention",
+  "blocking": false,
+  "reason": "Butler: 'On this the ghost of Teiresias went back'; same comma point as ¶53 — accepted practice for sentential 'At this' is no comma (B04–B10), and ¶53's second 'At this I hurried' has none."
+ }
+]

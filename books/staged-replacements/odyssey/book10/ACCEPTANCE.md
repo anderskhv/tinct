@@ -22,3 +22,9 @@ The only earlier independent review of Book 10 covered a *different* text: the 2
 | v2 → v3 re-verification | Same verifier | ¶7, ¶21, ¶42 | **VERIFIED CLEAN** |
 
 Evidence is in `review-2026-09-23/`.
+
+## Successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `49cd316c6433aa9a6af597bfda0a8a88ce5c9fcb04b43eb554cb5ad08eed7935`, changes Teiresias → **Tiresias** (4 occurrences, ¶40/43/44/47). This follows D8: the Cast (`odyssey-threads.json`) displays "Tiresias", and Books 11+ use it too.
+- Independently verified: v4 equals v3 with exactly those replacements. **VERIFIED CLEAN** (see `review-2026-09-23/`, and the section B of `../book11/review-2026-09-23/b11-reverify.md`).
+- `candidate-accepted.json` = v4.

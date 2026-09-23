@@ -1,0 +1,92 @@
+[
+ {
+  "book": 11,
+  "paragraph": 0,
+  "old": "where lies the land and city of the Cimmerians",
+  "new": "where the land and city of the Cimmerians lie",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "Inverted 'where lies the land' is archaic word order; a listener parses it more slowly than plain subject-verb order. Minor, not blocking."
+ },
+ {
+  "book": 11,
+  "paragraph": 3,
+  "old": "Now I beg you by everyone you left behind—though they’re not here—by your wife, by the father who raised you as a child, and by Telemachus, who is your house’s only hope, do what I’m about to ask.",
+  "new": "So I beg you, in the name of everyone you left behind—though they’re not here—your wife, the father who raised you as a child, and Telemachus, who is your house’s only hope: please do what I’m about to ask.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Four 'by X' oath clauses pile up before the actual request ('do what I'm about to ask') finally lands, so a listener has to hold the sentence's purpose in suspension for a long stretch. Front-loading 'I beg you' and closing with a clear colon before the request would let the ear track it more easily."
+ },
+ {
+  "book": 11,
+  "paragraph": 8,
+  "old": "nor do they know anything about ships and oars that serve as a ship’s wings",
+  "new": "nor do they know anything about ships, or about oars, which serve as a ship’s wings",
+  "category": "flow",
+  "blocking": false,
+  "reason": "'ships and oars that serve as a ship's wings' reads as if the relative clause could modify 'ships and oars' together; a comma/rephrase makes clear it's only the oars being likened to wings."
+ },
+ {
+  "book": 11,
+  "paragraph": 13,
+  "old": "He has to host many guests, as he must, considering his position as a magistrate and how everyone invites him.",
+  "new": "He has to entertain a great deal, given his position, and he's constantly invited out as well.",
+  "category": "flow",
+  "blocking": true,
+  "reason": "As written the sentence is self-contradictory to a listener: it says Telemachus 'hosts' guests, then gives the reason as 'how everyone invites him' — which sounds like he is the one being invited out, not the one doing the hosting. The logic doesn't resolve on a single hearing. 'Magistrate' is also an anachronistic, legalistic-sounding term that doesn't fit a young prince keeping open house."
+ },
+ {
+  "book": 11,
+  "paragraph": 21,
+  "old": "leaving behind avenging spirits to torment him for his outraged mother—bringing him bitter regret thereafter.",
+  "new": "leaving behind avenging spirits that would torment him afterward for the wrong done to his own mother.",
+  "category": "flow",
+  "blocking": false,
+  "reason": "'to torment him for his outraged mother' is compressed enough that a listener can misparse 'for' as 'on behalf of' rather than 'because of'; the rewrite makes the causal relationship explicit."
+ },
+ {
+  "book": 11,
+  "paragraph": 35,
+  "old": "I heard Priam’s daughter Cassandra scream as Clytemnestra killed her beside me.",
+  "new": "I heard Priam’s daughter Cassandra scream as my wife, Clytemnestra, killed her beside me.",
+  "category": "reference",
+  "blocking": true,
+  "reason": "Agamemnon has only just referred to her as 'my wicked wife'; this is the first time the name 'Clytemnestra' appears in the book, with nothing tying the name back to 'my wife.' A listener has no way to know at this moment who Clytemnestra is."
+ },
+ {
+  "book": 11,
+  "paragraph": 39,
+  "old": "The fleet descendant of Aeacus recognized me and spoke mournfully",
+  "new": "Achilles, the fleet descendant of Aeacus, recognized me and spoke mournfully",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "Achilles was just named one sentence earlier, then immediately referred to only by an unglossed patronymic epithet ('descendant of Aeacus'); a listener has to work backward to confirm this is still Achilles. Re-anchoring the name removes the stumble."
+ },
+ {
+  "book": 11,
+  "paragraph": 42,
+  "old": "Many other Ceteians fell around Eurypylus because of a woman’s bribes.",
+  "new": "Many other Ceteians fell around Eurypylus, whose mother had been bribed with gifts to send him off to the war.",
+  "category": "reference",
+  "blocking": true,
+  "reason": "'because of a woman's bribes' names no one and explains nothing; a first-time listener has no way to attach meaning to 'a woman' or 'bribes' here, and the sentence just moves on. It needs the minimal context of who bribed whom and why."
+ },
+ {
+  "book": 11,
+  "paragraph": 42,
+  "old": "Moreover, when all the bravest of the Argives went inside the horse Epeus had built, and it fell to me to decide when we should open our ambush or stay hidden, though all the other leaders and chief men among the Danaans were wiping their eyes and trembling in every limb, I never once saw him turn pale or brush a tear from his cheek.",
+  "new": "Moreover, when all the bravest of the Argives climbed inside the horse Epeus had built, it fell to me to decide when we should spring our ambush or stay hidden. All the other leaders and chief men among the Danaans were wiping their eyes and trembling in every limb, but I never once saw him turn pale or brush a tear from his cheek.",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "One sentence stacks a 'when' clause, an embedded decision, and a 'though' concession before reaching its main point; splitting it into two sentences lets each idea land on its own breath."
+ },
+ {
+  "book": 11,
+  "paragraph": 44,
+  "old": "Thetis had offered it as a prize, and the Trojan prisoners and Athena were the judges.",
+  "new": "Thetis had offered it as a prize, and it was decided by putting the question to captured Trojan soldiers, together with Athena, asking which of the two men had done the Trojans more harm.",
+  "category": "reference",
+  "blocking": true,
+  "reason": "As written it's unexplained and faintly bizarre that captured enemy soldiers would judge a dispute between two Greek heroes; without a word of context a listener is likely to stumble on why Trojan prisoners would be the ones deciding."
+ }
+]
