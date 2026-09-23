@@ -46,3 +46,12 @@ Sources: `R1-fidelity-book08.md` (0 blocking, 4 minor, 5 ambiguity) and `R1-acce
 | 8.59 | ACC: "no less" has no comparison | Applied own rewrite: "moves straight ahead all the same, toward its target." (Long's "not the less" = nonetheless; reviewer's "no less than the arrow does" rejected as a misreading); logged |
 
 All changed passages sent for independent re-verification (`R1-reverify-book08.md`).
+
+## After re-verification R1 (`R1-reverify-book08.md`: 25 clean, 1 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 8.34 | singular "that obstacle" after "everything" | Applied verifier's text: "it turns each such obstacle around" |
+| — | Book VIII ambiguity rows | Merged from `ambiguities-book08.md` at assembly |
+
+Included in the final whole-book re-verification pass.

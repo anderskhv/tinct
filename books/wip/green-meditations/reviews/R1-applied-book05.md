@@ -62,3 +62,4 @@ All changed passages sent for independent re-verification (`R1-reverify-book05.m
 | 5.18 | optional placement of "for itself" | Not applied (optional; clear as is) |
 
 All are the verifier's own text; included in the final whole-book re-verification pass.
+| 5.27, 5.28 | typography | Ellipses normalised to "..." |

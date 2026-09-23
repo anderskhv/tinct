@@ -57,3 +57,13 @@ Sources: `R1-fidelity-book10.md` (0 blocking, 5 minor, 3 ambiguity) and `R1-acce
 | 10.37 | ACC: "the power of persuasion" | Rejected: Long's term; "speaks" would add. "vessel … instruments" is Long's image, kept |
 
 All changed passages sent for independent re-verification (`R1-reverify-book10.md`).
+
+## After re-verification R1 (`R1-reverify-book10.md`: 18 clean, 2 defects)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 10.16 | "matter" for Long's "substance" (inconsistent with V.24, XII.32) | Applied verifier's text: "the whole of substance … measured in substance" |
+| 10.9 | rejected finding: "Sarmatians" heard as another animal | Applied verifier's lexical gloss: "another men—Sarmatians" |
+| 10.32 | Cross-book consistency (lead): "constitution" → "makeup" (×2) | Applied |
+
+Included in the final whole-book re-verification pass.

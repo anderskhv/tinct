@@ -43,3 +43,13 @@ Sources: `R1-fidelity-book06.md` (0 blocking, 4 minor, 3 ambiguity) and `R1-acce
 | 6.54 | ACC: "anyone else" reverses point; "Or" | Applied: "whom else would they listen to?" Long's "Or" kept |
 
 All changed passages sent for independent re-verification (`R1-reverify-book06.md`).
+
+## After re-verification R1 (`R1-reverify-book06.md`: 23 clean, 1 defect)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 6.49 | "reservation" unexplained (V.20 gloss was removed in Book V's R1) | Applied verifier's text: "with a reservation, that is, conditionally: you did not want to do what was impossible" (Long's own bracket) |
+| 6.15, 6.43 | Cross-book consistency (lead): "constitution" where all other books use "makeup" | Applied: "your own proper makeup" (gloss dropped); "his own makeup and nature" |
+| 6.14 | optional tense | Not applied |
+
+Included in the final whole-book re-verification pass.
