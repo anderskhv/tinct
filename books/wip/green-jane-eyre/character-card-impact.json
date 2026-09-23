@@ -1,0 +1,1190 @@
+{
+  "cardFile": "app/public/data/characters/jane-eyre.v1.json",
+  "cardContentVersion": "2026-09-12.1",
+  "edition": "modern-en",
+  "cardSourceSha256": "bbfe4c30163ecf07291e2fa5faef69d1e57348644afe2ab0dfc96edff3cecad0",
+  "acceptedCandidateSha256": "5e270560909297f7f9ccb4e0914a79923b29471008b23e1e70a251a882dce7d7",
+  "note": "The modern-en card edition is pinned to the live baseline bytes (sha256 bbfe4c30…). After the accepted candidate is published, re-anchor: sourceSha256, paragraphHashes for the changed paragraphs (full SHA-256 of the raw UTF-8 paragraph text, as the card already uses), mention offsets in changed paragraphs (UTF-16 code units), and character anchors that fall in changed paragraphs; then bump the release revision. \"mentionsOffsetStillValid\" = the same text still sits at the same offsets; \"mentionsTextMoved\" = the text still occurs in the paragraph but at a different offset (re-anchor by occurrence); \"mentionsTextGone\" = the text no longer occurs (re-anchor to the new wording or drop). The original-en card edition is unaffected: source.json is byte-identical to the live original-en (sha256 055aad5e…).",
+  "changedParagraphs": 537,
+  "mentionsTotal": 1491,
+  "mentionsInChangedParagraphs": 330,
+  "mentionsOffsetStillValid": 207,
+  "mentionsTextMoved": 120,
+  "mentionsTextGone": 3,
+  "mentionsTextGoneList": [
+    {
+      "characterId": "eliza-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 154,
+      "startOffset": 181,
+      "endOffset": 186,
+      "text": "Eliza",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 37,
+      "paragraphIndex": 57,
+      "startOffset": 144,
+      "endOffset": 153,
+      "text": "Jane Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 37,
+      "paragraphIndex": 57,
+      "startOffset": 154,
+      "endOffset": 163,
+      "text": "Jane Eyre",
+      "resolution": "reviewed-name"
+    }
+  ],
+  "mentionsTextMovedList": [
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 136,
+      "endOffset": 145,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 1,
+      "paragraphIndex": 24,
+      "startOffset": 456,
+      "endOffset": 465,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 2,
+      "paragraphIndex": 29,
+      "startOffset": 644,
+      "endOffset": 653,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 2,
+      "paragraphIndex": 31,
+      "startOffset": 1855,
+      "endOffset": 1861,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 3,
+      "paragraphIndex": 20,
+      "startOffset": 671,
+      "endOffset": 677,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "john-reed",
+      "chapterNumber": 3,
+      "paragraphIndex": 77,
+      "startOffset": 238,
+      "endOffset": 247,
+      "text": "John Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "john-reed",
+      "chapterNumber": 3,
+      "paragraphIndex": 77,
+      "startOffset": 303,
+      "endOffset": 312,
+      "text": "John Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 3,
+      "paragraphIndex": 77,
+      "startOffset": 353,
+      "endOffset": 359,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 3,
+      "paragraphIndex": 86,
+      "startOffset": 31,
+      "endOffset": 37,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "georgiana-reed",
+      "chapterNumber": 3,
+      "paragraphIndex": 86,
+      "startOffset": 79,
+      "endOffset": 88,
+      "text": "Georgiana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 4,
+      "paragraphIndex": 0,
+      "startOffset": 370,
+      "endOffset": 379,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 4,
+      "paragraphIndex": 1,
+      "startOffset": 673,
+      "endOffset": 682,
+      "text": "Jane Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "startOffset": 432,
+      "endOffset": 438,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "startOffset": 648,
+      "endOffset": 654,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 4,
+      "paragraphIndex": 14,
+      "startOffset": 765,
+      "endOffset": 771,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "brocklehurst",
+      "chapterNumber": 4,
+      "paragraphIndex": 57,
+      "startOffset": 607,
+      "endOffset": 623,
+      "text": "Mr. Brocklehurst",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 4,
+      "paragraphIndex": 84,
+      "startOffset": 225,
+      "endOffset": 234,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 4,
+      "paragraphIndex": 94,
+      "startOffset": 645,
+      "endOffset": 654,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 5,
+      "paragraphIndex": 0,
+      "startOffset": 438,
+      "endOffset": 444,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 5,
+      "paragraphIndex": 0,
+      "startOffset": 627,
+      "endOffset": 633,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 5,
+      "paragraphIndex": 0,
+      "startOffset": 900,
+      "endOffset": 909,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-temple",
+      "chapterNumber": 5,
+      "paragraphIndex": 53,
+      "startOffset": 822,
+      "endOffset": 833,
+      "text": "Miss Temple",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 6,
+      "paragraphIndex": 2,
+      "startOffset": 1124,
+      "endOffset": 1138,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 6,
+      "paragraphIndex": 8,
+      "startOffset": 293,
+      "endOffset": 307,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 6,
+      "paragraphIndex": 8,
+      "startOffset": 589,
+      "endOffset": 603,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 7,
+      "paragraphIndex": 55,
+      "startOffset": 630,
+      "endOffset": 641,
+      "text": "Helen Burns",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 7,
+      "paragraphIndex": 55,
+      "startOffset": 1008,
+      "endOffset": 1019,
+      "text": "Helen Burns",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 7,
+      "paragraphIndex": 55,
+      "startOffset": 1088,
+      "endOffset": 1102,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 7,
+      "paragraphIndex": 55,
+      "startOffset": 1303,
+      "endOffset": 1317,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "brocklehurst",
+      "chapterNumber": 8,
+      "paragraphIndex": 12,
+      "startOffset": 645,
+      "endOffset": 661,
+      "text": "Mr. Brocklehurst",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 8,
+      "paragraphIndex": 12,
+      "startOffset": 701,
+      "endOffset": 710,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 28,
+      "startOffset": 286,
+      "endOffset": 291,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-temple",
+      "chapterNumber": 8,
+      "paragraphIndex": 28,
+      "startOffset": 487,
+      "endOffset": 498,
+      "text": "Miss Temple",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 50,
+      "startOffset": 309,
+      "endOffset": 320,
+      "text": "Helen Burns",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 51,
+      "startOffset": 780,
+      "endOffset": 785,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 57,
+      "startOffset": 142,
+      "endOffset": 147,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "miss-scatcherd",
+      "chapterNumber": 8,
+      "paragraphIndex": 57,
+      "startOffset": 299,
+      "endOffset": 313,
+      "text": "Miss Scatcherd",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 57,
+      "startOffset": 353,
+      "endOffset": 358,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 8,
+      "paragraphIndex": 57,
+      "startOffset": 413,
+      "endOffset": 418,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "helen-burns",
+      "chapterNumber": 9,
+      "paragraphIndex": 9,
+      "startOffset": 325,
+      "endOffset": 330,
+      "text": "Helen",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-reed",
+      "chapterNumber": 10,
+      "paragraphIndex": 8,
+      "startOffset": 746,
+      "endOffset": 755,
+      "text": "Mrs. Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 10,
+      "paragraphIndex": 33,
+      "startOffset": 366,
+      "endOffset": 378,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 11,
+      "paragraphIndex": 1,
+      "startOffset": 332,
+      "endOffset": 341,
+      "text": "Miss Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 11,
+      "paragraphIndex": 84,
+      "startOffset": 405,
+      "endOffset": 417,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "grace-poole",
+      "chapterNumber": 11,
+      "paragraphIndex": 113,
+      "startOffset": 60,
+      "endOffset": 71,
+      "text": "Grace Poole",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 12,
+      "paragraphIndex": 2,
+      "startOffset": 200,
+      "endOffset": 212,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 12,
+      "paragraphIndex": 2,
+      "startOffset": 800,
+      "endOffset": 812,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 12,
+      "paragraphIndex": 7,
+      "startOffset": 400,
+      "endOffset": 412,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 12,
+      "paragraphIndex": 7,
+      "startOffset": 631,
+      "endOffset": 643,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 12,
+      "paragraphIndex": 12,
+      "startOffset": 532,
+      "endOffset": 538,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 13,
+      "paragraphIndex": 29,
+      "startOffset": 55,
+      "endOffset": 60,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 13,
+      "paragraphIndex": 74,
+      "startOffset": 51,
+      "endOffset": 64,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 13,
+      "paragraphIndex": 91,
+      "startOffset": 65,
+      "endOffset": 70,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mrs-fairfax",
+      "chapterNumber": 13,
+      "paragraphIndex": 91,
+      "startOffset": 75,
+      "endOffset": 87,
+      "text": "Mrs. Fairfax",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 14,
+      "paragraphIndex": 8,
+      "startOffset": 310,
+      "endOffset": 319,
+      "text": "Miss Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 14,
+      "paragraphIndex": 41,
+      "startOffset": 387,
+      "endOffset": 392,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 14,
+      "paragraphIndex": 62,
+      "startOffset": 565,
+      "endOffset": 574,
+      "text": "Miss Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 14,
+      "paragraphIndex": 107,
+      "startOffset": 133,
+      "endOffset": 142,
+      "text": "Miss Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 15,
+      "paragraphIndex": 51,
+      "startOffset": 426,
+      "endOffset": 439,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 17,
+      "paragraphIndex": 0,
+      "startOffset": 611,
+      "endOffset": 624,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "grace-poole",
+      "chapterNumber": 17,
+      "paragraphIndex": 11,
+      "startOffset": 479,
+      "endOffset": 490,
+      "text": "Grace Poole",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 17,
+      "paragraphIndex": 40,
+      "startOffset": 408,
+      "endOffset": 413,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 17,
+      "paragraphIndex": 40,
+      "startOffset": 614,
+      "endOffset": 627,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 17,
+      "paragraphIndex": 80,
+      "startOffset": 14,
+      "endOffset": 27,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 17,
+      "paragraphIndex": 85,
+      "startOffset": 790,
+      "endOffset": 803,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 17,
+      "paragraphIndex": 85,
+      "startOffset": 857,
+      "endOffset": 862,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "blanche-ingram",
+      "chapterNumber": 17,
+      "paragraphIndex": 85,
+      "startOffset": 980,
+      "endOffset": 994,
+      "text": "Blanche Ingram",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 17,
+      "paragraphIndex": 138,
+      "startOffset": 820,
+      "endOffset": 833,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "blanche-ingram",
+      "chapterNumber": 18,
+      "paragraphIndex": 10,
+      "startOffset": 270,
+      "endOffset": 281,
+      "text": "Miss Ingram",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "blanche-ingram",
+      "chapterNumber": 18,
+      "paragraphIndex": 27,
+      "startOffset": 187,
+      "endOffset": 198,
+      "text": "Miss Ingram",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "blanche-ingram",
+      "chapterNumber": 18,
+      "paragraphIndex": 27,
+      "startOffset": 627,
+      "endOffset": 638,
+      "text": "Miss Ingram",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 18,
+      "paragraphIndex": 27,
+      "startOffset": 664,
+      "endOffset": 677,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 18,
+      "paragraphIndex": 34,
+      "startOffset": 76,
+      "endOffset": 81,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 19,
+      "paragraphIndex": 89,
+      "startOffset": 39,
+      "endOffset": 52,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "grace-poole",
+      "chapterNumber": 20,
+      "paragraphIndex": 49,
+      "startOffset": 295,
+      "endOffset": 306,
+      "text": "Grace Poole",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 20,
+      "paragraphIndex": 54,
+      "startOffset": 418,
+      "endOffset": 431,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 20,
+      "paragraphIndex": 54,
+      "startOffset": 449,
+      "endOffset": 462,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 20,
+      "paragraphIndex": 54,
+      "startOffset": 678,
+      "endOffset": 691,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 20,
+      "paragraphIndex": 54,
+      "startOffset": 974,
+      "endOffset": 987,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 20,
+      "paragraphIndex": 86,
+      "startOffset": 381,
+      "endOffset": 390,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 21,
+      "paragraphIndex": 21,
+      "startOffset": 151,
+      "endOffset": 164,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "georgiana-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 40,
+      "startOffset": 192,
+      "endOffset": 206,
+      "text": "Georgiana Reed",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "bessie",
+      "chapterNumber": 21,
+      "paragraphIndex": 125,
+      "startOffset": 947,
+      "endOffset": 953,
+      "text": "Bessie",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "georgiana-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 153,
+      "startOffset": 613,
+      "endOffset": 622,
+      "text": "Georgiana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "georgiana-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 154,
+      "startOffset": 139,
+      "endOffset": 148,
+      "text": "Georgiana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "eliza-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 155,
+      "startOffset": 470,
+      "endOffset": 475,
+      "text": "Eliza",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "jane",
+      "chapterNumber": 21,
+      "paragraphIndex": 168,
+      "startOffset": 187,
+      "endOffset": 196,
+      "text": "Jane Eyre",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "eliza-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 192,
+      "startOffset": 370,
+      "endOffset": 375,
+      "text": "Eliza",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "georgiana-reed",
+      "chapterNumber": 21,
+      "paragraphIndex": 192,
+      "startOffset": 399,
+      "endOffset": 408,
+      "text": "Georgiana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 23,
+      "paragraphIndex": 56,
+      "startOffset": 446,
+      "endOffset": 459,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "blanche-ingram",
+      "chapterNumber": 23,
+      "paragraphIndex": 93,
+      "startOffset": 410,
+      "endOffset": 421,
+      "text": "Miss Ingram",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 24,
+      "paragraphIndex": 126,
+      "startOffset": 810,
+      "endOffset": 823,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 26,
+      "paragraphIndex": 22,
+      "startOffset": 348,
+      "endOffset": 361,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 26,
+      "paragraphIndex": 49,
+      "startOffset": 827,
+      "endOffset": 840,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 176,
+      "endOffset": 189,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 191,
+      "endOffset": 200,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 414,
+      "endOffset": 423,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 785,
+      "endOffset": 794,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 1102,
+      "endOffset": 1111,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "mason",
+      "chapterNumber": 26,
+      "paragraphIndex": 83,
+      "startOffset": 1277,
+      "endOffset": 1286,
+      "text": "Mr. Mason",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 27,
+      "paragraphIndex": 5,
+      "startOffset": 841,
+      "endOffset": 854,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 27,
+      "paragraphIndex": 13,
+      "startOffset": 681,
+      "endOffset": 694,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 27,
+      "paragraphIndex": 132,
+      "startOffset": 19,
+      "endOffset": 32,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 27,
+      "paragraphIndex": 161,
+      "startOffset": 246,
+      "endOffset": 259,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 29,
+      "paragraphIndex": 65,
+      "startOffset": 994,
+      "endOffset": 1002,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 30,
+      "paragraphIndex": 11,
+      "startOffset": 996,
+      "endOffset": 1011,
+      "text": "St. John Rivers",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 30,
+      "paragraphIndex": 55,
+      "startOffset": 231,
+      "endOffset": 239,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "diana-rivers",
+      "chapterNumber": 30,
+      "paragraphIndex": 63,
+      "startOffset": 39,
+      "endOffset": 44,
+      "text": "Diana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 30,
+      "paragraphIndex": 68,
+      "startOffset": 1157,
+      "endOffset": 1165,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 31,
+      "paragraphIndex": 7,
+      "startOffset": 960,
+      "endOffset": 968,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "diana-rivers",
+      "chapterNumber": 31,
+      "paragraphIndex": 45,
+      "startOffset": 201,
+      "endOffset": 206,
+      "text": "Diana",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 32,
+      "paragraphIndex": 5,
+      "startOffset": 734,
+      "endOffset": 742,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "adele",
+      "chapterNumber": 32,
+      "paragraphIndex": 5,
+      "startOffset": 829,
+      "endOffset": 834,
+      "text": "Adèle",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 33,
+      "paragraphIndex": 97,
+      "startOffset": 78,
+      "endOffset": 86,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "st-john-rivers",
+      "chapterNumber": 35,
+      "paragraphIndex": 83,
+      "startOffset": 457,
+      "endOffset": 465,
+      "text": "St. John",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 36,
+      "paragraphIndex": 35,
+      "startOffset": 160,
+      "endOffset": 173,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 36,
+      "paragraphIndex": 52,
+      "startOffset": 544,
+      "endOffset": 557,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 37,
+      "paragraphIndex": 0,
+      "startOffset": 450,
+      "endOffset": 463,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "rochester",
+      "chapterNumber": 37,
+      "paragraphIndex": 24,
+      "startOffset": 460,
+      "endOffset": 473,
+      "text": "Mr. Rochester",
+      "resolution": "reviewed-name"
+    },
+    {
+      "characterId": "diana-rivers",
+      "chapterNumber": 38,
+      "paragraphIndex": 20,
+      "startOffset": 171,
+      "endOffset": 176,
+      "text": "Diana",
+      "resolution": "reviewed-name"
+    }
+  ],
+  "characterAnchorsInChangedParagraphs": [
+    {
+      "character": "mrs-reed",
+      "field": "roleVisibleAt",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "offset": 145
+    },
+    {
+      "character": "mrs-reed",
+      "field": "firstMention",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "offset": 145
+    },
+    {
+      "character": "mrs-reed",
+      "field": "snapshot mrs-reed-1.availableAt",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "offset": 145
+    },
+    {
+      "character": "miss-scatcherd",
+      "field": "roleVisibleAt",
+      "chapterNumber": 5,
+      "paragraphIndex": 97,
+      "offset": 194
+    },
+    {
+      "character": "miss-scatcherd",
+      "field": "firstMention",
+      "chapterNumber": 5,
+      "paragraphIndex": 97,
+      "offset": 194
+    },
+    {
+      "character": "miss-scatcherd",
+      "field": "snapshot miss-scatcherd-1.availableAt",
+      "chapterNumber": 5,
+      "paragraphIndex": 97,
+      "offset": 194
+    },
+    {
+      "character": "grace-poole",
+      "field": "roleVisibleAt",
+      "chapterNumber": 11,
+      "paragraphIndex": 113,
+      "offset": 71
+    },
+    {
+      "character": "grace-poole",
+      "field": "firstMention",
+      "chapterNumber": 11,
+      "paragraphIndex": 113,
+      "offset": 71
+    },
+    {
+      "character": "grace-poole",
+      "field": "snapshot grace-poole-1.availableAt",
+      "chapterNumber": 11,
+      "paragraphIndex": 113,
+      "offset": 71
+    }
+  ]
+}
