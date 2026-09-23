@@ -1,3 +1,4 @@
+import { usesRetainedBella } from '../narration/bellaRetention'
 /**
  * Provider-neutral English narration — reader side.
  *
@@ -12,7 +13,6 @@
 import { apiUrl } from '../utils/apiUrl'
 import { isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
-import { usesRetainedBella } from '../narration/bellaRetention'
 
 export type NarrationPilotFlag = 'fish' | 'off' | null
 
@@ -48,14 +48,15 @@ export interface NarrationPilotInfo {
 }
 
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
-export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number): boolean {
-  return isPilotScope(bookId, editionKey, chapter) && !usesRetainedBella(bookId, editionKey, prefs.voicePersona)
+export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number, provider?: string): boolean {
+  return isPilotScope(bookId, editionKey, chapter) && (provider === 'grok' || !usesRetainedBella(bookId, editionKey, prefs.voicePersona))
 }
 
 /** The voice to narrate with: the stored choice when the server still offers it, else the first voice. */
 export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOption[]): string | null {
   if (voices.length === 0) return null
-  return voices.find(voice => voice.persona === prefs.voicePersona)?.key
+  return voices.find(voice => voice.key === prefs.audiobookVoice)?.key
+    ?? voices.find(voice => voice.persona === prefs.voicePersona)?.key
     ?? voices.find(voice => voice.key === (prefs.voicePersona === 'female' ? 'f' : 'm'))?.key
     ?? null
 }
@@ -133,7 +134,7 @@ export interface NarrationEnsureRequest {
   chapter: number
   voice: string
   /** Text is optional for prefetching another chapter; when given, its hash guards against stale audio. */
-  paragraphs: Array<{ index: number; text?: string }>
+  paragraphs: Array<{ index: number; text?: string; fromChunk?: number }>
   /** 'next' (default): one missing chunk, then answer. 'all': everything missing within the Worker's time budget. */
   mode?: 'next' | 'all'
 }
@@ -158,8 +159,8 @@ export async function ensureNarration(
   const fetchImpl = options.fetchImpl || fetch
   const paragraphs = await Promise.all(request.paragraphs.map(async item => (
     typeof item.text === 'string'
-      ? { index: item.index, textHash: await sha256Hex(narrationTextForParagraph(item.text)) }
-      : { index: item.index }
+      ? { index: item.index, fromChunk: item.fromChunk, textHash: await sha256Hex(narrationTextForParagraph(item.text)) }
+      : { index: item.index, fromChunk: item.fromChunk }
   )))
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (options.authToken) headers.Authorization = `Bearer ${options.authToken}`

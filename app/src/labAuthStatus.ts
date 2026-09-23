@@ -44,17 +44,9 @@ function publish(state: LabAuthState) {
   window.dispatchEvent(new CustomEvent<LabAuthState>('tinct:lab-auth-state', { detail: state }))
 }
 
-function installNarrationPreparation(accessToken: string | null) {
-  ;(window as Window & { __tinctPrepareNarration?: (body: unknown) => Promise<void> }).__tinctPrepareNarration = async (body) => {
-    try {
-      await fetch('/api/narration/prepare', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}) },
-        body: JSON.stringify(body),
-        keepalive: true,
-      })
-    } catch { /* speculation never blocks opening the reader */ }
-  }
+// Compatibility with cached library scripts: opening a book never synthesizes.
+function installNarrationPreparation(_accessToken: string | null) {
+  ;(window as Window & { __tinctPrepareNarration?: (body: unknown) => Promise<void> }).__tinctPrepareNarration = async () => {}
 }
 
 async function resolveAuthState() {

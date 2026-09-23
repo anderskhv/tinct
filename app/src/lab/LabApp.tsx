@@ -1,3 +1,4 @@
+import { usesRetainedBella } from '../narration/bellaRetention'
 import { readCoverTransition } from '../../public/lab/cover-transition.js'
 import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
@@ -22,7 +23,6 @@ import {
 import { readSupabaseAccessToken } from './labAuth'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
-import { usesRetainedBella } from '../narration/bellaRetention'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { LAB_COPY } from './labCopy'
@@ -492,8 +492,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Kokoro audio edition, so painted words and spoken words are one text.
   const narrationApplies = narrationInfo?.enabled === true
     && narrationVoice != null
-    && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber)
-  const retainedBella = usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
+    && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
+  const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
@@ -1006,7 +1006,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice })
   narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice }
-  const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all') => {
+  const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
@@ -1017,7 +1017,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       voice: context.voice,
       paragraphs: indexes
         .filter(index => index >= 0 && index < context.paragraphs.length)
-        .map(index => ({ index, text: context.paragraphs[index] })),
+        .map(index => ({ index, text: context.paragraphs[index], fromChunk: fromChunks?.[index] })),
       mode: mode ?? 'next',
     }, { signal, authToken: token })
   }, [authToken])
@@ -1027,7 +1027,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: narrationOption || retainedBella ? false : audioUnavailable,
+    playbackUnavailable: narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable,
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
