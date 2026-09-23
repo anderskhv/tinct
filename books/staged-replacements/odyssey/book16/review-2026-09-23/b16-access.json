@@ -1,0 +1,38 @@
+[
+ {
+  "book": 16,
+  "paragraph": 10,
+  "old": "despite a man like you being here",
+  "new": "even with a man like you present",
+  "category": "flow",
+  "blocking": false,
+  "reason": "\"despite ... being here\" is a legal but slightly clotted gerund construction; a listener has to work a beat to parse who is 'here' and why it's a 'despite.' Not blocking, just a small stumble."
+ },
+ {
+  "book": 16,
+  "paragraph": 10,
+  "old": "If they outnumbered me—being alone—I’d rather die fighting",
+  "new": "If I stood alone against so many, I’d rather die fighting",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "The parenthetical '—being alone—' sits right after 'they outnumbered me,' so on a first hearing it can briefly seem to describe 'they' rather than 'me.' A listener has to backtrack to attach it correctly."
+ },
+ {
+  "book": 16,
+  "paragraph": 21,
+  "old": "No other Odysseus will come after this.",
+  "new": "There is no other Odysseus to come after this one.",
+  "category": "flow",
+  "blocking": true,
+  "reason": "Standing alone, this reads as a claim about the future (implying some other man named Odysseus might otherwise show up), when the intended sense is 'this is truly me, not a substitute.' A first-time listener is likely to momentarily misread the point of the sentence."
+ },
+ {
+  "book": 16,
+  "paragraph": 39,
+  "old": "my spear will be red with his blood, for many times Odysseus took me on his knees",
+  "new": "my spear will be red with the blood of any man who tries it, for many times Odysseus took me on his knees",
+  "category": "aloud",
+  "blocking": true,
+  "reason": "'his blood' most immediately points back to 'your son Telemachus,' the closest preceding referent, so on first hearing this sounds like Eurymachus threatening to kill Telemachus — the opposite of what he means (that he'll kill anyone who threatens Telemachus). The very next sentence ('Telemachus is my dearest friend') clarifies, but only after the misreading has already happened."
+ }
+]
