@@ -1,0 +1,38 @@
+[
+  {
+    "book": 22,
+    "paragraph": 10,
+    "old": "But Telemachus was too quick for him and struck from behind. The spear caught him between the shoulder blades",
+    "new": "But Telemachus, spear already in hand, was too quick for him and struck from behind. The spear caught him between the shoulder blades",
+    "category": "consistency",
+    "blocking": false,
+    "reason": "Telemachus throws 'the spear' at Amphinomus as if he already had one, but the very next paragraph has him ask his father to send for a shield, spears and a helmet for himself, the swineherd and the stockman. A listener naturally infers no one but Odysseus is yet armed, so 'the spear' appears to come from nowhere. Making explicit that he already had a spear in hand removes the apparent contradiction without inventing a new event (he plainly must have had one to throw it)."
+  },
+  {
+    "book": 22,
+    "paragraph": 15,
+    "old": "The entrance to the narrow passage is dangerously close to the courtyard door.",
+    "new": "The entrance to the trap door's passage is dangerously close to the courtyard door.",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Paragraph 14 names the escape route 'a trap door' and, separately, 'an exit leading to a narrow passage.' Agelaus asks about going to 'the trap door'; Melanthius answers about 'the narrow passage' — a listener can't easily tell whether these are the same exit or two different ones. Aligning the terminology (or otherwise tying the two phrases together) keeps the geography of the escape route clear on a single hearing."
+  },
+  {
+    "book": 22,
+    "paragraph": 25,
+    "old": "Don’t all aim at him at once, but let six of you throw your spears first, and see if you can’t cover yourselves with glory by killing him.",
+    "new": "Don’t all aim at Odysseus at once, but let six of you throw your spears first, and see if you can’t cover yourselves with glory by killing him.",
+    "category": "reference",
+    "blocking": true,
+    "reason": "Odysseus is never named in this paragraph. The most recent name mentioned is 'Mentor' (Athena in disguise), and Agelaus's speech uses only 'he'/'him' for the intended target ('he'll soon have to stop... killing him'). A first-time listener has to work out by inference that the target is Odysseus, not Mentor — exactly the kind of who's-fighting-whom confusion to avoid in a combat scene. Naming Odysseus once fixes the referent for the rest of the sentence."
+  },
+  {
+    "book": 22,
+    "paragraph": 29,
+    "old": "Odysseus struck Damastor’s son with a spear in close combat",
+    "new": "Odysseus struck Agelaus, Damastor’s son, dead with a spear in close combat",
+    "category": "consistency",
+    "blocking": true,
+    "reason": "Agelaus was introduced by full name ('Agelaus son of Damastor') three paragraphs earlier, but here he's referred to only by patronymic ('Damastor's son'), and the sentence doesn't say the blow was fatal — it merely says 'struck ... in close combat,' unlike every other kill in this fight scene, which states the death outcome plainly. Two paragraphs later, Odysseus picks up 'the sword that Agelaus had dropped when he was killed,' which is the only place a listener learns Agelaus actually died here. Naming him and stating the kill outright at the moment it happens keeps the listener from losing track of who has been killed."
+  }
+]
