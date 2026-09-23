@@ -1,0 +1,27 @@
+name: Diagnose live featured preview resize
+on:
+  push:
+    branches: [codex/preview-resize-diagnostic-20260923]
+permissions:
+  contents: read
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium webkit
+      - run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: preview-resize-trace
+          path: app/artifacts/featured-preview
