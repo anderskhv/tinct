@@ -1,0 +1,152 @@
+{
+ "verified_clean": [
+  "24.2",
+  "24.6",
+  "24.7",
+  "24.8",
+  "24.9",
+  "24.10",
+  "24.11",
+  "24.13",
+  "24.15",
+  "24.27",
+  "24.29",
+  "24.33",
+  "24.35",
+  "24.36",
+  "24.40",
+  "24.46",
+  "24.47",
+  "24.48",
+  "24.54",
+  "24.56",
+  "24.58",
+  "24.63",
+  "24.76",
+  "24.92",
+  "24.96",
+  "24.100",
+  "24.104",
+  "24.105",
+  "24.106",
+  "24.117",
+  "24.121",
+  "24.130",
+  "24.131",
+  "24.132",
+  "24.136",
+  "24.138",
+  "24.141",
+  "24.147",
+  "24.152",
+  "24.156",
+  "24.160",
+  "24.176",
+  "24.179",
+  "24.189",
+  "24.193",
+  "24.194",
+  "24.196",
+  "24.200",
+  "24.202",
+  "24.204",
+  "24.207",
+  "24.209",
+  "24.210",
+  "25.1",
+  "25.2",
+  "25.3",
+  "25.8",
+  "25.11",
+  "25.15",
+  "25.16",
+  "25.17",
+  "25.18",
+  "25.20",
+  "25.21",
+  "25.23",
+  "25.25",
+  "25.28",
+  "25.29",
+  "25.32",
+  "25.34",
+  "25.36",
+  "25.42",
+  "25.49",
+  "25.55",
+  "25.56",
+  "25.57",
+  "25.59",
+  "25.61",
+  "25.72",
+  "25.75",
+  "25.78",
+  "25.81",
+  "25.92",
+  "25.99",
+  "25.100",
+  "25.101"
+ ],
+ "defects": [
+  {
+   "chapter": 24,
+   "paragraph": 61,
+   "old": "I'd really come chiefly to show",
+   "new": "I'd come chiefly to show",
+   "category": "style",
+   "blocking": false,
+   "reason": "Restored 'chiefly' (source: \"I'd gone in chiefly to show\") now sits beside the baseline's 'really', giving a redundant 'really ... chiefly'. Drop 'really'; the source has only 'chiefly'."
+  },
+  {
+   "chapter": 25,
+   "paragraph": 0,
+   "old": "at eleven o'clock sharp the next morning he was surprised",
+   "new": "at eleven o'clock sharp the next morning, he was surprised",
+   "category": "punctuation",
+   "blocking": false,
+   "reason": "Removing ', as requested,' also removed the comma that closed the long 'When...' clause; restore it so the main clause is clear."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "accept",
+   "reason": "Source: 'that very exceptionalness, her tinge of education, her previous life'. 'uniqueness' right after 'not unique' contradicts itself; 'the very things that set her apart' keeps the apposition with education and past life and adds nothing."
+  },
+  {
+   "index": 1,
+   "verdict": "accept",
+   "reason": "Source 24.149 is Raskolnikov's unspoken thought (continuing 24.148's narration of his reaction); a 'he thought' tag states what the source implies without interpreting."
+  },
+  {
+   "index": 2,
+   "verdict": "accept",
+   "reason": "In the source 'you' taken to hospital is Sonia and 'She is mad and in consumption' is Katerina Ivanovna; naming her removes a real ambiguity without changing meaning."
+  },
+  {
+   "index": 3,
+   "verdict": "reject",
+   "reason": "Puts an invented self-gloss in Porfiry's mouth; 25.3 immediately singles out 'the French phrase tout court' as a characteristic sign, which depends on it standing unglossed."
+  },
+  {
+   "index": 4,
+   "verdict": "accept",
+   "reason": "Source: 'the old Austrian _Hof-kriegsrath_'. A brief 'war council' gloss is faithful, keeps the italic term, and lets the Napoleon/Mack joke land."
+  },
+  {
+   "index": 5,
+   "verdict": "accept",
+   "reason": "Source: 'don't think of that \"when they overstep all obstacles\"' - i.e. they don't reckon on temperament at the moment of overstepping. The current candidate reads as an unfinished clause; the proposal restores the source sense grammatically."
+  },
+  {
+   "index": 6,
+   "verdict": "reject",
+   "reason": "Inserts an aside into Porfiry's speech that the source does not have; Dmitri Prokofitch is already used for Razumihin earlier in the edition and 25.55 names Razumihin explicitly."
+  },
+  {
+   "index": 7,
+   "verdict": "reject",
+   "reason": "Not needed: the same sentence has just said 'You should see an experienced doctor', which already identifies the 'fat fellow'; the source's dismissive 'fellow' is Porfiry's voice."
+  }
+ ]
+}

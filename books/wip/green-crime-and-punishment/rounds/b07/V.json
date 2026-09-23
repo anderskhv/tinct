@@ -1,0 +1,208 @@
+{
+ "verified_clean": [
+  "21.4",
+  "21.10",
+  "21.11",
+  "21.13",
+  "21.15",
+  "21.16",
+  "21.17",
+  "21.20",
+  "21.23",
+  "21.28",
+  "21.31",
+  "21.32",
+  "21.33",
+  "21.39",
+  "21.41",
+  "21.43",
+  "21.49",
+  "21.65",
+  "21.68",
+  "21.76",
+  "21.83",
+  "21.88",
+  "21.89",
+  "21.93",
+  "21.94",
+  "21.95",
+  "21.100",
+  "21.101",
+  "21.103",
+  "21.106",
+  "21.112",
+  "21.114",
+  "21.116",
+  "21.118",
+  "22.2",
+  "22.3",
+  "22.10",
+  "22.11",
+  "22.16",
+  "22.18",
+  "22.20",
+  "22.21",
+  "22.26",
+  "22.28",
+  "22.36",
+  "22.40",
+  "22.48",
+  "22.52",
+  "22.53",
+  "22.61",
+  "22.63",
+  "22.67",
+  "22.68",
+  "22.69",
+  "22.70",
+  "22.72",
+  "22.89",
+  "22.90",
+  "22.100",
+  "22.101",
+  "22.105",
+  "22.108",
+  "23.2",
+  "23.4",
+  "23.6",
+  "23.14",
+  "23.16",
+  "23.17",
+  "23.25",
+  "23.26",
+  "23.27",
+  "23.32",
+  "23.33",
+  "23.37",
+  "23.40",
+  "23.41",
+  "23.44",
+  "23.47",
+  "23.48",
+  "23.51",
+  "23.55",
+  "23.56",
+  "23.58"
+ ],
+ "defects": [
+  {
+   "chapter": 21,
+   "paragraph": 27,
+   "old": "No, I'm only wondering that you're too adaptable.",
+   "new": "No, I'm only surprised that you're too adaptable a man.",
+   "category": "syntax",
+   "blocking": false,
+   "reason": "'wondering that you're' is ungrammatical/archaic; source 'I am only wondering at your being too adaptable a man' means surprise, and the restored 'a man' was still missing."
+  },
+  {
+   "chapter": 21,
+   "paragraph": 35,
+   "old": "or progress, maybe, perhaps",
+   "new": "or even progress, maybe",
+   "category": "hesitation",
+   "blocking": false,
+   "reason": "Source 'or progress, indeed, maybe' has one hedge; 'indeed' is an intensifier ('even'), not a second hedge. 'maybe, perhaps' doubles the uncertainty and reads as a stutter the source does not have."
+  },
+  {
+   "chapter": 21,
+   "paragraph": 122,
+   "old": "instead of traveling",
+   "new": "instead of the journey",
+   "category": "meaning",
+   "blocking": false,
+   "reason": "Source: 'Perhaps I'll get married instead of the journey.' 'The journey' is Svidrigaïlov's code word for suicide, echoed in 21.101, 21.121 and this paragraph's opening; 'traveling' breaks the motif."
+  },
+  {
+   "chapter": 23,
+   "paragraph": 0,
+   "old": "a conceit that bordered on smug foolishness",
+   "new": "a conceit carried to the point of smug foolishness",
+   "category": "certainty",
+   "blocking": false,
+   "reason": "'smug foolishness' is a fair rendering of 'fatuity', but source says 'a conceit to the point of fatuity' (it reached it); 'bordered on' (kept from baseline) softens the narrator's judgement."
+  },
+  {
+   "chapter": 23,
+   "paragraph": 0,
+   "old": "all sorts of schemes",
+   "new": "all sorts of devices",
+   "category": "meaning",
+   "blocking": false,
+   "reason": "Source: 'by all sorts of devices'. 'schemes' adds an implication of dishonesty the source leaves open."
+  }
+ ],
+ "accessibility": [
+  {
+   "index": 0,
+   "verdict": "reject",
+   "reason": "Adds a gloss not in the source; Svidrigaïlov deliberately truncates the tag, and the edition leaves foreign phrases unglossed (b10 precedent)."
+  },
+  {
+   "index": 1,
+   "verdict": "reject",
+   "reason": "Added gloss not in the source; foreign phrases are left unglossed book-wide (b10 precedent). 'most innocent form of deception' already carries the sense."
+  },
+  {
+   "index": 2,
+   "verdict": "modify",
+   "new": "restaurants like Dussaut's,",
+   "reason": "Need is real (reads as a family), but source 'Dussauts' is plural/generic; 'restaurants like Dussaut's' keeps that instead of naming one restaurant."
+  },
+  {
+   "index": 3,
+   "verdict": "accept",
+   "reason": "Source 'thirty thousand silver pieces'; 'in silver' is faithful and idiomatic."
+  },
+  {
+   "index": 4,
+   "verdict": "reject",
+   "reason": "Added gloss not in the source; the source keeps the French and the following 'and I hate drinking' carries the sense. Consistent with b10 precedent."
+  },
+  {
+   "index": 5,
+   "verdict": "reject",
+   "reason": "Added gloss not in the source; unglossed French is part of his voice (b10 precedent)."
+  },
+  {
+   "index": 6,
+   "verdict": "accept",
+   "reason": "Garnett's elliptical 'can't make like this' reads as a slip in modern English; 'make one like this' keeps meaning."
+  },
+  {
+   "index": 7,
+   "verdict": "reject",
+   "reason": "Source has the same two flat sentences ('It's impossible to be certain about that. I have precise information.'); 'though' imposes a concessive reading Luzhin does not make."
+  },
+  {
+   "index": 8,
+   "verdict": "reject",
+   "reason": "Source says 'a foreigner'; 'another German woman' is also the source's own wording. Changing it rewrites the source."
+  },
+  {
+   "index": 9,
+   "verdict": "accept",
+   "reason": "Harmless consistency with Dounia's line in 22.68 as rendered; meaning unchanged."
+  },
+  {
+   "index": 10,
+   "verdict": "modify",
+   "new": "just to avoid borrowing from that man Luzhin until he offered help.",
+   "reason": "Ambiguity after the Svidrigaïlov talk is real, but 'that man' carries her disdain and 'himself' is not in Garnett; keep 'that man' and add the name."
+  },
+  {
+   "index": 11,
+   "verdict": "accept",
+   "reason": "Fixes the stacked dashes around the restored 'schwach'—weak— gloss without changing content."
+  },
+  {
+   "index": 12,
+   "verdict": "accept",
+   "reason": "Source says 'I'll pawn your watch'."
+  },
+  {
+   "index": 13,
+   "verdict": "accept",
+   "reason": "Source 'I'm quite obliged to...' means necessity (answering 'Where are you going?'); 'I really have to...' keeps the trailing ellipsis and removes the 'thanks' misreading."
+  }
+ ]
+}
