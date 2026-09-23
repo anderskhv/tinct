@@ -1,4 +1,4 @@
-name: Voice audition — Perseus and Leo
+name: Voice audition — Leo lossless
 on:
   push:
     branches: [codex/voice-audition-20260923]
@@ -13,33 +13,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Generate short Frankenstein samples
+      - name: Generate fresh Leo WAV
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
         run: |
           python3 <<'PY'
-          import json, pathlib, os, urllib.request, concurrent.futures
+          import json, pathlib, os, urllib.request
           p=pathlib.Path("voice-samples")
           p.mkdir(exist_ok=True)
           text="I am by birth a Genevese, and my family is one of the most distinguished of that republic. My ancestors had been for many years counsellors and syndics, and my father had filled several public situations with honour and reputation."
-          (p/"passage.txt").write_text(text+"\n")
-          def generate(voice):
-              req=urllib.request.Request("https://api.x.ai/v1/tts",data=json.dumps({"text":text,"voice_id":voice,"language":"en"}).encode(),headers={"Authorization":"Bearer "+os.environ["XAI_API_KEY"],"Content-Type":"application/json"})
-              try:
-                  with urllib.request.urlopen(req,timeout=180) as r: data=r.read()
-                  (p/f"{voice}.mp3").write_bytes(data)
-                  print(voice,"saved",flush=True)
-              except Exception as e:
-                  print(voice,type(e).__name__,getattr(e,"code",""),flush=True)
-                  raise SystemExit(1)
-          with concurrent.futures.ThreadPoolExecutor(max_workers=2) as ex:
-              list(ex.map(generate,["perseus","leo"]))
+          body={"text":text,"voice_id":"leo","language":"en","output_format":{"codec":"wav","sample_rate":24000}}
+          req=urllib.request.Request("https://api.x.ai/v1/tts",data=json.dumps(body).encode(),headers={"Authorization":"Bearer "+os.environ["XAI_API_KEY"],"Content-Type":"application/json"})
+          try:
+              with urllib.request.urlopen(req,timeout=180) as r: data=r.read()
+              (p/"leo-fresh.wav").write_bytes(data)
+              (p/"request.json").write_text(json.dumps(body,indent=2))
+              print("Leo WAV saved",flush=True)
+          except Exception as e:
+              print(type(e).__name__,getattr(e,"code",""),flush=True)
+              raise SystemExit(1)
           
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: frankenstein-perseus-leo
+          name: frankenstein-leo-lossless
           path: voice-samples/
           retention-days: 14
           if-no-files-found: error
