@@ -43,6 +43,7 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
   const req=route.request(),url=new URL(req.url())
   if(req.method()!=='GET')return route.abort()
   if(url.pathname==='/api/featured-preview')return route.fulfill({status:200,contentType:'text/html',body:html})
+  if(process.env.PREVIEW_CANDIDATE==='1' && url.pathname==='/lab/featured-preview.js')return route.fulfill({status:200,contentType:'text/javascript',body:await fs.readFile('public/lab/featured-preview.js','utf8')})
   if(live)return route.continue()
   if(url.origin!=='https://tinct.app')return route.abort()
   const p=url.pathname==='/lab/featured'?'/lab/featured/index.html':url.pathname
