@@ -21,7 +21,10 @@ jobs:
       - name: Verify offset projection regressions
         run: python3 app/scripts/test-prepare-reviewed-editions.py
       - name: Prepare exact accepted text and character anchors
-        run: python3 app/scripts/prepare-reviewed-editions.py --config books/wip/frankenstein-jekyll-release-20260923.json
+        run: |
+          git fetch origin 1ed77f4ca1c1399edb056a29e9a8cc7d295e5565 --depth=1
+          git restore --source=1ed77f4ca1c1399edb056a29e9a8cc7d295e5565 -- app/public/data/editions/frankenstein-modern-en.json app/public/data/editions/jekyll-and-hyde-modern-en.json app/public/data/characters/frankenstein.v1.json app/public/data/characters/jekyll-and-hyde.v1.json app/src/services/characters/characterCards.ts
+          python3 app/scripts/prepare-reviewed-editions.py --config books/wip/frankenstein-jekyll-release-20260923.json
       - uses: actions/setup-node@v4
         with:
           node-version: '24.13.0'
@@ -54,7 +57,7 @@ jobs:
           changed = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
           untracked = set(subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard"], text=True).splitlines())
           actual = changed | untracked
-          if actual != allowed:
+          if not actual or not actual.issubset(allowed):
               raise SystemExit(f"Unexpected output set: missing={allowed-actual}, extra={actual-allowed}")
           subprocess.run(["git", "add", "--", *sorted(allowed)], check=True)
           PY

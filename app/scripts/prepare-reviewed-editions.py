@@ -66,6 +66,23 @@ def project(old, new, offset, bias="right"):
     return utf16(new[:max(choices) if bias == "right" else min(choices)])
 
 
+def unchanged_name_span(old, new, mention, name_ids):
+    """Relocate a reviewed proper name only when spelling/count/identity agree."""
+    name = mention["text"]
+    if not name or not name[0].isupper() or name_ids.get(name) != {mention["characterId"]}:
+        return None
+    pattern = r"(?<!\w)" + re.escape(name) + r"(?!\w)"
+    old_hits = list(re.finditer(pattern, old))
+    new_hits = list(re.finditer(pattern, new))
+    if not old_hits or len(old_hits) != len(new_hits):
+        return None
+    for index, match in enumerate(old_hits):
+        if utf16(old[:match.start()]) == mention["startOffset"] and utf16(old[:match.end()]) == mention["endOffset"]:
+            target = new_hits[index]
+            return utf16(new[:target.start()]), utf16(new[:target.end()])
+    return None
+
+
 def paragraphs(edition):
     return {str(ch["number"]): [normalize(p) for p in ch["paragraphs"]] for ch in edition["chapters"]}
 
@@ -83,9 +100,11 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
     if hashes != block["paragraphHashes"]:
         raise ValueError("Previous paragraph hashes do not verify")
     aliases = {}
+    name_ids = {}
     for reviewed in result["editions"].values():
         for mention in reviewed["mentions"]:
             aliases.setdefault(mention["characterId"], set()).add(mention["text"])
+            name_ids.setdefault(mention["text"], set()).add(mention["characterId"])
 
     def texts(point):
         key, index = str(point["chapterNumber"]), point["paragraphIndex"]
@@ -95,7 +114,7 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
         a, b = texts(value)
         return {**value, "offset": project(a, b, value["offset"])}
 
-    dropped, mentions = [], []
+    dropped, mentions, relocated = [], [], []
     for mention in block["mentions"]:
         a, b = texts(mention)
         start, end = codepoint(a, mention["startOffset"]), codepoint(a, mention["endOffset"])
@@ -103,10 +122,16 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
             raise ValueError("Previous mention does not verify")
         projected_start = project(a, b, mention["startOffset"], "right")
         projected_end = project(a, b, mention["endOffset"], "left")
+        value = b[codepoint(b, projected_start):codepoint(b, projected_end)] if projected_end > projected_start else ""
+        if value != mention["text"]:
+            exact = unchanged_name_span(a, b, mention, name_ids)
+            if exact is not None:
+                projected_start, projected_end = exact
+                value = mention["text"]
+                relocated.append({**mention, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "unchanged reviewed proper name; same occurrence count and unique character identity"})
         if projected_end <= projected_start:
             dropped.append({**mention, "reason": "source span removed"})
             continue
-        value = b[codepoint(b, projected_start):codepoint(b, projected_end)]
         if not allow_alias_changes and value != mention["text"]:
             dropped.append({**mention, "projectedText": value, "reason": "changed mention text lacks explicit mapping approval"})
             continue
@@ -123,7 +148,7 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
     block["sourceSha256"] = digest(accepted_raw)
     block["paragraphHashes"] = {k: [digest(p) for p in values] for k, values in new.items()}
     result["contentVersion"] = revision
-    return result, {"retainedMentions": len(mentions), "droppedMentions": dropped}
+    return result, {"retainedMentions": len(mentions), "droppedMentions": dropped, "relocatedExactNames": relocated}
 
 
 def prepare(root=ROOT, config_path=CONFIG):

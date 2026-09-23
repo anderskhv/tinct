@@ -60,6 +60,17 @@ class ReanchorTests(unittest.TestCase):
         self.assertEqual(output["editions"]["modern-en"]["mentions"][0]["text"], "Antony")
         self.assertEqual(report["droppedMentions"], [])
 
+    def test_relocated_proper_name_preserves_identity_and_utf16(self):
+        old, new = "Poole led him.", "😀 He was led by Poole."
+        mention = {"text": "Poole", "characterId": "poole", "startOffset": 0, "endOffset": 5}
+        self.assertEqual(module.unchanged_name_span(old, new, mention, {"Poole": {"poole"}}), (17, 22))
+        self.assertIsNone(module.unchanged_name_span(old, new, mention, {"Poole": {"poole", "someone-else"}}))
+        self.assertIsNone(module.unchanged_name_span(old, new + " Poole", mention, {"Poole": {"poole"}}))
+
+    def test_changed_epithet_cannot_use_name_relocation(self):
+        mention = {"text": "the creature", "characterId": "creature", "startOffset": 0, "endOffset": 12}
+        self.assertIsNone(module.unchanged_name_span("the creature spoke.", "the fiend spoke.", mention, {"the creature": {"creature"}}))
+
     def test_duplicate_names_keep_their_instance(self):
         text, new = "Antony met Antony.", "Antonius met Antony."
         second = module.utf16(text[:text.rindex("Antony")])
