@@ -35,16 +35,16 @@ export function labSuperMenuRows(_input: { phone?: boolean } = {}): LabSuperMenu
 /**
  * The surface. Genuinely see-through: a fill of the paper colour over a blur
  * that lives in the panel, never on the page. The page behind gets only a
- * light dim, so its words stay readable through every panel — the transport
+ * light dim. The fill keeps labels readable even without blur — the transport
  * and the compare card use the same values.
  */
 export const LAB_PANEL_BLUR_PX = 16
 /** Fill of the paper colour, on the light palette. */
-export const LAB_PANEL_FILL_PAPER = 0.35
+export const LAB_PANEL_FILL_PAPER = 0.86
 /** Night needs more fill for the labels to hold at the same legibility. */
-export const LAB_PANEL_FILL_NIGHT = 0.45
+export const LAB_PANEL_FILL_NIGHT = 0.88
 /** The top of the panel is denser, so the first row's label never sits on the thinnest part. */
-export const LAB_PANEL_TOP_BOOST = 0.09
+export const LAB_PANEL_TOP_BOOST = 0.06
 /** The dim over the page. Light enough that the page is still a page. */
 export const LAB_PAGE_DIM_PAPER = 0.08
 export const LAB_PAGE_DIM_NIGHT = 0.14

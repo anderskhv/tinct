@@ -531,10 +531,10 @@ describe('the V2 surface', () => {
 
   it('blurs in the panel and only dims the page', () => {
     expect(css).toContain('--lab-v2-panel-blur: 16px')
-    expect(css).toContain('--lab-v2-panel-fill: 0.35')
-    expect(css).toContain('--lab-v2-panel-fill-top: 0.44')
-    expect(css).toContain('--lab-v2-panel-fill: 0.45')
-    expect(css).toContain('--lab-v2-panel-fill-top: 0.54')
+    expect(css).toContain('--lab-v2-panel-fill: 0.86')
+    expect(css).toContain('--lab-v2-panel-fill-top: 0.92')
+    expect(css).toContain('--lab-v2-panel-fill: 0.88')
+    expect(css).toContain('--lab-v2-panel-fill-top: 0.94')
     expect(css).toContain('--lab-v2-page-dim: rgba(28, 24, 18, 0.08)')
     expect(css).toContain('--lab-v2-page-dim: rgba(0, 0, 0, 0.14)')
     // The blur belongs to the panel; nothing filters the page itself.

@@ -5377,15 +5377,15 @@
    can match, so today's chrome is untouched.
 
    Values come off the reader-chrome canvas (round 8) and the super-button
-   canvas (artboards 16–17): a 16px blur living in the panel, 35% fill on
-   paper and 45% on night, a light dim over a page that is never blurred, a
-   56px icon gutter with 22px icons, 17px labels and 52px rows.
+   canvas (artboards 16–17): a 16px blur living in the panel, 86% fill on
+   paper and 88% on night, a light dim over a page that is never blurred, a
+   40px icon gutter with 18px icons, 16px labels and 44px rows.
    ───────────────────────────────────────────────────────────────────────── */
 
 .lab[data-chrome-version="v2"] {
   --lab-v2-panel-ink: 250, 247, 239;
-  --lab-v2-panel-fill: 0.35;
-  --lab-v2-panel-fill-top: 0.44;
+  --lab-v2-panel-fill: 0.86;
+  --lab-v2-panel-fill-top: 0.92;
   --lab-v2-panel-blur: 16px;
   --lab-v2-page-dim: rgba(28, 24, 18, 0.08);
   --lab-v2-hairline: rgba(32, 26, 19, 0.12);
@@ -5397,8 +5397,8 @@
 
 .lab[data-chrome-version="v2"].is-night {
   --lab-v2-panel-ink: 52, 46, 39;
-  --lab-v2-panel-fill: 0.45;
-  --lab-v2-panel-fill-top: 0.54;
+  --lab-v2-panel-fill: 0.88;
+  --lab-v2-panel-fill-top: 0.94;
   --lab-v2-page-dim: rgba(0, 0, 0, 0.14);
   --lab-v2-hairline: rgba(250, 246, 238, 0.13);
   --lab-v2-chevron: #b8b0a4;
@@ -5698,8 +5698,8 @@
 
 .lab[data-chrome-version="v2"] {
   --lab-v2-sheet-height: min(452px, 88vh);
-  --lab-v2-sheet-fill: 0.46;
-  --lab-v2-sheet-fill-top: 0.55;
+  --lab-v2-sheet-fill: 0.9;
+  --lab-v2-sheet-fill-top: 0.95;
   --lab-v2-well: rgba(251, 248, 242, 0.42);
   --lab-v2-track: rgba(32, 26, 19, 0.14);
   --lab-v2-track-fill: rgba(32, 26, 19, 0.45);
@@ -5709,8 +5709,8 @@
 }
 
 .lab[data-chrome-version="v2"].is-night {
-  --lab-v2-sheet-fill: 0.52;
-  --lab-v2-sheet-fill-top: 0.61;
+  --lab-v2-sheet-fill: 0.9;
+  --lab-v2-sheet-fill-top: 0.95;
   --lab-v2-well: rgba(58, 52, 44, 0.42);
   --lab-v2-track: rgba(250, 246, 238, 0.16);
   --lab-v2-track-fill: rgba(250, 246, 238, 0.5);

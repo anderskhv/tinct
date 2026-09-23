@@ -29,8 +29,8 @@ export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'edi
 export const LAB_V2_SHEET_HEIGHT_PX = 452
 
 /** The sheets take more fill than the menu: they carry more, and smaller, type. */
-export const LAB_SHEET_FILL_PAPER = 0.46
-export const LAB_SHEET_FILL_NIGHT = 0.52
+export const LAB_SHEET_FILL_PAPER = 0.9
+export const LAB_SHEET_FILL_NIGHT = 0.9
 
 /** Reading settings offers three themes. "Match system" is not one of them. */
 export const LAB_V2_THEMES: Array<{ theme: LabTheme; label: string }> = [
