@@ -53,3 +53,14 @@ Sources: `R1-fidelity-book07.md` (0 blocking, 11 minor, 3 ambiguity) and `R1-acc
 New small glosses in this book: "purple dye" (7.14); "(eu, good; daemon, divine spirit)" (7.16), the lexical split that makes Long's own pun visible; "the l to an r" (7.12) makes Long's "[using the letter r]" audible.
 
 All changed passages sent for independent re-verification (`R1-reverify-book07.md`).
+
+## After re-verification R1 (`R1-reverify-book07.md`: 28 clean, 2 defects)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 7.50 | quotation marks do not help a listener; first verse line still a fragment | Applied verifier's text: "With food and drink and cunning magic the stream's course is turned aside, to escape from death." Quotation marks removed so that 7.50 matches the other unquoted verse sections (7.37–7.41, 7.49), as Long prints them |
+| 7.23 | rejected blocking finding: "even" had nothing to attach to | Applied verifier's text: "For if the awareness of doing wrong dies out too, what reason is left for living any longer?" (unexplained step itself stays, logged) |
+| 7.13 | optional echo | Not applied |
+| 7.57 | typography | Ellipsis normalised to "..." |
+
+Included in the final whole-book re-verification pass.
