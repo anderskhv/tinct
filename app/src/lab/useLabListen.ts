@@ -134,6 +134,12 @@ function defaultCreateAudio(): HTMLAudioElement {
 
 export function useLabListen(options: UseLabListenOptions) {
   const [playing, setPlaying] = useState(false)
+  const [pending, setPendingState] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const pendingRef = useRef(false)
+  const loadingTimerRef = useRef<ReturnType<typeof setTimeout>>()
+  const loadingDeadlineRef = useRef<ReturnType<typeof setTimeout>>()
+  const retryPlaybackRef = useRef<() => void>(() => {})
   useEffect(() => playing ? acquireBrowserAudioSession('playback') : undefined, [playing])
   const [follow, setFollow] = useState<FollowTarget>({ kind: 'none' })
   const [src, setSrc] = useState<string | null>(null)
@@ -170,6 +176,34 @@ export function useLabListen(options: UseLabListenOptions) {
   const optionsRef = useRef(options)
   optionsRef.current = options
   paragraphsRef.current = followParagraphs
+
+  // Intent is cancellable immediately; delay only the spinner to avoid flashing
+  // between cached native clips. Neither preparation nor play() completion may
+  // revive a cancelled request.
+  const setPending = useCallback((value: boolean) => {
+    if (pendingRef.current === value) return
+    pendingRef.current = value
+    setPendingState(value)
+    clearTimeout(loadingTimerRef.current)
+    clearTimeout(loadingDeadlineRef.current)
+    if (!value) { setLoading(false); return }
+    loadingTimerRef.current = setTimeout(() => setLoading(true), 150)
+    loadingDeadlineRef.current = setTimeout(() => {
+      pendingRef.current = false
+      setPendingState(false)
+      setLoading(false)
+      playRequestRef.current += 1
+      narrationRequestRef.current += 1
+      narrationAbortRef.current?.abort()
+      narrationAbortRef.current = null
+      if (audioRef.current) { audioRef.current.autoplay = false; audioRef.current.pause() }
+      playingRef.current = false
+      setPlaying(false)
+      narrationRetryRef.current = () => retryPlaybackRef.current()
+      setNarrationState({ status: 'error', paragraphIndex: clipsRef.current[clipIndexRef.current]?.kind === 'paragraph' ? (clipsRef.current[clipIndexRef.current] as Extract<LabAudioClip, { kind: 'paragraph' }>).index : 0,
+        message: 'Audio took too long to start. Try again.', reason: 'timeout' })
+    }, 45_000)
+  }, [])
 
   const audioChapter = () => optionsRef.current.chapterNumber ?? 1
   const audioEdition = () => optionsRef.current.audioEdition || 'kjv-en'
@@ -292,6 +326,7 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
     while (narrationRoundRef.current) {
       try { await narrationRoundRef.current } catch { /* reported by its own caller */ }
+      if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
     }
@@ -359,6 +394,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++narrationRequestRef.current
     const playRequest = playRequestRef.current
     const superseded = () => request !== narrationRequestRef.current || playRequest !== playRequestRef.current
+    setPending(true)
     setNarrationState({ status: 'loading', paragraphIndex: target.paragraphIndex })
     let outcome: NarrationOutcome = { ok: true }
     let polls = 0
@@ -379,6 +415,7 @@ export function useLabListen(options: UseLabListenOptions) {
     else if (outcome.ok) outcome = { ok: false, reason: 'unavailable' }
     if (!outcome.ok) {
       if (outcome.reason === 'cancelled') return
+      setPending(false)
       narrationRetryRef.current = () => { void prepareThenRun(target, resume) }
       setNarrationState({ status: 'error', paragraphIndex: target.paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
       try { audioRef.current?.pause() } catch { /* ignore */ }
@@ -388,7 +425,7 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     setNarrationState({ status: 'idle' })
     resume()
-  }, [ensureRound])
+  }, [ensureRound, setPending])
 
   /**
    * Keep roughly 45 seconds ready ahead of the actual playhead,
@@ -467,12 +504,13 @@ export function useLabListen(options: UseLabListenOptions) {
     clipsRef.current = []
     setClips([])
     if (!chapterHandoffRef.current) {
+      setPending(false)
       setSrc(null)
       playingRef.current = false
       setPlaying(false)
     }
     setFollow({ kind: 'none' })
-  }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice])
+  }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice, setPending])
 
   useEffect(() => {
     setFollowParagraphs((current) => {
@@ -523,6 +561,7 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
     const finishPlayback = () => {
+      setPending(false)
       try { audio.pause() } catch { /* ignore */ }
       audio.autoplay = false
       playingRef.current = false
@@ -579,15 +618,26 @@ export function useLabListen(options: UseLabListenOptions) {
       if (next < clipsRef.current.length) playClipRef.current(next, 0)
       else if (!optionsRef.current.onChapterComplete?.()) finishPlayback()
     }
+    const handlePlaying = () => {
+      if (!playingRef.current) {
+        // A late native start after cancellation must stay silent.
+        audio.autoplay = false
+        audio.pause()
+        return
+      }
+      if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
+    }
+    audio.addEventListener('playing', handlePlaying)
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
     audio.addEventListener('error', handleError)
     return () => {
+      audio.removeEventListener('playing', handlePlaying)
       audio.removeEventListener('timeupdate', handleTimeUpdate)
       audio.removeEventListener('ended', handleEnded)
       audio.removeEventListener('error', handleError)
     }
-  }, [syncFollow])
+  }, [setPending, syncFollow])
 
   const detachRef = useRef<(() => void) | null>(null)
 
@@ -619,6 +669,8 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playing, speed, syncFollow])
 
   useEffect(() => () => {
+    clearTimeout(loadingTimerRef.current)
+    clearTimeout(loadingDeadlineRef.current)
     playRequestRef.current += 1
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
@@ -637,7 +689,13 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++playRequestRef.current
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
-    if (!clip) return false
+    if (!clip) { setPending(false); return false }
+    setPending(andPlay)
+    if (andPlay) {
+      narrationRetryRef.current = null
+      setNarrationState({ status: 'idle' })
+      retryPlaybackRef.current = () => { playClipRef.current(index, offsetSeconds, true) }
+    }
     if (clip.kind === 'paragraph' && clip.narration && !clip.url) {
       // On-demand narration: prepare this sentence group, then play it for
       // real. The clock starts over here so the previous clip's end time
@@ -706,6 +764,7 @@ export function useLabListen(options: UseLabListenOptions) {
     ).then(started => {
       if (!requestIsCurrent(request) || audio.src !== expectedSrc) return
       switchingRef.current = false
+      setPending(false)
       if (started) {
         chapterHandoffRef.current = false
         applyRate(audio, speed)
@@ -716,9 +775,14 @@ export function useLabListen(options: UseLabListenOptions) {
       chapterHandoffRef.current = false
       setPlaying(false)
       setFollow({ kind: 'none' })
+      audio.autoplay = false
+      narrationAbortRef.current?.abort()
+      narrationRetryRef.current = () => retryPlaybackRef.current()
+      setNarrationState({ status: 'error', paragraphIndex: clip.kind === 'paragraph' ? clip.index : 0,
+        message: narrationFailureMessage('playback'), reason: 'playback' })
     })
     return true
-  }, [applyRate, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
+  }, [setPending, applyRate, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
   playClipRef.current = playClip
 
   const playPlace = useCallback((
@@ -865,20 +929,52 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [commitFollowParagraphs, rebuildNarrationClips])
 
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
-    if (optionsRef.current.playbackUnavailable) return false
+    if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     const request = ++playRequestRef.current
-    const clips = await resolveClips()
-    if (!requestIsCurrent(request) || clips.length === 0) return false
-    return playPlace(clips, place, true, true)
-  }, [playPlace, resolveClips])
+    setPending(true)
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+    retryPlaybackRef.current = () => { void start(place) }
+    try {
+      const clips = await resolveClips()
+      if (request !== playRequestRef.current) return false
+      if (clips.length === 0) throw new Error('No audio available')
+      return playPlace(clips, place, true, true)
+    } catch {
+      if (request !== playRequestRef.current) return false
+      setPending(false)
+      playingRef.current = false
+      setPlaying(false)
+      narrationRetryRef.current = () => retryPlaybackRef.current()
+      setNarrationState({ status: 'error', paragraphIndex: place?.paragraphIndex ?? 0,
+        message: 'Audio could not start. Try again.', reason: 'network' })
+      return false
+    }
+  }, [playPlace, resolveClips, setPending])
 
   const startAtPlace = useCallback(async (place: { paragraphIndex: number; wordIndex?: number }) => {
-    if (optionsRef.current.playbackUnavailable) return false
+    if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     const request = ++playRequestRef.current
-    const clips = await resolveClips()
-    if (!requestIsCurrent(request) || clips.length === 0) return false
-    return playPlace(clips, place, true, false)
-  }, [playPlace, resolveClips])
+    setPending(true)
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+    retryPlaybackRef.current = () => { void startAtPlace(place) }
+    try {
+      const clips = await resolveClips()
+      if (request !== playRequestRef.current) return false
+      if (clips.length === 0) throw new Error('No audio available')
+      return playPlace(clips, place, true, false)
+    } catch {
+      if (request !== playRequestRef.current) return false
+      setPending(false)
+      playingRef.current = false
+      setPlaying(false)
+      narrationRetryRef.current = () => retryPlaybackRef.current()
+      setNarrationState({ status: 'error', paragraphIndex: place?.paragraphIndex ?? 0,
+        message: 'Audio could not start. Try again.', reason: 'network' })
+      return false
+    }
+  }, [playPlace, resolveClips, setPending])
 
   const seekToPlace = useCallback((paragraphIndex: number, wordIndex: number) => {
     const clips = clipsRef.current
@@ -887,6 +983,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playPlace, playing])
 
   const pause = useCallback(() => {
+    setPending(false)
     chapterHandoffRef.current = false
     playRequestRef.current += 1
     narrationRequestRef.current += 1
@@ -898,10 +995,10 @@ export function useLabListen(options: UseLabListenOptions) {
     playingRef.current = false
     setPlaying(false)
     // Pause retains the verified last word; chapter/source changes still clear it.
-  }, [])
+  }, [setPending])
 
   const resume = useCallback((fromSentenceStart = false) => {
-    if (optionsRef.current.playbackUnavailable) return false
+    if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
     if (pendingPlaceRef.current) {
@@ -932,21 +1029,31 @@ export function useLabListen(options: UseLabListenOptions) {
         audio.currentTime = 0
       }
     }
+    setPending(true)
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+    retryPlaybackRef.current = () => { playClipRef.current(clipIndexRef.current, positionRef.current.time) }
+    playingRef.current = true
     applyRate(audio, speed)
     audio.play().then(() => {
       if (!requestIsCurrent(request)) return
+      setPending(false)
       applyRate(audio, speed)
       playingRef.current = true
       setPlaying(true)
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
     }).catch(() => {
       if (!requestIsCurrent(request)) return
+      setPending(false)
+      narrationRetryRef.current = () => retryPlaybackRef.current()
+      setNarrationState({ status: 'error', paragraphIndex: 0, message: narrationFailureMessage('playback'), reason: 'playback' })
       playingRef.current = false
       setPlaying(false)
     })
-  }, [applyRate, playClip, speed, start, syncFollow])
+  }, [applyRate, playClip, setPending, speed, start, syncFollow])
 
   const stop = useCallback(() => {
+    setPending(false)
     pendingPlaceRef.current = null
     chapterHandoffRef.current = false
     playRequestRef.current += 1
@@ -968,7 +1075,7 @@ export function useLabListen(options: UseLabListenOptions) {
     setPlaying(false)
     setFollow({ kind: 'none' })
     setSrc(null)
-  }, [])
+  }, [setPending])
 
   /** Preserve native media-session ownership while React loads the next chapter. */
   const handoffChapter = useCallback(() => {
@@ -1121,6 +1228,9 @@ export function useLabListen(options: UseLabListenOptions) {
     : follow
 
   return {
+    pending,
+    loading,
+    isPending: () => pendingRef.current,
     playing,
     follow: visibleFollow,
     followParagraphs,

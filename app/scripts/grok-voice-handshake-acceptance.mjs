@@ -5,7 +5,7 @@ import assert from 'node:assert/strict'
 
 const origin = 'https://tinct.app'
 const persona = process.env.VOICE_PERSONA === 'male' ? 'male' : 'female'
-const expectedVoice = persona === 'male' ? 'helios' : 'ursa'
+const expectedVoice = persona === 'male' ? 'helios' : 'ara'
 const verifyForceMessage = process.env.VERIFY_FORCE_MESSAGE === '1'
 const output = `artifacts/voice-capture/${persona}`
 await fs.mkdir(output, { recursive: true })
@@ -17,7 +17,7 @@ const browser = await chromium.launch({ headless: true, args: [
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, permissions: ['microphone'], serviceWorkers: 'block' })
 const page = await context.newPage()
 page.setDefaultTimeout(10_000)
-const report = { persona, expectedVoice, requestedVoice: null, sessionUpdated: false, verifyForceMessage, forceMessage: null, errors: [] }
+const report = { persona, expectedVoice, requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, verifyForceMessage, forceMessage: null, errors: [] }
 page.on('pageerror', error => report.errors.push(error.message))
 
 await page.addInitScript(({ persona }) => {
@@ -26,7 +26,7 @@ await page.addInitScript(({ persona }) => {
     kind: 'open-reader', bookId: 'notes-from-underground', primaryEditionKey: 'original-en',
     savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },
   }))
-  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false }
+  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false }
   const Native = WebSocket
   window.WebSocket = class extends Native {
     constructor(url, protocols) {
@@ -35,7 +35,7 @@ await page.addInitScript(({ persona }) => {
       this.addEventListener('message', event => {
         try {
           const message = JSON.parse(event.data)
-          if (message.type === 'session.updated') window.__voiceHandshake.sessionUpdated = true
+          if (message.type === 'session.updated') { window.__voiceHandshake.sessionUpdated = true; window.__voiceHandshake.acknowledgedVoice = message.session?.voice || null }
           if (window.__voiceHandshake.forcePending && (message.type === 'response.output_audio.delta' || message.type === 'response.audio.delta')) window.__voiceHandshake.forceAudioBytes += Math.floor(String(message.delta || '').length * 3 / 4)
           if (window.__voiceHandshake.forcePending && (message.type === 'response.output_audio_transcript.delta' || message.type === 'response.audio_transcript.delta')) window.__voiceHandshake.forceTranscript += message.delta || ''
           if (window.__voiceHandshake.forcePending && message.type === 'response.done') { window.__voiceHandshake.forceDone = true; window.__voiceHandshake.forcePending = false }
@@ -60,11 +60,12 @@ try {
   if (verifyForceMessage) await page.getByTestId('lab-call-mute').click()
   await page.waitForFunction(expected => {
     const evidence = window.__voiceHandshake
-    return evidence?.requestedVoice === expected && evidence.sessionUpdated === true
+    return evidence?.requestedVoice === expected && evidence.sessionUpdated === true && evidence.acknowledgedVoice === expected
   }, expectedVoice, { timeout: 30_000 })
-  Object.assign(report, await page.evaluate(() => ({ requestedVoice: window.__voiceHandshake.requestedVoice, sessionUpdated: window.__voiceHandshake.sessionUpdated })))
+  Object.assign(report, await page.evaluate(() => ({ requestedVoice: window.__voiceHandshake.requestedVoice, sessionUpdated: window.__voiceHandshake.sessionUpdated, acknowledgedVoice: window.__voiceHandshake.acknowledgedVoice })))
   assert.equal(report.requestedVoice, expectedVoice)
   assert.equal(report.sessionUpdated, true)
+  assert.equal(report.acknowledgedVoice, expectedVoice)
   if (verifyForceMessage) {
     await page.evaluate(line => {
       const evidence = window.__voiceHandshake

@@ -3,7 +3,7 @@ import type { VoiceReaderContext } from './types'
 /** xAI native speech-to-speech. Rollback: revert the Grok commit; the OpenAI Worker secret stays in place. */
 export const GROK_VOICE_MODEL = 'grok-voice-latest'
 export const GROK_REALTIME_URL = 'wss://api.x.ai/v1/realtime'
-export const GROK_VOICES = { female: 'ursa', male: 'helios' } as const
+export const GROK_VOICES = { female: 'ara', male: 'helios' } as const
 /** Default for callers that have not yet supplied the shared preference. */
 export const GROK_VOICE = GROK_VOICES.female
 export type GrokVoicePersona = keyof typeof GROK_VOICES
