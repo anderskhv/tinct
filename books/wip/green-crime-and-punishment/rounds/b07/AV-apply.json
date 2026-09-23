@@ -1,0 +1,119 @@
+[
+ {
+  "chapter": 21,
+  "paragraph": 27,
+  "old": "No, I'm only wondering that you're too adaptable.",
+  "new": "No, I'm only surprised that you're too adaptable a man.",
+  "category": "verify-syntax",
+  "blocking": false,
+  "reason": "'wondering that you're' is ungrammatical/archaic; source 'I am only wondering at your being too adaptable a man' means surprise, and the restored 'a man' was still missing."
+ },
+ {
+  "chapter": 21,
+  "paragraph": 35,
+  "old": "or progress, maybe, perhaps",
+  "new": "or even progress, maybe",
+  "category": "verify-hesitation",
+  "blocking": false,
+  "reason": "Source 'or progress, indeed, maybe' has one hedge; 'indeed' is an intensifier ('even'), not a second hedge. 'maybe, perhaps' doubles the uncertainty and reads as a stutter the source does not have."
+ },
+ {
+  "chapter": 21,
+  "paragraph": 122,
+  "old": "instead of traveling",
+  "new": "instead of the journey",
+  "category": "verify-meaning",
+  "blocking": false,
+  "reason": "Source: 'Perhaps I'll get married instead of the journey.' 'The journey' is Svidrigaïlov's code word for suicide, echoed in 21.101, 21.121 and this paragraph's opening; 'traveling' breaks the motif."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 0,
+  "old": "a conceit that bordered on smug foolishness",
+  "new": "a conceit carried to the point of smug foolishness",
+  "category": "verify-certainty",
+  "blocking": false,
+  "reason": "'smug foolishness' is a fair rendering of 'fatuity', but source says 'a conceit to the point of fatuity' (it reached it); 'bordered on' (kept from baseline) softens the narrator's judgement."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 0,
+  "old": "all sorts of schemes",
+  "new": "all sorts of devices",
+  "category": "verify-meaning",
+  "blocking": false,
+  "reason": "Source: 'by all sorts of devices'. 'schemes' adds an implication of dishonesty the source leaves open."
+ },
+ {
+  "chapter": 21,
+  "paragraph": 35,
+  "old": "the Dussauts,",
+  "new": "restaurants like Dussaut's,",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "'the Dussauts' sounds like a family; a listener cannot tell it is a fashionable restaurant. [verifier-modified: Need is real (reads as a family), but source 'Dussauts' is plural/generic; 'restaurants like Dussaut's' keeps that instead of naming one restaurant.]"
+ },
+ {
+  "chapter": 21,
+  "paragraph": 37,
+  "old": "thirty thousand silver",
+  "new": "thirty thousand in silver",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "'thirty thousand silver' reads as a slip; 'in silver' is the natural currency idiom."
+ },
+ {
+  "chapter": 21,
+  "paragraph": 68,
+  "old": "Aniska can't make like this.",
+  "new": "Aniska can't make one like this.",
+  "category": "access-typo",
+  "blocking": true,
+  "reason": "A missing word makes the ghost's line ungrammatical."
+ },
+ {
+  "chapter": 22,
+  "paragraph": 69,
+  "old": "You say 'you or he,'",
+  "new": "You say 'you or him,'",
+  "category": "access-consistency",
+  "blocking": false,
+  "reason": "Luzhin quotes Dounia, but she said 'it's either you or him', so the quote does not match."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 17,
+  "old": "just to avoid borrowing from that man until he offered help.",
+  "new": "just to avoid borrowing from that man Luzhin until he offered help.",
+  "category": "access-reference",
+  "blocking": true,
+  "reason": "Coming right after the talk about Svidrigaïlov, 'that man' is misleading (she means Luzhin), and 'until he offered help' is muddled. [verifier-modified: Ambiguity after the Svidrigaïlov talk is real, but 'that man' carries her disdain and 'himself' is not in Garnett; keep 'that man' and add the name.]"
+ },
+ {
+  "chapter": 23,
+  "paragraph": 26,
+  "old": "in German—that had been a ploy",
+  "new": "in German. That had been a ploy",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "Too many dashes in a row make the sentence lose its thread when heard aloud."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 33,
+  "old": "I'll pawn the watch tomorrow",
+  "new": "I'll pawn your watch tomorrow",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "'the watch' is unanchored; it is Dounia's watch, mentioned earlier."
+ },
+ {
+  "chapter": 23,
+  "paragraph": 40,
+  "old": "Oh, I'm quite obliged to...",
+  "new": "Oh, I really have to...",
+  "category": "access-vocabulary",
+  "blocking": false,
+  "reason": "'quite obliged' sounds like thanks rather than necessity, which misleads the listener."
+ }
+]

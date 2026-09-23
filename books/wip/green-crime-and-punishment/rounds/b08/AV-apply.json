@@ -1,0 +1,65 @@
+[
+ {
+  "chapter": 24,
+  "paragraph": 61,
+  "old": "I'd really come chiefly to show",
+  "new": "I'd come chiefly to show",
+  "category": "verify-style",
+  "blocking": false,
+  "reason": "Restored 'chiefly' (source: \"I'd gone in chiefly to show\") now sits beside the baseline's 'really', giving a redundant 'really ... chiefly'. Drop 'really'; the source has only 'chiefly'."
+ },
+ {
+  "chapter": 25,
+  "paragraph": 0,
+  "old": "at eleven o'clock sharp the next morning he was surprised",
+  "new": "at eleven o'clock sharp the next morning, he was surprised",
+  "category": "verify-punctuation",
+  "blocking": false,
+  "reason": "Removing ', as requested,' also removed the comma that closed the long 'When...' clause; restore it so the main clause is clear."
+ },
+ {
+  "chapter": 24,
+  "paragraph": 103,
+  "old": "but that very uniqueness, her trace of education",
+  "new": "but the very things that set her apart, her trace of education",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "Right after 'not unique or even infrequent', 'that very uniqueness' sounds self-contradictory to a listener."
+ },
+ {
+  "chapter": 24,
+  "paragraph": 149,
+  "old": "\"I'll become one myself soon! It's contagious!\"",
+  "new": "\"I'll become one myself soon! It's contagious!\" he thought.",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The line has no speaker tag, so a listener cannot tell that it is Raskolnikov's private thought rather than something Sonia says aloud."
+ },
+ {
+  "chapter": 24,
+  "paragraph": 202,
+  "old": "She's mad and consumptive",
+  "new": "Katerina Ivanovna is mad and consumptive",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Coming right after 'if you're really taken to the hospital', 'She' could be heard as Sonia herself."
+ },
+ {
+  "chapter": 25,
+  "paragraph": 36,
+  "old": "the old Austrian _Hofkriegsrath_",
+  "new": "the old Austrian war council, the _Hofkriegsrath_",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The German term is opaque when heard, and 'war council' lets the Napoleon and General Mack joke land."
+ },
+ {
+  "chapter": 25,
+  "paragraph": 36,
+  "old": "don't consider that 'when they overstep all obstacles,' as you put it so wittily yesterday.",
+  "new": "don't take that into account when they 'overstep all obstacles,' as you put it so wittily yesterday.",
+  "category": "access-syntax",
+  "blocking": true,
+  "reason": "As written, the sentence breaks off: 'don't consider that' leads into a clause that is never finished, so it sounds ungrammatical."
+ }
+]
