@@ -1,4 +1,6 @@
-# English Audio Backlog Pipeline
+# Historical English Audio Backlog Pipeline
+
+> **Superseded for current releases — 23 September 2026.** This is a historical Kokoro/RunPod operations record, not the current narration plan or permission to launch jobs. Accepted text repairs publish with required character-card compatibility and are not blocked on these recordings/manifests. Follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md) for the separately approved Grok migration, generation limits and rollback/cleanup sequence. Preserve the historical commands below as evidence; do not run them from a text-release task.
 
 Current local audit source: `python3 english_audio_backlog.py --summary`
 

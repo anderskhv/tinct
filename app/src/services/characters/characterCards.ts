@@ -58,7 +58,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'heart-of-darkness': { editions: EN, revision: '2026-09-11.2' },
   'hume-enquiry': { editions: EN, revision: '2026-09-11.2' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
-  'jekyll-and-hyde': { editions: EN, revision: '2026-09-11.2' },
+  'jekyll-and-hyde': { editions: EN, revision: '2026-09-23.2' },
   'julius-caesar': { editions: EN, revision: '2026-09-23.1' },
   'jungle-book': { editions: EN, revision: '2026-09-11.2' },
   'king-lear': { editions: EN, revision: '2026-09-11.2' },
@@ -83,7 +83,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   utilitarianism: { editions: EN, revision: '2026-09-11.2' },
   werther: { editions: EN, revision: '2026-09-11.2' },
   // 2026-09-12.1 — novels and prose works
-  frankenstein: { editions: EN, revision: '2026-09-12.1' },
+  frankenstein: { editions: EN, revision: '2026-09-23.2' },
   'pride-and-prejudice': { editions: EN, revision: '2026-09-12.1' },
   'jane-eyre': { editions: EN, revision: '2026-09-12.1' },
   'great-expectations': { editions: EN, revision: '2026-09-12.1' },

@@ -30,12 +30,16 @@ Canonical new-book flow:
 2. Claude parses the original text. For non-English works, keep the original-language text when available.
 3. Claude adds a public-domain human English translation for non-English originals.
 4. Claude creates `modern-en`.
-5. Audio is generated after text QA: Kokoro/RunPod for English editions.
-6. Codex publishes the book only after all required content, audio, onboarding, taxonomy, and registry data are present.
+5. Hand off accepted text with exact hashes, review evidence and character-card impact. For approved repairs to published editions, Codex publishes the text with required character compatibility; legacy Kokoro audio or manifests are not a release prerequisite.
+6. New-book registry publication still requires its agreed content, onboarding, taxonomy and runtime availability contract. Audio work is separately scoped under the current [audiobook architecture](audiobook-architecture-2026-09-21.md); a text repair does not authorize synthesis or provider changes.
 
 Generated files such as `app/public/sitemap.xml` and `app/src/data/bookMetaGenerated.ts` should be committed only with content/library changes that require them.
 
 ## Audio Work
+
+**Current policy — 23 September 2026:** the Kokoro/RunPod backlog is historical, not the current English production plan or a text-publication gate. Follow [Audiobook architecture](audiobook-architecture-2026-09-21.md) for the separately approved Grok migration. The Frankenstein/Jekyll text release includes no GPU/TTS generation, audio regeneration or voice changes. Existing assets remain available for rollback until migration acceptance and an exact cleanup inventory; do not infer permission for destructive deletion from a text release.
+
+The paths and credential notes below describe retained legacy tooling, not commands to resume it.
 
 Use for local audits, RunPod generation, and R2 audio uploads.
 

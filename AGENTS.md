@@ -145,30 +145,33 @@ over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
   from `app/`. Headless, fake microphone, muted output. Against production use
   `https://tinct.app`. Mocked tests alone do not prove the provider connection.
 
-## Narration (Fish Audio pilot)
+## Narration and text publication
 
-On-demand narration through Fish Audio for readers who open
-`/reader?narration=fish`, on the featured shelf (16 books), English editions,
-every chapter; everyone else keeps the Kokoro recordings. Design, measurements,
-reviews and the release record are in `docs/fish-audio-pilot-2026-09-18.md`.
+The authoritative runtime and approved next rollout are documented separately in
+[Audio architecture](docs/audiobook-architecture-2026-09-21.md). As inspected on
+23 September, current main selects Google on-demand narration with retained
+Bella paths; the Grok audiobook migration is approved, not yet deployed.
 
-- Worker routes under `/api/narration/*` (`app/src/worker/routes/narration.ts`);
-  pure core in `app/src/narration/narrationCore.ts`. Fish is reached only with
-  the Worker secret `FISH_AUDIO_API_KEY`; `NARRATION_ADMIN_TOKEN` gates the warm
-  route. Neither goes in browser assets, the repo or logs.
-- Audio is synthesised per sentence group (≤300 chars), validated, then cached
-  content-addressed in R2 under `narration/fish/`. Identity = text + model +
-  voice + settings; a text change never plays stale audio. Chunker and cache
-  versions are pinned in `narrationCore.ts`; bumping either is a new cache.
-- Voices, model, scope and the daily/monthly text-byte ceilings are Worker
-  vars (`NARRATION_*` in `wrangler.jsonc`). Raise a ceiling there, not in code.
-- Pre-generate a chapter from `app/`:
-  `node scripts/narration-warm.mjs --chapter N --voices a,b [--books …] [--first N]`
-  with `NARRATION_ADMIN_TOKEN` in `app/.env`. Safe to re-run; cached chunks cost
-  nothing. Chapter 1 of the shelf is ≈700k characters per voice (≈$10.5).
-- Silent acceptance with an in-page provider mock:
-  `node scripts/check-narration-pilot.mjs` (muted, headless). Unit tests cover
-  the core, the Worker route, the reader hook and the prefetch.
+- Accepted text repairs ship with required character-card compatibility. Legacy
+  Kokoro recordings, manifests and timing regeneration are not release
+  prerequisites. A text-only release does not authorize GPU/TTS spend or voice
+  changes.
+- The separately approved Grok rollout uses Ara/Helios defaults and optional
+  Orion/Eve, with five-minute openings in the two defaults for the ten exact
+  books/default English editions in the architecture plan. Talk voices are a
+  separate contract and remain unchanged.
+- Preserve exact text/provider/model/voice/settings cache identity, timing
+  validation, shared reuse, bounded scheduling, deduplication and spending
+  ceilings. Follow the approved Play-only scheduling and preparation limits.
+- Do not resume a Kokoro/RunPod backlog from historical notes. Retire legacy
+  selection paths only through the approved migration; retain assets for
+  rollback until acceptance and an exact cleanup inventory.
+- Keep credentials in Worker/GitHub secrets and never print them. Real-provider
+  generation and smoke checks require the audio task's explicit scope and budget;
+  the authorized text release itself performs none.
+- Historical Fish pilot and Kokoro documents remain evidence, not current
+  provider or publication instructions. Follow the root cloud-first release
+  and isolated, muted browser verification rules.
 
 ## Reader And Position Invariants
 

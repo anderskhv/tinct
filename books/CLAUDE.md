@@ -99,9 +99,8 @@ publishable per `wip_inventory.py`, unless Anders directs otherwise.
    "real" does not substitute for a passing gate.
 6. Create onboarding content and threads when appropriate.
 7. Run QA: JSON validity, paragraph alignment, truncation checks, and manual spot reads.
-8. Generate audio only after text QA passes:
-   Kokoro/RunPod for English editions.
-9. Hand off to Codex for final publication once all content, audio, onboarding, taxonomy, and registry data are ready.
+8. Hand off accepted text with exact hashes, whole-book review evidence, changed paragraph coordinates and character-card impact. Do not prescribe legacy Kokoro regeneration in release packets.
+9. Codex publishes approved text repairs with required character-card compatibility. New-book registry publication still follows the agreed package and runtime availability contract; audio work is separately scoped.
 
 ## Source Rules
 
@@ -175,22 +174,11 @@ Paragraph alignment is sacred. If alignment breaks, stop and fix alignment befor
 
 ## Audio Rules
 
-- English audio uses Kokoro.
-- Do not mix engines.
-- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`.
-- Regenerate audio if text changes after audio generation.
-- R2 uploads must use the remote Cloudflare target, not a local emulator.
+**Updated 23 September 2026:** legacy Kokoro recordings and manifests are not a prerequisite for publishing accepted text repairs. The Frankenstein/Jekyll release is text plus required character compatibility only: no GPU/TTS generation, audio regeneration or voice changes.
 
-RunPod still exports a variable named `CLOUDFLARE_API_TOKEN` because `run-kokoro-cloud.py` expects that name, but the value must be the R2 upload token, not the app deploy token.
+Follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md) for the separately approved Grok migration and its exact scope. Audio reuse must match approved text/provider/model/voice/settings identity. Do not resume the old RunPod backlog from historical instructions, infer new spend from a text edit, or delete legacy objects before migration acceptance and a reviewed inventory.
 
-For production English audio backlog decisions, use:
-
-```bash
-cd /Users/andershvelplund/Documents/Projects/Tinct/books
-python3 r2_missing_english_audio.py --scope all --runpod-command
-```
-
-That script is the source of truth for RunPod jobs. Avoid hand-assembled long RunPod commands unless they were produced by that script.
+Release packets must distinguish current release requirements from historical audio observations. Record paragraph changes for current cache/synchronization handling without requiring retired-engine regeneration.
 
 ## Registry And Publishing
 
@@ -203,7 +191,7 @@ Every production book must include:
 - paragraph alignment across editions
 - no stubs or untranslated scaffold content
 - no textual apparatus/stub chapters or polluted scene titles
-- required Kokoro audio generated, manifested, uploaded, and verified
+- runtime narration availability follows the agreed current architecture; text repairs are not blocked on legacy Kokoro regeneration
 - onboarding
 - taxonomy: House, shelves, form, era, and relevant canon/list metadata
 - correct registry entry and edition flags

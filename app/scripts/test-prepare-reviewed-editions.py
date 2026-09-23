@@ -39,6 +39,13 @@ class ReanchorTests(unittest.TestCase):
         self.assertEqual(snapshot["body"], "Existing reviewed prose.")
         self.assertEqual(snapshot["name"], "Existing name")
 
+    def test_strict_release_does_not_invent_changed_epithet_mapping(self):
+        old, asset = fixture("the creature spoke.", "the creature", ("the fiend",))
+        new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["the fiend spoke."]}]}).encode()
+        output, report = module.reanchor(asset, old, new, "new", allow_alias_changes=False)
+        self.assertEqual(output["editions"]["modern-en"]["mentions"], [])
+        self.assertEqual(report["droppedMentions"][0]["reason"], "changed mention text lacks explicit mapping approval")
+
     def test_unreviewed_replacement_is_omitted_instead_of_guessed(self):
         old, asset = fixture("John spoke.", "John")
         new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["James spoke."]}]}).encode()
@@ -52,6 +59,17 @@ class ReanchorTests(unittest.TestCase):
         output, report = module.reanchor(asset, old, new, "new")
         self.assertEqual(output["editions"]["modern-en"]["mentions"][0]["text"], "Antony")
         self.assertEqual(report["droppedMentions"], [])
+
+    def test_relocated_proper_name_preserves_identity_and_utf16(self):
+        old, new = "Poole led him.", "😀 He was led by Poole."
+        mention = {"text": "Poole", "characterId": "poole", "startOffset": 0, "endOffset": 5}
+        self.assertEqual(module.unchanged_name_span(old, new, mention, {"Poole": {"poole"}}), (17, 22))
+        self.assertIsNone(module.unchanged_name_span(old, new, mention, {"Poole": {"poole", "someone-else"}}))
+        self.assertIsNone(module.unchanged_name_span(old, new + " Poole", mention, {"Poole": {"poole"}}))
+
+    def test_changed_epithet_cannot_use_name_relocation(self):
+        mention = {"text": "the creature", "characterId": "creature", "startOffset": 0, "endOffset": 12}
+        self.assertIsNone(module.unchanged_name_span("the creature spoke.", "the fiend spoke.", mention, {"the creature": {"creature"}}))
 
     def test_duplicate_names_keep_their_instance(self):
         text, new = "Antony met Antony.", "Antonius met Antony."

@@ -2,7 +2,7 @@
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
-Last updated: 2026-09-21
+Last updated: 2026-09-23
 
 Use this as the quick overview before opening Claude, Codex, or RunPod. Keep it short and current. Git history keeps the detailed record.
 
@@ -24,7 +24,11 @@ python3 books/wip_inventory.py --audio
 
 Translation instructions and publication requirements now cover English editions only. Retired language-specific guides are recoverable in Git history. Existing texts, audio, schemas and runtime language support are untouched. Historical snapshots below are not a fresh status verification; use current-file checks. The next content-pipeline task is reconciling the approved modern-English review procedure.
 
-## Active Processes
+## Current release policy — 23 September 2026
+
+Accepted text repairs publish with required character-card compatibility. Legacy Kokoro audio/manifests do not block them. Text releases authorize no GPU/TTS generation, audio regeneration or voice changes. The separately approved [Grok audiobook rollout](docs/audiobook-architecture-2026-09-21.md) defines the four voices, five-minute/two-default-voice preparation for the ten approved books, Play-only on-demand scheduling and acceptance/cleanup sequence. It remains a plan until deployed evidence is recorded.
+
+## Historical process snapshot — not current jobs
 
 - RunPod: Kokoro audio batch may be active; verify from the pod or with `books/wip_inventory.py --audio`.
 - Claude: modern-English content repairs; confirm current assignments before starting.
@@ -76,10 +80,10 @@ Canonical book package:
 4. `modern-en` complete.
 5. Onboarding and threads added where appropriate.
 6. QA passed.
-7. Audio generated and verified.
-8. Codex publishes.
+7. Required character compatibility and current runtime availability verified; do not add a legacy Kokoro regeneration gate to text repairs.
+8. Codex publishes accepted text; separately scoped audio work follows the current architecture.
 
-Current WIP snapshot from `books/wip_inventory.py --audio`:
+Historical WIP snapshot (rerun the inventory before status decisions; old audio blockers below are not current text-release policy):
 
 - 22 unpublished/WIP books.
 - Closest: `treasure-island` has aligned editions, onboarding, and threads; remaining blockers are registry plus English audio and final text QA.
@@ -92,22 +96,9 @@ Current WIP snapshot from `books/wip_inventory.py --audio`:
 Claude should translate or editorially repair only exact assigned files/chapters.
 Codex owns inventory, publication readiness, registry, app verification, and deploy.
 
-### Audio / RunPod
+### Audiobook migration / Codex
 
-Owner: RunPod plus local audit scripts.
-
-Production backlog source of truth:
-
-```bash
-python3 books/wip_inventory.py --audio
-cd books && python3 r2_missing_english_audio.py --scope all --runpod-command
-```
-
-Rules:
-
-- Kokoro/RunPod for English editions.
-- RunPod `CLOUDFLARE_API_TOKEN` must be the R2 upload token, not the app deploy token.
-- Re-run the R2 audit after RunPod finishes.
+Follow [Audiobook architecture](docs/audiobook-architecture-2026-09-21.md), including the distinction between current deployed Google/retained-Bella behavior and the approved Grok rollout. Do not resume the legacy Kokoro/RunPod backlog or infer spend from a content repair. Preserve old assets for rollback until accepted migration and exact cleanup inventory.
 
 ### Publication / Codex
 
@@ -124,11 +115,11 @@ A book may move into public `BOOKS` only when:
 - audio flags match actual R2 coverage
 - app build and bundle verification pass
 
-## Bella word-sync repair — 2026-09-21
+## Historical Bella word-sync repair — 2026-09-21
 
 See [repair plan](docs/bella-word-sync-repair-plan-2026-09-21.md) and [execution evidence](docs/bella-word-sync-execution-2026-09-21.md). Anders authorized audio-data work without reader changes. The current non-modern English inventory has 846 chapters missing timings, 12 invalid timing files and 12 chapters without audio; historical voice identity is not proven per recording. A three-chapter cloud pilot produced one verified publication: Winter’s Tale original-en chapter 6, 179 words. Reader code, recordings and text were untouched; no app deployment or rented GPU job. Remaining repairs and modern-English retention decisions are open.
 
-## Next Actions
+## Historical next actions — superseded by current release policy
 
 1. Confirm Claude's current modern-English repair assignment, then verify JSON/structure/terms.
 2. Continue RunPod audio backlog and rerun `python3 books/wip_inventory.py --audio`.
