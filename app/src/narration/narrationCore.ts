@@ -34,22 +34,16 @@ export const NARRATION_PROVIDER: NarrationProvider = 'fish'
  * catalogue in; `narrationScope.test.ts` pins it to `LAB_POPULAR_BOOK_IDS`.
  */
 export const NARRATION_SCOPE_BOOK_IDS: readonly string[] = [
-  'odyssey',
-  'hamlet',
-  'the-republic',
-  'pride-and-prejudice',
-  'bible',
   'frankenstein',
-  'the-art-of-war',
-  'the-histories',
+  'odyssey',
+  'jekyll-and-hyde',
+  'pride-and-prejudice',
+  'meditations',
   'crime-and-punishment',
   'jane-eyre',
-  'meditations',
-  'moby-dick',
-  'divine-comedy',
-  'iliad',
-  'walden',
-  'frederick-douglass',
+  'the-prince',
+  'julius-caesar',
+  'candide',
 ]
 
 export const NARRATION_PILOT_SCOPE = {

@@ -1,3 +1,4 @@
+import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
 /**
  * Fish Audio narration pilot — Worker routes.
@@ -92,6 +93,8 @@ export type NarrationEnv = SupabaseEnv & {
 }
 
 export interface NarrationDeps {
+  /** Verified by the router, never accepted from request JSON. */
+  warmAuthorized?: boolean
   verifyUser: (env: NarrationEnv, request: Request) => Promise<{ id: string; email: string } | null>
   verifySiteAdmin: (env: NarrationEnv, request: Request) => Promise<boolean>
   checkRateLimit: (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -193,8 +196,10 @@ function positiveInt(value: string | undefined, fallback: number): number {
 
 export async function handleNarration(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
   const url = new URL(request.url)
+  const warmAuthorized = isWarmCaller(request, env) || await verifyReleaseWarmRequest(request, env.XAI_API_KEY, (deps.now || Date.now)())
+  deps = { ...deps, warmAuthorized }
   // Admin-only prepopulation can verify Grok before the public provider cutover.
-  if (request.headers.get('x-narration-provider') === 'grok' && isWarmCaller(request, env)) env = { ...env, NARRATION_PROVIDER: 'grok' }
+  if (request.headers.get('x-narration-provider') === 'grok' && warmAuthorized) env = { ...env, NARRATION_PROVIDER: 'grok' }
   const sub = url.pathname.replace(/^\/api\/narration\/?/, '')
   switch (sub) {
     case 'voices': return handleVoices(request, env)
@@ -457,7 +462,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   // Listing costs an edition parse, a prefix list and one R2 read per
   // paragraph, so it is throttled per address like the patch endpoint.
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!isWarmCaller(request, env) && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
+  if (!deps.warmAuthorized && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
@@ -562,7 +567,7 @@ async function recordProviderOutcome(kv: KVNamespace | undefined, now: number, o
 
 async function handleUsage(request: Request, env: NarrationEnv, deps: NarrationDeps): Promise<Response> {
   if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  if (!await deps.verifySiteAdmin(env, request)) return jsonResponse({ error: 'Forbidden' }, 403, request)
+  if (!deps.warmAuthorized && !await deps.verifySiteAdmin(env, request)) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
   const now = (deps.now || Date.now)()
   const keys = usageKeys(now)
@@ -846,7 +851,7 @@ interface EnsureRequestBody {
   voice?: string
   paragraphs?: Array<{ index?: number; textHash?: string; fromChunk?: number }>
   /** 'next': generate at most one missing chunk, then answer. 'all': everything missing, within the time budget. */
-  mode?: 'next' | 'all'
+  mode?: 'next' | 'all' | 'cache'
   /** Initial speculative target. The Worker stops after reaching this much ready audio. */
   targetSeconds?: number
 }
@@ -858,7 +863,7 @@ type EnsureParagraphResult =
 
 async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'prepare' | 'warm'): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  if (caller === 'warm' && !isWarmCaller(request, env)) return jsonResponse({ error: 'Forbidden' }, 403, request)
+  if (caller === 'warm' && !deps.warmAuthorized) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
   if (config.provider === 'grok' && !env.NARRATION_COORDINATOR) return jsonResponse({ error: 'Narration coordinator unavailable' }, 503, request)
   if (!config.enabled || !env.AUDIO_BUCKET || (config.provider === 'grok' ? !env.XAI_API_KEY : config.provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY)) {
@@ -882,7 +887,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const editionKey = typeof body.editionKey === 'string' ? body.editionKey : ''
   const chapter = typeof body.chapter === 'number' ? body.chapter : NaN
   const voiceKey = typeof body.voice === 'string' ? body.voice : ''
-  const mode: 'next' | 'all' = body.mode === 'all' ? 'all' : 'next'
+  const mode: 'next' | 'all' | 'cache' = body.mode === 'cache' ? 'cache' : body.mode === 'all' ? 'all' : 'next'
   const targetSeconds = caller === 'prepare'
     ? Math.max(30, Math.min(60, Number(body.targetSeconds) || 45))
     : Number.POSITIVE_INFINITY
@@ -916,7 +921,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
-  let generationDone = false
+  let generationDone = mode === 'cache'
   let preparedDuration = 0
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.

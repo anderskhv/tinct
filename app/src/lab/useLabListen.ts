@@ -286,6 +286,7 @@ export function useLabListen(options: UseLabListenOptions) {
    * same chunk; a caller that finds a round in flight awaits it.
    */
   const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean, fromChunks?: Record<number, number>): Promise<NarrationOutcome> => {
+    const generation = playRequestRef.current
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
     while (narrationRoundRef.current) {
@@ -293,6 +294,7 @@ export function useLabListen(options: UseLabListenOptions) {
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
     }
+    if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
     const signal = narrationSignal()
     const round = fromChunks ? narration.ensure(indexes, signal, 'next', fromChunks) : narration.ensure(indexes, signal, 'next')
     narrationRoundRef.current = round

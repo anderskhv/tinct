@@ -68,6 +68,13 @@ for (const [engine, name] of [[chromium,'chromium'],[webkit,'webkit']]) {
       for (const theme of ['light','dark']) {
         const state = await boot(browser,phone,'apology','original-en',1,{theme,fontSize,narrationEnabled:false})
         const {page,context,requests,errors} = state
+        await page.waitForFunction(()=>{
+          const book=document.querySelector('[data-testid="lab-book"]')
+          const wrap=document.querySelector('[data-testid="lab-page-wrap"]')
+          if(!book || !wrap || getComputedStyle(book).visibility!=='visible' || wrap.classList.contains('is-measuring-visible-page'))return false
+          const bottom=wrap.getBoundingClientRect().bottom
+          return [...book.querySelectorAll('[data-testid="lab-word"]')].every(e=>!e.getBoundingClientRect().width || e.getBoundingClientRect().bottom<=bottom+1)
+        },null,{timeout:30000})
         const geometry = await page.evaluate(() => {
           const root=document.querySelector('[data-testid="lab-root"]')
           const wrap=document.querySelector('.lab-page-wrap')

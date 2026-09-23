@@ -742,6 +742,13 @@ describe('Grok narration rollout', () => {
     expect(map.chunks.map((c:{index:number})=>c.index)).toEqual([0,last])
     expect(reservations).toHaveLength(2)
   })
+  it('cache-only reads never synthesize missing chunks', async () => {
+    const { h } = grokHarness()
+    const res = await ensure(h, {voice:'f',mode:'cache',paragraphs:[{index:4}]})
+    expect(res.json.generated).toBe(0)
+    expect(h.fish.calls).toHaveLength(0)
+    expect(res.json.paragraphs[0].status).toBe('pending')
+  })
   it('fails closed without the coordinator and never spends', async () => {
     const { h } = grokHarness(); h.env.NARRATION_COORDINATOR = undefined
     const res = await ensure(h, {voice:'f',paragraphs:[{index:0}]})

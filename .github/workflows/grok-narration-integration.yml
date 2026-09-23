@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 24.13.0
       - run: bash ../scripts/cloud-setup.sh
-      - run: npm test -- src/worker.narration.test.ts src/narration/ src/lab/useLabListen src/lab/labNarration.test.ts src/lab/labPrefs.test.ts src/lab/LabV2Sheet.test.tsx
+      - run: npm test
       - run: node scripts/check-narration-coordinator.mjs
       - name: Check warm credential availability
         env:
