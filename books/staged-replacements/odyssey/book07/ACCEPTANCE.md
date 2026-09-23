@@ -165,3 +165,8 @@ M-2, M-5 and M-10 belong to. See `book07/collisions.md`.
 * Ledger **A2** (Book 10's disposition) and **A4**(ii)/(iii) remain with the
   coordinator. **A4(ii) is now answered in the negative** — see the register in
   every `continuity.md` §H.1 and ledger **A5**.
+
+## Accessibility successor v3 (2026-09-23), now the accepted file
+
+`candidate-v3.json`, sha256 `59d8eed4af9b3d5a68b6725a2aed67d692efe7fcca074c328ab8d3beb0bcbbb3`: ¶6 "But he left a daughter" → "But Rhexenor left a daughter" (blocking; Butler's referent).
+This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.

@@ -1,0 +1,38 @@
+[
+  {
+    "book": 5,
+    "paragraph": 9,
+    "old": "yielded to him in a thrice-plowed fallow field",
+    "new": "yielded to him in a plowed field",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Thrice-plowed fallow field\" is a literal, obscure agricultural detail (ritual triple-plowing) that a general listener has no context for; it reads as odd and distracting rather than as the intended discreet euphemism, though the surrounding sentence (Zeus's jealousy, Iasion's death) still makes sense without it."
+  },
+  {
+    "book": 5,
+    "paragraph": 29,
+    "old": "as children rejoice when their dear father begins to get better after having borne sore affliction for a long time, sent him by some angry spirit, but the gods deliver him from evil, so was Odysseus thankful",
+    "new": "as children rejoice when a father struck down by some angry spirit's long affliction is finally delivered from it by the gods, so was Odysseus thankful",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "The dangling participial clause \"sent him by some angry spirit\" lands three clauses after its subject (\"affliction\"), so on a first listen it's unclear whether the spirit sent the father, the affliction, or something else; the simile has to be replayed to be understood, which breaks comprehension in audio."
+  },
+  {
+    "book": 5,
+    "paragraph": 33,
+    "old": "cling to the knees of your riverhood",
+    "new": "cling to your knees, river god",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "\"Riverhood\" is not a real English word (unlike \"godhood\" or \"knighthood\", there is no established sense of \"-hood\" attached to \"river\"); a listener has no way to parse it and it will register as a mistake rather than a coinage, stopping comprehension of Odysseus's prayer mid-line."
+  },
+  {
+    "book": 5,
+    "paragraph": 19,
+    "old": "She also gave him a sharp adze",
+    "new": "She also gave him a sharp hand axe for shaping wood",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Adze\" is an obscure tool name (and an unusual spelling/sound) most general listeners won't recognize; the raft-building narrative continues to make sense without knowing exactly what it is, but the word itself is a stumble."
+  }
+]

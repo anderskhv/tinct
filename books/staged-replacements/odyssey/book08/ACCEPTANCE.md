@@ -246,3 +246,8 @@ invisible to it by construction. Only meeting a new name exposes it.
 MOVE-GAP and every NORM RATE are unchanged, because none of them reads a
 token's identity. The accepted file's sha256 is unchanged.
 
+
+## Accessibility successor v3 (2026-09-23), now the accepted file
+
+`candidate-v3.json`, sha256 `b23e8b302ea09fbe5b7fcdbf4b8b6e3da473ac425842d4d3923f2bcd9666536c`: ¶16 "an hereditary" → "a hereditary".
+This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.

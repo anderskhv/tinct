@@ -151,3 +151,8 @@ Butler. `../PUNCTUATION.md` §2.
 
 `candidate-v3.json`, sha256 `081ff03c5605ac3bb16b0f0fe928434264603cbddbc28078790bdc3c58cd97b9`: title "Ulysses declares himself … story—-the Cicons" → "Odysseus declares himself … story—the Cicons" (Roman name left in the title; PG's stray "—-"). Paragraphs unchanged.
 Made in the whole-edition consistency pass (`../edition-review-2026-09-23/edition-consistency-edits.json`, with reasons) and independently verified **VERIFIED CLEAN** (`../edition-review-2026-09-23/edition-consistency-verify.md`).
+
+## Accessibility successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `62518c853316a36c2222266fce2db751b5109c651dbad57c89bf2c810ee5a375`: ¶25 "an auger, which two men … can keep on turning" → "an auger that two men … can keep turning" (blocking).
+This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.

@@ -1,0 +1,74 @@
+[
+  {
+    "book": 7,
+    "paragraph": 3,
+    "old": "The people here cannot abide strangers, and do not like men who come from somewhere else.",
+    "new": "The people here are wary of strangers at first, and do not much like men who come from somewhere else.",
+    "category": "consistency",
+    "blocking": false,
+    "reason": "Reads as a flat contradiction within this same chapter: moments later Alcinous and his household welcome Odysseus with extraordinary warmth, feed him, and offer their daughter's hand. A first-time listener has nothing to reconcile the two claims with."
+  },
+  {
+    "book": 7,
+    "paragraph": 5,
+    "old": "Periboea was the youngest daughter of Eurymedon, who at one time reigned over the giants, but he ruined his ill-fated people and lost his own life as well.",
+    "new": "Periboea was the youngest daughter of Eurymedon, king of the giants, whose recklessness destroyed his own people and cost him his life.",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The pronoun \"he\" and the string of unexplained names (Periboea, Eurymedon, the giants) pile up in one sentence with no anchor; a listener has to work to figure out who ruined whom."
+  },
+  {
+    "book": 7,
+    "paragraph": 6,
+    "old": "But he left a daughter, Arete, whom Alcinous married",
+    "new": "But Rhexenor left a daughter, Arete, whom his brother Alcinous later married",
+    "category": "reference",
+    "blocking": true,
+    "reason": "\"He\" is ambiguous (could be misread as Nausithous or Alcinous rather than the just-mentioned Rhexenor), and the unstated fact that Alcinous married his own niece is likely to stop a first-time listener cold with no clarification offered."
+  },
+  {
+    "book": 7,
+    "paragraph": 8,
+    "old": "where she entered the home of Erechtheus",
+    "new": "where she entered the home of Erechtheus, the legendary king of Athens",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Erechtheus is named with no context; a general listener won't know who this is or why Athena's stop there matters."
+  },
+  {
+    "book": 7,
+    "paragraph": 9,
+    "old": "the linen is so closely woven that it sheds oil",
+    "new": "the linen is so tightly woven that oil beads and runs right off it",
+    "category": "flow",
+    "blocking": false,
+    "reason": "Abrupt topic pivot mid-sentence (from the shuttle simile to a claim about the cloth) and an odd, under-explained image (\"sheds oil\") that a listener has to stop and puzzle over."
+  },
+  {
+    "book": 7,
+    "paragraph": 14,
+    "old": "who takes all well-disposed suppliants under his protection",
+    "new": "who watches over all who come here in good faith seeking help",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Suppliants\" is formal/archaic vocabulary a general listener may not recognize, and it recurs verbatim (see paragraph 15) without ever being explained."
+  },
+  {
+    "book": 7,
+    "paragraph": 15,
+    "old": "who is the protector of all well-disposed suppliants",
+    "new": "who protects all who come here in good faith seeking help",
+    "category": "consistency",
+    "blocking": false,
+    "reason": "Near-identical phrasing to paragraph 14's \"suppliants\" line repeated within a few lines; the repeated archaic term compounds the earlier flag rather than varying the language."
+  },
+  {
+    "book": 7,
+    "paragraph": 25,
+    "old": "even if it is a long way further off than Euboea. When my people took yellow-haired Rhadamanthus to see Tityus the son of Gaia, those of them who saw it told me it is the furthest place of any.",
+    "new": "even if it is a long way further off than Euboea, which my sailors once reached on a single day's voyage while ferrying a passenger there and back — by all accounts the furthest place anyone has sailed to.",
+    "category": "reference",
+    "blocking": true,
+    "reason": "Four unexplained proper nouns (Euboea, Rhadamanthus, Tityus, Gaia) land in two sentences with no context for who these figures are or why the anecdote proves anything; a first-time listener is likely to lose the thread of Alcinous's boast entirely."
+  }
+]

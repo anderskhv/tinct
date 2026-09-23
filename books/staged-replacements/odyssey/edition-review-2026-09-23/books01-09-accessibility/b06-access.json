@@ -1,0 +1,56 @@
+[
+  {
+    "book": 6,
+    "paragraph": 1,
+    "old": "the famous sea captain Dymas’s daughter",
+    "new": "the daughter of Dymas, a famous sea captain",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "Chained possessive (\"sea captain Dymas's daughter\") is hard to parse on first hearing — a listener may momentarily think 'Dymas' is the daughter's name or misparse who is famous."
+  },
+  {
+    "book": 6,
+    "paragraph": 8,
+    "old": "Just as the huntress Artemis goes out over the mountains of Taygetus or Erymanthus to hunt wild boars or deer, the wood nymphs, daughters of aegis-bearing Zeus, join in the sport along with her, and Leto is proud then to see her daughter stand a full head taller than the rest, and eclipse the loveliest among a whole bevy of beauties.",
+    "new": "Just as the huntress Artemis goes hunting wild boars or deer over the mountains of Taygetus or Erymanthus, with the wood nymphs at her side, and her mother Leto beams with pride to see her stand a full head taller than the rest, outshining every one of those lovely companions.",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Long embedded-clause simile naming Taygetus, Erymanthus, and Leto with no context; a first-time listener won't know these are mountains and Artemis's mother, and the sentence is overloaded to follow aloud."
+  },
+  {
+    "book": 6,
+    "paragraph": 11,
+    "old": "embrace her knees as a suppliant",
+    "new": "embrace her knees to beg for help",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Suppliant\" is an uncommon, formal word a general listener may not know; the gesture's meaning (a plea for mercy/help) isn't otherwise explained here."
+  },
+  {
+    "book": 6,
+    "paragraph": 12,
+    "old": "with a great many people after me",
+    "new": "with a great many companions in my company",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "\"People after me\" reads ambiguously as being chased/pursued, when it means he traveled accompanied by many people; likely to be misheard on first listen."
+  },
+  {
+    "book": 6,
+    "paragraph": 12,
+    "old": "Ogygian island",
+    "new": "the island of Ogygia",
+    "category": "reference",
+    "blocking": false,
+    "reason": "The adjectival form \"Ogygian\" is unexplained and easy to miss as a place name at all; a listener has no prior mention of Ogygia in this chapter to anchor it."
+  },
+  {
+    "book": 6,
+    "paragraph": 24,
+    "old": "daughter of aegis-bearing Zeus, unwearying, hear me now",
+    "new": "unwearying daughter of Zeus, hear me now",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "\"Unwearying\" is set off after the epithet clause so it reads as if it could modify Zeus rather than the goddess being addressed; also \"aegis-bearing\" is unexplained archaic vocabulary a listener won't parse."
+  }
+]

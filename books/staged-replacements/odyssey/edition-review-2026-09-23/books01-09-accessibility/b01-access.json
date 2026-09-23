@@ -1,0 +1,29 @@
+[
+  {
+    "book": 1,
+    "paragraph": 4,
+    "old": "who has charge of the depths of the sea and holds up the great columns that keep heaven and earth apart",
+    "new": "who, her father, has charge of the depths of the sea and holds up the great columns that keep heaven and earth apart",
+    "category": "reference",
+    "blocking": false,
+    "reason": "The relative clause 'who has charge of the depths...' is ambiguous between the goddess just mentioned and her father Atlas one clause earlier. As written, a first-time listener will likely (and incorrectly) attach the sea-and-pillars role to the goddess herself rather than to Atlas, muddying who does what."
+  },
+  {
+    "book": 1,
+    "paragraph": 7,
+    "old": "playing draughts in front of the house",
+    "new": "playing checkers in front of the house",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "'Draughts' is the British name for checkers; a contemporary American listener is likely to mishear/misparse it as 'drafts' (as in wind or documents) on first hearing, since the game sense of the word isn't part of everyday American usage. House style calls for American spelling/usage generally, and this is the clearer American term."
+  },
+  {
+    "book": 1,
+    "paragraph": 30,
+    "old": "chief of the Taphians",
+    "new": "king of the Taphians",
+    "category": "consistency",
+    "blocking": true,
+    "reason": "Athena-as-Mentes is introduced in paragraph 13 as 'king of the Taphians.' Here, in the same Book, Telemachus recaps the same figure as 'chief of the Taphians.' The title shifts for no story reason, which will read as a contradiction/inconsistency to an attentive listener tracking the same character across the chapter."
+  }
+]

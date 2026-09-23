@@ -1,0 +1,56 @@
+[
+ {
+  "book": 2,
+  "from": "candidate-v6.json",
+  "to": "candidate-v7.json",
+  "paragraph": 10,
+  "old": "he will take nothing by it",
+  "new": "he will gain nothing by it",
+  "reason": "Accessibility (b02-access #2): archaic idiom a listener can misparse; Butler's sense 'gain nothing'."
+ },
+ {
+  "book": 5,
+  "from": "candidate-v3.json",
+  "to": "candidate-v4.json",
+  "paragraph": 29,
+  "old": "as children rejoice when their dear father begins to get better after having borne sore affliction for a long time, sent him by some angry spirit, but the gods deliver him from evil, so",
+  "new": "as children rejoice when their dear father, who has long borne a sore affliction sent him by some angry spirit, begins to get better and the gods deliver him from evil, so",
+  "reason": "Accessibility BLOCKING (b05-access #1): the participle 'sent him by some angry spirit' stranded three clauses from 'affliction'. Reordered; every element of Butler's simile kept. Re-verification D2: 'and' (Butler's 'but'), not 'as', so no second as…so comparison."
+ },
+ {
+  "book": 6,
+  "from": "candidate-v3.json",
+  "to": "candidate-v4.json",
+  "paragraph": 12,
+  "old": "with a great many people after me",
+  "new": "with a great many people following me",
+  "reason": "Accessibility BLOCKING (b06-access #3): 'after me' heard as 'pursuing me'; Butler's 'much people after me' means followers."
+ },
+ {
+  "book": 7,
+  "from": "candidate-v2.json",
+  "to": "candidate-v3.json",
+  "paragraph": 6,
+  "old": "But he left a daughter, Arete,",
+  "new": "But Rhexenor left a daughter, Arete,",
+  "reason": "Accessibility BLOCKING (b07-access #2): 'he' could be heard as Alcinous; the referent Butler intends is named. The reviewer's added 'his brother … later' is not Butler and was not taken."
+ },
+ {
+  "book": 8,
+  "from": "candidate-v2.json",
+  "to": "candidate-v3.json",
+  "paragraph": 16,
+  "old": "we have an hereditary aptitude",
+  "new": "we have a hereditary aptitude",
+  "reason": "Accessibility (b08-access #3): American article usage (D9)."
+ },
+ {
+  "book": 9,
+  "from": "candidate-v3.json",
+  "to": "candidate-v4.json",
+  "paragraph": 25,
+  "old": "I kept turning it round and round as though I were boring a hole in a ship’s plank with an auger, which two men with a wheel and strap can keep on turning as long as they choose.",
+  "new": "I kept turning it round and round, as though I were boring a hole in a ship’s plank with an auger that two men with a wheel and strap can keep turning as long as they choose.",
+  "reason": "Accessibility BLOCKING (b09-access #6): trailing relative clause detached from 'auger'; now restrictive and attached. The reviewer's split into a new sentence was not needed."
+ }
+]

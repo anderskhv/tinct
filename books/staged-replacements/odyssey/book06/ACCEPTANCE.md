@@ -230,3 +230,8 @@ D17's sixty-word survival (1 of 7), the **D20** aligned growth gate (no sentence
 grown past 50 words; one grown into the 40s and reported), word ratio,
 per-paragraph length floor, D9, D12, whitespace, no paragraph byte-identical to
 Butler, and cross-Book compound drift clean over all six Books.
+
+## Accessibility successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `2c416c4028517f413963feb9a4e2adf58c1e17b910d78ded88f98589e6f890f0`: ¶12 "a great many people after me" → "following me" (blocking; Butler's "much people after me").
+This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.

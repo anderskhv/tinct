@@ -290,3 +290,7 @@ exactly once on each side, surviving verbatim outside the monotone alignment.
 **both** sides, so a semicolon and a period score the same and converting one
 into the other is worth exactly zero. It is what D19's count was for, and what
 D17's raw rate is worth once the bookkeeping is priced out.
+
+## Candidate-only accessibility review (2026-09-23)
+
+The Book's latest file was reviewed. No edit was applied, and every finding has a reason recorded in `../edition-review-2026-09-23/books01-09-accessibility/SCREENING.md`.

@@ -1,0 +1,56 @@
+[
+  {
+    "book": 4,
+    "paragraph": 8,
+    "old": "so long as I had stayed at home",
+    "new": "if only I had stayed at home",
+    "category": "flow",
+    "blocking": false,
+    "reason": "\"so long as\" normally signals a condition (\"provided that\"), but here it's used to mean \"if only\" — a listener's first parse (I'd rather have a third of my wealth, provided I'd stayed home) inverts the intended sense (I wish I'd stayed home instead of gaining this wealth) and forces a re-read."
+  },
+  {
+    "book": 4,
+    "paragraph": 15,
+    "old": "the son of bright Dawn",
+    "new": "Memnon, son of the Dawn goddess",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Antilochus's killer is named only by a periphrasis a first-time listener has no way to decode; the sentence tells us someone specific killed him but withholds who, which reads as a dropped antecedent rather than a deliberate epithet."
+  },
+  {
+    "book": 4,
+    "paragraph": 33,
+    "old": "Halosydne’s chickens, as they call them",
+    "new": "the sea goddess's brood, as sailors call them",
+    "category": "reference",
+    "blocking": false,
+    "reason": "\"Halosydne\" is never introduced elsewhere in the book, so the aside names an unfamiliar figure and calls seals her \"chickens\" with no context for the joke/epithet, which stalls a listener mid-sentence."
+  },
+  {
+    "book": 4,
+    "paragraph": 44,
+    "old": "even though Orestes has been beforehand with you in killing him",
+    "new": "even though Orestes has beaten you to killing him",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Been beforehand with you\" meaning \"gotten there before you did\" is a period construction that a modern ear is likely to mishear or fail to parse on first listen."
+  },
+  {
+    "book": 4,
+    "paragraph": 71,
+    "old": "bound the oars to the thole pins with twisted thongs of leather",
+    "new": "lashed the oars to the oarlocks with twisted leather thongs",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Thole pins\" is obscure nautical vocabulary a general listener won't recognize; the action (securing oars for rowing) is clear enough from context but the specific term adds unnecessary friction."
+  },
+  {
+    "book": 4,
+    "paragraph": 73,
+    "old": "the hole through which the thong went for pulling the door to",
+    "new": "the hole where the latch-thong ran, used to pull the door shut",
+    "category": "archaic",
+    "blocking": false,
+    "reason": "\"Pulling the door to\" (archaic adverbial \"to\" meaning \"closed\") reads as an incomplete sentence to modern ears expecting \"to [something]\"; combined with unexplained door-latch mechanics, it's an awkward stumble for a listener."
+  }
+]

@@ -258,3 +258,8 @@ exactly once on each side, surviving verbatim outside the monotone alignment.
 **both** sides, so a semicolon and a period score the same and converting one
 into the other is worth exactly zero. It is what D19's count was for, and what
 D17's raw rate is worth once the bookkeeping is priced out.
+
+## Accessibility successor v4 (2026-09-23), now the accepted file
+
+`candidate-v4.json`, sha256 `4af9bf49b055db83f6895e743572ea248988ebffbee6317d3219c1b771dd207e`: ¶29 simile reordered so "sent him by some angry spirit" sits beside "affliction" (blocking); every element of Butler's simile is kept.
+This follows the candidate-only accessibility review that the Book had never had. The screening, the edits and their reasons, and the independent re-verification (**VERIFIED CLEAN**, round 2) are in `../edition-review-2026-09-23/books01-09-accessibility/`.
