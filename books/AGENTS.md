@@ -201,23 +201,15 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 
 ## Audio
 
-- English audio uses Kokoro.
-- Do not mix engines.
-- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`.
-- Generate or regenerate audio only after the relevant text passes QA.
-- If text changes after audio generation, mark the affected book, edition, chapter, and paragraph numbers; regenerate the corresponding audio and manifest before considering the book final.
-- Chapter title audio should be present where the audio pipeline supports it.
-- R2 uploads must use the remote Cloudflare target, not a local emulator.
+**Current publication rule — 23 September 2026:** accepted repairs to published text can ship with required character-card compatibility. Legacy Kokoro recordings, manifests and timing regeneration are not prerequisites. A text repair does not authorize GPU/TTS spend, audio regeneration or voice-architecture changes. The separately approved Grok migration has its own scope and acceptance; follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md).
 
-Always use `--remote` for R2 uploads. Without it, Wrangler may write to a local emulator and appear to succeed.
 
-For bulk R2 uploads, prefer moderate parallelism such as `-P 8`. If rate limits or fetch failures occur, retry the failed files sequentially.
-
-Kokoro can hang on specific paragraphs. For large books, prefer a subprocess-per-paragraph pattern with timeouts rather than one unbounded long run.
-
-RunPod Kokoro batches should clean local chapter artifacts after confirmed R2 upload. The cloud runner does this by default: successful chapters are deleted locally, while failed chapters are kept so reruns can retry uploads without regenerating. Use `--keep-local` only for debugging or intentional local inspection.
-
-For RunPod Kokoro batches, do not default to expensive high-end datacenter GPUs. The pipeline is often limited by paragraph-level orchestration, `ffmpeg`, `ffprobe`, R2 uploads, and manifest checks rather than raw GPU compute. Prefer RTX 3090/4090 when available, or cheaper cards such as RTX 4000 Ada, RTX PRO 4000/4500, or A5000. RTX 5090 is acceptable but usually overpowered; avoid H100/H200/B200/B300-class GPUs unless urgency justifies the cost.
+- Keep narration cache identity tied to exact approved text, provider, model, voice and settings under the current architecture. Do not select stale audio for changed text.
+- Do not start synthesis from a legacy backlog or release packet. Use only the explicitly approved audio task and its spending/preparation limits.
+- Do not invent source-language audio or add localization work.
+- Preserve existing audio/timing objects for rollback until the approved migration passes acceptance. Inventory exact obsolete objects before any authorized cleanup.
+- Historical Kokoro operation notes remain in [English Audio Pipeline](ENGLISH_AUDIO_PIPELINE.md); they are not current release requirements.
+- When writing a release packet, record accepted text hashes, changed paragraph coordinates, review evidence and character-card impact. Describe audio synchronization only as required by the separately approved current architecture, never as an automatic Kokoro regeneration gate.
 
 ## Registry
 
@@ -293,7 +285,7 @@ A book is ready for the public registry only when the agreed publishing standard
 - `modern-en` exists
 - all included editions are paragraph-aligned
 - no stubs or untranslated scaffold content remain
-- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions
+- runtime narration availability follows the agreed current architecture; accepted text repairs are not blocked on legacy Kokoro regeneration
 - onboarding exists
 - registry entry is correct
 - taxonomy is complete
