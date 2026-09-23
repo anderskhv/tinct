@@ -145,7 +145,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))
   await page.screenshot({path:output+'/'+engine+'-'+entry.bookId+'-'+voice+'-failure.png'}).catch(()=>{})
   throw error
- }finally{await context.close()}
+ }finally{await page.unrouteAll({behavior:'wait'});await context.close()}
 }
 // Two simultaneous real requests must publish one shared recording.
 {
