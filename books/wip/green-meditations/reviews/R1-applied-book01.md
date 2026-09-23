@@ -32,3 +32,13 @@ Sources: `R1-fidelity-book01.md` (1 blocking, 6 minor, 4 ambiguity) and `R1-acce
 | 1.16 | FID: "Written" added before "among the Quadi" | Rejected: without it a listener hears "Among the Quadi, on the Granua" as one more item of thanks; it is a place-of-writing note, as at II.17 ("Written at Carnuntum"). Kept consistently in both places; logged |
 
 All changed passages sent for independent re-verification (`R1-reverify-book01.md`).
+
+## After re-verification R1 (`R1-reverify-book01.md`: 12 clean, 2 minor)
+
+| Id | Defect | Disposition |
+|---|---|---|
+| 1.11 | reorder lost Long's either/or | Applied verifier's exact text: "not to say to anyone, or write in a letter, that I have no time, either often or without real need;" |
+| 1.14 | comparison became flat denial | Applied verifier's exact text: "…rather than of a man who had needed to be set right." |
+| 1.8 | advisory: cite support for gloss | Gloss "as nature made a human being to live" is grounded in Marcus's own V.1 ("the work of a human being… what is according to thy nature") and VIII.1 ("doing what man's nature requires"). |
+
+Both one-line changes are the verifier's own replacement text; they are included in the final whole-book re-verification pass.
