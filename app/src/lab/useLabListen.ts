@@ -953,7 +953,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playPlace, resolveClips, setPending])
 
   const startAtPlace = useCallback(async (place: { paragraphIndex: number; wordIndex?: number }) => {
-    if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
+    if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     setPending(true)
     narrationRetryRef.current = null

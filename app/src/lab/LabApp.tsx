@@ -4081,7 +4081,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
                 aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
-                aria-busy={listen.pending}
+                aria-busy={listen.pending || undefined}
                 onClick={handleBarListen}
               >
                 {listen.loading ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
@@ -4458,7 +4458,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
       </div>
 
-      <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
+      {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'error' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span>{listen.narration.message}</span>
@@ -4548,7 +4548,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
           <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
-          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
@@ -4637,7 +4637,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 : ['pause', 'back', 'speed', 'forward', 'talk'] as const
               ).map(control => ({
                 pause: (
-                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
+                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
                     <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{chromeV2 && !listen.playing ? 'Resume' : LAB_COPY.pause}</span>
                     {listen.loading ? <LoadingIcon size={21} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
                   </button>
@@ -4679,7 +4679,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                   className="lab-phone-fat"
                   onClick={handleBarListen}
                   aria-label={listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
-                  aria-busy={listen.pending}
+                  aria-busy={listen.pending || undefined}
                   data-reader-action={mobileCompareActive ? 'read' : 'listen'}
                   data-testid="lab-listen"
                 >
