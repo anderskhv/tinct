@@ -49,7 +49,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'around-the-world-80-days': { editions: EN, revision: '2026-09-11.2' },
   bacchae: { editions: EN, revision: '2026-09-11.2' },
   beowulf: { editions: EN, revision: '2026-09-11.2' },
-  candide: { editions: EN, revision: '2026-09-11.2' },
+  candide: { editions: EN, revision: '2026-09-23.1' },
   'comedy-of-errors': { editions: EN, revision: '2026-09-11.2' },
   'communist-manifesto': { editions: EN, revision: '2026-09-11.2' },
   'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
@@ -59,7 +59,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'hume-enquiry': { editions: EN, revision: '2026-09-11.2' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
   'jekyll-and-hyde': { editions: EN, revision: '2026-09-11.2' },
-  'julius-caesar': { editions: EN, revision: '2026-09-11.2' },
+  'julius-caesar': { editions: EN, revision: '2026-09-23.1' },
   'jungle-book': { editions: EN, revision: '2026-09-11.2' },
   'king-lear': { editions: EN, revision: '2026-09-11.2' },
   medea: { editions: EN, revision: '2026-09-11.2' },
@@ -78,7 +78,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'romeo-and-juliet': { editions: EN, revision: '2026-09-11.2' },
   'social-contract': { editions: EN, revision: '2026-09-11.2' },
   symposium: { editions: EN, revision: '2026-09-11.2' },
-  'the-prince': { editions: EN, revision: '2026-09-11.2' },
+  'the-prince': { editions: EN, revision: '2026-09-23.1' },
   'twelfth-night': { editions: EN, revision: '2026-09-11.2' },
   utilitarianism: { editions: EN, revision: '2026-09-11.2' },
   werther: { editions: EN, revision: '2026-09-11.2' },
@@ -163,7 +163,7 @@ export function loadCharacters(bookId?: string, editionKey?: string): Promise<Ve
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
+      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json?v=${characterReleases[bookId].revision}`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }

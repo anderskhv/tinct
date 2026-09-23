@@ -83,12 +83,15 @@ it('maps punctuation and UTF16 word anchors without surname search', () => {
 it('requests the current content revision instead of an immutable old URL', async () => {
   const fetcher = vi.fn(async (url: string) => url.includes('/characters/')
     ? { ok: true, json: async () => asset }
-    : { ok: true, arrayBuffer: async () => Uint8Array.from(readFileSync('public/data/editions/the-awakening-original-en.json')).buffer })
+    : { ok: true, arrayBuffer: async () => url.endsWith(`?v=${asset.contentVersion}`)
+      ? Uint8Array.from(readFileSync('public/data/editions/the-awakening-original-en.json')).buffer
+      : new TextEncoder().encode('{}').buffer }) // an unversioned URL can still serve the immutable old text
   vi.stubGlobal('fetch', fetcher)
   try {
     expect(await loadCharacters('the-awakening', 'original-en')).not.toBeNull()
     const url = new URL(fetcher.mock.calls[0][0], 'https://tinct.app')
     expect(url.searchParams.get('v')).toBe(asset.contentVersion)
+    expect(fetcher.mock.calls.some(([url]) => url === `/data/editions/the-awakening-original-en.json?v=${asset.contentVersion}`)).toBe(true)
   } finally { vi.unstubAllGlobals() }
 })
 
