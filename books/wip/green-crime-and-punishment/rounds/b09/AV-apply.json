@@ -1,0 +1,74 @@
+[
+ {
+  "chapter": 27,
+  "paragraph": 21,
+  "old": "left her family and and... devoted... herself",
+  "new": "left her family and... devoted... herself",
+  "category": "verify-syntax",
+  "blocking": true,
+  "reason": "The hesitation repair left a doubled 'and' ('her family and and... devoted...'). Source: 'when she left her family and... devoted... herself'."
+ },
+ {
+  "chapter": 26,
+  "paragraph": 67,
+  "old": "But he had already shown part of his hand",
+  "new": "But Porfiry had already shown part of his hand",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "In a paragraph where 'he' alternates between Raskolnikov and Porfiry, the listener cannot tell at once who has shown his hand."
+ },
+ {
+  "chapter": 27,
+  "paragraph": 4,
+  "old": "Amalia Ivanovna herself had been invited",
+  "new": "Amalia Ivanovna -- Madame Lippevechsel -- herself had been invited",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "The landlady is named as Madame Lippevechsel and then as Amalia Ivanovna a few sentences later, so a listener may take them for two different women."
+ },
+ {
+  "chapter": 28,
+  "paragraph": 28,
+  "old": "always walked with his hands in his pockets",
+  "new": "always went with his hands in pockets",
+  "category": "access-reference",
+  "blocking": false,
+  "reason": "Katerina Ivanovna then mocks this phrasing as meaning 'hands in people's pockets', so Amalia's broken wording needs to be ambiguous for the joke to work. [verifier-modified: The need is real, because the joke in 28.29 depends on Amalia's ambiguous phrasing. The source's own words are 'always went with his hands in pockets', so the source phrasing is used rather than the reviewer's version, which drops 'his'.]"
+ },
+ {
+  "chapter": 29,
+  "paragraph": 32,
+  "old": "You took it! How stupid",
+  "new": "You — took it? How stupid",
+  "category": "access-syntax",
+  "blocking": true,
+  "reason": "Said straight after 'I don't believe it!', the line sounds like Katerina Ivanovna accusing Sonia, which is the opposite of what she means. [verifier-modified: The need is real: the source's 'you took it!' is incredulous, but read flat it sounds like an accusation. A dash and a question mark keep the source's words and make the disbelief audible, without inventing 'As if you would'. This also matches the paragraph's own 'She take it, she?' (candidate: 'Her, steal?').]"
+ },
+ {
+  "chapter": 29,
+  "paragraph": 32,
+  "old": "She has the yellow card",
+  "new": "She has the yellow passport",
+  "category": "access-consistency",
+  "blocking": false,
+  "reason": "The previous chapter calls it 'the yellow ticket', so the same period term should be used here. [verifier-modified: 'Yellow card' is in neither text. The source here says 'the yellow passport', and the candidate keeps 'yellow passport' elsewhere (2.15), so the source's word is used.]"
+ },
+ {
+  "chapter": 29,
+  "paragraph": 64,
+  "old": "I didn't know he was staying here in your room, and so on that very same day",
+  "new": "I didn't know he was staying here in your room, and that consequently on that very same day",
+  "category": "access-syntax",
+  "blocking": false,
+  "reason": "As written, 'and so' makes Luzhin's seeing the money follow from Raskolnikov's not knowing, which is illogical. The point is that Raskolnikov did not know he had been seen. [verifier-modified: Source: 'I did not know that he was staying here, in your room, and that consequently on the very day we quarrelled... he saw me'. What Raskolnikov did not know is that Luzhin saw him. The source's 'and that consequently' restores this more closely than the reviewer's repeated 'I didn't know that'.]"
+ },
+ {
+  "chapter": 29,
+  "paragraph": 70,
+  "old": "in my room! Get out at once,",
+  "new": "in my room!\" cried Lebeziatnikov. \"Get out at once,",
+  "category": "access-reference",
+  "blocking": true,
+  "reason": "The line comes straight after a speech by Luzhin with no speaker named, so a listener cannot tell that Lebeziatnikov is now speaking."
+ }
+]

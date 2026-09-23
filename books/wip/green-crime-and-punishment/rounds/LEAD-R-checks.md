@@ -24,3 +24,14 @@ The b11 check is in `b11/LEAD-R.md`.
 ## Lead override
 
 **b03 A item 6 (12.78 `[*]` marker).** Overridden to reject. The edition uses one convention for all three translator's notes (12.79, 33.20 and 39.42): a paragraph labelled "Translator's note:" with no inline marker, because a marker is noise when read aloud. The convention is applied uniformly at assembly.
+
+## Later lead checks
+
+| Batch | Round | Paragraph | Source wording | Candidate now | Result |
+|---|---|---|---|---|---|
+| b01 | AV | 3.38 | "the crazy fellow had conceived a passion" | "the crazy fellow had been in love"; the later echo now works | clean |
+| b01 | AV | 5.54 | "stood up in terror" | "stood up in terror" | clean |
+| b09 | AV | 27.21 | "left her family and... devoted... herself" | the doubled "and" is removed; now identical | clean |
+| b09 | AV | 28.28 | "always went with his hands in pockets" | identical; this sets up the joke in 28.29 | clean |
+| b09 | AV | 29.32 | "you took it! How stupid"; "She has the yellow passport" | "You — took it? How stupid"; "She has the yellow passport". Her disbelief is audible, and the dash matches chapter 29's "—" | clean |
+| b09 | AV | 29.64 | "and that consequently on the very day we quarrelled" | "and that consequently on that very same day — the day we quarreled" | clean |
