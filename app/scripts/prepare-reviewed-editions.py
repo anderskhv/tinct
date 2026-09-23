@@ -160,7 +160,7 @@ def prepare(root=ROOT):
         service_text, count = re.subn(pattern, lambda m: m.group(1) + repr(config["revision"]), service_text)
         if count != 1:
             raise ValueError(f"{book}: expected one character release entry")
-        outputs.extend([(target, accepted_raw), (asset_path, (json.dumps(asset, ensure_ascii=False, indent=1) + "\n").encode("utf-8"))])
+        outputs.extend([(target, accepted_raw), (asset_path, (json.dumps(asset, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))])
         reports.append({"book": book, "acceptedSha256": digest(accepted_raw), "changedParagraphs": changed, **report})
     # All inputs validate before any publication file is replaced.
     for path, data in outputs:

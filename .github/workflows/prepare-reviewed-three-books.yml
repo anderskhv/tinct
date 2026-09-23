@@ -21,7 +21,14 @@ jobs:
       - name: Verify offset projection regressions
         run: python3 app/scripts/test-prepare-reviewed-editions.py
       - name: Prepare exact accepted text and character anchors
-        run: python3 app/scripts/prepare-reviewed-editions.py
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for book in ("the-prince", "julius-caesar", "candide"):
+              path = Path(f"app/public/data/characters/{book}.v1.json")
+              path.write_text(json.dumps(json.loads(path.read_text()), ensure_ascii=False, indent=2) + "\n")
+          PY
       - uses: actions/setup-node@v4
         with:
           node-version: '24.13.0'
@@ -44,14 +51,9 @@ jobs:
           python3 - <<'PY'
           import subprocess
           allowed = {
-              "app/public/data/editions/the-prince-modern-en.json",
-              "app/public/data/editions/julius-caesar-modern-en.json",
-              "app/public/data/editions/candide-modern-en.json",
               "app/public/data/characters/the-prince.v1.json",
               "app/public/data/characters/julius-caesar.v1.json",
               "app/public/data/characters/candide.v1.json",
-              "app/src/services/characters/characterCards.ts",
-              "books/wip/three-book-release-20260923-report.json",
           }
           changed = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
           untracked = set(subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard"], text=True).splitlines())
@@ -62,7 +64,7 @@ jobs:
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Publish accepted three-book text and compatible character anchors"
+          git commit -m "Preserve existing character package formatting"
           git push origin HEAD:codex/publish-reviewed-three-books-20260923
       - uses: actions/upload-artifact@v4
         if: always()
