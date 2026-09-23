@@ -1,0 +1,56 @@
+[
+ {
+  "book": 14,
+  "paragraph": 2,
+  "old": "the shaggy chamois skin—a great thick one—that he used to sleep on at night",
+  "new": "the shaggy goatskin—a great thick one—that he used to sleep on at night",
+  "category": "aloud",
+  "blocking": false,
+  "reason": "\"Chamois\" is an uncommon word (a European mountain goat-antelope) whose pronunciation (\"SHAM-ee\") is not obvious from spelling; a listener hearing it aloud for the first time is likely to be thrown by it even though the surrounding context (\"skin ... used to sleep on\") makes the general meaning clear. Since Eumaeus is a swineherd/goatherd on Ithaca, not an Alpine hunter, \"goatskin\" reads as more natural and removes the stumble without losing meaning."
+ },
+ {
+  "book": 14,
+  "paragraph": 3,
+  "old": "since heaven has kept from coming home the man who would always have been good to me and given me something of my own: a house, a piece of land, a good-looking wife, and everything else a generous master gives a servant who has worked hard for him and whose labor the gods have blessed, as they have blessed mine in the position I hold.",
+  "new": "since heaven has kept from coming home the man who would always have been good to me. He would have given me something of my own by now: a house, a piece of land, a good-looking wife, and everything else a generous master gives a servant who has worked hard for him — for the gods have blessed my labor in the position I hold.",
+  "category": "flow",
+  "blocking": true,
+  "reason": "One sentence stacks four or five levels of embedding (relative clause on \"the man\" -> a list introduced by a colon -> a relative clause on \"servant\" -> a further relative/comparative clause on \"labor\"). Heard aloud, a listener loses track of what \"whose labor the gods have blessed, as they have blessed mine\" attaches back to. Splitting after \"good to me\" and again before the final clause keeps every fact but removes the pile-up."
+ },
+ {
+  "book": 14,
+  "paragraph": 8,
+  "old": "for I hate a man, as much as I hate the fires of hell, who lets his poverty tempt him into lying",
+  "new": "for I hate a man who lets his poverty tempt him into lying as much as I hate the fires of hell",
+  "category": "flow",
+  "blocking": false,
+  "reason": "The relative clause \"who lets his poverty tempt him into lying\" is separated from its noun (\"a man\") by the interjected comparison, so a listener briefly loses the thread of who is being described before the clause resolves. Moving the comparison to the end keeps noun and relative clause adjacent and reads the same way aloud."
+ },
+ {
+  "book": 14,
+  "paragraph": 9,
+  "old": "hoping to wipe the house of Arceisius from memory in Ithaca",
+  "new": "hoping to wipe out Odysseus's family line in Ithaca for good",
+  "category": "reference",
+  "blocking": false,
+  "reason": "\"Arceisius\" (Odysseus's grandfather) has not been introduced anywhere in the book; a first-time listener has no way to connect \"the house of Arceisius\" to Telemachus and his family, which is the point being made (the suitors want to end Odysseus's line by killing his son). The surrounding sentence still makes the stakes roughly clear, so this isn't fully blocking, but naming the family in terms already established (Odysseus) removes the guesswork."
+ },
+ {
+  "book": 14,
+  "paragraph": 11,
+  "old": "whose name I claim, a man held in the highest honor among the Cretans for his wealth, his prosperity, and the courage of his sons—treated me as an equal to my brothers born in wedlock",
+  "new": "a man held in the highest honor among the Cretans for his wealth, his prosperity, and the courage of his sons—treated me as an equal to my brothers born in wedlock",
+  "category": "flow",
+  "blocking": true,
+  "reason": "\"My father, Castor son of Hylax—whose name I claim, a man held in the highest honor...—treated me...\" stacks two parenthetical insertions onto \"Castor\" back to back (\"whose name I claim\" and \"a man held in the highest honor...\"), and \"whose name I claim\" reads ambiguously — a listener can't tell in the moment whether the speaker is claiming his father's name as his own or laying claim to something else. Dropping the ambiguous first insertion leaves a single, clear appositive and the sentence still establishes that the speaker uses his father's household name."
+ },
+ {
+  "book": 14,
+  "paragraph": 16,
+  "old": "so much of it had he left in King Pheidon’s house.",
+  "new": "he had left so much of it in King Pheidon’s house.",
+  "category": "archaic",
+  "blocking": false,
+  "reason": "\"So much of it had he left\" inverts subject and verb in a way that is grammatical but reads as period/poetic syntax rather than plain contemporary prose, and it's the only inversion of its kind in the book. Restoring normal word order (\"he had left so much of it\") removes the archaic stumble without changing the meaning."
+ }
+]
