@@ -1,6 +1,6 @@
 # Changed paragraphs: Pride and Prejudice, modern-en
 
-223 of 2060 paragraphs differ from the live baseline (`baseline-live-modern-en.json`, sha256 `d914bb2dc33dfb525d7c21b142cc1ae4ea85dcfdd84378c2a839c90d90c250e1`).
+222 of 2060 paragraphs differ from the live baseline (`baseline-live-modern-en.json`, sha256 `d914bb2dc33dfb525d7c21b142cc1ae4ea85dcfdd84378c2a839c90d90c250e1`).
 
 Coordinates are `chapter.paragraphIndex`, with the paragraph index 0-based. Hashes are the first 16 hex characters of the sha256 of the paragraph text. Each paragraph lists every edit applied to it in the order of the rounds. Later entries can refine earlier ones, and the final text is what `candidate.json` holds.
 
@@ -522,10 +522,6 @@ Round key: round0 = lead opening fix; round1 = source-based fidelity review; rou
 ## 47.2  `10e8861b59cd82a8` → `58cdf0954b19b914`
 - [round1/addition] “"I do, indeed," said Mrs. Gardiner. "I'm coming around to your uncle's view.” → “"Upon my word," said Mrs. Gardiner, "I'm beginning to come around to your uncle's view.”: Elizabeth's question was put to her uncle. 'I do, indeed' has Mrs. Gardiner answer it with a firm belief the source doesn't give her. She is only beginning to agree.
 
-## 47.8  `600262f35e7966e9` → `60b5736d94a9b120`
-- [round2/accessibility] “"But can you believe Lydia is so lost to everything but her feelings for him” → “"But can you believe," said her aunt, "that Lydia is so lost to everything but her feelings for him”: Unattributed; it follows a long speech by Elizabeth and precedes 'replied Elizabeth', so it must be Mrs. Gardiner, but the reader has to infer that. (Lead: Speaker tag added; the alternation makes it Mrs. Gardiner (the next line is 'replied Elizabeth'))
-- [round3/reverify-defect] “"But can you believe," said her aunt, "that Lydia” → “"But can you believe that Lydia”: Added speaker tag 'said her aunt' settles an attribution the source leaves open. Austen gives no tag, and either Gardiner could be speaking (Mr. Gardiner has carried the argument in 47.4 and 47.6). Remove the tag.
-
 ## 47.9  `22130fe4ba8adc52` → `14bde5871742aa30`
 - [round1/omission] “for the last year or more,” → “for the last six months—no, for a whole year—”: The candidate loses Elizabeth's self-correction, which shows her agitation as she speaks and is not the same as 'a year or more'.
 - [round2/reverify-defect] “for a whole year— she's” → “for a whole year—she's”: Restored 'for the last half year, nay, for a twelvemonth' correctly, but the closing em dash has a stray space after it ('year— she's'); the edition uses closed em dashes.
@@ -744,4 +740,4 @@ Round key: round0 = lead opening fix; round1 = source-based fidelity review; rou
 ## 61.12  `73704034cd31f6d7` → `4ac288cd9ccbac76`
 - [round2/accessibility] “from the visits of her uncle and aunt from the city” → “from the visits of Elizabeth's uncle and aunt from the city”: The sentence's subject is Lady Catherine, so 'her uncle and aunt' reads as hers rather than Elizabeth's. 'From the city' (London trade) also carries the snobbery and needs to land. (Lead: Only the referent is fixed; 'from the city' (trade) is kept as the snub)
 
-Edited and then reverted to the baseline wording (net unchanged): 10.10.
+Edited and then reverted to the baseline wording (net unchanged): 10.10, 47.8.
