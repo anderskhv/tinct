@@ -1,0 +1,47 @@
+[
+  {
+    "book": 21,
+    "paragraph": 0,
+    "old": "where Odysseus was staying to recover a debt owed by the whole people",
+    "new": "where Odysseus was staying to recover a debt owed by the whole people of Messene",
+    "category": "reference",
+    "blocking": false,
+    "reason": "Heard aloud, 'the whole people' has no clear referent yet — the listener doesn't learn until the next sentence that it means the Messenians. Naming them here removes the momentary gap without adding any fact the paragraph doesn't already supply (the next sentence names 'The Messenians')."
+  },
+  {
+    "book": 21,
+    "paragraph": 0,
+    "old": "for when he went to the house of Zeus’s son, mighty Heracles, who performed such incredible feats of valor, Heracles shamefully killed him, though he was his guest",
+    "new": "for when he went to the house of Zeus’s son, mighty Heracles, who performed such incredible feats of valor, Heracles shamefully killed him, though Iphitus was his guest",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "'he was his guest' stacks two pronouns right after two named men (Iphitus, Heracles) in the same breath; a listener has to work out which 'he' is the guest and which 'his' is the host. Naming Iphitus resolves it instantly without adding new information."
+  },
+  {
+    "book": 21,
+    "paragraph": 10,
+    "old": "Some of us are even now hoping and praying to marry Penelope, but when he has seen this bow and tried it, let him court and offer wedding gifts to some other woman",
+    "new": "Some of us are even now hoping and praying to marry Penelope, but once any man among us has seen this bow and tried it, let him court and offer wedding gifts to some other woman",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The sentence starts with plural 'some of us' and then shifts without warning to singular 'he'/'him' — heard aloud this reads as a dropped or confused antecedent. Replacing 'he' with an explicit singular referent ('any man among us') keeps Leiodes' distributive meaning (each suitor, individually) clear."
+  },
+  {
+    "book": 21,
+    "paragraph": 33,
+    "old": "I wish I was as much stronger than all the other suitors in the house as I am than you",
+    "new": "I wish I was as much stronger than all the other suitors in the house as I am stronger than you",
+    "category": "aloud",
+    "blocking": false,
+    "reason": "The elliptical double comparative ('as much stronger... as I am than you') drops the second 'stronger,' which is easy to follow silently on the page but hard to parse by ear — the listener has to mentally supply the missing word. Restoring it keeps the same meaning and rhythm while removing the ambiguity."
+  },
+  {
+    "book": 21,
+    "paragraph": 39,
+    "old": "He took an arrow that was lying on the table—for those which the Achaeans would soon taste were all inside the quiver—and laid it on the center grip of the bow.",
+    "new": "He took an arrow that was lying on the table — the rest, which the suitors would soon feel, were still inside the quiver — and laid it on the center grip of the bow.",
+    "category": "aloud",
+    "blocking": true,
+    "reason": "This is the exact moment the listener needs to picture cleanly: Odysseus reaching for the arrow he's about to shoot through the axes. The aside interrupts that single action with a euphemism ('would soon taste') and a name ('the Achaeans') that, in every earlier book, has meant the army at Troy — here it means the suitors in the room. A first-time listener is likely to lose the thread of 'he took an arrow... and laid it' while puzzling over who is tasting what. Swapping in 'the suitors' and 'would soon feel' keeps the foreshadowing but removes the two things most likely to stall a listener at the one moment that most needs to stay vivid."
+  }
+]
