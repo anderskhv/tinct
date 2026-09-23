@@ -2,7 +2,7 @@
 
 Coverage: I checked 5 of 5 paragraphs in full against Garnett (source.json), with one paragraph of context on each side, and against the ledger history (b13-F and b13-AV edits): 39.15, 39.21, 39.50, 40.9, 41.16.
 
-Note: the ledger has no b13-AV edit for 41.15 (only b13-F), and it is not in AV-reverify.json. I read it only as context for 41.16 and found it clean. It is listed in verified_clean for completeness.
+Note: the ledger has no b13-AV edit for 41.15 (only b13-F), and it is not in AV-reverify.json. I read it only as context for 41.16 and found it clean. It is not listed in R.json.
 
 ## Verified clean
 - 39.21: "crossed the bridge toward the Hay Market" matches the source ("turning out of his way along it went to the Hay Market"; "it" is the bridge). Garnett form "Hay Market" is correct.
