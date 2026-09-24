@@ -1935,39 +1935,8 @@
           "paragraph": 35
         }
       ],
-      "retainedMentions": 78,
-      "droppedMentions": [
-        {
-          "characterId": "the-ruling-part",
-          "chapterNumber": 5,
-          "paragraphIndex": 25,
-          "startOffset": 445,
-          "endOffset": 456,
-          "text": "ruling part",
-          "projectedText": "ruling faculty must not",
-          "reason": "changed mention text lacks explicit mapping approval"
-        },
-        {
-          "characterId": "the-ruling-part",
-          "chapterNumber": 9,
-          "paragraphIndex": 21,
-          "startOffset": 31,
-          "endOffset": 42,
-          "text": "ruling part",
-          "projectedText": "ruling facult",
-          "reason": "changed mention text lacks explicit mapping approval"
-        },
-        {
-          "characterId": "the-ruling-part",
-          "chapterNumber": 9,
-          "paragraphIndex": 21,
-          "startOffset": 340,
-          "endOffset": 351,
-          "text": "ruling part",
-          "projectedText": "ruling facult",
-          "reason": "changed mention text lacks explicit mapping approval"
-        }
-      ],
+      "retainedMentions": 81,
+      "droppedMentions": [],
       "relocatedExactNames": [
         {
           "characterId": "the-ruling-part",
@@ -2063,6 +2032,18 @@
           "newText": "ruling faculty",
           "newStartOffset": 157,
           "newEndOffset": 171,
+          "method": "explicit accepted identity mapping; same occurrence count"
+        },
+        {
+          "characterId": "the-ruling-part",
+          "chapterNumber": 5,
+          "paragraphIndex": 25,
+          "startOffset": 445,
+          "endOffset": 456,
+          "text": "ruling part",
+          "newText": "ruling faculty",
+          "newStartOffset": 475,
+          "newEndOffset": 489,
           "method": "explicit accepted identity mapping; same occurrence count"
         },
         {
@@ -2207,6 +2188,30 @@
           "newText": "ruling faculty",
           "newStartOffset": 164,
           "newEndOffset": 178,
+          "method": "explicit accepted identity mapping; same occurrence count"
+        },
+        {
+          "characterId": "the-ruling-part",
+          "chapterNumber": 9,
+          "paragraphIndex": 21,
+          "startOffset": 31,
+          "endOffset": 42,
+          "text": "ruling part",
+          "newText": "ruling faculty",
+          "newStartOffset": 30,
+          "newEndOffset": 44,
+          "method": "explicit accepted identity mapping; same occurrence count"
+        },
+        {
+          "characterId": "the-ruling-part",
+          "chapterNumber": 9,
+          "paragraphIndex": 21,
+          "startOffset": 340,
+          "endOffset": 351,
+          "text": "ruling part",
+          "newText": "ruling faculty",
+          "newStartOffset": 334,
+          "newEndOffset": 348,
           "method": "explicit accepted identity mapping; same occurrence count"
         },
         {
