@@ -1,6 +1,11 @@
 # Handoff to Codex — precise mobile compare flip
 
-Status: **draft for Anders' approval.** Data is in pilot; nothing here is
+Status: **draft for Anders' approval.** Two separate release decisions:
+(1) shipping the reader infrastructure with fallback behaviour (can proceed:
+with no approved alignment files it behaves as today, plus full-page
+start/end mapping from verse markers and proportional fallback), and
+(2) enabling alignment data for any book, which stays gated on an agreed
+release standard and a per-book `approved` record. Data is in pilot; nothing here is
 scheduled yet. All preparation lives under `books/align/`; app integration is
 Codex's. No app files were changed.
 

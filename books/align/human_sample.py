@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Draw a stratified random sample of alignment segments for a human check.
 
-    python3 books/align/human_sample.py > books/align/review/human-sample-<date>.md
+    python3 books/align/human_sample.py hamlet frederick-douglass > books/align/review/human-sample-<date>.md
 
 Per book it draws segments at random from each review status present:
 first-pass accepted ("auto"), model-reviewed ("model"), and every non-match
@@ -23,16 +23,17 @@ from review_report import seg_text, words_for  # noqa: E402
 
 PLAN = {  # book: {status: count}
     "hamlet": {"auto": 3, "model": 4, "odd": 1},
-    "macbeth": {"model": 5, "odd": 2},
+    "macbeth": {"auto": 2, "model": 5, "odd": 2},
     "frederick-douglass": {"auto": 5, "model": 3, "odd": 1},
 }
 SEED = 20260924
 
 
 def main() -> int:
+    books = sys.argv[1:] or list(PLAN)
     rng = random.Random(SEED)
     out = [
-        "# Alignment human sample — 2026-09-24",
+        f"# Alignment human sample — {', '.join(books)}",
         "",
         "Random segments (not the hardest ones) from each book, stratified by how they",
         "were produced: `auto` = free first pass, never reviewed; `model` = corrected",
@@ -44,12 +45,13 @@ def main() -> int:
         "counterpart. Signing off these samples is evidence about each book, not a",
         "statement that every passage was checked.",
         "",
-        "Macbeth's edition is being repaired (13 dropped speeches), so its alignment",
-        "will be regenerated; its samples still measure how accurate the model review is.",
-        "",
     ]
+    if "macbeth" in books:
+        out += ["Macbeth samples are drawn from the REPAIRED text on this branch (34 restored",
+                "speeches, not yet published).", ""]
     n = 0
-    for book, plan in PLAN.items():
+    for book in books:
+        plan = PLAN[book]
         data = json.loads((OUT / f"{book}-align.json").read_text())
         src = words_for(book, data["source"]["edition"])
         tgt = words_for(book, data["target"]["edition"])

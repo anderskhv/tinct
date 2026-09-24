@@ -76,11 +76,15 @@ Findings:
   one-sentence boundary shifts found in samples (10/0 "How I escaped death" and
   10/2 "faculty of making us feel"). First pass is not reliable at sentence
   level on genuinely paraphrased prose.
-- Macbeth: served editions are missing 13 speeches (~1,100 words, incl. "Is
-  this a dagger"), see `books/MACBETH-DROPPED-SPEECHES-2026-09-24.md`. Macbeth
-  alignment cannot be approved until the repair lands and it is regenerated.
+- Macbeth: served editions were missing 34 speeches (~1,300 words, incl. "Is
+  this a dagger"). Repair prepared on this branch, not published:
+  `books/MACBETH-DROPPED-SPEECHES-2026-09-24.md`. Alignment regenerated on the
+  repaired text (22 model reviews remapped and still valid; 4 new long
+  paragraphs unreviewed). Stays unapproved.
 
-Next: human sample `review/human-sample-2026-09-24.md` (24 random segments,
-all three books) and the capped evaluation in `EVAL-PLAN.md`.
+Human samples: `review/human-sample-hamlet-douglass-2026-09-24.md` (17 random
+segments) and `review/human-sample-macbeth-repaired-2026-09-24.md` (9, repaired
+text). Evaluation (`EVAL-PLAN.md`): on hold. All alignment files stay
+unapproved until their evidence meets an agreed release standard.
 - Sentence-split bugs found by the report and fixed: abbreviations ("Mr.",
   initials) and emphasis-prefixed abbreviations ("_Mr.").
