@@ -126,7 +126,7 @@ The pilot's Problema I and II are the model for register and density.
 | Latterlighed, latterlig | **ridiculous** (never "absurd") |
 | urimelig, det Urimelige | **unreasonable**, **the unreasonable** (Eulogy). Kept apart from "the absurd" (*det Absurde*) and from "ridiculous". Ruling of 2026-09-24. |
 | martre / pine | **torture** / **wring**, **torture** (never "torment", which is reserved for *Qval*) |
-| mediere / Mediation | **mediate** / **mediation** |
+| mediere / Mediation | **mediate** / **mediation**. Glossed once only, in n4.22a; the pilot's repeat glosses were removed in R3 |
 | Mellembestemmelse; det Mellemliggende | **middle term** |
 | incommensurabel | **incommensurable** |
 | Anfægtelse | **spiritual trial** |
@@ -142,7 +142,7 @@ The pilot's Problema I and II are the model for register and density.
 | Udfaldet | **the outcome** |
 | Docenterne | **the lecturers** |
 | Udtryk | **expression** |
-| Spidse (paa Spidsen, paa en dialektisk Spidse) | **extreme point** (P-III ¶13, ¶23, which recall each other). The accepted pilot's "at the summit" (P-I ¶19, *bliver paa Spidsen*) stays; see the consistency review. |
+| Spidse (paa Spidsen, paa en dialektisk Spidse) | **extreme point** everywhere in the abstract, dialectical sense: ch4 ¶13, ch5 ¶19, ch7 ¶13, ¶23. This is the R3 ruling; it replaced the pilot's "summit". The literal mountain "peak" (ch5 ¶18) is unaffected. "Summit" renders only *Høiden* (ch4 ¶10) and *Tinde* (ch7 ¶4). |
 | offre / opgive | **sacrifice** / **give up** |
 | Inderlighed / Yderlighed | **inwardness** / **outwardness** |
 | det Umiddelbare, Umiddelbarhed | **the immediate**, **immediacy** |
