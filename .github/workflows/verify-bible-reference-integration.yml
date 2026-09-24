@@ -1,0 +1,22 @@
+name: Verify Bible reference integration
+on:
+  push:
+    branches: [codex/bible-reference-integration-20260924]
+    paths: ['app/src/data/bibleReferenceMap*', '.github/workflows/verify-bible-reference-integration.yml']
+permissions:
+  contents: read
+jobs:
+  references:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx vitest run src/data/bibleReferenceMap.test.ts
