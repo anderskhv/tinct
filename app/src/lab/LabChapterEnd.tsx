@@ -1,17 +1,14 @@
-export function LabChapterEnd({ hasNext, busy, onContinue, onDiscuss, onPrepare }: {
-  hasNext: boolean; busy: boolean
-  onContinue: () => void; onDiscuss: () => void; onPrepare: () => void
+export function LabChapterEnd({ hasNext, busy = false, measuring = false, onContinue, onDiscuss }: {
+  hasNext: boolean; busy?: boolean; measuring?: boolean
+  onContinue?: () => void; onDiscuss?: () => void
 }) {
-  return <section className="lab-chapter-end" data-testid="lab-chapter-end" aria-label="Chapter finished"
-    onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
-    <h2 className="lab-chapter-end-label">End of chapter</h2>
+  return <section className="lab-chapter-end" data-testid={measuring ? undefined : "lab-chapter-end"} aria-label="Chapter finished"
+    onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="lab-chapter-end-actions">
-      {hasNext && <button type="button" className="lab-chapter-end-continue" onClick={onContinue}>
-        <span>Continue to next</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <button type="button" disabled={busy} tabIndex={onDiscuss ? 0 : -1} onClick={onDiscuss}>Recap this chapter</button>
+      {hasNext && <button type="button" tabIndex={onContinue ? 0 : -1} onClick={onContinue}>
+        Next chapter <span aria-hidden="true">→</span>
       </button>}
-      <button type="button" disabled={busy} onClick={onDiscuss}>Recap</button>
-      {hasNext && <button type="button" disabled={busy} onClick={onPrepare}>Prep for next</button>}
     </div>
   </section>
 }

@@ -514,13 +514,14 @@ describe('the end-of-chapter card on the desktop spread', () => {
   const card = <div className="lab-chapter-end" data-testid="end-card">End of chapter</div>
   const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
 
-  it('fills the empty facing leaf when the chapter ends on the first one', () => {
+  it('keeps actions after the prose when the chapter ends on the first leaf', () => {
     render(<LabPassage {...props()} desktopSpread chapterEnd={card} />)
     const found = screen.getByTestId('end-card')
-    expect(found.closest('.lab-book-col-next')).toBeTruthy()
-    // The reader sees the text end and the card in one spread: no page turn
-    // to a card floating beside a blank leaf.
-    expect(screen.getByTestId('lab-next-page-col').contains(found)).toBe(true)
+    const leaf = found.closest('.lab-book-col')!
+    expect(found.closest('.lab-book-col-next')).toBeNull()
+    expect(leaf.querySelector('.lab-hearing-line')?.textContent).toBe(text[0])
+    expect(screen.getByTestId('lab-next-page-col').contains(found)).toBe(false)
+    expect(leaf.querySelector('.lab-hearing-line')!.compareDocumentPosition(found) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
   it('stays on the second leaf when that leaf carries the next page of text', () => {
@@ -536,13 +537,14 @@ describe('the end-of-chapter card on the desktop spread', () => {
     expect(found.closest('.lab-book-col')).toBeTruthy()
   })
 
-  it('takes its own page when one is asked for, on either surface', () => {
-    const { unmount } = render(<LabPassage {...props()} desktopSpread chapterEndPage chapterEnd={card} />)
-    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
-    expect(screen.getByTestId('lab-next-page-col').querySelector('[data-testid="end-card"]')).toBeNull()
-    unmount()
-    render(<LabPassage {...props()} chapterEndPage chapterEnd={card} />)
-    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
+  it.each([false, true])('keeps actions with actual prose without an actions-only page (spread=%s)', desktopSpread => {
+    const { container } = render(<LabPassage {...props()} desktopSpread={desktopSpread} chapterEnd={card} />)
+    const found = screen.getByTestId('end-card')
+    const leaf = found.closest('.lab-book-col')!
+    expect(leaf.querySelector('.lab-hearing-line')?.textContent).toBe(text[0])
+    expect(container.querySelector('[data-testid="lab-chapter-end-page"]')).toBeNull()
+    expect(screen.getAllByTestId('lab-word').map(word => word.textContent)).toEqual(text[0].split(' '))
+    expect(screen.getAllByTestId('end-card')).toHaveLength(1)
   })
 })
 

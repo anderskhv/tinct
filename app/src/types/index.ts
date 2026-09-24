@@ -91,7 +91,7 @@ export interface Book {
 
 /** Chapter-end action context inside the existing book-scoped chat record. */
 export interface ChapterChatAction {
-  kind: 'discuss' | 'prepare'
+  kind: 'discuss' | 'prepare' | 'preview'
   bookId: string
   editionKey: string
   chapterNumber: number

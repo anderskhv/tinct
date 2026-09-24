@@ -573,9 +573,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
-  const [chapterEndPage, setChapterEndPage] = useState(false)
-  const [chapterEndNeedsPage, setChapterEndNeedsPage] = useState(false)
-  const handleChapterEndFit = useCallback((fits: boolean) => setChapterEndNeedsPage(!fits), [])
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
@@ -2461,8 +2458,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
   useEffect(() => {
-    if (chromeV2 && (listen.playing || listen.pending)) setPausedTransportVisible(true)
-  }, [chromeV2, listen.playing, listen.pending])
+    if (!chromeV2) return
+    // Desktop errors use a separate inline Retry row. Release the unused
+    // playback reserve; the phone error remains above its transport bar.
+    if (!showPhoneChrome && listen.narration.status === 'error') setPausedTransportVisible(false)
+    else if (listen.playing || listen.pending) setPausedTransportVisible(true)
+  }, [chromeV2, showPhoneChrome, listen.playing, listen.pending, listen.narration.status])
   useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible
@@ -3264,11 +3265,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setReaderControlsVisible(false)
   }, [desktopPaging, listen.playing])
 
-  useLayoutEffect(() => {
-    setChapterEndPage(false)
-  }, [book.bookId, book.chapterNumber, readerEditionKey, mobileCompareActive, desktopCompareActive, readingPageIndex])
-
-  const goNext = useCallback((skipEndPage = false) => {
+  const goNext = useCallback(() => {
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -3301,7 +3298,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       goToPage(nextPage)
       return
     }
-    if (chapterEndNeedsPage && !chapterEndPage && skipEndPage !== true) { setChapterEndPage(true); return }
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
@@ -3311,10 +3307,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn, chapterEndNeedsPage, chapterEndPage])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn])
 
   const goPrev = useCallback(() => {
-    if (chapterEndPage) { setChapterEndPage(false); return }
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       chapterNavigationRef.current += 1
@@ -3346,7 +3341,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, chapterEndPage])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -3859,7 +3854,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [ask, askAttachment, book.bookId, interruptHearForAsk, resumeListenAfterAsk])
 
-  const handleChapterChat = useCallback((kind: 'discuss' | 'prepare') => {
+  const handleChapterChat = useCallback((kind: 'discuss' | 'prepare' | 'preview') => {
     if (ask.typedLoading || initialResolving || book.chaptersProvisional) return
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
@@ -4216,11 +4211,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            chapterEndPage={chapterEndPage}
-            onChapterEndFit={handleChapterEndFit}
+            onPreviewChapter={chromeV2 ? () => handleChapterChat('preview') : undefined}
+            chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
-              hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={() => goNext(true)}
-              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')} onPrepare={() => handleChapterChat('prepare')}
+              hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
+              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}
             desktopSpread={desktopSpread}
             nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
@@ -4295,6 +4290,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
               fillPages={chromeV2}
+              chapterActions={chromeV2} hasNextChapter={canNextChapter}
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
               editionKey={readerEditionKey}
@@ -4303,6 +4299,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           )}
           {!chapterCoverTitle && desktopPaging && <LabDesktopPaginator
+            chapterActions={chromeV2} hasNextChapter={canNextChapter}
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
             editionKey={readerEditionKey}
@@ -4315,6 +4312,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           {chromeV2 && !chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
             <LabNativePaginator
               fillPages={chromeV2}
+              chapterActions={chromeV2} hasNextChapter={canNextChapter}
               chapterTitle={book.chapterTitle}
               paragraphs={standbyParagraphs}
               layoutKey={standbyKey}
@@ -4329,6 +4327,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}`}
             >
               <LabPageMeasurePaint
+                chapterActions={chromeV2}
                 chapterTitle={book.chapterTitle}
                 paragraphs={readerParagraphs}
                 page={draftPages[settleIndex]}
@@ -4492,7 +4491,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
       {showReaderRail && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
-          {chapterEndPage || (!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
+          {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
               className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
@@ -4532,7 +4531,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           ) : (
             <div className="lab-chapter-progress" data-testid="lab-chapter-progress"><span className="lab-chapter-progress-info">{footProgressLabel}</span></div>
           )}
-          {chapterEndNeedsPage && !chapterEndPage || chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
+          {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
               className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}

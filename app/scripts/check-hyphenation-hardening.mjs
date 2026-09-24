@@ -68,6 +68,10 @@ async function pageState(page) {
     })
     return {
       place: root.dataset.place,
+      chapter: root.dataset.chapter,
+      chrome: root.dataset.chromeState,
+      playing: root.dataset.playing,
+      transport: root.dataset.transport,
       edition: root.dataset.readerEdition,
       lang: root.lang,
       keys: visible.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`),
@@ -309,7 +313,20 @@ async function splitRestoreAcceptance(name, viewport) {
   const audio = name === 'desktop'
     ? await exerciseAudioAcrossSplit(page, split)
     : { service: 'production audio API', actual: false, limit: 'shared audio-follow path exercised on desktop', sequence: [] }
+  const afterAudio = await pageState(page)
   const splitAgain = await turn(page, 'ArrowLeft')
+  const splitReturn = { name, split, before, next, forward, reloaded, afterAudio, audio, splitAgain }
+  await fs.writeFile(`${output}/${live ? 'production' : 'candidate'}-${name}-split-return.json`, JSON.stringify(splitReturn, null, 2) + '\n')
+  if (!splitAgain.fragments.some(fragment => fragment.text === split.fragment)) {
+    await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-split-return-failure.png` })
+    console.error('SPLIT_RETURN_FAILURE', JSON.stringify(splitReturn))
+  }
+  if (name === 'desktop' && !audio.actual) {
+    assert.equal(afterAudio.transport, 'closed', 'failed start must release playback-control space')
+    assert.equal(afterAudio.chapter, reloaded.chapter, 'failed audio start must preserve the chapter')
+    assert.equal(afterAudio.place, reloaded.place, 'failed audio start must preserve the exact reading position')
+    assert.deepEqual(afterAudio.keys, reloaded.keys, 'failed audio start must preserve the visible page')
+  }
   assert(splitAgain.fragments.some(fragment => fragment.text === split.fragment), 'audio proof must return to the same split page')
   const bundle = await page.locator('script[src]').evaluateAll(nodes => nodes.map(node => new URL(node.src).pathname).find(value => /\/assets\/index-[^/]+\.js$/.test(value)))
   if (expectedBundle) assert.equal(bundle, expectedBundle)
