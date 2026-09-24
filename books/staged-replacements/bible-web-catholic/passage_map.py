@@ -7,14 +7,16 @@ Equal chapter:verse numbers are NOT treated as the same passage. Instead:
 1. Greek additions are identified from the source itself: square brackets in
    ESG, and in DAG the source footnote at 3:24 (3:24-90 inserted; Hebrew
    3:24-30 renumbered 3:91-97) plus the Susanna (13) and Bel (14) headings.
-2. Every ESG/DAG verse is aligned to the Hebrew-tradition Esther/Daniel of the
-   same official package (WEB Updated EST/DAN in the eng-web-c USFX) by a
-   monotonic similarity alignment. Scores are recorded; weak pairs are flagged.
-3. The same alignment is run against Tinct's live 66-book web-en and kjv-en
-   editions (read-only) to give edition-local locations.
-4. BSB (pinned bsb.txt from the BSB staging package) is checked at reference
-   level: per-chapter verse counts must equal the Hebrew-tradition references,
-   and each mapped pair carries a content-word overlap score.
+2. DAG verses are paired with WEB Updated DAN (same official package, carried in
+   the eng-web-c USFX) by monotonic word-sequence similarity alignment.
+   ESG is a translation from the Greek, so alignment cannot decide; ESG rows
+   record the source introduction's claim that its numbering follows the Hebrew
+   verse numbers outside the additions, then measure it (similarity, content
+   overlap) and flag weak rows for the hand review in review/esther-daniel-map.md.
+3. Locations in Tinct's live 66-book web-en and kjv-en editions (read-only) and
+   in BSB (pinned bsb.txt) are looked up by the paired Hebrew-tradition
+   reference only after per-chapter verse counts are proven equal (the script
+   fails otherwise); each looked-up verse carries similarity scores.
 
 Usage: python3 passage_map.py --usfx-zip PATH --bsb-txt PATH
 Writes out/esther-daniel-passage-map.json. Reads live editions; writes nothing
@@ -47,6 +49,13 @@ UNBRACKETED_EXPANSIONS = {
     "ESG.5.1": "Addition D: Greek expansion, not bracketed in source (ESG introduction names 5:1 as lengthened)",
     "ESG.5.2": "Addition D continues: Greek expansion, not bracketed in source",
 }
+# Boundary overlaps confirmed in the independent hand review.
+BOUNDARY_NOTES = {
+    "ESG.1.18": "also carries content of Hebrew 1:17b",
+    "ESG.9.16": "also carries 'on the thirteenth day of Adar' (Hebrew 9:17a)",
+    "ESG.9.27": "also carries content of Hebrew 9:28a",
+    "ESG.10.2": "lacks the Hebrew clause on the greatness of Mordecai",
+}
 SOURCE_MARKUP_OBSERVATIONS = [
     "ESG introduction says additions are merged at the beginning of 1:1 and after 3:13, 4:17, 8:12 and 10:3. "
     "In the markup, Addition C is numbered as separate verses 4:18-47 and Addition F as 10:4-14; "
@@ -56,7 +65,8 @@ SOURCE_MARKUP_OBSERVATIONS = [
     "DAG Hebrew-tradition verses are close but not word-identical to WEB Updated DAN; the metadata claim that other "
     "books equal WEB Updated does not apply to Daniel's shared portions.",
     "DAG 3:24-90 is the Prayer of Azariah and Song of the Three (source footnote at 3:24); DAG 3:91-97 are the "
-    "Hebrew 3:24-30 renumbered. DAG 13 is Susanna and DAG 14 is Bel and the Dragon (source headings).",
+    "Hebrew 3:24-30 renumbered. DAG 13 is Susanna and DAG 14 is Bel and the Dragon (source headings). "
+    "The 3:24 footnote sits on the heading before verse 24, so notes.json keys it DAG.3.23 (its \\fr reads 3:24).",
 ]
 
 sys.path.insert(0, str(HERE))
@@ -180,10 +190,16 @@ def main():
             d[c] += 1
         return d
 
-    result = {"note": ("Correspondence, not identity. Rows pair a source-native WEBC reference with the best "
-                       "Hebrew-tradition verse by monotonic similarity alignment. Equal numbers are never assumed "
-                       "to be the same passage; see sameNumber and scores. Offsets are UTF-16, end-exclusive, "
-                       "within the verse text in verse-text.json."),
+    result = {"note": ("Correspondence, not identity. DAG rows pair each verse with the best Hebrew-tradition verse by "
+                       "monotonic similarity alignment against WEB Updated DAN. ESG rows record the source introduction's "
+                       "claim that ESG numbering follows the Hebrew verse numbers outside the additions; that claim is "
+                       "measured (scores), flagged where weak, and was checked by hand in review/esther-daniel-map.md. "
+                       "It is not assumed from number equality alone. Offsets are UTF-16, end-exclusive, within the "
+                       "verse text in verse-text.json. `projection` says what may be projected: 'verse' (whole verse or "
+                       "partial selection by quote search within the counterpart), 'outside-addition-spans-only' "
+                       "(selections wholly inside additionSpans are unmapped), 'whole-verse-only' (any partial "
+                       "selection is unmapped), 'unmapped' (Greek addition; for reading positions only, fall back "
+                       "to positionFallbackHebrewRef)."),
               "inputs": {"usfxZipSha256": hashlib.sha256(Path(args.usfx_zip).read_bytes()).hexdigest(),
                          "verseTextSha256": hashlib.sha256((OUT / "verse-text.json").read_bytes()).hexdigest(),
                          "bsbTxtSha256": BSB_SHA,
@@ -229,7 +245,7 @@ def main():
                     pairs[r] = (h, round(sim(t, heb_text[h]), 3))
             method = ("source-stated numbering alignment (ESG introduction), measured by word-sequence similarity "
                       "and content-word overlap; Greek textual base differs from the Hebrew-based EST")
-        rows, mapped_heb = [], set()
+        rows, mapped_heb, last_counterpart = [], set(), None
         for r, t in g:
             core = g_core[r]
             row = {"ref": r}
@@ -260,10 +276,26 @@ def main():
                 row["kind"] = "no-hebrew-counterpart-found"
                 row["review"] = "check-by-hand"
             if r in UNBRACKETED_EXPANSIONS:
+                row["kind"] = "hebrew-tradition-counterpart-with-unbracketed-addition"
                 row["unbracketedGreekExpansion"] = UNBRACKETED_EXPANSIONS[r]
-                row["review"] = "check-by-hand"
+                row["review"] = "reviewed: counterpart embedded in unbracketed addition"
+            if r in BOUNDARY_NOTES:
+                row["boundaryNote"] = BOUNDARY_NOTES[r]
+            if row["kind"] == "greek-addition":
+                row["projection"] = "unmapped"
+                row["positionFallbackHebrewRef"] = last_counterpart
+            elif row["kind"].endswith("unbracketed-addition"):
+                row["projection"] = "whole-verse-only"
+            elif row.get("additionSpans"):
+                row["projection"] = "outside-addition-spans-only"
+            elif row.get("hebrewRef"):
+                row["projection"] = "verse"
+            if row.get("hebrewRef"):
+                last_counterpart = row["hebrewRef"]
             rows.append(row)
         unmatched_heb = [h for h in heb_text if h not in mapped_heb]
+        if heb_counts != bsb_counts or any(v[1] != heb_counts for v in live.values()):
+            sys.exit(f"FAIL: {hcode} versification differs between WEB Updated, BSB and live editions; reference lookup unsafe")
         result["books"][gcode] = {
             "hebrewTraditionCode": hcode,
             "method": method,
@@ -276,9 +308,11 @@ def main():
             "summary": {
                 "greekAdditionVerses": [x["ref"] for x in rows if x["kind"] == "greek-addition"],
                 "versesWithEmbeddedAddition": [x["ref"] for x in rows if x["kind"].endswith("embedded-addition")],
+                "versesWithUnbracketedAddition": [x["ref"] for x in rows if x["kind"].endswith("unbracketed-addition")],
                 "counterparts": sum(1 for x in rows if x["kind"].startswith("hebrew")),
                 "counterpartsWithDifferentNumber": [f"{x['ref']}->{x['hebrewRef']}" for x in rows if x.get("hebrewRef") and not x["sameNumber"]],
                 "flaggedForReview": [x["ref"] for x in rows if x.get("review") not in (None, "ok")],
+                "reverseLookupUnique": len(mapped_heb) == sum(1 for x in rows if x.get("hebrewRef")),
             },
             "verses": rows,
         }

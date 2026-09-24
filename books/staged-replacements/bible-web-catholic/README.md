@@ -8,7 +8,7 @@ This packet stages the World English Bible (Catholic), eBible.org `eng-web-c`, a
 
 Codex owns integration, the BSB default switch, and publication. Before this packet, the repository had no WEB Catholic package: the BSB staging README lists "the separate 73-book WEB Catholic collection" as deferred work, and no branch or PR contains one.
 
-Independent review: see [REVIEW.md](REVIEW.md).
+Independent review: see [REVIEW.md](REVIEW.md), which links the three reviewer reports in `review/`.
 
 ## Source
 
@@ -39,7 +39,7 @@ Raw downloads are not committed because the repository `.gitignore` excludes raw
   - the Sirach prologue, as paragraph 0 of Sirach 1 under key `SIR.PROLOGUE`
   - the unnumbered title line of Sirach 51 (`SIR.51.pre`)
 - **Reading text:**
-  - Each verse starts with a superscript label, as in the live Bible editions: `¹ `, and for source verse ranges `¹⁵⁻¹⁶`.
+  - Each verse starts with a superscript label, as in the live Bible editions: `¹ `. The source's verse ranges are all empty slots, so no range label appears in the text. Verse numbering therefore jumps at empty slots (for example Acts 8:36 → 8:38).
   - Paragraphs follow the source markers (`\p \m \pi1 \mi \pc`).
   - Consecutive poetry lines (`\q1–\q3`) and list lines (`\li1`) form one paragraph until a `\b` break or a prose marker. Line starts are recorded in `layout.json`.
   - The 138 psalm superscriptions (`\d`) are their own paragraphs, with no verse label. Keys are `PSA.N.d`, and for the Psalm 119 letter headings `PSA.119.d+N` (the heading after verse N).
@@ -52,7 +52,7 @@ Raw downloads are not committed because the repository `.gitignore` excludes raw
 
   The source's `\wj`, `\qs` (Selah), `\bk` and `\add` text is kept, and only their markers are removed.
 - **Empty verse slots are not filled:** 29 official empty references. Examples: Sirach 26:19–27, "omitted by the best authorities"; Luke 17:36; Acts 8:37; Romans 16:25. They are listed in `official-empty-references.json`, with the source notes. They get no label and no text in the reading edition.
-- **Wording anomalies are preserved.** For example, the source typo "thingsin" in ESG 1:1 is kept. Psalm 68:32 renders as "Lord—Selah—", as both USFM and USFX mark it up. The VPL export inserts a space there.
+- **Wording anomalies are preserved.** The source runs words together in three places where a footnote sits between them: "thingsin" (ESG 1:1), "theirbenefactors" (ESG 8:13) and "trumpets,and" (1MA 4:40). eBible's own VPL export does the same, and all three are kept verbatim. Psalm 68:32 renders as "Lord—Selah—", as both USFM and USFX mark it up. The VPL export inserts a space there.
 
 ## Identity files for integration
 
@@ -77,6 +77,7 @@ Run `passage_map.py`. Every WEBC verse is compared with the Hebrew-tradition tex
   - DAG 3:24–90, the Prayer of Azariah and the Song of the Three. The source footnote at 3:24 identifies them.
   - DAG 13:1–64, Susanna
   - DAG 14:1–42, Bel and the Dragon
+- **Source note placement:** the source footnote announcing the addition sits on the heading before 3:24, so `notes.json` keys it `DAG.3.23`. Its `\fr` reads 3:24.
 - **Renumbered passage:** DAG 3:91–97 = Hebrew-tradition Daniel 3:24–30. The same numbers are different passages: **DAG 3:24 is not Daniel 3:24** in `web-en`, `kjv-en` or BSB.
 - All other DAG verses carry their Hebrew-tradition number. The wording is close to WEB Updated Daniel, but it is not word-identical: in 1:2, for example, DAG reads "part of the vessels" where WEB Updated reads "some of the vessels". The source metadata's statement that other books equal WEB Updated does not hold for Daniel's shared portions.
 
@@ -96,14 +97,26 @@ Run `passage_map.py`. Every WEBC verse is compared with the Hebrew-tradition tex
 
   Traditional letters are for orientation only. External numberings are not used for mapping. These include the Vulgate or KJV-Apocrypha chapters 11–16 and the lettered A–F verses of some editions. **A reference such as "Esther 10:4" or "Esther 4:20" in another edition must not be matched to ESG by number.**
 - **Hebrew verses with no WEBC counterpart:** Esther 4:6, 9:5 and 9:30. These verses are absent from every official WEBC export (USFM, USFX and VPL), and they are not filled.
-- **18 ESG verses are flagged `divergent-greek-wording-check-by-hand`** because their content-word overlap is below 0.3, plus 5:1–2 for Addition D. Examples: 1:7, 1:13–14, 9:7–9 (the lists of Haman's sons, with different transliterations), 10:2. The independent review checked them by hand; see REVIEW.md. The flags stay in the map so that Codex can choose chapter-level rather than verse-level projection for Esther.
+- **17 ESG verses are flagged `divergent-greek-wording-check-by-hand`** because their content-word overlap is below 0.3. Two more rows, 5:1–2, are flagged for Addition D, making 19 flagged rows in total. Examples: 1:7, 1:13–14, 9:7–9 (the lists of Haman's sons, with different transliterations), 10:2.
+  - The independent review ([review/esther-daniel-map.md](review/esther-daniel-map.md)) checked all 19 by hand. Every `hebrewRef` was confirmed, and none needed to change.
+  - Rows whose boundaries overlap the next or previous verse carry a `boundaryNote`: 1:18, 9:16, 9:27 and 10:2.
+  - Chapter-level projection remains the safer default for Esther highlights.
 
 ### Recommendation for Codex
 
-For Esther and Daniel, project across editions only through `esther-daniel-passage-map.json`:
-- For `kind: hebrew-tradition-counterpart*` rows, use `hebrewRef` and the recorded `web-en`, `kjv-en` and `bsb` locations.
-- For `greek-addition` rows and Hebrew verses without a counterpart, return **unmapped**.
-- A partial-verse selection inside an embedded addition span (ESG 1:1, 3:13, 8:13, 5:1–2) must never project to the Hebrew-tradition verse.
+Project Esther and Daniel across editions only through `esther-daniel-passage-map.json`. Every row has a `projection` field:
+
+| `projection` | Rows | Rule |
+| --- | --- | --- |
+| `verse` | Most counterpart rows | Project to `hebrewRef` and the recorded `web-en` / `kjv-en` / `bsb` location. A partial selection projects only by exact-quote search inside that verse; otherwise it falls back to the whole verse. |
+| `outside-addition-spans-only` | ESG 1:1, 3:13, 8:13 | A selection lying wholly inside `additionSpans` returns **unmapped**. |
+| `whole-verse-only` | ESG 5:1–2 (Addition D, **unbracketed** in the source) | Only a whole-verse position or selection may project to Esther 5:1 / 5:2. **Any partial selection returns unmapped.** |
+| `unmapped` | Greek additions: ESG 4:18–47 and 10:4–14; DAG 3:24–90, 13 and 14 | Highlights return **unmapped**. A *reading position* must not be lost: fall back to `positionFallbackHebrewRef`, the nearest preceding counterpart. Examples: ESG 4:18–47 → Esther 4:17, DAG 3:24–90 → Daniel 3:23, DAG 13–14 → Daniel 12:13. |
+
+**Reverse direction (66-book edition → WEBC).**
+- `hebrewRef` is unique across rows (`reverseLookupUnique: true`), so a reverse lookup is well defined.
+- Hebrew Esther 4:6, 9:5 and 9:30 have no WEBC verse. A position there falls back to the preceding verse.
+- A reverse partial selection landing in ESG 1:1, 3:13, 8:13 or 5:1–2 cannot be offset-mapped and lands on the whole verse.
 
 ## Validation
 
@@ -114,7 +127,7 @@ For Esther and Daniel, project across editions only through `esther-daniel-passa
 - all 29 empty references are declared in the USFX file and are empty there
 - full span coverage: every character of every paragraph is inside exactly one span, is a verse label, or is a single separator space; every label matches its verse ID
 - **VPL export** (third format; **Genesis is missing from this VPL build and from the read-aloud build**, a defect in eBible's export): 143 differences, **0 unexplained**. There are four kinds:
-  - 117 unnumbered lines (superscriptions and `SIR.51.pre`) folded into verse 1
+  - 117 chapter-initial psalm superscriptions folded into verse 1. The `SIR.51.pre` title line is absent from the VPL altogether.
   - 21 Psalm 119 letter headings folded into the preceding verse
   - 4 Song of Solomon speaker labels folded into verse text
   - 1 extra space before the Selah marker in Psalm 68:32
@@ -140,7 +153,7 @@ sha256sum -c SHA256SUMS
 | `out/verse-text.json` | `de0e8a7584fc4eee3a561739027862a18a1b4011c6570246f7340ce1bc798f59` |
 | `out/verse-crosswalk.json` | `8c4cfa877244b81a89bf445e9a377fe20de564e7837b5ba71bf72d39539b5fed` |
 | `out/chapter-crosswalk.json` | `42cb12ff4ba8a8c10a18cd92082632a12d5fa5bf0a3d9ca3dfaa08928f939e84` |
-| `out/esther-daniel-passage-map.json` | `7a05f1e16e54ffd0dab3e22c3effc2fa5cbe25437bbb18af4987f1ebb046c5d0` |
+| `out/esther-daniel-passage-map.json` | `8d55819e290f06a6d30d2804a3e5e938a072bcaedc442d2a5c7cdc57002f0c28` |
 
 `SHA256SUMS` covers every committed file in this folder.
 
@@ -150,6 +163,11 @@ sha256sum -c SHA256SUMS
    - The book group assignments in `sections` are a presentation proposal that reuses the `web-en` section titles. The source defines only the order.
    - The chapter titles use the source's short names (`Esther (Greek) 4`, `Daniel (Greek) 3`). Relabelling them for display is fine, but it must not change `bookCode`.
 2. Generate chapter shards with the existing tooling.
-3. Decide how to render the `layout.json` material: poetry line breaks, headings, speaker labels and the `\nb` continuation flags (4 paragraphs). This packet does not encode it in the reading text.
+3. Decide how to render the `layout.json` material. This packet does not encode any of it in the reading text:
+   - poetry line breaks and section headings
+   - Song of Solomon speaker labels; without them, the reader loses who is speaking
+   - the `\nb` continuation flags (4 paragraphs)
+   - the "Prologue" heading. Without it, the Sirach prologue (¶0 of Sirach 1, no verse label) reads like chapter 1 text.
+   - styling for the 138 unnumbered superscriptions and Psalm 119 letter headings, so they do not read as verse text
 4. Position and highlight projection: use the chapter and verse crosswalks, and use the passage map for ESG/DAG. Never apply equal paragraph indices or offsets across editions.
 5. Onboarding, character cards and audio for this edition are not included. No audio exists for this edition, and existing WEB or KJV audio must not be reused.

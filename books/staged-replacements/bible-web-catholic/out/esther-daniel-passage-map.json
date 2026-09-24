@@ -1,5 +1,5 @@
 {
- "note": "Correspondence, not identity. Rows pair a source-native WEBC reference with the best Hebrew-tradition verse by monotonic similarity alignment. Equal numbers are never assumed to be the same passage; see sameNumber and scores. Offsets are UTF-16, end-exclusive, within the verse text in verse-text.json.",
+ "note": "Correspondence, not identity. DAG rows pair each verse with the best Hebrew-tradition verse by monotonic similarity alignment against WEB Updated DAN. ESG rows record the source introduction's claim that ESG numbering follows the Hebrew verse numbers outside the additions; that claim is measured (scores), flagged where weak, and was checked by hand in review/esther-daniel-map.md. It is not assumed from number equality alone. Offsets are UTF-16, end-exclusive, within the verse text in verse-text.json. `projection` says what may be projected: 'verse' (whole verse or partial selection by quote search within the counterpart), 'outside-addition-spans-only' (selections wholly inside additionSpans are unmapped), 'whole-verse-only' (any partial selection is unmapped), 'unmapped' (Greek addition; for reading positions only, fall back to positionFallbackHebrewRef).",
  "inputs": {
   "usfxZipSha256": "6a34804c71b8aa2930e851a023511f702fff4dd5a5e427c393f9d6a84fe6aea2",
   "verseTextSha256": "de0e8a7584fc4eee3a561739027862a18a1b4011c6570246f7340ce1bc798f59",
@@ -12,7 +12,7 @@
   "ESG has no verses 4:6, 9:5 or 9:30 in any official export (USFM, USFX, VPL). They are not filled.",
   "ESG 1:1 contains the source typo 'thingsin' (missing space); preserved verbatim.",
   "DAG Hebrew-tradition verses are close but not word-identical to WEB Updated DAN; the metadata claim that other books equal WEB Updated does not apply to Daniel's shared portions.",
-  "DAG 3:24-90 is the Prayer of Azariah and Song of the Three (source footnote at 3:24); DAG 3:91-97 are the Hebrew 3:24-30 renumbered. DAG 13 is Susanna and DAG 14 is Bel and the Dragon (source headings)."
+  "DAG 3:24-90 is the Prayer of Azariah and Song of the Three (source footnote at 3:24); DAG 3:91-97 are the Hebrew 3:24-30 renumbered. DAG 13 is Susanna and DAG 14 is Bel and the Dragon (source headings). The 3:24 footnote sits on the heading before verse 24, so notes.json keys it DAG.3.23 (its \\fr reads 3:24)."
  ],
  "books": {
   "ESG": {
@@ -141,6 +141,10 @@
      "ESG.3.13",
      "ESG.8.13"
     ],
+    "versesWithUnbracketedAddition": [
+     "ESG.5.1",
+     "ESG.5.2"
+    ],
     "counterparts": 164,
     "counterpartsWithDifferentNumber": [],
     "flaggedForReview": [
@@ -163,7 +167,8 @@
      "ESG.9.16",
      "ESG.9.25",
      "ESG.10.2"
-    ]
+    ],
+    "reverseLookupUnique": true
    },
    "verses": [
     {
@@ -199,7 +204,8 @@
       "verseLabel": "1",
       "similarity": 0.471,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "outside-addition-spans-only"
     },
     {
      "ref": "ESG.1.2",
@@ -228,7 +234,8 @@
       "verseLabel": "2",
       "similarity": 0.611,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.3",
@@ -257,7 +264,8 @@
       "verseLabel": "3",
       "similarity": 0.417,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.4",
@@ -286,7 +294,8 @@
       "verseLabel": "4",
       "similarity": 0.458,
       "contentOverlap": 0.273
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.5",
@@ -315,7 +324,8 @@
       "verseLabel": "5",
       "similarity": 0.519,
       "contentOverlap": 0.529
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.6",
@@ -344,7 +354,8 @@
       "verseLabel": "6",
       "similarity": 0.34,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.7",
@@ -373,7 +384,8 @@
       "verseLabel": "7",
       "similarity": 0.169,
       "contentOverlap": 0.214
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.8",
@@ -402,7 +414,8 @@
       "verseLabel": "8",
       "similarity": 0.312,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.9",
@@ -431,7 +444,8 @@
       "verseLabel": "9",
       "similarity": 0.722,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.10",
@@ -460,7 +474,8 @@
       "verseLabel": "10",
       "similarity": 0.419,
       "contentOverlap": 0.389
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.11",
@@ -489,7 +504,8 @@
       "verseLabel": "11",
       "similarity": 0.459,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.12",
@@ -518,7 +534,8 @@
       "verseLabel": "12",
       "similarity": 0.465,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.13",
@@ -547,7 +564,8 @@
       "verseLabel": "13",
       "similarity": 0.133,
       "contentOverlap": 0.125
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.14",
@@ -576,7 +594,8 @@
       "verseLabel": "14",
       "similarity": 0.312,
       "contentOverlap": 0.25
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.15",
@@ -605,7 +624,8 @@
       "verseLabel": "15",
       "similarity": 0.321,
       "contentOverlap": 0.562
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.16",
@@ -634,7 +654,8 @@
       "verseLabel": "16",
       "similarity": 0.5,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.17",
@@ -663,7 +684,8 @@
       "verseLabel": "17",
       "similarity": 0.206,
       "contentOverlap": 0.333
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.18",
@@ -692,7 +714,9 @@
       "verseLabel": "18",
       "similarity": 0.239,
       "contentOverlap": 0.188
-     }
+     },
+     "boundaryNote": "also carries content of Hebrew 1:17b",
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.19",
@@ -721,7 +745,8 @@
       "verseLabel": "19",
       "similarity": 0.513,
       "contentOverlap": 0.536
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.20",
@@ -750,7 +775,8 @@
       "verseLabel": "20",
       "similarity": 0.377,
       "contentOverlap": 0.2
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.21",
@@ -779,7 +805,8 @@
       "verseLabel": "21",
       "similarity": 0.629,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.1.22",
@@ -808,7 +835,8 @@
       "verseLabel": "22",
       "similarity": 0.306,
       "contentOverlap": 0.462
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.1",
@@ -837,7 +865,8 @@
       "verseLabel": "1",
       "similarity": 0.385,
       "contentOverlap": 0.375
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.2",
@@ -866,7 +895,8 @@
       "verseLabel": "2",
       "similarity": 0.541,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.3",
@@ -895,7 +925,8 @@
       "verseLabel": "3",
       "similarity": 0.544,
       "contentOverlap": 0.52
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.4",
@@ -924,7 +955,8 @@
       "verseLabel": "4",
       "similarity": 0.773,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.5",
@@ -953,7 +985,8 @@
       "verseLabel": "5",
       "similarity": 0.644,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.6",
@@ -982,7 +1015,8 @@
       "verseLabel": "6",
       "similarity": 0.468,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.7",
@@ -1011,7 +1045,8 @@
       "verseLabel": "7",
       "similarity": 0.219,
       "contentOverlap": 0.526
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.8",
@@ -1040,7 +1075,8 @@
       "verseLabel": "8",
       "similarity": 0.482,
       "contentOverlap": 0.529
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.9",
@@ -1069,7 +1105,8 @@
       "verseLabel": "9",
       "similarity": 0.462,
       "contentOverlap": 0.455
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.10",
@@ -1098,7 +1135,8 @@
       "verseLabel": "10",
       "similarity": 0.526,
       "contentOverlap": 0.455
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.11",
@@ -1127,7 +1165,8 @@
       "verseLabel": "11",
       "similarity": 0.465,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.12",
@@ -1156,7 +1195,8 @@
       "verseLabel": "12",
       "similarity": 0.481,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.13",
@@ -1185,7 +1225,8 @@
       "verseLabel": "13",
       "similarity": 0.338,
       "contentOverlap": 0.357
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.14",
@@ -1214,7 +1255,8 @@
       "verseLabel": "14",
       "similarity": 0.442,
       "contentOverlap": 0.429
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.15",
@@ -1243,7 +1285,8 @@
       "verseLabel": "15",
       "similarity": 0.523,
       "contentOverlap": 0.625
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.16",
@@ -1272,7 +1315,8 @@
       "verseLabel": "16",
       "similarity": 0.667,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.17",
@@ -1301,7 +1345,8 @@
       "verseLabel": "17",
       "similarity": 0.393,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.18",
@@ -1330,7 +1375,8 @@
       "verseLabel": "18",
       "similarity": 0.301,
       "contentOverlap": 0.235
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.19",
@@ -1359,7 +1405,8 @@
       "verseLabel": "19",
       "similarity": 0.25,
       "contentOverlap": 0.25
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.20",
@@ -1388,7 +1435,8 @@
       "verseLabel": "20",
       "similarity": 0.375,
       "contentOverlap": 0.312
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.21",
@@ -1417,7 +1465,8 @@
       "verseLabel": "21",
       "similarity": 0.361,
       "contentOverlap": 0.462
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.22",
@@ -1446,7 +1495,8 @@
       "verseLabel": "22",
       "similarity": 0.367,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.2.23",
@@ -1475,7 +1525,8 @@
       "verseLabel": "23",
       "similarity": 0.088,
       "contentOverlap": 0.133
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.1",
@@ -1504,7 +1555,8 @@
       "verseLabel": "1",
       "similarity": 0.604,
       "contentOverlap": 0.643
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.2",
@@ -1533,7 +1585,8 @@
       "verseLabel": "2",
       "similarity": 0.379,
       "contentOverlap": 0.273
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.3",
@@ -1562,7 +1615,8 @@
       "verseLabel": "3",
       "similarity": 0.429,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.4",
@@ -1591,7 +1645,8 @@
       "verseLabel": "4",
       "similarity": 0.324,
       "contentOverlap": 0.308
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.5",
@@ -1620,7 +1675,8 @@
       "verseLabel": "5",
       "similarity": 0.364,
       "contentOverlap": 0.3
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.6",
@@ -1649,7 +1705,8 @@
       "verseLabel": "6",
       "similarity": 0.364,
       "contentOverlap": 0.429
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.7",
@@ -1678,7 +1735,8 @@
       "verseLabel": "7",
       "similarity": 0.357,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.8",
@@ -1707,7 +1765,8 @@
       "verseLabel": "8",
       "similarity": 0.604,
       "contentOverlap": 0.471
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.9",
@@ -1736,7 +1795,8 @@
       "verseLabel": "9",
       "similarity": 0.361,
       "contentOverlap": 0.562
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.10",
@@ -1765,7 +1825,8 @@
       "verseLabel": "10",
       "similarity": 0.578,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.11",
@@ -1794,7 +1855,8 @@
       "verseLabel": "11",
       "similarity": 0.4,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.12",
@@ -1823,7 +1885,8 @@
       "verseLabel": "12",
       "similarity": 0.444,
       "contentOverlap": 0.552
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.13",
@@ -1858,7 +1921,8 @@
       "verseLabel": "13",
       "similarity": 0.362,
       "contentOverlap": 0.412
-     }
+     },
+     "projection": "outside-addition-spans-only"
     },
     {
      "ref": "ESG.3.14",
@@ -1887,7 +1951,8 @@
       "verseLabel": "14",
       "similarity": 0.431,
       "contentOverlap": 0.545
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.3.15",
@@ -1916,7 +1981,8 @@
       "verseLabel": "15",
       "similarity": 0.444,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.1",
@@ -1945,7 +2011,8 @@
       "verseLabel": "1",
       "similarity": 0.444,
       "contentOverlap": 0.444
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.2",
@@ -1974,7 +2041,8 @@
       "verseLabel": "2",
       "similarity": 0.444,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.3",
@@ -2003,7 +2071,8 @@
       "verseLabel": "3",
       "similarity": 0.467,
       "contentOverlap": 0.533
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.4",
@@ -2032,7 +2101,8 @@
       "verseLabel": "4",
       "similarity": 0.466,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.5",
@@ -2061,7 +2131,8 @@
       "verseLabel": "5",
       "similarity": 0.255,
       "contentOverlap": 0.417
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.7",
@@ -2090,7 +2161,8 @@
       "verseLabel": "7",
       "similarity": 0.303,
       "contentOverlap": 0.357
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.8",
@@ -2119,7 +2191,8 @@
       "verseLabel": "8",
       "similarity": 0.315,
       "contentOverlap": 0.348
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.9",
@@ -2148,7 +2221,8 @@
       "verseLabel": "9",
       "similarity": 0.3,
       "contentOverlap": 0.333
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.10",
@@ -2177,7 +2251,8 @@
       "verseLabel": "10",
       "similarity": 0.2,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.11",
@@ -2206,7 +2281,8 @@
       "verseLabel": "11",
       "similarity": 0.477,
       "contentOverlap": 0.531
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.12",
@@ -2235,7 +2311,8 @@
       "verseLabel": "12",
       "similarity": 0.333,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.13",
@@ -2264,7 +2341,8 @@
       "verseLabel": "13",
       "similarity": 0.481,
       "contentOverlap": 0.438
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.14",
@@ -2293,7 +2371,8 @@
       "verseLabel": "14",
       "similarity": 0.409,
       "contentOverlap": 0.444
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.15",
@@ -2322,7 +2401,8 @@
       "verseLabel": "15",
       "similarity": 0.2,
       "contentOverlap": 0.333
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.16",
@@ -2351,7 +2431,8 @@
       "verseLabel": "16",
       "similarity": 0.542,
       "contentOverlap": 0.625
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.17",
@@ -2380,7 +2461,8 @@
       "verseLabel": "17",
       "similarity": 0.8,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.4.18",
@@ -2391,7 +2473,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.19",
@@ -2402,7 +2486,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.20",
@@ -2413,7 +2499,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.21",
@@ -2424,7 +2512,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.22",
@@ -2435,7 +2525,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.23",
@@ -2446,7 +2538,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.24",
@@ -2457,7 +2551,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.25",
@@ -2468,7 +2564,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.26",
@@ -2479,7 +2577,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.27",
@@ -2490,7 +2590,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.28",
@@ -2501,7 +2603,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.29",
@@ -2512,7 +2616,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.30",
@@ -2523,7 +2629,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.31",
@@ -2534,7 +2642,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.32",
@@ -2545,7 +2655,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.33",
@@ -2556,7 +2668,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.34",
@@ -2567,7 +2681,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.35",
@@ -2578,7 +2694,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.36",
@@ -2589,7 +2707,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.37",
@@ -2600,7 +2720,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.38",
@@ -2611,7 +2733,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.39",
@@ -2622,7 +2746,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.40",
@@ -2633,7 +2759,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.41",
@@ -2644,7 +2772,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.42",
@@ -2655,7 +2785,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.43",
@@ -2666,7 +2798,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.44",
@@ -2677,7 +2811,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.45",
@@ -2688,7 +2824,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.46",
@@ -2699,7 +2837,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.4.47",
@@ -2709,16 +2849,18 @@
        "end": 153
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.4.17"
     },
     {
      "ref": "ESG.5.1",
-     "kind": "hebrew-tradition-counterpart",
+     "kind": "hebrew-tradition-counterpart-with-unbracketed-addition",
      "hebrewRef": "EST.5.1",
      "sameNumber": true,
      "similarityToWebuHebrew": 0.156,
      "contentOverlapWithWebuHebrew": 0.556,
-     "review": "check-by-hand",
+     "review": "reviewed: counterpart embedded in unbracketed addition",
      "bsb": {
       "ref": "EST.5.1",
       "contentOverlap": 0.55
@@ -2739,16 +2881,17 @@
       "similarity": 0.188,
       "contentOverlap": 0.682
      },
-     "unbracketedGreekExpansion": "Addition D: Greek expansion, not bracketed in source (ESG introduction names 5:1 as lengthened)"
+     "unbracketedGreekExpansion": "Addition D: Greek expansion, not bracketed in source (ESG introduction names 5:1 as lengthened)",
+     "projection": "whole-verse-only"
     },
     {
      "ref": "ESG.5.2",
-     "kind": "hebrew-tradition-counterpart",
+     "kind": "hebrew-tradition-counterpart-with-unbracketed-addition",
      "hebrewRef": "EST.5.2",
      "sameNumber": true,
      "similarityToWebuHebrew": 0.098,
      "contentOverlapWithWebuHebrew": 0.2,
-     "review": "check-by-hand",
+     "review": "reviewed: counterpart embedded in unbracketed addition",
      "bsb": {
       "ref": "EST.5.2",
       "contentOverlap": 0.158
@@ -2769,7 +2912,8 @@
       "similarity": 0.109,
       "contentOverlap": 0.25
      },
-     "unbracketedGreekExpansion": "Addition D continues: Greek expansion, not bracketed in source"
+     "unbracketedGreekExpansion": "Addition D continues: Greek expansion, not bracketed in source",
+     "projection": "whole-verse-only"
     },
     {
      "ref": "ESG.5.3",
@@ -2798,7 +2942,8 @@
       "verseLabel": "3",
       "similarity": 0.491,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.4",
@@ -2827,7 +2972,8 @@
       "verseLabel": "4",
       "similarity": 0.421,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.5",
@@ -2856,7 +3002,8 @@
       "verseLabel": "5",
       "similarity": 0.561,
       "contentOverlap": 0.462
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.6",
@@ -2885,7 +3032,8 @@
       "verseLabel": "6",
       "similarity": 0.241,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.7",
@@ -2914,7 +3062,8 @@
       "verseLabel": "7",
       "similarity": 0.526,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.8",
@@ -2943,7 +3092,8 @@
       "verseLabel": "8",
       "similarity": 0.562,
       "contentOverlap": 0.588
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.9",
@@ -2972,7 +3122,8 @@
       "verseLabel": "9",
       "similarity": 0.349,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.10",
@@ -3001,7 +3152,8 @@
       "verseLabel": "10",
       "similarity": 0.412,
       "contentOverlap": 0.444
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.11",
@@ -3030,7 +3182,8 @@
       "verseLabel": "11",
       "similarity": 0.412,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.12",
@@ -3059,7 +3212,8 @@
       "verseLabel": "12",
       "similarity": 0.414,
       "contentOverlap": 0.545
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.13",
@@ -3088,7 +3242,8 @@
       "verseLabel": "13",
       "similarity": 0.389,
       "contentOverlap": 0.3
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.5.14",
@@ -3117,7 +3272,8 @@
       "verseLabel": "14",
       "similarity": 0.534,
       "contentOverlap": 0.682
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.1",
@@ -3146,7 +3302,8 @@
       "verseLabel": "1",
       "similarity": 0.291,
       "contentOverlap": 0.455
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.2",
@@ -3175,7 +3332,8 @@
       "verseLabel": "2",
       "similarity": 0.462,
       "contentOverlap": 0.688
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.3",
@@ -3204,7 +3362,8 @@
       "verseLabel": "3",
       "similarity": 0.473,
       "contentOverlap": 0.462
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.4",
@@ -3233,7 +3392,8 @@
       "verseLabel": "4",
       "similarity": 0.548,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.5",
@@ -3262,7 +3422,8 @@
       "verseLabel": "5",
       "similarity": 0.769,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.6",
@@ -3291,7 +3452,8 @@
       "verseLabel": "6",
       "similarity": 0.4,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.7",
@@ -3320,7 +3482,8 @@
       "verseLabel": "7",
       "similarity": 0.621,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.8",
@@ -3349,7 +3512,8 @@
       "verseLabel": "8",
       "similarity": 0.37,
       "contentOverlap": 0.273
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.9",
@@ -3378,7 +3542,8 @@
       "verseLabel": "9",
       "similarity": 0.281,
       "contentOverlap": 0.545
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.10",
@@ -3407,7 +3572,8 @@
       "verseLabel": "10",
       "similarity": 0.395,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.11",
@@ -3436,7 +3602,8 @@
       "verseLabel": "11",
       "similarity": 0.506,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.12",
@@ -3465,7 +3632,8 @@
       "verseLabel": "12",
       "similarity": 0.5,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.13",
@@ -3494,7 +3662,8 @@
       "verseLabel": "13",
       "similarity": 0.39,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.6.14",
@@ -3523,7 +3692,8 @@
       "verseLabel": "14",
       "similarity": 0.558,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.1",
@@ -3552,7 +3722,8 @@
       "verseLabel": "1",
       "similarity": 0.75,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.2",
@@ -3581,7 +3752,8 @@
       "verseLabel": "2",
       "similarity": 0.463,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.3",
@@ -3610,7 +3782,8 @@
       "verseLabel": "3",
       "similarity": 0.657,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.4",
@@ -3639,7 +3812,8 @@
       "verseLabel": "4",
       "similarity": 0.31,
       "contentOverlap": 0.316
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.5",
@@ -3668,7 +3842,8 @@
       "verseLabel": "5",
       "similarity": 0.324,
       "contentOverlap": 0.4
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.6",
@@ -3697,7 +3872,8 @@
       "verseLabel": "6",
       "similarity": 0.698,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.7",
@@ -3726,7 +3902,8 @@
       "verseLabel": "7",
       "similarity": 0.466,
       "contentOverlap": 0.533
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.8",
@@ -3755,7 +3932,8 @@
       "verseLabel": "8",
       "similarity": 0.316,
       "contentOverlap": 0.444
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.9",
@@ -3784,7 +3962,8 @@
       "verseLabel": "9",
       "similarity": 0.444,
       "contentOverlap": 0.476
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.7.10",
@@ -3813,7 +3992,8 @@
       "verseLabel": "10",
       "similarity": 0.75,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.1",
@@ -3842,7 +4022,8 @@
       "verseLabel": "1",
       "similarity": 0.508,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.2",
@@ -3871,7 +4052,8 @@
       "verseLabel": "2",
       "similarity": 0.667,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.3",
@@ -3900,7 +4082,8 @@
       "verseLabel": "3",
       "similarity": 0.597,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.4",
@@ -3929,7 +4112,8 @@
       "verseLabel": "4",
       "similarity": 0.629,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.5",
@@ -3958,7 +4142,8 @@
       "verseLabel": "5",
       "similarity": 0.336,
       "contentOverlap": 0.368
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.6",
@@ -3987,7 +4172,8 @@
       "verseLabel": "6",
       "similarity": 0.596,
       "contentOverlap": 0.625
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.7",
@@ -4016,7 +4202,8 @@
       "verseLabel": "7",
       "similarity": 0.468,
       "contentOverlap": 0.579
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.8",
@@ -4045,7 +4232,8 @@
       "verseLabel": "8",
       "similarity": 0.436,
       "contentOverlap": 0.538
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.9",
@@ -4074,7 +4262,8 @@
       "verseLabel": "9",
       "similarity": 0.247,
       "contentOverlap": 0.533
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.10",
@@ -4103,7 +4292,8 @@
       "verseLabel": "10",
       "similarity": 0.314,
       "contentOverlap": 0.625
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.11",
@@ -4132,7 +4322,8 @@
       "verseLabel": "11",
       "similarity": 0.207,
       "contentOverlap": 0.143
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.12",
@@ -4161,7 +4352,8 @@
       "verseLabel": "12",
       "similarity": 0.773,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.13",
@@ -4196,7 +4388,8 @@
       "verseLabel": "13",
       "similarity": 0.457,
       "contentOverlap": 0.353
-     }
+     },
+     "projection": "outside-addition-spans-only"
     },
     {
      "ref": "ESG.8.14",
@@ -4225,7 +4418,8 @@
       "verseLabel": "14",
       "similarity": 0.32,
       "contentOverlap": 0.25
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.15",
@@ -4254,7 +4448,8 @@
       "verseLabel": "15",
       "similarity": 0.441,
       "contentOverlap": 0.588
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.16",
@@ -4283,7 +4478,8 @@
       "verseLabel": "16",
       "similarity": 0.75,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.8.17",
@@ -4312,7 +4508,8 @@
       "verseLabel": "17",
       "similarity": 0.488,
       "contentOverlap": 0.45
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.1",
@@ -4341,7 +4538,8 @@
       "verseLabel": "1",
       "similarity": 0.302,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.2",
@@ -4370,7 +4568,8 @@
       "verseLabel": "2",
       "similarity": 0.281,
       "contentOverlap": 0.333
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.3",
@@ -4399,7 +4598,8 @@
       "verseLabel": "3",
       "similarity": 0.556,
       "contentOverlap": 0.364
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.4",
@@ -4428,7 +4628,8 @@
       "verseLabel": "4",
       "similarity": 0.227,
       "contentOverlap": 0.167
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.6",
@@ -4457,7 +4658,8 @@
       "verseLabel": "6",
       "similarity": 0.609,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.7",
@@ -4486,7 +4688,8 @@
       "verseLabel": "7",
       "similarity": 0.0,
       "contentOverlap": 0.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.8",
@@ -4515,7 +4718,8 @@
       "verseLabel": "8",
       "similarity": 0.0,
       "contentOverlap": 0.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.9",
@@ -4544,7 +4748,8 @@
       "verseLabel": "9",
       "similarity": 0.154,
       "contentOverlap": 0.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.10",
@@ -4573,7 +4778,8 @@
       "verseLabel": "10",
       "similarity": 0.68,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.11",
@@ -4602,7 +4808,8 @@
       "verseLabel": "11",
       "similarity": 0.5,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.12",
@@ -4631,7 +4838,8 @@
       "verseLabel": "12",
       "similarity": 0.485,
       "contentOverlap": 0.526
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.13",
@@ -4660,7 +4868,8 @@
       "verseLabel": "13",
       "similarity": 0.457,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.14",
@@ -4689,7 +4898,8 @@
       "verseLabel": "14",
       "similarity": 0.292,
       "contentOverlap": 0.3
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.15",
@@ -4718,7 +4928,8 @@
       "verseLabel": "15",
       "similarity": 0.509,
       "contentOverlap": 0.538
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.16",
@@ -4747,7 +4958,9 @@
       "verseLabel": "16",
       "similarity": 0.346,
       "contentOverlap": 0.222
-     }
+     },
+     "boundaryNote": "also carries 'on the thirteenth day of Adar' (Hebrew 9:17a)",
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.17",
@@ -4776,7 +4989,8 @@
       "verseLabel": "17",
       "similarity": 0.542,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.18",
@@ -4805,7 +5019,8 @@
       "verseLabel": "18",
       "similarity": 0.349,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.19",
@@ -4834,7 +5049,8 @@
       "verseLabel": "19",
       "similarity": 0.328,
       "contentOverlap": 0.278
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.20",
@@ -4863,7 +5079,8 @@
       "verseLabel": "20",
       "similarity": 0.542,
       "contentOverlap": 0.643
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.21",
@@ -4892,7 +5109,8 @@
       "verseLabel": "21",
       "similarity": 0.359,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.22",
@@ -4921,7 +5139,8 @@
       "verseLabel": "22",
       "similarity": 0.532,
       "contentOverlap": 0.522
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.23",
@@ -4950,7 +5169,8 @@
       "verseLabel": "23",
       "similarity": 0.5,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.24",
@@ -4979,7 +5199,8 @@
       "verseLabel": "24",
       "similarity": 0.328,
       "contentOverlap": 0.429
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.25",
@@ -5008,7 +5229,8 @@
       "verseLabel": "25",
       "similarity": 0.243,
       "contentOverlap": 0.294
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.26",
@@ -5037,7 +5259,8 @@
       "verseLabel": "26",
       "similarity": 0.427,
       "contentOverlap": 0.538
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.27",
@@ -5066,7 +5289,9 @@
       "verseLabel": "27",
       "similarity": 0.261,
       "contentOverlap": 0.409
-     }
+     },
+     "boundaryNote": "also carries content of Hebrew 9:28a",
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.28",
@@ -5095,7 +5320,8 @@
       "verseLabel": "28",
       "similarity": 0.207,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.29",
@@ -5124,7 +5350,8 @@
       "verseLabel": "29",
       "similarity": 0.5,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.31",
@@ -5153,7 +5380,8 @@
       "verseLabel": "31",
       "similarity": 0.233,
       "contentOverlap": 0.3
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.9.32",
@@ -5182,7 +5410,8 @@
       "verseLabel": "32",
       "similarity": 0.375,
       "contentOverlap": 0.333
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.10.1",
@@ -5211,7 +5440,8 @@
       "verseLabel": "1",
       "similarity": 0.467,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.10.2",
@@ -5240,7 +5470,9 @@
       "verseLabel": "2",
       "similarity": 0.371,
       "contentOverlap": 0.182
-     }
+     },
+     "boundaryNote": "lacks the Hebrew clause on the greatness of Mordecai",
+     "projection": "verse"
     },
     {
      "ref": "ESG.10.3",
@@ -5269,7 +5501,8 @@
       "verseLabel": "3",
       "similarity": 0.387,
       "contentOverlap": 0.385
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "ESG.10.4",
@@ -5280,7 +5513,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.5",
@@ -5291,7 +5526,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.6",
@@ -5302,7 +5539,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.7",
@@ -5313,7 +5552,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.8",
@@ -5324,7 +5565,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.9",
@@ -5335,7 +5578,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.10",
@@ -5346,7 +5591,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.11",
@@ -5357,7 +5604,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.12",
@@ -5368,7 +5617,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.13",
@@ -5379,7 +5630,9 @@
        "continuesInNextVerse": true
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     },
     {
      "ref": "ESG.10.14",
@@ -5389,7 +5642,9 @@
        "end": 272
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "EST.10.3"
     }
    ]
   },
@@ -5655,6 +5910,7 @@
      "DAG.14.42"
     ],
     "versesWithEmbeddedAddition": [],
+    "versesWithUnbracketedAddition": [],
     "counterparts": 357,
     "counterpartsWithDifferentNumber": [
      "DAG.3.91->DAN.3.24",
@@ -5665,7 +5921,8 @@
      "DAG.3.96->DAN.3.29",
      "DAG.3.97->DAN.3.30"
     ],
-    "flaggedForReview": []
+    "flaggedForReview": [],
+    "reverseLookupUnique": true
    },
    "verses": [
     {
@@ -5695,7 +5952,8 @@
       "verseLabel": "1",
       "similarity": 0.909,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.2",
@@ -5724,7 +5982,8 @@
       "verseLabel": "2",
       "similarity": 0.946,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.3",
@@ -5753,7 +6012,8 @@
       "verseLabel": "3",
       "similarity": 0.656,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.4",
@@ -5782,7 +6042,8 @@
       "verseLabel": "4",
       "similarity": 0.695,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.5",
@@ -5811,7 +6072,8 @@
       "verseLabel": "5",
       "similarity": 0.685,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.6",
@@ -5840,7 +6102,8 @@
       "verseLabel": "6",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.7",
@@ -5869,7 +6132,8 @@
       "verseLabel": "7",
       "similarity": 0.746,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.8",
@@ -5898,7 +6162,8 @@
       "verseLabel": "8",
       "similarity": 0.938,
       "contentOverlap": 0.941
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.9",
@@ -5927,7 +6192,8 @@
       "verseLabel": "9",
       "similarity": 0.545,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.10",
@@ -5956,7 +6222,8 @@
       "verseLabel": "10",
       "similarity": 0.76,
       "contentOverlap": 0.708
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.11",
@@ -5985,7 +6252,8 @@
       "verseLabel": "11",
       "similarity": 0.821,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.12",
@@ -6014,7 +6282,8 @@
       "verseLabel": "12",
       "similarity": 0.75,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.13",
@@ -6043,7 +6312,8 @@
       "verseLabel": "13",
       "similarity": 0.613,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.14",
@@ -6072,7 +6342,8 @@
       "verseLabel": "14",
       "similarity": 0.815,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.15",
@@ -6101,7 +6372,8 @@
       "verseLabel": "15",
       "similarity": 0.714,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.16",
@@ -6130,7 +6402,8 @@
       "verseLabel": "16",
       "similarity": 0.632,
       "contentOverlap": 0.556
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.17",
@@ -6159,7 +6432,8 @@
       "verseLabel": "17",
       "similarity": 0.941,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.18",
@@ -6188,7 +6462,8 @@
       "verseLabel": "18",
       "similarity": 0.792,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.19",
@@ -6217,7 +6492,8 @@
       "verseLabel": "19",
       "similarity": 0.816,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.20",
@@ -6246,7 +6522,8 @@
       "verseLabel": "20",
       "similarity": 0.781,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.1.21",
@@ -6275,7 +6552,8 @@
       "verseLabel": "21",
       "similarity": 0.818,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.1",
@@ -6304,7 +6582,8 @@
       "verseLabel": "1",
       "similarity": 0.894,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.2",
@@ -6333,7 +6612,8 @@
       "verseLabel": "2",
       "similarity": 0.794,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.3",
@@ -6362,7 +6642,8 @@
       "verseLabel": "3",
       "similarity": 0.872,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.4",
@@ -6391,7 +6672,8 @@
       "verseLabel": "4",
       "similarity": 0.745,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.5",
@@ -6420,7 +6702,8 @@
       "verseLabel": "5",
       "similarity": 0.7,
       "contentOverlap": 0.789
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.6",
@@ -6449,7 +6732,8 @@
       "verseLabel": "6",
       "similarity": 0.632,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.7",
@@ -6478,7 +6762,8 @@
       "verseLabel": "7",
       "similarity": 0.81,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.8",
@@ -6507,7 +6792,8 @@
       "verseLabel": "8",
       "similarity": 0.708,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.9",
@@ -6536,7 +6822,8 @@
       "verseLabel": "9",
       "similarity": 0.725,
       "contentOverlap": 0.68
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.10",
@@ -6565,7 +6852,8 @@
       "verseLabel": "10",
       "similarity": 0.732,
       "contentOverlap": 0.792
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.11",
@@ -6594,7 +6882,8 @@
       "verseLabel": "11",
       "similarity": 0.852,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.12",
@@ -6623,7 +6912,8 @@
       "verseLabel": "12",
       "similarity": 0.78,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.13",
@@ -6652,7 +6942,8 @@
       "verseLabel": "13",
       "similarity": 0.727,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.14",
@@ -6681,7 +6972,8 @@
       "verseLabel": "14",
       "similarity": 0.764,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.15",
@@ -6710,7 +7002,8 @@
       "verseLabel": "15",
       "similarity": 0.902,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.16",
@@ -6739,7 +7032,8 @@
       "verseLabel": "16",
       "similarity": 0.851,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.17",
@@ -6768,7 +7062,8 @@
       "verseLabel": "17",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.18",
@@ -6797,7 +7092,8 @@
       "verseLabel": "18",
       "similarity": 0.918,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.19",
@@ -6826,7 +7122,8 @@
       "verseLabel": "19",
       "similarity": 0.789,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.20",
@@ -6855,7 +7152,8 @@
       "verseLabel": "20",
       "similarity": 0.865,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.21",
@@ -6884,7 +7182,8 @@
       "verseLabel": "21",
       "similarity": 0.691,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.22",
@@ -6913,7 +7212,8 @@
       "verseLabel": "22",
       "similarity": 0.85,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.23",
@@ -6942,7 +7242,8 @@
       "verseLabel": "23",
       "similarity": 0.738,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.24",
@@ -6971,7 +7272,8 @@
       "verseLabel": "24",
       "similarity": 0.842,
       "contentOverlap": 0.765
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.25",
@@ -7000,7 +7302,8 @@
       "verseLabel": "25",
       "similarity": 0.817,
       "contentOverlap": 0.867
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.26",
@@ -7029,7 +7332,8 @@
       "verseLabel": "26",
       "similarity": 0.778,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.27",
@@ -7058,7 +7362,8 @@
       "verseLabel": "27",
       "similarity": 0.475,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.28",
@@ -7087,7 +7392,8 @@
       "verseLabel": "28",
       "similarity": 0.747,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.29",
@@ -7116,7 +7422,8 @@
       "verseLabel": "29",
       "similarity": 0.516,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.30",
@@ -7145,7 +7452,8 @@
       "verseLabel": "30",
       "similarity": 0.787,
       "contentOverlap": 0.812
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.31",
@@ -7174,7 +7482,8 @@
       "verseLabel": "31",
       "similarity": 0.654,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.32",
@@ -7203,7 +7512,8 @@
       "verseLabel": "32",
       "similarity": 0.652,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.33",
@@ -7232,7 +7542,8 @@
       "verseLabel": "33",
       "similarity": 0.846,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.34",
@@ -7261,7 +7572,8 @@
       "verseLabel": "34",
       "similarity": 0.702,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.35",
@@ -7290,7 +7602,8 @@
       "verseLabel": "35",
       "similarity": 0.873,
       "contentOverlap": 0.893
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.36",
@@ -7319,7 +7632,8 @@
       "verseLabel": "36",
       "similarity": 0.889,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.37",
@@ -7348,7 +7662,8 @@
       "verseLabel": "37",
       "similarity": 0.638,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.38",
@@ -7377,7 +7692,8 @@
       "verseLabel": "38",
       "similarity": 0.613,
       "contentOverlap": 0.647
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.39",
@@ -7406,7 +7722,8 @@
       "verseLabel": "39",
       "similarity": 0.625,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.40",
@@ -7435,7 +7752,8 @@
       "verseLabel": "40",
       "similarity": 0.75,
       "contentOverlap": 0.615
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.41",
@@ -7464,7 +7782,8 @@
       "verseLabel": "41",
       "similarity": 0.753,
       "contentOverlap": 0.867
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.42",
@@ -7493,7 +7812,8 @@
       "verseLabel": "42",
       "similarity": 0.898,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.43",
@@ -7522,7 +7842,8 @@
       "verseLabel": "43",
       "similarity": 0.706,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.44",
@@ -7551,7 +7872,8 @@
       "verseLabel": "44",
       "similarity": 0.731,
       "contentOverlap": 0.85
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.45",
@@ -7580,7 +7902,8 @@
       "verseLabel": "45",
       "similarity": 0.771,
       "contentOverlap": 0.759
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.46",
@@ -7609,7 +7932,8 @@
       "verseLabel": "46",
       "similarity": 0.739,
       "contentOverlap": 0.786
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.47",
@@ -7638,7 +7962,8 @@
       "verseLabel": "47",
       "similarity": 0.75,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.48",
@@ -7667,7 +7992,8 @@
       "verseLabel": "48",
       "similarity": 0.857,
       "contentOverlap": 0.882
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.2.49",
@@ -7696,7 +8022,8 @@
       "verseLabel": "49",
       "similarity": 0.828,
       "contentOverlap": 0.846
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.1",
@@ -7725,7 +8052,8 @@
       "verseLabel": "1",
       "similarity": 0.892,
       "contentOverlap": 0.842
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.2",
@@ -7754,7 +8082,8 @@
       "verseLabel": "2",
       "similarity": 0.901,
       "contentOverlap": 0.85
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.3",
@@ -7783,7 +8112,8 @@
       "verseLabel": "3",
       "similarity": 0.88,
       "contentOverlap": 0.85
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.4",
@@ -7812,7 +8142,8 @@
       "verseLabel": "4",
       "similarity": 0.828,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.5",
@@ -7841,7 +8172,8 @@
       "verseLabel": "5",
       "similarity": 0.714,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.6",
@@ -7870,7 +8202,8 @@
       "verseLabel": "6",
       "similarity": 0.571,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.7",
@@ -7899,7 +8232,8 @@
       "verseLabel": "7",
       "similarity": 0.835,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.8",
@@ -7928,7 +8262,8 @@
       "verseLabel": "8",
       "similarity": 0.769,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.9",
@@ -7957,7 +8292,8 @@
       "verseLabel": "9",
       "similarity": 0.696,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.10",
@@ -7986,7 +8322,8 @@
       "verseLabel": "10",
       "similarity": 0.722,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.11",
@@ -8015,7 +8352,8 @@
       "verseLabel": "11",
       "similarity": 0.615,
       "contentOverlap": 0.545
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.12",
@@ -8044,7 +8382,8 @@
       "verseLabel": "12",
       "similarity": 0.742,
       "contentOverlap": 0.846
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.13",
@@ -8073,7 +8412,8 @@
       "verseLabel": "13",
       "similarity": 0.773,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.14",
@@ -8102,7 +8442,8 @@
       "verseLabel": "14",
       "similarity": 0.69,
       "contentOverlap": 0.688
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.15",
@@ -8131,7 +8472,8 @@
       "verseLabel": "15",
       "similarity": 0.714,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.16",
@@ -8160,7 +8502,8 @@
       "verseLabel": "16",
       "similarity": 0.7,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.17",
@@ -8189,7 +8532,8 @@
       "verseLabel": "17",
       "similarity": 0.915,
       "contentOverlap": 0.941
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.18",
@@ -8218,7 +8562,8 @@
       "verseLabel": "18",
       "similarity": 0.727,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.19",
@@ -8247,7 +8592,8 @@
       "verseLabel": "19",
       "similarity": 0.846,
       "contentOverlap": 0.864
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.20",
@@ -8276,7 +8622,8 @@
       "verseLabel": "20",
       "similarity": 0.885,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.21",
@@ -8305,7 +8652,8 @@
       "verseLabel": "21",
       "similarity": 0.8,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.22",
@@ -8334,7 +8682,8 @@
       "verseLabel": "22",
       "similarity": 0.857,
       "contentOverlap": 0.842
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.23",
@@ -8363,7 +8712,8 @@
       "verseLabel": "23",
       "similarity": 0.919,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.24",
@@ -8374,7 +8724,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.25",
@@ -8385,7 +8737,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.26",
@@ -8396,7 +8750,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.27",
@@ -8407,7 +8763,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.28",
@@ -8418,7 +8776,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.29",
@@ -8429,7 +8789,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.30",
@@ -8440,7 +8802,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.31",
@@ -8451,7 +8815,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.32",
@@ -8462,7 +8828,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.33",
@@ -8473,7 +8841,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.34",
@@ -8484,7 +8854,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.35",
@@ -8495,7 +8867,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.36",
@@ -8506,7 +8880,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.37",
@@ -8517,7 +8893,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.38",
@@ -8528,7 +8906,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.39",
@@ -8539,7 +8919,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.40",
@@ -8550,7 +8932,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.41",
@@ -8561,7 +8945,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.42",
@@ -8572,7 +8958,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.43",
@@ -8583,7 +8971,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.44",
@@ -8594,7 +8984,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.45",
@@ -8605,7 +8997,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.46",
@@ -8616,7 +9010,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.47",
@@ -8627,7 +9023,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.48",
@@ -8638,7 +9036,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.49",
@@ -8649,7 +9049,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.50",
@@ -8660,7 +9062,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.51",
@@ -8671,7 +9075,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.52",
@@ -8682,7 +9088,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.53",
@@ -8693,7 +9101,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.54",
@@ -8704,7 +9114,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.55",
@@ -8715,7 +9127,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.56",
@@ -8726,7 +9140,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.57",
@@ -8737,7 +9153,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.58",
@@ -8748,7 +9166,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.59",
@@ -8759,7 +9179,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.60",
@@ -8770,7 +9192,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.61",
@@ -8781,7 +9205,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.62",
@@ -8792,7 +9218,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.63",
@@ -8803,7 +9231,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.64",
@@ -8814,7 +9244,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.65",
@@ -8825,7 +9257,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.66",
@@ -8836,7 +9270,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.67",
@@ -8847,7 +9283,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.68",
@@ -8858,7 +9296,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.69",
@@ -8869,7 +9309,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.70",
@@ -8880,7 +9322,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.71",
@@ -8891,7 +9335,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.72",
@@ -8902,7 +9348,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.73",
@@ -8913,7 +9361,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.74",
@@ -8924,7 +9374,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.75",
@@ -8935,7 +9387,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.76",
@@ -8946,7 +9400,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.77",
@@ -8957,7 +9413,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.78",
@@ -8968,7 +9426,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.79",
@@ -8979,7 +9439,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.80",
@@ -8990,7 +9452,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.81",
@@ -9001,7 +9465,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.82",
@@ -9012,7 +9478,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.83",
@@ -9023,7 +9491,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.84",
@@ -9034,7 +9504,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.85",
@@ -9045,7 +9517,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.86",
@@ -9056,7 +9530,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.87",
@@ -9067,7 +9543,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.88",
@@ -9078,7 +9556,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.89",
@@ -9089,7 +9569,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.90",
@@ -9100,7 +9582,9 @@
        "sourceEvidence": "DAG 3:24 footnote"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.3.23"
     },
     {
      "ref": "DAG.3.91",
@@ -9129,7 +9613,8 @@
       "verseLabel": "24",
       "similarity": 0.759,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.92",
@@ -9158,7 +9643,8 @@
       "verseLabel": "25",
       "similarity": 0.708,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.93",
@@ -9187,7 +9673,8 @@
       "verseLabel": "26",
       "similarity": 0.844,
       "contentOverlap": 0.81
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.94",
@@ -9216,7 +9703,8 @@
       "verseLabel": "27",
       "similarity": 0.639,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.95",
@@ -9245,7 +9733,8 @@
       "verseLabel": "28",
       "similarity": 0.922,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.96",
@@ -9274,7 +9763,8 @@
       "verseLabel": "29",
       "similarity": 0.837,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.3.97",
@@ -9303,7 +9793,8 @@
       "verseLabel": "30",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.1",
@@ -9332,7 +9823,8 @@
       "verseLabel": "1",
       "similarity": 0.78,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.2",
@@ -9361,7 +9853,8 @@
       "verseLabel": "2",
       "similarity": 0.667,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.3",
@@ -9390,7 +9883,8 @@
       "verseLabel": "3",
       "similarity": 0.958,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.4",
@@ -9419,7 +9913,8 @@
       "verseLabel": "4",
       "similarity": 0.923,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.5",
@@ -9448,7 +9943,8 @@
       "verseLabel": "5",
       "similarity": 0.955,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.6",
@@ -9477,7 +9973,8 @@
       "verseLabel": "6",
       "similarity": 0.929,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.7",
@@ -9506,7 +10003,8 @@
       "verseLabel": "7",
       "similarity": 0.746,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.8",
@@ -9535,7 +10033,8 @@
       "verseLabel": "8",
       "similarity": 0.933,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.9",
@@ -9564,7 +10063,8 @@
       "verseLabel": "9",
       "similarity": 0.868,
       "contentOverlap": 0.882
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.10",
@@ -9593,7 +10093,8 @@
       "verseLabel": "10",
       "similarity": 0.8,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.11",
@@ -9622,7 +10123,8 @@
       "verseLabel": "11",
       "similarity": 0.766,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.12",
@@ -9651,7 +10153,8 @@
       "verseLabel": "12",
       "similarity": 0.651,
       "contentOverlap": 0.438
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.13",
@@ -9680,7 +10183,8 @@
       "verseLabel": "13",
       "similarity": 0.851,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.14",
@@ -9709,7 +10213,8 @@
       "verseLabel": "14",
       "similarity": 0.811,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.15",
@@ -9738,7 +10243,8 @@
       "verseLabel": "15",
       "similarity": 0.898,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.16",
@@ -9767,7 +10273,8 @@
       "verseLabel": "16",
       "similarity": 0.84,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.17",
@@ -9796,7 +10303,8 @@
       "verseLabel": "17",
       "similarity": 0.868,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.18",
@@ -9825,7 +10333,8 @@
       "verseLabel": "18",
       "similarity": 0.817,
       "contentOverlap": 0.941
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.19",
@@ -9854,7 +10363,8 @@
       "verseLabel": "19",
       "similarity": 0.66,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.20",
@@ -9883,7 +10393,8 @@
       "verseLabel": "20",
       "similarity": 0.766,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.21",
@@ -9912,7 +10423,8 @@
       "verseLabel": "21",
       "similarity": 0.732,
       "contentOverlap": 0.467
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.22",
@@ -9941,7 +10453,8 @@
       "verseLabel": "22",
       "similarity": 0.678,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.23",
@@ -9970,7 +10483,8 @@
       "verseLabel": "23",
       "similarity": 0.837,
       "contentOverlap": 0.806
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.24",
@@ -9999,7 +10513,8 @@
       "verseLabel": "24",
       "similarity": 0.87,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.25",
@@ -10028,7 +10543,8 @@
       "verseLabel": "25",
       "similarity": 0.729,
       "contentOverlap": 0.68
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.26",
@@ -10057,7 +10573,8 @@
       "verseLabel": "26",
       "similarity": 0.517,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.27",
@@ -10086,7 +10603,8 @@
       "verseLabel": "27",
       "similarity": 0.714,
       "contentOverlap": 0.737
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.28",
@@ -10115,7 +10633,8 @@
       "verseLabel": "28",
       "similarity": 0.857,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.29",
@@ -10144,7 +10663,8 @@
       "verseLabel": "29",
       "similarity": 0.774,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.30",
@@ -10173,7 +10693,8 @@
       "verseLabel": "30",
       "similarity": 0.8,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.31",
@@ -10202,7 +10723,8 @@
       "verseLabel": "31",
       "similarity": 0.8,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.32",
@@ -10231,7 +10753,8 @@
       "verseLabel": "32",
       "similarity": 0.736,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.33",
@@ -10260,7 +10783,8 @@
       "verseLabel": "33",
       "similarity": 0.75,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.34",
@@ -10289,7 +10813,8 @@
       "verseLabel": "34",
       "similarity": 0.8,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.35",
@@ -10318,7 +10843,8 @@
       "verseLabel": "35",
       "similarity": 0.814,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.36",
@@ -10347,7 +10873,8 @@
       "verseLabel": "36",
       "similarity": 0.8,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.4.37",
@@ -10376,7 +10903,8 @@
       "verseLabel": "37",
       "similarity": 0.8,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.1",
@@ -10405,7 +10933,8 @@
       "verseLabel": "1",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.2",
@@ -10434,7 +10963,8 @@
       "verseLabel": "2",
       "similarity": 0.818,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.3",
@@ -10463,7 +10993,8 @@
       "verseLabel": "3",
       "similarity": 0.873,
       "contentOverlap": 0.933
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.4",
@@ -10492,7 +11023,8 @@
       "verseLabel": "4",
       "similarity": 0.952,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.5",
@@ -10521,7 +11053,8 @@
       "verseLabel": "5",
       "similarity": 0.8,
       "contentOverlap": 0.722
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.6",
@@ -10550,7 +11083,8 @@
       "verseLabel": "6",
       "similarity": 0.772,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.7",
@@ -10579,7 +11113,8 @@
       "verseLabel": "7",
       "similarity": 0.855,
       "contentOverlap": 0.741
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.8",
@@ -10608,7 +11143,8 @@
       "verseLabel": "8",
       "similarity": 0.824,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.9",
@@ -10637,7 +11173,8 @@
       "verseLabel": "9",
       "similarity": 0.8,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.10",
@@ -10666,7 +11203,8 @@
       "verseLabel": "10",
       "similarity": 0.78,
       "contentOverlap": 0.762
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.11",
@@ -10695,7 +11233,8 @@
       "verseLabel": "11",
       "similarity": 0.835,
       "contentOverlap": 0.913
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.12",
@@ -10724,7 +11263,8 @@
       "verseLabel": "12",
       "similarity": 0.854,
       "contentOverlap": 0.84
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.13",
@@ -10753,7 +11293,8 @@
       "verseLabel": "13",
       "similarity": 0.8,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.14",
@@ -10782,7 +11323,8 @@
       "verseLabel": "14",
       "similarity": 0.808,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.15",
@@ -10811,7 +11353,8 @@
       "verseLabel": "15",
       "similarity": 0.8,
       "contentOverlap": 0.812
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.16",
@@ -10840,7 +11383,8 @@
       "verseLabel": "16",
       "similarity": 0.724,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.17",
@@ -10869,7 +11413,8 @@
       "verseLabel": "17",
       "similarity": 0.812,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.18",
@@ -10898,7 +11443,8 @@
       "verseLabel": "18",
       "similarity": 0.684,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.19",
@@ -10927,7 +11473,8 @@
       "verseLabel": "19",
       "similarity": 0.63,
       "contentOverlap": 0.706
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.20",
@@ -10956,7 +11503,8 @@
       "verseLabel": "20",
       "similarity": 0.828,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.21",
@@ -10985,7 +11533,8 @@
       "verseLabel": "21",
       "similarity": 0.84,
       "contentOverlap": 0.741
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.22",
@@ -11014,7 +11563,8 @@
       "verseLabel": "22",
       "similarity": 0.6,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.23",
@@ -11043,7 +11593,8 @@
       "verseLabel": "23",
       "similarity": 0.706,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.24",
@@ -11072,7 +11623,8 @@
       "verseLabel": "24",
       "similarity": 0.839,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.25",
@@ -11101,7 +11653,8 @@
       "verseLabel": "25",
       "similarity": 0.87,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.26",
@@ -11130,7 +11683,8 @@
       "verseLabel": "26",
       "similarity": 0.686,
       "contentOverlap": 0.556
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.27",
@@ -11159,7 +11713,8 @@
       "verseLabel": "27",
       "similarity": 0.727,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.28",
@@ -11188,7 +11743,8 @@
       "verseLabel": "28",
       "similarity": 0.917,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.29",
@@ -11217,7 +11773,8 @@
       "verseLabel": "29",
       "similarity": 0.831,
       "contentOverlap": 0.824
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.30",
@@ -11246,7 +11803,8 @@
       "verseLabel": "30",
       "similarity": 0.7,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.5.31",
@@ -11275,7 +11833,8 @@
       "verseLabel": "31",
       "similarity": 0.692,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.1",
@@ -11304,7 +11863,8 @@
       "verseLabel": "1",
       "similarity": 0.75,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.2",
@@ -11333,7 +11893,8 @@
       "verseLabel": "2",
       "similarity": 0.654,
       "contentOverlap": 0.688
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.3",
@@ -11362,7 +11923,8 @@
       "verseLabel": "3",
       "similarity": 0.897,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.4",
@@ -11391,7 +11953,8 @@
       "verseLabel": "4",
       "similarity": 0.763,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.5",
@@ -11420,7 +11983,8 @@
       "verseLabel": "5",
       "similarity": 0.84,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.6",
@@ -11449,7 +12013,8 @@
       "verseLabel": "6",
       "similarity": 0.75,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.7",
@@ -11478,7 +12043,8 @@
       "verseLabel": "7",
       "similarity": 0.828,
       "contentOverlap": 0.774
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.8",
@@ -11507,7 +12073,8 @@
       "verseLabel": "8",
       "similarity": 0.873,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.9",
@@ -11536,7 +12103,8 @@
       "verseLabel": "9",
       "similarity": 0.889,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.10",
@@ -11565,7 +12133,8 @@
       "verseLabel": "10",
       "similarity": 0.867,
       "contentOverlap": 0.96
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.11",
@@ -11594,7 +12163,8 @@
       "verseLabel": "11",
       "similarity": 0.828,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.12",
@@ -11623,7 +12193,8 @@
       "verseLabel": "12",
       "similarity": 0.783,
       "contentOverlap": 0.816
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.13",
@@ -11652,7 +12223,8 @@
       "verseLabel": "13",
       "similarity": 0.79,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.14",
@@ -11681,7 +12253,8 @@
       "verseLabel": "14",
       "similarity": 0.853,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.15",
@@ -11710,7 +12283,8 @@
       "verseLabel": "15",
       "similarity": 0.838,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.16",
@@ -11739,7 +12313,8 @@
       "verseLabel": "16",
       "similarity": 0.806,
       "contentOverlap": 0.867
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.17",
@@ -11768,7 +12343,8 @@
       "verseLabel": "17",
       "similarity": 0.904,
       "contentOverlap": 0.933
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.18",
@@ -11797,7 +12373,8 @@
       "verseLabel": "18",
       "similarity": 0.824,
       "contentOverlap": 0.846
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.19",
@@ -11826,7 +12403,8 @@
       "verseLabel": "19",
       "similarity": 0.944,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.20",
@@ -11855,7 +12433,8 @@
       "verseLabel": "20",
       "similarity": 0.767,
       "contentOverlap": 0.789
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.21",
@@ -11884,7 +12463,8 @@
       "verseLabel": "21",
       "similarity": 0.667,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.22",
@@ -11913,7 +12493,8 @@
       "verseLabel": "22",
       "similarity": 0.63,
       "contentOverlap": 0.722
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.23",
@@ -11942,7 +12523,8 @@
       "verseLabel": "23",
       "similarity": 0.851,
       "contentOverlap": 0.842
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.24",
@@ -11971,7 +12553,8 @@
       "verseLabel": "24",
       "similarity": 0.851,
       "contentOverlap": 0.85
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.25",
@@ -12000,7 +12583,8 @@
       "verseLabel": "25",
       "similarity": 0.791,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.26",
@@ -12029,7 +12613,8 @@
       "verseLabel": "26",
       "similarity": 0.821,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.27",
@@ -12058,7 +12643,8 @@
       "verseLabel": "27",
       "similarity": 0.816,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.6.28",
@@ -12087,7 +12673,8 @@
       "verseLabel": "28",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.1",
@@ -12116,7 +12703,8 @@
       "verseLabel": "1",
       "similarity": 0.97,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.2",
@@ -12145,7 +12733,8 @@
       "verseLabel": "2",
       "similarity": 0.816,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.3",
@@ -12174,7 +12763,8 @@
       "verseLabel": "3",
       "similarity": 0.72,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.4",
@@ -12203,7 +12793,8 @@
       "verseLabel": "4",
       "similarity": 0.854,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.5",
@@ -12232,7 +12823,8 @@
       "verseLabel": "5",
       "similarity": 0.684,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.6",
@@ -12261,7 +12853,8 @@
       "verseLabel": "6",
       "similarity": 0.758,
       "contentOverlap": 0.688
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.7",
@@ -12290,7 +12883,8 @@
       "verseLabel": "7",
       "similarity": 0.793,
       "contentOverlap": 0.76
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.8",
@@ -12319,7 +12913,8 @@
       "verseLabel": "8",
       "similarity": 0.86,
       "contentOverlap": 0.955
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.9",
@@ -12348,7 +12943,8 @@
       "verseLabel": "9",
       "similarity": 0.675,
       "contentOverlap": 0.652
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.10",
@@ -12377,7 +12973,8 @@
       "verseLabel": "10",
       "similarity": 0.862,
       "contentOverlap": 0.938
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.11",
@@ -12406,7 +13003,8 @@
       "verseLabel": "11",
       "similarity": 0.629,
       "contentOverlap": 0.588
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.12",
@@ -12435,7 +13033,8 @@
       "verseLabel": "12",
       "similarity": 0.826,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.13",
@@ -12464,7 +13063,8 @@
       "verseLabel": "13",
       "similarity": 0.925,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.14",
@@ -12493,7 +13093,8 @@
       "verseLabel": "14",
       "similarity": 0.805,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.15",
@@ -12522,7 +13123,8 @@
       "verseLabel": "15",
       "similarity": 0.65,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.16",
@@ -12551,7 +13153,8 @@
       "verseLabel": "16",
       "similarity": 0.871,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.17",
@@ -12580,7 +13183,8 @@
       "verseLabel": "17",
       "similarity": 0.812,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.18",
@@ -12609,7 +13213,8 @@
       "verseLabel": "18",
       "similarity": 0.762,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.19",
@@ -12638,7 +13243,8 @@
       "verseLabel": "19",
       "similarity": 0.699,
       "contentOverlap": 0.619
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.20",
@@ -12667,7 +13273,8 @@
       "verseLabel": "20",
       "similarity": 0.818,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.21",
@@ -12696,7 +13303,8 @@
       "verseLabel": "21",
       "similarity": 0.933,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.22",
@@ -12725,7 +13333,8 @@
       "verseLabel": "22",
       "similarity": 1.0,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.23",
@@ -12754,7 +13363,8 @@
       "verseLabel": "23",
       "similarity": 0.74,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.24",
@@ -12783,7 +13393,8 @@
       "verseLabel": "24",
       "similarity": 0.567,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.25",
@@ -12812,7 +13423,8 @@
       "verseLabel": "25",
       "similarity": 0.756,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.26",
@@ -12841,7 +13453,8 @@
       "verseLabel": "26",
       "similarity": 0.791,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.27",
@@ -12870,7 +13483,8 @@
       "verseLabel": "27",
       "similarity": 0.857,
       "contentOverlap": 0.882
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.7.28",
@@ -12899,7 +13513,8 @@
       "verseLabel": "28",
       "similarity": 0.852,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.1",
@@ -12928,7 +13543,8 @@
       "verseLabel": "1",
       "similarity": 0.893,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.2",
@@ -12957,7 +13573,8 @@
       "verseLabel": "2",
       "similarity": 0.716,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.3",
@@ -12986,7 +13603,8 @@
       "verseLabel": "3",
       "similarity": 0.846,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.4",
@@ -13015,7 +13633,8 @@
       "verseLabel": "4",
       "similarity": 0.747,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.5",
@@ -13044,7 +13663,8 @@
       "verseLabel": "5",
       "similarity": 0.783,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.6",
@@ -13073,7 +13693,8 @@
       "verseLabel": "6",
       "similarity": 0.873,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.7",
@@ -13102,7 +13723,8 @@
       "verseLabel": "7",
       "similarity": 0.839,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.8",
@@ -13131,7 +13753,8 @@
       "verseLabel": "8",
       "similarity": 0.698,
       "contentOverlap": 0.706
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.9",
@@ -13160,7 +13783,8 @@
       "verseLabel": "9",
       "similarity": 0.83,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.10",
@@ -13189,7 +13813,8 @@
       "verseLabel": "10",
       "similarity": 0.759,
       "contentOverlap": 0.636
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.11",
@@ -13218,7 +13843,8 @@
       "verseLabel": "11",
       "similarity": 0.61,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.12",
@@ -13247,7 +13873,8 @@
       "verseLabel": "12",
       "similarity": 0.491,
       "contentOverlap": 0.429
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.13",
@@ -13276,7 +13903,8 @@
       "verseLabel": "13",
       "similarity": 0.63,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.14",
@@ -13305,7 +13933,8 @@
       "verseLabel": "14",
       "similarity": 0.703,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.15",
@@ -13334,7 +13963,8 @@
       "verseLabel": "15",
       "similarity": 0.724,
       "contentOverlap": 0.812
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.16",
@@ -13363,7 +13993,8 @@
       "verseLabel": "16",
       "similarity": 0.936,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.17",
@@ -13392,7 +14023,8 @@
       "verseLabel": "17",
       "similarity": 0.795,
       "contentOverlap": 0.867
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.18",
@@ -13421,7 +14053,8 @@
       "verseLabel": "18",
       "similarity": 0.889,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.19",
@@ -13450,7 +14083,8 @@
       "verseLabel": "19",
       "similarity": 0.679,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.20",
@@ -13479,7 +14113,8 @@
       "verseLabel": "20",
       "similarity": 0.727,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.21",
@@ -13508,7 +14143,8 @@
       "verseLabel": "21",
       "similarity": 0.884,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.22",
@@ -13537,7 +14173,8 @@
       "verseLabel": "22",
       "similarity": 0.667,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.23",
@@ -13566,7 +14203,8 @@
       "verseLabel": "23",
       "similarity": 0.873,
       "contentOverlap": 0.933
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.24",
@@ -13595,7 +14233,8 @@
       "verseLabel": "24",
       "similarity": 0.667,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.25",
@@ -13624,7 +14263,8 @@
       "verseLabel": "25",
       "similarity": 0.733,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.26",
@@ -13653,7 +14293,8 @@
       "verseLabel": "26",
       "similarity": 0.604,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.8.27",
@@ -13682,7 +14323,8 @@
       "verseLabel": "27",
       "similarity": 0.78,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.1",
@@ -13711,7 +14353,8 @@
       "verseLabel": "1",
       "similarity": 0.923,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.2",
@@ -13740,7 +14383,8 @@
       "verseLabel": "2",
       "similarity": 0.709,
       "contentOverlap": 0.842
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.3",
@@ -13769,7 +14413,8 @@
       "verseLabel": "3",
       "similarity": 0.829,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.4",
@@ -13798,7 +14443,8 @@
       "verseLabel": "4",
       "similarity": 0.694,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.5",
@@ -13827,7 +14473,8 @@
       "verseLabel": "5",
       "similarity": 0.708,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.6",
@@ -13856,7 +14503,8 @@
       "verseLabel": "6",
       "similarity": 0.733,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.7",
@@ -13885,7 +14533,8 @@
       "verseLabel": "7",
       "similarity": 0.73,
       "contentOverlap": 0.826
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.8",
@@ -13914,7 +14563,8 @@
       "verseLabel": "8",
       "similarity": 0.894,
       "contentOverlap": 0.923
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.9",
@@ -13943,7 +14593,8 @@
       "verseLabel": "9",
       "similarity": 0.867,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.10",
@@ -13972,7 +14623,8 @@
       "verseLabel": "10",
       "similarity": 0.824,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.11",
@@ -14001,7 +14653,8 @@
       "verseLabel": "11",
       "similarity": 0.644,
       "contentOverlap": 0.696
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.12",
@@ -14030,7 +14683,8 @@
       "verseLabel": "12",
       "similarity": 0.775,
       "contentOverlap": 0.789
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.13",
@@ -14059,7 +14713,8 @@
       "verseLabel": "13",
       "similarity": 0.734,
       "contentOverlap": 0.737
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.14",
@@ -14088,7 +14743,8 @@
       "verseLabel": "14",
       "similarity": 0.806,
       "contentOverlap": 0.812
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.15",
@@ -14117,7 +14773,8 @@
       "verseLabel": "15",
       "similarity": 0.74,
       "contentOverlap": 0.85
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.16",
@@ -14146,7 +14803,8 @@
       "verseLabel": "16",
       "similarity": 0.747,
       "contentOverlap": 0.87
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.17",
@@ -14175,7 +14833,8 @@
       "verseLabel": "17",
       "similarity": 0.762,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.18",
@@ -14204,7 +14863,8 @@
       "verseLabel": "18",
       "similarity": 0.707,
       "contentOverlap": 0.682
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.19",
@@ -14233,7 +14893,8 @@
       "verseLabel": "19",
       "similarity": 0.678,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.20",
@@ -14262,7 +14923,8 @@
       "verseLabel": "20",
       "similarity": 0.939,
       "contentOverlap": 0.929
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.21",
@@ -14291,7 +14953,8 @@
       "verseLabel": "21",
       "similarity": 0.899,
       "contentOverlap": 0.842
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.22",
@@ -14320,7 +14983,8 @@
       "verseLabel": "22",
       "similarity": 0.744,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.23",
@@ -14349,7 +15013,8 @@
       "verseLabel": "23",
       "similarity": 0.633,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.24",
@@ -14378,7 +15043,8 @@
       "verseLabel": "24",
       "similarity": 0.739,
       "contentOverlap": 0.833
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.25",
@@ -14407,7 +15073,8 @@
       "verseLabel": "25",
       "similarity": 0.711,
       "contentOverlap": 0.696
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.26",
@@ -14436,7 +15103,8 @@
       "verseLabel": "26",
       "similarity": 0.612,
       "contentOverlap": 0.727
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.9.27",
@@ -14465,7 +15133,8 @@
       "verseLabel": "27",
       "similarity": 0.585,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.1",
@@ -14494,7 +15163,8 @@
       "verseLabel": "1",
       "similarity": 0.75,
       "contentOverlap": 0.789
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.2",
@@ -14523,7 +15193,8 @@
       "verseLabel": "2",
       "similarity": 0.9,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.3",
@@ -14552,7 +15223,8 @@
       "verseLabel": "3",
       "similarity": 0.692,
       "contentOverlap": 0.722
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.4",
@@ -14581,7 +15253,8 @@
       "verseLabel": "4",
       "similarity": 0.87,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.5",
@@ -14610,7 +15283,8 @@
       "verseLabel": "5",
       "similarity": 0.76,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.6",
@@ -14639,7 +15313,8 @@
       "verseLabel": "6",
       "similarity": 0.759,
       "contentOverlap": 0.765
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.7",
@@ -14668,7 +15343,8 @@
       "verseLabel": "7",
       "similarity": 0.794,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.8",
@@ -14697,7 +15373,8 @@
       "verseLabel": "8",
       "similarity": 0.702,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.9",
@@ -14726,7 +15403,8 @@
       "verseLabel": "9",
       "similarity": 0.862,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.10",
@@ -14755,7 +15433,8 @@
       "verseLabel": "10",
       "similarity": 0.811,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.11",
@@ -14784,7 +15463,8 @@
       "verseLabel": "11",
       "similarity": 0.684,
       "contentOverlap": 0.941
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.12",
@@ -14813,7 +15493,8 @@
       "verseLabel": "12",
       "similarity": 0.633,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.13",
@@ -14842,7 +15523,8 @@
       "verseLabel": "13",
       "similarity": 0.899,
       "contentOverlap": 0.938
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.14",
@@ -14871,7 +15553,8 @@
       "verseLabel": "14",
       "similarity": 0.745,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.15",
@@ -14900,7 +15583,8 @@
       "verseLabel": "15",
       "similarity": 0.737,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.16",
@@ -14929,7 +15613,8 @@
       "verseLabel": "16",
       "similarity": 0.761,
       "contentOverlap": 0.762
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.17",
@@ -14958,7 +15643,8 @@
       "verseLabel": "17",
       "similarity": 0.871,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.18",
@@ -14987,7 +15673,8 @@
       "verseLabel": "18",
       "similarity": 0.727,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.19",
@@ -15016,7 +15703,8 @@
       "verseLabel": "19",
       "similarity": 0.64,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.20",
@@ -15045,7 +15733,8 @@
       "verseLabel": "20",
       "similarity": 0.58,
       "contentOverlap": 0.533
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.10.21",
@@ -15074,7 +15763,8 @@
       "verseLabel": "21",
       "similarity": 0.545,
       "contentOverlap": 0.417
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.1",
@@ -15103,7 +15793,8 @@
       "verseLabel": "1",
       "similarity": 0.789,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.2",
@@ -15132,7 +15823,8 @@
       "verseLabel": "2",
       "similarity": 0.607,
       "contentOverlap": 0.708
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.3",
@@ -15161,7 +15853,8 @@
       "verseLabel": "3",
       "similarity": 0.811,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.4",
@@ -15190,7 +15883,8 @@
       "verseLabel": "4",
       "similarity": 0.783,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.5",
@@ -15219,7 +15913,8 @@
       "verseLabel": "5",
       "similarity": 0.724,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.6",
@@ -15248,7 +15943,8 @@
       "verseLabel": "6",
       "similarity": 0.712,
       "contentOverlap": 0.828
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.7",
@@ -15277,7 +15973,8 @@
       "verseLabel": "7",
       "similarity": 0.732,
       "contentOverlap": 0.889
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.8",
@@ -15306,7 +16003,8 @@
       "verseLabel": "8",
       "similarity": 0.657,
       "contentOverlap": 0.706
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.9",
@@ -15335,7 +16033,8 @@
       "verseLabel": "9",
       "similarity": 0.526,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.10",
@@ -15364,7 +16063,8 @@
       "verseLabel": "10",
       "similarity": 0.58,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.11",
@@ -15393,7 +16093,8 @@
       "verseLabel": "11",
       "similarity": 0.762,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.12",
@@ -15422,7 +16123,8 @@
       "verseLabel": "12",
       "similarity": 0.444,
       "contentOverlap": 0.583
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.13",
@@ -15451,7 +16153,8 @@
       "verseLabel": "13",
       "similarity": 0.592,
       "contentOverlap": 0.611
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.14",
@@ -15480,7 +16183,8 @@
       "verseLabel": "14",
       "similarity": 0.727,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.15",
@@ -15509,7 +16213,8 @@
       "verseLabel": "15",
       "similarity": 0.675,
       "contentOverlap": 0.65
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.16",
@@ -15538,7 +16243,8 @@
       "verseLabel": "16",
       "similarity": 0.647,
       "contentOverlap": 0.692
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.17",
@@ -15567,7 +16273,8 @@
       "verseLabel": "17",
       "similarity": 0.674,
       "contentOverlap": 0.611
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.18",
@@ -15596,7 +16303,8 @@
       "verseLabel": "18",
       "similarity": 0.658,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.19",
@@ -15625,7 +16333,8 @@
       "verseLabel": "19",
       "similarity": 0.809,
       "contentOverlap": 0.818
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.20",
@@ -15654,7 +16363,8 @@
       "verseLabel": "20",
       "similarity": 0.486,
       "contentOverlap": 0.706
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.21",
@@ -15683,7 +16393,8 @@
       "verseLabel": "21",
       "similarity": 0.638,
       "contentOverlap": 0.571
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.22",
@@ -15712,7 +16423,8 @@
       "verseLabel": "22",
       "similarity": 0.622,
       "contentOverlap": 0.556
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.23",
@@ -15741,7 +16453,8 @@
       "verseLabel": "23",
       "similarity": 0.792,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.24",
@@ -15770,7 +16483,8 @@
       "verseLabel": "24",
       "similarity": 0.667,
       "contentOverlap": 0.619
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.25",
@@ -15799,7 +16513,8 @@
       "verseLabel": "25",
       "similarity": 0.74,
       "contentOverlap": 0.706
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.26",
@@ -15828,7 +16543,8 @@
       "verseLabel": "26",
       "similarity": 0.478,
       "contentOverlap": 0.5
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.27",
@@ -15857,7 +16573,8 @@
       "verseLabel": "27",
       "similarity": 0.725,
       "contentOverlap": 0.875
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.28",
@@ -15886,7 +16603,8 @@
       "verseLabel": "28",
       "similarity": 0.759,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.29",
@@ -15915,7 +16633,8 @@
       "verseLabel": "29",
       "similarity": 0.471,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.30",
@@ -15944,7 +16663,8 @@
       "verseLabel": "30",
       "similarity": 0.683,
       "contentOverlap": 0.733
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.31",
@@ -15973,7 +16693,8 @@
       "verseLabel": "31",
       "similarity": 0.531,
       "contentOverlap": 0.467
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.32",
@@ -16002,7 +16723,8 @@
       "verseLabel": "32",
       "similarity": 0.615,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.33",
@@ -16031,7 +16753,8 @@
       "verseLabel": "33",
       "similarity": 0.741,
       "contentOverlap": 0.769
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.34",
@@ -16060,7 +16783,8 @@
       "verseLabel": "34",
       "similarity": 0.762,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.35",
@@ -16089,7 +16813,8 @@
       "verseLabel": "35",
       "similarity": 0.735,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.36",
@@ -16118,7 +16843,8 @@
       "verseLabel": "36",
       "similarity": 0.742,
       "contentOverlap": 0.857
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.37",
@@ -16147,7 +16873,8 @@
       "verseLabel": "37",
       "similarity": 0.76,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.38",
@@ -16176,7 +16903,8 @@
       "verseLabel": "38",
       "similarity": 0.635,
       "contentOverlap": 0.643
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.39",
@@ -16205,7 +16933,8 @@
       "verseLabel": "39",
       "similarity": 0.533,
       "contentOverlap": 0.529
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.40",
@@ -16234,7 +16963,8 @@
       "verseLabel": "40",
       "similarity": 0.828,
       "contentOverlap": 0.9
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.41",
@@ -16263,7 +16993,8 @@
       "verseLabel": "41",
       "similarity": 0.836,
       "contentOverlap": 0.941
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.42",
@@ -16292,7 +17023,8 @@
       "verseLabel": "42",
       "similarity": 0.629,
       "contentOverlap": 0.7
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.43",
@@ -16321,7 +17053,8 @@
       "verseLabel": "43",
       "similarity": 0.921,
       "contentOverlap": 1.0
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.44",
@@ -16350,7 +17083,8 @@
       "verseLabel": "44",
       "similarity": 0.8,
       "contentOverlap": 0.846
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.11.45",
@@ -16379,7 +17113,8 @@
       "verseLabel": "45",
       "similarity": 0.724,
       "contentOverlap": 0.714
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.1",
@@ -16408,7 +17143,8 @@
       "verseLabel": "1",
       "similarity": 0.783,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.2",
@@ -16437,7 +17173,8 @@
       "verseLabel": "2",
       "similarity": 0.857,
       "contentOverlap": 0.909
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.3",
@@ -16466,7 +17203,8 @@
       "verseLabel": "3",
       "similarity": 0.566,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.4",
@@ -16495,7 +17233,8 @@
       "verseLabel": "4",
       "similarity": 0.814,
       "contentOverlap": 0.867
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.5",
@@ -16524,7 +17263,8 @@
       "verseLabel": "5",
       "similarity": 0.567,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.6",
@@ -16553,7 +17293,8 @@
       "verseLabel": "6",
       "similarity": 0.873,
       "contentOverlap": 0.917
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.7",
@@ -16582,7 +17323,8 @@
       "verseLabel": "7",
       "similarity": 0.761,
       "contentOverlap": 0.786
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.8",
@@ -16611,7 +17353,8 @@
       "verseLabel": "8",
       "similarity": 0.683,
       "contentOverlap": 0.6
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.9",
@@ -16640,7 +17383,8 @@
       "verseLabel": "9",
       "similarity": 0.829,
       "contentOverlap": 0.8
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.10",
@@ -16669,7 +17413,8 @@
       "verseLabel": "10",
       "similarity": 0.571,
       "contentOverlap": 0.667
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.11",
@@ -16698,7 +17443,8 @@
       "verseLabel": "11",
       "similarity": 0.724,
       "contentOverlap": 0.765
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.12",
@@ -16727,7 +17473,8 @@
       "verseLabel": "12",
       "similarity": 0.667,
       "contentOverlap": 0.778
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.12.13",
@@ -16756,7 +17503,8 @@
       "verseLabel": "13",
       "similarity": 0.681,
       "contentOverlap": 0.75
-     }
+     },
+     "projection": "verse"
     },
     {
      "ref": "DAG.13.1",
@@ -16767,7 +17515,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.2",
@@ -16778,7 +17528,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.3",
@@ -16789,7 +17541,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.4",
@@ -16800,7 +17554,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.5",
@@ -16811,7 +17567,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.6",
@@ -16822,7 +17580,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.7",
@@ -16833,7 +17593,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.8",
@@ -16844,7 +17606,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.9",
@@ -16855,7 +17619,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.10",
@@ -16866,7 +17632,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.11",
@@ -16877,7 +17645,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.12",
@@ -16888,7 +17658,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.13",
@@ -16899,7 +17671,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.14",
@@ -16910,7 +17684,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.15",
@@ -16921,7 +17697,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.16",
@@ -16932,7 +17710,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.17",
@@ -16943,7 +17723,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.18",
@@ -16954,7 +17736,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.19",
@@ -16965,7 +17749,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.20",
@@ -16976,7 +17762,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.21",
@@ -16987,7 +17775,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.22",
@@ -16998,7 +17788,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.23",
@@ -17009,7 +17801,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.24",
@@ -17020,7 +17814,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.25",
@@ -17031,7 +17827,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.26",
@@ -17042,7 +17840,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.27",
@@ -17053,7 +17853,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.28",
@@ -17064,7 +17866,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.29",
@@ -17075,7 +17879,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.30",
@@ -17086,7 +17892,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.31",
@@ -17097,7 +17905,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.32",
@@ -17108,7 +17918,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.33",
@@ -17119,7 +17931,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.34",
@@ -17130,7 +17944,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.35",
@@ -17141,7 +17957,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.36",
@@ -17152,7 +17970,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.37",
@@ -17163,7 +17983,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.38",
@@ -17174,7 +17996,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.39",
@@ -17185,7 +18009,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.40",
@@ -17196,7 +18022,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.41",
@@ -17207,7 +18035,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.42",
@@ -17218,7 +18048,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.43",
@@ -17229,7 +18061,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.44",
@@ -17240,7 +18074,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.45",
@@ -17251,7 +18087,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.46",
@@ -17262,7 +18100,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.47",
@@ -17273,7 +18113,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.48",
@@ -17284,7 +18126,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.49",
@@ -17295,7 +18139,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.50",
@@ -17306,7 +18152,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.51",
@@ -17317,7 +18165,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.52",
@@ -17328,7 +18178,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.53",
@@ -17339,7 +18191,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.54",
@@ -17350,7 +18204,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.55",
@@ -17361,7 +18217,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.56",
@@ -17372,7 +18230,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.57",
@@ -17383,7 +18243,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.58",
@@ -17394,7 +18256,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.59",
@@ -17405,7 +18269,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.60",
@@ -17416,7 +18282,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.61",
@@ -17427,7 +18295,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.62",
@@ -17438,7 +18308,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.63",
@@ -17449,7 +18321,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.13.64",
@@ -17460,7 +18334,9 @@
        "sourceEvidence": "Susanna heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.1",
@@ -17471,7 +18347,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.2",
@@ -17482,7 +18360,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.3",
@@ -17493,7 +18373,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.4",
@@ -17504,7 +18386,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.5",
@@ -17515,7 +18399,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.6",
@@ -17526,7 +18412,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.7",
@@ -17537,7 +18425,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.8",
@@ -17548,7 +18438,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.9",
@@ -17559,7 +18451,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.10",
@@ -17570,7 +18464,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.11",
@@ -17581,7 +18477,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.12",
@@ -17592,7 +18490,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.13",
@@ -17603,7 +18503,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.14",
@@ -17614,7 +18516,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.15",
@@ -17625,7 +18529,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.16",
@@ -17636,7 +18542,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.17",
@@ -17647,7 +18555,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.18",
@@ -17658,7 +18568,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.19",
@@ -17669,7 +18581,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.20",
@@ -17680,7 +18594,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.21",
@@ -17691,7 +18607,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.22",
@@ -17702,7 +18620,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.23",
@@ -17713,7 +18633,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.24",
@@ -17724,7 +18646,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.25",
@@ -17735,7 +18659,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.26",
@@ -17746,7 +18672,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.27",
@@ -17757,7 +18685,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.28",
@@ -17768,7 +18698,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.29",
@@ -17779,7 +18711,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.30",
@@ -17790,7 +18724,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.31",
@@ -17801,7 +18737,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.32",
@@ -17812,7 +18750,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.33",
@@ -17823,7 +18763,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.34",
@@ -17834,7 +18776,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.35",
@@ -17845,7 +18789,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.36",
@@ -17856,7 +18802,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.37",
@@ -17867,7 +18815,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.38",
@@ -17878,7 +18828,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.39",
@@ -17889,7 +18841,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.40",
@@ -17900,7 +18854,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.41",
@@ -17911,7 +18867,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     },
     {
      "ref": "DAG.14.42",
@@ -17922,7 +18880,9 @@
        "sourceEvidence": "Bel and the Dragon heading"
       }
      ],
-     "kind": "greek-addition"
+     "kind": "greek-addition",
+     "projection": "unmapped",
+     "positionFallbackHebrewRef": "DAN.12.13"
     }
    ]
   }
