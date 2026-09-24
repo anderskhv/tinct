@@ -93,3 +93,4 @@ JSON, UTF-8:
    - **Quoted documents** keep their own spelling (Lionel Wafer's "John Ferdinando").
    - This supersedes the "Crozetts" and "Manilla" examples in decision 3. The lead normalizes these book-wide in the assembly sweep, so reviewers need not flag them.
 8. **Verbatim quotations of scripture or verse** that Melville presents *as* quotations keep their archaic pronouns: the Epilogue's Job epigraph "And I only am escaped alone to tell thee", Job at 32.9, Byron at 35.9. Characters' own speech, including Mapple's sermon and Ahab's apostrophes, is still modernized to "you".
+   - Decision 7 covers **spelling variants only**. It never covers renamings. Historical names stay as printed: "New Holland" is not changed to "Australia", and the "Isthmus of Darien" stays, with a gloss where needed.
