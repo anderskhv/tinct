@@ -68,6 +68,9 @@ async function pageState(page) {
     })
     return {
       place: root.dataset.place,
+      chapter: root.dataset.chapter,
+      chrome: root.dataset.chromeState,
+      playing: root.dataset.playing,
       edition: root.dataset.readerEdition,
       lang: root.lang,
       keys: visible.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`),
@@ -310,6 +313,11 @@ async function splitRestoreAcceptance(name, viewport) {
     ? await exerciseAudioAcrossSplit(page, split)
     : { service: 'production audio API', actual: false, limit: 'shared audio-follow path exercised on desktop', sequence: [] }
   const afterAudio = await pageState(page)
+  if (name === 'desktop' && !audio.actual) {
+    assert.equal(afterAudio.chapter, reloaded.chapter, 'failed audio start must preserve the chapter')
+    assert.equal(afterAudio.place, reloaded.place, 'failed audio start must preserve the exact reading position')
+    assert.deepEqual(afterAudio.keys, reloaded.keys, 'failed audio start must preserve the visible page')
+  }
   const splitAgain = await turn(page, 'ArrowLeft')
   const splitReturn = { name, split, before, next, forward, reloaded, afterAudio, audio, splitAgain }
   await fs.writeFile(`${output}/${live ? 'production' : 'candidate'}-${name}-split-return.json`, JSON.stringify(splitReturn, null, 2) + '\n')

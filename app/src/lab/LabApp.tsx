@@ -2642,7 +2642,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       : chromeV2 ? desktopProgressLabel : desktopPaging ? desktopProgressLabel : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
-    if (!showHearing) return
+    // Pending, failed or paused narration must not move the reading page.
+    // Explicit seeks already set their destination; only live follow advances it.
+    if (!showHearing || !listen.playing) return
     const follow = listen.follow
     const pageIdx = Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))
     if (browseWhileListeningRef.current) {
@@ -2690,7 +2692,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         return next === current ? current : next
       })
     }
-  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.playing, listen.clipIndex, listen.currentTime])
 
   useEffect(() => {
     if (!showHearing || !listen.playing || browseWhileListeningRef.current) return
