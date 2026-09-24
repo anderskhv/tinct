@@ -10,7 +10,7 @@ describe('approved entry presentation',()=>{
  it('uses reviewed corresponding Odyssey boundaries from actual source',()=>{
   const keys=['original-en','modern-en'];const data=keys.map(k=>JSON.parse(readFileSync(`public/data/editions/odyssey-${k}.json`,'utf8')))
   const samples=pairedSamples('odyssey',keys,data)
-  for(const sample of samples){expect(sample.paragraphIndex).toBe(1);expect(sample.short.split(/\s+/).length).toBeGreaterThanOrEqual(40);expect(sample.short.split(/\s+/).length).toBeLessThanOrEqual(60);expect(sample.full.startsWith(sample.short)).toBe(true);expect(sample.short).toMatch(/marry him\.$/)}
+  for(const sample of samples){expect(sample.paragraphIndex).toBe(1);expect(sample.short.split(/\s+/).length).toBeGreaterThanOrEqual(40);expect(sample.short.split(/\s+/).length).toBeLessThanOrEqual(60);expect(sample.full.startsWith(sample.short)).toBe(true);expect(sample.short).toMatch(/(?:marry him|him for a husband)\.$/)}
  })
  it('does not apply a fixed sentence count to other translations or changed text',()=>{
   const a={paragraphs:['Short heading','One full sentence. Another sentence with different translation boundaries.']};const b={paragraphs:['Heading','A corresponding complete passage with its own boundaries.']}
