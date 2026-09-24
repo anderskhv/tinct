@@ -197,3 +197,5 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // Warm the optional artwork only after the landing page has finished loading.
 function warmCharacterArt(){const warm=()=>{const portrait=new Image();portrait.fetchPriority='low';portrait.decoding='async';portrait.src='assets/frankenstein-character-studies.png';portrait.decode().catch(()=>{});};if('requestIdleCallback' in window)window.requestIdleCallback(warm,{timeout:3000});else setTimeout(warm,1000);}
 if(document.readyState==='complete')warmCharacterArt();else addEventListener('load',warmCharacterArt,{once:true});
+// Returning readers see their own books on a reading table instead of the featured carousel.
+import('./reading-table.js').then(m=>m.mountReadingTable({hero:$('hero'),shelves:$('shelves'),el})).catch(()=>{});

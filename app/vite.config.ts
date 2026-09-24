@@ -83,6 +83,7 @@ export default defineConfig(({ mode, command }) => {
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
         labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
+        libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
       },
       output: {
         entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
@@ -93,6 +94,8 @@ export default defineConfig(({ mode, command }) => {
               ? 'lab/reading-memory.js'
               : chunk.name === 'labLibraryAssistant'
                 ? 'lab/library-assistant.js'
+              : chunk.name === 'libraryTwoReading'
+                ? 'lab/library-2-reading.js'
               : 'assets/[name]-[hash].js',
       },
     },
@@ -138,6 +141,11 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/sign-in-runtime.js') {
             req.url = `/src/labSignIn.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/library-2-reading.js') {
+            req.url = `/src/libraryTwoReading.ts${url.slice(pathOnly.length)}`
             next()
             return
           }
