@@ -81,6 +81,23 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
           }, visibleEdition)
           await page.waitForTimeout(800)
         }
+        if (scenario.reportedPhone) {
+          // Compare opens the natural page containing the primary page head.
+          // Its text is shorter/longer, so the reported Ophelia line can lie on
+          // the following page. Reach that exact line before judging its mark.
+          const markedLine=page.locator('[data-highlight-id="speaker-layout-saved-mark"]')
+          for(let turn=0;turn<3 && await markedLine.count()===0;turn++){
+            const head=await page.getByTestId('lab-root').evaluate(root=>[...root.querySelectorAll('[data-testid="lab-word"]')]
+              .filter(n=>n.getBoundingClientRect().width>0&&!n.closest('.lab-page-measure'))
+              .map(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex).join(','))
+            console.log('REACH_REPORTED_LINE',name,turn,head)
+            await page.keyboard.press('ArrowRight')
+            await page.waitForFunction(value=>[...document.querySelectorAll('[data-testid="lab-root"] [data-testid="lab-word"]')]
+              .filter(n=>n.getBoundingClientRect().width>0&&!n.closest('.lab-page-measure'))
+              .map(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex).join(',')!==value,head)
+          }
+          assert(await markedLine.count()>0,name+' reaches the saved reported line')
+        }
         const actual = await page.getByTestId('lab-root').evaluate(root => {
           const visible = n => n.getBoundingClientRect().width > 0 && !n.closest('.lab-page-measure')
           const words = [...root.querySelectorAll('[data-testid="lab-word"]')].filter(visible)
