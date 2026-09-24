@@ -18,6 +18,11 @@ const entryPrefaces = new Map(JSON.parse(serializedPreReaderCatalogue).books.fla
 }))
 
 export default defineConfig(({ mode, command }) => {
+  // Production is serialized and accepted by GitHub Actions. Workers Builds
+  // otherwise races it and replaces content-hashed assets during acceptance.
+  if (command === 'build' && process.env.WORKERS_CI === '1') {
+    throw new Error('Tinct production builds run through GitHub Actions only; Workers Builds is disabled to prevent competing deployments.')
+  }
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
 
