@@ -1,6 +1,6 @@
 # Crime and Punishment: Svidrigaïlov first-snapshot correction
 
-**Status: ACCEPTANCE_STATUS. Content-only. Not published.**
+**Status: Independently accepted with notes (non-blocking). Ready for Codex to integrate. Content-only. Not published.**
 
 The identity review (`../crime-character-identity-review/`) found that Svidrigaïlov's first-encounter card revealed two later facts at his first mention (3.38): that he is "recently widowed", and that his "arrival in St. Petersburg alarms the whole Raskolnikov family". This package corrects that with a narrow patch to the character card:
 
@@ -44,7 +44,18 @@ Nothing else changes. That covers names, subtitles, IDs, `firstMention`, `roleVi
 
 ## Independent acceptance
 
-ACCEPTANCE_SECTION
+A fresh reviewer, working from the raw pinned texts with its own tools and without the author's reasoning, verified the patch twice. Its full report is `review/INDEPENDENT-ACCEPTANCE.md`, and its tools are in `review/tools/`.
+
+- **First version (release at 22.37): ACCEPT WITH NOTES.**
+  - It confirmed that both removed details are premature at 3.38. "Recently widowed" actually contradicts 3.38, where Marfa Petrovna is alive.
+  - It confirmed the mechanics.
+  - It found the earlier rumor at 17.49. That made 22.34 the earliest fully supported release point, and it noted a loose editorialBasis citation. Both were fixed.
+- **Revised patch (`PATCH.json` sha256 `7e28f1b0c05ba4e7e5a74a97a0570d62f1d994538ef88ad504549245ab7096f4`): ACCEPT WITH NOTES.**
+  - Every offset was recomputed and matches in original-en, live modern-en and the candidate, including `candidateCoordinates`.
+  - Its own re-application of the patch produces sha256 `c641a04992890b85707ae6e25afe03db48c73c751151eb8d0d5a94cc7c066245`, identical to `tools/apply_patch.py`.
+  - Nothing changes beyond the declared fields.
+  - Every clause of snapshot 2 is supported at the end of 22.34, and not before it. Nothing in it is premature. All editorialBasis citations are accurate.
+- **Remaining notes (non-blocking):** the snapshot-1 rumor clause and "wealthy" (see *Open decisions*), and the 3.38 anchor move to 2536 at candidate integration (already in the identity review's anchor list).
 
 ## Reconciliation against newer card versions (checked 2026-09-24)
 

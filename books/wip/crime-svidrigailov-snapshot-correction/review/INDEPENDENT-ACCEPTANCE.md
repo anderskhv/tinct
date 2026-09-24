@@ -111,3 +111,71 @@ The same basis text is used in modern-en. The paragraph indices refer to the sam
 
 - `review/tools/common.py`, `show.py`, `mentions.py`, `verify_patch.py`: review scripts. Run `python3 review/tools/verify_patch.py`.
 - `review/patched-crime-and-punishment.v1.json`: independently patched copy, sha256 `1edc7e5a…9701`.
+
+---
+
+## Re-verification of revised patch (7e28f1b0…), 2026-09-24
+
+Subject: revised `PATCH.json`, sha256 `7e28f1b0c05ba4e7e5a74a97a0570d62f1d994538ef88ad504549245ab7096f4` (recomputed). The first report above is left unchanged and applies to the earlier revision.
+
+### Verdict: ACCEPT WITH NOTES
+
+The revision adopts the 22.34 release point from section b above. Every mechanical check passes, the new editorialBasis is accurate, and nothing in snapshot 2 is premature at the end of 22.34. Notes 1, 3 and 4 above still apply. Note 2 is resolved.
+
+### Method
+
+- I wrote `review/tools/verify_patch_v2.py`, a copy of my own `verify_patch.py` that expects the revised coordinates (evidence 16.73, 17.49, 22.31, 22.34; release at the end of 22.34). It re-applies the patch by hand to a fresh load of `inputs/crime-and-punishment.v1.json`. It does not use the author's tools.
+- I rewrote `review/patched-crime-and-punishment.v1.json` with the new result.
+- I compared the new patched copy with my first-revision copy (a scratch backup) field by field.
+
+### Offsets (recomputed paragraph-end UTF-16 lengths)
+
+| Paragraph | original-en | live modern-en | candidate | revised PATCH.json / candidateCoordinates |
+|---|---|---|---|---|
+| 16.73 | 317 | 314 | 312 | 317 / 314 / 312 ✓ |
+| 17.49 | 265 | 264 | 264 | 265 / 264 / 264 ✓ |
+| 22.31 | 266 | 237 | 237 | 266 / 237 / 237 ✓ |
+| 22.34 (evidence and availableAt) | 87 | 87 | 87 | 87 / 87 / 87 ✓ |
+
+The candidateCoordinates evidence and availableAt are correct against candidate sha256 `18be4155…`.
+
+### Application, sha256 and scope
+
+- The `old` values still equal the baseline snapshot-1 body in both editions.
+- Patched sha256 = **`c641a04992890b85707ae6e25afe03db48c73c751151eb8d0d5a94cc7c066245`**. This matches the author's figure.
+- Compared with the unpatched baseline, only `svidrigailov-1.body` and the inserted `svidrigailov-2` change, in both editions. Names, subtitles, firstMention, roleVisibleAt, mentions and other characters are unchanged.
+- Compared with my first-revision patched copy, the only fields that differ are `svidrigailov-2.availableAt`, `.evidence` and `.editorialBasis`, in both editions. Snapshot-1's new body and snapshot-2's body, name and subtitle are identical to before.
+- Runtime validity holds: 3.38 < 22.34.end; every availableAt is ≥ firstMention; every offset is within the paragraph; every evidence point is ≤ availableAt.
+
+### Snapshot-2 clauses at the end of 22.34
+
+| Clause | Support read by the end of 22.34 |
+|---|---|
+| "Wealthy" | Same judgment call as before (3.38 "another estate of his", 22.2 "that landowner"). The counter-evidence at 21.37 and 21.103 ("though I am not rich") has already been read by 22.34. It is not premature, just questionable (note 3). |
+| "unsettling" | 3.38; 17.53 ("he’s an awful man!"); 21.x interview; 22.2 ("I don’t know why I’m afraid of that man"). |
+| "recently widowed" | 16.73 ("Marfa Petrovna’s dead!"); 17.45–17.49 ("quite suddenly… On the very day I was sending you that letter"); 22.2 and 22.31 ("immediately after his wife’s funeral"). |
+| "pursued Dunya while she worked in his household" | 3.38; 21.10 (his own account). |
+| "is rumored to be responsible for terrible things" | 17.49: "that awful man seems to have been the cause of her death. They say he beat her dreadfully." Also 21.16: "You have got rid of Marfa Petrovna, too, so they say?" Together with the Dunya persecution, this supports "rumored" plus "terrible things". The wording is attributed, as the policy requires. |
+| "His arrival in St. Petersburg alarms the whole Raskolnikov family." | Arrival: 20.68 and 21.8 ("I only arrived myself the day before"), and 22.31. Alarm: Rodya at 22.2 ("We must guard Dounia from him"), Dounia at 22.32 ("asked in alarm"), the mother at 22.34 ("won’t he leave Dounia in peace even here?"). The last clause becomes true exactly at the end of 22.34. |
+
+**Nothing premature.** The body does not mention the Resslich or Philip stories or the hushed-up criminal case, which start at 22.37 and 22.40. It also says nothing about Marfa's will or his intentions.
+
+**Earliest point.** The end of 22.34 is the earliest point where every clause holds. Before 22.34 the mother has not reacted, so "whole family" is not yet supported.
+
+### editorialBasis citations (revised text)
+
+| Citation | Check |
+|---|---|
+| "Marfa Petrovna's death (so his widowhood) is established at 16.73" | Accurate. This is the first report in all three texts. |
+| "the rumor that he caused it (\"They say he beat her dreadfully\") at 17.49" | Accurate. The quote appears verbatim at 17.49 in original-en, live modern-en and the candidate. |
+| "the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34" | Accurate: Luzhin reports it at 22.31, Dounia reacts at 22.32 and the mother at 22.34. Rodya's own alarm is earlier, at 22.2; the citation isn't wrong, since it covers the family's reaction as a group. |
+| "the reader first meets him there at 20.68" | Accurate as the point where he is identified: 20.68 is where he names himself. Strictly, the unnamed stranger appears in the doorway at 20.62. This is not material. |
+| "Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported" | Accurate. It agrees with my independent finding in section b. |
+
+### Remaining notes (non-blocking)
+
+- **Note 1 (outside scope):** snapshot 1's "rumored to be responsible for terrible things" is still unsupported until 17.49.
+- **Note 3 (judgment call):** "Wealthy" sits uneasily with 21.37 and 21.103.
+- **Note 4 (informational):** the candidate's 3.38 first mention needs rebinding (offset 2536) when the candidate goes live.
+
+Files: `review/tools/verify_patch_v2.py` (new) and `review/patched-crime-and-punishment.v1.json` (rewritten, sha256 `c641a049…6245`).
