@@ -20,6 +20,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
   const result = { label, calls, errors, passed: false }
   page.on('pageerror', e => errors.push(e.message))
   await page.route('**/*', async route => {
+    try {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname === '/api/narration/ensure') {
       const body = req.postDataJSON()
@@ -28,7 +29,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       assert(calls.length < 80, 'Bounded cached acceptance')
       const call = { body, at: Date.now() }; calls.push(call)
       if (failNext) { failNext = false; call.injectedFailure = true; return route.fulfill({ status: 503, json: { error: 'unavailable' } }).catch(() => {}) }
-      const response = await route.fetch()
+      const response = await route.fetch({ timeout: 15000, maxRetries: 1 })
       const json = await response.json()
       call.status = response.status(); call.generated = json.generated || 0
       assert.equal(response.status(), 200, JSON.stringify(json))
@@ -46,6 +47,10 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       }
     }
     return route.continue()
+    } catch (error) {
+      errors.push('Network acceptance: ' + error.message.split('\n')[0])
+      await route.abort().catch(() => {})
+    }
   })
   await page.addInitScript(({ theme, voice }) => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', voicePersona: voice === 'm' ? 'male' : 'female', audiobookVoice: ['orion', 'eve'].includes(voice) ? voice : null }))
@@ -130,8 +135,28 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     await context.tracing.stop({ path: output + '/' + label + '-trace.zip' }).catch(() => {})
   } finally {
     gateRelease()
-    await page.unrouteAll({ behavior: 'wait' })
-    await context.close()
+    // Stop the actual player before draining routed requests and closing WebKit.
+    // Never leave an open media element/tracing session in browser teardown.
+    if (!page.isClosed()) {
+      await page.getByTestId('lab-v2-play').evaluate(button => {
+        if (button.getAttribute('aria-label') === 'Pause' || button.getAttribute('aria-label') === 'Cancel audio loading') button.click()
+      }).catch(() => {})
+    }
+    console.log(JSON.stringify({ label, stage: 'cleanup', passed: result.passed }))
+    let cleanupTimer
+    try {
+      await Promise.race([
+        (async () => {
+          await page.unrouteAll({ behavior: 'wait' })
+          await context.tracing.stop().catch(() => {})
+          await context.close()
+        })(),
+        new Promise((_, reject) => { cleanupTimer = setTimeout(() => reject(new Error('Browser cleanup exceeded 20 seconds')), 20000) }),
+      ])
+    } catch (error) {
+      result.passed = false
+      result.error = (result.error || '') + '\n' + error.message
+    } finally { clearTimeout(cleanupTimer) }
     report.cases.push(result)
     await fs.writeFile(output + '/report.json', JSON.stringify(report, null, 2))
     console.log(JSON.stringify({ label, passed: result.passed, error: result.error, retryStartMs: result.retryStartMs }))

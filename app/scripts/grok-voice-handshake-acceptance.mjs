@@ -26,7 +26,7 @@ await page.addInitScript(({ persona }) => {
     kind: 'open-reader', bookId: 'notes-from-underground', primaryEditionKey: 'original-en',
     savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },
   }))
-  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false }
+  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false, sessionEvidence: [], providerErrors: [] }
   const Native = WebSocket
   window.WebSocket = class extends Native {
     constructor(url, protocols) {
@@ -35,7 +35,12 @@ await page.addInitScript(({ persona }) => {
       this.addEventListener('message', event => {
         try {
           const message = JSON.parse(event.data)
-          if (message.type === 'session.updated') { window.__voiceHandshake.sessionUpdated = true; window.__voiceHandshake.acknowledgedVoice = message.session?.voice || null }
+          if (message.type === 'session.updated') {
+            window.__voiceHandshake.sessionUpdated = true
+            window.__voiceHandshake.acknowledgedVoice = message.session?.voice || null
+            window.__voiceHandshake.sessionEvidence.push({ keys: Object.keys(message), sessionKeys: Object.keys(message.session || {}), voice: message.session?.voice || null, outputVoice: message.session?.audio?.output?.voice || null, topVoice: message.voice || null })
+          }
+          if (message.type === 'error') window.__voiceHandshake.providerErrors.push({ code: message.error?.code, message: message.error?.message })
           if (window.__voiceHandshake.forcePending && (message.type === 'response.output_audio.delta' || message.type === 'response.audio.delta')) window.__voiceHandshake.forceAudioBytes += Math.floor(String(message.delta || '').length * 3 / 4)
           if (window.__voiceHandshake.forcePending && (message.type === 'response.output_audio_transcript.delta' || message.type === 'response.audio_transcript.delta')) window.__voiceHandshake.forceTranscript += message.delta || ''
           if (window.__voiceHandshake.forcePending && message.type === 'response.done') { window.__voiceHandshake.forceDone = true; window.__voiceHandshake.forcePending = false }
@@ -88,6 +93,13 @@ try {
   assert.deepEqual(report.errors, [])
   report.passed = true
 } catch (error) {
+  Object.assign(report, await page.evaluate(() => ({
+    requestedVoice: window.__voiceHandshake?.requestedVoice,
+    sessionUpdated: window.__voiceHandshake?.sessionUpdated,
+    acknowledgedVoice: window.__voiceHandshake?.acknowledgedVoice,
+    sessionEvidence: window.__voiceHandshake?.sessionEvidence,
+    providerErrors: window.__voiceHandshake?.providerErrors,
+  })).catch(() => ({})))
   report.passed = false
   report.error = error.stack
   await page.screenshot({ path: output + '/failure.png' }).catch(() => {})
