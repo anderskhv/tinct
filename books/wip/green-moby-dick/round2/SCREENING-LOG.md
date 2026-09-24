@@ -26,3 +26,5 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b23 | 8 of 9 | 23.3 rejected | Lee Shore climax "worm-like ... like a coward" is Melville's deliberate doubled figure; 29.2 "old second mate" is source wording; 24.21 "No more!" = "enough said" confirmed |
 | b01 | all 3 (5.5 "polish" confirmed as the referent in source) | — | playbill "AFFGHANISTAN" kept as quoted document; "Feegees" in dialogue handled in decision-7 sweep |
 | b06 | all 7 (9.16 shroud gloss accurate; 15.0 "knocking up" → "knocking at ... door" avoids an unintended modern sense) | — | — |
+| b32 | all 6 (Charing Cross, book sizes, Ahaz-dial, Black Letter, truck — glosses accurate) | — | — |
+| b87 | 21 of 23; 87.27 adjusted to "But just so" (1851 "even so" = likewise; keeps Melville's "But") | 87.0 rejected | source 87.0 prints "Australia", not "New Holland"; 87.20 restructure flagged for re-verification |

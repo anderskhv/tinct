@@ -1,0 +1,63 @@
+{
+ "batch": "b01",
+ "role": "reverify",
+ "chapters": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "reviewed": [
+  "1.1",
+  "1.2",
+  "1.3",
+  "1.5",
+  "1.6",
+  "2.8",
+  "3.9",
+  "3.21",
+  "3.22",
+  "3.36",
+  "3.37",
+  "3.38",
+  "3.58",
+  "3.59",
+  "3.60",
+  "4.6",
+  "5.0",
+  "5.4",
+  "5.5",
+  "5.7"
+ ],
+ "items": [
+  {
+   "id": "1.2",
+   "severity": "non-blocking",
+   "category": [
+    "hedge"
+   ],
+   "reason": "R2 restored \"mortal men fixed in ocean reveries\" correctly, but the paragraph still drops the hedge in \"some high aloft in the rigging, as if striving to get a still better seaward peep\": the candidate states \"trying to get\" as fact. Restore \"as if\".",
+   "new": "Walk around the city on a dreamy Sunday afternoon. Go from Corlears Hook to Coenties Slip and then north by way of Whitehall. What do you see? Standing like silent sentinels all around the town are thousands upon thousands of mortal men fixed in ocean reveries. Some lean against the pilings; some sit on the pier heads; some gaze over the sides of ships from China; some perch high in the rigging, as if trying to get an even better view of the sea. But these are all landlocked people — weekdays they're penned up in plaster and wood, chained to counters, nailed to benches, clamped to desks. What's going on? Have all the green fields vanished? What are they doing here?"
+  },
+  {
+   "id": "1.6",
+   "severity": "non-blocking",
+   "category": [
+    "omission",
+    "voice"
+   ],
+   "reason": "R2 correctly restored the purse, \"I confess ... glory\" and \"idolatrous doting\", but the paragraph still omits source touches: \"the glory and distinction of such offices\" (\"distinction\" lost), \"toils, trials, and tribulations of every kind whatsoever\" (the comic emphasis lost), \"schooners, and what not\" (dropped), and \"yet, somehow, I never fancied broiling fowls\" (\"somehow\" dropped). Minimal restoration of each.",
+   "new": "Now, when I say I go to sea whenever my eyes grow hazy and I become too aware of my own breathing, don't imagine I ever go as a passenger. To go as a passenger you need a purse, and a purse is just a rag unless there's something in it. Besides, passengers get seasick, grow quarrelsome, don't sleep at night, and generally don't enjoy themselves much. No, I never go as a passenger; nor, though I know my way around a ship, do I ever go as a Commodore, Captain, or Cook. I leave the glory and distinction of such positions to those who want them. I personally despise all honorable, respectable labor, trials, and tribulations of every kind whatsoever. I have quite enough to do just looking after myself without looking after ships, barques, brigs, schooners, and what not. And as for going as cook — though I confess there's considerable glory in that, a cook being a sort of officer on board — somehow I never much liked the idea of broiling chickens. Though once broiled, properly buttered, judiciously salted and peppered, there's no one who speaks of a broiled chicken with more respect — even reverence — than I do. It's because of the ancient Egyptians' idolatrous doting on broiled ibis and roasted hippopotamus that you find mummies of those creatures in their enormous bake-houses, the pyramids."
+  },
+  {
+   "id": "3.59",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "R2 correctly restored \"concluding his business operations\", but the paragraph still loses \"the spell in which I had so long been bound\" (\"so long\" dropped) and turns \"before the light was put out\" (someone will put it out) into \"before the light went out\". Minimal restoration.",
+   "new": "All these strange doings made me increasingly uncomfortable. Seeing that he was now showing every sign of concluding his business operations and jumping into bed with me, I decided it was high time — now or never, before the light was put out — to break the spell I'd been under for so long."
+  }
+ ]
+}
