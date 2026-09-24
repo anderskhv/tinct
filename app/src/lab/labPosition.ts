@@ -60,6 +60,14 @@ export type LabPlaceReason =
   | 'dwell'
   | 'word'
 
+export interface LabPlaceRecovery {
+  editionKey: string
+  contentRevision: string
+  chapterNumber: number
+  paragraphIndex: number
+  wordIndex: number
+}
+
 export interface LabBookPlace {
   bookId: string
   headerBook: string
@@ -71,6 +79,11 @@ export interface LabBookPlace {
   primaryEditionKey?: string
   compareEditionKey?: string
   readerMode?: 'read' | 'compare'
+  /** Hash of the edition whose coordinates this tuple uses. */
+  contentRevision?: string
+  /** Original saved tuple retained when an accepted edition repair moved it. */
+  contentRecovery?: LabPlaceRecovery
+  contentMigrationStatus?: 'exact' | 'approximate' | 'unresolved'
   updatedAt: number
   deviceId: string
   rev: number
@@ -258,6 +271,15 @@ function isFiniteInt(value: unknown, min: number, max: number): value is number 
   return typeof value === 'number' && Number.isInteger(value) && value >= min && value <= max
 }
 
+function parseLabPlaceRecovery(raw: unknown): LabPlaceRecovery | undefined {
+  if (!raw || typeof raw !== 'object') return undefined
+  const r = raw as Record<string, unknown>
+  if (typeof r.editionKey !== 'string' || !r.editionKey || r.editionKey.length > 80) return undefined
+  if (typeof r.contentRevision !== 'string' || !/^[a-f0-9]{64}$/.test(r.contentRevision)) return undefined
+  if (!isFiniteInt(r.chapterNumber, 1, 5000) || !isFiniteInt(r.paragraphIndex, 0, 10_000) || !isFiniteInt(r.wordIndex, 0, 100_000)) return undefined
+  return { editionKey: r.editionKey, contentRevision: r.contentRevision, chapterNumber: r.chapterNumber, paragraphIndex: r.paragraphIndex, wordIndex: r.wordIndex }
+}
+
 export function parseLabBookPlace(raw: unknown): LabBookPlace | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
@@ -286,6 +308,9 @@ export function parseLabBookPlace(raw: unknown): LabBookPlace | null {
     ...(src.primaryEditionKey === undefined ? {} : { primaryEditionKey: src.primaryEditionKey }),
     ...(src.compareEditionKey === undefined ? {} : { compareEditionKey: src.compareEditionKey }),
     ...(src.readerMode === undefined ? {} : { readerMode: src.readerMode }),
+    ...(typeof src.contentRevision === 'string' && /^[a-f0-9]{64}$/.test(src.contentRevision) ? { contentRevision: src.contentRevision } : {}),
+    ...(parseLabPlaceRecovery(src.contentRecovery) ? { contentRecovery: parseLabPlaceRecovery(src.contentRecovery) } : {}),
+    ...(src.contentMigrationStatus === 'exact' || src.contentMigrationStatus === 'approximate' || src.contentMigrationStatus === 'unresolved' ? { contentMigrationStatus: src.contentMigrationStatus } : {}),
     updatedAt: src.updatedAt,
     deviceId: src.deviceId,
     rev: src.rev,
