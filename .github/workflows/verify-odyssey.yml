@@ -31,7 +31,6 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: python3 scripts/test-prepare-reviewed-editions.py
       - run: python3 scripts/prepare-odyssey-release.py --verify
-      - run: python3 ../books/classify-modern-en.py odyssey --gate
       - run: npm run build
       - run: npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
@@ -42,6 +41,8 @@ jobs:
           READER_BUILT: '1'
           ARTIFACT_DIR: artifacts/odyssey-release
         run: node scripts/check-reviewed-characters.cjs
+      - name: Require modern-English numeric gate or reviewed disposition
+        run: python3 ../books/classify-modern-en.py odyssey --gate
       - uses: actions/upload-artifact@v4
         if: always()
         with:
