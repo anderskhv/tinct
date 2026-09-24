@@ -21,8 +21,13 @@ ROOT = Path(__file__).resolve().parent.parent
 RESOLUTIONS = {}
 
 
+# Label equivalences between the two reviewers' vocabularies (same meaning).
+CLASS_ALIASES = {"removed-with-duplicate-text": "removed"}
+
+
 def norm_class(decision, cls):
     cls = (cls or "").split("/")[-1]
+    cls = CLASS_ALIASES.get(cls, cls)
     return f"{decision}/{cls}"
 
 

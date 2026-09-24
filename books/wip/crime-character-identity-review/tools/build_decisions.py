@@ -10,7 +10,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from build_evidence import INP, norm_para, py_index
+from build_evidence import INP, norm_para, py_index, tokens
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,7 +31,7 @@ REFERENTS = {
 # Entry-specific notes recorded during the read. Keys are entry IDs.
 NOTES = {
     "R062": "Sentence reordered ('From many signs, Pyotr Petrovich seems' -> 'Pyotr Petrovitch, judging by many indications, is'); still Pulcheria's letter about Luzhin. Equal run is only the two name tokens, so identity was confirmed by reading, not by alignment.",
-    "R125": "Allusive use: Raskolnikov shouts 'Hey! You, Svidrigaïlov!' at the boulevard dandy, using the name as a taunt (source 4.13 reads the same). The name token denotes Svidrigaïlov and the card explains the allusion; the live binding is carried forward unchanged. The candidate did not change identity here. Flagged for the card owner in case they prefer to unbind allusive uses.",
+    "R125": "Allusive use: Raskolnikov shouts 'Hey! You, Svidrigaïlov!' at the dandy stalking the drunk girl on the boulevard, using the name as a taunt (source 4.13 reads the same). The name token denotes Svidrigaïlov, but the person addressed is someone else. The current card does not explain the allusion. The candidate did not change identity here, so the live binding is carried forward unchanged, not silently re-decided. Open card-owner decision: mark it as allusive or add an allusion note (both reviewers lean this way), or unbind it.",
     "R172": "Razumihin's joke 'My name is Vrazumihin ... not Razumihin, as everyone calls me'; the bound token is his real surname. 'Vrazumihin' is not bound, as before.",
     "R179": "Source 10.68 has 'kept his eyes fixed upon him'; the modern edition names the antecedent, Razumihin (the speaker of 10.67). Same referent.",
     "R194": "Source 10.107 has 'said the latter', i.e. Razumihin (named at the end of 10.106); the modern edition names him. Same referent.",
@@ -43,7 +43,7 @@ NOTES = {
     "M06": "Pulcheria Alexandrovna addressing Dounia. Same text and offset. Count changed because a restored omission adds 'You shouldn't have, Dounia' (17.65@374, new and unbound).",
     "M07": "Same speech ('Why did you say that, Dounia?'); offset +3 because 'Rodya.' became 'Rodya....'.",
     "M08": "Sonia speaking to Raskolnikov ('I come from Katerina Ivanovna'); offset +8 from the restored stammer before it. The added 'Katerina Ivanovna told me' (18.5@158) replaces 'She' and is new and unbound.",
-    "M09": "Sonia speaking ('Katerina Ivanovna and I have figured it all out'); same offset. The restored clause adds a second 'Katerina Ivanovna' (18.21@177), new and unbound.",
+    "M09": "Sonia speaking ('Katerina Ivanovna and I have figured it all out'); same offset. The restored clause replaces the live pronoun ('She was very anxious' -> 'and Katerina Ivanovna was very anxious', as in Garnett); that occurrence (18.21@177) is new and unbound.",
     "M10": "Raskolnikov recalling his scene with Porfiry; same offset.",
     "M11": "'Porfiry's aims'; same offset. The next 'he' became 'Porfiry' through an access-reference edit (26.67@286, new and unbound).",
     "M12": "'how dangerous Porfiry's gambit had been'; offset +5 from the preceding edit.",
@@ -73,10 +73,24 @@ DROPS = {
 }
 
 
+def neighbourhood(old, new, e, final, k=6):
+    """Compare the folded tokens within k of the mention in live and candidate."""
+    ot, nt = tokens(old), tokens(new)
+    os_ = py_index(old, e["startOffset"]); oe = py_index(old, e["endOffset"])
+    ns = py_index(new, final["startOffset"]); ne = py_index(new, final["endOffset"])
+    oi = [i for i, t in enumerate(ot) if t[0] >= os_ and t[1] <= oe]
+    ni = [i for i, t in enumerate(nt) if t[0] >= ns and t[1] <= ne]
+    L = lambda T, i: [t[2] for t in T[max(0, i - k):i]]
+    R = lambda T, i: [t[2] for t in T[i + 1:i + 1 + k]]
+    return L(ot, oi[0]) == L(nt, ni[0]) and R(ot, oi[-1]) == R(nt, ni[-1])
+
+
 def main():
     entries = json.load(open(ROOT / "evidence" / "entries.json"))
     src = json.load(open(INP / "source.json"))
     cand = json.load(open(INP / "candidate.json"))
+    global LIVE
+    LIVE = [{"paragraphs": [norm_para(p) for p in c["paragraphs"]]} for c in json.load(open(INP / "baseline-live-modern-en.json"))["chapters"]]
     out = []
     for e in entries:
         ch, pi = e["chapterNumber"], e["paragraphIndex"]
@@ -101,14 +115,18 @@ def main():
             final = {"startOffset": m["startOffset"], "endOffset": m["endOffset"], "text": m["text"]}
             s, t = py_index(new, final["startOffset"]), py_index(new, final["endOffset"])
             assert new[s:t] == final["text"]
+            same_nb = neighbourhood(LIVE[ch - 1]["paragraphs"][pi], new, e["old"], final)
+            where = ("The surrounding wording (six words either side) is unchanged apart from spelling."
+                     if same_nb else
+                     "The surrounding wording was revised; the rewritten sentence was read and still refers to the same person in the same clause.")
             if e["status"] == "renamed-to-source-form":
                 assert e["suggestedAgreesWithMapped"], e["entryId"]
                 cls = "spelling-variant"
-                why = (f"Read in context: '{e['old']['text']}' -> '{final['text']}' is the Garnett spelling of the same name in the same "
-                       f"position; the referent is {REFERENTS[e['characterId']]}.")
+                why = (f"Read in context: '{e['old']['text']}' -> '{final['text']}' is the Garnett spelling of the same name; "
+                       f"the referent is {REFERENTS[e['characterId']]}. {where}")
             else:
                 cls = "same-text"
-                why = f"Read in context: same name and same referent ({REFERENTS[e['characterId']]})."
+                why = f"Read in context: same name and same referent ({REFERENTS[e['characterId']]}). {where}"
             if e["entryId"] in NOTES:
                 why += " " + NOTES[e["entryId"]]
             rec.update({"decision": "map", "decisionClass": cls, "finalCandidateSpan": final, "rationale": why})
@@ -122,6 +140,8 @@ def main():
             "candidateParagraphSha256": e["candidateParagraphSha256"],
             "editRounds": sorted({x["round"] for x in e["edits"]}),
         }
+        if rec["finalCandidateSpan"]:
+            rec["evidence"]["neighbourhoodUnchanged"] = same_nb
         rec["identityNote"] = "allusive-use" if e["entryId"] == "R125" else None
         out.append(rec)
     (ROOT / "ledger").mkdir(exist_ok=True)
