@@ -11,7 +11,7 @@ CLEAN="7994156f131a0c382e3f1372518dcb55a44eaade"
 FOLDER="books/staged-replacements/odyssey/edition"
 REVISION="2026-09-24.1"
 HASHES={
- "original-en":("da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07","0cc76350232962d4c4f1eb7216f14515fc1910f94f666695d2a595d4e6980"),
+ "original-en":("da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07","0cc76350232962d4c4f1cf1eb7216f14515fc1910f94f666695d2a595d4e6980"),
  "modern-en":("813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc","bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c"),
 }
 def fetch(ref,path):
@@ -22,7 +22,7 @@ after={ed:fetch(CLEAN,f"books/wip/featured-source-cleanup/odyssey/odyssey-{ed}.j
 assert after["modern-en"]==fetch(REVIEW,FOLDER+"/odyssey-modern-en.candidate.json")
 changed={}
 for ed,(was,accepted) in HASHES.items():
- assert p.digest(before[ed])==was and p.digest(after[ed])==accepted
+ assert p.digest(before[ed])==was and p.digest(after[ed])==accepted, (ed, p.digest(before[ed]), p.digest(after[ed]))
  a,b=json.loads(before[ed]),json.loads(after[ed])
  assert len(a["chapters"])==len(b["chapters"])==24
  assert sum(len(c["paragraphs"]) for c in b["chapters"])==1027
