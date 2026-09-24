@@ -6,7 +6,7 @@ Prepared: 24 September 2026 · Content-only handoff for Codex
 
 ## Prior work checked
 
-No accepted cleanup existed. The BSB staging package (`codex/bsb-staging-20260921`, README "Verified delivery") reported that "Existing WEB Revelation 22 contains appended Gutenberg boilerplate". It flagged the chapter's 21 verse mappings as unsafe and left WEB unchanged. No branch, PR or `books/` record repairs it. A whole-edition scan finds Gutenberg text only in this one paragraph (chapter 1189, paragraph 4). Across the repository the text appears only in the live edition, its `ch1189.json` shard and `qa/reports/structural-report.json`, which is historical output and not changed here.
+No accepted cleanup existed. The BSB staging package (`codex/bsb-staging-20260921`, README "Verified delivery") reported that "Existing WEB Revelation 22 contains appended Gutenberg boilerplate". It flagged the chapter's 21 verse mappings as unsafe and left WEB unchanged. No branch, PR or `books/` record repairs it. A whole-edition scan finds Gutenberg text only in this one paragraph (chapter 1189, paragraph 4). In the repository, the trailer appears only in the live edition and its `ch1189.json` shard. `qa/reports/structural-report.json` holds a historical warning that quotes an 80-character preview of it; that file is not changed here.
 
 ## Pinned inputs
 
@@ -23,7 +23,7 @@ The live `web-en` is the classic WEB from that Gutenberg text. The eBible WEB Ca
 Chapter 1189 (Revelation 22), paragraph index 4, originally 18,247 UTF-16 units:
 
 - **Kept**, units 0–67: `²¹ The grace of the Lord Jesus Christ be with all the saints. Amen.`
-- **Removed**, units 67–18,247: one separator space, then the full trailer text from `*** END OF THE PROJECT GUTENBERG EBOOK THE WORLD ENGLISH BIBLE (WEB), COMPLETE ***` to the end of the paragraph. That is 18,179 characters, stored verbatim in `out/removed-text.txt` (SHA-256 `fd4d478b…d1bc`).
+- **Removed**, units 67–18,247, which is 18,180 units: one separator space, then the full trailer text from `*** END OF THE PROJECT GUTENBERG EBOOK THE WORLD ENGLISH BIBLE (WEB), COMPLETE ***` to the end of the paragraph. The trailer text is 18,179 characters. It is stored verbatim in `out/removed-text.txt` (SHA-256 `fd4d478b…d1bc`), without the separator space.
 
 Paragraph SHA-256 changes from `9401d3e2b93bbcd8d8fe83d45d721161c60d84ded7632d06ff9125af2c881e01` to `7c307a62d147383da90c83e5e6e87e264fd507448cc58f28247dcb65a5134f34`.
 
@@ -78,7 +78,7 @@ Both candidates keep the baseline serialisation (the edition uses 2-space indent
 ## Character-card compatibility (`app/public/data/characters/bible.v1.json`, `web-en`)
 
 - `sourceSha256`: `46d20663…eeae` → `b0f49165…62aa`.
-- `paragraphHashes["1189"][4]`: `9401d3e2…1e01` → `7c307a62…4f34`. The other hashes are unchanged.
+- `paragraphHashes["1189"][4]`: `9401d3e2…1e01` → `7c307a62…4f34`. The other hashes are unchanged. The runtime hashes each paragraph after `normalizeParagraph` (newlines become spaces; repeated spaces are collapsed). This paragraph contains neither, so the normalised hash and the raw hash are the same.
 - The chapter has 4 mentions. All four still resolve with **unchanged offsets**. That includes `jesus` at ¶4 25–30, which is inside the kept text. **0 offsets need to change**, and no mention falls in the removed text.
 
 ## Audio
