@@ -1,0 +1,44 @@
+{
+  "sourceRef": "eb85681725788100f6142b5324b4cd03b3c80760",
+  "revision": "2026-09-24.1",
+  "scope": "Accepted Meditations text and explicit ruling-part to ruling-faculty mapping from the pinned release packet. No card prose changes, editions or audio generation.",
+  "allowReviewedAliasChanges": false,
+  "books": [
+    {
+      "id": "meditations",
+      "before": "e2cc6090b4cde62db3f991dd5f6714c5d194232c499de3bbe8ddd04915803d10",
+      "accepted": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f",
+      "chapters": 12,
+      "paragraphs": 487,
+      "changed": 482,
+      "approvedMentionMappings": [
+        {
+          "characterId": "the-ruling-part",
+          "from": "ruling part",
+          "to": "ruling faculty",
+          "evidence": "books/wip/green-meditations/RELEASE-PACKET.md at eb85681725788100f6142b5324b4cd03b3c80760, Character cards / What to do",
+          "occurrenceOverrides": [
+            {
+              "chapterNumber": 5,
+              "paragraphIndex": 25,
+              "oldOccurrence": 0,
+              "newOccurrence": 1
+            },
+            {
+              "chapterNumber": 9,
+              "paragraphIndex": 21,
+              "oldOccurrence": 0,
+              "newOccurrence": 0
+            },
+            {
+              "chapterNumber": 9,
+              "paragraphIndex": 21,
+              "oldOccurrence": 1,
+              "newOccurrence": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

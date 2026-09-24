@@ -76,6 +76,39 @@ class ReanchorTests(unittest.TestCase):
         second = module.utf16(text[:text.rindex("Antony")])
         self.assertEqual(module.project(text, new, second), module.utf16(new[:new.rindex("Antony")]))
 
+    def test_snapshot_evidence_moves_with_utf16_reveal_boundary(self):
+        old, asset = fixture("Antony spoke.", "Antony")
+        snapshot = asset["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        snapshot["availableAt"]["offset"] = 6
+        snapshot["evidence"] = [{"chapterNumber": 1, "paragraphIndex": 0, "throughOffset": 6}]
+        new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["😀 Antony spoke."]}]}, ensure_ascii=False).encode()
+        output, _ = module.reanchor(asset, old, new, "new", allow_alias_changes=False)
+        changed = output["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        self.assertEqual(changed["availableAt"]["offset"], 9)
+        self.assertEqual(changed["evidence"][0]["throughOffset"], 9)
+        self.assertEqual(snapshot["evidence"][0]["throughOffset"], 6)
+        self.assertEqual(output["editions"]["original-en"], asset["editions"]["original-en"])
+
+    def test_explicit_mapping_keeps_identity_and_duplicate_occurrence(self):
+        old, asset = fixture("Your ruling part directs your ruling part.", "ruling part")
+        accepted = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["Your ruling faculty directs your ruling faculty."]}]}).encode()
+        mappings = [{"characterId": "person", "from": "ruling part", "to": "ruling faculty"}]
+        output, report = module.reanchor(asset, old, accepted, "new", False, mappings)
+        mention = output["editions"]["modern-en"]["mentions"][0]
+        self.assertEqual(mention["characterId"], "person")
+        self.assertEqual(mention["text"], "ruling faculty")
+        self.assertEqual(report["droppedMentions"], [])
+        self.assertIsNone(module.approved_mapping_span("Your ruling part directs your ruling part.", "A ruling faculty.", asset["editions"]["modern-en"]["mentions"][0], mappings))
+        self.assertIsNone(module.approved_mapping_span("Your ruling part.", "Your ruling faculty.", asset["editions"]["modern-en"]["mentions"][0], [{**mappings[0], "characterId": "other"}]))
+
+    def test_explicit_occurrence_override_handles_added_same_concept(self):
+        old, asset = fixture("Let your ruling part decide.", "ruling part")
+        mention = asset["editions"]["modern-en"]["mentions"][0]
+        mapping = {"characterId": "person", "from": "ruling part", "to": "ruling faculty", "occurrenceOverrides": [{"chapterNumber": 1, "paragraphIndex": 0, "oldOccurrence": 0, "newOccurrence": 1}]}
+        target = "Your ruling faculty is yours. Let your ruling faculty decide."
+        span = module.approved_mapping_span("Let your ruling part decide.", target, mention, [mapping])
+        self.assertEqual(span, (target.rindex("ruling faculty"), target.rindex("ruling faculty") + 14, "ruling faculty"))
+
     def test_corrupt_previous_source_fails_closed(self):
         old, asset = fixture("Antony spoke.", "Antony")
         with self.assertRaisesRegex(ValueError, "previous edition"):

@@ -110,7 +110,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   // 2026-09-12.2 — re-anchored onto the re-based Meditations text (Long 1862,
   // 487 paragraphs). Figures and descriptions unchanged; hashes, offsets and
   // two spellings recomputed by scripts/reanchor-meditations-characters.py.
-  meditations: { editions: EN, revision: '2026-09-12.2' },
+  meditations: { editions: EN, revision: '2026-09-24.1' },
   confessions: { editions: EN, revision: '2026-09-12.1' },
   'as-you-like-it': { editions: EN, revision: '2026-09-12.1' },
   'taming-of-the-shrew': { editions: EN, revision: '2026-09-12.1' },
