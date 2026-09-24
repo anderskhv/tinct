@@ -17,7 +17,7 @@ None introduced. Every term in the range (the demonic, concealment, disclosure, 
 
 ## Verse (¶29)
 
-- The German lines (the Schlegel–Tieck *Richard III*, I.1) are kept exactly as in the source, including the opening "…", the full stop after "baar." and the eight `\n` breaks.
+- The German lines (the Schlegel–Tieck *Richard III*, I.1) are kept exactly as in the source, including the opening "…", the full stop after "baar." and the seven internal `\n` breaks.
 - The English follows on a new line (`\n`) in square brackets, with " / " between lines. It renders the **German**, line by line, keeping the German enjambment ("halb kaum fertig / Gemacht" → "scarcely half / Made ready"). It deliberately does not quote Shakespeare's English.
 - "hink' ich wo vorbei" → "if I limp past them anywhere" (*wo* = *irgendwo*).
 - Formatting to check: I put a line break before the bracket, not a space. The standard does not say which.
@@ -118,3 +118,32 @@ The rise above the Problema I–II calibration comes mostly from the verse and L
 
 1. *tør* rendered "may" rather than "dare" (¶35, n7.47a).
 2. ¶39 "desultory" with no gloss, and "compass needle swings off true" for *Misvisning*.
+
+## Revision r1 (after `reviews/R1-fidelity-I.md`)
+
+- **Snapshot and record.** The pre-revision draft is in `drafts/history/I-ch7.r0.json`. The full finding-by-finding record is `reviews/R1-applied-I.md`.
+- **MAJOR fixed.** ¶31 *en Enkelt* → "an individual", not "a single individual". This keeps ¶37 "become the single individual" as the turning point.
+- **MINOR.** 18 applied and 1 partly applied: *Heros* stays "hero", to match H-ch7 ¶28, but "lamentable way" is applied. One finding was declined, meaning no change here: the verse-bracket format is left to assembly, and I keep the `\n` form.
+- **Book rulings of 2026-09-24 applied**, superseding the r0 notes above where they differ:
+  - *tør* → "dare" in n7.47a ("But dare he keep silent?"). ¶35 keeps "you may not" as a plain prohibition.
+  - *Virkelighed* → "actuality" (¶33, ¶38 ×2). The idiom *i Virkeligheden* in ¶32 → "in real life".
+  - *en Enkelt* → "an individual" (¶31).
+  - *fatte*/*gribe*: none in range.
+- **Other fixes:**
+  - ¶32 pronoun: the deceiver is the one claiming to have gone through doubt.
+  - ¶32 "a tried man".
+  - ¶33 "makes this idea real", and the corrected logic of "everything else, just as they do this too".
+  - ¶35 referent.
+  - ¶38 "provided only that".
+  - ¶39 "desultory (in the old sense: moving by leaps)", and the leaner compass wording.
+  - ¶29 "Defaced".
+  - ¶30:
+    - "cannot be saved by being mediated";
+    - "fanciful presupposition";
+    - "the genius in him … the divine partiality";
+    - "constructed";
+    - "the poet ought, first and foremost, to raise the alarm".
+- **Correction to the r0 notes.** The German has seven internal line breaks, not eight.
+- **Screen after r1:** `TOTAL words 3071; in shared 8-word runs 27.5%; in runs>=12 10.2%; in runs>=16 2.9%`. The two new runs of 14+ were re-rendered. The remaining runs are the forced set listed above.
+- **Word count:** main text 2,631; note 470.
+- "Cumberland's Jew" is kept unglossed.
