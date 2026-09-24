@@ -110,3 +110,13 @@ Independent check of the 98 paragraphs changed after R1 review (BEFORE = `review
 ```
 
 DEFECTS: 3
+
+## R2
+
+Re-check of the three R1-reverify fixes (R2-accepted.json), read against the source and the neighbouring paragraphs (17.21, 21.2 / 28.7, 28.x / 29.1).
+
+- 17.22 — CLEAN. The fix changed only "ease" to "relieve". "bring out and relieve the thighbones and ribs of his vanity" now matches Woolf's "expose and relieve the thigh bones, the ribs, of his vanity", and it answers 17.21's "why should I help him find relief?". Grammar and read-aloud are sound.
+- 21.1 — CLEAN. The fix changed only "dining-room" to "dining room". The phrase now reads "the drawing room or the dining room", both as nouns, consistent with the rest of the edition; the hyphen stays only on adjectives (21.2, 28.7). Nothing else changed.
+- 29.0 — CLEAN. The reorder puts "the shore" right before "its", so "its sleep" and "lull it" refer to the shore, as in Woolf ("Messages of peace breathed from the sea to the shore. Never to break its sleep any more"). "Breaths of peace, messages of peace" keeps both images, and nothing is added or dropped. The later "what else could it be murmuring?" still points to the sea/peace, as the source's "it" does. It follows on smoothly from "Then, truly, peace had come." and the colon structure reads well aloud.
+
+VERIFIED CLEAN
