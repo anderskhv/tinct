@@ -101,6 +101,14 @@ class ReanchorTests(unittest.TestCase):
         self.assertIsNone(module.approved_mapping_span("Your ruling part directs your ruling part.", "A ruling faculty.", asset["editions"]["modern-en"]["mentions"][0], mappings))
         self.assertIsNone(module.approved_mapping_span("Your ruling part.", "Your ruling faculty.", asset["editions"]["modern-en"]["mentions"][0], [{**mappings[0], "characterId": "other"}]))
 
+    def test_explicit_occurrence_override_handles_added_same_concept(self):
+        old, asset = fixture("Let your ruling part decide.", "ruling part")
+        mention = asset["editions"]["modern-en"]["mentions"][0]
+        mapping = {"characterId": "person", "from": "ruling part", "to": "ruling faculty", "occurrenceOverrides": [{"chapterNumber": 1, "paragraphIndex": 0, "oldOccurrence": 0, "newOccurrence": 1}]}
+        target = "Your ruling faculty is yours. Let your ruling faculty decide."
+        span = module.approved_mapping_span("Let your ruling part decide.", target, mention, [mapping])
+        self.assertEqual(span, (target.rindex("ruling faculty"), target.rindex("ruling faculty") + 14, "ruling faculty"))
+
     def test_corrupt_previous_source_fails_closed(self):
         old, asset = fixture("Antony spoke.", "Antony")
         with self.assertRaisesRegex(ValueError, "previous edition"):

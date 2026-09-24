@@ -93,11 +93,17 @@ def approved_mapping_span(old, new, mention, mappings):
     mapping = matches[0]
     old_hits = list(re.finditer(r"(?<!\w)" + re.escape(mapping["from"]) + r"(?!\w)", old))
     new_hits = list(re.finditer(r"(?<!\w)" + re.escape(mapping["to"]) + r"(?!\w)", new))
-    if len(old_hits) != len(new_hits):
-        return None
     for index, hit in enumerate(old_hits):
         if utf16(old[:hit.start()]) == mention["startOffset"] and utf16(old[:hit.end()]) == mention["endOffset"]:
-            target = new_hits[index]
+            target_index = index
+            if len(old_hits) != len(new_hits):
+                overrides = [v for v in mapping.get("occurrenceOverrides", []) if v["chapterNumber"] == mention["chapterNumber"] and v["paragraphIndex"] == mention["paragraphIndex"] and v["oldOccurrence"] == index]
+                if len(overrides) != 1:
+                    return None
+                target_index = overrides[0]["newOccurrence"]
+            if target_index < 0 or target_index >= len(new_hits):
+                raise ValueError("Approved occurrence mapping exceeds candidate occurrences")
+            target = new_hits[target_index]
             return utf16(new[:target.start()]), utf16(new[:target.end()]), mapping["to"]
     return None
 

@@ -11,8 +11,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 10
       - name: Test and prepare pinned content
         run: |
+          git show b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec:app/public/data/editions/meditations-modern-en.json > app/public/data/editions/meditations-modern-en.json
+          git show b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec:app/public/data/characters/meditations.v1.json > app/public/data/characters/meditations.v1.json
+          git show b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec:app/src/services/characters/characterCards.ts > app/src/services/characters/characterCards.ts
           python3 app/scripts/test-prepare-reviewed-editions.py
           python3 app/scripts/prepare-reviewed-editions.py --config books/wip/meditations-release-20260924.json
           python3 books/classify-modern-en.py meditations --gate
