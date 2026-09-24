@@ -1,3 +1,6 @@
+import { LabChapterHeading } from './LabChapterHeading'
+import { LabChapterEnd } from './LabChapterEnd'
+import { fitChapterEnd } from './labChapterEndPaging'
 import { labMeasureParagraphInto } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
@@ -259,6 +262,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   paragraphs,
   layoutKey,
   fillPages = false,
+  chapterActions = false,
+  hasNextChapter = false,
   editionKey,
   onPages,
 }: {
@@ -266,6 +271,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   paragraphs: string[]
   layoutKey: string
   fillPages?: boolean
+  chapterActions?: boolean
+  hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
   onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
@@ -326,7 +333,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang,
             )
           : undefined
-        pages = measuredDesktopPages(sourceWords.map(words => words.length), (segments, first) => {
+        const end = surface.querySelector<HTMLElement>('.lab-chapter-end')
+        const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+          if (end) end.hidden = !withEnd
           header.hidden = !first
           stage.replaceChildren()
           for (const segment of segments) {
@@ -341,8 +350,12 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
           const last = painted[painted.length - 1]
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
-          return labPageFitsPaint({ lastBottom, chromeTop: host.getBoundingClientRect().bottom })
-        }, wordBreaks)
+          const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
+          return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
+        }
+        pages = measuredDesktopPages(sourceWords.map(words => words.length), fits, wordBreaks)
+        if (chapterActions) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+        if (end) end.hidden = true
         stage.replaceChildren()
       }
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
@@ -379,15 +392,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       observer?.disconnect()
       document.fonts?.removeEventListener?.('loadingdone', schedule)
     }
-  }, [chapterTitle, paragraphs, layoutKey, fillPages, onPages, hyphenLang, hyphensReady])
+  }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady])
 
   return (
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">
       <article className="lab-passage lab-book is-reading lab-native-page-surface">
         <div className="lab-native-page-flow" data-native-page-flow>
-          <header className="lab-passage-header">
-            <h1 className="lab-passage-headline">{chapterTitle}</h1>
-          </header>
+          <LabChapterHeading title={chapterTitle} preview={chapterActions} />
           <div className="lab-book-columns">
             <div className="lab-book-col">
               <div className="lab-hearing-stage">
@@ -400,8 +411,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         </div>
       </article>
       {fillPages && <article className="lab-passage lab-book is-reading lab-native-fragment-surface" data-native-fragment-surface>
-        <header className="lab-passage-header"><h1 className="lab-passage-headline">{chapterTitle}</h1></header>
-        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" /></div></div>
+        <LabChapterHeading title={chapterTitle} preview={chapterActions} />
+        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd hasNext={hasNextChapter} />}</div></div>
       </article>}
     </div>
   )

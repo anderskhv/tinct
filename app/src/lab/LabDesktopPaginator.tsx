@@ -1,3 +1,6 @@
+import { LabChapterHeading } from './LabChapterHeading'
+import { LabChapterEnd } from './LabChapterEnd'
+import { fitChapterEnd } from './labChapterEndPaging'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import { segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
@@ -106,8 +109,9 @@ export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, word
   return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
 }
 
-export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, onPages }: {
+export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, chapterActions = false, hasNextChapter = false, onPages }: {
   paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
+  chapterActions?: boolean; hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
   onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => void
@@ -171,7 +175,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               { text: texts[segment.paragraphIndex], from: segment.from },
             )
           }
-          const pages = measuredDesktopPages(source.map(words => words.length), (segments, first) => {
+          const end = page.querySelector<HTMLElement>('.lab-chapter-end')
+          const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+            if (end) end.hidden = !withEnd
             header.hidden = !first
             rows.replaceChildren()
             for (const segment of segments) {
@@ -181,11 +187,14 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               if (comparison && target) row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target, comparison))
               rows.append(row)
             }
-            const bottom = rows.getBoundingClientRect().bottom
+            const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
-          }, hyphenLang && hyphensReady
+          }
+          let pages = measuredDesktopPages(source.map(words => words.length), fits, hyphenLang && hyphensReady
             ? (paragraphIndex, wordIndex) => hyphenationBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang)
             : undefined)
+          if (chapterActions) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+          if (end) end.hidden = true
           header.hidden = true
           const capacityProbe = document.createElement('p')
           capacityProbe.className = 'lab-hearing-line'
@@ -207,11 +216,12 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     observer.observe(host)
     document.fonts?.addEventListener('loadingdone', schedule)
     return () => { cancelled = true; cancelAnimationFrame(frame); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }
-  }, [paragraphs, comparison, chapterTitle, layoutKey, hyphenLang, hyphensReady])
+  }, [paragraphs, comparison, chapterTitle, layoutKey, chapterActions, hasNextChapter, hyphenLang, hyphensReady])
   return <div ref={hostRef} className={`lab-desktop-measure lab-page-measure${comparison ? ' is-paired' : ''}`} aria-hidden="true">
     <div className="lab-desktop-measure-page">
-      <header className="lab-passage-header"><h1 className="lab-passage-headline">{chapterTitle}</h1></header>
+      <LabChapterHeading title={chapterTitle} preview={chapterActions} />
       <div className="lab-desktop-measure-rows" />
+      {chapterActions && <LabChapterEnd hasNext={hasNextChapter} />}
     </div>
   </div>
 }

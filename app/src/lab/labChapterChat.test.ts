@@ -50,3 +50,26 @@ describe('chapter-end request identity and instructions', () => {
     expect(buildChapterChatInstructions(request, ['long next '.repeat(10000)]).length).toBeLessThanOrEqual(32000)
   })
 })
+
+describe('current-chapter Preview', () => {
+  it('uses chapter one and the selected edition, never its successor or a reader profile', () => {
+    const source = { ...context, bookId:'symposium', editionKey:'modern-en', chapterNumber:1, paragraphs:['Apollodorus reports an earlier conversation.'] }
+    const request = createChapterChatRequest('preview', source, [{number:1,title:'Opening'},{number:2,title:'Later'}])!
+    request.activity={questions:['An unrelated earlier question'],highlights:[]}
+    expect(request.action.targetChapterNumber).toBe(1)
+    expect(request.action.editionKey).toBe('modern-en')
+    const instructions = buildChapterChatInstructions(request, request.context.paragraphs)
+    expect(instructions).toContain('Apollodorus reports')
+    expect(instructions).not.toContain('An unrelated earlier question')
+    expect(instructions).not.toContain('<next_chapter_source_data>')
+    expect(parseChapterChatAction(request.action,'symposium')).toEqual(request.action)
+    expect(parseChapterChatAction({...request.action,targetChapterNumber:2},'symposium')).toBeUndefined()
+    expect(chapterChatHistoryContent({content:CHAPTER_CHAT_MESSAGES.preview,chapterAction:request.action})).toContain('Opening')
+  })
+  it('supports the final chapter and caps even a very large source', () => {
+    const last={...context,chapterNumber:780,paragraphs:['Long source '.repeat(10000)]}
+    const request=createChapterChatRequest('preview',last,chapters)!
+    expect(request.action.targetChapterNumber).toBe(780)
+    expect(buildChapterChatInstructions(request,last.paragraphs).length).toBeLessThanOrEqual(32000)
+  })
+})

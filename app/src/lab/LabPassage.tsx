@@ -1,3 +1,4 @@
+import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
@@ -30,8 +31,8 @@ export type LabPassageMode = 'reading' | 'hearing'
 interface LabPassageProps {
   pendingLayout?: boolean
   chapterEnd?: ReactNode
-  chapterEndPage?: boolean
-  onChapterEndFit?: (fits: boolean) => void
+  onPreviewChapter?: () => void
+  chapterActionsBusy?: boolean
   desktopSpread?: boolean
   nextReadingPage?: ChapterHearingPage
   alignCompare?: boolean
@@ -378,8 +379,8 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
 export function LabPassage({
   pendingLayout = false,
   chapterEnd,
-  chapterEndPage = false,
-  onChapterEndFit,
+  onPreviewChapter,
+  chapterActionsBusy = false,
   desktopSpread = false,
   nextReadingPage,
   alignCompare = false,
@@ -535,18 +536,16 @@ export function LabPassage({
     if (!article) return
     article.scrollTop = 0
     const check = () => {
-      if (chapterEndPage) return
       const card = article.querySelector<HTMLElement>('.lab-chapter-end')
       const overflow = Boolean(card && card.getBoundingClientRect().bottom > article.getBoundingClientRect().bottom - 8)
       setEndOverflow(overflow)
-      onChapterEndFit?.(!overflow)
     }
     check()
     if (typeof ResizeObserver !== 'function') return
     const observer = new ResizeObserver(check)
     observer.observe(article)
     return () => observer.disconnect()
-  }, [paintedLinesKey, nextReadingPage, compare, Boolean(chapterEnd), chapterEndPage, onChapterEndFit, layoutKey])
+  }, [paintedLinesKey, nextReadingPage, compare, Boolean(chapterEnd), layoutKey])
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
   }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
@@ -921,7 +920,7 @@ export function LabPassage({
         compare ? 'is-compare' : '',
         desktopSpread ? 'is-spread' : '',
         chapterEnd ? 'has-chapter-end' : '',
-        chapterEndPage ? 'is-chapter-end-page' : endOverflow ? 'has-overflowing-end' : '',
+        endOverflow ? 'has-overflowing-end' : '',
         alignCompare && compare ? 'is-aligned-compare' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
@@ -953,15 +952,11 @@ export function LabPassage({
       }}
     >
             {showHeadline && !desktopSpread && (
-        <header className="lab-passage-header">
-          <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
-            {chapterTitle}
-          </h1>
-        </header>
+        <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
-          {desktopSpread && showHeadline && <header className="lab-passage-header"><h1 className="lab-passage-headline" data-testid="lab-passage-headline">{chapterTitle}</h1></header>}
+          {desktopSpread && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
@@ -985,18 +980,13 @@ export function LabPassage({
               {renderReadingLines(readingLines)}
             </div>
           )}
-          {!compare && !desktopSpread && !chapterEndPage && chapterEnd}
+          {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
           </div>
-          {/* On the spread the end-of-chapter card always belongs to the
-              second leaf. When the chapter's last text ends on the first leaf
-              the second is empty, and the card fills it — the reader sees the
-              text end and the card in one spread instead of turning a page to
-              a card floating beside a blank leaf. */}
-          {!chapterEndPage && chapterEnd}
+          {nextReadingPage && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
@@ -1023,8 +1013,7 @@ export function LabPassage({
           </div>
         )}
       </div>
-      {compare && !chapterEndPage && chapterEnd}
-      {chapterEndPage && <div className="lab-chapter-end-page" data-testid="lab-chapter-end-page">{chapterEnd}</div>}
+      {compare && chapterEnd}
       {hearing && !hideTransport && onTogglePlay && onSeek && onCycleSpeed && (
         <div className="lab-hearing-transport" data-testid="lab-hearing-transport">
           <button type="button" className="lab-text-btn" onClick={onTogglePlay} data-testid="lab-hearing-pause">
@@ -1048,6 +1037,7 @@ export function LabPassage({
 /** Offscreen paint of one page so settle can measure every page without flipping. */
 export function LabPageMeasurePaint(input: {
   chapterTitle: string
+  chapterActions?: boolean
   paragraphs: string[]
   page: ChapterHearingPage
   hearingPaint?: boolean
@@ -1056,9 +1046,7 @@ export function LabPageMeasurePaint(input: {
   return (
     <article className={`lab-passage lab-book is-reading${input.hearingPaint ? ' is-hearing' : ''}`}>
       {isChapterFirstReadingPage(input.page) && (
-        <header className="lab-passage-header">
-          <h1 className="lab-passage-headline">{input.chapterTitle}</h1>
-        </header>
+        <LabChapterHeading title={input.chapterTitle} preview={input.chapterActions} />
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">

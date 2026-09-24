@@ -605,7 +605,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       // move or resume marker it might still emit for that turn.
       const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
       // The companion's window stays the last 20 turns; only the displayed history grew.
-      const history = [...(chapterRequest?.action.kind === 'prepare' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
+      const history = [...(chapterRequest && chapterRequest.action.kind !== 'discuss' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
         .slice(-20)
         .map(turn => {
           const content = turn.id === userTurn.id && chapterRequest ? turn.content : chapterChatHistoryContent(turn)
