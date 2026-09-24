@@ -23,3 +23,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b16 | 8 of 9 | 16.24 rejected | fidelity fix already restored the source echo ("lost by a whale" / "Lost by a whale!"); fid and acc ran concurrently, no other overlap |
 | b94 | all 17 (100.9 Line gloss, 101.4 anti-scorbutic gloss accurate) | — | 101.1 restructure moves "only" — flagged for re-verification; 101.0 date arithmetic is Melville's own |
 | b102 | all 23 (103.9 Pompey's Pillar gloss accurate) | — | restructures 104.6, 105.5, 105.12 flagged for clause-level re-verification |
+| b23 | 8 of 9 | 23.3 rejected | Lee Shore climax "worm-like ... like a coward" is Melville's deliberate doubled figure; 29.2 "old second mate" is source wording; 24.21 "No more!" = "enough said" confirmed |
