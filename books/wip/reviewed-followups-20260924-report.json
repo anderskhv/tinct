@@ -1,0 +1,349 @@
+{
+  "sourceRef": "c6f3f0ed5f508de9946cd65146754ea909c6b9d0",
+  "scope": "Independently accepted narrow Prince/Caesar/Jekyll corrections. Exact reviewed candidates; no new identity mappings, editions, source changes or audio generation.",
+  "books": [
+    {
+      "book": "the-prince",
+      "acceptedSha256": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "changedParagraphs": [
+        {
+          "chapter": 16,
+          "paragraph": 0
+        },
+        {
+          "chapter": 16,
+          "paragraph": 1
+        },
+        {
+          "chapter": 17,
+          "paragraph": 0
+        },
+        {
+          "chapter": 17,
+          "paragraph": 1
+        },
+        {
+          "chapter": 17,
+          "paragraph": 2
+        },
+        {
+          "chapter": 17,
+          "paragraph": 3
+        },
+        {
+          "chapter": 17,
+          "paragraph": 4
+        },
+        {
+          "chapter": 18,
+          "paragraph": 0
+        },
+        {
+          "chapter": 18,
+          "paragraph": 2
+        },
+        {
+          "chapter": 18,
+          "paragraph": 3
+        },
+        {
+          "chapter": 18,
+          "paragraph": 4
+        },
+        {
+          "chapter": 18,
+          "paragraph": 5
+        },
+        {
+          "chapter": 18,
+          "paragraph": 7
+        },
+        {
+          "chapter": 18,
+          "paragraph": 8
+        },
+        {
+          "chapter": 18,
+          "paragraph": 9
+        },
+        {
+          "chapter": 18,
+          "paragraph": 10
+        },
+        {
+          "chapter": 19,
+          "paragraph": 1
+        },
+        {
+          "chapter": 19,
+          "paragraph": 2
+        },
+        {
+          "chapter": 19,
+          "paragraph": 3
+        },
+        {
+          "chapter": 19,
+          "paragraph": 4
+        },
+        {
+          "chapter": 19,
+          "paragraph": 7
+        },
+        {
+          "chapter": 19,
+          "paragraph": 8
+        },
+        {
+          "chapter": 19,
+          "paragraph": 9
+        },
+        {
+          "chapter": 19,
+          "paragraph": 10
+        },
+        {
+          "chapter": 19,
+          "paragraph": 11
+        },
+        {
+          "chapter": 19,
+          "paragraph": 12
+        },
+        {
+          "chapter": 26,
+          "paragraph": 6
+        },
+        {
+          "chapter": 27,
+          "paragraph": 12
+        },
+        {
+          "chapter": 27,
+          "paragraph": 13
+        }
+      ],
+      "retainedMentions": 501,
+      "droppedMentions": [
+        {
+          "characterId": "scipio",
+          "chapterNumber": 18,
+          "paragraphIndex": 9,
+          "startOffset": 1431,
+          "endOffset": 1437,
+          "text": "Scipio",
+          "resolution": "reviewed-name",
+          "projectedText": "hi",
+          "reason": "changed mention text lacks explicit mapping approval"
+        }
+      ],
+      "relocatedExactNames": [
+        {
+          "characterId": "fabius",
+          "chapterNumber": 18,
+          "paragraphIndex": 9,
+          "startOffset": 949,
+          "endOffset": 963,
+          "text": "Fabius Maximus",
+          "resolution": "reviewed-name",
+          "newStartOffset": 824,
+          "newEndOffset": 838,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
+        },
+        {
+          "characterId": "julius",
+          "chapterNumber": 26,
+          "paragraphIndex": 6,
+          "startOffset": 852,
+          "endOffset": 858,
+          "text": "Julius",
+          "resolution": "reviewed-name",
+          "newStartOffset": 780,
+          "newEndOffset": 786,
+          "method": "unchanged reviewed proper name; same occurrence count and unique character identity"
+        }
+      ],
+      "historicalEvidenceRepairs": []
+    },
+    {
+      "book": "julius-caesar",
+      "acceptedSha256": "95a3e5b7516276f703bd77fb42992c6d76f27894619e1d7f147c290170baa952",
+      "changedParagraphs": [
+        {
+          "chapter": 4,
+          "paragraph": 7
+        },
+        {
+          "chapter": 9,
+          "paragraph": 35
+        }
+      ],
+      "retainedMentions": 1790,
+      "droppedMentions": [],
+      "relocatedExactNames": [],
+      "historicalEvidenceRepairs": []
+    },
+    {
+      "book": "jekyll-and-hyde",
+      "acceptedSha256": "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b",
+      "changedParagraphs": [
+        {
+          "chapter": 10,
+          "paragraph": 23
+        }
+      ],
+      "retainedMentions": 504,
+      "droppedMentions": [],
+      "relocatedExactNames": [],
+      "historicalEvidenceRepairs": [
+        {
+          "characterId": "jekyll",
+          "chapterNumber": 9,
+          "paragraphIndex": 32,
+          "throughOffset": 898,
+          "newThroughOffset": 911
+        },
+        {
+          "characterId": "hyde",
+          "chapterNumber": 2,
+          "paragraphIndex": 0,
+          "throughOffset": 1876,
+          "newThroughOffset": 1869
+        },
+        {
+          "characterId": "hyde",
+          "chapterNumber": 9,
+          "paragraphIndex": 32,
+          "throughOffset": 898,
+          "newThroughOffset": 911
+        },
+        {
+          "characterId": "lanyon",
+          "chapterNumber": 2,
+          "paragraphIndex": 2,
+          "throughOffset": 159,
+          "newThroughOffset": 160
+        },
+        {
+          "characterId": "carew",
+          "chapterNumber": 4,
+          "paragraphIndex": 3,
+          "throughOffset": 77,
+          "newThroughOffset": 76
+        },
+        {
+          "characterId": "guest",
+          "chapterNumber": 5,
+          "paragraphIndex": 21,
+          "throughOffset": 74,
+          "newThroughOffset": 62
+        },
+        {
+          "characterId": "bradshaw",
+          "chapterNumber": 8,
+          "paragraphIndex": 57,
+          "throughOffset": 349,
+          "newThroughOffset": 370
+        },
+        {
+          "characterId": "denman",
+          "chapterNumber": 9,
+          "paragraphIndex": 9,
+          "throughOffset": 679,
+          "newThroughOffset": 695
+        },
+        {
+          "characterId": "girl-doctor",
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "throughOffset": 1328,
+          "newThroughOffset": 1354
+        },
+        {
+          "characterId": "girl-father",
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "throughOffset": 3903,
+          "newThroughOffset": 3970
+        },
+        {
+          "characterId": "witness-maid",
+          "chapterNumber": 4,
+          "paragraphIndex": 0,
+          "throughOffset": 1062,
+          "newThroughOffset": 1052
+        },
+        {
+          "characterId": "hyde-housekeeper",
+          "chapterNumber": 4,
+          "paragraphIndex": 11,
+          "throughOffset": 40,
+          "newThroughOffset": 39
+        },
+        {
+          "characterId": "jekyll-housemaid",
+          "chapterNumber": 8,
+          "paragraphIndex": 18,
+          "throughOffset": 219,
+          "newThroughOffset": 222
+        },
+        {
+          "characterId": "jekyll-cook",
+          "chapterNumber": 8,
+          "paragraphIndex": 18,
+          "throughOffset": 266,
+          "newThroughOffset": 269
+        },
+        {
+          "characterId": "knife-boy",
+          "chapterNumber": 8,
+          "paragraphIndex": 22,
+          "throughOffset": 332,
+          "newThroughOffset": 302
+        },
+        {
+          "characterId": "locksmith",
+          "chapterNumber": 9,
+          "paragraphIndex": 3,
+          "throughOffset": 356,
+          "newThroughOffset": 342
+        },
+        {
+          "characterId": "carpenter",
+          "chapterNumber": 9,
+          "paragraphIndex": 9,
+          "throughOffset": 588,
+          "newThroughOffset": 599
+        },
+        {
+          "characterId": "cain",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 853,
+          "newThroughOffset": 854
+        },
+        {
+          "characterId": "satan",
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "throughOffset": 2633,
+          "newThroughOffset": 2700
+        },
+        {
+          "characterId": "pythias",
+          "chapterNumber": 2,
+          "paragraphIndex": 8,
+          "throughOffset": 390,
+          "newThroughOffset": 425
+        },
+        {
+          "characterId": "fell",
+          "chapterNumber": 2,
+          "paragraphIndex": 36,
+          "throughOffset": 987,
+          "newThroughOffset": 1053
+        }
+      ]
+    }
+  ]
+}
