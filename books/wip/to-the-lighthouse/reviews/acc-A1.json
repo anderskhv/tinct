@@ -1,0 +1,527 @@
+[
+ {
+  "loc": "1.9",
+  "severity": "recommended",
+  "issue": "'Prolegomena' is an obscure scholarly term with no help; a listener will not know it is a book title/genre.",
+  "find": "once his Prolegomena to some branch",
+  "replace": "once his Prolegomena, his scholarly introduction, to some branch"
+ },
+ {
+  "loc": "1.18",
+  "severity": "recommended",
+  "issue": "Paragraph opens 'It flattered him' straight after a paragraph about Mr. Carmichael's marriage; the 'him' (Tansley) is not clear until three sentences later.",
+  "find": "It flattered him. After being snubbed",
+  "replace": "It flattered Tansley. After being snubbed"
+ },
+ {
+  "loc": "1.25",
+  "severity": "recommended",
+  "issue": "Archaic colon-plus-dash punctuation ':—' is distracting on the page and meaningless aloud.",
+  "find": "it was this: it was this:—she was",
+  "replace": "it was this: it was this—she was"
+ },
+ {
+  "loc": "2.0",
+  "severity": "recommended",
+  "issue": "Chapter 1 ended in the town with Tansley carrying her bag; chapter 2 cuts back to the window with a bare 'he said'. First-time readers may assume Mr. Ramsay (who said the same thing in 1.2). Naming the speaker costs nothing; 2.1 keeps the 'hateful little man' judgement.",
+  "find": "“No going to the Lighthouse, James,” he said, as he stood",
+  "replace": "“No going to the Lighthouse, James,” Charles Tansley said, as he stood"
+ },
+ {
+  "loc": "4.0",
+  "severity": "recommended",
+  "issue": "New chapter switches to Lily's viewpoint but opens with 'he nearly knocked her easel over'; after chapter 3 ended on Mrs. Ramsay bowing her head, 'her' reads as Mrs. Ramsay and 'he' is unanchored until mid-paragraph.",
+  "find": "Indeed, he nearly knocked her easel over",
+  "replace": "Indeed, Mr. Ramsay nearly knocked Lily’s easel over"
+ },
+ {
+  "loc": "4.10",
+  "severity": "recommended",
+  "issue": "'He was done' reads in modern idiom as 'he was finished/defeated', not 'he had finished thinking'.",
+  "find": "That was it. He was done.",
+  "replace": "That was it. He had finished."
+ },
+ {
+  "loc": "5.5",
+  "severity": "recommended",
+  "issue": "First mention of 'Sorley' with no link; so far the child has only been 'the Lighthouse keeper’s little boy'. A listener meets an unknown name.",
+  "find": "even allowing for the fact that Sorley’s little boy would be",
+  "replace": "even allowing for the fact that Sorley’s little boy, the Lighthouse keeper’s son, would be"
+ },
+ {
+  "loc": "5.9",
+  "severity": "recommended",
+  "issue": "British spelling 'moulded' breaks the edition's American spelling (the quotation is Bankes's own speech, not verse).",
+  "find": "she moulded you",
+  "replace": "she molded you"
+ },
+ {
+  "loc": "6.3",
+  "severity": "blocking",
+  "issue": "'fell as a thunderbolt' uses archaic 'fell' (= fierce/deadly); every modern reader and listener hears the verb 'fell', which contradicts the charge image and garbles the sentence.",
+  "find": "as he rode, fell as a thunderbolt, fierce as a hawk",
+  "replace": "as he rode, deadly as a thunderbolt, fierce as a hawk"
+ },
+ {
+  "loc": "6.3",
+  "severity": "recommended",
+  "issue": "Tennyson refrain inconsistent: 3.7 (and Tennyson) have 'Stormed at with shot and shell'; here 'by'.",
+  "find": "Stormed at by shot and shell",
+  "replace": "Stormed at with shot and shell"
+ },
+ {
+  "loc": "6.6",
+  "severity": "recommended",
+  "issue": "'his father ... his youngest son' in one clause is hard to parse aloud (whose father/son?), and 'spray' contradicts 'sprig' in 6.4/6.5.",
+  "find": "the tickling spray with which his father was teasing his youngest son’s bare leg",
+  "replace": "the tickling sprig with which Mr. Ramsay was teasing his youngest son’s bare leg"
+ },
+ {
+  "loc": "6.26",
+  "severity": "recommended",
+  "issue": "'forlorn hope' is an obsolete military term (a storming party sent ahead to near-certain death); modern readers take it as 'a hopeless wish', which makes 'the leader of a forlorn hope' nonsense.",
+  "find": "Surely the leader of a forlorn hope has the right",
+  "replace": "Surely the leader of a forlorn hope, a doomed advance party, has the right"
+ },
+ {
+  "loc": "7.4",
+  "severity": "recommended",
+  "issue": "'he' follows a paragraph ending on James and the 'like a child' simile points to James too; the referent is Mr. Ramsay.",
+  "find": "like a child who falls asleep contented, he looked at her",
+  "replace": "like a child who falls asleep contented, Mr. Ramsay looked at her"
+ },
+ {
+  "loc": "7.6",
+  "severity": "recommended",
+  "issue": "Inconsistent term: 'Grimm’s fairy tale' in 7.5, then capitalized 'the Fairy Tale' here as if it were a title.",
+  "find": "she went back to the Fairy Tale",
+  "replace": "she went back to the fairy tale"
+ },
+ {
+  "loc": "8.0",
+  "severity": "recommended",
+  "issue": "'she turned him out of the room': in a paragraph told from Mrs. Ramsay's view, 'she' reads as Mrs. Ramsay; it is Carmichael's wife.",
+  "find": "and she turned him out of the room",
+  "replace": "and his wife turned him out of the room"
+ },
+ {
+  "loc": "9.3",
+  "severity": "recommended",
+  "issue": "Sentence does not parse ('The way Lily saw him gazing ... was a rapture').",
+  "find": "The way Lily saw him gazing at Mrs. Ramsay was a rapture that matched",
+  "replace": "Watching him gaze at Mrs. Ramsay, Lily saw a rapture that matched"
+ },
+ {
+  "loc": "9.7",
+  "severity": "recommended",
+  "issue": "'her painting' comes in a run where 'she/her' switches between Lily and Mrs. Ramsay several times; here it means Lily's.",
+  "find": "didn’t care a fig about her painting",
+  "replace": "didn’t care a fig about Lily’s painting"
+ },
+ {
+  "loc": "9.8",
+  "severity": "blocking",
+  "issue": "'Lily had her sense of her back now' reads aloud as Lily sensing Mrs. Ramsay's (or her own) physical back; meaning is 'Lily had recovered her sense of Mrs. Ramsay'.",
+  "find": "Lily had her sense of her back now",
+  "replace": "Lily had got back her sense of Mrs. Ramsay now"
+ },
+ {
+  "loc": "10.14",
+  "severity": "recommended",
+  "issue": "'That meant he meant' is a clumsy echo that trips a narrator.",
+  "find": "That meant he meant to catch crabs",
+  "replace": "That meant he intended to catch crabs"
+ },
+ {
+  "loc": "11.4",
+  "severity": "recommended",
+  "issue": "After two paragraphs deep in Mrs. Ramsay's solitude, 'He turned' needs an anchor; the last 'he' was two paragraphs back.",
+  "find": "He turned and saw her.",
+  "replace": "Mr. Ramsay turned and saw her."
+ },
+ {
+  "loc": "14.9",
+  "severity": "blocking",
+  "issue": "'find it' directly follows 'he had once found a gold watch', so 'it' reads as the watch, not Minta's brooch.",
+  "find": "and he was certain he’d find it.",
+  "replace": "and he was certain he’d find the brooch."
+ },
+ {
+  "loc": "16.9",
+  "severity": "recommended",
+  "issue": "'every feeling felt for yourself' reads as self-pity; the sense is feelings other people have for you (Rose's feeling for her mother).",
+  "find": "Like every feeling felt for yourself, Mrs. Ramsay thought,",
+  "replace": "Like every feeling that someone has for you, Mrs. Ramsay thought,"
+ },
+ {
+  "loc": "17.9",
+  "severity": "recommended",
+  "issue": "'the man in the drainpipe' is a new, odd image; in 1.27 it was a man digging in a drain who looked at her.",
+  "find": "the man in the drainpipe gazing up at her",
+  "replace": "the man digging in the drain gazing up at her"
+ },
+ {
+  "loc": "17.20",
+  "severity": "recommended",
+  "issue": "Grammatical hole: 'making a note that some day he would read aloud' has no object.",
+  "find": "making a note that some day he would read aloud to a friend or two",
+  "replace": "making a note of it to read aloud some day to a friend or two"
+ },
+ {
+  "loc": "17.22",
+  "severity": "recommended",
+  "issue": "'their duty ... to help us' follows a sentence about the woman's duty, so 'their' reads as women; it means men.",
+  "find": "Just as it is their duty, she thought,",
+  "replace": "Just as it is men’s duty, she thought,"
+ },
+ {
+  "loc": "17.24",
+  "severity": "recommended",
+  "issue": "Inconsistent term: Tansley's father is 'a chemist' who 'keeps a shop' in 1.20, a 'pharmacist' here; readers may think two facts are being given.",
+  "find": "his father a pharmacist",
+  "replace": "his father a chemist with a shop"
+ },
+ {
+  "loc": "17.28",
+  "severity": "recommended",
+  "issue": "Generic lighthouse capitalized; 17.26 has 'a lighthouse' lowercase, and the capital L is reserved for the Lighthouse.",
+  "find": "how long do they keep men on a Lighthouse?",
+  "replace": "how long do they keep men on a lighthouse?"
+ },
+ {
+  "loc": "17.29",
+  "severity": "recommended",
+  "issue": "'He remarked' after Mrs. Ramsay speaks: the last 'he' in the scene was Tansley; it is Mr. Bankes.",
+  "find": "He remarked that punctuality",
+  "replace": "Mr. Bankes remarked that punctuality"
+ },
+ {
+  "loc": "17.37",
+  "severity": "recommended",
+  "issue": "'What had she done with it?' — 'she' reads as Mrs. Ramsay herself; it is Rose, named only in the next sentence.",
+  "find": "What had she done with it? Mrs. Ramsay wondered.",
+  "replace": "What had Rose done with it? Mrs. Ramsay wondered."
+ },
+ {
+  "loc": "17.56",
+  "severity": "recommended",
+  "issue": "Refrain drift: the brief's recurring motif is 'the thing is made that endures'; here it becomes 'remains forever after', which will not echo in Part III.",
+  "find": "that the thing is made that remains forever after. This would remain.",
+  "replace": "that the thing is made that endures. This would endure."
+ },
+ {
+  "loc": "18.0",
+  "severity": "recommended",
+  "issue": "Hyphenation inconsistent with chapters 1–17, which write 'drawing room' as a noun.",
+  "find": "the smoking-room, the drawing-room or up",
+  "replace": "the smoking room, the drawing room, or up"
+ },
+ {
+  "loc": "9.14",
+  "severity": "recommended",
+  "issue": "Hyphenated noun 'drawing-room' inconsistent with 'drawing room' elsewhere.",
+  "find": "his drawing-room, which",
+  "replace": "his drawing room, which"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Refrain inconsistency: the Luriana Lurilee line was 'buzzing with the yellow bee' in 17.66; here 'honey bee'. Check the source: if Woolf varies it herself, keep; otherwise align.",
+  "find": "buzzing with the honey bee",
+  "replace": "buzzing with the yellow bee"
+ },
+ {
+  "loc": "19.5",
+  "severity": "recommended",
+  "issue": "Book title not italicized, unlike _Middlemarch_, _Anna Karenina_, _The Times_.",
+  "find": "Scott’s The Antiquary",
+  "replace": "Scott’s _The Antiquary_"
+ },
+ {
+  "loc": "18.0",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "be done — somethi",
+  "replace": "be done—somethi"
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "r thing — the thi",
+  "replace": "r thing—the thi"
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "attered — detachi",
+  "replace": "attered—detachi"
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "s house — and to ",
+  "replace": "s house—and to "
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "aughing — but lov",
+  "replace": "aughing—but lov"
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "ovingly — at the ",
+  "replace": "ovingly—at the "
+ },
+ {
+  "loc": "18.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "ayleys” — she tri",
+  "replace": "ayleys”—she tri"
+ },
+ {
+  "loc": "18.3",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "m said) — must go",
+  "replace": "m said)—must go"
+ },
+ {
+  "loc": "18.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "he said — lifting",
+  "replace": "he said—lifting"
+ },
+ {
+  "loc": "18.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "nically — until s",
+  "replace": "nically—until s"
+ },
+ {
+  "loc": "18.7",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "romised — the nex",
+  "replace": "romised—the nex"
+ },
+ {
+  "loc": "18.8",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "laughed — and as ",
+  "replace": "laughed—and as "
+ },
+ {
+  "loc": "18.9",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "e world — her mot",
+  "replace": "e world—her mot"
+ },
+ {
+  "loc": "18.10",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "ome too — and wou",
+  "replace": "ome too—and wou"
+ },
+ {
+  "loc": "19.0",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": " it out — maybe h",
+  "replace": " it out—maybe h"
+ },
+ {
+  "loc": "19.0",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "erhead) — had bee",
+  "replace": "erhead)—had bee"
+ },
+ {
+  "loc": "19.0",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "n books — will th",
+  "replace": "n books—will th"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "k, fame — who cou",
+  "replace": "k, fame—who cou"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "honesty — at dinn",
+  "replace": "honesty—at dinn"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": " I want — somethi",
+  "replace": " I want—somethi"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "d lamps — a red o",
+  "replace": "d lamps—a red o"
+ },
+ {
+  "loc": "19.1",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "low one — lit up ",
+  "replace": "low one—lit up "
+ },
+ {
+  "loc": "19.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "l sound — her hus",
+  "replace": "l sound—her hus"
+ },
+ {
+  "loc": "19.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "is head — how unb",
+  "replace": "is head—how unb"
+ },
+ {
+  "loc": "19.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "t there — if not ",
+  "replace": "t there—if not "
+ },
+ {
+  "loc": "19.5",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "er one) — lost al",
+  "replace": "er one)—lost al"
+ },
+ {
+  "loc": "19.6",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "thought — if the ",
+  "replace": "thought—if the "
+ },
+ {
+  "loc": "19.7",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "e would — she rea",
+  "replace": "e would—she rea"
+ },
+ {
+  "loc": "19.9",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "omplete — life’s ",
+  "replace": "omplete—life’s "
+ },
+ {
+  "loc": "19.16",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "falling — oh no, ",
+  "replace": "falling—oh no, "
+ },
+ {
+  "loc": "19.22",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "oseness — for the",
+  "replace": "oseness—for the"
+ },
+ {
+  "loc": "19.22",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "ry near — she cou",
+  "replace": "ry near—she cou"
+ },
+ {
+  "loc": "19.22",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "t speak — putting",
+  "replace": "t speak—putting"
+ },
+ {
+  "loc": "19.23",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": " wanted — the edg",
+  "replace": " wanted—the edg"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "mething — the thi",
+  "replace": "mething—the thi"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": " things — she nev",
+  "replace": " things—she nev"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "’t true — it wasn",
+  "replace": "’t true—it wasn"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "stirred — what wi",
+  "replace": "stirred—what wi"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "he knew — of cour",
+  "replace": "he knew—of cour"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "he knew — that sh",
+  "replace": "he knew—that sh"
+ },
+ {
+  "loc": "19.25",
+  "severity": "recommended",
+  "issue": "Spaced em dash ' — ' (chapters 18–19 only); chapters 1–17 and the brief use closed em dashes. Visual inconsistency only.",
+  "find": "piness) —",
+  "replace": "piness)—"
+ }
+]

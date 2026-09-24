@@ -1,0 +1,282 @@
+[
+ {
+  "loc": "22.3",
+  "severity": "blocking",
+  "issue": "The bracketed report doubles the action ('stretched out his arms ... he stretched his arms out'), so aloud it sounds like a copy error and blurs the book's most important plot beat, Mrs. Ramsay's death.",
+  "find": "Mr. Ramsay stretched out his arms; but, Mrs. Ramsay having died rather suddenly the night before, he stretched his arms out. They stayed empty.]",
+  "replace": "Mr. Ramsay stretched out his arms; but Mrs. Ramsay had died rather suddenly the night before, and his arms, though stretched out, stayed empty.]"
+ },
+ {
+  "loc": "25.4",
+  "severity": "recommended",
+  "issue": "The passage is set 'in the summer heat' and describes summer nights, but the Lighthouse beam arrives 'in the softer spring light'. A reader will think the season has slipped. The contrast is between then (dark) and now (soft light), so the season word isn't needed.",
+  "find": "now arrived in the softer spring light, mixed with moonlight",
+  "replace": "now arrived softly, mixed with moonlight"
+ },
+ {
+  "loc": "28.2",
+  "severity": "recommended",
+  "issue": "'Red-hot poker' is a garden flower (Kniphofia), but a listener will picture a fireplace iron glowing in the nettles. Add a short gloss the first time it appears; it comes back in 40.0.",
+  "find": "from a red-hot poker among the nettles",
+  "replace": "from a red-hot poker, a tall garden flower, among the nettles"
+ },
+ {
+  "loc": "28.5",
+  "severity": "recommended",
+  "issue": "'Maggie' shows up with no introduction. Nothing tells the reader that it is Mrs. McNab's first name, so it sounds like a new character.",
+  "find": "a plate of soup for Maggie;",
+  "replace": "a plate of soup for Maggie (that was Mrs. McNab);"
+ },
+ {
+  "loc": "29.0",
+  "severity": "recommended",
+  "issue": "'holily' is awkward to say aloud and sounds like a slip.",
+  "find": "holily and wisely",
+  "replace": "in holiness and wisdom"
+ },
+ {
+  "loc": "30.8",
+  "severity": "recommended",
+  "issue": "Mr. Ramsay's line is quoted two ways in the same paragraph ('You find us much changed' / 'You will find us much changed'). Because it is repeated as a refrain, it should read the same both times.",
+  "find": "“You find us much changed.”",
+  "replace": "“You will find us much changed.”"
+ },
+ {
+  "loc": "31.0",
+  "severity": "recommended",
+  "issue": "The chapter moves into Mr. Ramsay's mind with a bare 'he thought', straight after a paragraph from Lily's point of view about 'him'. A listener can't tell right away whose thoughts these are.",
+  "find": "She seemed to have shriveled a little, he thought.",
+  "replace": "She seemed to have shriveled a little, Mr. Ramsay thought."
+ },
+ {
+  "loc": "32.1",
+  "severity": "recommended",
+  "issue": "'she took her hand and raised her brush' reads like a slip: whose hand, and took it where?",
+  "find": "she took her hand and raised her brush",
+  "replace": "she lifted her hand and raised her brush"
+ },
+ {
+  "loc": "32.6",
+  "severity": "recommended",
+  "issue": "Dangling modifier: as written, 'wrapped in deep silence' describes Lily, not the boat.",
+  "find": "the sails filled, and, wrapped in deep silence, she watched the boat make its way",
+  "replace": "the sails filled, and she watched the boat, wrapped in deep silence, make its way"
+ },
+ {
+  "loc": "33.2",
+  "severity": "recommended",
+  "issue": "Within the same paragraph the storm drives 'eleven ships' into the bay and later 'ten ships'. A listener will take it for an error. (If Woolf's text really has both numbers, keep them and ignore this item.)",
+  "find": "when eleven ships had been driven into the bay",
+  "replace": "when ten ships had been driven into the bay"
+ },
+ {
+  "loc": "33.11",
+  "severity": "recommended",
+  "issue": "Refrain consistency: everywhere else the refrain is 'We perished, each alone' (30.6, 33.4, 33.9, 39.2, 41.19). Here it becomes 'we perish', which weakens the echo. (Keep it if the present tense is deliberate in the source.)",
+  "find": "we perish, each alone",
+  "replace": "we perished, each alone"
+ },
+ {
+  "loc": "34.20",
+  "severity": "recommended",
+  "issue": "'she reached out her hand' means Mrs. Ramsay (the ghost), but in this paragraph 'she' has so far always been Lily. As written it sounds as though Lily wrung her own heart.",
+  "find": "And then suddenly she reached out her hand and wrung the heart like this.",
+  "replace": "And then suddenly Mrs. Ramsay reached out her hand and wrung the heart like this."
+ },
+ {
+  "loc": "36.1",
+  "severity": "recommended",
+  "issue": "'_Standard, News_' gives no help: a modern reader won't know these were London evening papers that newsboys shouted in the street.",
+  "find": "a newsboy calling _Standard, News_",
+  "replace": "a newsboy calling the evening papers, _Standard, News_"
+ },
+ {
+  "loc": "37.2",
+  "severity": "recommended",
+  "issue": "'him' changes referent in the middle of the sentence, from James ('meant for him') to the father ('feel sorry for him').",
+  "find": "sometimes designed to make people feel sorry for him",
+  "replace": "sometimes designed to make people feel sorry for his father"
+ },
+ {
+  "loc": "37.3",
+  "severity": "recommended",
+  "issue": "The sentence is a question but has no question mark. Heard aloud, the commands ('Come to the Lighthouse. Do this. Fetch me that.') sound like narration instead of the father's orders.",
+  "find": "How could any of them say, But I won’t, when he said, Come to the Lighthouse. Do this. Fetch me that.",
+  "replace": "How could any of them say, But I won’t, when he said, Come to the Lighthouse, or Do this, or Fetch me that?"
+ },
+ {
+  "loc": "37.3",
+  "severity": "recommended",
+  "issue": "Broken punctuation: a dash immediately followed by a parenthesis ('—(' and ')—') is clumsy to read and impossible to voice.",
+  "find": "Whatever he did with his life—(and he felt he might do anything, as he looked at the Lighthouse and the distant shore)—whether",
+  "replace": "Whatever he did with his life (and he felt he might do anything, as he looked at the Lighthouse and the distant shore), whether"
+ },
+ {
+  "loc": "37.10",
+  "severity": "recommended",
+  "issue": "'she had gone rigid' comes before the mother has been mentioned. In the boat, the nearest 'she' is Cam. The next sentence then names 'His mother', which is too late.",
+  "find": "among them on the terrace, and she had gone rigid",
+  "replace": "among them on the terrace, and his mother had gone rigid"
+ },
+ {
+  "loc": "39.0",
+  "severity": "recommended",
+  "issue": "The term changes: the children's vow is 'the compact' everywhere in 33 and later ('keep the great compact'), but here it becomes 'their pact'.",
+  "find": "James’s obstinacy about their pact",
+  "replace": "James’s obstinacy about their compact"
+ },
+ {
+  "loc": "40.7",
+  "severity": "recommended",
+  "issue": "A long parenthetical cuts the sentence apart between 'Lily thought' and '—people who found her too sure'. Aloud, the listener loses the thread.",
+  "find": "Some people must have disliked her intensely, Lily thought (Yes; she noticed the drawing-room step was empty, but it made no difference to her at all. She did not want Mrs. Ramsay now.)—people who found her too sure, too sweeping.",
+  "replace": "Some people must have disliked her intensely, Lily thought—people who found her too sure, too sweeping. (Yes; she noticed the drawing-room step was empty, but it made no difference to her at all. She did not want Mrs. Ramsay now.)"
+ },
+ {
+  "loc": "40.7",
+  "severity": "recommended",
+  "issue": "'She had noticed when she came back' could mean either woman. Name Lily and make it clear it is Mrs. Ramsay coming back.",
+  "find": "She had noticed when she came back.",
+  "replace": "Lily had noticed her when she came back."
+ },
+ {
+  "loc": "40.9",
+  "severity": "recommended",
+  "issue": "'the War' is capitalized here, but everywhere else in the edition it is 'the war' (25.9, 27.0, 32.4).",
+  "find": "During the War she had gone",
+  "replace": "During the war she had gone"
+ },
+ {
+  "loc": "40.15",
+  "severity": "recommended",
+  "issue": "Broken punctuation: the spaces around the ellipses ('… ?') look like a typo. The line is also unattributed and appears from nowhere at the start of the paragraph.",
+  "find": "why doesn’t one of you … ?”",
+  "replace": "why doesn’t one of you…?”"
+ },
+ {
+  "loc": "40.16",
+  "severity": "recommended",
+  "issue": "'She' refers to Prue in the first sentence and to Lily in the second, with nothing marking the change.",
+  "find": "Lily thought. She narrowed her eyes and stepped back",
+  "replace": "Lily thought, narrowing her eyes and stepping back"
+ },
+ {
+  "loc": "41.1",
+  "severity": "recommended",
+  "issue": "'he began murmuring' comes straight after a sentence about his father, so a listener assumes Mr. Ramsay is speaking. It is James, imitating him.",
+  "find": "he began murmuring to himself, half aloud, exactly the way his father said it",
+  "replace": "James began murmuring to himself, half aloud, exactly the way his father said it"
+ },
+ {
+  "loc": "20.6",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "out — except",
+  "replace": "out—except"
+ },
+ {
+  "loc": "21.1",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "them — asking,",
+  "replace": "them—asking,"
+ },
+ {
+  "loc": "22.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "moons — the",
+  "replace": "moons—the"
+ },
+ {
+  "loc": "22.1",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "rocking — things",
+  "replace": "rocking—things"
+ },
+ {
+  "loc": "22.2",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "questions — what,",
+  "replace": "questions—what,"
+ },
+ {
+  "loc": "22.2",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "purpose — that",
+  "replace": "purpose—that"
+ },
+ {
+  "loc": "23.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "them — only",
+  "replace": "them—only"
+ },
+ {
+  "loc": "23.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "behind — a",
+  "replace": "behind—a"
+ },
+ {
+  "loc": "23.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "wardrobes — these",
+  "replace": "wardrobes—these"
+ },
+ {
+  "loc": "23.1",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "questions — “Will",
+  "replace": "questions—“Will"
+ },
+ {
+  "loc": "23.1",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "perish?” — hardly",
+  "replace": "perish?”—hardly"
+ },
+ {
+  "loc": "23.2",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "wall — when",
+  "replace": "wall—when"
+ },
+ {
+  "loc": "24.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "world — she",
+  "replace": "world—she"
+ },
+ {
+  "loc": "24.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "lips — something",
+  "replace": "lips—something"
+ },
+ {
+  "loc": "24.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "glass — as",
+  "replace": "glass—as"
+ },
+ {
+  "loc": "24.0",
+  "severity": "recommended",
+  "issue": "Dash style: ch. 18–24 use spaced em dashes (' — '), but the rest of the edition (and the brief) uses closed-up em dashes ('—'). Recommend one mechanical normalization pass across ch. 18–24.",
+  "find": "this?” — and",
+  "replace": "this?”—and"
+ }
+]
