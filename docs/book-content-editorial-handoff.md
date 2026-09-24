@@ -91,3 +91,13 @@ Stick to the handoff's own sections: short blurb, About the author, preface, cha
 Status: first drafts of the blurb and preface. Nothing approved yet. The existing repo copy (`bookRegistry.ts` description, onboarding `about`/`whyItMatters`) is not the approved editorial introduction.
 
 Inspiration requested for the preface: Michael Sugrue's lecture "Machiavelli" (https://www.youtube.com/watch?v=mU7hdGKOGyk). Anders supplied a transcript in chat (not stored here). Use its tensions, not its verdict: the lecture deliberately paints Machiavelli as a teacher of evil, and several of its factual claims are wrong. It says the book was written in 1532 (written 1513, printed 1532), that Machiavelli served the Medici and fell with them (he served the republic and lost his post when the Medici returned), and that Cesare Borgia killed his brother (a suspicion, never proven). The Lucrezia Borgia poisoning story is legend, and the claim about Stalin's bedside copy is unverified. Ideas worth keeping: the Ramiro d'Orco episode (Prince ch. VII), the question of whether you would hire the author, the fact that we don't want a leader who is either too gentle or a Borgia, and how we waver in private.
+
+### Working drafts (not approved)
+
+**Blurb, draft 1:** How good can you afford to be?
+
+**About, draft 1:**
+
+Niccolò Machiavelli was born in Florence in 1469. His father, a lawyer of modest means, once earned a copy of Livy's history of Rome by compiling its index. At twenty-nine, Niccolò entered the service of the Florentine republic, spending fourteen years as an official and as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Early the next year he was imprisoned and tortured, then withdrew to his farm, where he wrote The Prince. He died in 1527, at fifty-eight.
+
+**Preface:** draft 2 is in the chat of 2026-09-24 (opens with Ramiro d'Orco in Cesena). Copy it here once approved.
