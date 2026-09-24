@@ -172,3 +172,38 @@ Source: `reviews/R1-fidelity-A.md`, with 1 MAJOR and 43 MINOR findings. Pre-edit
 - A-ch8: TOTAL words 1048; in shared 8-word runs 17.5%; in runs>=12 1.1%; in runs>=16 0.0%.
 
 I re-rendered the new runs in ch2 ¶0 and ch8 ¶1 from the Danish.
+
+## Revision R2 (readability review applied, 2026-09-24)
+
+The review is `reviews/R1-readability-ch01-02-08.md`, and the full log is `reviews/R2-applied-A.md`. The pre-edit copies are `drafts/history/A-ch{1,2,8}.r2.json`. These are wording-only changes, and each was checked against the Danish.
+
+**ch1**
+- ¶0: "The old veteran among them, who had served his full time", and "their veteran". The veteran is now tied to the Greeks.
+- ¶2: "who neither writes amiss about the System nor signs himself over to the System". This supersedes the earlier "slip of the pen" wording.
+- ¶2: "in the advertiser, the Adresseavis,".
+- ¶2: "the Danish partners in this omnibus venture — for it is hardly likely to turn into a tower".
+- ¶0: "bid" is kept, because it renders *byde*.
+
+**ch2**
+- ¶0: "blooming youth".
+- ¶4: "At any rate I will not hide…".
+- ¶4: "Then for a moment Abraham turned away from him".
+- ¶9: "And if it was a sin — if, that is, he had not loved Isaac in that way — then…". This supersedes the earlier "supposing" note. *saaledes* now points back to the love just described.
+- ¶11: "calm and gentle; yet as he turned away". The first "But" (*Men*) is kept.
+
+**ch8**
+- ¶0: "Is it a self-deception of this sort that the present generation needs — is it to virtuosity in such self-deception that it ought to be trained?"
+- ¶2: "deceive himself, or to cheat what is great".
+- ¶2: "for if he discovers that he has, then he has another explanation for it." The referent of *dette* is now resolved. Earlier NOTES described this sentence as kept ambiguous; that is superseded. The content of "another explanation" is still left open, as in the Danish.
+
+**Kept, per the coordinator:** the Latin as printed, the river "go through", and the unglossed allusions.
+
+**Screen (minrun 14)**
+
+| Part | Words | 8-word runs | Runs of 12+ | Runs of 16+ |
+|---|---|---|---|---|
+| A-ch1 | 1393 | 20.7% | 9.7% | 8.8% (Latin only) |
+| A-ch2 | 1498 | 29.0% | 4.5% | 2.8% |
+| A-ch8 | 1056 | 16.6% | 1.1% | 0.0% |
+
+The only runs of 14 or more words are the forced ones already recorded: the Latin, the "Isaac could not understand him" repetition and the Kyrie.

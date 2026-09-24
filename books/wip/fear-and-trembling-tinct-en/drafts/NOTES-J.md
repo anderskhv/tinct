@@ -17,8 +17,9 @@ None. Every term in this range was defined earlier, so each appears here bare, a
 ## Verse (¶46)
 - The three German lines are kept exactly, with their two `\n`. The final period of "Wer sprach von Liebe." is kept as printed (correction F3).
 - The English rendering follows on the **same line**, after a space, in square brackets with ` / ` between lines. That way the paragraph keeps exactly the same number of `\n` as the source.
-- The rendering: [Who pleaded for him? Who, in my wrath, knelt / at my feet and begged me to think again? / Who spoke of a brother's duty? Who spoke of love.] "überlegen" is rendered "think again".
-- The text attributes the lines only to "King Edward IV … Clarence's murder". They are a German rendering of Shakespeare's *Richard III*, 2.1. I added no attribution.
+- R2: the crib is now **Shakespeare's own lines** (*Richard III*, 2.1, public domain), treated as a quotation: [Who sued to me for him? who, in my rage, / Kneel’d at my feet, and bade me be advis’d? / Who spake of brotherhood? who spake of love?]
+  - It differs from the German at two points: *Bruderpflicht* is Shakespeare's "brotherhood", and Shakespeare ends with "?" where the German has ".". Both are accepted as part of the quotation.
+- The n7.67a anchor stays at "Wer sprach von Liebe."
 
 ## Foreign / quoted material
 - **ɔ:** is rendered "that is" (¶45, ¶49, ¶53).
@@ -46,7 +47,8 @@ None. Every term in this range was defined earlier, so each appears here bare, a
 - **forklarede Holdning** is rendered "transfigured bearing" (¶53).
 - **Emigrant** is rendered "emigrant" (¶49, R1 M10).
 - **Skipperefterretning** is rendered "a sailor's yarn" (¶49).
-- **efter omvendt Maalestok** is rendered "by the reverse measure" (¶54). I kept it close to the Danish because the image is Johannes's own.
+- **efter omvendt Maalestok** (¶54). R2 restructured it for clarity: "…not a world-force but a game — a game whose springiness, at the decisive moment, had to be turned round and used the opposite way, to hold him up with pathos."
+- **intellectuel** is rendered "intellectual" (¶52–54). This is kept deliberately. Kierkegaard pairs it with *Aand* ("spirit") as a distinct word, and the pilot (Problema II ¶3) uses "Intellectually" for Socrates. See R2-applied-J.md.
 - **poetisk forflygtiget** is rendered "made Socrates evaporate into poetry" (n7.77a, R1 M14).
 - **en Idiot** is rendered "an idiot" (n7.77a). The Greek sense (a layman) may be intended; I kept the ambiguity.
 - **resigneret paa Isaak** is rendered "given Isaac up in resignation" (¶57).
@@ -58,7 +60,7 @@ None. Every term in this range was defined earlier, so each appears here bare, a
 
 ## Ambiguities kept
 - ¶44: "the only justification that can be thought of — even though it cannot be thought of in general terms, since then the paradox is cancelled". I kept the play on thinkable versus not thinkable in general.
-- ¶45: the paired dashes "— … —;" are kept as printed.
+- ¶45: the source's paired dashes "— … —;" are rendered as parentheses (R2), with the content unchanged.
 - ¶55: "I can indeed understand — can indeed, in a certain sense, understand — Abraham in what he said". The hedge is kept (R1 M17).
 - ¶57: "for it is always irony when I say something and yet do not say anything". The first person is kept (R1 M18).
 
@@ -97,9 +99,17 @@ Calibration (Problema I-II): Lowrie vs Hong single-reference 12-word 3.8%, 16-wo
 ```
 At minrun 12 there is one further run: ¶49, 12 words, "an emigrant from the sphere of the universal. But the next". This is the literal rendering required by R1 M9 and M10.
 
+**Pass 5** (R2 readability, `reviews/R2-applied-J.md`):
+```
+TOTAL words 3033; in shared 8-word runs 25.3%; in runs>=12 1.4%; in runs>=16 0.6%
+```
+Two runs remain, both kept:
+- ¶46, 17 words: the German verse plus Shakespeare's line, a quotation.
+- ¶47, 14 words: the forced triple question.
+
 ## For the reviewer
 1. The fresh Genesis 22:8 wording, "God will seek out for himself the lamb for the burnt offering, my son!" Check it for consistency with any earlier occurrence in the book (the Attunement).
 2. Whether the pass-3 restructurings read naturally, especially:
    - ¶42, "That is not how it is with Abraham";
    - ¶54, "weakened his life's effect".
-3. "carry himself through" for *gjennemføre sig selv*, and "by the reverse measure — to hold him up with pathos" (¶54).
+3. "carry himself through" for *gjennemføre sig selv*, and the restructured ¶54 clause ("turned round and used the opposite way, to hold him up with pathos").
