@@ -1,0 +1,35 @@
+{
+ "batch": "b128",
+ "role": "reverify",
+ "chapters": [
+  128,
+  129,
+  130,
+  131,
+  132
+ ],
+ "reviewed": [
+  "128.8",
+  "128.10",
+  "129.9",
+  "130.0",
+  "130.7",
+  "131.8",
+  "131.9",
+  "132.1",
+  "132.2",
+  "132.3",
+  "132.16"
+ ],
+ "items": [
+  {
+   "id": "132.2",
+   "severity": "non-blocking",
+   "category": [
+    "convention"
+   ],
+   "reason": "The R2 accessibility wording 'though the two contrasted so within, without the contrast was only in shades and shadows' is a garden path: 'without the contrast' parses as a prepositional phrase. Source: 'the contrast was only in shades and shadows without'. A comma after 'without' makes it read as the adverb (outside), matching the source's within/without pairing.",
+   "new": "But though the two contrasted so within, without, the contrast was only in shades and shadows; those two seemed one — it was only the sex, as it were, that distinguished them."
+  }
+ ]
+}
