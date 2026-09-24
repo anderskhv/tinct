@@ -1,22 +1,25 @@
 {
   "bookId": "to-the-lighthouse",
   "scope": "All 42 sections of the novel: every named character, household member, local figure, pet and off-stage acquaintance, plus named authors, artists and literary characters, with spoiler-gated reminders for deaths, marriages and changes reported in \"Time Passes\" and \"The Lighthouse\".",
-  "authoredEntries": 76,
+  "authoredEntries": 78,
   "editions": {
     "original-en": {
       "sourceSha256": "1662e69cd2781083e2332aeddd1e0c340446bdf2f7929c95da0d008e65b8d4f8",
       "chapters": 42,
       "paragraphs": 495,
       "entries": 76,
-      "mentions": 1340,
-      "omittedEntities": []
+      "mentions": 1356,
+      "omittedEntities": [
+        "tennyson",
+        "cowper"
+      ]
     },
     "modern-en": {
       "sourceSha256": "17c56b3d069214329a1f636bc7ad0286e38576d70ebe7921affc431f90149205",
       "chapters": 42,
       "paragraphs": 495,
-      "entries": 76,
-      "mentions": 1409,
+      "entries": 78,
+      "mentions": 1429,
       "omittedEntities": []
     }
   },

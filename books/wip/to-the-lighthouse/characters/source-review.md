@@ -1,3 +1,5 @@
+> **Lead note, 2026-09-24 (review R7):** the per-alias *modern* counts below were taken from an in-progress render, before the accepted modern edition. The authoritative bindings are `characters.v1.json` and `validation-report.json`, compiled against the accepted edition sha256 `17c56b3d…90149205`: 78 entries and 1,429 mentions in modern-en; 76 entries and 1,356 mentions in original-en. First mentions are unaffected. Post-review changes: the bare `Ramsay` alias was added to `mr-ramsay` (16 original / 17 modern mentions, each checked by the reviewer), and two modern-only reference entries were added for poets named in the modern glosses: `tennyson` and `cowper`.
+
 # To the Lighthouse: character source review
 
 Editorial worksheet for `editorial.json` and `to-the-lighthouse-threads.json`. **Contains spoilers; never expose to readers.**
