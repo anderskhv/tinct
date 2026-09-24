@@ -106,5 +106,5 @@ unapproved until their evidence meets an agreed release standard.
   boundaries fall inside em-dash-joined tokens, which word offsets cannot
   express (format v2 proposal in HANDOFF-codex.md).
 - Takeaway: unreviewed first-pass data for paraphrased prose is not good enough
-  (4 of 5 sampled Douglass auto paragraphs were fine at the item, but 2 had a
-  shift right next to it).
+  (of 5 sampled Douglass first-pass items, 1 was itself off by a sentence and
+  1 more had a shift right beside it).
