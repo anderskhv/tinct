@@ -45,7 +45,7 @@ lines = open(RAW, encoding='utf-8').read().split('\n')
 L = lambda n: lines[n - 1]
 is_head = lambda s: bool(re.match(r'^\s*Frygt og B.ven\. 3\. Udg\.', s))
 is_pnum = lambda s: bool(re.match(r'^\s*\.?\s*\d{1,3}\s*\.?\s*$', s))
-FIXRE = re.compile(r'^(?:\[(?P<nid>n[\d.]+[a-z])\] )?(?P<cat>OCR|quote|punct|marker|Greek|Latin|German|name): ⟦(?P<old>.*?)⟧→⟦(?P<new>.*?)⟧ \(raw (?P<line>\d+)\)')
+FIXRE = re.compile(r'^(?:\[(?P<nid>n[\d.]+[a-z])\] )?(?P<cat>OCR|quote|punct|marker|Greek|Latin|German|name|scan|emend): ⟦(?P<old>.*?)⟧→⟦(?P<new>.*?)⟧ \(raw (?P<line>\d+)\)')
 
 
 def parse_ranges(s):

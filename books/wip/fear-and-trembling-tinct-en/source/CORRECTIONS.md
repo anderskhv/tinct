@@ -238,3 +238,87 @@ Also:
 7. Lone hyphens at line starts (906, 1616, 3445, 4749, 4904) were treated as specks and removed. Any of them could be a short printed dash (low stakes).
 8. "prædiker ”)" (1078) is now a note marker (n4.2a). The unmatched closing quote in "for tung.”" (2114) was removed.
 9. The marker glyph `*`/`**` is inferred from the OCR (`+)`, `”)`, `”")`). The printed form is probably "*)", "**)".
+
+---
+
+## Addendum (2026-09-24): fixes from the independent scan verification
+
+An independent verifier checked this reconstruction against all 152 page
+images of the Internet Archive item (`SCAN-VERIFICATION.md`). Its fixes are
+applied. Each is logged in the slot's `corrections` as `scan:` entries,
+which the check script now accepts, and `check_corrected_source.py` again
+reports **PASS** with 0 unexplained differences.
+
+| Fix | Change |
+|---|---|
+| F1 | 85 tokens spelled "øj" → "øi" (høiere, Høieste, Øieblik, bøiede, tilføie, fornøiet, tilbøielig, tilløiet, ophøiede, Høiene, Høire, Høibords, høi, nøie, øiensynlig, Støi, Møie). The print never uses "øj". §1 item 4.6 above ("mixed spellings are in the print") was **wrong**. "Nej!" (ch4 s24) is printed with j and is kept. |
+| F2 | n5.31a: "p. 293" → "p. 223" |
+| F3 | ch7 s67: "Wer sprach von Liebe?" → "Wer sprach von Liebe." (the n7.67a anchor is updated to match) |
+| F4 | n7.33a: "et Pecus" → "et pecus" |
+| F5 | ch7 s17: "værdigen" → "værdeligen", the printed archaic word (the earlier "correction" is reversed) |
+| F6 | ch7 s58: "følte om" → "føite om" |
+| F7 | ch4 s34: "nogen-Sinde" → "nogensinde" |
+| F8 | n8.5a: "Cratylus" → "Cratyllus", the print's spelling |
+| F9 | ch7 s12: the opening dash is removed (it was a speck, not print) |
+| F10 | ch7 s40: "μέχρις" → "μέχρι" |
+
+**Checks that were confirmed:**
+
+- All 18 notes: markers, starts, ends and page continuations.
+- The two weaning passages are word-exact, and each is its own printed
+  paragraph after an asterism.
+- "fatte."
+- The Øie-/blik rejoin.
+- Section numerals I–IV.
+- All Latin, French and German.
+- All Greek letters.
+- **No line was lost at raw 2592**: the 1895 print reads "For Guds Skyld og
+  aldeles identisk hermed …", so the accepted pilot's P-I ¶15 is unaffected.
+
+**Editorial decisions:**
+
+- **Misprint emendations.** Obvious misprints in the 1895 print are corrected
+  so that the text can be read and translated. They are labelled as
+  emendations here, and the printed form is kept on record:
+  - "Havmand ∅ Nærheden" → "Havmand i Nærheden" (ch7 s27; logged as `emend:`);
+  - the swap "han desaarsag"/"kan nærme" (ch7 s4);
+  - "Kunde kan sige" → "han" (ch7 s72);
+  - "Forsland … mene godt" → "Forstand … mere" (ch7 s32);
+  - "som er ureflekteret" → "som en" (ch7 s49);
+  - "Derved blev har" → "han" (n7.15a);
+  - "Vreden" → "Verden" (ch4 s0);
+  - "at Træthed" → "af" (ch2 s12);
+  - "sjednere" → "sjeldnere" (ch3 s13);
+  - "et være" → "at være" (ch4 s4);
+  - "argumentam" → "argumentum" (ch7 s11);
+  - "Aristotetes" → "Aristoteles" (ch7 s15);
+  - "Sares" → "Saras" and "magesløs" → "mageløs" (ch7 s44);
+  - "on Forræder" → "en" (n7.47a);
+  - "Baüerin" → "Bäuerin" (n5.31a).
+
+  In the per-slot log these appear under "OCR" or "name". **This table is the
+  authoritative record that they are print misprints.**
+- **Greek accentuation.** The 1895 print sets most Greek unaccented; only the
+  Longus quotation and γνῶθι σαυτόν are fully accented. This source and the
+  English edition print standard accentuation as an **editorial
+  normalization**. The letters are exactly as printed.
+- **Authorial front matter** absent from the served text is recorded in
+  `../front-matter.json`, with its presentation left to Codex:
+  - the subtitle "Dialektisk Lyrik";
+  - the pseudonym "af Johannes de silentio";
+  - the Hamann epigraph "Was Tarquinius Superbus in seinem Garten mit den
+    Mohnköpfen sprach, verstand der Sohn, aber nicht der Bote.";
+  - the part heading "Problemata." (before ch4).
+
+## Structure v2 (`original-da-v2.json`, built by `build_v2.py`)
+
+- **Exordium (ch2).** The weaning passages after variations II and III are
+  printed as their own paragraphs after an asterism, like those after I and IV.
+  They become separate paragraphs, so ch2 goes from 13 to 15 paragraphs.
+- **Problema III (ch7).** The nine served slots that held only footnote text
+  (s16, s20, s23, s28, s36, s38, s50, s79, s83) are removed. Their text joins
+  the note of the paragraph that holds the marker, so ch7 goes from 88 to 79
+  paragraphs.
+- The per-slot old→new map is in `structure-map.json`.
+- The final reading structure also follows the printed paragraphing, which was
+  determined from the scans (`PRINTED-PARAGRAPHS.md`). See `../STRUCTURE-MAP.md`.
