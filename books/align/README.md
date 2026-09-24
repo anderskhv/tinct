@@ -34,7 +34,8 @@ Defined in [`HANDOFF-codex.md`](HANDOFF-codex.md#data-contract-format-version-1)
 edition IDs, sha256 fingerprints of both complete edition files, stable
 locations (chapter number + 0-based paragraph index), whitespace-word offsets,
 segment kinds `m`/`u`/`s`/`t`, per-paragraph review status, and
-`approved: null` until a person signs a book off. Consumers ignore files that
+`approved: null` until a person signs a book off (then an object recording
+the evidence; see `EVAL-PLAN.md`). Consumers ignore files that
 are unapproved or whose fingerprints don't match the served editions.
 
 First-pass data is always marked: paragraphs are `auto` / `auto-flagged`, the
@@ -43,7 +44,7 @@ Weak first-pass spots become `u`; nothing is forced into a match.
 
 Files: `build_alignment.py` (first pass, merge, validate),
 `test_build_alignment.py`, `review_report.py` (review samples),
-`HELPER_PROMPT.md` (model pass instructions), `overrides/` (model/human
+`HELPER_PROMPT.md` (model pass), `HELPER_EVAL_PROMPT.md` + `eval_score.py` + `eval/` (evaluation), `human_sample.py`, `overrides/` (model/human
 reviews), `data/` (outputs), `review/` (reports).
 
 ## Pilot results (2026-09-24, checkpoint 2)
@@ -75,9 +76,11 @@ Findings:
   one-sentence boundary shifts found in samples (10/0 "How I escaped death" and
   10/2 "faculty of making us feel"). First pass is not reliable at sentence
   level on genuinely paraphrased prose.
-- Macbeth 1.5 paragraph 1: served `macbeth-original-en.json` is missing the
-  "Glamis thou art, and Cawdor…" soliloquy (present in the raw source and in
-  modern-en). Alignment marks the modern tail target-only. Content bug, to fix
-  separately.
+- Macbeth: served editions are missing 13 speeches (~1,100 words, incl. "Is
+  this a dagger"), see `books/MACBETH-DROPPED-SPEECHES-2026-09-24.md`. Macbeth
+  alignment cannot be approved until the repair lands and it is regenerated.
+
+Next: human sample `review/human-sample-2026-09-24.md` (24 random segments,
+all three books) and the capped evaluation in `EVAL-PLAN.md`.
 - Sentence-split bugs found by the report and fixed: abbreviations ("Mr.",
   initials) and emphasis-prefixed abbreviations ("_Mr.").

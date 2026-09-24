@@ -111,6 +111,9 @@ fetched lazily like `{bookId}-lines.json` and cached for offline).
    until it is regenerated: it degrades to today's behaviour, never to wrong
    matches. (Paragraph-level fingerprints may come later.)
 3. `approved` is non-null. Unapproved pilot data must never reach readers.
+   When set it is an object recording the evidence (`by`, `date`, `basis`,
+   `sampleFile`), e.g. a human sample plus model review. It never means every
+   passage was verified, so the runtime checks below still apply.
 4. The paragraph has an entry, and its segments tile the live paragraph's
    word counts (cheap runtime check; on mismatch, fall back for that paragraph).
 
