@@ -9,14 +9,14 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mrs. Ramsay (`mrs-ramsay`, person)
 
-- **First mention:** 1.0 via "Mrs. Ramsay" — ““Yes, of course, if it’s fine tomorrow,” said Mrs.”
+- **First mention:** 1.0 via "Mrs. Ramsay" — ““Yes, of course, if it’s fine tomorrow,” said Mrs. Ramsay.”
 - **Alias bindings (original/modern render):** "Mrs. Ramsay" 230/243
 - **First card:** *Mr. Ramsay's wife; mother of eight* — Wife of the philosopher Mr. Ramsay and mother of their eight children. She is hosting her family and a houseful of guests at their summer house on the Isle of Skye, and is knitting a stocking for the lighthouse keeper's little boy.
 - **Snapshot after 22.3:** evidence “Mrs. Ramsay having died rather suddenly the night before” — A bracketed passage in "Time Passes" reports that she died suddenly one night. The next morning Mr. Ramsay, stumbling along a dark passage, stretched out his arms for her, and they stayed empty.
 
 ### Mr. Ramsay (`mr-ramsay`, person)
 
-- **First mention:** 1.3 via "Mr. Ramsay" — “Such were the extremes of emotion that Mr.”
+- **First mention:** 1.3 via "Mr. Ramsay" — “Such were the extremes of emotion that Mr. Ramsay excited in his children’s breasts by his mere presence; standing, as now, lean as a knife, narrow as the blade of one, grinning sarcastically, not only with the pleasure of disillusioning his son and casting ridicule upon his wife, who was ten thousand times better in every way than he was (James thought), but also with some secret conceit at his own accuracy of judgment.”
 - **Alias bindings (original/modern render):** "Mr. Ramsay" 100/102
 - **First card:** *Mrs. Ramsay's husband; a philosopher* — Mrs. Ramsay's husband and father of their eight children, a philosopher who lectures at universities. Blunt to the point of cruelty about facts, he tells James the weather will be too bad to go to the Lighthouse.
 - **Snapshot after 22.3:** evidence “he stretched his arms out. They remained empty.” — Now a widower. A bracketed passage reports that his wife died suddenly one night; the next morning he stretched out his arms for her in a dark passage, and they stayed empty.
@@ -30,7 +30,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 - **First card:** *A painter; guest of the Ramsays* — An unmarried painter in her thirties who keeps house for her father in London and is staying in the village near the Ramsays for the summer. She is painting a picture on the lawn with Mrs. Ramsay and James in the window as her subject.
 - **Snapshot after 28.12:** evidence “Lily Briscoe had her bag carried up to the house late one evening in September.” — Years after that summer, she has come back to the Ramsays' house, arriving late one September evening on the same train as Mr. Carmichael.
 - **Snapshot after 30.9:** evidence “Here was Lily, at forty-four, wasting her time” — Back at the house after ten years, now forty-four, she has set up her easel on the same spot to finish the picture she never completed. Mr. Ramsay's demands and her anger at Mrs. Ramsay's death make it hard to begin.
-- **Snapshot after 42.2:** evidence “I have had my vision.” — Sensing that Mr. Ramsay has reached the Lighthouse, she draws a last line down the centre of her canvas and finishes her picture: "I have had my vision."
+- **Snapshot after 42.2:** evidence “I have had my vision.” — Sensing that Mr. Ramsay has reached the Lighthouse, she draws a last line down the center of her canvas and finishes her picture: "I have had my vision."
 
 ## Major
 
@@ -44,25 +44,25 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Cam Ramsay (`cam`, person)
 
-- **First mention:** 4.10 via "Cam" — “Bankes was alive to things which would not have struck him had not those sandhills revealed to him the body of his friendship lying with the red on its lips laid up in peat—for instance, Cam, the little girl, Ramsay’s youngest daughter.”
+- **First mention:** 4.10 via "Cam" — “And, turning to walk back the other way, up the drive, Mr. Bankes was alive to things which would not have struck him had not those sandhills revealed to him the body of his friendship lying with the red on its lips laid up in peat—for instance, Cam, the little girl, Ramsay’s youngest daughter.”
 - **Alias bindings (original/modern render):** "Cam" 64/63
 - **First card:** *The Ramsays' youngest daughter* — Mr. and Mrs. Ramsay's youngest daughter, a small, wild and fiercely independent child.
 - **Snapshot after 30.8:** evidence “James was sixteen, Cam seventeen, perhaps.” — About seventeen now, ten years after that first summer. She has reluctantly agreed to sail to the Lighthouse with her father and James.
 
 ### William Bankes (`william-bankes`, person)
 
-- **First mention:** 4.0 via "William Bankes" — “But now, with all her senses quickened as they were, looking, straining, till the colour of the wall and the jacmanna beyond burnt into her eyes, she was aware of someone coming out of the house, coming towards her; but somehow divined, from the footfall, William Bankes, so that though her brush quivered, she did not, as she would have done had it been Mr.”
+- **First mention:** 4.0 via "William Bankes" — “But now, with all her senses quickened as they were, looking, straining, till the colour of the wall and the jacmanna beyond burnt into her eyes, she was aware of someone coming out of the house, coming towards her; but somehow divined, from the footfall, William Bankes, so that though her brush quivered, she did not, as she would have done had it been Mr. Tansley, Paul Rayley, Minta Doyle, or practically anybody else, turn her canvas upon the grass, but let it stand.”
 - **Alias bindings (original/modern render):** "William Bankes" 33/33, "Mr. Bankes" 56/56, "Bankes" 3/3, "William" 11/11
 - **First card:** *A botanist; Mr. Ramsay's old friend* — An old friend of Mr. Ramsay's, a widowed botanist in his sixties, scrupulous and very clean. He is lodging in the village in the same house as Lily Briscoe.
 - **Snapshot after 31.0:** evidence “There had been some talk of her marrying William Bankes once, but nothing had come of it.” — Ten years on, Mr. Ramsay recalls that there was once talk of Lily marrying William Bankes, but nothing came of it.
-- **Snapshot after 34.17:** evidence “She loved William Bankes.” — Lily remembers their long friendship, one of the pleasures of her life: summer outings to Hampton Court where he talked about perspective and architecture. She realizes that she loves him, though they never married.
+- **Snapshot after 34.17:** evidence “They went to Hampton Court and he always left her, like the perfect gentleman he was, plenty of time to wash her hands” — Lily remembers their long friendship, one of the pleasures of her life: summer outings to Hampton Court where he talked about perspective and architecture. She realizes that she loves him, though they never married.
 
 ### Charles Tansley (`charles-tansley`, person)
 
-- **First mention:** 1.5 via "Tansley" — ““It’s due west,” said the atheist Tansley, holding his bony fingers spread so that the wind blew through them, for he was sharing Mr.”
+- **First mention:** 1.5 via "Tansley" — ““It’s due west,” said the atheist Tansley, holding his bony fingers spread so that the wind blew through them, for he was sharing Mr. Ramsay’s evening walk up and down, up and down the terrace.”
 - **Alias bindings (original/modern render):** "Charles Tansley" 36/36, "Mr. Tansley" 20/20, "Tansley" 4/4, "Charles" 5/5
 - **First card:** *A young academic; Mr. Ramsay's admirer* — A poor, awkward young scholar from a working family, one of Mr. Ramsay's admirers, invited to stay for the holiday. The Ramsay children mock him as "the little atheist".
-- **Snapshot after 40.9:** evidence “He had got his fellowship. He had married; he lived at Golder’s Green.” — Ten years on, Lily reflects that he has got his fellowship, married, and lives at Golders Green. During the war she heard him preaching brotherly love from a platform.
+- **Snapshot after 40.9:** evidence “She had gone one day into a hall and heard him speaking during the War.” — Ten years on, Lily reflects that he has got his fellowship, married, and lives at Golders Green. During the war she heard him preaching brotherly love from a platform.
 
 ### Augustus Carmichael (`augustus-carmichael`, person)
 
@@ -95,7 +95,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mrs. McNab (`mrs-mcnab`, person)
 
-- **First mention:** 23.2 via "Mrs. McNab" — “Then again peace descended; and the shadow wavered; light bent to its own image in adoration on the bedroom wall; when Mrs.”
+- **First mention:** 23.2 via "Mrs. McNab" — “Then again peace descended; and the shadow wavered; light bent to its own image in adoration on the bedroom wall; when Mrs. McNab, tearing the veil of silence with hands that had stood in the washtub, grinding it with boots that had crunched the shingle, came as directed to open all windows, and dust the bedrooms.”
 - **Alias bindings (original/modern render):** "Mrs. McNab" 14/15, "Maggie" 1/1
 - **First card:** *An old local woman who looks after the house* — An old local woman, nearly seventy, who comes in to clean and look after the Ramsays' summer house.
 - **Snapshot after 28.3:** evidence “Mrs. McNab, Mrs. Bast stayed the corruption and the rot” — Summoned in a hurry by a letter from one of the young ladies of the family, she and Mrs. Bast have worked to rescue the decaying house before the family's return.
@@ -158,19 +158,19 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mrs. Beckwith (`mrs-beckwith`, person)
 
-- **First mention:** 29.0 via "Mrs. Beckwith" — “Through the open window the voice of the beauty of the world came murmuring, too softly to hear exactly what it said—but what mattered if the meaning were plain?—entreating the sleepers (the house was full again; Mrs.”
+- **First mention:** 29.0 via "Mrs. Beckwith" — “Through the open window the voice of the beauty of the world came murmuring, too softly to hear exactly what it said—but what mattered if the meaning were plain?—entreating the sleepers (the house was full again; Mrs. Beckwith was staying there, also Mr. Carmichael), if they would not actually come down to the beach itself at least to lift the blind and look out.”
 - **Alias bindings (original/modern render):** "Mrs. Beckwith" 8/8
 - **First card:** *An elderly guest at the house* — A kind old lady staying at the Ramsays' house, who likes to sketch.
 
 ### Mrs. Bast (`mrs-bast`, person)
 
-- **First mention:** 28.3 via "Mrs. Bast" — “McNab groaned; Mrs.”
+- **First mention:** 28.3 via "Mrs. Bast" — “Mrs. McNab groaned; Mrs. Bast creaked.”
 - **Alias bindings (original/modern render):** "Mrs. Bast" 6/6
 - **First card:** *A local woman helping Mrs. McNab* — An elderly local woman who helps Mrs. McNab clean and restore the house. She never knew the Ramsays, having lived in Glasgow at the time.
 
 ### George Bast (`george-bast`, person)
 
-- **First mention:** 28.3 via "George" — “George, Mrs.”
+- **First mention:** 28.3 via "George" — “George, Mrs. Bast’s son, caught the rats, and cut the grass.”
 - **Alias bindings (original/modern render):** "George" 2/2
 - **First card:** *Mrs. Bast's son* — Mrs. Bast's son, a quiet, hard worker who catches the rats and cuts the grass while the house is put in order.
 
@@ -188,13 +188,13 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mildred (`mildred`, person)
 
-- **First mention:** 10.1 via "Mildred" — “Ramsay wondered, seeing her engrossed, as she stood there, with some thought of her own, so that she had to repeat the message twice—ask Mildred if Andrew, Miss Doyle, and Mr.”
+- **First mention:** 10.1 via "Mildred" — “What was she dreaming about, Mrs. Ramsay wondered, seeing her engrossed, as she stood there, with some thought of her own, so that she had to repeat the message twice—ask Mildred if Andrew, Miss Doyle, and Mr. Rayley have come back?—The words seemed to be dropped into a well, where, if the waters were clear, they were also so extraordinarily distorting that, even as they descended, one saw them twisting about to make Heaven knows what pattern on the floor of the child’s mind.”
 - **Alias bindings (original/modern render):** "Mildred" 14/14
 - **First card:** *A servant in the Ramsay household* — One of the Ramsays' servants: she does the cooking, and also helps put the youngest children to bed.
 
 ### Marie, the Swiss girl (`marie`, person)
 
-- **First mention:** 1.12 via "Swiss girl" — “Ramsay sought their bedrooms, their fastnesses in a house where there was no other privacy to debate anything, everything; Tansley’s tie; the passing of the Reform Bill; seabirds and butterflies; people; while the sun poured into those attics, which a plank alone separated from each other so that every footstep could be plainly heard and the Swiss girl sobbing for her father who was dying of cancer in a valley of the Grisons, and lit up bats, flannels, straw hats, ink-pots, paint-pots, beetles, and the skulls of small birds, while it drew from the long frilled strips of seaweed pinned to the wall a smell of salt and weeds, which was in the towels too, gritty with sand from bathing.”
+- **First mention:** 1.12 via "Swiss girl" — “Disappearing as stealthily as stags from the dinner-table directly the meal was over, the eight sons and daughters of Mr. and Mrs. Ramsay sought their bedrooms, their fastnesses in a house where there was no other privacy to debate anything, everything; Tansley’s tie; the passing of the Reform Bill; seabirds and butterflies; people; while the sun poured into those attics, which a plank alone separated from each other so that every footstep could be plainly heard and the Swiss girl sobbing for her father who was dying of cancer in a valley of the Grisons, and lit up bats, flannels, straw hats, ink-pots, paint-pots, beetles, and the skulls of small birds, while it drew from the long frilled strips of seaweed pinned to the wall a smell of salt and weeds, which was in the towels too, gritty with sand from bathing.”
 - **Alias bindings (original/modern render):** "Marie" 1/1, "Swiss girl" 3/3
 - **First card:** *A Swiss maid in the Ramsay household* — A young Swiss maid working for the Ramsays. Her father is dying of cancer at home in the mountains of the Grisons.
 
@@ -263,7 +263,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Aunt Camilla (`aunt-camilla`, person)
 
-- **First mention:** 12.1 via "Aunt Camilla" — “Her Aunt Camilla was far worse than she was, Mrs.”
+- **First mention:** 12.1 via "Aunt Camilla" — “Her Aunt Camilla was far worse than she was, Mrs. Ramsay remarked.”
 - **Alias bindings (original/modern render):** "Aunt Camilla" 2/2
 - **First card:** *Mrs. Ramsay's aunt* — Mrs. Ramsay's aunt, whom she calls the most beautiful woman she ever saw, and a worse exaggerator than herself.
 
@@ -275,7 +275,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mr. Langley (`mr-langley`, person)
 
-- **First mention:** 17.23 via "Mr. Langley" — ““Remember poor Mr.”
+- **First mention:** 17.23 via "Mr. Langley" — ““Remember poor Mr. Langley; he had been round the world dozens of times, but he told me he never suffered as he did when my husband took him there.”
 - **Alias bindings (original/modern render):** "Mr. Langley" 1/1
 - **First card:** *An acquaintance of the Ramsays* — An acquaintance who had been round the world dozens of times but was never so seasick as when Mr. Ramsay took him to the Lighthouse.
 
@@ -287,9 +287,9 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Mr. Paunceforte (`mr-paunceforte`, person)
 
-- **First mention:** 1.22 via "Mr. Paunceforte" — “Since Mr.”
+- **First mention:** 1.22 via "Mr. Paunceforte" — “Since Mr. Paunceforte had been there, three years before, all the pictures were like that she said, green and grey, with lemon-coloured sailing-boats, and pink women on the beach.”
 - **Alias bindings (original/modern render):** "Mr. Paunceforte" 2/2, "Paunceforte" 1/1
-- **First card:** *A painter who visited the area* — A painter whose visit three years earlier set a fashion among local artists for pale green-and-grey pictures with lemon-colored boats and pink women on the beach.
+- **First card:** *A painter who visited the area* — A painter whose visit three years earlier set a fashion among local artists for pale green-and-gray pictures with lemon-colored boats and pink women on the beach.
 
 ### Mrs. Doyle (`mrs-doyle`, person)
 
@@ -323,13 +323,13 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### George Manning (`george-manning`, person)
 
-- **First mention:** 8.0 via "George Manning" — “And after all—after all (here insensibly she drew herself together, physically, the sense of her own beauty becoming, as it did so seldom, present to her)—after all, she had not generally any difficulty in making people like her; for instance, George Manning; Mr.”
+- **First mention:** 8.0 via "George Manning" — “And after all—after all (here insensibly she drew herself together, physically, the sense of her own beauty becoming, as it did so seldom, present to her)—after all, she had not generally any difficulty in making people like her; for instance, George Manning; Mr. Wallace; famous as they were, they would come to her of an evening, quietly, and talk alone over her fire.”
 - **Alias bindings (original/modern render):** "George Manning" 1/1
 - **First card:** *A famous admirer of Mrs. Ramsay* — A famous man who, like Mr. Wallace, used to come and talk alone with Mrs. Ramsay by her fire in the evening.
 
 ### Mr. Wallace (`mr-wallace`, person)
 
-- **First mention:** 8.0 via "Mr. Wallace" — “And after all—after all (here insensibly she drew herself together, physically, the sense of her own beauty becoming, as it did so seldom, present to her)—after all, she had not generally any difficulty in making people like her; for instance, George Manning; Mr.”
+- **First mention:** 8.0 via "Mr. Wallace" — “And after all—after all (here insensibly she drew herself together, physically, the sense of her own beauty becoming, as it did so seldom, present to her)—after all, she had not generally any difficulty in making people like her; for instance, George Manning; Mr. Wallace; famous as they were, they would come to her of an evening, quietly, and talk alone over her fire.”
 - **Alias bindings (original/modern render):** "Mr. Wallace" 1/1
 - **First card:** *A famous admirer of Mrs. Ramsay* — A famous man who, like George Manning, used to come and talk alone with Mrs. Ramsay by her fire in the evening.
 
@@ -413,7 +413,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Virgil (`virgil`, reference)
 
-- **First mention:** 20.6 via "Virgil" — “Carmichael, who liked to lie awake a little reading Virgil, kept his candle burning rather longer than the rest.”
+- **First mention:** 20.6 via "Virgil" — “One by one the lamps were all extinguished, except that Mr. Carmichael, who liked to lie awake a little reading Virgil, kept his candle burning rather longer than the rest.”
 - **Alias bindings (original/modern render):** "Virgil" 2/2
 - **First card:** *Roman poet* — Roman poet (70–19 BC), author of the Aeneid.
 
@@ -455,7 +455,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### Michelangelo (`michelangelo`, reference)
 
-- **First mention:** 5.11 via "Michelangelo" — “Knitting her reddish-brown hairy stocking, with her head outlined absurdly by the gilt frame, the green shawl which she had tossed over the edge of the frame, and the authenticated masterpiece by Michelangelo, Mrs.”
+- **First mention:** 5.11 via "Michelangelo" — “Knitting her reddish-brown hairy stocking, with her head outlined absurdly by the gilt frame, the green shawl which she had tossed over the edge of the frame, and the authenticated masterpiece by Michelangelo, Mrs. Ramsay smoothed out what had been harsh in her manner a moment before, raised his head, and kissed her little boy on the forehead.”
 - **Alias bindings (original/modern render):** "Michelangelo" 2/2
 - **First card:** *Italian Renaissance artist* — Italian Renaissance sculptor, painter and architect (1475–1564), painter of the Sistine Chapel ceiling.
 
@@ -497,6 +497,49 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 ### The Brothers Grimm (`grimm`, reference)
 
-- **First mention:** 7.5 via "Grimm" — “Ramsay seemed to fold herself together, one petal closed in another, and the whole fabric fell in exhaustion upon itself, so that she had only strength enough to move her finger, in exquisite abandonment to exhaustion, across the page of Grimm’s fairy story, while there throbbed through her, like the pulse in a spring which has expanded to its full width and now gently ceases to beat, the rapture of successful creation.”
+- **First mention:** 7.5 via "Grimm" — “Immediately, Mrs. Ramsay seemed to fold herself together, one petal closed in another, and the whole fabric fell in exhaustion upon itself, so that she had only strength enough to move her finger, in exquisite abandonment to exhaustion, across the page of Grimm’s fairy story, while there throbbed through her, like the pulse in a spring which has expanded to its full width and now gently ceases to beat, the rapture of successful creation.”
 - **Alias bindings (original/modern render):** "Grimm" 1/1
 - **First card:** *German collectors of fairy tales* — Jacob and Wilhelm Grimm, German scholars who collected folk and fairy tales, including "The Fisherman and His Wife", which Mrs. Ramsay reads to James.
+
+## Deliberately unbound occurrences
+
+- **Bare "Ramsay"** (16 occurrences: 4.1, 4.8 ×5, 4.9 ×3, 4.10, 4.11, 4.15, 9.0 ×2, 9.1, 17.20): always Mr. Ramsay in Bankes's or Tansley's thoughts, but left unbound by instruction so "Mrs. Ramsay"/"Mr. Ramsay" stay distinct.
+- **"Mr. and Mrs. Ramsay"** (1.12, 13.1): only the "Mrs. Ramsay" part binds (to Mrs. Ramsay); the couple is not bound as a unit.
+- **"Macalisters"** (37.3, "talk to the Macalisters"): refers to Macalister and his boy together; left unbound.
+- **"Giddingses"** (12.10, "all the silly Giddingses in the world"): generic plural, not Miss Giddings herself.
+- **"Marian"** (27.4, 28.5): Mrs. McNab misremembering the cook's name ("Mildred? Marian?"); binding it to Mildred would assert more than the text does.
+- **"the Poker"**: occurs only inside "the Owl and the Poker", which binds to the Doyle-parents entity.
+- **Nicknames** "the atheist", "the little atheist" (Tansley), Bankes's regal epithets ("Cam the Wicked", "James the Ruthless", "the Red, the Fair", "the Sullen"): lower-case or descriptive; the embedded names "Cam"/"James"/"Andrew"/"Prue" still bind.
+- **Descriptive roles**: "the Lighthouse keeper" (1.4), "the lightkeeper's son" (31.3), "the cook" (10.1, 17.45, 27.3), "the nursemaid" (4.10), "the maid" (17.14 etc.) are not bound to Sorley/Mildred/Ellen/Marthe.
+- **Italicized titles** `_Anna Karenina_`, `_Middlemarch_`, `_The Times_`: titles, not people; the underscore markup also defeats word-boundary matching. Tolstoy, Vronsky and George Eliot carry the context instead.
+- **Allusions without cards**: Christ, "the Lord", God, Neptune, Bacchus, the Graces, the Pharaohs, "the Queen of England", "the Empress of Mexico", Ilsabil and the Flounder (Grimm tale), Croom and Bates (book authors in 5.3), "Helen" (inscription), Marlow (a Thames town, not a person), Balaclava, Vesuvius, Santa Sofia.
+- **Unnamed people** (no alias possible): Lily's father, Tansley's father/sister/uncle, Carmichael's wife, the one-armed bill-poster, the woman visited in the town (1.25), the poet who inscribed books to Mrs. Ramsay (5.3), the Ramsays' puppy (33.9), the Lighthouse men.
+- **Quoted but unnamed poets**: Tennyson ("The Charge of the Light Brigade"), Cowper ("The Castaway"), Shakespeare's Sonnet 98 (19.8–19.14), William Browne ("Steer, hither steer", 19.4) and Charles Isaac Elton ("Luriana, Lurilee") are never named in the text, so they get no alias; Shakespeare's card binds only where he is named.
+
+## Ambiguity checks performed
+
+- Every capitalized "Rose" (25) is the daughter; roses/China rose are lower-case. Every capitalized "Lily" (108) is Lily Briscoe; "lilies" is lower-case.
+- Bare "Charles" (5; 32.4, 34.5) is Tansley. Bare "William" (11) is Bankes. Bare "James" (89) is James Ramsay; "Uncle James" (16.7) binds separately as the longer alias.
+- Bare "George" (2; 28.3, 28.8) is Mrs. Bast's son; "George Eliot" (17.42) and "George Manning" (8.0) win as longer aliases.
+- "Joseph" (6) and "Mary" (4) occur only in 16.5–16.9, always the rooks.
+- "Rayley" alone (14.8, "Rayley's stick") is Paul; "Mr. Rayley" (10.1) is Paul; "Mrs. Rayley" (34.10, the only occurrence, after the marriage is disclosed in 34.8) is bound to Minta and beats "Rayley".
+- "Scott" does not match "Scottish"/"Scotch" (word boundary). The modern render writes "Sir Walter Scott" (17.60, 19.0), bound as the longest alias; the original has "Sir Walter".
+- "Swiss girl" (1.12, 5.3, 17.44) is bound to Marie: 1.12 (father dying of cancer in the Grisons) matches 5.3 ("Marie's, the Swiss girl ... Her father was dying there").
+- "Maggie" (28.5) is bound to Mrs. McNab: in 27.3 Mrs. Ramsay "told cook to keep a plate of milk soup for her [Mrs. McNab]"; in 28.5 the cook "saved a plate of soup for Maggie". Inference, flagged below.
+
+## Uncertain identity facts
+
+- **Mildred** is both "the cook" (10.1 "What message would Cam give the cook?"; 16.4 "Mildred's masterpiece"; 28.5 "the cook now, Mildred") and the servant who carries James to bed and sleeps in the nursery (10.17, 18.2). The card says she cooks and helps with the youngest children.
+- **Marthe** (17.45) takes the cover off the dish that "the Swiss girl" set down in 17.44. They may be the same maid (Marie), but the text gives two names; kept separate.
+- **Maggie** = Mrs. McNab's first name is inferred (see above).
+- **Herbert** (17.14) is presumably one of the Mannings' household; the card says "apparently".
+- **George Manning** (8.0) may or may not belong to the Mannings of Marlow; the card does not connect them.
+- **Elsie** (1.27) and **Edward** (18.2) are unidentified in the text; the cards say so.
+- **Badger** (1.5) is implied, not stated, to be a dog ("without a tooth in his head had bit him"); card says "apparently".
+- **Uncle James** (16.7): whose uncle is not stated.
+- **Macalister's boy**: not stated to be Macalister's son; card says "the boy who crews for" him.
+- **Sorley** = the Lighthouse keeper is inferred from 1.4 (stocking for the keeper's little boy) + 5.5/6.7 (stocking for "Sorley's little boy").
+- **Prue and Andrew** as "older" children: the text never gives birth order. Andrew is working for a scholarship and Prue is "just beginning" to grow up (17.64); cards say "one of the older" children.
+- **Cam's age** in Part 3 is "seventeen, perhaps" (30.8); card says "about seventeen".
+- **Ten years**: Lily "sat there last ten years ago" (30.6); the Part 3 snapshots use "ten years".
+- **Mucklebackit/Steenie** context (Scott, *The Antiquary*, 1816: Steenie drowns; old Elspeth is the grandmother) and the other real-world dates are from general reference knowledge, not the novel; no web verification was run in this pass.
