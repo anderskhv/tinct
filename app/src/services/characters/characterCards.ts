@@ -99,7 +99,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   walden: { editions: EN, revision: '2026-09-12.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
   iliad: { editions: EN, revision: '2026-09-12.1' },
-  odyssey: { editions: EN, revision: '2026-09-12.1' },
+  odyssey: { editions: EN, revision: '2026-09-24.1' },
   'the-aeneid': { editions: EN, revision: '2026-09-12.1' },
   'divine-comedy': { editions: EN, revision: '2026-09-12.1' },
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
