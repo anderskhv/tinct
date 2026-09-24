@@ -5353,16 +5353,16 @@
 .lab[data-shakespeare-layout="flowing"] .lab-verse-line {
   display: inline; padding-left: 0; text-indent: 0; text-align: inherit;
 }
-.lab.is-desktop[data-shakespeare] .lab-verse-speaker,
+.lab[data-shakespeare] .lab-verse-speaker,
 .lab[data-shakespeare-layout="flowing"] .lab-verse-speaker {
   display: block; font-size: max(14px, .63em); line-height: inherit;
   text-indent: 0; text-align: left;
 }
 /* Separate block keeps the first dialogue line at the verse margin after
    the speaker, while preserving hanging indents on wrapped source lines. */
-.lab.is-desktop[data-shakespeare] .lab-verse-dialogue { display: block; }
+.lab[data-shakespeare] .lab-verse-dialogue { display: block; }
 /* Match the verse line’s hanging indent, including in measurement copies. */
-.lab.is-desktop[data-shakespeare] .lab-verse-speaker { text-indent: inherit; }
+.lab[data-shakespeare] .lab-verse-speaker { text-indent: inherit; }
 .lab[data-shakespeare-layout="flowing"] .lab-verse-break {
   display: inline; font-size: .8em; color: var(--lab-ink-muted);
   white-space: nowrap; -webkit-user-select: none; user-select: none;
