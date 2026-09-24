@@ -39,7 +39,7 @@ const CONNECT_TIMEOUT_MS = 15_000
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
 export const LOOKUP_ACKNOWLEDGEMENT = 'One moment.'
 const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
-const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history'])
+const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history', 'get_book_passage'])
 const EARLY_CAPTURE_MAX_SECONDS = 15
 
 const CAPTURE_WORKLET = `class TinctPcmCapture extends AudioWorkletProcessor {
@@ -489,10 +489,18 @@ export class GrokVoiceSessionController {
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
         if (!continued) {
           continued = true
-          this.send({ type: 'response.create', ...(result.responseInstructions ? { response: { instructions: result.responseInstructions } } : {}) })
+          this.send({ type: 'response.create', ...(result.responseInstructions ? { response: { instructions: this.withSessionInstructions(result.responseInstructions) } } : {}) })
         }
       }
     }).catch(() => { /* Individual tool failures return a result above. */ })
+  }
+
+  /**
+   * Per-response instructions replace the session prompt for that response, so a
+   * tool follow-up keeps Tinct's prompt and reference and adds its guidance last.
+   */
+  private withSessionInstructions(guidance: string): string {
+    return this.instructions ? `${this.instructions}\n\nFor this response: ${guidance}` : guidance
   }
 
   private async runTool(call: ToolCall): Promise<{ output: unknown; responseInstructions?: string }> {

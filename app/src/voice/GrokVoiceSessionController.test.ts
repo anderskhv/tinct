@@ -208,6 +208,23 @@ describe('tools', () => {
     expect(sent.find(event => event.type === 'response.create')).toEqual({ type: 'response.create', response: { instructions: 'Use the source evidence.' } })
   })
 
+  it('keeps the session prompt and reference when a tool follow-up adds its own guidance', async () => {
+    // xAI response.instructions replace the session prompt for that response.
+    // Guidance alone once produced "The requested passage could not be retrieved." verbatim.
+    const onApplicationTool = vi.fn().mockResolvedValue({ output: { ok: false, reason: 'later_chapter_spoiler_boundary' }, responseInstructions: 'Answer from your knowledge of the book.' })
+    const { controller, sent } = connected({ onApplicationTool }, { reference: '{"book":"Confessions"}', tools: [{ type: 'function', name: 'get_book_passage', parameters: {} }] })
+    controller.handleEvent({ type: 'session.created' })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'get_book_passage', call_id: 'c1', arguments: '{"chapter_number":8}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(sent.filter(event => event.type === 'response.create')).toHaveLength(1))
+    const instructions = String((sent.find(event => event.type === 'response.create')!.response as { instructions: string }).instructions)
+    expect(instructions.startsWith(GROK_VOICE_INSTRUCTIONS)).toBe(true)
+    expect(instructions).toContain('{"book":"Confessions"}')
+    expect(instructions.endsWith('For this response: Answer from your knowledge of the book.')).toBe(true)
+  })
+
   it('acknowledges only a lookup that is still running after the bounded delay', async () => {
     vi.useFakeTimers()
     let finishLookup!: (value: { output: Record<string, unknown>; responseInstructions: string }) => void
