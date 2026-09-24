@@ -42,6 +42,7 @@ rendering, and on the whole book before handing off.
 """
 import argparse
 import json
+import re
 import sys
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -106,7 +107,7 @@ def is_truncation(base_p, target_p):
     target has ... / … the baseline lacks AND is materially shorter. Catches
     summarized quotations (the rules forbid condensing quoted passages)."""
     def ell(x):
-        return "..." in x or "…" in x
+        return "…" in x or re.search(r"\.\s*\.\s*\.", x) is not None
     if not ell(target_p) or ell(base_p):
         return False
     return len(target_p.split()) < len(base_p.split()) * 0.92

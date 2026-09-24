@@ -31,6 +31,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: python3 scripts/test-prepare-reviewed-editions.py
       - run: python3 scripts/verify-reviewed-release.py --config books/wip/reviewed-followups-20260924.json --baseline b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec
+      - run: python3 ../books/test-classify-modern-en.py
       - run: |
           python3 ../books/classify-modern-en.py the-prince --gate
           python3 ../books/classify-modern-en.py julius-caesar --gate
