@@ -45,3 +45,9 @@ A word-sequence alignment of the whole parsed edition against the witness found 
 - The parser was a throwaway script in the session scratchpad; it is intentionally not committed (content-only assignment). Its behavior is fully described above and can be reproduced by any reviewer from the pinned epub.
 
 Smallest units, both genuine: chapter 15 (The Window · 15) is a single one-line paragraph; chapters 24, 35 and 38 are single paragraphs (Time Passes · 5 and two short Lighthouse interludes).
+
+## Documented variant used by the modern edition
+
+| Location | Source (Hogarth / SE, shown in Compare) | Modern edition | Reason |
+|---|---|---|---|
+| 14.6 | “with all that **dower** sweeping savagely in” | “all that **power** sweeping savagely in” | The US first edition (witness) reads “power”. “Dower” is obscure and probably a Hogarth misprint; “power” gives the sense of the sea's force. This is the only place the modern edition follows a US-text reading. The original edition keeps “dower” unchanged. |
