@@ -3261,9 +3261,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setReaderControlsVisible(false)
   }, [desktopPaging, listen.playing])
 
-  useLayoutEffect(() => {
-  }, [book.bookId, book.chapterNumber, readerEditionKey, mobileCompareActive, desktopCompareActive, readingPageIndex])
-
   const goNext = useCallback(() => {
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {

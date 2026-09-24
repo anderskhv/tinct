@@ -67,6 +67,13 @@ for(const config of configs){
   await p.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
   await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
   await p.evaluate(()=>document.fonts.ready);await pause(1000)
+  if(config.compare){
+   await p.getByTestId('lab-super').click()
+   await p.getByTestId('lab-super-row-editions').click()
+   await p.getByTestId('lab-v2-show-compare').click()
+   await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.desktopView==='compare')
+   await pause(500)
+  }
   const preview=p.locator('.lab-page-wrap > .lab-passage .lab-chapter-preview')
   if(!await preview.isVisible()&&await p.getByTestId('lab-chapter-cover').count()){await p.keyboard.press('ArrowRight');await pause(500)}
   await preview.waitFor({state:'visible'})
