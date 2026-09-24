@@ -337,7 +337,7 @@ Snapshot gates are the END of the cited paragraph. Evidence sentences are quoted
 
 - **First mention:** 6.26 via "Shakespeare" — “The very stone one kicks with one’s boot will outlast Shakespeare.”
 - **Alias bindings (original/modern render):** "Shakespeare" 7/7
-- **First card:** *English playwright and poet* — The English playwright and poet (1564–1616). Mr. Ramsay wonders whether the world would have been much different if Shakespeare had never existed.
+- **First card:** *English playwright and poet* — The English playwright and poet (1564–1616), for Mr. Ramsay the obvious yardstick of lasting literary fame.
 
 ### Sir Walter Scott (`scott`, reference)
 
