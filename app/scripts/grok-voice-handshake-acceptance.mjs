@@ -17,7 +17,7 @@ const browser = await chromium.launch({ headless: true, args: [
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, permissions: ['microphone'], serviceWorkers: 'block' })
 const page = await context.newPage()
 page.setDefaultTimeout(10_000)
-const report = { persona, expectedVoice, requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, verifyForceMessage, forceMessage: null, errors: [] }
+const report = { persona, expectedVoice, requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, acknowledgedRequestVoice: null, verifyForceMessage, forceMessage: null, errors: [] }
 page.on('pageerror', error => report.errors.push(error.message))
 
 await page.addInitScript(({ persona }) => {
@@ -26,7 +26,7 @@ await page.addInitScript(({ persona }) => {
     kind: 'open-reader', bookId: 'notes-from-underground', primaryEditionKey: 'original-en',
     savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },
   }))
-  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false, sessionEvidence: [], providerErrors: [] }
+  window.__voiceHandshake = { requestedVoice: null, sessionUpdated: false, acknowledgedVoice: null, acknowledgedRequestVoice: null, pendingUpdates: [], socket: null, forcePending: false, forceAudioBytes: 0, forceTranscript: '', forceDone: false, sessionEvidence: [], providerErrors: [] }
   const Native = WebSocket
   window.WebSocket = class extends Native {
     constructor(url, protocols) {
@@ -37,8 +37,9 @@ await page.addInitScript(({ persona }) => {
           const message = JSON.parse(event.data)
           if (message.type === 'session.updated') {
             window.__voiceHandshake.sessionUpdated = true
+            window.__voiceHandshake.acknowledgedRequestVoice = window.__voiceHandshake.pendingUpdates.shift() || null
             window.__voiceHandshake.acknowledgedVoice = message.session?.voice || null
-            window.__voiceHandshake.sessionEvidence.push({ keys: Object.keys(message), sessionKeys: Object.keys(message.session || {}), voice: message.session?.voice || null, outputVoice: message.session?.audio?.output?.voice || null, topVoice: message.voice || null })
+            window.__voiceHandshake.sessionEvidence.push({ keys: Object.keys(message), sessionKeys: Object.keys(message.session || {}), audioKeys: Object.keys(message.session?.audio || {}), outputKeys: Object.keys(message.session?.audio?.output || {}), voice: message.session?.voice || null, outputVoice: message.session?.audio?.output?.voice || null, topVoice: message.voice || null })
           }
           if (message.type === 'error') window.__voiceHandshake.providerErrors.push({ code: message.error?.code, message: message.error?.message })
           if (window.__voiceHandshake.forcePending && (message.type === 'response.output_audio.delta' || message.type === 'response.audio.delta')) window.__voiceHandshake.forceAudioBytes += Math.floor(String(message.delta || '').length * 3 / 4)
@@ -50,7 +51,10 @@ await page.addInitScript(({ persona }) => {
     send(data) {
       try {
         const event = JSON.parse(data)
-        if (event.type === 'session.update') window.__voiceHandshake.requestedVoice = event.session?.voice || null
+        if (event.type === 'session.update') {
+          window.__voiceHandshake.requestedVoice = event.session?.voice || null
+          window.__voiceHandshake.pendingUpdates.push(event.session?.voice || null)
+        }
       } catch {}
       return super.send(data)
     }
@@ -65,12 +69,16 @@ try {
   if (verifyForceMessage) await page.getByTestId('lab-call-mute').click()
   await page.waitForFunction(expected => {
     const evidence = window.__voiceHandshake
-    return evidence?.requestedVoice === expected && evidence.sessionUpdated === true && evidence.acknowledgedVoice === expected
+    return evidence?.requestedVoice === expected && evidence.sessionUpdated === true && evidence.acknowledgedRequestVoice === expected
   }, expectedVoice, { timeout: 30_000 })
-  Object.assign(report, await page.evaluate(() => ({ requestedVoice: window.__voiceHandshake.requestedVoice, sessionUpdated: window.__voiceHandshake.sessionUpdated, acknowledgedVoice: window.__voiceHandshake.acknowledgedVoice })))
+  Object.assign(report, await page.evaluate(() => ({ requestedVoice: window.__voiceHandshake.requestedVoice, sessionUpdated: window.__voiceHandshake.sessionUpdated, acknowledgedVoice: window.__voiceHandshake.acknowledgedVoice, acknowledgedRequestVoice: window.__voiceHandshake.acknowledgedRequestVoice, sessionEvidence: window.__voiceHandshake.sessionEvidence, providerErrors: window.__voiceHandshake.providerErrors })))
   assert.equal(report.requestedVoice, expectedVoice)
   assert.equal(report.sessionUpdated, true)
-  assert.equal(report.acknowledgedVoice, expectedVoice)
+  assert.equal(report.acknowledgedRequestVoice, expectedVoice)
+  // xAI acknowledges the update but currently omits voice from its response.
+  // Require an exact match whenever it does echo a voice; never invent an echo.
+  if (report.acknowledgedVoice !== null) assert.equal(report.acknowledgedVoice, expectedVoice)
+  assert.deepEqual(report.providerErrors, [])
   if (verifyForceMessage) {
     await page.evaluate(line => {
       const evidence = window.__voiceHandshake
@@ -97,6 +105,7 @@ try {
     requestedVoice: window.__voiceHandshake?.requestedVoice,
     sessionUpdated: window.__voiceHandshake?.sessionUpdated,
     acknowledgedVoice: window.__voiceHandshake?.acknowledgedVoice,
+    acknowledgedRequestVoice: window.__voiceHandshake?.acknowledgedRequestVoice,
     sessionEvidence: window.__voiceHandshake?.sessionEvidence,
     providerErrors: window.__voiceHandshake?.providerErrors,
   })).catch(() => ({})))
