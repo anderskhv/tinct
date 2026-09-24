@@ -27,7 +27,7 @@ async function boot(page, scenario) {
     if (sessionStorage.getItem('qa:shakespeare')) return
     sessionStorage.setItem('qa:shakespeare', '1')
     const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, shakespeareLayout: s.layout, theme: s.theme || 'book' }
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareOpen: true, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
   await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
@@ -62,7 +62,9 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       try {
         await boot(page, scenario)
         if (scenario.compare) {
-          await page.getByTestId('lab-phone-compare').click({force:true})
+          await page.getByTestId('lab-super').click()
+          await page.getByTestId('lab-super-row-editions').click()
+          await page.getByTestId('lab-v2-show-compare').click()
           await page.waitForFunction(edition => {
             const root=document.querySelector('[data-testid="lab-root"]')
             return root?.dataset.compareActive==='true' && root.dataset.readerEdition===edition
