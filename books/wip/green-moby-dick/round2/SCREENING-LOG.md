@@ -20,3 +20,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b119 | all 25 (119.23 Mene Tekel gloss accurate; 123.0 "kept slack" matches source reasoning) | — | "Gallipagos" 127.20 handled in decision-7 sweep |
 | b67 | all 11 (69.5 Cock-Lane hoax 1762, 71.17 headsman, 73.31 darbies, 73.41 baleen, 67.1 stages — glosses accurate) | — | 67.1 restructure flagged for careful re-verification |
 | b133 | 13 of 14 | 134.10 rejected | source prints "guilt and guiltiness" — Melville's own wording; 133.17 larger rewrite flagged for clause-by-clause re-verification |
+| b16 | 8 of 9 | 16.24 rejected | fidelity fix already restored the source echo ("lost by a whale" / "Lost by a whale!"); fid and acc ran concurrently, no other overlap |

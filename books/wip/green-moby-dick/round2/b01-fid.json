@@ -1,0 +1,217 @@
+{
+ "batch": "b01",
+ "role": "fidelity",
+ "chapters": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "reviewed": [
+  "1.0",
+  "1.1",
+  "1.2",
+  "1.3",
+  "1.4",
+  "1.5",
+  "1.6",
+  "1.7",
+  "1.8",
+  "1.9",
+  "1.10",
+  "1.11",
+  "1.12",
+  "1.13",
+  "1.14",
+  "2.0",
+  "2.1",
+  "2.2",
+  "2.3",
+  "2.4",
+  "2.5",
+  "2.6",
+  "2.7",
+  "2.8",
+  "2.9",
+  "2.10",
+  "2.11",
+  "3.0",
+  "3.1",
+  "3.2",
+  "3.3",
+  "3.4",
+  "3.5",
+  "3.6",
+  "3.7",
+  "3.8",
+  "3.9",
+  "3.10",
+  "3.11",
+  "3.12",
+  "3.13",
+  "3.14",
+  "3.15",
+  "3.16",
+  "3.17",
+  "3.18",
+  "3.19",
+  "3.20",
+  "3.21",
+  "3.22",
+  "3.23",
+  "3.24",
+  "3.25",
+  "3.26",
+  "3.27",
+  "3.28",
+  "3.29",
+  "3.30",
+  "3.31",
+  "3.32",
+  "3.33",
+  "3.34",
+  "3.35",
+  "3.36",
+  "3.37",
+  "3.38",
+  "3.39",
+  "3.40",
+  "3.41",
+  "3.42",
+  "3.43",
+  "3.44",
+  "3.45",
+  "3.46",
+  "3.47",
+  "3.48",
+  "3.49",
+  "3.50",
+  "3.51",
+  "3.52",
+  "3.53",
+  "3.54",
+  "3.55",
+  "3.56",
+  "3.57",
+  "3.58",
+  "3.59",
+  "3.60",
+  "3.61",
+  "3.62",
+  "3.63",
+  "3.64",
+  "3.65",
+  "3.66",
+  "3.67",
+  "3.68",
+  "3.69",
+  "3.70",
+  "3.71",
+  "3.72",
+  "3.73",
+  "4.0",
+  "4.1",
+  "4.2",
+  "4.3",
+  "4.4",
+  "4.5",
+  "4.6",
+  "5.0",
+  "5.1",
+  "5.2",
+  "5.3",
+  "5.4",
+  "5.5",
+  "5.6",
+  "5.7",
+  "5.8"
+ ],
+ "items": [
+  {
+   "id": "1.2",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source \"thousands upon thousands of mortal men fixed in ocean reveries\" became \"people lost in ocean reveries\": \"mortal men\" (the solemn register that sets up \"the ungraspable phantom of life\") and \"fixed\" (they stand transfixed) are flattened.",
+   "new": "Walk around the city on a dreamy Sunday afternoon. Go from Corlears Hook to Coenties Slip and then north by way of Whitehall. What do you see? Standing like silent sentinels all around the town are thousands upon thousands of mortal men fixed in ocean reveries. Some lean against the pilings; some sit on the pier heads; some gaze over the sides of ships from China; some perch high in the rigging, trying to get an even better view of the sea. But these are all landlocked people — weekdays they're penned up in plaster and wood, chained to counters, nailed to benches, clamped to desks. What's going on? Have all the green fields vanished? What are they doing here?"
+  },
+  {
+   "id": "1.6",
+   "severity": "non-blocking",
+   "category": [
+    "omission",
+    "voice"
+   ],
+   "reason": "Kept paragraph still loses three touches: \"you must needs have a purse, and a purse is but a rag unless you have something in it\" became \"Passengers need money, and a wallet...\" (the purse of 1.0 lost); \"though I confess there is considerable glory in that\" lost \"I confess\" and \"glory\"; \"the idolatrous dotings of the old Egyptians upon broiled ibis\" became plain \"worship\", losing the mock-pious joke.",
+   "new": "Now, when I say I go to sea whenever my eyes grow hazy and I become too aware of my own breathing, don't imagine I ever go as a passenger. To go as a passenger you need a purse, and a purse is just a rag unless there's something in it. Besides, passengers get seasick, grow quarrelsome, don't sleep at night, and generally don't enjoy themselves much. No, I never go as a passenger; nor, though I know my way around a ship, do I ever go as a Commodore, Captain, or Cook. I leave the glory of such positions to those who want them. I personally despise all honorable, respectable labor, trials, and tribulations. I have quite enough to do just looking after myself without looking after ships, barques, brigs, and schooners. And as for going as cook — though I confess there's considerable glory in that, a cook being a sort of officer on board — I never much liked the idea of broiling chickens. Though once broiled, properly buttered, judiciously salted and peppered, there's no one who speaks of a broiled chicken with more respect — even reverence — than I do. It's because of the ancient Egyptians' idolatrous doting on broiled ibis and roasted hippopotamus that you find mummies of those creatures in their enormous bake-houses, the pyramids."
+  },
+  {
+   "id": "3.9",
+   "severity": "blocking",
+   "category": [
+    "hedge",
+    "voice"
+   ],
+   "reason": "Source \"but he didn't make much headway, I thought\" is Ishmael's opinion and a nautical pun (a carved ship under full sail making no headway). Candidate \"he wasn't making much progress\" drops \"I thought\" (opinion stated as fact) and the pun.",
+   "new": "I sat down on an old wooden bench carved all over like a seat on the Battery. At one end, a ruminative sailor was further decorating it with his jackknife, stooping over and working diligently at the space between his knees. He was attempting a ship under full sail, but he wasn't making much headway, I thought."
+  },
+  {
+   "id": "3.22",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source \"the room seeming almost supernaturally quiet after these orgies\" (the sailors' wild revels) became \"after the commotion\", which loses the comic overstatement.",
+   "new": "It was now about nine o'clock. The room felt almost supernaturally quiet after all that carousing, and I began congratulating myself on a little plan that had occurred to me just before the sailors arrived."
+  },
+  {
+   "id": "3.37",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source \"I'm not green\" sets up the landlord's reply \"you'll be done brown\" (3.38): green/brown color joke. \"I wasn't born yesterday\" breaks the pairing; \"green\" (naive) is still current English.",
+   "new": "\"Look here, landlord,\" I said, quite calmly, \"you'd better stop spinning that yarn to me. I'm not green.\""
+  },
+  {
+   "id": "3.59",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source \"exhibiting strong symptoms of concluding his business operations\" keeps the running joke of the head-peddler as a businessman; \"finishing up\" drops it.",
+   "new": "All these strange doings made me increasingly uncomfortable. Seeing that he was now showing every sign of concluding his business operations and jumping into bed with me, I decided it was high time — now or never, before the light went out — to break the spell I'd been under."
+  },
+  {
+   "id": "4.6",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "Source \"his great pilot monkey jacket\": \"monkey\" dropped. The monkey jacket recurs (3.10, 3.52, 5.2).",
+   "new": "The rest of his grooming was quickly finished, and he marched proudly out of the room wrapped in his great pilot monkey jacket, carrying his harpoon like a marshal's baton."
+  },
+  {
+   "id": "5.0",
+   "severity": "non-blocking",
+   "category": [
+    "meaning",
+    "omission"
+   ],
+   "reason": "Source \"accosted the grinning landlord very pleasantly\" became \"pleasantly enough\", which implies a grudging greeting and cuts against \"I cherished no malice\". \"he had been skylarking with me not a little\" lost \"not a little\".",
+   "new": "I quickly followed suit and went down to the bar room, greeting the grinning landlord very pleasantly. I bore him no grudge, though he had played more than a few pranks on me in the matter of my bedfellow."
+  },
+  {
+   "id": "5.7",
+   "severity": "non-blocking",
+   "category": [
+    "voice",
+    "technical"
+   ],
+   "reason": "Source irony runs \"I cannot say much for his breeding ... to do anything coolly is to do it genteelly\". The candidate turns \"breeding\" into \"table manners\" and \"genteelly\" into \"with style\", which loses the breeding/genteel irony. It also drops \"cordially\" and \"certainly\", and turns \"grappling the beefsteaks towards him\" (hooking and dragging) into \"spearing\".",
+   "new": "But Queequeg sat among them — at the head of the table, as it happened — cool as an icicle. To be sure, I can't say much for his breeding. His greatest admirer couldn't have heartily justified his bringing the harpoon to breakfast and using it without ceremony — reaching across the table with it, endangering many heads, and hooking the beefsteaks toward himself. But that he certainly did very coolly, and everyone knows that in most people's estimation, to do anything coolly is to do it genteelly."
+  }
+ ]
+}
