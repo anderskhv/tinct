@@ -164,6 +164,9 @@ The pilot's Problema I and II are the model for register and density.
 | det Uendelige / Uendelighed | **the infinite** / **infinity** | |
 | det Timelige / Timelighed | **the temporal** / **temporality** | |
 | Umulighed / umulig | **impossibility** / **impossible** | |
+| Virkelighed (the concept) | **actuality** | e.g. "incommensurable with actuality". The idiom "i Virkeligheden" (in real life, in fact) may be rendered idiomatically. The adverb *virkelig* is "really". Ruling of 2026-09-24. |
+| Realitet | **reality** | "ideality into reality"; "the reality of his deed" (pilot). In n4.21a both occur: "the whole reality of actuality". |
+| fatte / gribe | **comprehend**, **understand** / **grasp**, **seize** | *gribe* is the grasp of faith and resignation. Keep *fatte* apart from it. |
 | Skjulthed; skjult | **concealment**; **concealed**, **hidden** | The Problema III pair. Keep it opposed to "disclosure". |
 | Aabenbarelse; aabenbare (vb) | **disclosure**; **disclose** | Never "revelation", which is reserved for any Danish *Aabenbaring* (divine revelation). |
 | Taushed; tie | **silence**; **keep silent**, **be silent** | Problema III's title uses *fortiede*: "keep silent about … to". |

@@ -91,3 +91,23 @@ Kept, with reasons:
 1. ¶12 *Samvidne* rendering.
 2. "The demonic" appears bare at ¶12, before its ¶18 definition point.
 3. ¶0/¶1 definition wording for concealment and disclosure: I tried to keep them short and grounded in the Danish.
+
+---
+
+## Revision r1 (after R1 fidelity review, 2026-09-24)
+
+- The pre-revision draft is saved at `drafts/history/F-ch7.r0.json`. The full table of decisions is in `reviews/R1-applied-F.md`.
+- **MAJOR F-0.1 applied.** The concealment gloss at ¶0 is now "his state of being hidden". "Closed up within himself" is removed, because that is the demonic's self-enclosure vocabulary, and Problema III keeps the demonic distinct from concealment.
+- **All 29 itemized MINOR findings applied.** The main changes:
+  - **Connectives:** *men* (¶1) and *Paa den anden Side* (¶9) restored, and *men … ogsaa* restored in ¶10.
+  - **Term consistency:** *ansvarlig* is "responsible", *det Aabenbare* is "what is disclosed" (¶0, ¶12), *saligere* is "more blessed" and *høflig* is "polite".
+  - **Greek:** the second pair in ¶3 is now in Greek script.
+  - **¶0:** the "what lies open to all" pre-gloss is removed.
+  - **¶2:** the interesting is now glossed "what stands at a crisis, where things hang in the balance".
+  - **¶12:** *Samvidne* is now "co-witnessing".
+  - **n7.15a:** the "not only … not only … but" period is restored.
+- **Supersedes the earlier "demonic" flag.** Editorial decision: "the demonic" gets no gloss anywhere in the book. It stays bare at ¶12, its first occurrence, and part G drops its ¶18 gloss.
+- **Screen after r1:** `TOTAL words 3500; in shared 8-word runs 23.0%; in runs>=12 8.1%; in runs>=16 0.7%`. The same three forced runs remain (¶6, ¶12, ¶14).
+  - The reviewer's wording for F-10.2 produced a new 17-word run.
+  - I re-rendered it from the Danish as "to use every art she has".
+- Main text is now 3,190 words, and the footnotes 368 words.
