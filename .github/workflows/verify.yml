@@ -42,6 +42,13 @@ jobs:
           CI: true
       - run: npm run verify-bundle
         id: bundle_gate
+      - name: Reject the competing Workers Builds path
+        run: |
+          if WORKERS_CI=1 npm run build > /tmp/tinct-workers-build-guard.log 2>&1; then
+            echo '::error::Workers Builds unexpectedly produced a competing build'
+            exit 1
+          fi
+          grep -F 'Tinct production builds run through GitHub Actions only' /tmp/tinct-workers-build-guard.log
       - name: Install silent browser acceptance
         run: npx playwright install --with-deps chromium webkit
       - name: Verify real Grok microphone recovery silently
