@@ -7362,7 +7362,7 @@
 }
 .lab[data-chrome-version="v2"] .lab-chapter-preview:hover > span { background: var(--lab-surface); }
 .lab[data-chrome-version="v2"] .lab-chapter-preview:disabled { opacity: .5; cursor: wait; }
-.lab .lab-passage-header[hidden], .lab .lab-chapter-end[hidden] { display: none; }
+.lab[data-chrome-version="v2"] .lab-passage-header[hidden], .lab[data-chrome-version="v2"] .lab-chapter-end[hidden] { display: none; }
 .lab[data-chrome-version="v2"] .lab-chapter-end {
   padding: 0; margin: 16px 0 0; color: var(--lab-ink-muted); user-select: none;
   border: 0; border-radius: 0; background: transparent;
