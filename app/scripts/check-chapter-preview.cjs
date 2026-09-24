@@ -67,11 +67,11 @@ for(const config of configs){
   await p.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
   await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
   await p.evaluate(()=>document.fonts.ready);await pause(1000)
-  const preview=p.locator('.lab-page-wrap .lab-chapter-preview')
+  const preview=p.locator('.lab-page-wrap > .lab-passage .lab-chapter-preview')
   if(!await preview.isVisible()&&await p.getByTestId('lab-chapter-cover').count()){await p.keyboard.press('ArrowRight');await pause(500)}
   await preview.waitFor({state:'visible'})
   assert.equal(Number(await p.locator('.lab').evaluate(n=>getComputedStyle(n).getPropertyValue('--lab-font-size'))),config.fontSize,'Requested large-font fixture applies')
-  if(config.longTitle)assert.match(await p.locator('.lab-page-wrap .lab-passage-headline').innerText(),/every nation/)
+  if(config.longTitle)assert.match(await p.locator('.lab-page-wrap > .lab-passage .lab-passage-headline').innerText(),/every nation/)
   assert.ok(await p.locator('.lab-page-wrap [data-highlight-id="preview-preserve"]').count(),'Existing highlight is painted')
   const before=await state(p)
   assert.equal(before.chapter,String(config.chapter))
