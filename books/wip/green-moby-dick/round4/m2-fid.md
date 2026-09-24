@@ -1,0 +1,83 @@
+# Round 4 fidelity review — batch m2 (75 paragraphs, chs 45–64)
+
+Independent source-based review of the round-4 modernization renderings. Each paragraph was read clause by clause against source.json. Names, footnote asterisks, period terms, the Town-Ho quote convention and accepted glosses were checked against the pre-round-4 candidate (afe35c6f4).
+
+- 45.23: CLEAN
+- 46.5: CLEAN
+- 47.2: CHANGE (non-blocking; hedge, voice): Source hedge 'the same sound was that very moment perhaps being heard' is strengthened to 'may well have been ringing out'; restore the plain 'perhaps'. Also restore the repetition in 'weaving and weaving away', which the modern rendering flattened to 'weaving away'.
+- 47.13: CLEAN
+- 48.39: CLEAN
+- 48.40: CLEAN
+- 48.47: CLEAN
+- 48.49: CLEAN
+- 48.50: CLEAN
+- 49.7: CLEAN
+- 50.3: CLEAN
+- 50.6: CLEAN
+- 52.1: CLEAN
+- 52.7: CLEAN
+- 53.8: CHANGE (non-blocking; meaning): Source: the steering oar is 'hitting him now and then in the small of his back'; 'keeps knocking him' makes it continuous. Restore the intermittence.
+- 54.3: CLEAN
+- 54.4: CLEAN
+- 54.11: CLEAN
+- 54.23: CLEAN
+- 54.34: CLEAN
+- 54.40: CLEAN
+- 54.66: CLEAN
+- 54.78: CLEAN
+- 54.79: CHANGE (non-blocking; invention): Source says only 'just between daybreak and sunrise'; 'the gray gap between' adds an image Melville does not use.
+- 54.89: CLEAN
+- 54.97: CLEAN
+- 54.101: CLEAN
+- 54.110: CLEAN
+- 55.0: CLEAN
+- 55.1: CHANGE (non-blocking; hedge, technical): Source hedge 'It may be that the primal source ... will be found' is firmed to 'may well lie'; restore a plain 'may'. Source says the dolphin 'was drawn' on temple panels, pedestals, shields, medallions, cups and coins; 'carved' narrows the medium, which does not fit painted cups or struck coins. Use a neutral verb.
+- 55.4: CLEAN
+- 55.5: CLEAN
+- 55.6: CLEAN
+- 55.7: CLEAN
+- 55.9: CLEAN
+- 55.10: CLEAN
+- 55.12: CLEAN
+- 55.13: CLEAN
+- 56.4: CLEAN
+- 56.5: CLEAN
+- 56.6: CLEAN
+- 56.7: CLEAN
+- 56.8: CLEAN
+- 57.1: CLEAN
+- 57.3: CLEAN
+- 57.6: CLEAN
+- 57.8: CLEAN
+- 57.10: CLEAN
+- 57.11: CLEAN
+- 58.2: CLEAN
+- 58.5: CLEAN
+- 58.6: CHANGE (non-blocking; invention): Source: 'the sea to be an everlasting terra incognita, so that Columbus sailed over numberless unknown worlds'. The consequence follows from the sea being unknown, not from its size; 'so vast that' adds a claim. Keep the plain consequence.
+- 58.9: CLEAN
+- 59.3: CLEAN
+- 59.4: CLEAN
+- 59.5: CLEAN
+- 59.10: CLEAN
+- 60.6: CLEAN
+- 60.9: CLEAN
+- 61.0: CLEAN
+- 61.3: CLEAN
+- 61.4: CLEAN
+- 61.5: CLEAN
+- 61.7: CLEAN
+- 61.19: CLEAN
+- 62.2: CLEAN
+- 62.3: CLEAN
+- 62.4: CLEAN
+- 63.0: CHANGE (non-blocking; meaning): Source: 'So, in productive subjects, grow the chapters.' The analogy has chapters branching within a productive subject, as branches from a trunk and twigs from branches. 'chapters grow out of productive subjects' narrows it to one level of growth. Keep Melville's 'in'.
+- 63.3: CLEAN
+- 64.0: CLEAN
+- 64.1: CLEAN
+- 64.2: CLEAN
+- 64.7: CLEAN
+- 64.8: CLEAN
+
+## Verdict
+
+PASS with 6 non-blocking fixes (47.2, 53.8, 54.79, 55.1, 58.6, 63.0). No blocking issues: no omissions, inventions of substance, technical errors or softened period language. Every paragraph is now genuinely modern English; none remains near-verbatim 1851. Footnote asterisks (54.3, 58.2, 64.2), names as printed, period terms (savage, Indian, red men, Ethiopian, slave) and the Town-Ho quote convention are intact. Open questions: none.

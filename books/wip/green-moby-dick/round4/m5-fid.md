@@ -1,0 +1,121 @@
+# m5 fidelity review (round 4)
+
+Source-based, clause-by-clause review of all 105 listed paragraphs (113.17-136.2) against source.json and the current candidate.json. Conventions scan (curly quotes, underscores, unspaced dashes, archaic pronouns, "harpooneer") found nothing.
+
+- 113.17 CLEAN
+- 113.19 CLEAN
+- 113.21 CLEAN
+- 113.23 CLEAN
+- 113.26 CLEAN
+- 114.0 CLEAN
+- 114.2 CLEAN
+- 114.5 CLEAN
+- 114.6 CLEAN
+- 114.9 CLEAN
+- 115.0 CLEAN
+- 115.1 CLEAN
+- 115.3 CLEAN
+- 115.4 CLEAN
+- 115.5 CLEAN
+- 115.13 CLEAN
+- 116.0 CLEAN
+- 116.6 CLEAN
+- 117.4 CLEAN
+- 117.14 CLEAN
+- 118.0 CLEAN
+- 118.4 CLEAN
+- 118.6 CLEAN
+- 119.8 CLEAN
+- 119.14 CLEAN
+- 119.21 CLEAN
+- 119.24 CLEAN
+- 119.25 CLEAN
+- 119.29 CLEAN
+- 119.31 CLEAN
+- 119.33 CLEAN
+- 119.36 CLEAN
+- 119.37 CLEAN
+- 119.38 CLEAN
+- 120.1 CLEAN
+- 120.6 CLEAN
+- 121.1 CLEAN
+- 121.4 CLEAN
+- 122.1 CLEAN (KEEP is right: already plain modern speech)
+- 123.10 CLEAN
+- 123.11 CLEAN
+- 124.0 CLEAN
+- 124.1 CLEAN
+- 124.3 CLEAN
+- 124.6 CLEAN
+- 124.9 CLEAN
+- 124.11 CLEAN
+- 124.13 CLEAN
+- 124.16 CLEAN
+- 124.17 CLEAN
+- 124.19 CLEAN
+- 124.20 CLEAN
+- 125.3 CLEAN
+- 125.4 CLEAN
+- 125.5 CLEAN
+- 125.13 CLEAN
+- 125.16 CLEAN
+- 125.17 CLEAN
+- 125.18 CLEAN
+- 125.26 CLEAN
+- 126.1 CLEAN
+- 126.2 CLEAN
+- 126.3 CLEAN
+- 126.4 CLEAN
+- 126.6 CLEAN
+- 126.7 CLEAN
+- 126.12 CLEAN
+- 126.16 CLEAN
+- 126.18 CLEAN
+- 127.0 CLEAN
+- 127.8 CLEAN
+- 127.12 CLEAN
+- 127.22 CLEAN
+- 128.18 CLEAN
+- 129.4 CLEAN
+- 130.12 CLEAN
+- 130.13 CLEAN
+- 131.3 CLEAN
+- 131.10 CLEAN
+- 132.0 CLEAN
+- 132.1 CLEAN
+- 132.3 CLEAN
+- 132.4 CLEAN
+- 132.6 CLEAN
+- 132.7 CLEAN
+- 132.13 CLEAN
+- 132.14 CLEAN
+- 132.15 CLEAN
+- 132.16 CLEAN
+- 132.18 CLEAN
+- 133.10 CLEAN (KEEP is right: already plain modern speech)
+- 133.14 CHANGE (non-blocking, invention): "hideous motion" became "hideous twitching"; restore "movement".
+- 133.18 CLEAN
+- 133.20 CLEAN
+- 133.31 CLEAN
+- 133.40 CLEAN
+- 133.41 CLEAN (crux answered below; no change required)
+- 133.50 CLEAN
+- 134.32 CLEAN
+- 135.0 CLEAN
+- 135.11 CLEAN
+- 135.25 CLEAN
+- 135.58 CLEAN
+- 135.61 CLEAN
+- 136.2 CLEAN
+
+## Checks carried
+- Period terms intact: "negroes" 115.4, "negro" 119.24; "pagan harpooners" 126.1; "cannibal old me" 132.13.
+- Verbatim scripture intact at 128.18. Corpusants/St. Elmo gloss at 119.21 and Line/equator gloss at 118.0 are intact.
+- Technical terms are exact: seizings, tow-line, windlass, try-pots, poke, crotch, lee lift, strike, trucks, log/reel/spindle, man-rope, pay over with pitch, Turk's-head life-lines, line-tubs, eye-splice, sounded, flukes, scuttle.
+- Wordplay and voice survive (Man/unmanned, "dare so much as to dare", snow-caps, "Cruppered with a coffin", Stubb's tail-coat gutters). Nothing is still essentially 1851 English.
+
+## Open question 133.41 "not vainly"
+Best reading: "not in vain", meaning Stubb's attempt worked. Evidence: (1) every other "vainly" in the source means "in vain" (16.55, 64.54, 81.24, 110.0, 133.25). (2) The next paragraph, 133.42, confirms it: Ahab says "did I not know thee brave as fearless fire", so Stubb did keep his valiant place in the Captain's mind, even while Ahab rebukes the laugh. The "out of vanity" reading is possible ("though" could be heading off a charge of vanity), but it has no support elsewhere in the text. The current "though not vainly" is literal, and a modern reader takes "vainly" as "in vain", so it already carries the better reading. No change is required. If the lead wants it explicit, a minimal edit is "perhaps meaning — and not in vain — to show".
+
+## Verdict
+PASS. There are no blocking items. One optional non-blocking fix (133.14).

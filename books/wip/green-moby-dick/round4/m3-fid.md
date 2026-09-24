@@ -1,0 +1,106 @@
+# m3 fidelity review (round 4): 64.11–91.49
+
+Independent source-based review of all 96 listed paragraphs (95 re-rendered + 64.49 KEEP), clause by clause against source.json and the current candidate.
+
+- 64.11: CLEAN
+- 64.13: CLEAN
+- 64.49: CLEAN
+- 64.51: CLEAN
+- 64.55: CLEAN
+- 65.0: CLEAN
+- 65.1: CLEAN
+- 65.5: CLEAN
+- 65.6: CLEAN
+- 66.2: CHANGE (non-blocking, voice) — Source 'kept up an incessant murdering of the sharks,*' is softened to 'slaughter'. 'Murder' is the running word of chs 65-66 ('newly murdered thing', 'murdered an ox', 'murderous jaw'); keep it.
+- 67.2: CLEAN
+- 68.0: CLEAN
+- 68.1: CLEAN
+- 68.6: CLEAN
+- 68.7: CLEAN
+- 69.2: CLEAN
+- 69.4: CLEAN
+- 69.5: CLEAN
+- 70.4: CLEAN
+- 71.0: CLEAN
+- 71.1: CLEAN
+- 71.14: CLEAN
+- 71.17: CLEAN
+- 71.18: CLEAN
+- 71.21: CLEAN
+- 71.28: CLEAN
+- 72.1: CLEAN
+- 72.2: CLEAN
+- 72.4: CLEAN
+- 72.5: CLEAN
+- 72.6: CLEAN
+- 72.7: CLEAN
+- 72.8: CLEAN
+- 72.19: CLEAN
+- 73.1: CLEAN
+- 73.3: CLEAN
+- 73.5: CLEAN
+- 73.6: CLEAN
+- 73.7: CLEAN
+- 73.11: CLEAN
+- 73.23: CLEAN
+- 73.31: CHANGE (blocking, omission) — Source 'all the people the devil kidnapped, he'd roast for him' — 'for him' dropped, losing that the governor roasts them on the devil's behalf (the point of the bond).
+- 73.33: CLEAN
+- 73.41: CLEAN
+- 74.1: CLEAN
+- 74.8: CLEAN
+- 74.11: CLEAN
+- 74.13: CLEAN
+- 75.0: CLEAN
+- 75.2: CLEAN
+- 75.5: CLEAN
+- 75.7: CLEAN
+- 75.8: CLEAN
+- 75.9: CLEAN
+- 75.10: CLEAN
+- 77.4: CLEAN
+- 78.11: CLEAN
+- 79.2: CLEAN
+- 79.5: CLEAN
+- 80.0: CLEAN
+- 80.2: CLEAN
+- 80.3: CLEAN
+- 80.5: CLEAN
+- 80.6: CLEAN
+- 81.1: CLEAN
+- 83.0: CLEAN
+- 83.3: CLEAN
+- 85.7: CLEAN
+- 85.11: CLEAN
+- 86.13: CLEAN
+- 87.1: CLEAN
+- 87.25: CLEAN
+- 88.3: CLEAN
+- 89.2: CLEAN
+- 89.9: CLEAN
+- 89.10: CLEAN
+- 89.14: CLEAN
+- 89.15: CLEAN
+- 89.16: CLEAN
+- 90.1: CLEAN
+- 90.12: CLEAN
+- 90.16: CLEAN
+- 90.17: CLEAN
+- 90.18: CLEAN
+- 90.20: CLEAN
+- 91.1: CLEAN
+- 91.4: CLEAN
+- 91.18: CLEAN
+- 91.19: CLEAN
+- 91.26: CLEAN
+- 91.29: CLEAN
+- 91.31: CLEAN
+- 91.37: CLEAN
+- 91.46: CLEAN
+- 91.47: CLEAN
+- 91.49: CLEAN
+
+## Verdict
+
+PASS after 1 blocking + 1 non-blocking fix. 94/96 CLEAN. No inventions, hedge changes or technical errors found; no rendering remains essentially 1851 English (64.49 KEEP is already plain modern dialogue).
+Restorations intact: period terms (black, Ebony, savage, cannibal, Orientals, infidel), footnote asterisks at 66.2, 72.4, 75.5, 86.13, 87.25; names as printed (Heidelburgh Tun, Plowdon, Champollion, Bartholomew Diaz, Sir William Jones); Fejee→Fijian and Guernsey-man→Guernseyman per decision 7; harpooneer→harpooner; 'day of judgment' echo in 65.5. Glosses checked accurate: Cock-Lane (1762 hoax), headsman, double-darbies, baleen, Propontis/Sea of Marmara, the Line/equator, crim. con./adultery suit, waifing.
+Minor tolerated nuance (no change): 68.6 'blood fluid' → 'blood flowing'; 72.5 'massacre'/'jamming jeopardy' → 'slaughter'/'crushing danger'; 90.16 adds 'kindly' to the Duke's 'decline meddling'. No open cruxes.
