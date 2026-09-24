@@ -1,0 +1,72 @@
+name: Verify accepted WEB Revelation release
+on:
+  pull_request:
+    branches: [main]
+    paths: ['app/scripts/prepare-web-revelation-release.py', 'app/src/services/characters/webRevelationRelease.test.ts', 'app/public/data/editions/bible-web-en.json', 'app/public/data/characters/bible.v1.json', '.github/workflows/verify-web-revelation.yml']
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  accepted-content:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/prepare-web-revelation-release.py --verify
+      - run: npx vitest run src/services/characters/webRevelationRelease.test.ts
+      - run: npm run build
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check versioned text and character links in the built reader
+        env:
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/web-revelation-release
+        run: node scripts/check-web-revelation.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-revelation-release-acceptance
+          path: app/artifacts/web-revelation-release
+  production-content:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify accepted production text and cards
+        env:
+          TEST_ORIGIN: https://tinct.app
+          ARTIFACT_DIR: artifacts/web-revelation-production
+        run: node scripts/check-web-revelation.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-revelation-production-acceptance
+          path: app/artifacts/web-revelation-production
