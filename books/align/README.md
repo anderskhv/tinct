@@ -23,49 +23,28 @@ show the passage equivalent to the whole main page (start and end).
 2. Model pass (Claude Code helper agent, subscription, one at a time) resolves
    only the review file into `overrides/{bookId}.json`.
 3. Re-run step 1: overrides are merged and structurally validated.
-4. Human spot-check of samples from BOTH auto-accepted and model-resolved
-   paragraphs. The validator checks structure only, not meaning.
+4. Review report (`review_report.py`) samples auto-accepted (random and
+   hardest), model-corrected, and unresolved segments. Checks so far are
+   model review, not human verification. The validator checks structure
+   only, not meaning.
 
-## Draft data contract — `data/{bookId}-align.json`
+## Data contract (format version 1)
 
-```json
-{
-  "bookId": "hamlet",
-  "version": 1,
-  "source": "original-en",
-  "target": "modern-en",
-  "sourceSha256": "<sha256 of served source edition file>",
-  "targetSha256": "<sha256 of served target edition file>",
-  "minWords": 100,
-  "chapters": { "3": { "5": [[0,0],[1,1],[14,11],[41,33]] } }
-}
-```
+Defined in [`HANDOFF-codex.md`](HANDOFF-codex.md#data-contract-format-version-1):
+edition IDs, sha256 fingerprints of both complete edition files, stable
+locations (chapter number + 0-based paragraph index), whitespace-word offsets,
+segment kinds `m`/`u`/`s`/`t`, per-paragraph review status, and
+`approved: null` until a person signs a book off. Consumers ignore files that
+are unapproved or whose fingerprints don't match the served editions.
 
-- Location: `chapters[<chapter.number>][<paragraph index, 0-based>]`.
-- Each pair `[sourceWord, targetWord]` is where a corresponding segment begins in
-  each edition. A segment runs to the next pair (or paragraph end).
-- **Offset convention:** word index = position in a plain whitespace split
-  (`text.split()` / `/\S+/g`) of the served paragraph string. Same space as
-  the app's `tokenizeHearingWords` (underscore-emphasis stripping never changes
-  token count — `app/src/lab/labEmphasis.tsx`).
-- Invariants: first pair `[0,0]`; both columns strictly increasing; indices in
-  range. Paragraphs absent from `chapters` fall back to today's mapping.
-- **Staleness:** if either edition file's sha256 differs from the recorded
-  value, the whole file is ignored (fall back) until regenerated. An editorial
-  correction therefore degrades to today's behaviour, never to wrong matches.
-  (Open question: per-paragraph hashes instead, so one repair doesn't disable a
-  whole book.)
+First-pass data is always marked: paragraphs are `auto` / `auto-flagged`, the
+file is `reviewState: "first-pass"` while any unreviewed paragraph remains.
+Weak first-pass spots become `u`; nothing is forced into a match.
 
-### Open questions before generating at scale
-
-- **Unresolved / one-sided material.** Proposed: optional
-  `"gaps": {"<ch>": {"<p>": [["s", from, to], ["t", from, to]]}}` marking
-  source- or target-only spans (omitted or added material) so the reader shows
-  them as context rather than forcing a pair. Not yet emitted.
-- **Finer boundaries in verse drama.** Use speaker labels and verse-line
-  offsets (`app/public/data/editions/{bookId}-lines.json`) as extra candidate
-  boundaries, since Shakespeare sentences can span many lines.
-- Per-paragraph hashes vs whole-file hash (above).
+Files: `build_alignment.py` (first pass, merge, validate),
+`test_build_alignment.py`, `review_report.py` (review samples),
+`HELPER_PROMPT.md` (model pass instructions), `overrides/` (model/human
+reviews), `data/` (outputs), `review/` (reports).
 
 ## Pilot results (2026-09-24)
 
