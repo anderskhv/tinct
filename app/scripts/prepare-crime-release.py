@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Prepare accepted Crime text using the independently reviewed exact-span ledger."""
-import argparse, copy, csv, importlib.util, io, json, re, urllib.request
+import argparse, copy, csv, importlib.util, io, json, re, subprocess, urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location("prepare",Path(__file__).with_name("prepare-reviewed-editions.py"))
@@ -170,5 +170,15 @@ if args.verify:
  assert json.loads(report.read_bytes())==receipt
 else:
  target.write_bytes(after);cardpath.write_bytes(out);canonical_card.write_bytes(out);service.write_text(service_text)
+ subprocess.run(["node","scripts/split-edition-chapters.cjs","crime-and-punishment-modern-en"],cwd=ROOT/"app",check=True)
  report.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"candidate":AFTER,"retained":len(mapped),"dropped":len(drops),"anchors":len(anchors)},indent=2))
+
+shards=ROOT/"app/public/data/editions-chapters/crime-and-punishment-modern-en"
+manifest=json.loads((shards/"manifest.json").read_bytes())
+assert len(manifest["chapters"])==41
+assert manifest.get("sections")==b.get("sections")
+for entry,ch in zip(manifest["chapters"],b["chapters"],strict=True):
+ assert entry["number"]==ch["number"] and entry["title"]==ch["title"] and entry["paragraphCount"]==len(ch["paragraphs"])
+ assert json.loads((shards/entry["path"]).read_bytes())==ch
+print("Verified all 41 modern English chapter shards against accepted full-book bytes")

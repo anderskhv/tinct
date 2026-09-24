@@ -1,0 +1,25 @@
+name: Prepare reviewed Crime release
+on:
+  push:
+    branches: [codex/crime-reviewed-release-20260924]
+    paths: ['app/scripts/prepare-crime-release.py', '.github/workflows/prepare-crime.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/crime-reviewed-release-20260924
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - run: python3 app/scripts/prepare-crime-release.py
+      - name: Commit prepared assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/public/data/editions/crime-and-punishment-modern-en.json app/public/data/editions-chapters/crime-and-punishment-modern-en app/public/data/characters/crime-and-punishment.v1.json books/characters/crime-and-punishment/characters.v1.json app/src/services/characters/characterCards.ts books/wip/crime-release-20260924-report.json
+          git diff --cached --quiet || git commit -m "Regenerate Crime chapter files from exact accepted text"
+          git push origin HEAD:codex/crime-reviewed-release-20260924
