@@ -70,3 +70,22 @@ Frederiksberg, the woods (*Skoven*, i.e. Dyrehaven, not named), the Sound, the S
 1. The ¶13 definition of infinite resignation is phrased as "the movement by which one gives up the finite and finds one's peace in the eternal". Check that it harmonizes with how ¶11 ("the infinite movement") was drafted by part C.
 2. ¶16, "a small, incongruous fragment of a signal … from the infinite" renders *lille uensartet Brøks-Telegraphering*. Check whether it is too free; the Danish is a strange coinage ("a fractional telegraphing").
 3. The donkey/ass consistency, and "latterlige Menneskeracer", as flagged above.
+
+---
+
+## Round 1 revisions (after `reviews/R1-fidelity-D.md`)
+
+The pre-edit draft is saved as `drafts/D-ch4.r0.json`. All 21 findings were applied; see `reviews/R1-applied-D.md`. The following replace the decisions recorded above.
+
+- **¶17, *umulig*:** now "impossible … impossible", matching *Umulighed* ("an impossibility") later in the paragraph.
+  - The n4.21a anchor is now "…impossible for it to be translated out of ideality into reality."
+  - *Forholdet* is now "the relationship".
+- ***salig*:** now "blessed" everywhere in part D:
+  - ¶12 "blessed in the world beyond … blessed with happiness here in this world" (this keeps the *salig/lyksalig* echo);
+  - ¶16 "a pastime not without its blessedness";
+  - ¶17 "a blessed rapture".
+- **¶15, philistine gloss:** now reads "philistinism, the outlook of the philistine — the narrow, comfortable townsman."
+- **¶16, *Borgermand*:** now "solid citizen", so it no longer collides with the philistine gloss.
+- ***Træl*:** now "slave" in both ¶15 and ¶17.
+- **Stand-alone *troede*:** now "had faith" in ¶12 as well ("Abraham had faith."), consistent with the policy above.
+- **Screen after revision:** "TOTAL words 3395; in shared 8-word runs 20.8%; in runs>=12 5.6%; in runs>=16 0.0%". No runs of 14 or more words.
