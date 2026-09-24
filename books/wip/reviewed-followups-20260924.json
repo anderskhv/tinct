@@ -1,0 +1,45 @@
+{
+  "sourceRef": "c6f3f0ed5f508de9946cd65146754ea909c6b9d0",
+  "revision": "2026-09-24.1",
+  "scope": "Independently accepted narrow Prince/Caesar/Jekyll corrections. Exact reviewed candidates; no new identity mappings, editions, source changes or audio generation.",
+  "allowReviewedAliasChanges": false,
+  "books": [
+    {
+      "id": "the-prince",
+      "before": "fbdf701292f34f01d5c0af0aad55975853de0157a3260ad3ebde164cfb7d1589",
+      "accepted": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "chapters": 27,
+      "paragraphs": 254,
+      "changed": 29,
+      "sourceDirectory": "books/wip/review-codex-content-followup/reviewed/the-prince",
+      "baselineFile": "baseline.json",
+      "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
+      "changesFile": "changes.json"
+    },
+    {
+      "id": "julius-caesar",
+      "before": "be475cf9c2b8ed2b85be22d8a1f8cb9bb1a89332e31bf390e1272323c02f52b9",
+      "accepted": "95a3e5b7516276f703bd77fb42992c6d76f27894619e1d7f147c290170baa952",
+      "chapters": 18,
+      "paragraphs": 997,
+      "changed": 2,
+      "sourceDirectory": "books/wip/review-codex-content-followup/reviewed/julius-caesar",
+      "baselineFile": "baseline.json",
+      "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
+      "changesFile": "changes.json"
+    },
+    {
+      "id": "jekyll-and-hyde",
+      "before": "f2cf24e93c77b354a9fa617d3440b6daaa09acd36e6fdb1df236469ac570a5ae",
+      "accepted": "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b",
+      "chapters": 10,
+      "paragraphs": 339,
+      "changed": 1,
+      "sourceDirectory": "books/wip/review-codex-content-followup/reviewed/jekyll-and-hyde",
+      "baselineFile": "baseline.json",
+      "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
+      "changesFile": "changes.json",
+      "evidenceBaselineRef": "1ed77f4ca1c1399edb056a29e9a8cc7d295e5565"
+    }
+  ]
+}

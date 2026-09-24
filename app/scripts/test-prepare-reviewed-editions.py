@@ -109,6 +109,23 @@ class ReanchorTests(unittest.TestCase):
         span = module.approved_mapping_span("Let your ruling part decide.", target, mention, [mapping])
         self.assertEqual(span, (target.rindex("ruling faculty"), target.rindex("ruling faculty") + 14, "ruling faculty"))
 
+    def test_historical_evidence_repair_uses_pinned_coordinates_and_rejects_replay(self):
+        old, historical = fixture("😀 Antony spoke at considerable length.", "Antony")
+        snapshot = historical["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        end = module.utf16("😀 Antony spoke at considerable length.")
+        snapshot["availableAt"]["offset"] = end
+        snapshot["evidence"] = [{"chapterNumber": 1, "paragraphIndex": 0, "throughOffset": end}]
+        new, _ = fixture("😀 Antony spoke.", "Antony")
+        current, _ = module.reanchor(historical, old, new, "current")
+        current_snapshot = current["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        current_snapshot["evidence"] = [dict(snapshot["evidence"][0])]
+        repaired, report = module.repair_legacy_evidence(current, historical, old, new)
+        self.assertEqual(repaired["editions"]["modern-en"]["characters"][0]["snapshots"][0]["evidence"][0]["throughOffset"], module.utf16("😀 Antony spoke."))
+        self.assertEqual(len(report), 1)
+        self.assertEqual(current_snapshot["evidence"][0]["throughOffset"], end)
+        with self.assertRaisesRegex(ValueError, "already changed"):
+            module.repair_legacy_evidence(repaired, historical, old, new)
+
     def test_corrupt_previous_source_fails_closed(self):
         old, asset = fixture("Antony spoke.", "Antony")
         with self.assertRaisesRegex(ValueError, "previous edition"):

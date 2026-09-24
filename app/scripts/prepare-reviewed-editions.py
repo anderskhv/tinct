@@ -157,7 +157,7 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
         approved = approved_mapping_span(a, b, mention, approved_mappings)
         if approved is not None:
             projected_start, projected_end, value = approved
-            relocated.append({**mention, "newText": value, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "explicit accepted identity mapping; same occurrence count"})
+            relocated.append({**mention, "newText": value, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "explicit accepted identity mapping; verified occurrence selection"})
         if projected_end <= projected_start:
             dropped.append({**mention, "reason": "source span removed"})
             continue
@@ -184,6 +184,38 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
     return result, {"retainedMentions": len(mentions), "droppedMentions": dropped, "relocatedExactNames": relocated}
 
 
+def repair_legacy_evidence(asset, historical_asset, historical_raw, current_raw):
+    """Repair evidence omitted by the old publisher, with pinned historical proof."""
+    previous = historical_asset["editions"]["modern-en"]
+    if previous["sourceSha256"] != digest(historical_raw):
+        raise ValueError("Historical evidence source does not match its card")
+    old, current = paragraphs(json.loads(historical_raw)), paragraphs(json.loads(current_raw))
+    if old.keys() != current.keys() or any(len(old[k]) != len(current[k]) for k in old):
+        raise ValueError("Historical evidence structure changed")
+    result = copy.deepcopy(asset)
+    repairs = []
+    for character, was in zip(result["editions"]["modern-en"]["characters"], previous["characters"], strict=True):
+        if character["id"] != was["id"]:
+            raise ValueError("Historical character identity differs")
+        for snapshot, prior in zip(character["snapshots"], was["snapshots"], strict=True):
+            if snapshot.get("evidence", []) != prior.get("evidence", []):
+                raise ValueError("Evidence already changed; refuse to repair twice")
+            at = prior["availableAt"]
+            a, b = old[str(at["chapterNumber"])][at["paragraphIndex"]], current[str(at["chapterNumber"])][at["paragraphIndex"]]
+            if snapshot["availableAt"] != {**at, "offset": project(a, b, at["offset"])}:
+                raise ValueError("Current reveal boundary does not match historical projection")
+            for evidence in snapshot.get("evidence", []):
+                if "throughOffset" not in evidence:
+                    continue
+                a = old[str(evidence["chapterNumber"])][evidence["paragraphIndex"]]
+                b = current[str(evidence["chapterNumber"])][evidence["paragraphIndex"]]
+                offset = project(a, b, evidence["throughOffset"])
+                if offset != evidence["throughOffset"]:
+                    repairs.append({"characterId": character["id"], **evidence, "newThroughOffset": offset})
+                    evidence["throughOffset"] = offset
+    return result, repairs
+
+
 def prepare(root=ROOT, config_path=CONFIG):
     config_path = Path(config_path)
     if not config_path.is_absolute():
@@ -201,7 +233,8 @@ def prepare(root=ROOT, config_path=CONFIG):
         before_raw = target.read_bytes()
         if digest(before_raw) != item["before"]:
             raise ValueError(f"{book}: live source moved; review before replacing")
-        url = f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/books/wip/green-{book}/candidate.json"
+        base = item.get("sourceDirectory", f"books/wip/green-{book}")
+        url = f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/{base}/candidate.json"
         request = urllib.request.Request(url, headers={"User-Agent": "Tinct-release-preflight"})
         accepted_raw = urllib.request.urlopen(request, timeout=30).read()
         if digest(accepted_raw) != item["accepted"]:
@@ -222,7 +255,22 @@ def prepare(root=ROOT, config_path=CONFIG):
             raise ValueError(f"{book}: changed paragraph set differs from handoff")
         asset_path = root / f"app/public/data/characters/{book}.v1.json"
         old_asset = json.loads(asset_path.read_bytes())
+        legacy_repairs = []
+        if item.get("evidenceBaselineRef"):
+            historical_ref = item["evidenceBaselineRef"]
+            if not re.fullmatch(r"[0-9a-f]{40}", historical_ref):
+                raise ValueError("Immutable historical evidence ref required")
+            def historical(path):
+                request = urllib.request.Request(f"https://raw.githubusercontent.com/anderskhv/tinct/{historical_ref}/{path}", headers={"User-Agent": "Tinct-release-preflight"})
+                return urllib.request.urlopen(request, timeout=30).read()
+            old_asset, legacy_repairs = repair_legacy_evidence(
+                old_asset,
+                json.loads(historical(f"app/public/data/characters/{book}.v1.json")),
+                historical(f"app/public/data/editions/{book}-modern-en.json"),
+                before_raw,
+            )
         asset, report = reanchor(old_asset, before_raw, accepted_raw, config["revision"], config.get("allowReviewedAliasChanges", True), item.get("approvedMentionMappings", []))
+        report["historicalEvidenceRepairs"] = legacy_repairs
         if config.get("reviewEvidence"):
             def evidence(name):
                 request = urllib.request.Request(f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/books/wip/green-{book}/{name}", headers={"User-Agent": "Tinct-release-preflight"})

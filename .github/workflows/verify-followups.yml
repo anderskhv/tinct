@@ -1,0 +1,87 @@
+name: Verify accepted followups release
+on:
+  pull_request:
+    branches: [main]
+    paths: ['books/wip/reviewed-followups-20260924*', 'app/scripts/verify-reviewed-release.py', 'app/scripts/check-reviewed-characters.cjs', 'app/public/data/editions/the-prince-modern-en.json', 'app/public/data/characters/the-prince.v1.json', 'app/public/data/editions/julius-caesar-modern-en.json', 'app/public/data/characters/julius-caesar.v1.json', 'app/public/data/editions/jekyll-and-hyde-modern-en.json', 'app/public/data/characters/jekyll-and-hyde.v1.json', '.github/workflows/verify-followups.yml']
+  push:
+    branches: [main]
+    paths: ['app/public/data/editions/the-prince-modern-en.json', 'app/public/data/characters/the-prince.v1.json', 'app/public/data/editions/julius-caesar-modern-en.json', 'app/public/data/characters/julius-caesar.v1.json', 'app/public/data/editions/jekyll-and-hyde-modern-en.json', 'app/public/data/characters/jekyll-and-hyde.v1.json']
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  accepted-content:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/test-prepare-reviewed-editions.py
+      - run: python3 scripts/verify-reviewed-release.py --config books/wip/reviewed-followups-20260924.json --baseline b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec
+      - run: python3 ../books/test-classify-modern-en.py
+      - run: |
+          python3 ../books/classify-modern-en.py the-prince --gate
+          python3 ../books/classify-modern-en.py julius-caesar --gate
+          python3 ../books/classify-modern-en.py jekyll-and-hyde
+          python3 scripts/check-jekyll-narrow-similarity.py
+      - run: npm run build
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check versioned text and character links in the built reader
+        env:
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/followups-release
+        run: |
+          for book in the-prince julius-caesar jekyll-and-hyde; do
+            TEST_BOOK="$book" ARTIFACT_DIR="$ARTIFACT_DIR/$book" node scripts/check-reviewed-characters.cjs
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: followups-release-acceptance
+          path: app/artifacts/followups-release
+  production-content:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify accepted production text and cards
+        env:
+          TEST_ORIGIN: https://tinct.app
+          ARTIFACT_DIR: artifacts/followups-production
+        run: |
+          for book in the-prince julius-caesar jekyll-and-hyde; do
+            TEST_BOOK="$book" ARTIFACT_DIR="$ARTIFACT_DIR/$book" node scripts/check-reviewed-characters.cjs
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: followups-production-acceptance
+          path: app/artifacts/followups-production
