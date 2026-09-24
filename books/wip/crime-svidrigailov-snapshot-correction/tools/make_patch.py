@@ -52,8 +52,8 @@ S3_EVIDENCE = [(16, 73), (17, 49), (22, 31), (22, 34)]
 S3_BASIS = ("Deferred from svidrigailov-1 by the 2026-09-24 correction; the original first-encounter text without \"Wealthy\", "
             "which the text never establishes. Marfa Petrovna's death (so his widowhood) is established at 16.73; the rumor "
             "that he caused it (\"They say he beat her dreadfully\") at 17.49, which also supports the dark-reputation subtitle; "
-            "the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first meets him there "
-            "at 20.68). Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported.")
+            "the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first sees him there "
+            "at 20.62 and learns his name at 20.68). Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported.")
 EDITIONS = {"original-en": "source.json", "modern-en": "baseline-live-modern-en.json"}
 
 

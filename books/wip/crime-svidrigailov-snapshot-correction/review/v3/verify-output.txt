@@ -1,0 +1,254 @@
+sha PATCH.json          f8cc73efde1bc76305b5f390c780b4c52d9c19226f62f2fc6bf4b97fe056a945
+sha PATCH-staged        cf4be5a332738d0d0a04554f309713c4d14bb9ffe82478809d81c4bc68f7d2c6
+ok   baseline card sha 2125526c
+ok   staged card sha b4e2217d
+ok   baseline card round-trips byte-for-byte under the serialization
+ok   staged card round-trips byte-for-byte under the serialization
+ok   PATCH.json baselineSha256 = baseline
+ok   PATCH-staged baselineSha256 = staged card
+ok   PATCH.json minus {baseline, baselineInput, editionInputs} serializes to 323e2f5c (ops/coords unchanged)
+changed paths (A):
+    editions/original-en/characters/#svidrigailov/snapshots/<ids svidrigailov-1 -> svidrigailov-1,svidrigailov-2,svidrigailov-3>
+    editions/original-en/characters/#svidrigailov/snapshots/#svidrigailov-1/subtitle
+    editions/original-en/characters/#svidrigailov/snapshots/#svidrigailov-1/body
+    editions/modern-en/characters/#svidrigailov/snapshots/<ids svidrigailov-1 -> svidrigailov-1,svidrigailov-2,svidrigailov-3>
+    editions/modern-en/characters/#svidrigailov/snapshots/#svidrigailov-1/subtitle
+    editions/modern-en/characters/#svidrigailov/snapshots/#svidrigailov-1/body
+ok   A: only declared fields change (2 replaces + 2 inserts per edition)
+patched sha (A)         9c50ea4c2edd372daed83c24db0b9e2c9914e5972d71923a0e5bc20562ff7205
+ok   A: patched sha = author 9c50ea4c
+ok   B: only declared fields change (2 replaces + 2 inserts per edition)
+patched sha (B)         4a840fffe7f4fdd83a90fee767900938661d7f1098d63437ad8627c3bbdf6bec
+ok   B: patched sha = author 4a840fff
+ok   A==B op original-en replace subtitle
+ok   A==B op original-en replace body
+ok   A==B op original-en insert-after svidrigailov-2
+ok   A==B op original-en insert-after svidrigailov-3
+ok   A==B op modern-en replace subtitle
+ok   A==B op modern-en replace body
+ok   B modern-en svidrigailov-2 coords == PATCH.json candidateCoordinates
+ok   B modern-en svidrigailov-2 wording/name/basis identical to A
+ok   B modern-en svidrigailov-3 coords == PATCH.json candidateCoordinates
+ok   B modern-en svidrigailov-3 wording/name/basis identical to A
+ok   8 operations each
+ok   A original-en: one display name across snapshots {'Svidrigaïlov'}
+ok   A modern-en: one display name across snapshots {'Svidrigailov'}
+ok   B original-en: one display name across snapshots {'Svidrigaïlov'}
+ok   B modern-en: one display name across snapshots {'Svidrigailov'}
+ok   A original-en: paragraphHash 3.38 matches original-en
+ok   A original-en: paragraphHash 16.73 matches original-en
+ok   A original-en: paragraphHash 17.49 matches original-en
+ok   A original-en: paragraphHash 22.31 matches original-en
+ok   A original-en: paragraphHash 22.34 matches original-en
+ok   A original-en: firstMention (3, 38, 2855) = end of earliest bound mention 'Svidrigaïlov'
+ok   A original-en: earliest mention span text matches source
+ok   A original-en svidrigailov-1: availableAt (3, 38, 2855) within paragraph (len 15515)
+ok   A original-en svidrigailov-1: availableAt not before firstMention
+ok   A original-en svidrigailov-1: evidence (3, 38, 2855) not after availableAt
+ok   A original-en svidrigailov-1: evidence (3, 38, 2855) within paragraph (len 15515)
+ok   A original-en svidrigailov-2: availableAt (3, 38, 15515) within paragraph (len 15515)
+ok   A original-en svidrigailov-2: availableAt not before firstMention
+ok   A original-en svidrigailov-2: strictly after previous snapshot
+ok   A original-en svidrigailov-2: evidence (3, 38, 15515) not after availableAt
+ok   A original-en svidrigailov-2: evidence (3, 38, 15515) within paragraph (len 15515)
+ok   A original-en svidrigailov-2: evidence (3, 38, 15515) is paragraph end
+ok   A original-en svidrigailov-2: availableAt is paragraph end (15515)
+ok   A original-en svidrigailov-3: availableAt (22, 34, 87) within paragraph (len 87)
+ok   A original-en svidrigailov-3: availableAt not before firstMention
+ok   A original-en svidrigailov-3: strictly after previous snapshot
+ok   A original-en svidrigailov-3: evidence (16, 73, 317) not after availableAt
+ok   A original-en svidrigailov-3: evidence (16, 73, 317) within paragraph (len 317)
+ok   A original-en svidrigailov-3: evidence (16, 73, 317) is paragraph end
+ok   A original-en svidrigailov-3: evidence (17, 49, 265) not after availableAt
+ok   A original-en svidrigailov-3: evidence (17, 49, 265) within paragraph (len 265)
+ok   A original-en svidrigailov-3: evidence (17, 49, 265) is paragraph end
+ok   A original-en svidrigailov-3: evidence (22, 31, 266) not after availableAt
+ok   A original-en svidrigailov-3: evidence (22, 31, 266) within paragraph (len 266)
+ok   A original-en svidrigailov-3: evidence (22, 31, 266) is paragraph end
+ok   A original-en svidrigailov-3: evidence (22, 34, 87) not after availableAt
+ok   A original-en svidrigailov-3: evidence (22, 34, 87) within paragraph (len 87)
+ok   A original-en svidrigailov-3: evidence (22, 34, 87) is paragraph end
+ok   A original-en svidrigailov-3: availableAt is paragraph end (87)
+  A original-en (original-en)  before first mention (3.38 @fm-1)  (3, 38, 2854)      -> (no card)
+  A original-en (original-en)  first mention (3.38 @fm)           (3, 38, 2855)      -> svidrigailov-1
+  A original-en (original-en)  one unit before end of 3.38        (3, 38, 15514)     -> svidrigailov-1
+  A original-en (original-en)  end of 3.38                        (3, 38, 15515)     -> svidrigailov-2
+  A original-en (original-en)  start of 3.39                      (3, 39, 0)         -> svidrigailov-2
+  A original-en (original-en)  16.73 end                          (16, 73, 317)      -> svidrigailov-2
+  A original-en (original-en)  17.49 end                          (17, 49, 265)      -> svidrigailov-2
+  A original-en (original-en)  21.2 end                           (21, 2, 82)        -> svidrigailov-2
+  A original-en (original-en)  22.2 end                           (22, 2, 565)       -> svidrigailov-2
+  A original-en (original-en)  one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-2
+  A original-en (original-en)  end of 22.34                       (22, 34, 87)       -> svidrigailov-3
+  A original-en (original-en)  22.35 start                        (22, 35, 0)        -> svidrigailov-3
+  A original-en (original-en)  41.7 end                           (41, 7, 264)       -> svidrigailov-3
+ok   A modern-en: paragraphHash 3.38 matches modern-en
+ok   A modern-en: paragraphHash 16.73 matches modern-en
+ok   A modern-en: paragraphHash 17.49 matches modern-en
+ok   A modern-en: paragraphHash 22.31 matches modern-en
+ok   A modern-en: paragraphHash 22.34 matches modern-en
+ok   A modern-en: firstMention (3, 38, 2530) = end of earliest bound mention 'Svidrigailov'
+ok   A modern-en: earliest mention span text matches source
+ok   A modern-en svidrigailov-1: availableAt (3, 38, 2530) within paragraph (len 13544)
+ok   A modern-en svidrigailov-1: availableAt not before firstMention
+ok   A modern-en svidrigailov-1: evidence (3, 38, 2530) not after availableAt
+ok   A modern-en svidrigailov-1: evidence (3, 38, 2530) within paragraph (len 13544)
+ok   A modern-en svidrigailov-2: availableAt (3, 38, 13544) within paragraph (len 13544)
+ok   A modern-en svidrigailov-2: availableAt not before firstMention
+ok   A modern-en svidrigailov-2: strictly after previous snapshot
+ok   A modern-en svidrigailov-2: evidence (3, 38, 13544) not after availableAt
+ok   A modern-en svidrigailov-2: evidence (3, 38, 13544) within paragraph (len 13544)
+ok   A modern-en svidrigailov-2: evidence (3, 38, 13544) is paragraph end
+ok   A modern-en svidrigailov-2: availableAt is paragraph end (13544)
+ok   A modern-en svidrigailov-3: availableAt (22, 34, 87) within paragraph (len 87)
+ok   A modern-en svidrigailov-3: availableAt not before firstMention
+ok   A modern-en svidrigailov-3: strictly after previous snapshot
+ok   A modern-en svidrigailov-3: evidence (16, 73, 314) not after availableAt
+ok   A modern-en svidrigailov-3: evidence (16, 73, 314) within paragraph (len 314)
+ok   A modern-en svidrigailov-3: evidence (16, 73, 314) is paragraph end
+ok   A modern-en svidrigailov-3: evidence (17, 49, 264) not after availableAt
+ok   A modern-en svidrigailov-3: evidence (17, 49, 264) within paragraph (len 264)
+ok   A modern-en svidrigailov-3: evidence (17, 49, 264) is paragraph end
+ok   A modern-en svidrigailov-3: evidence (22, 31, 237) not after availableAt
+ok   A modern-en svidrigailov-3: evidence (22, 31, 237) within paragraph (len 237)
+ok   A modern-en svidrigailov-3: evidence (22, 31, 237) is paragraph end
+ok   A modern-en svidrigailov-3: evidence (22, 34, 87) not after availableAt
+ok   A modern-en svidrigailov-3: evidence (22, 34, 87) within paragraph (len 87)
+ok   A modern-en svidrigailov-3: evidence (22, 34, 87) is paragraph end
+ok   A modern-en svidrigailov-3: availableAt is paragraph end (87)
+  A modern-en (modern-en)      before first mention (3.38 @fm-1)  (3, 38, 2529)      -> (no card)
+  A modern-en (modern-en)      first mention (3.38 @fm)           (3, 38, 2530)      -> svidrigailov-1
+  A modern-en (modern-en)      one unit before end of 3.38        (3, 38, 13543)     -> svidrigailov-1
+  A modern-en (modern-en)      end of 3.38                        (3, 38, 13544)     -> svidrigailov-2
+  A modern-en (modern-en)      start of 3.39                      (3, 39, 0)         -> svidrigailov-2
+  A modern-en (modern-en)      16.73 end                          (16, 73, 314)      -> svidrigailov-2
+  A modern-en (modern-en)      17.49 end                          (17, 49, 264)      -> svidrigailov-2
+  A modern-en (modern-en)      21.2 end                           (21, 2, 79)        -> svidrigailov-2
+  A modern-en (modern-en)      22.2 end                           (22, 2, 550)       -> svidrigailov-2
+  A modern-en (modern-en)      one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-2
+  A modern-en (modern-en)      end of 22.34                       (22, 34, 87)       -> svidrigailov-3
+  A modern-en (modern-en)      22.35 start                        (22, 35, 0)        -> svidrigailov-3
+  A modern-en (modern-en)      41.7 end                           (41, 7, 267)       -> svidrigailov-3
+ok   B original-en: paragraphHash 3.38 matches original-en
+ok   B original-en: paragraphHash 16.73 matches original-en
+ok   B original-en: paragraphHash 17.49 matches original-en
+ok   B original-en: paragraphHash 22.31 matches original-en
+ok   B original-en: paragraphHash 22.34 matches original-en
+ok   B original-en: firstMention (3, 38, 2855) = end of earliest bound mention 'Svidrigaïlov'
+ok   B original-en: earliest mention span text matches source
+ok   B original-en svidrigailov-1: availableAt (3, 38, 2855) within paragraph (len 15515)
+ok   B original-en svidrigailov-1: availableAt not before firstMention
+ok   B original-en svidrigailov-1: evidence (3, 38, 2855) not after availableAt
+ok   B original-en svidrigailov-1: evidence (3, 38, 2855) within paragraph (len 15515)
+ok   B original-en svidrigailov-2: availableAt (3, 38, 15515) within paragraph (len 15515)
+ok   B original-en svidrigailov-2: availableAt not before firstMention
+ok   B original-en svidrigailov-2: strictly after previous snapshot
+ok   B original-en svidrigailov-2: evidence (3, 38, 15515) not after availableAt
+ok   B original-en svidrigailov-2: evidence (3, 38, 15515) within paragraph (len 15515)
+ok   B original-en svidrigailov-2: evidence (3, 38, 15515) is paragraph end
+ok   B original-en svidrigailov-2: availableAt is paragraph end (15515)
+ok   B original-en svidrigailov-3: availableAt (22, 34, 87) within paragraph (len 87)
+ok   B original-en svidrigailov-3: availableAt not before firstMention
+ok   B original-en svidrigailov-3: strictly after previous snapshot
+ok   B original-en svidrigailov-3: evidence (16, 73, 317) not after availableAt
+ok   B original-en svidrigailov-3: evidence (16, 73, 317) within paragraph (len 317)
+ok   B original-en svidrigailov-3: evidence (16, 73, 317) is paragraph end
+ok   B original-en svidrigailov-3: evidence (17, 49, 265) not after availableAt
+ok   B original-en svidrigailov-3: evidence (17, 49, 265) within paragraph (len 265)
+ok   B original-en svidrigailov-3: evidence (17, 49, 265) is paragraph end
+ok   B original-en svidrigailov-3: evidence (22, 31, 266) not after availableAt
+ok   B original-en svidrigailov-3: evidence (22, 31, 266) within paragraph (len 266)
+ok   B original-en svidrigailov-3: evidence (22, 31, 266) is paragraph end
+ok   B original-en svidrigailov-3: evidence (22, 34, 87) not after availableAt
+ok   B original-en svidrigailov-3: evidence (22, 34, 87) within paragraph (len 87)
+ok   B original-en svidrigailov-3: evidence (22, 34, 87) is paragraph end
+ok   B original-en svidrigailov-3: availableAt is paragraph end (87)
+  B original-en (original-en)  before first mention (3.38 @fm-1)  (3, 38, 2854)      -> (no card)
+  B original-en (original-en)  first mention (3.38 @fm)           (3, 38, 2855)      -> svidrigailov-1
+  B original-en (original-en)  one unit before end of 3.38        (3, 38, 15514)     -> svidrigailov-1
+  B original-en (original-en)  end of 3.38                        (3, 38, 15515)     -> svidrigailov-2
+  B original-en (original-en)  start of 3.39                      (3, 39, 0)         -> svidrigailov-2
+  B original-en (original-en)  16.73 end                          (16, 73, 317)      -> svidrigailov-2
+  B original-en (original-en)  17.49 end                          (17, 49, 265)      -> svidrigailov-2
+  B original-en (original-en)  21.2 end                           (21, 2, 82)        -> svidrigailov-2
+  B original-en (original-en)  22.2 end                           (22, 2, 565)       -> svidrigailov-2
+  B original-en (original-en)  one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-2
+  B original-en (original-en)  end of 22.34                       (22, 34, 87)       -> svidrigailov-3
+  B original-en (original-en)  22.35 start                        (22, 35, 0)        -> svidrigailov-3
+  B original-en (original-en)  41.7 end                           (41, 7, 264)       -> svidrigailov-3
+ok   B modern-en: paragraphHash 3.38 matches candidate
+ok   B modern-en: paragraphHash 16.73 matches candidate
+ok   B modern-en: paragraphHash 17.49 matches candidate
+ok   B modern-en: paragraphHash 22.31 matches candidate
+ok   B modern-en: paragraphHash 22.34 matches candidate
+ok   B modern-en: firstMention (3, 38, 2536) = end of earliest bound mention 'Svidrigaïlov'
+ok   B modern-en: earliest mention span text matches source
+ok   B modern-en svidrigailov-1: availableAt (3, 38, 2536) within paragraph (len 13789)
+ok   B modern-en svidrigailov-1: availableAt not before firstMention
+ok   B modern-en svidrigailov-1: evidence (3, 38, 2536) not after availableAt
+ok   B modern-en svidrigailov-1: evidence (3, 38, 2536) within paragraph (len 13789)
+ok   B modern-en svidrigailov-2: availableAt (3, 38, 13789) within paragraph (len 13789)
+ok   B modern-en svidrigailov-2: availableAt not before firstMention
+ok   B modern-en svidrigailov-2: strictly after previous snapshot
+ok   B modern-en svidrigailov-2: evidence (3, 38, 13789) not after availableAt
+ok   B modern-en svidrigailov-2: evidence (3, 38, 13789) within paragraph (len 13789)
+ok   B modern-en svidrigailov-2: evidence (3, 38, 13789) is paragraph end
+ok   B modern-en svidrigailov-2: availableAt is paragraph end (13789)
+ok   B modern-en svidrigailov-3: availableAt (22, 34, 87) within paragraph (len 87)
+ok   B modern-en svidrigailov-3: availableAt not before firstMention
+ok   B modern-en svidrigailov-3: strictly after previous snapshot
+ok   B modern-en svidrigailov-3: evidence (16, 73, 312) not after availableAt
+ok   B modern-en svidrigailov-3: evidence (16, 73, 312) within paragraph (len 312)
+ok   B modern-en svidrigailov-3: evidence (16, 73, 312) is paragraph end
+ok   B modern-en svidrigailov-3: evidence (17, 49, 264) not after availableAt
+ok   B modern-en svidrigailov-3: evidence (17, 49, 264) within paragraph (len 264)
+ok   B modern-en svidrigailov-3: evidence (17, 49, 264) is paragraph end
+ok   B modern-en svidrigailov-3: evidence (22, 31, 237) not after availableAt
+ok   B modern-en svidrigailov-3: evidence (22, 31, 237) within paragraph (len 237)
+ok   B modern-en svidrigailov-3: evidence (22, 31, 237) is paragraph end
+ok   B modern-en svidrigailov-3: evidence (22, 34, 87) not after availableAt
+ok   B modern-en svidrigailov-3: evidence (22, 34, 87) within paragraph (len 87)
+ok   B modern-en svidrigailov-3: evidence (22, 34, 87) is paragraph end
+ok   B modern-en svidrigailov-3: availableAt is paragraph end (87)
+  B modern-en (candidate)      before first mention (3.38 @fm-1)  (3, 38, 2535)      -> (no card)
+  B modern-en (candidate)      first mention (3.38 @fm)           (3, 38, 2536)      -> svidrigailov-1
+  B modern-en (candidate)      one unit before end of 3.38        (3, 38, 13788)     -> svidrigailov-1
+  B modern-en (candidate)      end of 3.38                        (3, 38, 13789)     -> svidrigailov-2
+  B modern-en (candidate)      start of 3.39                      (3, 39, 0)         -> svidrigailov-2
+  B modern-en (candidate)      16.73 end                          (16, 73, 312)      -> svidrigailov-2
+  B modern-en (candidate)      17.49 end                          (17, 49, 264)      -> svidrigailov-2
+  B modern-en (candidate)      21.2 end                           (21, 2, 79)        -> svidrigailov-2
+  B modern-en (candidate)      22.2 end                           (22, 2, 561)       -> svidrigailov-2
+  B modern-en (candidate)      one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-2
+  B modern-en (candidate)      end of 22.34                       (22, 34, 87)       -> svidrigailov-3
+  B modern-en (candidate)      22.35 start                        (22, 35, 0)        -> svidrigailov-3
+  B modern-en (candidate)      41.7 end                           (41, 7, 267)       -> svidrigailov-3
+  baseline original-en         before first mention (3.38 @fm-1)  (3, 38, 2854)      -> (no card)
+  baseline original-en         first mention (3.38 @fm)           (3, 38, 2855)      -> svidrigailov-1
+  baseline original-en         one unit before end of 3.38        (3, 38, 15514)     -> svidrigailov-1
+  baseline original-en         end of 3.38                        (3, 38, 15515)     -> svidrigailov-1
+  baseline original-en         start of 3.39                      (3, 39, 0)         -> svidrigailov-1
+  baseline original-en         16.73 end                          (16, 73, 317)      -> svidrigailov-1
+  baseline original-en         17.49 end                          (17, 49, 265)      -> svidrigailov-1
+  baseline original-en         21.2 end                           (21, 2, 82)        -> svidrigailov-1
+  baseline original-en         22.2 end                           (22, 2, 565)       -> svidrigailov-1
+  baseline original-en         one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-1
+  baseline original-en         end of 22.34                       (22, 34, 87)       -> svidrigailov-1
+  baseline original-en         22.35 start                        (22, 35, 0)        -> svidrigailov-1
+  baseline original-en         41.7 end                           (41, 7, 264)       -> svidrigailov-1
+  baseline modern-en           before first mention (3.38 @fm-1)  (3, 38, 2529)      -> (no card)
+  baseline modern-en           first mention (3.38 @fm)           (3, 38, 2530)      -> svidrigailov-1
+  baseline modern-en           one unit before end of 3.38        (3, 38, 13543)     -> svidrigailov-1
+  baseline modern-en           end of 3.38                        (3, 38, 13544)     -> svidrigailov-1
+  baseline modern-en           start of 3.39                      (3, 39, 0)         -> svidrigailov-1
+  baseline modern-en           16.73 end                          (16, 73, 314)      -> svidrigailov-1
+  baseline modern-en           17.49 end                          (17, 49, 264)      -> svidrigailov-1
+  baseline modern-en           21.2 end                           (21, 2, 79)        -> svidrigailov-1
+  baseline modern-en           22.2 end                           (22, 2, 550)       -> svidrigailov-1
+  baseline modern-en           one unit before end of 22.34       (22, 34, 86)       -> svidrigailov-1
+  baseline modern-en           end of 22.34                       (22, 34, 87)       -> svidrigailov-1
+  baseline modern-en           22.35 start                        (22, 35, 0)        -> svidrigailov-1
+  baseline modern-en           41.7 end                           (41, 7, 267)       -> svidrigailov-1
+ok   A+candidateCoordinates snapshots 2-3 == B modern-en snapshots 2-3
+
+FAILURES: 0

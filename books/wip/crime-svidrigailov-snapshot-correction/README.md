@@ -60,8 +60,8 @@ There are two variants. Their wording and operations are the same; only the mode
 
 | Patch | Baseline card | Baseline sha256 | modern-en bound to | Patched sha256 |
 |---|---|---|---|---|
-| `PATCH.json` (`PATCH_MAIN_SHA`) | `main` (`1bd1bfb3`, still identical at `e1bf66a9`). Both card paths. | `2125526c56769e4f09be387f6d5dc2e974dc9aca7fb931115fb893da34706d98` | live `914bcdfa…` | `9c50ea4c2edd372daed83c24db0b9e2c9914e5972d71923a0e5bc20562ff7205` |
-| `PATCH-staged-01963b24.json` (`PATCH_STAGED_SHA`) | Codex staging branch `codex/crime-reviewed-release-20260924` @ `01963b24`, `app/public/data/characters/crime-and-punishment.v1.json` | `b4e2217deda2b92cf6f838782c0526ab24c1ddcde517e40cffed26779d296d70` | accepted candidate `18be4155…` | `4a840fffe7f4fdd83a90fee767900938661d7f1098d63437ad8627c3bbdf6bec` |
+| `PATCH.json` (`a3917171…`) | `main` (`1bd1bfb3`, still identical at `e1bf66a9`). Both card paths. | `2125526c56769e4f09be387f6d5dc2e974dc9aca7fb931115fb893da34706d98` | live `914bcdfa…` | `5e0a9ea5a121817b11f4667928bcc10cd60b25f27d9b2e209bc68f6d2ef12be4` |
+| `PATCH-staged-01963b24.json` (`c54f4596…`) | Codex staging branch `codex/crime-reviewed-release-20260924` @ `01963b24`, `app/public/data/characters/crime-and-punishment.v1.json` | `b4e2217deda2b92cf6f838782c0526ab24c1ddcde517e40cffed26779d296d70` | accepted candidate `18be4155…` | `0e695a1296eae579b3477faf3f56e0176476b0915f0a9bff47391b94ada54676` |
 
 - **Offsets** are paragraph-end UTF-16 lengths, normalized as `prose-reader-v1`. 22.34 ends at 87 in every text. The end of 3.38 differs by text: original-en 15515, live modern-en 13544, candidate 13789.
 - **`PATCH.json`** also carries `candidateCoordinates` for its two new snapshots.
@@ -87,11 +87,11 @@ ACCEPTANCE_SECTION
 1. **Fetch and verify the pinned inputs.** Run `git fetch origin claude/awesome-euler-pjc7jv main codex/crime-reviewed-release-20260924`, then `python3 books/wip/crime-svidrigailov-snapshot-correction/tools/verify_inputs.py`. It must print `ALL PINS OK`.
 2. **Choose the patch that matches the card you are releasing:**
    - **Crime release built on the staging branch** (expected):
-     - Run `python3 …/tools/apply_patch.py --patch PATCH-staged-01963b24.json --card app/public/data/characters/crime-and-punishment.v1.json --out <path>`. It must report `errors 0` and patched sha256 `4a840fff…`.
+     - Run `python3 …/tools/apply_patch.py --patch PATCH-staged-01963b24.json --card app/public/data/characters/crime-and-punishment.v1.json --out <path>`. It must report `errors 0` and patched sha256 `0e695a12…`.
      - Write the result to **both** card paths.
      - Your staged revision bump in `characterCards.ts` covers this, provided the release carries the patched card. Otherwise, bump again.
    - **Card-only release on `main`, before the Crime text:**
-     - Use `PATCH.json` in the same way (patched sha256 `9c50ea4c…`).
+     - Use `PATCH.json` in the same way (patched sha256 `5e0a9ea5…`).
      - Write the result to both paths.
      - Bump the `crime-and-punishment` revision from `2026-09-12.1`.
    - **If the staged card has changed since `01963b24`:** the applier will refuse it. Rebuild against the new card with `tools/make_patch.py`, keeping the same wording and the rule that each snapshot is anchored at a paragraph end of the text it is bound to.
@@ -102,6 +102,11 @@ ACCEPTANCE_SECTION
    - Check that the subtitle changes with snapshot 3.
 
 No GPU or TTS work, and no edition, audio or code change comes from this package.
+
+## Notes for the card owner (not changed here)
+
+- **Display-name spelling (already live).** The modern-en display name is "Svidrigailov". That matches most of the live modern-en (173 "Svidrigailov" and 38 "Svidrigaïlov"), but the accepted candidate uses "Svidrigaïlov" throughout (211 and 0). Once the candidate ships, the card name will differ in spelling from the text. The reviewer's note N6 described the live text as mostly "Svidrigaïlov"; this count corrects it. Display names are outside this package's scope.
+- **"as a governess" (optional).** Snapshots 2 and 3 say "worked in his household" without "as a governess". Snapshot 1 already establishes that she was a governess. The reviewer confirmed that adding "as a governess" back would stay supported at the same points. The wording is left as it is.
 
 ## Files
 
