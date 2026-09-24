@@ -13,3 +13,5 @@
 Independent witnesses used to adjudicate the front matter (evidence only; not ingested):
 - Project Gutenberg eBook #15 (1991): https://www.gutenberg.org/cache/epub/15/pg15.txt, sha256 `cca79713fb2eb809daa7da6538018a0190a57d661b59f3a2b68ce4e137bbf8fc`
 - Standard Ebooks (CC0), `standardebooks/herman-melville_moby-dick` at commit `013b51e2d9d6bb28b1d054bfc30beeeff4b85480`, files `src/epub/text/etymology.xhtml` and `extracts.xhtml` (copies in `books/wip/moby-dick-structural/evidence/`)
+
+PG #15 evidence excerpt: `evidence/pg15-frontmatter-excerpt.txt` = pg15.txt lines 214–869 (the whole front matter), sha256 `58742eae81d594b515501a2f44bfe43d3171da3011ff3c5a38033b8091bfc4e3`.
