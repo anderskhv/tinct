@@ -83,11 +83,30 @@ def unchanged_name_span(old, new, mention, name_ids):
     return None
 
 
+def approved_mapping_span(old, new, mention, mappings):
+    """Apply an explicitly accepted same-identity spelling mapping by occurrence."""
+    matches = [m for m in mappings if m["characterId"] == mention["characterId"] and m["from"] == mention["text"]]
+    if not matches:
+        return None
+    if len(matches) != 1:
+        raise ValueError("Duplicate approved mention mapping")
+    mapping = matches[0]
+    old_hits = list(re.finditer(r"(?<!\w)" + re.escape(mapping["from"]) + r"(?!\w)", old))
+    new_hits = list(re.finditer(r"(?<!\w)" + re.escape(mapping["to"]) + r"(?!\w)", new))
+    if len(old_hits) != len(new_hits):
+        return None
+    for index, hit in enumerate(old_hits):
+        if utf16(old[:hit.start()]) == mention["startOffset"] and utf16(old[:hit.end()]) == mention["endOffset"]:
+            target = new_hits[index]
+            return utf16(new[:target.start()]), utf16(new[:target.end()]), mapping["to"]
+    return None
+
+
 def paragraphs(edition):
     return {str(ch["number"]): [normalize(p) for p in ch["paragraphs"]] for ch in edition["chapters"]}
 
 
-def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True):
+def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True, approved_mappings=()):
     result = copy.deepcopy(asset)
     block = result["editions"]["modern-en"]
     if digest(before_raw) != block["sourceSha256"]:
@@ -129,13 +148,17 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
                 projected_start, projected_end = exact
                 value = mention["text"]
                 relocated.append({**mention, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "unchanged reviewed proper name; same occurrence count and unique character identity"})
+        approved = approved_mapping_span(a, b, mention, approved_mappings)
+        if approved is not None:
+            projected_start, projected_end, value = approved
+            relocated.append({**mention, "newText": value, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "explicit accepted identity mapping; same occurrence count"})
         if projected_end <= projected_start:
             dropped.append({**mention, "reason": "source span removed"})
             continue
-        if not allow_alias_changes and value != mention["text"]:
+        if not allow_alias_changes and value != mention["text"] and approved is None:
             dropped.append({**mention, "projectedText": value, "reason": "changed mention text lacks explicit mapping approval"})
             continue
-        if value not in aliases[mention["characterId"]]:
+        if value not in aliases[mention["characterId"]] and approved is None:
             dropped.append({**mention, "projectedText": value, "reason": "not a reviewed spelling for this figure"})
             continue
         mentions.append({**mention, "startOffset": projected_start, "endOffset": projected_end, "text": value})
@@ -144,6 +167,10 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
         character["roleVisibleAt"] = point(character["roleVisibleAt"])
         for snapshot in character["snapshots"]:
             snapshot["availableAt"] = point(snapshot["availableAt"])
+            for evidence in snapshot.get("evidence", []):
+                if "throughOffset" in evidence:
+                    a, b = texts(evidence)
+                    evidence["throughOffset"] = project(a, b, evidence["throughOffset"])
     block["mentions"] = mentions
     block["sourceSha256"] = digest(accepted_raw)
     block["paragraphHashes"] = {k: [digest(p) for p in values] for k, values in new.items()}
@@ -189,7 +216,7 @@ def prepare(root=ROOT, config_path=CONFIG):
             raise ValueError(f"{book}: changed paragraph set differs from handoff")
         asset_path = root / f"app/public/data/characters/{book}.v1.json"
         old_asset = json.loads(asset_path.read_bytes())
-        asset, report = reanchor(old_asset, before_raw, accepted_raw, config["revision"], config.get("allowReviewedAliasChanges", True))
+        asset, report = reanchor(old_asset, before_raw, accepted_raw, config["revision"], config.get("allowReviewedAliasChanges", True), item.get("approvedMentionMappings", []))
         if config.get("reviewEvidence"):
             def evidence(name):
                 request = urllib.request.Request(f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/books/wip/green-{book}/{name}", headers={"User-Agent": "Tinct-release-preflight"})
