@@ -17,6 +17,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/public/data/editions/crime-and-punishment-modern-en.json app/public/data/characters/crime-and-punishment.v1.json app/src/services/characters/characterCards.ts books/wip/crime-release-20260924-report.json
+          git add books/characters/crime-and-punishment/characters.v1.json app/public/data/editions/crime-and-punishment-modern-en.json app/public/data/characters/crime-and-punishment.v1.json app/src/services/characters/characterCards.ts books/wip/crime-release-20260924-report.json
           git diff --cached --quiet || git commit -m "Stage reviewed Crime text and exact identity mappings"
           git push origin HEAD:codex/crime-reviewed-release-20260924

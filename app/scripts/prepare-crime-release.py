@@ -116,13 +116,59 @@ service=ROOT/"app/src/services/characters/characterCards.ts"
 service_text,count=re.subn(r"('crime-and-punishment':\s*\{\s*editions:\s*EN,\s*revision:\s*)'[^']+'",lambda m:m.group(1)+repr(REVISION),service.read_text())
 assert count==1
 out=(json.dumps(asset,ensure_ascii=False,indent=2)+"\n").encode()
-receipt={"candidateSha256":AFTER,"identityRef":IDENTITY,"ledgerSha256":p.digest(ledger_raw),"retainedMentions":len(mapped),"droppedMentions":drops,"anchors":anchors,"scope":"Accepted exact identity mappings only. Existing allusive binding and card prose preserved. Confirmed Svidrigailov early-snapshot spoiler still requires a separate content-owner patch before release."}
+# Apply only the independently accepted staged-card correction, with exact byte guards.
+SPOILER_REF="9efd60d7c1f1415f2ece53b23a868e6c6ad9efd4"
+SPOILER_FOLDER="books/wip/crime-svidrigailov-snapshot-correction"
+assert p.digest(out)=="b4e2217deda2b92cf6f838782c0526ab24c1ddcde517e40cffed26779d296d70"
+patch_raw=fetch(SPOILER_REF,SPOILER_FOLDER+"/PATCH-staged-01963b24.json")
+assert p.digest(patch_raw)=="c54f4596153060d629ecb1cb1f5ee40001c7ccf87370fcbc28fbf5f894008ed9"
+patch=json.loads(patch_raw)
+assert patch["baselineSha256"]==p.digest(out) and len(patch["operations"])==8
+unpatched=copy.deepcopy(asset)
+def resolve(path):
+ node=asset
+ for part in path:
+  if isinstance(part,dict):
+   assert set(part)=={"id"} and isinstance(node,list)
+   matches=[v for v in node if v.get("id")==part["id"]]
+   assert len(matches)==1
+   node=matches[0]
+  else:node=node[part]
+ return node
+for op in patch["operations"]:
+ path=op["path"]
+ assert path[:3]==["editions",op["edition"],"characters"]
+ assert path[3:5]==[{"id":"svidrigailov"},"snapshots"]
+ if op["op"]=="replace":
+  assert path[5]=={"id":"svidrigailov-1"} and path[6] in ("subtitle","body") and len(path)==7
+  parent=resolve(path[:-1]);assert parent[path[-1]]==op["old"]
+  parent[path[-1]]=op["new"]
+ else:
+  assert op["op"]=="insert-after" and len(path)==5
+  snapshots=resolve(path)
+  assert op["absentBefore"]==op["value"]["id"] and all(v["id"]!=op["absentBefore"] for v in snapshots)
+  indices=[i for i,v in enumerate(snapshots) if v["id"]==op["after"]]
+  assert len(indices)==1
+  snapshots.insert(indices[0]+1,copy.deepcopy(op["value"]))
+# No edition text, mention identity, names, or other character may change.
+for ed,block_after in asset["editions"].items():
+ old_block=unpatched["editions"][ed]
+ assert {k:v for k,v in block_after.items() if k!="characters"}=={k:v for k,v in old_block.items() if k!="characters"}
+ assert len(block_after["characters"])==len(old_block["characters"])
+ for old_c,new_c in zip(old_block["characters"],block_after["characters"],strict=True):
+  if old_c["id"]!="svidrigailov":assert new_c==old_c
+  else:assert {k:v for k,v in new_c.items() if k!="snapshots"}=={k:v for k,v in old_c.items() if k!="snapshots"}
+out=(json.dumps(asset,ensure_ascii=False,indent=2)+"\n").encode()
+assert p.digest(out)=="0e695a1296eae579b3477faf3f56e0176476b0915f0a9bff47391b94ada54676"
+assert out==fetch(SPOILER_REF,SPOILER_FOLDER+"/review/v3/patched-crime-and-punishment.v1.staged-01963b24.json")
+canonical_card=ROOT/"books/characters/crime-and-punishment/characters.v1.json"
+receipt={"candidateSha256":AFTER,"identityRef":IDENTITY,"ledgerSha256":p.digest(ledger_raw),"retainedMentions":len(mapped),"droppedMentions":drops,"anchors":anchors,"spoilerReviewRef":SPOILER_REF,"spoilerPatchSha256":p.digest(patch_raw),"cardSha256":p.digest(out),"scope":"Accepted exact identity mappings and independently reviewed Svidrigailov spoiler boundaries. Both canonical and served cards match the reviewed final bytes."}
 report=ROOT/"books/wip/crime-release-20260924-report.json"
 if args.verify:
- assert target.read_bytes()==after and cardpath.read_bytes()==out
+ assert target.read_bytes()==after and cardpath.read_bytes()==out and canonical_card.read_bytes()==out
  assert service.read_text()==service_text
  assert json.loads(report.read_bytes())==receipt
 else:
- target.write_bytes(after);cardpath.write_bytes(out);service.write_text(service_text)
+ target.write_bytes(after);cardpath.write_bytes(out);canonical_card.write_bytes(out);service.write_text(service_text)
  report.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"candidate":AFTER,"retained":len(mapped),"dropped":len(drops),"anchors":len(anchors)},indent=2))
