@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Verify this package's pinned inputs against their git commits and hashes.
-Requires: git fetch origin claude/awesome-euler-pjc7jv main
+Requires: git fetch origin claude/awesome-euler-pjc7jv main codex/crime-reviewed-release-20260924
 """
 import hashlib
 import subprocess
@@ -15,6 +15,8 @@ PINS = [
     ("crime-and-punishment.v1.json", LIVE, "books/characters/crime-and-punishment/characters.v1.json", "2125526c56769e4f09be387f6d5dc2e974dc9aca7fb931115fb893da34706d98"),
     ("source.json", LIVE, "app/public/data/editions/crime-and-punishment-original-en.json", "6609777b2dfca00fa10c7d0f4d2599b2b617f029f8a1689714ce96c60627a978"),
     ("baseline-live-modern-en.json", LIVE, "app/public/data/editions/crime-and-punishment-modern-en.json", "914bcdfae396792477d90f788ce30ed684732dc89eb4abc76d4c126a9c963834"),
+    ("crime-and-punishment.v1.staged-01963b24.json", "01963b24ca82ea594603be64ed664a62e07ef275", "app/public/data/characters/crime-and-punishment.v1.json", "b4e2217deda2b92cf6f838782c0526ab24c1ddcde517e40cffed26779d296d70"),
+    ("candidate.json", "01963b24ca82ea594603be64ed664a62e07ef275", "app/public/data/editions/crime-and-punishment-modern-en.json", "18be4155497ebdf78013d1a26ce2fad86839aaa00c036cf9970954af550888eb"),
     ("candidate.json", PKG[0], PKG[1] + "/candidate.json", "18be4155497ebdf78013d1a26ce2fad86839aaa00c036cf9970954af550888eb"),
 ]
 ok = True

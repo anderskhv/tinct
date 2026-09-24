@@ -2,16 +2,16 @@
   "schema": "tinct-card-field-patch/1",
   "bookId": "crime-and-punishment",
   "purpose": "Make every claim in Svidrigaïlov's cards supported at its release point: trim the first-encounter card to what is known at the name, and release his pursuit of Dunya (end of 3.38) and his widowhood, reputation and arrival (end of 22.34) where the text supports them.",
-  "baseline": "live card on main 1bd1bfb3 / e1bf66a9 (unchanged), bound to live modern-en 914bcdfa",
+  "baseline": "Codex staged card on codex/crime-reviewed-release-20260924 @ 01963b24, bound to accepted candidate 18be4155",
   "targets": [
     "app/public/data/characters/crime-and-punishment.v1.json",
     "books/characters/crime-and-punishment/characters.v1.json"
   ],
-  "baselineSha256": "2125526c56769e4f09be387f6d5dc2e974dc9aca7fb931115fb893da34706d98",
-  "baselineInput": "crime-and-punishment.v1.json",
+  "baselineSha256": "b4e2217deda2b92cf6f838782c0526ab24c1ddcde517e40cffed26779d296d70",
+  "baselineInput": "crime-and-punishment.v1.staged-01963b24.json",
   "editionInputs": {
     "original-en": "source.json",
-    "modern-en": "baseline-live-modern-en.json"
+    "modern-en": "candidate.json"
   },
   "serialization": "json.dumps(indent=2, ensure_ascii=False) + '\\n' (matches the baseline byte for byte)",
   "operations": [
@@ -193,7 +193,7 @@
         "availableAt": {
           "chapterNumber": 3,
           "paragraphIndex": 38,
-          "offset": 13544
+          "offset": 13789
         },
         "name": "Svidrigailov",
         "subtitle": "Dunya's former employer",
@@ -202,7 +202,7 @@
           {
             "chapterNumber": 3,
             "paragraphIndex": 38,
-            "throughOffset": 13544
+            "throughOffset": 13789
           }
         ],
         "editorialBasis": "Added by the 2026-09-24 correction; wording taken from the original first-encounter body. The mother's letter, after the first mention, reveals as a surprise that he had hidden a passion for Dunya behind rudeness and drunken mockery and made her an open, shameless proposal. Released at the end of the reviewed source paragraph 3.38."
@@ -236,7 +236,7 @@
           {
             "chapterNumber": 16,
             "paragraphIndex": 73,
-            "throughOffset": 314
+            "throughOffset": 312
           },
           {
             "chapterNumber": 17,
@@ -257,54 +257,5 @@
         "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; the original first-encounter text without \"Wealthy\", which the text never establishes. Marfa Petrovna's death (so his widowhood) is established at 16.73; the rumor that he caused it (\"They say he beat her dreadfully\") at 17.49, which also supports the dark-reputation subtitle; the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first meets him there at 20.68). Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported."
       }
     }
-  ],
-  "candidateCoordinates": {
-    "edition": "modern-en",
-    "appliesTo": "accepted candidate sha256 18be4155...",
-    "snapshots": {
-      "svidrigailov-2": {
-        "availableAt": {
-          "chapterNumber": 3,
-          "paragraphIndex": 38,
-          "offset": 13789
-        },
-        "evidence": [
-          {
-            "chapterNumber": 3,
-            "paragraphIndex": 38,
-            "throughOffset": 13789
-          }
-        ]
-      },
-      "svidrigailov-3": {
-        "availableAt": {
-          "chapterNumber": 22,
-          "paragraphIndex": 34,
-          "offset": 87
-        },
-        "evidence": [
-          {
-            "chapterNumber": 16,
-            "paragraphIndex": 73,
-            "throughOffset": 312
-          },
-          {
-            "chapterNumber": 17,
-            "paragraphIndex": 49,
-            "throughOffset": 264
-          },
-          {
-            "chapterNumber": 22,
-            "paragraphIndex": 31,
-            "throughOffset": 237
-          },
-          {
-            "chapterNumber": 22,
-            "paragraphIndex": 34,
-            "throughOffset": 87
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

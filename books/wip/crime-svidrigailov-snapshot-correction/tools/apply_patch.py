@@ -56,10 +56,11 @@ def apply(card, patch):
         ch = next(c for c in out["editions"][op["edition"]]["characters"] if c["id"] == "svidrigailov")
         ids = [s["id"] for s in ch["snapshots"]]
         if op["op"] == "replace":
-            s = next(x for x in ch["snapshots"] if x["id"] == "svidrigailov-1")
-            if s["body"] != op["old"]:
-                sys.exit(f"old value mismatch in {op['edition']}")
-            s["body"] = op["new"]
+            sid, field = op["path"][-2]["id"], op["path"][-1]
+            s = next(x for x in ch["snapshots"] if x["id"] == sid)
+            if s[field] != op["old"]:
+                sys.exit(f"old value mismatch in {op['edition']} {sid}.{field}")
+            s[field] = op["new"]
         else:
             if op["absentBefore"] in ids:
                 sys.exit(f"{op['absentBefore']} already present in {op['edition']}")
@@ -85,11 +86,12 @@ def validate_edition(e, chapters, label):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--card", default=str(INP / "crime-and-punishment.v1.json"))
+    ap.add_argument("--patch", default="PATCH.json")
+    ap.add_argument("--card")
     ap.add_argument("--out")
     a = ap.parse_args()
-    patch = json.loads((ROOT / "PATCH.json").read_text())
-    raw = Path(a.card).read_bytes()
+    patch = json.loads((ROOT / a.patch).read_text())
+    raw = Path(a.card or INP / patch["baselineInput"]).read_bytes()
     if hashlib.sha256(raw).hexdigest() != patch["baselineSha256"]:
         sys.exit("baseline sha256 mismatch: reconcile against the newer card before applying")
     card = json.loads(raw)
@@ -106,43 +108,59 @@ def main():
     assert {k: v for k, v in card.items() if k != "editions"} == {k: v for k, v in new.items() if k != "editions"}
 
     errs = []
-    eds = {"original-en": json.loads((INP / "source.json").read_text())["chapters"],
-           "modern-en": json.loads((INP / "baseline-live-modern-en.json").read_text())["chapters"]}
+    eds = {ed: json.loads((INP / f).read_text())["chapters"] for ed, f in patch["editionInputs"].items()}
     for ed, chs in eds.items():
-        errs += validate_edition(new["editions"][ed], chs, ed + "@live")
-    # Against the accepted candidate: apply the declared candidate coordinates to the new snapshot
-    # (evidence in changed paragraphs is re-derived at integration, like every other anchor).
+        errs += validate_edition(new["editions"][ed], chs, f"{ed}@{patch['editionInputs'][ed]}")
+    # Against the accepted candidate: apply the declared candidate coordinates to the new snapshots
+    # (snapshot 1 and other characters' anchors are the separate re-anchoring task in the identity review).
     cand_ed = copy.deepcopy(new["editions"]["modern-en"])
-    cc = patch["candidateCoordinates"]
-    s2 = next(c for c in cand_ed["characters"] if c["id"] == "svidrigailov")["snapshots"][1]
-    if s2["availableAt"] != cc["availableAt"]:
-        print("note: candidate availableAt differs from live:", s2["availableAt"], "->", cc["availableAt"])
-    s2["availableAt"], s2["evidence"] = cc["availableAt"], cc["evidence"]
-    cand_ed["characters"] = [c for c in cand_ed["characters"] if c["id"] == "svidrigailov"]  # other characters' anchors are the separate re-anchoring task
-    for c in cand_ed["characters"]:
-        c["snapshots"] = [x for x in c["snapshots"] if x["id"] == "svidrigailov-2"]
-        c["firstMention"] = {"chapterNumber": 3, "paragraphIndex": 38, "offset": 0}
+    cc = patch.get("candidateCoordinates", {}).get("snapshots", {})
+    ch = next(c for c in cand_ed["characters"] if c["id"] == "svidrigailov")
+    for x in ch["snapshots"]:
+        if x["id"] in cc:
+            x["availableAt"], x["evidence"] = cc[x["id"]]["availableAt"], cc[x["id"]]["evidence"]
+    ch["snapshots"] = [x for x in ch["snapshots"] if x["id"] in cc]
+    ch["firstMention"] = {"chapterNumber": 3, "paragraphIndex": 38, "offset": 2536}  # accepted mention R025
+    cand_ed["characters"] = [ch]
     errs += validate_edition(cand_ed, json.loads((INP / "candidate.json").read_text())["chapters"], "modern-en@candidate-18be4155")
-    print("candidate coordinates for svidrigailov-2:", json.dumps(cc["availableAt"]), json.dumps(cc["evidence"]))
+    for sid, v in cc.items():
+        print(f"candidate coordinates for {sid}:", json.dumps(v["availableAt"]), json.dumps(v["evidence"]))
 
     # Reading-position simulation.
     print("released snapshot by reading position:")
+    expect = {}
     for ed in ("original-en", "modern-en"):
         ch = next(c for c in new["editions"][ed]["characters"] if c["id"] == "svidrigailov")
-        s2 = ch["snapshots"][1]["availableAt"]
-        points = [("first mention 3.38", ch["firstMention"]),
-                  ("end of 16.73 (Marfa dead)", {"chapterNumber": 16, "paragraphIndex": 73, "offset": 10**6}),
-                  ("21.2 (he introduces himself)", {"chapterNumber": 21, "paragraphIndex": 2, "offset": 0}),
-                  ("22.34 one unit before end", {**s2, "offset": s2["offset"] - 1}),
-                  ("22.34 end", s2),
-                  ("41.7 (late)", {"chapterNumber": 41, "paragraphIndex": 7, "offset": 0})]
-        for label, pt in points:
-            print(f"  {ed:12} {label:32} -> {released(ch, pt)}")
+        ids = [x["id"] for x in ch["snapshots"]]
+        if ids != ["svidrigailov-1", "svidrigailov-2", "svidrigailov-3"]:
+            errs.append(f"{ed}: snapshot order {ids}")
+        a2, a3 = ch["snapshots"][1]["availableAt"], ch["snapshots"][2]["availableAt"]
+        points = [("before first mention", {**ch["firstMention"], "offset": ch["firstMention"]["offset"] - 1}, None),
+                  ("first mention 3.38", ch["firstMention"], "svidrigailov-1"),
+                  ("3.38 one unit before end", {**a2, "offset": a2["offset"] - 1}, "svidrigailov-1"),
+                  ("3.38 end", a2, "svidrigailov-2"),
+                  ("end of 16.73 (Marfa dead)", {"chapterNumber": 16, "paragraphIndex": 73, "offset": 10**6}, "svidrigailov-2"),
+                  ("21.2 (he introduces himself)", {"chapterNumber": 21, "paragraphIndex": 2, "offset": 0}, "svidrigailov-2"),
+                  ("22.34 one unit before end", {**a3, "offset": a3["offset"] - 1}, "svidrigailov-2"),
+                  ("22.34 end", a3, "svidrigailov-3"),
+                  ("41.7 (late)", {"chapterNumber": 41, "paragraphIndex": 7, "offset": 0}, "svidrigailov-3")]
+        for label, pt, want in points:
+            got = released(ch, pt)
+            print(f"  {ed:12} {label:32} -> {got}")
+            if got != want:
+                errs.append(f"{ed}: {label} released {got}, expected {want}")
 
-    body = lambda ed, i: next(c for c in new["editions"][ed]["characters"] if c["id"] == "svidrigailov")["snapshots"][i]["body"]
+    # Claims that must not appear before their release point.
+    snap = lambda ed, i: next(c for c in new["editions"][ed]["characters"] if c["id"] == "svidrigailov")["snapshots"][i]
+    banned = {0: ["widow", "Petersburg", "rumor", "terrible", "Wealthy", "wealthy", "nsettling", "pursued", "dark reputation"],
+              1: ["widow", "Petersburg", "rumor", "terrible", "Wealthy", "wealthy", "dark reputation"],
+              2: ["Wealthy", "wealthy"]}
     for ed in eds:
-        if "widowed" in body(ed, 0) or "Petersburg" in body(ed, 0):
-            errs.append(f"{ed}: premature detail still in svidrigailov-1")
+        for i, words in banned.items():
+            text = snap(ed, i)["subtitle"] + " " + snap(ed, i)["body"]
+            for w in words:
+                if w in text:
+                    errs.append(f"{ed}: '{w}' in {snap(ed, i)['id']}")
 
     out = json.dumps(new, indent=2, ensure_ascii=False).encode() + b"\n"
     dest = Path(a.out) if a.out else Path(tempfile.gettempdir()) / "crime-and-punishment.v1.patched.json"
