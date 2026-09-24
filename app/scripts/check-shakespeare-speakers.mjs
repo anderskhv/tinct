@@ -26,6 +26,10 @@ async function boot(page, scenario) {
   await page.addInitScript(s => {
     if (sessionStorage.getItem('qa:shakespeare')) return
     sessionStorage.setItem('qa:shakespeare', '1')
+    if (s.highlight) {
+      localStorage.setItem('tinct-lab-highlights-tap-cleanup-v1','1')
+      localStorage.setItem('tinct-lab-highlights',JSON.stringify([s.highlight]))
+    }
     const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, shakespeareLayout: s.layout, theme: s.theme || 'book' }
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareOpen: true, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
@@ -60,7 +64,12 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       const page = await context.newPage()
       const name = `${engine}-${scenario.book}-${scenario.edition}-${scenario.size}-${scenario.alignment}-${scenario.width}-${scenario.layout}-ch${scenario.chapter}-${scenario.compare?'compare':'read'}`
       try {
-        await boot(page, scenario)
+        const highlight = scenario.reportedPhone ? {
+          id:'speaker-layout-saved-mark',bookId:'hamlet',editionKey:visibleEdition,chapterNumber:3,
+          paragraphIndex:4,endParagraphIndex:4,fromWord:1,toWord:Math.min(4,paragraphs[4].split(/\s+/).length),
+          text:paragraphs[4].split(/\s+/).slice(1,4).join(' '),color:'sage',note:'Retain this note',kept:true,
+        } : null
+        await boot(page, {...scenario,highlight})
         if (scenario.compare) {
           await page.getByTestId('lab-super').click()
           await page.getByTestId('lab-super-row-editions').click()
@@ -97,6 +106,18 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
           console.log('REVIEW_BEGIN', engine + '-reported-passage')
           for (let offset = 0; offset < encoded.length; offset += 4000) console.log('REVIEW_CHUNK', encoded.slice(offset, offset + 4000))
           console.log('REVIEW_END', engine + '-reported-passage')
+        }
+        if (scenario.reportedPhone) {
+          const root=page.getByTestId('lab-root')
+          const before=await root.getAttribute('data-place')
+          assert((await page.locator('[data-highlight-id="speaker-layout-saved-mark"]').count())>0,name+' paints saved highlight')
+          const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))
+          assert.deepEqual(saved,[highlight],name+' preserves saved quote and note')
+          await page.keyboard.press('ArrowRight')
+          await page.waitForFunction(value=>document.querySelector('[data-testid="lab-root"]')?.dataset.place!==value,before)
+          await page.keyboard.press('ArrowLeft')
+          await page.waitForFunction(value=>document.querySelector('[data-testid="lab-root"]')?.dataset.place===value,before)
+          assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[highlight])
         }
         results.push({ name, labels: actual.labels, wordCount: actual.words.length })
         console.log('PASS', name)
