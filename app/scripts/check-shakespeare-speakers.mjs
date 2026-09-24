@@ -61,6 +61,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       registerShakespeareSpeakers(paragraphs)
       const context = await browser.newContext({ ...(scenario.phone ? devices['iPhone 13'] : {}), viewport: { width: scenario.width, height: 900 }, reducedMotion: 'reduce', serviceWorkers: 'block' })
       await prepare(context)
+      await context.tracing.start({ screenshots: true, snapshots: true })
       const page = await context.newPage()
       const name = `${engine}-${scenario.book}-${scenario.edition}-${scenario.size}-${scenario.alignment}-${scenario.width}-${scenario.layout}-ch${scenario.chapter}-${scenario.compare?'compare':'read'}`
       try {
@@ -109,20 +110,34 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         }
         if (scenario.reportedPhone) {
           const root=page.getByTestId('lab-root')
-          const before=await root.getAttribute('data-place')
+          const visibleWords=()=>root.evaluate(root=>[...root.querySelectorAll('[data-testid="lab-word"]')]
+            .filter(n=>n.getBoundingClientRect().width>0&&!n.closest('.lab-page-measure'))
+            .map(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex).join(','))
+          // A restored word may sit inside this page. Page turns persist page heads,
+          // so compare the visible word range rather than that interior restore anchor.
+          const before=await visibleWords()
+          console.log('PHONE_PAGE_BEFORE',name,await root.getAttribute('data-place'),before)
           assert((await page.locator('[data-highlight-id="speaker-layout-saved-mark"]').count())>0,name+' paints saved highlight')
           const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))
           assert.deepEqual(saved,[highlight],name+' preserves saved quote and note')
           await page.keyboard.press('ArrowRight')
-          await page.waitForFunction(value=>document.querySelector('[data-testid="lab-root"]')?.dataset.place!==value,before)
+          await page.waitForFunction(value=>[...document.querySelectorAll('[data-testid="lab-root"] [data-testid="lab-word"]')]
+            .filter(n=>n.getBoundingClientRect().width>0&&!n.closest('.lab-page-measure'))
+            .map(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex).join(',')!==value,before)
+          console.log('PHONE_PAGE_FORWARD',name,await root.getAttribute('data-place'),await visibleWords())
           await page.keyboard.press('ArrowLeft')
-          await page.waitForFunction(value=>document.querySelector('[data-testid="lab-root"]')?.dataset.place===value,before)
+          await page.waitForFunction(value=>[...document.querySelectorAll('[data-testid="lab-root"] [data-testid="lab-word"]')]
+            .filter(n=>n.getBoundingClientRect().width>0&&!n.closest('.lab-page-measure'))
+            .map(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex).join(',')===value,before)
+          assert.equal(await visibleWords(),before,name+' restores every visible word')
+          assert((await page.locator('[data-highlight-id="speaker-layout-saved-mark"]').count())>0,name+' restores saved highlight')
+          console.log('PHONE_PAGE_RETURN',name,await root.getAttribute('data-place'))
           assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[highlight])
         }
         results.push({ name, labels: actual.labels, wordCount: actual.words.length })
         console.log('PASS', name)
-      } catch (error) { await page.screenshot({ path: `${output}/${name}-failure.png` }); throw error }
-      finally { await context.close() }
+      } catch (error) { await context.tracing.stop({path: `${output}/${name}-trace.zip`}); await page.screenshot({ path: `${output}/${name}-failure.png` }); throw error }
+      finally { await context.tracing.stop().catch(()=>{}); await context.close() }
     }
   } finally { await browser.close(); await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2)) }
 }
