@@ -39,6 +39,8 @@ const CONNECT_TIMEOUT_MS = 15_000
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
 export const LOOKUP_ACKNOWLEDGEMENT = 'One moment.'
 const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
+/** Grok has fanned out up to 999 parallel lookups in one turn; run only this many per tool. */
+export const MAX_CALLS_PER_TOOL_PER_TURN = 8
 const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history', 'get_book_passage'])
 const EARLY_CAPTURE_MAX_SECONDS = 15
 
@@ -462,10 +464,17 @@ export class GrokVoiceSessionController {
     const ordered = [...calls].sort((a, b) => Number(b.name === 'resume_audiobook') - Number(a.name === 'resume_audiobook'))
     this.toolQueue = this.toolQueue.then(async () => {
       let continued = false
+      const perTool = new Map<string, number>()
       for (const call of ordered) {
         if (generation !== this.generation) return
         if (this.handledCalls.has(call.callId)) continue
         this.handledCalls.add(call.callId)
+        const count = (perTool.get(call.name) ?? 0) + 1
+        perTool.set(call.name, count)
+        if (count > MAX_CALLS_PER_TOOL_PER_TURN) {
+          this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify({ ok: false, reason: 'skipped_too_many_parallel_calls' }) } })
+          continue
+        }
         let acknowledgementWait: Promise<void> | null = null
         const acknowledgementTimer = ACKNOWLEDGED_LOOKUP_TOOLS.has(call.name) ? setTimeout(() => {
           if (generation !== this.generation || !this.ui.isActive) return
