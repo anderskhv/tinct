@@ -1670,7 +1670,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       }
     }
     nextIndex = Math.max(0, Math.min(nextIndex, next.length - 1))
-    console.debug('PREVIEW_PAGING_APPLY', JSON.stringify({ keep, nextIndex, currentIndex, playing, heads: next.map(page => [page.paragraphIndex, page.from, page.to]) }))
     readingPageIndexRef.current = nextIndex
     setReadingPageIndex(currentValue => currentValue === nextIndex ? currentValue : nextIndex)
     // The native map can equal the provisional map. Still schedule the
@@ -2459,8 +2458,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
   useEffect(() => {
-    if (chromeV2 && (listen.playing || listen.pending)) setPausedTransportVisible(true)
-  }, [chromeV2, listen.playing, listen.pending])
+    if (!chromeV2) return
+    // A failed start keeps its inline Retry message, not the space reserved
+    // for playback controls. Restore the measured reading box before turning.
+    if (listen.narration.status === 'error') setPausedTransportVisible(false)
+    else if (listen.playing || listen.pending) setPausedTransportVisible(true)
+  }, [chromeV2, listen.playing, listen.pending, listen.narration.status])
   useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible

@@ -206,7 +206,6 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           capacityRow.append(capacityProbe)
           rows.replaceChildren(capacityRow)
           const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
-          console.debug('PREVIEW_PAGING_MEASURE', JSON.stringify({ layoutKey, width: page.clientWidth, height: page.clientHeight, font: getComputedStyle(capacityProbe).font, heading: getComputedStyle(heading).font, heads: pages.map(page => [page.paragraphIndex, page.from, page.to]) }))
           rows.replaceChildren()
           callbackRef.current(pages, paragraphs, layoutKey, capacity)
         })

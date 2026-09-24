@@ -71,6 +71,7 @@ async function pageState(page) {
       chapter: root.dataset.chapter,
       chrome: root.dataset.chromeState,
       playing: root.dataset.playing,
+      transport: root.dataset.transport,
       edition: root.dataset.readerEdition,
       lang: root.lang,
       keys: visible.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`),
@@ -272,8 +273,7 @@ async function exerciseAudioAcrossSplit(page, split) {
 async function splitRestoreAcceptance(name, viewport) {
   const context = await browser.newContext({ viewport, serviceWorkers: 'block' })
   const page = await context.newPage()
-  const errors = [], pagingDiagnostics = []
-  page.on('console', message => { if (message.text().startsWith('PREVIEW_PAGING_')) pagingDiagnostics.push(message.text()) })
+  const errors = []
   page.on('pageerror', error => errors.push(error.message))
   await routeBuiltApp(page, async () => {})
   await boot(page, {
@@ -315,13 +315,14 @@ async function splitRestoreAcceptance(name, viewport) {
     : { service: 'production audio API', actual: false, limit: 'shared audio-follow path exercised on desktop', sequence: [] }
   const afterAudio = await pageState(page)
   const splitAgain = await turn(page, 'ArrowLeft')
-  const splitReturn = { name, split, before, next, forward, reloaded, afterAudio, audio, splitAgain, pagingDiagnostics }
+  const splitReturn = { name, split, before, next, forward, reloaded, afterAudio, audio, splitAgain }
   await fs.writeFile(`${output}/${live ? 'production' : 'candidate'}-${name}-split-return.json`, JSON.stringify(splitReturn, null, 2) + '\n')
   if (!splitAgain.fragments.some(fragment => fragment.text === split.fragment)) {
     await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-split-return-failure.png` })
     console.error('SPLIT_RETURN_FAILURE', JSON.stringify(splitReturn))
   }
   if (name === 'desktop' && !audio.actual) {
+    assert.equal(afterAudio.transport, 'closed', 'failed start must release playback-control space')
     assert.equal(afterAudio.chapter, reloaded.chapter, 'failed audio start must preserve the chapter')
     assert.equal(afterAudio.place, reloaded.place, 'failed audio start must preserve the exact reading position')
     assert.deepEqual(afterAudio.keys, reloaded.keys, 'failed audio start must preserve the visible page')
