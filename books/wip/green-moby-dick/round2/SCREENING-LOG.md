@@ -12,3 +12,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b48 | all 9 (48.0, 48.3, 48.29, 48.48 waif gloss, 50.5 thole-pin gloss, 50.7, 51.8, 53.0 "spoken" gloss, 53.4) | — | glosses checked for accuracy; parse fixes keep sense. 48.19 Archy / 50.5 Cabaco mismatch is Melville's own and is kept |
 | b54-fid | 54.28, 54.32, 54.34, 54.85, 54.110 (quote balance) | 54.3, 54.8 not applied | name-only changes (Gallipagos, Manilla) superseded by lead decision 7 |
 | b67-fid, b110-fid, b61-fid, b128-fid, b81-fid, b48-fid, b55-fid, b74-fid, b44-fid | all items | — | fidelity reviewer items applied in full |
+| b128 | all 8 | — | 128.1/128.4 ordering, "reaped his beard" (130.4), "soil" (132.11) are all as in source; no change |
