@@ -38,7 +38,7 @@ def compile_package():
                     flags=0 if e['kind']=='cultural-figure' else re.I
                     for m in re.finditer(r'(?<!\w)'+re.escape(alias)+r'(?!\w)',text,flags):
                         id=e['id']
-                        if id=='banquo' and ch==18 and pi in {52,53}:id='banquo-vision'
+                        if id=='banquo' and ch==18 and pi in {53,54}:id='banquo-vision'
                         candidates.append((m.start(),m.end(),id,'reviewed-name'))
             for m in re.finditer(r'\b(?:Thane of Cawdor|Cawdor)\b',text,re.I):
                 owner='macbeth'
@@ -56,7 +56,7 @@ def compile_package():
                 if ch==28 and pi>=26:owner='malcolm'
                 candidates.append((m.start(),m.end(),owner,'reviewed-royal-title'))
             for m in re.finditer(r'\bQueen\b',text):candidates.append((m.start(),m.end(),'lady-macbeth','reviewed-royal-title'))
-            if (ch,pi)==(2,15):
+            if (ch,pi)==(2,16):
                 for m in re.finditer(r'\bNorway\b',text):candidates.append((m.start(),m.end(),'sweno','reviewed-metonym'))
             if ch==18:
                 for m in re.finditer(r'\bApparition\b',text):

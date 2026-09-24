@@ -34,7 +34,8 @@ class MacbethContractTests(unittest.TestCase):
  def test_first_murderer_in_macduff_scene_is_separate(self):
   for ed in self.asset['editions']:
    self.assertEqual(self.ms(ed,19,40)[0]['characterId'],'macduff-murderer')
-   self.assertEqual(self.ms(ed,12,23)[0]['characterId'],'first-murderer')
+   # 3.1 "It was, so please your Highness"; (12,28) since the 2026-09-24 restoration of dropped speeches (was 12,23).
+   self.assertEqual(self.ms(ed,12,28)[0]['characterId'],'first-murderer')
  def test_father_son_and_husband_wife_labels(self):
   for ed in self.asset['editions']:
    self.assertEqual([m['characterId'] for m in self.ms(ed,27,2)],['young-siward'])

@@ -128,9 +128,9 @@ An English commander and the earl of Northumberland. Father of Young Siward.
 
 Siward’s son, a young soldier in the army opposing Macbeth.
 
-## original-en · seyton · 23:10
+## original-en · seyton · 23:11
 
-[Enter Seyton.]
+MACBETH. Seyton!—I am sick at heart, When I behold—Seyton, I say!—This push Will cheer me ever or disseat me now. I have liv’d long enough: my way of life Is fall’n into the sere, the yellow leaf; And that which should accompany old age, As honour, love, obedience, troops of friends, I must not look to have; but, in their stead, Curses, not loud but deep, mouth-honour, breath, Which the poor heart would fain deny, and dare not. Seyton!—
 
 An attendant serving Macbeth at Dunsinane.
 
@@ -170,7 +170,7 @@ The physician attending Lady Macbeth at Dunsinane.
 
 The physician at the English king’s court. A different doctor from the one at Dunsinane.
 
-## original-en · cawdor · 2:15
+## original-en · cawdor · 2:16
 
 ROSS. From Fife, great King, Where the Norweyan banners flout the sky And fan our people cold. Norway himself, with terrible numbers, Assisted by that most disloyal traitor, The Thane of Cawdor, began a dismal conflict; Till that Bellona’s bridegroom, lapp’d in proof, Confronted him with self-comparisons, Point against point, rebellious arm ’gainst arm, Curbing his lavish spirit: and, to conclude, The victory fell on us.
 
@@ -182,7 +182,7 @@ SOLDIER. Doubtful it stood; As two spent swimmers that do cling together And cho
 
 A rebel leader fighting against King Duncan.
 
-## original-en · sweno · 2:15
+## original-en · sweno · 2:16
 
 ROSS. From Fife, great King, Where the Norweyan banners flout the sky And fan our people cold. Norway himself, with terrible numbers, Assisted by that most disloyal traitor, The Thane of Cawdor, began a dismal conflict; Till that Bellona’s bridegroom, lapp’d in proof, Confronted him with self-comparisons, Point against point, rebellious arm ’gainst arm, Curbing his lavish spirit: and, to conclude, The victory fell on us.
 
@@ -218,13 +218,13 @@ THIRD WITCH. Harpier cries:—’Tis time, ’tis time.
 
 The familiar spirit called by the Third Witch. The passage does not describe its form.
 
-## original-en · hecate · 13:14
+## original-en · hecate · 8:21
 
-MACBETH. There’s comfort yet; they are assailable. Then be thou jocund. Ere the bat hath flown His cloister’d flight, ere to black Hecate’s summons The shard-born beetle, with his drowsy hums, Hath rung night’s yawning peal, there shall be done A deed of dreadful note.
+MACBETH. Is this a dagger which I see before me, The handle toward my hand? Come, let me clutch thee:— I have thee not, and yet I see thee still. Art thou not, fatal vision, sensible To feeling as to sight? or art thou but A dagger of the mind, a false creation, Proceeding from the heat-oppressed brain? I see thee yet, in form as palpable As this which now I draw. Thou marshall’st me the way that I was going; And such an instrument I was to use. Mine eyes are made the fools o’ the other senses, Or else worth all the rest: I see thee still; And on thy blade and dudgeon, gouts of blood, Which was not so before.—There’s no such thing. It is the bloody business which informs Thus to mine eyes.—Now o’er the one half-world Nature seems dead, and wicked dreams abuse The curtain’d sleep. Witchcraft celebrates Pale Hecate’s off’rings; and wither’d murder, Alarum’d by his sentinel, the wolf, Whose howl’s his watch, thus with his stealthy pace, With Tarquin’s ravishing strides, towards his design Moves like a ghost.—Thou sure and firm-set earth, Hear not my steps, which way they walk, for fear Thy very stones prate of my whereabout, And take the present horror from the time, Which now suits with it.—Whiles I threat, he lives. Words to the heat of deeds too cold breath gives.
 
 A goddess associated with witchcraft.
 
-## original-en · bellona · 2:15
+## original-en · bellona · 2:16
 
 ROSS. From Fife, great King, Where the Norweyan banners flout the sky And fan our people cold. Norway himself, with terrible numbers, Assisted by that most disloyal traitor, The Thane of Cawdor, began a dismal conflict; Till that Bellona’s bridegroom, lapp’d in proof, Confronted him with self-comparisons, Point against point, rebellious arm ’gainst arm, Curbing his lavish spirit: and, to conclude, The victory fell on us.
 
@@ -242,7 +242,7 @@ PORTER. Here’s a knocking indeed! If a man were porter of hell gate, he should
 
 A name for the devil, invoked in the porter’s joke about keeping the gates of hell.
 
-## original-en · gorgon · 10:33
+## original-en · gorgon · 10:34
 
 MACDUFF. Approach the chamber, and destroy your sight With a new Gorgon. Do not bid me speak. See, and then speak yourselves.
 
@@ -278,25 +278,25 @@ The second apparition called up by the witches: a child covered in blood.
 
 The third apparition called up by the witches: a crowned child carrying a tree.
 
-## original-en · kings-vision · 18:52
+## original-en · kings-vision · 18:53
 
 [A show of eight kings appear, and pass over in order, the last with a glass in his hand; Banquo following.]
 
 The line of crowned figures shown to Macbeth by the witches.
 
-## original-en · banquo-vision · 18:52
+## original-en · banquo-vision · 18:53
 
 [A show of eight kings appear, and pass over in order, the last with a glass in his hand; Banquo following.]
 
 The figure of Banquo accompanying the line of kings in the witches’ vision.
 
-## original-en · first-murderer · 12:23
+## original-en · first-murderer · 12:28
 
 FIRST MURDERER. It was, so please your Highness.
 
 One of the men Macbeth engages for a secret task.
 
-## original-en · second-murderer · 12:29
+## original-en · second-murderer · 12:34
 
 SECOND MURDERER. I am one, my liege, Whom the vile blows and buffets of the world Hath so incens’d that I am reckless what I do to spite the world.
 
@@ -308,7 +308,7 @@ THIRD MURDERER. Macbeth.
 
 One of the men Macbeth engages for a secret task.
 
-## original-en · murderers · 12:21
+## original-en · murderers · 12:24
 
 [Enter Servant with two Murderers.]
 
@@ -350,7 +350,7 @@ The messenger speaking to Lady Macbeth at Inverness.
 
 The unnamed messenger who comes to Lady Macduff.
 
-## original-en · messenger-dunsinane · 25:9
+## original-en · messenger-dunsinane · 25:11
 
 [Enter a Messenger.]
 
@@ -362,7 +362,7 @@ The lookout who reports to Macbeth at Dunsinane.
 
 The servant accompanying Macbeth with a torch.
 
-## original-en · servant-palace · 12:18
+## original-en · servant-palace · 12:20
 
 SERVANT. They are, my lord, without the palace gate.
 
@@ -506,9 +506,9 @@ An English commander and the earl of Northumberland. Father of Young Siward.
 
 Siward’s son, a young soldier in the army opposing Macbeth.
 
-## modern-en · seyton · 23:10
+## modern-en · seyton · 23:11
 
-[Enter Seyton.]
+MACBETH. Seyton! I am sick at heart when I see— Seyton, I say! This attack will either secure me forever or throw me from my throne now. I have lived long enough. My life has withered into its autumn, the yellow leaf, and the things that should come with old age, like honor, love, obedience and crowds of friends, I must not expect to have. Instead I have curses, not loud but deep, and respect paid only with the lips, empty words that my people's hearts would gladly refuse me but don't dare to. Seyton!
 
 An attendant serving Macbeth at Dunsinane.
 
@@ -548,7 +548,7 @@ The physician attending Lady Macbeth at Dunsinane.
 
 The physician at the English king’s court. A different doctor from the one at Dunsinane.
 
-## modern-en · cawdor · 2:15
+## modern-en · cawdor · 2:16
 
 ROSS. From Fife, great King, where the Norwegian banners taunt the sky and chill our people with fear. Norway himself, with terrible numbers, aided by that most disloyal traitor the Thane of Cawdor, began a grim battle. But Macbeth, like the god of war's own champion, clad in proven armor, met the Norwegian blow for blow, sword against sword, curbing his wild aggression. And to make a long story short, the victory fell to us.
 
@@ -560,7 +560,7 @@ SOLDIER. It was hanging in the balance, like two exhausted swimmers clinging to 
 
 A rebel leader fighting against King Duncan.
 
-## modern-en · sweno · 2:15
+## modern-en · sweno · 2:16
 
 ROSS. From Fife, great King, where the Norwegian banners taunt the sky and chill our people with fear. Norway himself, with terrible numbers, aided by that most disloyal traitor the Thane of Cawdor, began a grim battle. But Macbeth, like the god of war's own champion, clad in proven armor, met the Norwegian blow for blow, sword against sword, curbing his wild aggression. And to make a long story short, the victory fell to us.
 
@@ -584,13 +584,13 @@ FIRST WITCH. I'm coming, Graymalkin!
 
 The First Witch’s familiar spirit, taking the form of a cat.
 
-## modern-en · hecate · 13:14
+## modern-en · hecate · 8:21
 
-MACBETH. There is comfort in that; they can be gotten to. So be cheerful. Before the bat has flown its dark flight through the cloistered shadows, before the beetle, summoned by dark Hecate, has rung night's drowsy bell with its humming, a deed of dreadful importance will be done.
+MACBETH. Is this a dagger I see in front of me, with its handle turned toward my hand? Come, let me grab you. I don't have you, and yet I still see you. Deadly vision, can I not feel you as well as see you? Or are you only a dagger of the mind, a false creation coming from my fevered brain? I can still see you, as solid-looking as this one I'm drawing now. You're leading me the way I was already going, and I was going to use a weapon just like you. Either my eyes are being fooled by my other senses, or they are worth all the rest put together. I still see you, and on your blade and handle there are drops of blood that weren't there before. There's no such thing. It's this bloody business that is making my eyes see it. Now, over half the world, nature seems dead, and wicked dreams deceive the sleepers behind their curtains. Witches perform their rites to pale Hecate, and withered Murder, roused by his sentry the wolf, whose howl is his watch-call, moves toward his target like a ghost, with stealthy steps, with the strides of Tarquin going to his rape. You firm, solid earth, don't hear my steps or which way they go, in case your very stones chatter about where I am and break the horrible silence that suits this moment. While I stand here making threats, he lives. Words only cool the heat of action.
 
 A goddess associated with witchcraft.
 
-## modern-en · gorgon · 10:33
+## modern-en · gorgon · 10:34
 
 MACDUFF. Go into the chamber and destroy your own sight with a new Gorgon. Don't ask me to speak. See for yourselves, and then speak.
 
@@ -626,25 +626,25 @@ The second apparition called up by the witches: a child covered in blood.
 
 The third apparition called up by the witches: a crowned child carrying a tree.
 
-## modern-en · kings-vision · 18:52
+## modern-en · kings-vision · 18:53
 
 [A show of eight kings appear, and pass over in order, the last with a glass in his hand; Banquo following.]
 
 The line of crowned figures shown to Macbeth by the witches.
 
-## modern-en · banquo-vision · 18:52
+## modern-en · banquo-vision · 18:53
 
 [A show of eight kings appear, and pass over in order, the last with a glass in his hand; Banquo following.]
 
 The figure of Banquo accompanying the line of kings in the witches’ vision.
 
-## modern-en · first-murderer · 12:23
+## modern-en · first-murderer · 12:28
 
 FIRST MURDERER. It was as you said, Your Highness.
 
 One of the men Macbeth engages for a secret task.
 
-## modern-en · second-murderer · 12:29
+## modern-en · second-murderer · 12:34
 
 SECOND MURDERER. I am one, my lord, whom the cruel blows and insults of the world have made so bitter that I don't care what I do to spite it.
 
@@ -656,7 +656,7 @@ THIRD MURDERER. Macbeth.
 
 One of the men Macbeth engages for a secret task.
 
-## modern-en · murderers · 12:21
+## modern-en · murderers · 12:24
 
 [Enter Servant with two Murderers.]
 
@@ -698,7 +698,7 @@ The messenger speaking to Lady Macbeth at Inverness.
 
 The unnamed messenger who comes to Lady Macduff.
 
-## modern-en · messenger-dunsinane · 25:9
+## modern-en · messenger-dunsinane · 25:11
 
 [Enter a Messenger.]
 
@@ -710,7 +710,7 @@ The lookout who reports to Macbeth at Dunsinane.
 
 The servant accompanying Macbeth with a torch.
 
-## modern-en · servant-palace · 12:18
+## modern-en · servant-palace · 12:20
 
 SERVANT. They are waiting outside the palace gate, my lord.
 

@@ -6,9 +6,9 @@ Editorial review copy; source excerpts and later identities may contain spoilers
 
 A Scottish nobleman and soldier, known as the Thane of Glamis. Lady Macbeth’s husband.
 
-After source chapter 2, paragraph 19: A Scottish nobleman holding the titles Thane of Glamis and Thane of Cawdor. Lady Macbeth’s husband.
+After source chapter 2, paragraph 20: A Scottish nobleman holding the titles Thane of Glamis and Thane of Cawdor. Lady Macbeth’s husband.
 
-After source chapter 11, paragraph 15: King of Scotland and Lady Macbeth’s husband.
+After source chapter 11, paragraph 16: King of Scotland and Lady Macbeth’s husband.
 
 ## Lady Macbeth · major
 
@@ -30,7 +30,7 @@ A Scottish nobleman, the Thane of Fife. Lady Macduff’s husband.
 
 King of Scotland and father of Malcolm and Donalbain.
 
-After source chapter 11, paragraph 15: Scotland’s former king; father of Malcolm and Donalbain.
+After source chapter 11, paragraph 16: Scotland’s former king; father of Malcolm and Donalbain.
 
 ## Malcolm · major
 
@@ -126,7 +126,7 @@ The physician at the English king’s court. A different doctor from the one at 
 
 A Scottish nobleman who holds the title Thane of Cawdor.
 
-After source chapter 2, paragraph 19: The Scottish nobleman whose title of Thane of Cawdor is transferred to Macbeth.
+After source chapter 2, paragraph 20: The Scottish nobleman whose title of Thane of Cawdor is transferred to Macbeth.
 
 ## Macdonwald · reference
 
