@@ -1,0 +1,915 @@
+{
+ "book": "fear-and-trembling",
+ "cardPackage": "app/public/data/characters/fear-and-trembling.v1.json",
+ "cardContentVersion": "2026-09-12.1",
+ "candidateModernEnSha256": "69fd5f032dea5f18f14fd3377383d3fd9346ae804e89f2277bc38b588461e6c7",
+ "note": "Mapping only. The replacement modern-en uses the 184-paragraph printed structure, so every pinned paragraph hash and every mention offset changes. Proposed new anchors below point into the candidate modern-en. original-en is proposed for retirement (EDITION-PLAN.md), so its card edition should be dropped rather than re-anchored; its mentions are mapped too for completeness.",
+ "editions": {
+  "modern-en": {
+   "oldSourceSha256": "152776f19e1b707b610d2bee033d6984ed0f1e26826b314e2d0541d9c0b49132",
+   "oldParagraphCount": 232,
+   "mentions": [
+    {
+     "characterId": "abraham",
+     "old": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "startOffset": 515,
+      "endOffset": 543,
+      "text": "Abraham was greater than all"
+     },
+     "structureRelation": "joined",
+     "proposed": {
+      "chapterNumber": 3,
+      "paragraphIndex": 1,
+      "startOffset": 1506,
+      "endOffset": 1539,
+      "text": "Abraham was greater than everyone",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "isaac",
+     "old": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "startOffset": 379,
+      "endOffset": 389,
+      "text": "Take Isaac"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "startOffset": 411,
+      "endOffset": 421,
+      "text": "Take Isaac",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "sarah",
+     "old": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "startOffset": 47,
+      "endOffset": 55,
+      "text": "to Sarah"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "startOffset": 43,
+      "endOffset": 51,
+      "text": "to Sarah",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "eliezer",
+     "old": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "startOffset": 61,
+      "endOffset": 71,
+      "text": "to Eliezer"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "startOffset": 57,
+      "endOffset": 67,
+      "text": "to Eliezer",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "johannes-de-silentio",
+     "old": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "startOffset": 19,
+      "endOffset": 39,
+      "text": "Johannes de Silentio"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 19,
+      "endOffset": 39,
+      "text": "Johannes de silentio",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "hegel",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "startOffset": 343,
+      "endOffset": 367,
+      "text": "hard to understand Hegel"
+     },
+     "structureRelation": "joined",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 9,
+      "startOffset": 329,
+      "endOffset": 348,
+      "text": "Understanding Hegel",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "knight-of-infinite-resignation",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "startOffset": 65,
+      "endOffset": 85,
+      "text": "infinite resignation"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 13,
+      "startOffset": 74,
+      "endOffset": 94,
+      "text": "infinite resignation",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "knight-of-faith",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "startOffset": 2413,
+      "endOffset": 2428,
+      "text": "knight of faith"
+     },
+     "structureRelation": "split",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "startOffset": 559,
+      "endOffset": 574,
+      "text": "knight of faith",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "the-absurd",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "startOffset": 373,
+      "endOffset": 383,
+      "text": "the absurd"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 12,
+      "startOffset": 298,
+      "endOffset": 308,
+      "text": "the absurd",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "teleological-suspension-of-the-ethical",
+     "old": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "startOffset": 46,
+      "endOffset": 84,
+      "text": "teleological suspension of the ethical"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "startOffset": 47,
+      "endOffset": 85,
+      "text": "teleological suspension of the ethical",
+      "status": "found-verbatim"
+     }
+    }
+   ],
+   "characters": [
+    {
+     "id": "abraham",
+     "oldFirstMention": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 3,
+       "paragraphIndex": 2,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 3,
+      "paragraphIndex": 1,
+      "offset": 0
+     }
+    },
+    {
+     "id": "isaac",
+     "oldFirstMention": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 3,
+       "paragraphIndex": 5,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     }
+    },
+    {
+     "id": "sarah",
+     "oldFirstMention": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 7,
+       "paragraphIndex": 60,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "offset": 0
+     }
+    },
+    {
+     "id": "eliezer",
+     "oldFirstMention": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 7,
+       "paragraphIndex": 60,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "offset": 0
+     }
+    },
+    {
+     "id": "johannes-de-silentio",
+     "oldFirstMention": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 1,
+       "paragraphIndex": 4,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "offset": 0
+     }
+    },
+    {
+     "id": "hegel",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 11,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 9,
+      "offset": 0
+     }
+    },
+    {
+     "id": "knight-of-infinite-resignation",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 16,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 13,
+      "offset": 0
+     }
+    },
+    {
+     "id": "knight-of-faith",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 18,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     }
+    },
+    {
+     "id": "the-absurd",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 15,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 12,
+      "offset": 0
+     }
+    },
+    {
+     "id": "teleological-suspension-of-the-ethical",
+     "oldFirstMention": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 5,
+       "paragraphIndex": 6,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     }
+    }
+   ],
+   "summary": {
+    "found-verbatim": 7,
+    "found-variant": 3,
+    "not-found": 0
+   }
+  },
+  "original-en": {
+   "oldSourceSha256": "d6f7ab72adfe4c161c5ab69b5bedda7e3bb519a92b0050d8b0b6f07d294e45a1",
+   "oldParagraphCount": 232,
+   "mentions": [
+    {
+     "characterId": "abraham",
+     "old": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "startOffset": 504,
+      "endOffset": 532,
+      "text": "Abraham was greater than all"
+     },
+     "structureRelation": "joined",
+     "proposed": {
+      "chapterNumber": 3,
+      "paragraphIndex": 1,
+      "startOffset": 1506,
+      "endOffset": 1539,
+      "text": "Abraham was greater than everyone",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "isaac",
+     "old": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "startOffset": 379,
+      "endOffset": 389,
+      "text": "Take Isaac"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "startOffset": 411,
+      "endOffset": 421,
+      "text": "Take Isaac",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "sarah",
+     "old": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "startOffset": 39,
+      "endOffset": 51,
+      "text": "not to Sarah"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "startOffset": 46,
+      "endOffset": 51,
+      "text": "Sarah",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "eliezer",
+     "old": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "startOffset": 53,
+      "endOffset": 67,
+      "text": "not to Eliezer"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "startOffset": 53,
+      "endOffset": 67,
+      "text": "not to Eliezer",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "johannes-de-silentio",
+     "old": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "startOffset": 19,
+      "endOffset": 39,
+      "text": "Johannes de silentio"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 19,
+      "endOffset": 39,
+      "text": "Johannes de silentio",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "hegel",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "startOffset": 342,
+      "endOffset": 366,
+      "text": "hard to understand Hegel"
+     },
+     "structureRelation": "joined",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 9,
+      "startOffset": 329,
+      "endOffset": 348,
+      "text": "Understanding Hegel",
+      "status": "found-variant"
+     }
+    },
+    {
+     "characterId": "knight-of-infinite-resignation",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "startOffset": 82,
+      "endOffset": 102,
+      "text": "infinite resignation"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 13,
+      "startOffset": 74,
+      "endOffset": 94,
+      "text": "infinite resignation",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "knight-of-faith",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "startOffset": 2393,
+      "endOffset": 2408,
+      "text": "knight of faith"
+     },
+     "structureRelation": "split",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "startOffset": 559,
+      "endOffset": 574,
+      "text": "knight of faith",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "the-absurd",
+     "old": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "startOffset": 372,
+      "endOffset": 382,
+      "text": "the absurd"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 4,
+      "paragraphIndex": 12,
+      "startOffset": 298,
+      "endOffset": 308,
+      "text": "the absurd",
+      "status": "found-verbatim"
+     }
+    },
+    {
+     "characterId": "teleological-suspension-of-the-ethical",
+     "old": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "startOffset": 51,
+      "endOffset": 89,
+      "text": "teleological suspension of the ethical"
+     },
+     "structureRelation": "identical-extent",
+     "proposed": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "startOffset": 47,
+      "endOffset": 85,
+      "text": "teleological suspension of the ethical",
+      "status": "found-verbatim"
+     }
+    }
+   ],
+   "characters": [
+    {
+     "id": "abraham",
+     "oldFirstMention": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 3,
+      "paragraphIndex": 2,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 3,
+       "paragraphIndex": 2,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 3,
+      "paragraphIndex": 1,
+      "offset": 0
+     }
+    },
+    {
+     "id": "isaac",
+     "oldFirstMention": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 3,
+       "paragraphIndex": 5,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 3,
+      "paragraphIndex": 5,
+      "offset": 0
+     }
+    },
+    {
+     "id": "sarah",
+     "oldFirstMention": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 7,
+       "paragraphIndex": 60,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "offset": 0
+     }
+    },
+    {
+     "id": "eliezer",
+     "oldFirstMention": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 7,
+      "paragraphIndex": 60,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 7,
+       "paragraphIndex": 60,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 7,
+      "paragraphIndex": 40,
+      "offset": 0
+     }
+    },
+    {
+     "id": "johannes-de-silentio",
+     "oldFirstMention": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 1,
+      "paragraphIndex": 4,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 1,
+       "paragraphIndex": 4,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "offset": 0
+     }
+    },
+    {
+     "id": "hegel",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 11,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 11,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 9,
+      "offset": 0
+     }
+    },
+    {
+     "id": "knight-of-infinite-resignation",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 16,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 13,
+      "offset": 0
+     }
+    },
+    {
+     "id": "knight-of-faith",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 18,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 18,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 16,
+      "offset": 0
+     }
+    },
+    {
+     "id": "the-absurd",
+     "oldFirstMention": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 4,
+      "paragraphIndex": 15,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 4,
+       "paragraphIndex": 15,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 4,
+      "paragraphIndex": 12,
+      "offset": 0
+     }
+    },
+    {
+     "id": "teleological-suspension-of-the-ethical",
+     "oldFirstMention": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     },
+     "oldRoleVisibleAt": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     },
+     "oldSnapshotsAvailableAt": [
+      {
+       "chapterNumber": 5,
+       "paragraphIndex": 6,
+       "offset": 0
+      }
+     ],
+     "proposedAnchor (firstMention / roleVisibleAt / snapshot availableAt)": {
+      "chapterNumber": 5,
+      "paragraphIndex": 6,
+      "offset": 0
+     }
+    }
+   ],
+   "summary": {
+    "found-verbatim": 7,
+    "found-variant": 3,
+    "not-found": 0
+   }
+  }
+ }
+}

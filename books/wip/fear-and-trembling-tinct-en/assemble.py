@@ -98,6 +98,17 @@ def main():
                'note': 'Johannes de Silentio\'s own footnotes. anchorOffsetUtf16 = position in the paragraph string immediately after anchorAfterEn, where the marker belongs. Presentation is an integration decision.',
                'footnotes': notes_out}, open(os.path.join(H, 'candidate', 'footnotes.json'), 'w'), ensure_ascii=False, indent=2)
     json.dump({'structuralFields': struct}, open(os.path.join(H, 'candidate', 'structure.json'), 'w'), ensure_ascii=False, indent=2)
+    # corrected Danish original in the same 184-paragraph structure (main text only; notes in footnotes.json danishText)
+    served_da = json.load(open(os.path.join(H, '..', '..', '..', 'app/public/data/editions/fear-and-trembling-original-da.json')))
+    da = {'chapters': [{'number': c['number'], 'title': served_da['chapters'][c['number'] - 1]['title'],
+                        'paragraphs': [p['text'].strip() for p in c['paragraphs']]} for c in SRC['chapters']]}
+    for c in da['chapters']:
+        for i, p in enumerate(c['paragraphs']):
+            if not p:
+                errors.append(f'empty Danish ch{c["number"]} ¶{i}')
+    dajs = json.dumps(da, ensure_ascii=False, indent=2) + '\n'
+    open(os.path.join(H, 'candidate', 'fear-and-trembling-original-da.candidate.json'), 'w').write(dajs)
+    print('original-da candidate sha256', hashlib.sha256(dajs.encode()).hexdigest())
     counts = [len(c['paragraphs']) for c in ed['chapters']]
     words = sum(len(p.split()) for c in ed['chapters'] for p in c['paragraphs'])
     print('chapters', counts, 'total', sum(counts), 'words', words, 'footnotes', len(notes_out))
