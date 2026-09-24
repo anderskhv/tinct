@@ -92,3 +92,4 @@ JSON, UTF-8:
    - **Modern standard form:** *geographic* names and names of *peoples* that have one. Examples: Himalayas (not Himmalehs), Fiji (not Fejee), Eskimo (not Esquimaux), Crozet Islands (not Crozetts), Manila rope (not Manilla), Chilean, Caesar.
    - **Quoted documents** keep their own spelling (Lionel Wafer's "John Ferdinando").
    - This supersedes the "Crozetts" and "Manilla" examples in decision 3. The lead normalizes these book-wide in the assembly sweep, so reviewers need not flag them.
+8. **Verbatim quotations of scripture or verse** that Melville presents *as* quotations keep their archaic pronouns: the Epilogue's Job epigraph "And I only am escaped alone to tell thee", Job at 32.9, Byron at 35.9. Characters' own speech, including Mapple's sermon and Ahab's apostrophes, is still modernized to "you".
