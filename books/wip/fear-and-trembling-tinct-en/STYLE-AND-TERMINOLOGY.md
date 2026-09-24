@@ -42,9 +42,11 @@ The pilot's Problema I and II are the model for register and density.
      sense.
    - After that the term stands alone.
    - The first uses of terms from the pilot sections now fall earlier in the
-     book (for example, "the absurd" and "infinite resignation" first appear
+     book (for example, "spiritual trial" and "incommensurable" first appear
      in the Preliminary Expectoration). Where that happens, give the short
-     definition at the new first use. The pilot text is then left as
+     definition at the new first use. Terms that the text defines itself
+     ("the absurd", "paradox") and "the demonic" get no gloss. The exact
+     locations are in the table in `DRAFTING-BRIEF.md`. The pilot text is then left as
      accepted, unless the book-level review finds a defect.
 6. **Keep Kierkegaard's foreign-language insertions** (Latin, Greek, German,
    French) and add a short English gloss beside them. Restore OCR-garbled
@@ -166,8 +168,8 @@ The pilot's Problema I and II are the model for register and density.
 | Aabenbarelse; aabenbare (vb) | **disclosure**; **disclose** | Never "revelation", which is reserved for any Danish *Aabenbaring* (divine revelation). |
 | Taushed; tie | **silence**; **keep silent**, **be silent** | Problema III's title uses *fortiede*: "keep silent about … to". |
 | tale | **speak** | "Abraham cannot speak" |
-| det Æsthetiske; Æsthetiken; æsthetisk | **the aesthetic**; **aesthetics**; **aesthetic** | Define at first use in Problema III, briefly: the sphere of the immediate, of feeling and poetry, as the text itself presents it. |
-| det Dæmoniske; dæmonisk | **the demonic**; **demonic** | |
+| det Æsthetiske; Æsthetiken; æsthetisk | **the aesthetic**; **aesthetics**; **aesthetic** | Defined briefly at first use, in the Preliminary Expectoration ¶22. |
+| det Dæmoniske; dæmonisk | **the demonic**; **demonic** | No gloss anywhere; the text itself develops the term. |
 | det Interessante | **the interesting** | Johannes's ironic category. Keep it. |
 | Skyld; Synd; Anger | **guilt**; **sin**; **repentance** | |
 | Forfører / forføre | **seducer** / **seduce** | |

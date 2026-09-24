@@ -93,7 +93,6 @@ Everywhere else, use the bare term.
 |---|---|---|
 | movement (Bevægelse) | ch1 ¶0 | plain; no gloss needed |
 | the System | ch1 ¶2 | capitalized, no gloss |
-| mediation / mediate | ch4 ¶2 | "reconciling opposites by bringing them under something more general" — keep it brief and grounded in the context of the Danish |
 | spiritual trial (Anfægtelse) | ch4 ¶7 | "an inner assault on a person" (pilot wording) |
 | paradox | ch4 ¶9 | defined by the text itself |
 | the absurd | ch4 ¶10 | defined by the text itself; do not gloss beyond it |
@@ -108,6 +107,7 @@ Everywhere else, use the bare term.
 | the aesthetic | ch4 ¶22 | brief, from context |
 | irony | ch4 ¶28 | plain |
 | the universal, the ethical, telos, the immediate | ch5 ¶0 | already in the accepted pilot |
+| mediation / mediate | ch5 ¶4 | already in the accepted pilot. Corrected 2026-09-24: ch4 ¶2 has *Mediterende* (meditating), not mediation. |
 | ethical life | ch5 ¶1 | already in the accepted pilot |
 | concealment; disclosure; the interesting | ch7 ¶0; ¶1; ¶2 | brief, from context |
-| the demonic | ch7 ¶18 | brief, from context |
+| the demonic | ch7 ¶12 | **No gloss.** It is used bare throughout, and the text develops it (decision 2026-09-24 after R1 reviews of parts F and G). |
