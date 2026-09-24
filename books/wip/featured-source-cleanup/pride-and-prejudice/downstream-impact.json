@@ -1,0 +1,8301 @@
+{
+  "card": "app/public/data/characters/pride-and-prejudice.v1.json",
+  "card_contentVersion": "2026-09-12.1",
+  "card_offsetUnit": "utf16",
+  "editions": {
+    "original-en": {
+      "card_sourceSha256": "5a44024668550ab8cdae47579bd798b5b60c8e3e1401043b6d9f8777081760c6",
+      "package_input_sha256": "5a44024668550ab8cdae47579bd798b5b60c8e3e1401043b6d9f8777081760c6",
+      "card_pinned_to_package_input": true,
+      "new_sourceSha256": "6d968f00645655554e44156a16a2713a3c1f60e74cb533d56aa5231847ca183c",
+      "paragraphCount": [
+        2060,
+        2053
+      ],
+      "paragraphHashes_chapters_to_recompute": [
+        3,
+        14,
+        22,
+        30,
+        36,
+        46,
+        48
+      ],
+      "counts": {
+        "mention:unchanged": 2889,
+        "mention:merge-head": 12,
+        "mention:merge-shift": 30,
+        "mention:renumber": 174,
+        "anchor:unchanged": 72,
+        "anchor:renumber": 16,
+        "anchor:merge-shift": 4
+      },
+      "moves": [
+        {
+          "path": "mentions[51]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            72
+          ],
+          "new": [
+            3,
+            3,
+            72
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[52]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            194
+          ],
+          "new": [
+            3,
+            3,
+            194
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[53]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            322
+          ],
+          "new": [
+            3,
+            3,
+            322
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[54]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            598
+          ],
+          "new": [
+            3,
+            3,
+            598
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[55]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            3,
+            4,
+            93
+          ],
+          "new": [
+            3,
+            3,
+            757
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[56]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            3,
+            4,
+            466
+          ],
+          "new": [
+            3,
+            3,
+            1130
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[57]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            0
+          ],
+          "new": [
+            3,
+            4,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[58]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            190
+          ],
+          "new": [
+            3,
+            4,
+            190
+          ],
+          "text": "Mr. Hurst",
+          "characterId": "mr-hurst"
+        },
+        {
+          "path": "mentions[59]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            245
+          ],
+          "new": [
+            3,
+            4,
+            245
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[60]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            578
+          ],
+          "new": [
+            3,
+            4,
+            578
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[61]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            0
+          ],
+          "new": [
+            3,
+            5,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[62]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            322
+          ],
+          "new": [
+            3,
+            5,
+            322
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[63]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            354
+          ],
+          "new": [
+            3,
+            5,
+            354
+          ],
+          "text": "Mrs. Hurst",
+          "characterId": "mrs-hurst"
+        },
+        {
+          "path": "mentions[64]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            379
+          ],
+          "new": [
+            3,
+            5,
+            379
+          ],
+          "text": "Miss Bingley",
+          "characterId": "caroline-bingley"
+        },
+        {
+          "path": "mentions[65]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            729
+          ],
+          "new": [
+            3,
+            5,
+            729
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[66]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            0
+          ],
+          "new": [
+            3,
+            6,
+            0
+          ],
+          "text": "Elizabeth Bennet",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[67]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            123
+          ],
+          "new": [
+            3,
+            6,
+            123
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[68]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            214
+          ],
+          "new": [
+            3,
+            6,
+            214
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[69]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            8,
+            7
+          ],
+          "new": [
+            3,
+            7,
+            7
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[70]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            10,
+            49
+          ],
+          "new": [
+            3,
+            9,
+            49
+          ],
+          "text": "Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[71]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            11,
+            66
+          ],
+          "new": [
+            3,
+            10,
+            66
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[72]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            11,
+            99
+          ],
+          "new": [
+            3,
+            10,
+            99
+          ],
+          "text": "Miss Bennet",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[73]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            13,
+            66
+          ],
+          "new": [
+            3,
+            12,
+            66
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[74]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            0
+          ],
+          "new": [
+            3,
+            13,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[75]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            33
+          ],
+          "new": [
+            3,
+            13,
+            33
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[76]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            59
+          ],
+          "new": [
+            3,
+            13,
+            59
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[77]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            66
+          ],
+          "new": [
+            3,
+            14,
+            66
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[78]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            146
+          ],
+          "new": [
+            3,
+            14,
+            146
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[79]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            232
+          ],
+          "new": [
+            3,
+            14,
+            232
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[80]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            316
+          ],
+          "new": [
+            3,
+            14,
+            316
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[81]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            331
+          ],
+          "new": [
+            3,
+            14,
+            331
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[82]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            348
+          ],
+          "new": [
+            3,
+            14,
+            348
+          ],
+          "text": "Mary",
+          "characterId": "mary"
+        },
+        {
+          "path": "mentions[83]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            384
+          ],
+          "new": [
+            3,
+            14,
+            384
+          ],
+          "text": "Miss Bingley",
+          "characterId": "caroline-bingley"
+        },
+        {
+          "path": "mentions[84]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            467
+          ],
+          "new": [
+            3,
+            14,
+            467
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[85]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            738
+          ],
+          "new": [
+            3,
+            14,
+            738
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[86]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            13
+          ],
+          "new": [
+            3,
+            15,
+            13
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[87]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            141
+          ],
+          "new": [
+            3,
+            15,
+            141
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[88]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            228
+          ],
+          "new": [
+            3,
+            15,
+            228
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[89]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            619
+          ],
+          "new": [
+            3,
+            15,
+            619
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[90]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            843
+          ],
+          "new": [
+            3,
+            15,
+            843
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[91]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            878
+          ],
+          "new": [
+            3,
+            15,
+            878
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[92]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            18,
+            25
+          ],
+          "new": [
+            3,
+            17,
+            25
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[93]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            18,
+            227
+          ],
+          "new": [
+            3,
+            17,
+            227
+          ],
+          "text": "Mrs. Hurst",
+          "characterId": "mrs-hurst"
+        },
+        {
+          "path": "mentions[94]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            19,
+            32
+          ],
+          "new": [
+            3,
+            18,
+            32
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[95]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            19,
+            246
+          ],
+          "new": [
+            3,
+            18,
+            246
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[96]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            20,
+            41
+          ],
+          "new": [
+            3,
+            19,
+            41
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[576]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            14,
+            12,
+            52
+          ],
+          "new": [
+            14,
+            12,
+            52
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[577]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            29
+          ],
+          "new": [
+            14,
+            12,
+            190
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[578]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            242
+          ],
+          "new": [
+            14,
+            12,
+            403
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[579]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            267
+          ],
+          "new": [
+            14,
+            12,
+            428
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[580]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            369
+          ],
+          "new": [
+            14,
+            12,
+            530
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[581]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            15,
+            0
+          ],
+          "new": [
+            14,
+            14,
+            0
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[582]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            15,
+            64
+          ],
+          "new": [
+            14,
+            14,
+            64
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[583]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            17
+          ],
+          "new": [
+            14,
+            16,
+            17
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[584]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            81
+          ],
+          "new": [
+            14,
+            16,
+            81
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[585]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            207
+          ],
+          "new": [
+            14,
+            16,
+            207
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[586]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            265
+          ],
+          "new": [
+            14,
+            16,
+            265
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[587]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            365
+          ],
+          "new": [
+            14,
+            16,
+            365
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[588]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            532
+          ],
+          "new": [
+            14,
+            16,
+            532
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1108]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            16
+          ],
+          "new": [
+            22,
+            3,
+            16
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[1109]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            120
+          ],
+          "new": [
+            22,
+            3,
+            120
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1110]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            304
+          ],
+          "new": [
+            22,
+            3,
+            304
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[1111]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            38
+          ],
+          "new": [
+            22,
+            3,
+            426
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1112]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            131
+          ],
+          "new": [
+            22,
+            3,
+            519
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1113]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            518
+          ],
+          "new": [
+            22,
+            3,
+            906
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1114]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            549
+          ],
+          "new": [
+            22,
+            3,
+            937
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1115]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            695
+          ],
+          "new": [
+            22,
+            3,
+            1083
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1116]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1359
+          ],
+          "new": [
+            22,
+            3,
+            1747
+          ],
+          "text": "Elizabeth Bennet",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1117]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1438
+          ],
+          "new": [
+            22,
+            3,
+            1826
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1118]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1664
+          ],
+          "new": [
+            22,
+            3,
+            2052
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1119]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            5,
+            165
+          ],
+          "new": [
+            22,
+            4,
+            165
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[1120]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            7,
+            30
+          ],
+          "new": [
+            22,
+            6,
+            30
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1121]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            8,
+            28
+          ],
+          "new": [
+            22,
+            7,
+            28
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[1122]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            9,
+            23
+          ],
+          "new": [
+            22,
+            8,
+            23
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1123]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            11,
+            432
+          ],
+          "new": [
+            22,
+            10,
+            432
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1124]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            122
+          ],
+          "new": [
+            22,
+            11,
+            122
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[1125]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            234
+          ],
+          "new": [
+            22,
+            11,
+            234
+          ],
+          "text": "Mary",
+          "characterId": "mary"
+        },
+        {
+          "path": "mentions[1126]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            725
+          ],
+          "new": [
+            22,
+            11,
+            725
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1127]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            19
+          ],
+          "new": [
+            22,
+            12,
+            19
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1128]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            95
+          ],
+          "new": [
+            22,
+            12,
+            95
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1129]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            142
+          ],
+          "new": [
+            22,
+            12,
+            142
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1130]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            14,
+            12
+          ],
+          "new": [
+            22,
+            13,
+            12
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1131]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            14,
+            33
+          ],
+          "new": [
+            22,
+            13,
+            33
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1132]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            16,
+            38
+          ],
+          "new": [
+            22,
+            15,
+            38
+          ],
+          "text": "Eliza",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1133]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            16,
+            77
+          ],
+          "new": [
+            22,
+            15,
+            77
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1134]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            17,
+            4
+          ],
+          "new": [
+            22,
+            16,
+            4
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1135]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            38
+          ],
+          "new": [
+            22,
+            17,
+            38
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1136]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            107
+          ],
+          "new": [
+            22,
+            17,
+            107
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1137]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            336
+          ],
+          "new": [
+            22,
+            17,
+            336
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1138]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            0
+          ],
+          "new": [
+            22,
+            18,
+            0
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1139]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            112
+          ],
+          "new": [
+            22,
+            18,
+            112
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1140]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            152
+          ],
+          "new": [
+            22,
+            18,
+            152
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1141]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            322
+          ],
+          "new": [
+            22,
+            18,
+            322
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1142]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            462
+          ],
+          "new": [
+            22,
+            18,
+            462
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1143]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            669
+          ],
+          "new": [
+            22,
+            18,
+            669
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1144]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            692
+          ],
+          "new": [
+            22,
+            18,
+            692
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1509]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            30,
+            6,
+            49
+          ],
+          "new": [
+            30,
+            6,
+            49
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1510]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            231
+          ],
+          "new": [
+            30,
+            6,
+            393
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[1511]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            267
+          ],
+          "new": [
+            30,
+            6,
+            429
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1512]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            300
+          ],
+          "new": [
+            30,
+            6,
+            462
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1513]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            412
+          ],
+          "new": [
+            30,
+            6,
+            574
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1514]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            465
+          ],
+          "new": [
+            30,
+            6,
+            627
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1515]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            8,
+            18
+          ],
+          "new": [
+            30,
+            7,
+            18
+          ],
+          "text": "Eliza",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1516]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            8,
+            53
+          ],
+          "new": [
+            30,
+            7,
+            53
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1517]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            0
+          ],
+          "new": [
+            30,
+            8,
+            0
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1518]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            183
+          ],
+          "new": [
+            30,
+            8,
+            183
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1519]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            305
+          ],
+          "new": [
+            30,
+            8,
+            305
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1520]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            535
+          ],
+          "new": [
+            30,
+            8,
+            535
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1521]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            10,
+            0
+          ],
+          "new": [
+            30,
+            9,
+            0
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1522]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            10,
+            350
+          ],
+          "new": [
+            30,
+            9,
+            350
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1523]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            12,
+            154
+          ],
+          "new": [
+            30,
+            11,
+            154
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1524]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            12,
+            266
+          ],
+          "new": [
+            30,
+            11,
+            266
+          ],
+          "text": "Miss Bennet",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1717]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            36,
+            3,
+            72
+          ],
+          "new": [
+            36,
+            3,
+            72
+          ],
+          "text": "Mr. Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1718]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            355
+          ],
+          "new": [
+            36,
+            3,
+            834
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1719]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            487
+          ],
+          "new": [
+            36,
+            3,
+            966
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1720]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            984
+          ],
+          "new": [
+            36,
+            3,
+            1463
+          ],
+          "text": "Miss Darcy",
+          "characterId": "georgiana"
+        },
+        {
+          "path": "mentions[1721]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1052
+          ],
+          "new": [
+            36,
+            3,
+            1531
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1722]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1175
+          ],
+          "new": [
+            36,
+            3,
+            1654
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1723]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1530
+          ],
+          "new": [
+            36,
+            3,
+            2009
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1724]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            76
+          ],
+          "new": [
+            36,
+            4,
+            76
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1725]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            122
+          ],
+          "new": [
+            36,
+            4,
+            122
+          ],
+          "text": "Mr. Philips",
+          "characterId": "phillips-household"
+        },
+        {
+          "path": "mentions[1726]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            501
+          ],
+          "new": [
+            36,
+            4,
+            501
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1727]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            517
+          ],
+          "new": [
+            36,
+            4,
+            517
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1728]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            893
+          ],
+          "new": [
+            36,
+            4,
+            893
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1729]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            618
+          ],
+          "new": [
+            36,
+            5,
+            618
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1730]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            658
+          ],
+          "new": [
+            36,
+            5,
+            658
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1731]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            690
+          ],
+          "new": [
+            36,
+            5,
+            690
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1732]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1159
+          ],
+          "new": [
+            36,
+            5,
+            1159
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1733]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1355
+          ],
+          "new": [
+            36,
+            5,
+            1355
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1734]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1549
+          ],
+          "new": [
+            36,
+            5,
+            1549
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1735]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            7,
+            51
+          ],
+          "new": [
+            36,
+            6,
+            51
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1736]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            7,
+            61
+          ],
+          "new": [
+            36,
+            6,
+            61
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1737]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            16
+          ],
+          "new": [
+            36,
+            8,
+            16
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1738]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            27
+          ],
+          "new": [
+            36,
+            8,
+            27
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1739]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            35
+          ],
+          "new": [
+            36,
+            8,
+            35
+          ],
+          "text": "Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1740]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            116
+          ],
+          "new": [
+            36,
+            8,
+            116
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1741]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            494
+          ],
+          "new": [
+            36,
+            8,
+            494
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1742]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            588
+          ],
+          "new": [
+            36,
+            8,
+            588
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1743]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            608
+          ],
+          "new": [
+            36,
+            8,
+            608
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1744]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            11,
+            204
+          ],
+          "new": [
+            36,
+            10,
+            204
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1745]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            98
+          ],
+          "new": [
+            36,
+            12,
+            98
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1746]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            157
+          ],
+          "new": [
+            36,
+            12,
+            157
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1747]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            309
+          ],
+          "new": [
+            36,
+            12,
+            309
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1748]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            394
+          ],
+          "new": [
+            36,
+            12,
+            394
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[2203]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            46,
+            10,
+            95
+          ],
+          "new": [
+            46,
+            10,
+            95
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2204]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            46,
+            11,
+            109
+          ],
+          "new": [
+            46,
+            10,
+            278
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2205]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            46,
+            11,
+            274
+          ],
+          "new": [
+            46,
+            10,
+            443
+          ],
+          "text": "Mr. Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2206]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            12,
+            0
+          ],
+          "new": [
+            46,
+            11,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2207]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            14,
+            30
+          ],
+          "new": [
+            46,
+            13,
+            30
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2208]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            17,
+            35
+          ],
+          "new": [
+            46,
+            16,
+            35
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2209]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            18,
+            0
+          ],
+          "new": [
+            46,
+            17,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2210]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            20,
+            0
+          ],
+          "new": [
+            46,
+            19,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2211]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            20,
+            151
+          ],
+          "new": [
+            46,
+            19,
+            151
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2212]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            21,
+            58
+          ],
+          "new": [
+            46,
+            20,
+            58
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2213]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            21,
+            206
+          ],
+          "new": [
+            46,
+            20,
+            206
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2214]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            23,
+            47
+          ],
+          "new": [
+            46,
+            22,
+            47
+          ],
+          "text": "Miss Darcy",
+          "characterId": "georgiana"
+        },
+        {
+          "path": "mentions[2215]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            25,
+            24
+          ],
+          "new": [
+            46,
+            24,
+            24
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2216]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            59
+          ],
+          "new": [
+            46,
+            25,
+            59
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2217]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            486
+          ],
+          "new": [
+            46,
+            25,
+            486
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2218]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            686
+          ],
+          "new": [
+            46,
+            25,
+            686
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2219]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            804
+          ],
+          "new": [
+            46,
+            25,
+            804
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2220]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            855
+          ],
+          "new": [
+            46,
+            25,
+            855
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2221]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            898
+          ],
+          "new": [
+            46,
+            25,
+            898
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2222]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1135
+          ],
+          "new": [
+            46,
+            25,
+            1135
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2223]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1220
+          ],
+          "new": [
+            46,
+            25,
+            1220
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2224]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1415
+          ],
+          "new": [
+            46,
+            25,
+            1415
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2225]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            27,
+            71
+          ],
+          "new": [
+            46,
+            26,
+            71
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2226]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            27,
+            132
+          ],
+          "new": [
+            46,
+            26,
+            132
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2227]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            79
+          ],
+          "new": [
+            46,
+            27,
+            79
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2228]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            301
+          ],
+          "new": [
+            46,
+            27,
+            301
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2229]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            444
+          ],
+          "new": [
+            46,
+            27,
+            444
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2230]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            764
+          ],
+          "new": [
+            46,
+            27,
+            764
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2231]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            816
+          ],
+          "new": [
+            46,
+            27,
+            816
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2232]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            868
+          ],
+          "new": [
+            46,
+            27,
+            868
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2233]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            967
+          ],
+          "new": [
+            46,
+            27,
+            967
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2234]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            1028
+          ],
+          "new": [
+            46,
+            27,
+            1028
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2235]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            1294
+          ],
+          "new": [
+            46,
+            27,
+            1294
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2236]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            1323
+          ],
+          "new": [
+            46,
+            27,
+            1323
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2237]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            119
+          ],
+          "new": [
+            46,
+            30,
+            119
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2238]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            489
+          ],
+          "new": [
+            46,
+            30,
+            489
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2239]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            596
+          ],
+          "new": [
+            46,
+            30,
+            596
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2351]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            48,
+            11,
+            813
+          ],
+          "new": [
+            48,
+            11,
+            813
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[2352]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            121
+          ],
+          "new": [
+            48,
+            11,
+            1002
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[2353]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            400
+          ],
+          "new": [
+            48,
+            11,
+            1281
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[2354]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            605
+          ],
+          "new": [
+            48,
+            11,
+            1486
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[2355]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            0
+          ],
+          "new": [
+            48,
+            13,
+            0
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2356]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            163
+          ],
+          "new": [
+            48,
+            13,
+            163
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2357]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            666
+          ],
+          "new": [
+            48,
+            13,
+            666
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2358]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            981
+          ],
+          "new": [
+            48,
+            13,
+            981
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2359]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            1066
+          ],
+          "new": [
+            48,
+            13,
+            1066
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2360]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            15,
+            0
+          ],
+          "new": [
+            48,
+            14,
+            0
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2361]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            15,
+            384
+          ],
+          "new": [
+            48,
+            14,
+            384
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[2362]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            16,
+            43
+          ],
+          "new": [
+            48,
+            15,
+            43
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2363]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            16,
+            135
+          ],
+          "new": [
+            48,
+            15,
+            135
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2364]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            17,
+            3
+          ],
+          "new": [
+            48,
+            16,
+            3
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2365]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            17,
+            129
+          ],
+          "new": [
+            48,
+            16,
+            129
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[2366]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            0
+          ],
+          "new": [
+            48,
+            17,
+            0
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2367]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            52
+          ],
+          "new": [
+            48,
+            17,
+            52
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2368]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            251
+          ],
+          "new": [
+            48,
+            17,
+            251
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2369]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            345
+          ],
+          "new": [
+            48,
+            17,
+            345
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2370]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            179
+          ],
+          "new": [
+            48,
+            18,
+            179
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2371]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            311
+          ],
+          "new": [
+            48,
+            18,
+            311
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2372]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            352
+          ],
+          "new": [
+            48,
+            18,
+            352
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2373]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            20,
+            5
+          ],
+          "new": [
+            48,
+            19,
+            5
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[2374]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            21,
+            64
+          ],
+          "new": [
+            48,
+            20,
+            64
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2375]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            22,
+            52
+          ],
+          "new": [
+            48,
+            21,
+            52
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2376]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            23,
+            90
+          ],
+          "new": [
+            48,
+            22,
+            90
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2377]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            26,
+            5
+          ],
+          "new": [
+            48,
+            25,
+            5
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2378]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            26,
+            48
+          ],
+          "new": [
+            48,
+            25,
+            48
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2379]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            28,
+            44
+          ],
+          "new": [
+            48,
+            27,
+            44
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2380]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            29,
+            25
+          ],
+          "new": [
+            48,
+            28,
+            25
+          ],
+          "text": "Miss Bennet",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2381]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            30,
+            253
+          ],
+          "new": [
+            48,
+            29,
+            253
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2382]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            31,
+            41
+          ],
+          "new": [
+            48,
+            30,
+            41
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2383]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            31,
+            122
+          ],
+          "new": [
+            48,
+            30,
+            122
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2384]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            32,
+            93
+          ],
+          "new": [
+            48,
+            31,
+            93
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2385]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            33,
+            0
+          ],
+          "new": [
+            48,
+            32,
+            0
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "characters[1].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            254
+          ],
+          "new": [
+            3,
+            4,
+            254
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            254
+          ],
+          "new": [
+            3,
+            4,
+            254
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            254
+          ],
+          "new": [
+            3,
+            4,
+            254
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            null
+          ],
+          "new": [
+            3,
+            4,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            391
+          ],
+          "new": [
+            3,
+            5,
+            391
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            391
+          ],
+          "new": [
+            3,
+            5,
+            391
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            391
+          ],
+          "new": [
+            3,
+            5,
+            391
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            null
+          ],
+          "new": [
+            3,
+            5,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            364
+          ],
+          "new": [
+            3,
+            5,
+            364
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            364
+          ],
+          "new": [
+            3,
+            5,
+            364
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            364
+          ],
+          "new": [
+            3,
+            5,
+            364
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            null
+          ],
+          "new": [
+            3,
+            5,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            199
+          ],
+          "new": [
+            3,
+            4,
+            199
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            199
+          ],
+          "new": [
+            3,
+            4,
+            199
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            199
+          ],
+          "new": [
+            3,
+            4,
+            199
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            null
+          ],
+          "new": [
+            3,
+            4,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].roleVisibleAt",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            319
+          ],
+          "new": [
+            30,
+            6,
+            481
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].firstMention",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            319
+          ],
+          "new": [
+            30,
+            6,
+            481
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            319
+          ],
+          "new": [
+            30,
+            6,
+            481
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            null
+          ],
+          "new": [
+            30,
+            6,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        }
+      ]
+    },
+    "modern-en": {
+      "card_sourceSha256": "d914bb2dc33dfb525d7c21b142cc1ae4ea85dcfdd84378c2a839c90d90c250e1",
+      "package_input_sha256": "5ba867fe5e13a7c7c1f1f94946c6b6a575f342951467245a0d816723dd3f4c77",
+      "card_pinned_to_package_input": false,
+      "new_sourceSha256": "6c80aa42dd44707774a6049d2a17bbfaf61806751e6f0cf5536b8837dabfc463",
+      "paragraphCount": [
+        2060,
+        2053
+      ],
+      "paragraphHashes_chapters_to_recompute": [
+        3,
+        14,
+        22,
+        30,
+        36,
+        46,
+        48
+      ],
+      "counts": {
+        "mention:unchanged": 2986,
+        "mention:merge-head": 12,
+        "mention:merge-shift": 31,
+        "mention:renumber": 182,
+        "anchor:unchanged": 72,
+        "anchor:renumber": 16,
+        "anchor:merge-shift": 4
+      },
+      "moves": [
+        {
+          "path": "mentions[54]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            47
+          ],
+          "new": [
+            3,
+            3,
+            47
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[55]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            183
+          ],
+          "new": [
+            3,
+            3,
+            183
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[56]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            283
+          ],
+          "new": [
+            3,
+            3,
+            283
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[57]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            3,
+            3,
+            544
+          ],
+          "new": [
+            3,
+            3,
+            544
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[58]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            3,
+            4,
+            85
+          ],
+          "new": [
+            3,
+            3,
+            710
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[59]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            3,
+            4,
+            456
+          ],
+          "new": [
+            3,
+            3,
+            1081
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[60]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            0
+          ],
+          "new": [
+            3,
+            4,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[61]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            175
+          ],
+          "new": [
+            3,
+            4,
+            175
+          ],
+          "text": "Mr. Hurst",
+          "characterId": "mr-hurst"
+        },
+        {
+          "path": "mentions[62]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            228
+          ],
+          "new": [
+            3,
+            4,
+            228
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[63]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            561
+          ],
+          "new": [
+            3,
+            4,
+            561
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[64]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            0
+          ],
+          "new": [
+            3,
+            5,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[65]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            299
+          ],
+          "new": [
+            3,
+            5,
+            299
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[66]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            331
+          ],
+          "new": [
+            3,
+            5,
+            331
+          ],
+          "text": "Mrs. Hurst",
+          "characterId": "mrs-hurst"
+        },
+        {
+          "path": "mentions[67]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            356
+          ],
+          "new": [
+            3,
+            5,
+            356
+          ],
+          "text": "Miss Bingley",
+          "characterId": "caroline-bingley"
+        },
+        {
+          "path": "mentions[68]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            675
+          ],
+          "new": [
+            3,
+            5,
+            675
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[69]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            0
+          ],
+          "new": [
+            3,
+            6,
+            0
+          ],
+          "text": "Elizabeth Bennet",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[70]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            113
+          ],
+          "new": [
+            3,
+            6,
+            113
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[71]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            7,
+            205
+          ],
+          "new": [
+            3,
+            6,
+            205
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[72]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            8,
+            7
+          ],
+          "new": [
+            3,
+            7,
+            7
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[73]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            10,
+            65
+          ],
+          "new": [
+            3,
+            9,
+            65
+          ],
+          "text": "Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[74]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            11,
+            66
+          ],
+          "new": [
+            3,
+            10,
+            66
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[75]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            11,
+            99
+          ],
+          "new": [
+            3,
+            10,
+            99
+          ],
+          "text": "Miss Bennet",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[76]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            13,
+            54
+          ],
+          "new": [
+            3,
+            12,
+            54
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[77]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            0
+          ],
+          "new": [
+            3,
+            13,
+            0
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[78]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            29
+          ],
+          "new": [
+            3,
+            13,
+            29
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[79]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            14,
+            55
+          ],
+          "new": [
+            3,
+            13,
+            55
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[80]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            61
+          ],
+          "new": [
+            3,
+            14,
+            61
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[81]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            141
+          ],
+          "new": [
+            3,
+            14,
+            141
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[82]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            225
+          ],
+          "new": [
+            3,
+            14,
+            225
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[83]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            293
+          ],
+          "new": [
+            3,
+            14,
+            293
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[84]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            313
+          ],
+          "new": [
+            3,
+            14,
+            313
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[85]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            331
+          ],
+          "new": [
+            3,
+            14,
+            331
+          ],
+          "text": "Mary",
+          "characterId": "mary"
+        },
+        {
+          "path": "mentions[86]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            367
+          ],
+          "new": [
+            3,
+            14,
+            367
+          ],
+          "text": "Miss Bingley",
+          "characterId": "caroline-bingley"
+        },
+        {
+          "path": "mentions[87]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            449
+          ],
+          "new": [
+            3,
+            14,
+            449
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[88]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            15,
+            701
+          ],
+          "new": [
+            3,
+            14,
+            701
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[89]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            13
+          ],
+          "new": [
+            3,
+            15,
+            13
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[90]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            154
+          ],
+          "new": [
+            3,
+            15,
+            154
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[91]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            236
+          ],
+          "new": [
+            3,
+            15,
+            236
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[92]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            591
+          ],
+          "new": [
+            3,
+            15,
+            591
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[93]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            795
+          ],
+          "new": [
+            3,
+            15,
+            795
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[94]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            16,
+            817
+          ],
+          "new": [
+            3,
+            15,
+            817
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[95]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            18,
+            25
+          ],
+          "new": [
+            3,
+            17,
+            25
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[96]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            18,
+            232
+          ],
+          "new": [
+            3,
+            17,
+            232
+          ],
+          "text": "Mrs. Hurst",
+          "characterId": "mrs-hurst"
+        },
+        {
+          "path": "mentions[97]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            19,
+            32
+          ],
+          "new": [
+            3,
+            18,
+            32
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[98]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            19,
+            222
+          ],
+          "new": [
+            3,
+            18,
+            222
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[99]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            3,
+            20,
+            41
+          ],
+          "new": [
+            3,
+            19,
+            41
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[592]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            14,
+            12,
+            51
+          ],
+          "new": [
+            14,
+            12,
+            51
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[593]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            29
+          ],
+          "new": [
+            14,
+            12,
+            192
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[594]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            251
+          ],
+          "new": [
+            14,
+            12,
+            414
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[595]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            276
+          ],
+          "new": [
+            14,
+            12,
+            439
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[596]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            14,
+            13,
+            376
+          ],
+          "new": [
+            14,
+            12,
+            539
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[597]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            15,
+            0
+          ],
+          "new": [
+            14,
+            14,
+            0
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[598]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            15,
+            58
+          ],
+          "new": [
+            14,
+            14,
+            58
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[599]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            17
+          ],
+          "new": [
+            14,
+            16,
+            17
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[600]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            78
+          ],
+          "new": [
+            14,
+            16,
+            78
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[601]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            128
+          ],
+          "new": [
+            14,
+            16,
+            128
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[602]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            212
+          ],
+          "new": [
+            14,
+            16,
+            212
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[603]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            271
+          ],
+          "new": [
+            14,
+            16,
+            271
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[604]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            364
+          ],
+          "new": [
+            14,
+            16,
+            364
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[605]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            14,
+            17,
+            524
+          ],
+          "new": [
+            14,
+            16,
+            524
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1136]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            16
+          ],
+          "new": [
+            22,
+            3,
+            16
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[1137]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            113
+          ],
+          "new": [
+            22,
+            3,
+            113
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1138]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            22,
+            3,
+            291
+          ],
+          "new": [
+            22,
+            3,
+            291
+          ],
+          "text": "Lady Lucas",
+          "characterId": "lady-lucas"
+        },
+        {
+          "path": "mentions[1139]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            39
+          ],
+          "new": [
+            22,
+            3,
+            417
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1140]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            124
+          ],
+          "new": [
+            22,
+            3,
+            502
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1141]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            474
+          ],
+          "new": [
+            22,
+            3,
+            852
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1142]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            507
+          ],
+          "new": [
+            22,
+            3,
+            885
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1143]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            645
+          ],
+          "new": [
+            22,
+            3,
+            1023
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1144]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1269
+          ],
+          "new": [
+            22,
+            3,
+            1647
+          ],
+          "text": "Elizabeth Bennet",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1145]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1336
+          ],
+          "new": [
+            22,
+            3,
+            1714
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1146]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1512
+          ],
+          "new": [
+            22,
+            3,
+            1890
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1147]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            22,
+            4,
+            1556
+          ],
+          "new": [
+            22,
+            3,
+            1934
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1148]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            5,
+            162
+          ],
+          "new": [
+            22,
+            4,
+            162
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[1149]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            7,
+            30
+          ],
+          "new": [
+            22,
+            6,
+            30
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[1150]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            8,
+            29
+          ],
+          "new": [
+            22,
+            7,
+            29
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[1151]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            9,
+            23
+          ],
+          "new": [
+            22,
+            8,
+            23
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1152]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            11,
+            403
+          ],
+          "new": [
+            22,
+            10,
+            403
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1153]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            116
+          ],
+          "new": [
+            22,
+            11,
+            116
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[1154]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            196
+          ],
+          "new": [
+            22,
+            11,
+            196
+          ],
+          "text": "Mary",
+          "characterId": "mary"
+        },
+        {
+          "path": "mentions[1155]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            12,
+            660
+          ],
+          "new": [
+            22,
+            11,
+            660
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1156]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            21
+          ],
+          "new": [
+            22,
+            12,
+            21
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1157]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            93
+          ],
+          "new": [
+            22,
+            12,
+            93
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1158]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            13,
+            136
+          ],
+          "new": [
+            22,
+            12,
+            136
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1159]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            14,
+            12
+          ],
+          "new": [
+            22,
+            13,
+            12
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1160]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            14,
+            33
+          ],
+          "new": [
+            22,
+            13,
+            33
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1161]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            16,
+            38
+          ],
+          "new": [
+            22,
+            15,
+            38
+          ],
+          "text": "Eliza",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1162]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            16,
+            77
+          ],
+          "new": [
+            22,
+            15,
+            77
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1163]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            17,
+            4
+          ],
+          "new": [
+            22,
+            16,
+            4
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1164]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            38
+          ],
+          "new": [
+            22,
+            17,
+            38
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1165]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            110
+          ],
+          "new": [
+            22,
+            17,
+            110
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1166]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            18,
+            341
+          ],
+          "new": [
+            22,
+            17,
+            341
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1167]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            0
+          ],
+          "new": [
+            22,
+            18,
+            0
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1168]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            107
+          ],
+          "new": [
+            22,
+            18,
+            107
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1169]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            147
+          ],
+          "new": [
+            22,
+            18,
+            147
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1170]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            315
+          ],
+          "new": [
+            22,
+            18,
+            315
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1171]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            445
+          ],
+          "new": [
+            22,
+            18,
+            445
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1172]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            578
+          ],
+          "new": [
+            22,
+            18,
+            578
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1173]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            647
+          ],
+          "new": [
+            22,
+            18,
+            647
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1174]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            22,
+            19,
+            670
+          ],
+          "new": [
+            22,
+            18,
+            670
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1548]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            30,
+            6,
+            49
+          ],
+          "new": [
+            30,
+            6,
+            49
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1549]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            211
+          ],
+          "new": [
+            30,
+            6,
+            375
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[1550]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            246
+          ],
+          "new": [
+            30,
+            6,
+            410
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1551]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            279
+          ],
+          "new": [
+            30,
+            6,
+            443
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1552]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            393
+          ],
+          "new": [
+            30,
+            6,
+            557
+          ],
+          "text": "Mr. Collins",
+          "characterId": "collins"
+        },
+        {
+          "path": "mentions[1553]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            444
+          ],
+          "new": [
+            30,
+            6,
+            608
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1554]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            8,
+            18
+          ],
+          "new": [
+            30,
+            7,
+            18
+          ],
+          "text": "Eliza",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1555]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            8,
+            44
+          ],
+          "new": [
+            30,
+            7,
+            44
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1556]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            0
+          ],
+          "new": [
+            30,
+            8,
+            0
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1557]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            175
+          ],
+          "new": [
+            30,
+            8,
+            175
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1558]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            300
+          ],
+          "new": [
+            30,
+            8,
+            300
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1559]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            9,
+            517
+          ],
+          "new": [
+            30,
+            8,
+            517
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1560]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            10,
+            0
+          ],
+          "new": [
+            30,
+            9,
+            0
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1561]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            10,
+            332
+          ],
+          "new": [
+            30,
+            9,
+            332
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1562]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            12,
+            142
+          ],
+          "new": [
+            30,
+            11,
+            142
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1563]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            30,
+            12,
+            256
+          ],
+          "new": [
+            30,
+            11,
+            256
+          ],
+          "text": "Miss Bennet",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1761]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            36,
+            3,
+            69
+          ],
+          "new": [
+            36,
+            3,
+            69
+          ],
+          "text": "Mr. Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1762]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            354
+          ],
+          "new": [
+            36,
+            3,
+            812
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1763]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            481
+          ],
+          "new": [
+            36,
+            3,
+            939
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1764]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            967
+          ],
+          "new": [
+            36,
+            3,
+            1425
+          ],
+          "text": "Miss Darcy",
+          "characterId": "georgiana"
+        },
+        {
+          "path": "mentions[1765]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1035
+          ],
+          "new": [
+            36,
+            3,
+            1493
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1766]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1124
+          ],
+          "new": [
+            36,
+            3,
+            1582
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1767]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            36,
+            4,
+            1509
+          ],
+          "new": [
+            36,
+            3,
+            1967
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1768]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            60
+          ],
+          "new": [
+            36,
+            4,
+            60
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1769]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            106
+          ],
+          "new": [
+            36,
+            4,
+            106
+          ],
+          "text": "Mr. Philips",
+          "characterId": "phillips-household"
+        },
+        {
+          "path": "mentions[1770]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            507
+          ],
+          "new": [
+            36,
+            4,
+            507
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1771]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            522
+          ],
+          "new": [
+            36,
+            4,
+            522
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1772]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            5,
+            889
+          ],
+          "new": [
+            36,
+            4,
+            889
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1773]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            280
+          ],
+          "new": [
+            36,
+            5,
+            280
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1774]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            586
+          ],
+          "new": [
+            36,
+            5,
+            586
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1775]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            619
+          ],
+          "new": [
+            36,
+            5,
+            619
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1776]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            651
+          ],
+          "new": [
+            36,
+            5,
+            651
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1777]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1105
+          ],
+          "new": [
+            36,
+            5,
+            1105
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1778]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1290
+          ],
+          "new": [
+            36,
+            5,
+            1290
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1779]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            6,
+            1478
+          ],
+          "new": [
+            36,
+            5,
+            1478
+          ],
+          "text": "Mr. Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1780]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            7,
+            69
+          ],
+          "new": [
+            36,
+            6,
+            69
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1781]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            7,
+            78
+          ],
+          "new": [
+            36,
+            6,
+            78
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[1782]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            16
+          ],
+          "new": [
+            36,
+            8,
+            16
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1783]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            27
+          ],
+          "new": [
+            36,
+            8,
+            27
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1784]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            35
+          ],
+          "new": [
+            36,
+            8,
+            35
+          ],
+          "text": "Bingley",
+          "characterId": "bingley"
+        },
+        {
+          "path": "mentions[1785]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            102
+          ],
+          "new": [
+            36,
+            8,
+            102
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1786]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            469
+          ],
+          "new": [
+            36,
+            8,
+            469
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[1787]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            569
+          ],
+          "new": [
+            36,
+            8,
+            569
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1788]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            9,
+            589
+          ],
+          "new": [
+            36,
+            8,
+            589
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1789]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            11,
+            209
+          ],
+          "new": [
+            36,
+            10,
+            209
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1790]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            97
+          ],
+          "new": [
+            36,
+            12,
+            97
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[1791]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            151
+          ],
+          "new": [
+            36,
+            12,
+            151
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[1792]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            291
+          ],
+          "new": [
+            36,
+            12,
+            291
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[1793]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            36,
+            13,
+            377
+          ],
+          "new": [
+            36,
+            12,
+            377
+          ],
+          "text": "Colonel Fitzwilliam",
+          "characterId": "colonel-fitzwilliam"
+        },
+        {
+          "path": "mentions[2267]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            46,
+            10,
+            86
+          ],
+          "new": [
+            46,
+            10,
+            86
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2268]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            46,
+            11,
+            101
+          ],
+          "new": [
+            46,
+            10,
+            266
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2269]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            46,
+            11,
+            258
+          ],
+          "new": [
+            46,
+            10,
+            423
+          ],
+          "text": "Mr. Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2270]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            12,
+            0
+          ],
+          "new": [
+            46,
+            11,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2271]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            14,
+            36
+          ],
+          "new": [
+            46,
+            13,
+            36
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2272]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            17,
+            35
+          ],
+          "new": [
+            46,
+            16,
+            35
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2273]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            18,
+            0
+          ],
+          "new": [
+            46,
+            17,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2274]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            20,
+            0
+          ],
+          "new": [
+            46,
+            19,
+            0
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2275]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            20,
+            131
+          ],
+          "new": [
+            46,
+            19,
+            131
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2276]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            21,
+            54
+          ],
+          "new": [
+            46,
+            20,
+            54
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2277]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            21,
+            203
+          ],
+          "new": [
+            46,
+            20,
+            203
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2278]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            23,
+            36
+          ],
+          "new": [
+            46,
+            22,
+            36
+          ],
+          "text": "Miss Darcy",
+          "characterId": "georgiana"
+        },
+        {
+          "path": "mentions[2279]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            25,
+            12
+          ],
+          "new": [
+            46,
+            24,
+            12
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2280]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            65
+          ],
+          "new": [
+            46,
+            25,
+            65
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2281]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            452
+          ],
+          "new": [
+            46,
+            25,
+            452
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2282]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            634
+          ],
+          "new": [
+            46,
+            25,
+            634
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2283]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            725
+          ],
+          "new": [
+            46,
+            25,
+            725
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2284]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            780
+          ],
+          "new": [
+            46,
+            25,
+            780
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2285]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            803
+          ],
+          "new": [
+            46,
+            25,
+            803
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2286]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            821
+          ],
+          "new": [
+            46,
+            25,
+            821
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2287]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1031
+          ],
+          "new": [
+            46,
+            25,
+            1031
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2288]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1077
+          ],
+          "new": [
+            46,
+            25,
+            1077
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2289]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1259
+          ],
+          "new": [
+            46,
+            25,
+            1259
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2290]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            26,
+            1284
+          ],
+          "new": [
+            46,
+            25,
+            1284
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2291]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            27,
+            69
+          ],
+          "new": [
+            46,
+            26,
+            69
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2292]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            27,
+            106
+          ],
+          "new": [
+            46,
+            26,
+            106
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2293]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            27,
+            132
+          ],
+          "new": [
+            46,
+            26,
+            132
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2294]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            67
+          ],
+          "new": [
+            46,
+            27,
+            67
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2295]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            278
+          ],
+          "new": [
+            46,
+            27,
+            278
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2296]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            406
+          ],
+          "new": [
+            46,
+            27,
+            406
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2297]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            533
+          ],
+          "new": [
+            46,
+            27,
+            533
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2298]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            717
+          ],
+          "new": [
+            46,
+            27,
+            717
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2299]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            768
+          ],
+          "new": [
+            46,
+            27,
+            768
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2300]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            828
+          ],
+          "new": [
+            46,
+            27,
+            828
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2301]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            926
+          ],
+          "new": [
+            46,
+            27,
+            926
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2302]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            987
+          ],
+          "new": [
+            46,
+            27,
+            987
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2303]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            1232
+          ],
+          "new": [
+            46,
+            27,
+            1232
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2304]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            28,
+            1261
+          ],
+          "new": [
+            46,
+            27,
+            1261
+          ],
+          "text": "Mr. Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2305]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            104
+          ],
+          "new": [
+            46,
+            30,
+            104
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2306]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            431
+          ],
+          "new": [
+            46,
+            30,
+            431
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2307]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            46,
+            31,
+            518
+          ],
+          "new": [
+            46,
+            30,
+            518
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2422]",
+          "kind": "mention",
+          "class": "merge-head",
+          "old": [
+            48,
+            11,
+            805
+          ],
+          "new": [
+            48,
+            11,
+            805
+          ],
+          "text": "Charlotte",
+          "characterId": "charlotte"
+        },
+        {
+          "path": "mentions[2423]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            138
+          ],
+          "new": [
+            48,
+            11,
+            981
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[2424]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            394
+          ],
+          "new": [
+            48,
+            11,
+            1237
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[2425]",
+          "kind": "mention",
+          "class": "merge-shift",
+          "old": [
+            48,
+            12,
+            581
+          ],
+          "new": [
+            48,
+            11,
+            1424
+          ],
+          "text": "Lady Catherine",
+          "characterId": "lady-catherine"
+        },
+        {
+          "path": "mentions[2426]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            0
+          ],
+          "new": [
+            48,
+            13,
+            0
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2427]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            149
+          ],
+          "new": [
+            48,
+            13,
+            149
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2428]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            602
+          ],
+          "new": [
+            48,
+            13,
+            602
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2429]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            909
+          ],
+          "new": [
+            48,
+            13,
+            909
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2430]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            14,
+            982
+          ],
+          "new": [
+            48,
+            13,
+            982
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2431]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            15,
+            0
+          ],
+          "new": [
+            48,
+            14,
+            0
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2432]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            15,
+            257
+          ],
+          "new": [
+            48,
+            14,
+            257
+          ],
+          "text": "Mr. Gardiner",
+          "characterId": "mr-gardiner"
+        },
+        {
+          "path": "mentions[2433]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            15,
+            308
+          ],
+          "new": [
+            48,
+            14,
+            308
+          ],
+          "text": "Mrs. Bennet",
+          "characterId": "mrs-bennet"
+        },
+        {
+          "path": "mentions[2434]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            16,
+            37
+          ],
+          "new": [
+            48,
+            15,
+            37
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2435]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            16,
+            126
+          ],
+          "new": [
+            48,
+            15,
+            126
+          ],
+          "text": "Wickham",
+          "characterId": "wickham"
+        },
+        {
+          "path": "mentions[2436]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            17,
+            6
+          ],
+          "new": [
+            48,
+            16,
+            6
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2437]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            17,
+            122
+          ],
+          "new": [
+            48,
+            16,
+            122
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[2438]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            0
+          ],
+          "new": [
+            48,
+            17,
+            0
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2439]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            52
+          ],
+          "new": [
+            48,
+            17,
+            52
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2440]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            175
+          ],
+          "new": [
+            48,
+            17,
+            175
+          ],
+          "text": "Mrs. Gardiner",
+          "characterId": "mrs-gardiner"
+        },
+        {
+          "path": "mentions[2441]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            18,
+            262
+          ],
+          "new": [
+            48,
+            17,
+            262
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2442]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            167
+          ],
+          "new": [
+            48,
+            18,
+            167
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2443]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            288
+          ],
+          "new": [
+            48,
+            18,
+            288
+          ],
+          "text": "Darcy",
+          "characterId": "darcy"
+        },
+        {
+          "path": "mentions[2444]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            19,
+            329
+          ],
+          "new": [
+            48,
+            18,
+            329
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2445]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            20,
+            5
+          ],
+          "new": [
+            48,
+            19,
+            5
+          ],
+          "text": "Mr. Bennet",
+          "characterId": "mr-bennet"
+        },
+        {
+          "path": "mentions[2446]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            21,
+            64
+          ],
+          "new": [
+            48,
+            20,
+            64
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2447]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            22,
+            47
+          ],
+          "new": [
+            48,
+            21,
+            47
+          ],
+          "text": "Elizabeth",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2448]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            23,
+            84
+          ],
+          "new": [
+            48,
+            22,
+            84
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2449]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            26,
+            5
+          ],
+          "new": [
+            48,
+            25,
+            5
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2450]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            26,
+            51
+          ],
+          "new": [
+            48,
+            25,
+            51
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2451]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            28,
+            44
+          ],
+          "new": [
+            48,
+            27,
+            44
+          ],
+          "text": "Lizzy",
+          "characterId": "elizabeth"
+        },
+        {
+          "path": "mentions[2452]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            29,
+            25
+          ],
+          "new": [
+            48,
+            28,
+            25
+          ],
+          "text": "Jane",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[2453]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            30,
+            227
+          ],
+          "new": [
+            48,
+            29,
+            227
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2454]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            31,
+            40
+          ],
+          "new": [
+            48,
+            30,
+            40
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2455]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            31,
+            109
+          ],
+          "new": [
+            48,
+            30,
+            109
+          ],
+          "text": "Lydia",
+          "characterId": "lydia"
+        },
+        {
+          "path": "mentions[2456]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            32,
+            72
+          ],
+          "new": [
+            48,
+            31,
+            72
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "mentions[2457]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            48,
+            33,
+            0
+          ],
+          "new": [
+            48,
+            32,
+            0
+          ],
+          "text": "Kitty",
+          "characterId": "kitty"
+        },
+        {
+          "path": "characters[1].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            237
+          ],
+          "new": [
+            3,
+            4,
+            237
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            237
+          ],
+          "new": [
+            3,
+            4,
+            237
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            237
+          ],
+          "new": [
+            3,
+            4,
+            237
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[1].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            null
+          ],
+          "new": [
+            3,
+            4,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            368
+          ],
+          "new": [
+            3,
+            5,
+            368
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            368
+          ],
+          "new": [
+            3,
+            5,
+            368
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            368
+          ],
+          "new": [
+            3,
+            5,
+            368
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[11].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            null
+          ],
+          "new": [
+            3,
+            5,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            341
+          ],
+          "new": [
+            3,
+            5,
+            341
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            341
+          ],
+          "new": [
+            3,
+            5,
+            341
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            341
+          ],
+          "new": [
+            3,
+            5,
+            341
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[12].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            6,
+            null
+          ],
+          "new": [
+            3,
+            5,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            184
+          ],
+          "new": [
+            3,
+            4,
+            184
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            184
+          ],
+          "new": [
+            3,
+            4,
+            184
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            184
+          ],
+          "new": [
+            3,
+            4,
+            184
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[13].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            3,
+            5,
+            null
+          ],
+          "new": [
+            3,
+            4,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].roleVisibleAt",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            298
+          ],
+          "new": [
+            30,
+            6,
+            462
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].firstMention",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            298
+          ],
+          "new": [
+            30,
+            6,
+            462
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            298
+          ],
+          "new": [
+            30,
+            6,
+            462
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[21].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "merge-shift",
+          "old": [
+            30,
+            7,
+            null
+          ],
+          "new": [
+            30,
+            6,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        }
+      ]
+    }
+  },
+  "chapter_shards": [],
+  "modern_da_report_only": {
+    "file": "app/public/data/editions/pride-and-prejudice-modern-da.json",
+    "sha256": "3c84f6b06dd8258d09e6f6f148354cb71129908f22a40be3785b00ae79cea3e5",
+    "paragraphs": 2060,
+    "ops": [
+      {
+        "at": "3.3+3.4",
+        "op": "merge",
+        "da_tail": " ned på Netherfield. Lady Lucas beroligede hende lidt ved at foreslå, at han var",
+        "da_head": "taget til London blot for at samle et stort selskab til ballet. Et rygte fulgte ",
+        "clean_join": true
+      },
+      {
+        "at": "14.12+14.13",
+        "op": "merge",
+        "da_tail": "in gæst tilbage til salonen. Da teen var overstået, var han glad for at byde ham",
+        "da_head": "at læse højt for damerne. Mr. Collins indvilligede beredvilligt, og en bog blev ",
+        "clean_join": true
+      },
+      {
+        "at": "22.3+22.4",
+        "op": "merge",
+        "da_tail": "Lady Lucas begyndte straks at beregne, med større interesse end emnet nogensinde",
+        "da_head": "havde inspireret før, hvor mange år Mr. Bennet endnu havde at leve. Sir William ",
+        "clean_join": true
+      },
+      {
+        "at": "30.6+30.7",
+        "op": "merge",
+        "da_tail": "middagen med at gå inden for synsvidde af lågerne ud til Hunsford Lane for at få",
+        "da_head": "den tidligste bekræftelse. Efter at have bukket, da vognen drejede ind i parken,",
+        "clean_join": true
+      },
+      {
+        "at": "36.3+36.4",
+        "op": "merge",
+        "da_tail": "ere levevis var intet kendt i Hertfordshire ud over, hvad han selv havde fortalt",
+        "da_head": "dem. Hvad angik hans virkelige karakter — selv hvis hun havde haft midlerne til ",
+        "clean_join": true
+      },
+      {
+        "at": "46.10+46.11",
+        "op": "merge",
+        "da_tail": "ige et ord mere. Darcy kunne i ynkelig spænding kun mumle noget utydeligt om sin",
+        "da_head": "bekymring og iagttage hende i medfølende tavshed. Til sidst talte hun igen. »Jeg",
+        "clean_join": true
+      },
+      {
+        "at": "48.11+48.12",
+        "op": "merge",
+        "da_tail": " beklageligt, fordi der er grund til at tro, som min kære Charlotte oplyser mig,",
+        "da_head": "at denne moralske fordærvelse hos Deres datter er resultatet af en overdreven gr",
+        "clean_join": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,4173 @@
+{
+  "card": "app/public/data/characters/jane-eyre.v1.json",
+  "card_contentVersion": "2026-09-12.1",
+  "card_offsetUnit": "utf16",
+  "editions": {
+    "original-en": {
+      "card_sourceSha256": "055aad5e04c0c9dbb32969c57cbcc54aa5e00c012256cd3debbce0577cbe5f96",
+      "package_input_sha256": "055aad5e04c0c9dbb32969c57cbcc54aa5e00c012256cd3debbce0577cbe5f96",
+      "card_pinned_to_package_input": true,
+      "new_sourceSha256": "d05d18103f439a8267be407ac8e6d44068236c262321f386174050bbf2109257",
+      "paragraphCount": [
+        4047,
+        4034
+      ],
+      "paragraphHashes_chapters_to_recompute": [
+        4,
+        12,
+        15,
+        18,
+        19,
+        25,
+        28,
+        33,
+        34,
+        36,
+        38
+      ],
+      "counts": {
+        "mention:unchanged": 1385,
+        "mention:drop": 1,
+        "mention:renumber": 113,
+        "anchor:unchanged": 76,
+        "anchor:renumber": 4
+      },
+      "moves": [
+        {
+          "path": "mentions[163]",
+          "kind": "mention",
+          "class": "drop",
+          "old": [
+            4,
+            83,
+            12
+          ],
+          "new": null,
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[164]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            84,
+            266
+          ],
+          "new": [
+            4,
+            83,
+            266
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[165]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            86,
+            5
+          ],
+          "new": [
+            4,
+            85,
+            5
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[166]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            88,
+            19
+          ],
+          "new": [
+            4,
+            87,
+            19
+          ],
+          "text": "Mr. Brocklehurst",
+          "characterId": "brocklehurst"
+        },
+        {
+          "path": "mentions[167]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            92,
+            64
+          ],
+          "new": [
+            4,
+            91,
+            64
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[168]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            93,
+            50
+          ],
+          "new": [
+            4,
+            92,
+            50
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[169]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            94,
+            153
+          ],
+          "new": [
+            4,
+            93,
+            153
+          ],
+          "text": "Mr. Brocklehurst",
+          "characterId": "brocklehurst"
+        },
+        {
+          "path": "mentions[170]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            94,
+            682
+          ],
+          "new": [
+            4,
+            93,
+            682
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[171]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            95,
+            246
+          ],
+          "new": [
+            4,
+            94,
+            246
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[172]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            98,
+            7
+          ],
+          "new": [
+            4,
+            97,
+            7
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[173]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            0
+          ],
+          "new": [
+            4,
+            99,
+            0
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[174]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            195
+          ],
+          "new": [
+            4,
+            99,
+            195
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[175]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            391
+          ],
+          "new": [
+            4,
+            99,
+            391
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[176]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            104,
+            38
+          ],
+          "new": [
+            4,
+            103,
+            38
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[177]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            105,
+            11
+          ],
+          "new": [
+            4,
+            104,
+            11
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[178]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            109,
+            25
+          ],
+          "new": [
+            4,
+            108,
+            25
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[179]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            111,
+            1
+          ],
+          "new": [
+            4,
+            110,
+            1
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[180]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            113,
+            52
+          ],
+          "new": [
+            4,
+            112,
+            52
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[181]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            115,
+            12
+          ],
+          "new": [
+            4,
+            114,
+            12
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[182]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            119,
+            116
+          ],
+          "new": [
+            4,
+            118,
+            116
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[183]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            121,
+            13
+          ],
+          "new": [
+            4,
+            120,
+            13
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[184]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            123,
+            50
+          ],
+          "new": [
+            4,
+            122,
+            50
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[185]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            123,
+            202
+          ],
+          "new": [
+            4,
+            122,
+            202
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[469]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            55,
+            211
+          ],
+          "new": [
+            12,
+            54,
+            211
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[470]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            57,
+            593
+          ],
+          "new": [
+            12,
+            56,
+            593
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[471]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            58,
+            14
+          ],
+          "new": [
+            12,
+            57,
+            14
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[472]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            58,
+            85
+          ],
+          "new": [
+            12,
+            57,
+            85
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[473]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            62,
+            13
+          ],
+          "new": [
+            12,
+            61,
+            13
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[474]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            63,
+            16
+          ],
+          "new": [
+            12,
+            62,
+            16
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[475]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            64,
+            15
+          ],
+          "new": [
+            12,
+            63,
+            15
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[476]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            68,
+            42
+          ],
+          "new": [
+            12,
+            67,
+            42
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[477]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            68,
+            141
+          ],
+          "new": [
+            12,
+            67,
+            141
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[614]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            47,
+            14
+          ],
+          "new": [
+            15,
+            46,
+            14
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[615]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            48,
+            1
+          ],
+          "new": [
+            15,
+            47,
+            1
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[616]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            51,
+            443
+          ],
+          "new": [
+            15,
+            50,
+            443
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[617]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            58,
+            50
+          ],
+          "new": [
+            15,
+            57,
+            50
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[618]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            59,
+            10
+          ],
+          "new": [
+            15,
+            58,
+            10
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[619]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            75,
+            16
+          ],
+          "new": [
+            15,
+            74,
+            16
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[814]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            18,
+            94,
+            32
+          ],
+          "new": [
+            18,
+            93,
+            32
+          ],
+          "text": "Miss Ingram",
+          "characterId": "blanche-ingram"
+        },
+        {
+          "path": "mentions[824]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            83,
+            833
+          ],
+          "new": [
+            19,
+            82,
+            833
+          ],
+          "text": "Miss Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[825]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            89,
+            38
+          ],
+          "new": [
+            19,
+            88,
+            38
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[826]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            100,
+            401
+          ],
+          "new": [
+            19,
+            99,
+            401
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[827]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            100,
+            504
+          ],
+          "new": [
+            19,
+            99,
+            504
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[828]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            106,
+            85
+          ],
+          "new": [
+            19,
+            105,
+            85
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[829]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            111,
+            0
+          ],
+          "new": [
+            19,
+            110,
+            0
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[830]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            63
+          ],
+          "new": [
+            19,
+            123,
+            63
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[831]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            362
+          ],
+          "new": [
+            19,
+            123,
+            362
+          ],
+          "text": "Mr. Mason",
+          "characterId": "mason"
+        },
+        {
+          "path": "mentions[832]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            494
+          ],
+          "new": [
+            19,
+            123,
+            494
+          ],
+          "text": "Miss Ingram",
+          "characterId": "blanche-ingram"
+        },
+        {
+          "path": "mentions[833]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            125,
+            0
+          ],
+          "new": [
+            19,
+            124,
+            0
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[834]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            142,
+            82
+          ],
+          "new": [
+            19,
+            141,
+            82
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[835]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            144,
+            89
+          ],
+          "new": [
+            19,
+            143,
+            89
+          ],
+          "text": "Mr. Mason",
+          "characterId": "mason"
+        },
+        {
+          "path": "mentions[836]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            145,
+            114
+          ],
+          "new": [
+            19,
+            144,
+            114
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1115]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            96,
+            7
+          ],
+          "new": [
+            25,
+            95,
+            7
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1116]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            98,
+            157
+          ],
+          "new": [
+            25,
+            97,
+            157
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[1117]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            100,
+            28
+          ],
+          "new": [
+            25,
+            99,
+            28
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1118]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            102,
+            29
+          ],
+          "new": [
+            25,
+            101,
+            29
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1119]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            106,
+            13
+          ],
+          "new": [
+            25,
+            105,
+            13
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1120]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            109,
+            146
+          ],
+          "new": [
+            25,
+            108,
+            146
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1121]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            109,
+            367
+          ],
+          "new": [
+            25,
+            108,
+            367
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1205]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            8,
+            156
+          ],
+          "new": [
+            28,
+            7,
+            156
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1206]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            9,
+            488
+          ],
+          "new": [
+            28,
+            8,
+            488
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1207]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            9,
+            926
+          ],
+          "new": [
+            28,
+            8,
+            926
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1208]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            56,
+            592
+          ],
+          "new": [
+            28,
+            54,
+            592
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1209]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            9
+          ],
+          "new": [
+            28,
+            65,
+            9
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1210]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            87
+          ],
+          "new": [
+            28,
+            78,
+            87
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1211]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            148
+          ],
+          "new": [
+            28,
+            85,
+            148
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1212]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            497
+          ],
+          "new": [
+            28,
+            85,
+            497
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1213]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            656
+          ],
+          "new": [
+            28,
+            85,
+            656
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1214]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            88,
+            399
+          ],
+          "new": [
+            28,
+            86,
+            399
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1215]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            89,
+            71
+          ],
+          "new": [
+            28,
+            87,
+            71
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1216]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            113,
+            16
+          ],
+          "new": [
+            28,
+            111,
+            16
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1217]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            118,
+            235
+          ],
+          "new": [
+            28,
+            115,
+            235
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1218]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            119,
+            1
+          ],
+          "new": [
+            28,
+            116,
+            1
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1219]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            128,
+            0
+          ],
+          "new": [
+            28,
+            125,
+            0
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1220]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            131,
+            16
+          ],
+          "new": [
+            28,
+            128,
+            16
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1221]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            139,
+            307
+          ],
+          "new": [
+            28,
+            136,
+            307
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1222]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            142,
+            66
+          ],
+          "new": [
+            28,
+            139,
+            66
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1223]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            145,
+            19
+          ],
+          "new": [
+            28,
+            142,
+            19
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1224]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            145,
+            172
+          ],
+          "new": [
+            28,
+            142,
+            172
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1335]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            95,
+            191
+          ],
+          "new": [
+            33,
+            94,
+            191
+          ],
+          "text": "Jane Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1336]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            97,
+            76
+          ],
+          "new": [
+            33,
+            96,
+            76
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1337]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            99,
+            438
+          ],
+          "new": [
+            33,
+            98,
+            438
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1338]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            106,
+            41
+          ],
+          "new": [
+            33,
+            105,
+            41
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1339]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            112,
+            0
+          ],
+          "new": [
+            33,
+            111,
+            0
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1340]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            116,
+            10
+          ],
+          "new": [
+            33,
+            115,
+            10
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1341]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            116,
+            83
+          ],
+          "new": [
+            33,
+            115,
+            83
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1342]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            117,
+            53
+          ],
+          "new": [
+            33,
+            116,
+            53
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1343]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            118,
+            117
+          ],
+          "new": [
+            33,
+            117,
+            117
+          ],
+          "text": "Miss Oliver",
+          "characterId": "rosamond-oliver"
+        },
+        {
+          "path": "mentions[1344]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            124,
+            260
+          ],
+          "new": [
+            33,
+            123,
+            260
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1345]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            124,
+            313
+          ],
+          "new": [
+            33,
+            123,
+            313
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1346]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            129,
+            29
+          ],
+          "new": [
+            33,
+            128,
+            29
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1347]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            137,
+            235
+          ],
+          "new": [
+            33,
+            136,
+            235
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1348]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            139,
+            17
+          ],
+          "new": [
+            33,
+            138,
+            17
+          ],
+          "text": "Miss Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1349]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            142,
+            728
+          ],
+          "new": [
+            33,
+            141,
+            728
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1350]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            142,
+            738
+          ],
+          "new": [
+            33,
+            141,
+            738
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1397]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            433
+          ],
+          "new": [
+            34,
+            114,
+            433
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1398]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            720
+          ],
+          "new": [
+            34,
+            114,
+            720
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1399]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            1095
+          ],
+          "new": [
+            34,
+            114,
+            1095
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1400]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            1348
+          ],
+          "new": [
+            34,
+            114,
+            1348
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1401]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            122,
+            198
+          ],
+          "new": [
+            34,
+            121,
+            198
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1402]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            127,
+            32
+          ],
+          "new": [
+            34,
+            126,
+            32
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1403]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            132,
+            189
+          ],
+          "new": [
+            34,
+            131,
+            189
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1404]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            136,
+            1
+          ],
+          "new": [
+            34,
+            135,
+            1
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1405]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            144,
+            174
+          ],
+          "new": [
+            34,
+            143,
+            174
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1406]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            148,
+            23
+          ],
+          "new": [
+            34,
+            147,
+            23
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1407]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            154,
+            15
+          ],
+          "new": [
+            34,
+            153,
+            15
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1408]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            154,
+            59
+          ],
+          "new": [
+            34,
+            153,
+            59
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1409]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            156,
+            13
+          ],
+          "new": [
+            34,
+            155,
+            13
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1493]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            98
+          ],
+          "new": [
+            38,
+            19,
+            98
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1494]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            108
+          ],
+          "new": [
+            38,
+            19,
+            108
+          ],
+          "text": "Mary Rivers",
+          "characterId": "mary-rivers"
+        },
+        {
+          "path": "mentions[1495]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            212
+          ],
+          "new": [
+            38,
+            19,
+            212
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1496]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            21,
+            6
+          ],
+          "new": [
+            38,
+            20,
+            6
+          ],
+          "text": "St. John Rivers",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1497]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            22,
+            0
+          ],
+          "new": [
+            38,
+            21,
+            0
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1498]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            22,
+            531
+          ],
+          "new": [
+            38,
+            21,
+            531
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "characters[17].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            14
+          ],
+          "new": [
+            28,
+            65,
+            14
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[17].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            14
+          ],
+          "new": [
+            28,
+            65,
+            14
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[17].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            14
+          ],
+          "new": [
+            28,
+            65,
+            14
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[17].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            null
+          ],
+          "new": [
+            28,
+            65,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        }
+      ]
+    },
+    "modern-en": {
+      "card_sourceSha256": "bbfe4c30163ecf07291e2fa5faef69d1e57348644afe2ab0dfc96edff3cecad0",
+      "package_input_sha256": "5e270560909297f7f9ccb4e0914a79923b29471008b23e1e70a251a882dce7d7",
+      "card_pinned_to_package_input": false,
+      "new_sourceSha256": "bfd5ace3b7803b4d31773148fdaf244ab6da0fd91db329a6077ae88d351a9749",
+      "paragraphCount": [
+        4047,
+        4034
+      ],
+      "paragraphHashes_chapters_to_recompute": [
+        4,
+        12,
+        15,
+        18,
+        19,
+        25,
+        28,
+        33,
+        34,
+        36,
+        38
+      ],
+      "counts": {
+        "mention:unchanged": 1379,
+        "mention:drop": 1,
+        "mention:renumber": 111,
+        "anchor:unchanged": 76,
+        "anchor:renumber": 4
+      },
+      "moves": [
+        {
+          "path": "mentions[163]",
+          "kind": "mention",
+          "class": "drop",
+          "old": [
+            4,
+            83,
+            12
+          ],
+          "new": null,
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[164]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            84,
+            225
+          ],
+          "new": [
+            4,
+            83,
+            225
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[165]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            86,
+            5
+          ],
+          "new": [
+            4,
+            85,
+            5
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[166]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            88,
+            19
+          ],
+          "new": [
+            4,
+            87,
+            19
+          ],
+          "text": "Mr. Brocklehurst",
+          "characterId": "brocklehurst"
+        },
+        {
+          "path": "mentions[167]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            92,
+            64
+          ],
+          "new": [
+            4,
+            91,
+            64
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[168]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            93,
+            50
+          ],
+          "new": [
+            4,
+            92,
+            50
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[169]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            94,
+            161
+          ],
+          "new": [
+            4,
+            93,
+            161
+          ],
+          "text": "Mr. Brocklehurst",
+          "characterId": "brocklehurst"
+        },
+        {
+          "path": "mentions[170]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            94,
+            645
+          ],
+          "new": [
+            4,
+            93,
+            645
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[171]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            95,
+            203
+          ],
+          "new": [
+            4,
+            94,
+            203
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[172]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            98,
+            7
+          ],
+          "new": [
+            4,
+            97,
+            7
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[173]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            0
+          ],
+          "new": [
+            4,
+            99,
+            0
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[174]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            186
+          ],
+          "new": [
+            4,
+            99,
+            186
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[175]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            100,
+            382
+          ],
+          "new": [
+            4,
+            99,
+            382
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[176]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            104,
+            38
+          ],
+          "new": [
+            4,
+            103,
+            38
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[177]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            105,
+            11
+          ],
+          "new": [
+            4,
+            104,
+            11
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[178]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            109,
+            23
+          ],
+          "new": [
+            4,
+            108,
+            23
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[179]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            111,
+            1
+          ],
+          "new": [
+            4,
+            110,
+            1
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[180]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            113,
+            49
+          ],
+          "new": [
+            4,
+            112,
+            49
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[181]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            115,
+            14
+          ],
+          "new": [
+            4,
+            114,
+            14
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[182]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            119,
+            109
+          ],
+          "new": [
+            4,
+            118,
+            109
+          ],
+          "text": "Mrs. Reed",
+          "characterId": "mrs-reed"
+        },
+        {
+          "path": "mentions[183]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            121,
+            13
+          ],
+          "new": [
+            4,
+            120,
+            13
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[184]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            123,
+            44
+          ],
+          "new": [
+            4,
+            122,
+            44
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[185]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            4,
+            123,
+            204
+          ],
+          "new": [
+            4,
+            122,
+            204
+          ],
+          "text": "Bessie",
+          "characterId": "bessie"
+        },
+        {
+          "path": "mentions[460]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            55,
+            210
+          ],
+          "new": [
+            12,
+            54,
+            210
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[461]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            58,
+            13
+          ],
+          "new": [
+            12,
+            57,
+            13
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[462]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            58,
+            83
+          ],
+          "new": [
+            12,
+            57,
+            83
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[463]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            62,
+            17
+          ],
+          "new": [
+            12,
+            61,
+            17
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[464]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            63,
+            16
+          ],
+          "new": [
+            12,
+            62,
+            16
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[465]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            68,
+            41
+          ],
+          "new": [
+            12,
+            67,
+            41
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[466]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            12,
+            68,
+            142
+          ],
+          "new": [
+            12,
+            67,
+            142
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[603]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            47,
+            14
+          ],
+          "new": [
+            15,
+            46,
+            14
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[604]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            48,
+            1
+          ],
+          "new": [
+            15,
+            47,
+            1
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[605]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            51,
+            426
+          ],
+          "new": [
+            15,
+            50,
+            426
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[606]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            58,
+            50
+          ],
+          "new": [
+            15,
+            57,
+            50
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[607]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            59,
+            10
+          ],
+          "new": [
+            15,
+            58,
+            10
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[608]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            15,
+            75,
+            16
+          ],
+          "new": [
+            15,
+            74,
+            16
+          ],
+          "text": "Mrs. Fairfax",
+          "characterId": "mrs-fairfax"
+        },
+        {
+          "path": "mentions[806]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            18,
+            94,
+            32
+          ],
+          "new": [
+            18,
+            93,
+            32
+          ],
+          "text": "Miss Ingram",
+          "characterId": "blanche-ingram"
+        },
+        {
+          "path": "mentions[816]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            83,
+            848
+          ],
+          "new": [
+            19,
+            82,
+            848
+          ],
+          "text": "Miss Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[817]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            89,
+            39
+          ],
+          "new": [
+            19,
+            88,
+            39
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[818]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            100,
+            407
+          ],
+          "new": [
+            19,
+            99,
+            407
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[819]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            100,
+            510
+          ],
+          "new": [
+            19,
+            99,
+            510
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[820]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            106,
+            79
+          ],
+          "new": [
+            19,
+            105,
+            79
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[821]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            111,
+            0
+          ],
+          "new": [
+            19,
+            110,
+            0
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[822]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            66
+          ],
+          "new": [
+            19,
+            123,
+            66
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[823]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            310
+          ],
+          "new": [
+            19,
+            123,
+            310
+          ],
+          "text": "Mr. Mason",
+          "characterId": "mason"
+        },
+        {
+          "path": "mentions[824]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            124,
+            435
+          ],
+          "new": [
+            19,
+            123,
+            435
+          ],
+          "text": "Miss Ingram",
+          "characterId": "blanche-ingram"
+        },
+        {
+          "path": "mentions[825]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            125,
+            0
+          ],
+          "new": [
+            19,
+            124,
+            0
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[826]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            142,
+            79
+          ],
+          "new": [
+            19,
+            141,
+            79
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[827]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            144,
+            93
+          ],
+          "new": [
+            19,
+            143,
+            93
+          ],
+          "text": "Mr. Mason",
+          "characterId": "mason"
+        },
+        {
+          "path": "mentions[828]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            19,
+            145,
+            124
+          ],
+          "new": [
+            19,
+            144,
+            124
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1107]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            96,
+            7
+          ],
+          "new": [
+            25,
+            95,
+            7
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1108]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            98,
+            159
+          ],
+          "new": [
+            25,
+            97,
+            159
+          ],
+          "text": "Grace Poole",
+          "characterId": "grace-poole"
+        },
+        {
+          "path": "mentions[1109]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            100,
+            28
+          ],
+          "new": [
+            25,
+            99,
+            28
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1110]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            102,
+            29
+          ],
+          "new": [
+            25,
+            101,
+            29
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1111]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            106,
+            13
+          ],
+          "new": [
+            25,
+            105,
+            13
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1112]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            109,
+            146
+          ],
+          "new": [
+            25,
+            108,
+            146
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1113]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            25,
+            109,
+            363
+          ],
+          "new": [
+            25,
+            108,
+            363
+          ],
+          "text": "Adèle",
+          "characterId": "adele"
+        },
+        {
+          "path": "mentions[1196]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            8,
+            176
+          ],
+          "new": [
+            28,
+            7,
+            176
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1197]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            9,
+            479
+          ],
+          "new": [
+            28,
+            8,
+            479
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1198]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            9,
+            916
+          ],
+          "new": [
+            28,
+            8,
+            916
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1199]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            56,
+            578
+          ],
+          "new": [
+            28,
+            54,
+            578
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1200]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            67,
+            9
+          ],
+          "new": [
+            28,
+            65,
+            9
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1201]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            81
+          ],
+          "new": [
+            28,
+            78,
+            81
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1202]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            144
+          ],
+          "new": [
+            28,
+            85,
+            144
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1203]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            472
+          ],
+          "new": [
+            28,
+            85,
+            472
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1204]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            87,
+            624
+          ],
+          "new": [
+            28,
+            85,
+            624
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1205]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            88,
+            383
+          ],
+          "new": [
+            28,
+            86,
+            383
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1206]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            89,
+            77
+          ],
+          "new": [
+            28,
+            87,
+            77
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1207]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            113,
+            16
+          ],
+          "new": [
+            28,
+            111,
+            16
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1208]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            118,
+            221
+          ],
+          "new": [
+            28,
+            115,
+            221
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1209]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            119,
+            1
+          ],
+          "new": [
+            28,
+            116,
+            1
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1210]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            128,
+            0
+          ],
+          "new": [
+            28,
+            125,
+            0
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1211]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            131,
+            16
+          ],
+          "new": [
+            28,
+            128,
+            16
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1212]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            139,
+            302
+          ],
+          "new": [
+            28,
+            136,
+            302
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1213]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            142,
+            69
+          ],
+          "new": [
+            28,
+            139,
+            69
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1214]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            145,
+            19
+          ],
+          "new": [
+            28,
+            142,
+            19
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1215]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            28,
+            145,
+            158
+          ],
+          "new": [
+            28,
+            142,
+            158
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1327]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            95,
+            198
+          ],
+          "new": [
+            33,
+            94,
+            198
+          ],
+          "text": "Jane Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1328]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            97,
+            78
+          ],
+          "new": [
+            33,
+            96,
+            78
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1329]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            99,
+            422
+          ],
+          "new": [
+            33,
+            98,
+            422
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1330]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            106,
+            41
+          ],
+          "new": [
+            33,
+            105,
+            41
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1331]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            112,
+            0
+          ],
+          "new": [
+            33,
+            111,
+            0
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1332]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            116,
+            10
+          ],
+          "new": [
+            33,
+            115,
+            10
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1333]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            116,
+            81
+          ],
+          "new": [
+            33,
+            115,
+            81
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1334]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            117,
+            53
+          ],
+          "new": [
+            33,
+            116,
+            53
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1335]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            118,
+            109
+          ],
+          "new": [
+            33,
+            117,
+            109
+          ],
+          "text": "Miss Oliver",
+          "characterId": "rosamond-oliver"
+        },
+        {
+          "path": "mentions[1336]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            124,
+            253
+          ],
+          "new": [
+            33,
+            123,
+            253
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1337]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            124,
+            297
+          ],
+          "new": [
+            33,
+            123,
+            297
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1338]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            129,
+            28
+          ],
+          "new": [
+            33,
+            128,
+            28
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1339]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            137,
+            237
+          ],
+          "new": [
+            33,
+            136,
+            237
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1340]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            139,
+            17
+          ],
+          "new": [
+            33,
+            138,
+            17
+          ],
+          "text": "Miss Eyre",
+          "characterId": "jane"
+        },
+        {
+          "path": "mentions[1341]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            142,
+            688
+          ],
+          "new": [
+            33,
+            141,
+            688
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1342]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            33,
+            142,
+            698
+          ],
+          "new": [
+            33,
+            141,
+            698
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1389]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            436
+          ],
+          "new": [
+            34,
+            114,
+            436
+          ],
+          "text": "Mr. Rochester",
+          "characterId": "rochester"
+        },
+        {
+          "path": "mentions[1390]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            726
+          ],
+          "new": [
+            34,
+            114,
+            726
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1391]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            1105
+          ],
+          "new": [
+            34,
+            114,
+            1105
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1392]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            115,
+            1358
+          ],
+          "new": [
+            34,
+            114,
+            1358
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1393]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            122,
+            198
+          ],
+          "new": [
+            34,
+            121,
+            198
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1394]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            127,
+            32
+          ],
+          "new": [
+            34,
+            126,
+            32
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1395]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            132,
+            189
+          ],
+          "new": [
+            34,
+            131,
+            189
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1396]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            136,
+            1
+          ],
+          "new": [
+            34,
+            135,
+            1
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1397]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            144,
+            174
+          ],
+          "new": [
+            34,
+            143,
+            174
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1398]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            148,
+            23
+          ],
+          "new": [
+            34,
+            147,
+            23
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1399]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            154,
+            15
+          ],
+          "new": [
+            34,
+            153,
+            15
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1400]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            154,
+            59
+          ],
+          "new": [
+            34,
+            153,
+            59
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1401]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            34,
+            156,
+            13
+          ],
+          "new": [
+            34,
+            155,
+            13
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1485]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            85
+          ],
+          "new": [
+            38,
+            19,
+            85
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1486]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            95
+          ],
+          "new": [
+            38,
+            19,
+            95
+          ],
+          "text": "Mary Rivers",
+          "characterId": "mary-rivers"
+        },
+        {
+          "path": "mentions[1487]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            20,
+            171
+          ],
+          "new": [
+            38,
+            19,
+            171
+          ],
+          "text": "Diana",
+          "characterId": "diana-rivers"
+        },
+        {
+          "path": "mentions[1488]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            21,
+            7
+          ],
+          "new": [
+            38,
+            20,
+            7
+          ],
+          "text": "St. John Rivers",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1489]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            22,
+            0
+          ],
+          "new": [
+            38,
+            21,
+            0
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "mentions[1490]",
+          "kind": "mention",
+          "class": "renumber",
+          "old": [
+            38,
+            22,
+            532
+          ],
+          "new": [
+            38,
+            21,
+            532
+          ],
+          "text": "St. John",
+          "characterId": "st-john-rivers"
+        },
+        {
+          "path": "characters[16].roleVisibleAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            89
+          ],
+          "new": [
+            28,
+            78,
+            89
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[16].firstMention",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            89
+          ],
+          "new": [
+            28,
+            78,
+            89
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[16].snapshots[0].availableAt",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            89
+          ],
+          "new": [
+            28,
+            78,
+            89
+          ],
+          "text": null,
+          "characterId": null
+        },
+        {
+          "path": "characters[16].snapshots[0].evidence[0]",
+          "kind": "anchor",
+          "class": "renumber",
+          "old": [
+            28,
+            80,
+            null
+          ],
+          "new": [
+            28,
+            78,
+            null
+          ],
+          "text": null,
+          "characterId": null
+        }
+      ]
+    }
+  },
+  "chapter_shards": [
+    {
+      "manifest": "app/public/data/editions-chapters/jane-eyre-original-en/manifest.json",
+      "chapters_to_regenerate": [
+        4,
+        12,
+        15,
+        18,
+        19,
+        25,
+        28,
+        33,
+        34,
+        36,
+        38
+      ]
+    },
+    {
+      "manifest": "app/public/data/editions-chapters/jane-eyre-modern-da/manifest.json",
+      "chapters_to_regenerate": [
+        4,
+        12,
+        15,
+        18,
+        19,
+        25,
+        28,
+        33,
+        34,
+        36,
+        38
+      ]
+    }
+  ],
+  "modern_da_report_only": {
+    "file": "app/public/data/editions/jane-eyre-modern-da.json",
+    "sha256": "2c2fad5c5aff97de327a3826ecb6d277d0e585d86109459decc21e7c5c644b96",
+    "paragraphs": 4047,
+    "ops": [
+      {
+        "at": "4.83",
+        "op": "delete",
+        "da": "Hvordan vover jeg, Mrs. Reed? Hvordan vover jeg? Fordi det er sandheden.",
+        "prev": " uden grund. Jeg vil fortælle enhver, der spørger, den nøjagtige sandhed. Folk tror, du er en god kvinde, men du er ond og hårdhjertet. Du er den bedrageriske!«",
+        "next": "Før jeg var helt færdig, begyndte min sjæl at udvide sig og svæve med den mærkeligste følelse af frihed og triumf, jeg nogensinde havde mærket. Det var, som om "
+      },
+      {
+        "at": "12.46",
+        "op": "delete",
+        "da": "Jeg var dødnervøs for dens stampende forben.",
+        "prev": "t hoved. Jeg forsøgte igen og igen uden held, dødnervøs hele tiden for dens stampende forben. Den rejsende kiggede på et stykke tid og brast til sidst i latter.",
+        "next": "»Jeg ser,« sagde han, »at bjerget ikke vil komme til Mohammed, så alt hvad De kan gøre, er at hjælpe Mohammed hen til bjerget. Jeg er nødt til at bede Dem komme"
+      },
+      {
+        "at": "15.45",
+        "op": "delete",
+        "da": "»Hvad er det, og hvem har gjort det?« spurgte han.",
+        "prev": "gten af ild, der havde ført mig til hans værelse, den tilstand, jeg havde fundet det i, og hvordan jeg havde overhældt ham med hver dråbe vand, jeg kunne finde.",
+        "next": "Han lyttede meget alvorligt. Hans ansigt viste, efterhånden som jeg fortsatte, mere bekymring end overraskelse. Han sagde ikke noget med det samme, da jeg var f"
+      },
+      {
+        "at": "18.92",
+        "op": "delete",
+        "da": "I hele den tid vendte hun aldrig en side.",
+        "prev": " tavshed, at hun på trods af sin erklærede ligegyldighed tog det, der var blevet afsløret for hende, langt mere alvorligt, end hun ville have nogen til at vide.",
+        "next": "Imens erklærede Mary Ingram, Amy og Louisa Eshton, at de ikke turde gå alene, men at de alle ville gå. En forhandling blev indledt gennem ambassadøren Sam; og e"
+      },
+      {
+        "at": "19.78",
+        "op": "delete",
+        "da": "Hun lænede sig ikke mod mig, men betragtede mig blot, tilbagelænet i sin stol.",
+        "prev": "\"Lad mig ikke vente for længe; ilden svider mig.\"",
+        "next": "Jeg knælede. Hun lænede sig ikke mod mig, men betragtede mig blot, tilbagelænet i sin stol. Hun begyndte at mumle —"
+      },
+      {
+        "at": "25.83",
+        "op": "delete",
+        "da": "Den fjernede mit slør fra sit uhyggelige hoved, rev det i to stykker og kastede begge dele på gulvet og trampede på dem.",
+        "prev": "»Sir, den fjernede mit slør fra sit uhyggelige hoved, rev det i to stykker og kastede begge dele på gulvet og trampede på dem.«",
+        "next": "»Bagefter?«"
+      },
+      {
+        "at": "28.117",
+        "op": "delete",
+        "da": "Stille, Hannah; jeg har et ord at sige til kvinden.",
+        "prev": " Jeg var i nærheden og hørte jer begge. Jeg tror, dette er et usædvanligt tilfælde — jeg må i det mindste undersøge det. Unge kvinde, rejs dig og kom indenfor.«",
+        "next": "Med besvær adlød jeg. Snart stod jeg inde i det rene, lyse køkken — på selve ildstedet — skælvende, syg; bevidst om, at mit udseende var uhyggeligt, vildt og fo"
+      },
+      {
+        "at": "28.51",
+        "op": "delete",
+        "da": "»Vil du give mig det?« spurgte jeg.",
+        "prev": "id passerede mad mine læber. Ved døren til et hus så jeg en lille pige i færd med at hælde en skål kold grød i et svinetrug. »Vil du give mig det?« spurgte jeg.",
+        "next": "Hun stirrede på mig. »Mor!« udbrød hun, »der er en kvinde, der vil have mig til at give hende den her grød.«"
+      },
+      {
+        "at": "28.6",
+        "op": "delete",
+        "da": "Jeg bad mine aftenbønner.",
+        "prev": ". Min sult, skarp før, blev, om ikke stillet, så i det mindste dulmet af dette eremitmåltid. Jeg bad mine aftenbønner, da jeg var færdig, og valgte så mit leje.",
+        "next": "Ved klippen var lyngen meget dyb: da jeg lagde mig, var mine fødder begravet i den; den rejste sig højt på begge sider og efterlod kun en smal åbning for natluf"
+      },
+      {
+        "at": "33.92",
+        "op": "delete",
+        "da": "Og jeg er en stædig kvinde — umulig at afvise.",
+        "prev": "»Og jeg er en stædig kvinde — umulig at afvise.«",
+        "next": "»Og desuden,« fortsatte han, »er jeg kold; ingen lidenskab rører mig.«"
+      },
+      {
+        "at": "34.114",
+        "op": "delete",
+        "da": "Han fo'r sammen. Knap nok — men jeg fangede det.",
+        "prev": "»Du har ikke overbevist mig om,« sagde jeg langsomt, »at du ønsker en hustru snarere end et redskab.«",
+        "next": "»Et redskab? Er det, hvad du tror, jeg søger?«"
+      },
+      {
+        "at": "36.53",
+        "op": "delete",
+        "da": "I næste øjeblik lå hun knust på brostenene.",
+        "prev": "et og ud på taget. Vi råbte til ham, at han skulle komme ned — det var for farligt. Han nærmede sig hende. Så skreg hun, og med ét spring var hun over kanten —«",
+        "next": "»Død?«"
+      },
+      {
+        "at": "38.17",
+        "op": "delete",
+        "da": "Og har du en lyseblå kjole på?",
+        "prev": "»Og har du en lyseblå kjole på?«",
+        "next": "Det havde jeg. Han fortalte mig da, at han i nogen tid havde syntes, at det mørke, der tilslørede det ene øje, var ved at blive mindre tæt. Nu var han sikker på"
+      }
+    ]
+  }
+}

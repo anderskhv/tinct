@@ -1,0 +1,6 @@
+# Coordinates: chapter number (1-based) . paragraph index (0-based), in the pinned input.
+# Chapters not listed map by identity (same chapter, same index, same text).
+# merge-tail offset = UTF-16 code units to ADD to any character offset in the old tail paragraph
+# (= UTF-16 length of the old head paragraph + 1 for the joining space). It differs per edition.
+old_chapter	old_index	new_chapter	new_index	op	offset_shift_original_en	offset_shift_modern_en
+# Odyssey: no paragraph is added, removed or moved. 3.37 keeps its index; only its original-en text changes (see CHANGES.json).

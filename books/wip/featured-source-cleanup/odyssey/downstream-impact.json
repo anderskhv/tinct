@@ -1,0 +1,70 @@
+{
+  "card": "app/public/data/characters/odyssey.v1.json",
+  "card_contentVersion": "2026-09-12.1",
+  "card_offsetUnit": "utf16",
+  "editions": {
+    "original-en": {
+      "card_sourceSha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+      "package_input_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+      "card_pinned_to_package_input": true,
+      "new_sourceSha256": "0cc76350232962d4c4f1cf1eb7216f14515fc1910f94f666695d2a595d4e6980",
+      "paragraphCount": [
+        1027,
+        1027
+      ],
+      "paragraphHashes_chapters_to_recompute": [
+        3
+      ],
+      "counts": {
+        "mention:unchanged": 663,
+        "mention:drop": 1,
+        "anchor:unchanged": 78
+      },
+      "moves": [
+        {
+          "path": "mentions[473]",
+          "kind": "mention",
+          "class": "drop",
+          "old": [
+            3,
+            37,
+            57
+          ],
+          "new": null,
+          "text": "Nestor",
+          "characterId": "nestor"
+        }
+      ]
+    },
+    "modern-en": {
+      "card_sourceSha256": "813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc",
+      "package_input_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+      "card_pinned_to_package_input": false,
+      "new_sourceSha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+      "paragraphCount": [
+        1027,
+        1027
+      ],
+      "paragraphHashes_chapters_to_recompute": [],
+      "counts": {
+        "mention:unchanged": 662,
+        "anchor:unchanged": 78
+      },
+      "moves": []
+    }
+  },
+  "chapter_shards": [],
+  "modern_da_report_only": {
+    "file": "app/public/data/editions/odyssey-modern-da.json",
+    "sha256": "0b8a114304427d3efca8d011edba338e8886a632a18fef8ad5a66129d4d0bead",
+    "paragraphs": 1027,
+    "ops": [
+      {
+        "at": "3.37",
+        "op": "edit",
+        "da": "Da solen var gået ned og mørket dækkede landet, sagde Nestor: \"Det er blevet sent; det er tid, vi alle kom i seng. Drikofre er bragt og bønner bedt; lad os gå hjem og hvile.\" Således talte han, og de gjorde nøjagtig, som han sagde, og spændte de hurtige heste for stridsvognen. Husholderken pakkede d",
+        "da_words": 193
+      }
+    ]
+  }
+}
