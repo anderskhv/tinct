@@ -96,9 +96,13 @@ Inspiration requested for the preface: Michael Sugrue's lecture "Machiavelli" (h
 
 **Blurb, draft 1:** How good can you afford to be?
 
-**About, draft 1:**
+**About, draft 2 (more teeth):**
 
-Niccolò Machiavelli was born in Florence in 1469. His father, a lawyer of modest means, once earned a copy of Livy's history of Rome by compiling its index. At twenty-nine, Niccolò entered the service of the Florentine republic, spending fourteen years as an official and as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Early the next year he was imprisoned and tortured, then withdrew to his farm, where he wrote The Prince. He died in 1527, at fifty-eight.
+Few writers have a darker reputation. Elizabethan playwrights turned him into a stage villain, the Church banned his books, and one modern lecturer called him "the Darth Vader of philosophy." Yet Niccolò Machiavelli was a Florentine civil servant, the son of a book-loving lawyer of modest means. For fourteen years he served the republic as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Months later he was tortured. On his farm he wrote The Prince, hoping for work, even if it meant rolling stones.
+
+**Anders's preface angle (in progress, 2026-09-24):**
+
+Why should you read The Prince? This short classic is a masterwork in subtle lessons demanding a very attentive and slow read. What appears to at first be a practical manual on leadership becomes a critique of the very foundations of what was then Christendom.
 
 **Preface, draft 2:**
 
