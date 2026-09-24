@@ -125,8 +125,22 @@ html{scrollbar-gutter:stable}#librarian-panel:focus-within{outline:none}#librari
 
 /* Selected long arrow and compact-device finishing touches. */
 .read-button{gap:14px}.read-button svg{stroke-width:1.5}
-.book-slip #tour-back{position:absolute;top:4px;left:6%;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;min-height:0;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);text-align:left}
+.book-slip #tour-back{position:absolute;top:auto;left:auto;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;min-height:0;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);text-align:left}
 @media(max-width:1099px),(pointer:coarse) and (max-width:1400px){.hero-copy .question{margin-top:7px}#shelves{padding-top:max(0px,calc(94svh - var(--hero-height,82svh) - 40px))}}
 
 #collection-back{margin-left:-8px}#collection-back svg{width:25px;height:25px;stroke-width:1.7}
 @media(max-width:699px){#shelves{padding-top:max(0px,calc(100svh - var(--hero-height,82svh) - 40px))}}
+/* Focus rings only for keyboard navigation; programmatic focus after taps and transitions stays quiet. */
+html:not(.keyboard-nav) button:focus-visible,html:not(.keyboard-nav) a:focus-visible,html:not(.keyboard-nav) [tabindex]:focus-visible{outline:none}
+/* Flap Back has its own line above the portrait and stays through the tour, so nothing reflows. */
+.book-slip #tour-back{position:static;align-self:flex-start;margin:0 0 10px;flex-shrink:0}
+/* Phone landing: the hero fills the first screen and its scene continues behind the Featured row. */
+@media(max-width:699px){:root{--cover-h:calc((100vw - 50px)/3.2*1.5);--peek:calc(37px + var(--cover-h)*.12);--bleed:calc(var(--cover-h)*.85)}
+#library .hero{height:calc(var(--land-bottom,100svh) - var(--peek) + var(--bleed));min-height:calc(470px + var(--bleed));max-height:none}
+#library #shelves{margin-top:calc(-1*var(--bleed));padding-top:0;z-index:1}
+#library .hero-copy{bottom:calc(var(--bleed) + 34px)}
+#library .hero-dots{bottom:calc(var(--bleed) + 2px)}
+#library .hero-shade{background:linear-gradient(0deg,var(--bg) 0,#111610d9 calc(var(--bleed)*.45),#1116108c calc(var(--bleed) + 70px),transparent calc(var(--bleed) + 45%))}
+html #librarian-panel{top:0;bottom:0;height:auto;max-height:none}
+html.vv-keyboard #librarian-panel{top:var(--visual-top,0px);bottom:auto;height:var(--visual-height,100dvh);max-height:var(--visual-height,100dvh)}
+html #librarian-panel .orb-space{height:clamp(90px,15svh,140px);min-height:72px;margin-bottom:14px}}
