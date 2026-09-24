@@ -4,6 +4,9 @@ const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5197',dir=process.env.AR
 const book=process.env.TEST_BOOK||'hamlet'
 const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,'utf8'))
 const reviewedCases = {
+  'the-prince': [['cyrus',17,'cyrus',3],['hannibal',18,'hannibal',9],['chiron',19,'chiron',1]],
+  'julius-caesar': [['brutus',4,'brutus',7],['antony',9,'antony',35]],
+  'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23]],
   meditations: [['verus',1,'verus',0],['rusticus',1,'rusticus',6],['ruling-faculty',2,'the-ruling-part',1]],
   'jane-eyre': [['mrs-reed',1,'mrs-reed',0],['scatcherd',5,'miss-scatcherd',97],['grace-poole',11,'grace-poole',113]],
   'pride-and-prejudice': [['darcy',3,'darcy',5],['lady-catherine',13,'lady-catherine',14],['fitzwilliam',30,'colonel-fitzwilliam',7]],
