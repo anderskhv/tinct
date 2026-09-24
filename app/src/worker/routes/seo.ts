@@ -449,6 +449,20 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
+    // Standalone design handoff; isolate its files from the reader SPA.
+    if ((request.method === 'GET' || request.method === 'HEAD') &&
+        (url.pathname === '/lab/library_2' || url.pathname.startsWith('/lab/library_2/'))) {
+      const assetUrl = new URL(url.toString())
+      if (url.pathname === '/lab/library_2') assetUrl.pathname = '/lab/library_2/'
+      const response = await env.ASSETS.fetch(new Request(assetUrl, request))
+      const result = new Response(response.body, response)
+      result.headers.set('X-Robots-Tag', 'noindex, noarchive')
+      if ((response.headers.get('Content-Type') || '').includes('text/html')) {
+        result.headers.set('Cache-Control', 'no-store')
+      }
+      return result
+    }
+
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
     // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
