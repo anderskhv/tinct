@@ -10,6 +10,8 @@ Coordinates below are `chapter.index`: the chapter number is 1-based and the par
 - **A book's two editions ship together.** Jane Eyre and Pride and Prejudice change paragraph counts. original-en and modern-en of the same book **must go out in the same deploy**, or split view and card anchors misalign.
 - **Odyssey: ship both files together.** Publishing only the truncated original-en would leave today's live modern-en 3.37, which is the 207-word spliced prose, beside 12 words. Ship `odyssey-original-en.json` from this package **together with** the accepted modern candidate (`bd05c7f4…`, byte-identical copy here), or after it.
 
+- **Odyssey option A is the decision this package records.** It applies the ledger's A3 option **A**, the truncation alone. The ledger's A7 recommends **B+**, which also lower-cases "But" at 3.0 and "They" at 4.0 and ends Book II with a comma. That is a typographic-policy decision for Anders, and it is **not** taken here. A is correct under every option. If B, B+ or C is chosen later, apply the extra one-character substitutions to the original-en file from this package, and add the matching one-letter successors to the accepted modern Books 3 and 4 the same day, as the ledger requires.
+
 ## 2. Edition files
 
 Copy these byte for byte. Do not re-serialize.
