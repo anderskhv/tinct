@@ -180,7 +180,18 @@ export function releasedCard(edition: CharacterEdition, id: string, cutoff: Pass
 export function resolveCharacter(data: VerifiedCharacters | null, chapterNumber: number, paragraphIndex: number, start: number, end: number, text: string, existingHighlight = false): CharacterSelection | null {
   if (!data || existingHighlight || start < 0 || end <= start || normalizeParagraph(text) !== data.paragraphs[chapterNumber]?.[paragraphIndex]) return null
   const mentions = data.edition.mentions.filter(m => m.chapterNumber === chapterNumber && m.paragraphIndex === paragraphIndex)
-  const matches = mentions.filter(m => m.startOffset <= start && m.endOffset >= end && text !== '')
+  let matches = mentions.filter(m => m.startOffset <= start && m.endOffset >= end && text !== '')
+  // The reader selects whitespace tokens, so a dash can join a reviewed name
+  // to another word (e.g. Poole—and). Accept only a complete reviewed span
+  // bounded by a dash or the selection edge, never a substring/alias guess.
+  const selected = normalizeParagraph(text).slice(start, end)
+  if (!matches.length && !/\s/.test(selected) && /[—–]/.test(selected)) {
+    const overlapping = mentions.filter(m => m.startOffset < end && m.endOffset > start)
+    if (new Set(overlapping.map(m => m.characterId)).size !== 1) return null
+    matches = overlapping.filter(m => m.startOffset >= start && m.endOffset <= end
+      && (m.startOffset === start || /[—–]/.test(selected[m.startOffset - start - 1]))
+      && (m.endOffset === end || /[—–]/.test(selected[m.endOffset - start])))
+  }
   const width = Math.min(...matches.map(m => m.endOffset - m.startOffset))
   const closest = matches.filter(m => m.endOffset - m.startOffset === width)
   if (new Set(closest.map(m => m.characterId)).size !== 1) return null
