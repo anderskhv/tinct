@@ -2459,11 +2459,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
   useEffect(() => {
     if (!chromeV2) return
-    // A failed start keeps its inline Retry message, not the space reserved
-    // for playback controls. Restore the measured reading box before turning.
-    if (listen.narration.status === 'error') setPausedTransportVisible(false)
+    // Desktop errors use a separate inline Retry row. Release the unused
+    // playback reserve; the phone error remains above its transport bar.
+    if (!showPhoneChrome && listen.narration.status === 'error') setPausedTransportVisible(false)
     else if (listen.playing || listen.pending) setPausedTransportVisible(true)
-  }, [chromeV2, listen.playing, listen.pending, listen.narration.status])
+  }, [chromeV2, showPhoneChrome, listen.playing, listen.pending, listen.narration.status])
   useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible
