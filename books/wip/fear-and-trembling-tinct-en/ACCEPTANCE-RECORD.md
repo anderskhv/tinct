@@ -29,7 +29,7 @@
 | Readability | Whole book, English only | Newcomer readers, one each for ch1/2/8, ch3, ch4 and ch7. The pilot was reviewed in its own task | SEVERE items were fixed in ch4 and ch7. MODERATE and LIGHT wording items were fixed where the Danish allows. Idea-level difficulties are kept on purpose (`R1-readability-*`, `R2-applied-*`) |
 | R2 re-verification | Every readability edit | Fresh verifiers (`R2-reverify-ch04.md`, `R2-reverify.md`) | Found that the R2 edits to C, D, G and H had reverted approved R1 fixes (stale copies). A mechanical reversion check covered all parts, and every reversion was restored (`R2-reverify-applied-ch4-and-restorations.md`). The 12 remaining defects were fixed |
 | R3 whole-book consistency | All 184 paragraphs and 18 notes, across parts | Independent reviewer against the Danish | 18 findings and 34 edits covering terminology, repeated passages, glosses, voice, spelling and verse format, plus typographic quotes in the pilot. All applied (`R3-consistency.md`, `R3-applied.md`) |
-| R3 re-verification | Every R3 change | Fresh verifier | `R3-reverify.md` |
+| R3 re-verification | Every R3 change (the edits table was replayed mechanically on the pre-R3 copies, which matched exactly) | Fresh verifier | No translation defects. The book is ready for handoff once the release files are regenerated, which is done (`R3-reverify.md`) |
 
 ## 3. Automated checks on the final candidate
 

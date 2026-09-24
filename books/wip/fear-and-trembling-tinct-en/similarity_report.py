@@ -45,4 +45,5 @@ for ed in ['original-en', 'modern-en']:
     out += [f'| {ch} | {per[ch][0]/per[ch][1]:.3f} |' for ch in sorted(per)]
     out += ['', f'Length-weighted overall: **{tot:.3f}**. Units compared: {units}. Byte-identical long units: {ident}. Units ≥0.85: {high or "none"}.', '']
     print(ed, round(tot, 3), 'identical', ident, 'high', high)
+out.append(open(os.path.join(H, 'source/similarity-interpretation.md')).read())
 open(os.path.join(H, 'SIMILARITY.md'), 'w').write('\n'.join(out) + '\n')
