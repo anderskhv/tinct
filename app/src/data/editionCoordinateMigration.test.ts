@@ -49,3 +49,11 @@ describe('accepted edition coordinate migration', () => {
     expect(projectEditionCoordinate(migration,'modern-da',point(4,1),'words').status).toBe('unresolved')
   })
 })
+
+it('validates already migrated positions and ranges against the target structure', () => {
+  for (const p of [point(5,1),point(3,9),point(3,-1),point(-1,0),{...point(3,0),chapterNumber:0}]) {
+    const current = {...p,contentRevision:'new'}
+    expect(projectEditionCoordinate(migration,'original-en',current,'words')).toMatchObject({point:current,status:'unresolved'})
+    expect(projectExactEditionRange(migration,'original-en',current,{...current,offset:current.offset+1},'words')).toBeNull()
+  }
+})

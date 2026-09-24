@@ -51,7 +51,17 @@ export function projectEditionCoordinate(
 ): ProjectedCoordinate {
   const edition = migration.editions[editionKey]
   if (!edition) return { point, status: 'unresolved' }
-  if (point.contentRevision === edition.afterSha256) return { point, status: 'exact' }
+  if (point.contentRevision === edition.afterSha256) {
+    const count = edition.paragraphCountsAfter[String(point.chapterNumber)]
+    if (!integer(point.chapterNumber) || point.chapterNumber < 1 || !integer(point.paragraphIndex) || !integer(point.offset) || !count || point.paragraphIndex >= count) {
+      return { point, status: 'unresolved' }
+    }
+    const targets = Object.values(edition.entries).filter(entry => entry.chapter === point.chapterNumber && entry.paragraph === point.paragraphIndex)
+    if (targets.length && point.offset > Math.max(...targets.map(entry => unit === 'words' ? entry.newWords : entry.newChars))) {
+      return { point, status: 'unresolved' }
+    }
+    return { point, status: 'exact' }
+  }
   if (point.contentRevision && point.contentRevision !== edition.beforeSha256) return { point, status: 'unresolved' }
   const count = edition.paragraphCountsBefore[String(point.chapterNumber)]
   if (!integer(point.paragraphIndex) || !integer(point.offset) || !count || point.paragraphIndex >= count) {
@@ -104,7 +114,11 @@ export function projectExactEditionRange(
   if (start.chapterNumber !== end.chapterNumber || start.paragraphIndex !== end.paragraphIndex || start.offset >= end.offset) return null
   const edition = migration.editions[editionKey]
   if (!edition || start.contentRevision !== end.contentRevision) return null
-  if (start.contentRevision === edition.afterSha256) return { start, end }
+  if (start.contentRevision === edition.afterSha256) {
+    const a = projectEditionCoordinate(migration, editionKey, start, unit)
+    const b = projectEditionCoordinate(migration, editionKey, end, unit)
+    return a.status === 'exact' && b.status === 'exact' ? { start, end } : null
+  }
   if (start.contentRevision && start.contentRevision !== edition.beforeSha256) return null
   const entry = edition.entries[start.chapterNumber + '.' + start.paragraphIndex]
   if (entry && !entry[unit].some(([tag, a, b]) => tag === 'equal' && a <= start.offset && end.offset <= b)) return null
