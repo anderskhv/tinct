@@ -25,17 +25,23 @@ nav{display:flex;align-items:center;gap:16px}.avatar{width:32px;height:32px;bord
 .stage{flex:1;min-height:150px;position:relative}
 .track{position:absolute;inset:0;display:flex;align-items:center;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 calc(50% - var(--cw)/2);gap:18px;overscroll-behavior-x:contain}
 .track::-webkit-scrollbar{display:none}
-.slot{flex:none;width:var(--cw);height:var(--ch);scroll-snap-align:center;perspective:1100px;position:relative}
+.slot{flex:none;width:var(--cw);height:var(--ch);scroll-snap-align:center;perspective:1100px;position:relative;--mh:calc(var(--ch)*.1)}
 .slot::after{content:'';position:absolute;left:6%;right:6%;bottom:-10px;height:14px;border-radius:50%;background:radial-gradient(#000c,#0000 70%);filter:blur(3px);z-index:-1;opacity:var(--o,1)}
 .book{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 50%;will-change:transform}
 .cover{position:absolute;inset:0;border-radius:2px 3px 3px 2px;overflow:hidden;box-shadow:0 10px 22px #000a;backface-visibility:hidden}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
 .cover::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0005 0,#0000 4%,#ffffff12 5.5%,#0000 9%)}
 /* Page block, drawn in CSS: only shown in the Book variant. */
-.pages{position:absolute;top:1.6%;bottom:1.6%;right:0;width:var(--t);transform-origin:100% 50%;transform:rotateY(90deg);background:repeating-linear-gradient(90deg,#efe6cc 0 1px,#d8cdaf 1px 2px),#e8dfc4;box-shadow:inset 0 0 6px #0003;opacity:0}
-.pages::before{content:'';position:absolute;inset:0;background:linear-gradient(#0000 0,#0000 70%,#00000024)}
-.ribbon{position:absolute;bottom:-30px;left:calc(var(--p) - 4px);width:8px;height:40px;box-shadow:0 2px 3px #0006;background:linear-gradient(90deg,#6d201b,#a3392f 50%,#6d201b);clip-path:polygon(0 0,100% 0,100% 100%,50% 86%,0 100%);opacity:0}
-.variant-book .pages,.variant-book .ribbon{opacity:var(--o,0)}.variant-book .bar{display:none}
+/* Book variant: a CSS 3D book. Page block behind the cover; a bookmark stands in the pages at the reading depth. */
+.cover{transform-origin:0 50%;transform:translateZ(1px) rotateY(var(--open,0deg))}
+.pages{position:absolute;top:1.4%;bottom:1.4%;left:1px;right:3px;transform-style:preserve-3d;visibility:hidden;pointer-events:none}
+.pages i{position:absolute;display:block;opacity:var(--o,0)}
+.pages .leaf{inset:0;background:linear-gradient(90deg,#e4dabd,#f1e9d1 12%);transform:translateZ(0)}
+.pages .fore{top:0;bottom:0;right:0;width:var(--t);transform-origin:100% 50%;transform:rotateY(-90deg);background:repeating-linear-gradient(90deg,#f0e7cd 0 1px,#d3c8a9 1px 2px);box-shadow:inset 0 0 10px #0003}
+.pages .head{left:0;right:0;top:0;height:var(--t);transform-origin:50% 0;transform:rotateX(-90deg);background:repeating-linear-gradient(180deg,#f3ead1 0 1px,#d9ceb0 1px 2px)}
+.pages .mark{left:58%;width:8.5%;top:calc(-1*var(--mh,16px));height:calc(var(--mh,16px) + 45%);transform:translateZ(var(--dz));background:linear-gradient(90deg,#5a1b16,#8c2e26 45%,#62201a);border-radius:2px 2px 0 0;box-shadow:0 -1px 0 #ffffff1a inset}
+.back{position:absolute;inset:0;border-radius:2px;background:#1b1d18;transform:translateZ(calc(-1*var(--t) - 1px));opacity:0}
+.variant-book .pages{visibility:visible}.variant-book .back{opacity:var(--o,0)}.variant-book .bar{display:none}
 
 .info{padding:10px 20px 0}
 .fade{transition:opacity .18s}.fade.out{opacity:0}
@@ -43,12 +49,11 @@ h1{font-size:30px;font-weight:400;line-height:1.08;letter-spacing:-.025em;margin
 .meta{display:flex;align-items:center;gap:10px;margin-top:6px;font:12px system-ui;color:var(--soft);min-width:0}
 .meta .place{font:15px Georgia,serif;color:#dcd6c0;white-space:nowrap}
 .bar{flex:1;max-width:110px;height:2px;background:#eee7d02e;border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;background:var(--cream);transition:width .35s}
-.slip{position:relative;margin:14px 2px 0;padding:12px 15px 10px;background:linear-gradient(100deg,#f2e9cf,#e5d9ba);color:var(--ink);border-radius:1px 2px 5px 1px;transform:rotate(-.5deg);box-shadow:0 1px 1px #0003,1px 6px 14px #0007}
-.slip::before{content:'';position:absolute;left:16px;top:-8px;width:34px;height:15px;background:#eadfc0cc;box-shadow:0 1px 1px #0002;transform:rotate(-3deg)}
-.slip small{display:block;font:10.5px system-ui;letter-spacing:.13em;text-transform:uppercase;color:#77715a;margin-bottom:4px}
-.slip p{margin:0;font-size:15px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.slip{margin:14px 0 0;padding:1px 0 1px 14px;border-left:1px solid #eee7d055}
+.slip small{display:block;font:10.5px system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:5px}
+.slip p{margin:0;font-style:italic;font-size:15.5px;line-height:1.45;color:#e4dec9;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .slip.open p{-webkit-line-clamp:unset}
-.slip button{font:12px system-ui;color:#5b6348;margin-top:4px;padding:2px 0}
+.slip button{font:12px system-ui;color:var(--soft);margin-top:5px;padding:2px 0;text-decoration:underline;text-decoration-color:#b8bea966;text-underline-offset:3px}
 .actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .cta{display:inline-flex;align-items:center;gap:14px;background:var(--cream);color:#222b20;min-height:44px;padding:0 22px 0 24px;border-radius:999px;font:600 15px system-ui}.cta svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
 .finished-link{font:13px system-ui;color:var(--soft);display:flex;align-items:center;gap:7px}.finished-link i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--cream);color:#222b20;display:grid;place-items:center;font-size:11px}
@@ -87,7 +92,7 @@ h1{font-size:30px;font-weight:400;line-height:1.08;letter-spacing:-.025em;margin
  <div class="info"><div class="fade" id="info">
   <h1 id="title"></h1>
   <div class="meta"><span class="place" id="place"></span><span class="bar"><i id="bar"></i></span><span id="pct"></span></div>
-  <div class="slip" id="slip"><small>Where you are</small><p id="recap"></p><button id="more">Read more</button></div>
+  <div class="slip" id="slip"><small>Where you left off</small><p id="recap"></p><button id="more">Read more</button></div>
  </div>
   <div class="actions"><button class="cta">Continue<svg viewBox="0 0 24 24"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></button><button class="finished-link" id="finished-link"><i>✓</i>3 finished</button></div>
  </div>
@@ -105,6 +110,7 @@ const reading=[
  {id:'odyssey',title:'The Odyssey',place:'Book Two',pct:8,pages:400,recap:'Telemachus calls an assembly of Ithaca and denounces the suitors eating through his father’s house. They refuse to leave; with Athena’s help, disguised as Mentor, he secretly prepares a ship to seek news of Odysseus.'}];
 const finished=[{id:'pride-and-prejudice',t:'Finished in August'},{id:'jekyll-and-hyde',t:'Finished in July'},{id:'the-prince',t:'Finished in May'}];
 const featured=['jane-eyre','candide','julius-caesar','the-awakening','notes-from-underground'];
+const TILT=+(new URLSearchParams(location.search).get('tilt')??-20),OPEN=+(new URLSearchParams(location.search).get('open')??0);
 const $=id=>document.getElementById(id),root=document.documentElement;let current=0,cw=150;
 const h=new Date().getHours();$('greet').textContent=h<5?'Good night':h<12?'Good morning':h<17?'Good afternoon':'Good evening';
 
@@ -113,13 +119,13 @@ let fitWidth=0;function fitRoom(){if(innerWidth!==fitWidth){fitWidth=innerWidth;
  const stage=document.querySelector('.stage').getBoundingClientRect(),desk=innerWidth>=900,room=desk?stage.height-44:stage.height;
  const ch=Math.max(120,Math.min(desk?Math.min(420,room*.82):330,room-36));cw=Math.round(ch*2/3);root.style.setProperty('--cw',cw+'px');root.style.setProperty('--ch',Math.round(ch)+'px');layout();}
 
-const track=$('track');
-track.innerHTML=reading.map((b,i)=>`<div class="slot" data-i="${i}" style="--p:${b.pct}%"><div class="book"><div class="cover"><img src="assets/${b.id}.jpg" alt="${b.title}"></div><div class="pages" style="--t:${Math.round(Math.max(12,Math.min(40,b.pages/13)))}px"><span class="ribbon"></span></div></div></div>`).join('');
+const track=$('track');const thick=b=>Math.round(Math.max(12,Math.min(40,b.pages/13)));
+track.innerHTML=reading.map((b,i)=>`<div class="slot" data-i="${i}" style="--p:${b.pct}%"><div class="book" style="--t:${thick(b)}px;--dz:${-Math.round(thick(b)*b.pct/100)-1}px"><div class="back"></div><div class="pages"><i class="leaf"></i><i class="fore"></i><i class="head"></i><i class="mark"></i></div><div class="cover"><img src="assets/${b.id}.jpg" alt="${b.title}"></div></div></div>`).join('');
 const slots=[...track.children];
 function layout(){const mid=track.scrollLeft+track.clientWidth/2,step=cw+18;let best=0,bd=1e9;const book=document.body.classList.contains('variant-book');
  slots.forEach((s,k)=>{const c=s.offsetLeft+s.offsetWidth/2,t=Math.max(-2,Math.min(2,(c-mid)/step)),a=Math.min(1,Math.abs(t));
-  const turn=book?-32*(1-a):0,side=book?-t*14:-t*10;
-  s.firstElementChild.style.transform=`rotateY(${turn+side}deg) scale(${1-a*.16})`;
+  const turn=book?-30*(1-a):0,side=book?-t*14:-t*10,tilt=book?TILT*(1-a):0;
+  s.firstElementChild.style.transform=`rotateX(${tilt}deg) rotateY(${turn+side}deg) scale(${1-a*.16})`;s.style.setProperty('--open',(book?OPEN*(1-a):0)+'deg');
   s.style.setProperty('--o',String(1-a));s.querySelector('.cover').style.filter=`brightness(${1-a*.5})`;s.style.zIndex=String(10-Math.round(a*5));
   if(Math.abs(c-mid)<bd){bd=Math.abs(c-mid);best=k;}});
  if(best!==current){current=best;fill(true);}}
