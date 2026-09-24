@@ -58,7 +58,7 @@ def verify_points(node):
     if key in node:assert node[key]<=67,(key,node)
   for value in node.values():verify_points(value)
 verify_points(block)
-out=(json.dumps(asset,ensure_ascii=False,indent=2)+"\n").encode()
+out=json.dumps(asset,ensure_ascii=False).encode()
 service=ROOT/"app/src/services/characters/characterCards.ts"
 service_text,count=re.subn(r"(bible:\s*\{\s*editions:\s*\['kjv-en', 'web-en'\],\s*revision:\s*)'[^']+'",lambda m:m.group(1)+repr(REVISION),service.read_text());assert count==1
 receipt={"reviewRef":REVIEW,"baselineSha256":BEFORE,"acceptedSha256":AFTER,"cardSha256":digest(out),"unchangedVerseSpans":21,"unchangedChapterMentions":4}

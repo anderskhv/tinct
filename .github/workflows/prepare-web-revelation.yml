@@ -1,0 +1,25 @@
+name: Prepare accepted WEB Revelation cleanup
+on:
+  push:
+    branches: [codex/web-revelation-cleanup-20260924]
+    paths: ['app/scripts/prepare-web-revelation-release.py', '.github/workflows/prepare-web-revelation.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/web-revelation-cleanup-20260924
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - run: python3 app/scripts/prepare-web-revelation-release.py
+      - name: Commit exact accepted assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/public/data/editions/bible-web-en.json app/public/data/editions-chapters/bible-web-en app/public/data/characters/bible.v1.json app/src/services/characters/characterCards.ts books/wip/web-revelation-release-20260924.json
+          git diff --cached --quiet || git commit -m "Remove accepted Revelation trailer and refresh matching card hashes"
+          git push origin HEAD:codex/web-revelation-cleanup-20260924
