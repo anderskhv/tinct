@@ -100,4 +100,18 @@ Inspiration requested for the preface: Michael Sugrue's lecture "Machiavelli" (h
 
 Niccolò Machiavelli was born in Florence in 1469. His father, a lawyer of modest means, once earned a copy of Livy's history of Rome by compiling its index. At twenty-nine, Niccolò entered the service of the Florentine republic, spending fourteen years as an official and as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Early the next year he was imprisoned and tortured, then withdrew to his farm, where he wrote The Prince. He died in 1527, at fifty-eight.
 
-**Preface:** draft 2 is in the chat of 2026-09-24 (opens with Ramiro d'Orco in Cesena). Copy it here once approved.
+**Preface, draft 2:**
+
+One morning in December 1502, the people of Cesena found Ramiro d'Orco in their town square, cut in two, with a block and a bloody knife beside him. Ramiro had restored order to the region for Cesare Borgia, swiftly and cruelly. Now Borgia wanted it known that the cruelty had not come from him. The spectacle, Machiavelli later wrote, left the people "at once satisfied and dismayed."
+
+Machiavelli was at Borgia's court that winter as an envoy of the Florentine republic. Ten years later, out of office and living on a small farm outside Florence, he retold the story in The Prince. He did not present it as an atrocity. He presented it as an example of a ruler who knew what he was doing.
+
+That is what makes this book so unsettling. Machiavelli does not pretend. He sets out to follow "the real truth of the matter" rather than imagined kingdoms, because "how one lives is so far distant from how one ought to live." A ruler who insists on being good in every situation, he argues, will be ruined, and so will the people who depend on him.
+
+It is tempting to dismiss him as a teacher of evil. Yet few of us want our leaders to be naive. We might admire a ruler as gentle and thoughtful as Marcus Aurelius and still wonder whether such a person could protect us. We would certainly not want to be governed by Borgia. Between those two, most of us waver. In public we condemn Machiavelli. In private, when a crisis seems to demand it, we may suspect he has a point.
+
+The man himself complicates things further. In 1512 the Medici family returned to power in Florence, the republic he had served fell, and he lost his post. Months later he was arrested and tortured on suspicion of conspiracy, then released. The Prince opens with a humble dedication to a Medici, a member of the family that had ended his career. Near the end, it warns princes that courts are full of flatterers. Is he offering a guide, a diagnosis, or a job application? And if you were a prince, would you hire the man who wrote it?
+
+The final chapter changes tone completely. It becomes a passionate plea for a leader to free Italy from the foreign armies that had fought over it for years. Whether that plea redeems what comes before, or reveals what it was all for, is left to the reader.
+
+You don't need to rule a state to feel the weight of these questions. How far can we bend before we lose what we were trying to protect? When is harm necessary, and who gets to decide? And if Machiavelli is right about how people behave, what does that say about us?
