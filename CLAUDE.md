@@ -1,5 +1,11 @@
 # AI-Enhanced Reading Platform — Tinct
 
+## Automatic book-task routing — approved 2026-09-24
+
+Requests to **add, onboard, prepare, translate, modernize or repair a book** activate the [content-only book workflow](books/BOOK-TASK-WORKFLOW.md), even when this session starts at the repository root. Read it and its required strategy references before editing. A request to add or finish a book is not authorization to change code, integrate the app, merge to main or deploy.
+
+This is task-specific: Claude may implement and release code when Anders explicitly assigns a coding/release task, following current repository rules and serialized release ownership. Do not infer that assignment from a book request.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 > **2026-06-17 update:** This file is historical and contains stale counts,
@@ -191,7 +197,7 @@ These rules exist because their absence caused recurring sync bugs (B1, B19, B21
 
 **Pre-authorized (just do it):**
 - Git commits when build passes AND change verified locally.
-- **"Push" = `git push` + `npm run deploy`.** Always both. Never push to GitHub without deploying to Cloudflare. Always deploy after local verification — don't ask.
+- **For explicitly assigned coding/release tasks only:** follow current `AGENTS.md` publication rules. Content-branch pushes never authorize deployment.
 - Bug fixes / code corrections (verify locally before reporting).
 - Deploy — only after the full Pre-Deploy Checklist.
 - Running tests and acting on results.
@@ -211,35 +217,9 @@ These rules exist because their absence caused recurring sync bugs (B1, B19, B21
 
 ---
 
-## Book Addition Checklist
+## Book Addition Workflow
 
-A book is "added" only when every box below is checked. Partial additions are work-in-progress.
-
-**1. Source text** — public-domain original parsed into `{bookId}-original-en.json`, chapter structure verified, Project Gutenberg boilerplate stripped.
-
-**2. All editions** (CLI-generated, zero API spend):
-- `{bookId}-modern-en.json` — accessible contemporary English.
-- All paragraph-aligned with original.
-- **Kids editions are permanently out of scope. Never generate children's editions.**
-
-**3. Book registry** — entry in `bookRegistry.ts` with all editions, correct metadata (key, language, style, label, aligned), included in `BOOKS` array.
-
-**4. Onboarding content** at `/data/onboarding/{bookId}.json` (CLI-generated):
-- **About** — 2 paragraphs, plainly stated.
-- **Why it still matters** — 3 items, each with *italic title* + 2-3 sentences. Specific to this book, no generic observations.
-- **Reading angles** — 4 cards derived from "why it matters", each with *italic title* + 2 sentences explaining what the reader will notice. **Free for all users** — this is the #1 completion-rate mechanism, not a premium gate. A 5th equal-weight card "Just start reading" clears the angle (skip option).
-- **Cast** — 6 figures (characters or concepts, e.g. "The Inner Citadel" for Meditations): name, mono-uppercase role tag, 2-sentence description. No spoilers beyond what's established early.
-- **Pre-reading chat responses** — 3 themed responses (each 3-5 substantial paragraphs, book-specific, at the quality of the Odyssey Greek/Christian ethics response) + 1 fallback. Premium feature.
-- **Opening background text** — 3-5 sentences of the actual opening (shown blurred behind modal).
-- **HTML mirror** at `Design refs/Book Onboarding - {Title}.html` from the Odyssey template.
-
-**Flow:** (1) Edition setup → (2) About + Why → (3) Angle (free, skip option present) → (4) Cast → (5) Extended pre-reading chat (premium).
-
-**5. Cast / threads** — `{bookId}-threads.json` with major characters: id, name and epithet using the existing schema, role, wikipediaUrl, searchNames; per-chapter summaries in modern-en. Loader is convention-based (`useThreads.ts` fetches `/data/editions/{bookId}-threads.json` for any bookId) — no code change needed; just drop the JSON in.
-
-**6. App integration** — Book selectable in header, chapter nav works (correct labels and count), edition switching works, split pane verified with aligned editions, position persistence per book, chat context uses correct title/author, onboarding fires for ALL entry points (direct nav, SEO landing, share links), reading angle stored in session and injected into AI system prompt, dismissable at any step ("Start reading now →").
-
-**7. Visual QA** (non-negotiable) — Every edition, every chapter checked via dev-server screenshots. Text renders correctly, chapter nav end-to-end, split-pane alignment, dark mode.
+Read [the mandatory book-task workflow](books/BOOK-TASK-WORKFLOW.md) and [current adding-book strategy](books/README.md). Claude completes and pushes the isolated content package; Codex handles registry, app integration and publication. The old inline checklist is superseded.
 
 ---
 
@@ -258,7 +238,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss children's editions.
 - **[Landing Page Auth Redirect — P0]** — Signed-in users must NEVER see the landing page. Auth-check script at top of `app/public/landing.html` inspects the Supabase session token and redirects to `/read` before render. Any regression is a P0 bug.
 - **[User Journeys v1]** — Two paths. Journey A (direct-to-book / SEO): edition picker → reader → state-aware top banner → end-of-chapter-1 progress prompt → sign-up → TierChooser. Journey B (library-first): landing → library → 3-step Book Onboarding → TierChooser → reader. Four locked principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always. URL parsing: `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Account Onboarding (6-step tour) is optional, available from Settings — NOT critical path.
-- **[Books CEO Scope Lockdown]** — `books/CLAUDE.md` is content-only. May only touch `app/public/data/editions/{bookId}-*.json`, `app/public/data/onboarding/{bookId}.json`, `app/public/audio/{bookId}/`, `app/src/data/bookRegistry.ts` (registration only), and `books/**`. Everything else is OFF-LIMITS. Publish via `npm run deploy` only — raw `vite build` and `wrangler deploy` are forbidden (skip the html swap and verify-bundle steps; cause repeated prod outages).
+- **[Book-task scope — 2026-09-24]** — Follow `books/BOOK-TASK-WORKFLOW.md`: isolated content artifacts only; Codex owns code, live integration and publication. Explicit separate coding assignments remain allowed.
 - **[Open Audit Items]** — Awaiting Anders: (1) make R2 bucket private + bind to worker via `env.R2_BUCKET.get()`; (2) convert hero images to WebP (~800 KB gzip savings); (3) `React.lazy()` SettingsSheet/PricingModal/UsageDashboard/BookStore/TierChooser (~30-40 KB deferred); (4) minify static JSON via Vite plugin (~10-15 KB).
 - **[Angle Iteration — FUTURE, not built]** — When user submits a reading angle, AI responds conversationally and iterates over a few turns before lock-in. Free tier gets ~5 messages of this as taste of the AI companion (in-book chat remains Premium). Logged to `BACKLOG.md`.
 
