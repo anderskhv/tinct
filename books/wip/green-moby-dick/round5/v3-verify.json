@@ -1,0 +1,65 @@
+{
+ "batch": "v3",
+ "role": "final-verify",
+ "chapters": [
+  70,
+  71,
+  72,
+  73,
+  78,
+  81,
+  86,
+  87,
+  88,
+  89,
+  90,
+  91,
+  92,
+  96
+ ],
+ "reviewed": [
+  "70.5",
+  "71.1",
+  "71.17",
+  "71.18",
+  "72.5",
+  "73.2",
+  "73.31",
+  "78.12",
+  "81.20",
+  "81.38",
+  "81.41",
+  "81.44",
+  "81.46",
+  "86.1",
+  "86.12",
+  "87.3",
+  "87.5",
+  "87.6",
+  "87.7",
+  "87.13",
+  "87.14",
+  "87.20",
+  "88.0",
+  "88.7",
+  "89.8",
+  "90.20",
+  "91.6",
+  "91.15",
+  "92.2",
+  "92.6",
+  "96.2"
+ ],
+ "items": [
+  {
+   "id": "81.46",
+   "severity": "non-blocking",
+   "category": [
+    "convention",
+    "voice"
+   ],
+   "reason": "Rewritten paragraph mixes species capitalization after the SWEEP-caps pass: source prints 'Fin-Back' (twice) and 'Sperm Whale'; candidate has 'fin-back' beside 'Sperm Whale'. Also source 'this unnearable brute' became 'this uncatchable brute', duplicating 'impossible to capture' (source 'uncapturable') and losing the sense that it cannot even be approached.",
+   "new": "It was not long after the sinking of the body that a cry was heard from the Pequod's mastheads, announcing that the Jungfrau was again lowering her boats — though the only spout in sight was that of a Fin-Back, a species of whale that is impossible to capture because of its incredible swimming speed. Nevertheless, the Fin-Back's spout is so similar to the Sperm Whale's that unskilled fishermen often mistake it. And so Derick and all his men were now in valiant chase of this unapproachable brute. The Virgin, crowding on all sail, followed after her four young boats, and they all disappeared far to leeward, still in bold, hopeful pursuit."
+  }
+ ]
+}
