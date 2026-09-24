@@ -1,0 +1,409 @@
+# Changed paragraphs (independently reviewed)
+
+One-based reader section and paragraph. Source, accepted baseline and reviewed candidate. `Reason` is the original author's; `Review` is the independent reviewer's disposition. See `../../REVIEW-RECORD.md`.
+
+## 16.1 — Chapter 15 — Things for Which Princes Are Praised or Blamed
+
+Reason: Replace tangled reality-versus-ideal syntax while retaining the argument and qualifications.
+
+Review: accepted with review corrections (R1).
+
+**Source:** It remains now to see what ought to be the rules of conduct for a prince towards subject and friends. And as I know that many have written on this point, I expect I shall be considered presumptuous in mentioning it again, especially as in discussing it I shall depart from the methods of other people. But, it being my intention to write a thing which shall be useful to him who apprehends it, it appears to me more appropriate to follow up the real truth of the matter than the imagination of it; for many have pictured republics and principalities which in fact have never been known or seen, because how one lives is so far distant from how one ought to live, that he who neglects what is done for what ought to be done, sooner effects his ruin than his preservation; for a man who wishes to act entirely up to his professions of virtue soon meets with what destroys him among so much that is evil.
+
+**Accepted baseline:** It remains to see what ought to be the rules of conduct for a prince toward his subjects and friends. Since many have written on this, I expect I shall be considered presumptuous in mentioning it again, especially as my discussion will depart from others' methods. But my intention is to write something useful to him who understands it; so it seems more fitting to follow the real truth of the matter than its imagination. Many have pictured republics and principalities that in fact have never been known or seen; for how one lives is so far from how one ought to live that he who neglects what is done for what ought to be done will sooner bring about his ruin than his preservation. A man who wishes to act entirely up to his professions of virtue soon meets with what destroys him among so much that is evil.
+
+**Reviewed candidate:** It remains to consider how a prince should behave toward his subjects and friends. I know that many have written about this, and I expect to be thought presumptuous for raising it again, especially since my approach will differ from theirs. But I intend to write something useful to anyone who understands it. It therefore seems better to follow the truth of how things actually are than an imagined version of them. Many have pictured republics and principalities that have never been known or seen in reality, because how people live is so far from how they ought to live that anyone who ignores what people actually do in favor of what they ought to do will bring about his ruin rather than preserve himself. A man who tries to live entirely by the virtues he professes will soon find himself destroyed in a world containing so much evil.
+
+Paragraph SHA-256: baseline `6c5cd95b109671587ca046f8dde9cc587c6c68ba4e21c1cac18a81b13bdcadba` → reviewed `1cbf9c8caabd1940e7fd61d23884b0fe05017512ee4cfb7f51f0808c2479f5fe`
+
+## 16.2 — Chapter 15 — Things for Which Princes Are Praised or Blamed
+
+Reason: Clarify the catalogue of qualities and the distinction between damaging and necessary vices without softening its judgments.
+
+Review: accepted with review corrections (R2, R3).
+
+**Source:** Hence it is necessary for a prince wishing to hold his own to know how to do wrong, and to make use of it or not according to necessity. Therefore, putting on one side imaginary things concerning a prince, and discussing those which are real, I say that all men when they are spoken of, and chiefly princes for being more highly placed, are remarkable for some of those qualities which bring them either blame or praise; and thus it is that one is reputed liberal, another miserly, using a Tuscan term (because an avaricious person in our language is still he who desires to possess by robbery, whilst we call one miserly who deprives himself too much of the use of his own); one is reputed generous, one rapacious; one cruel, one compassionate; one faithless, another faithful; one effeminate and cowardly, another bold and brave; one affable, another haughty; one lascivious, another chaste; one sincere, another cunning; one hard, another easy; one grave, another frivolous; one religious, another unbelieving, and the like. And I know that every one will confess that it would be most praiseworthy in a prince to exhibit all the above qualities that are considered good; but because they can neither be entirely possessed nor observed, for human conditions do not permit it, it is necessary for him to be sufficiently prudent that he may know how to avoid the reproach of those vices which would lose him his state; and also to keep himself, if it be possible, from those which would not lose him it; but this not being possible, he may with less hesitation abandon himself to them. And again, he need not make himself uneasy at incurring a reproach for those vices without which the state can only be saved with difficulty, for if everything is considered carefully, it will be found that something which looks like virtue, if followed, would be his ruin; whilst something else, which looks like vice, yet followed brings him security and prosperity.
+
+**Accepted baseline:** It is therefore necessary for a prince wishing to hold his own to know how to do wrong, and to make use of it or not according to necessity. Setting aside imaginary things about princes, then, and discussing what is real: I say that all men, when spoken of — and chiefly princes, being more highly placed — are remarkable for some qualities that bring them blame or praise. One is reputed liberal, another miserly (using a Tuscan term, since an avaricious person in our language is one who desires to possess by robbery, while we call miserly one who deprives himself too much of the use of his own); one generous, one rapacious; one cruel, one compassionate; one faithless, another faithful; one effeminate and cowardly, another bold and brave; one affable, another haughty; one lascivious, another chaste; one sincere, another cunning; one hard, another easy; one grave, another frivolous; one religious, another unbelieving, and so on. Everyone will admit that it would be most praiseworthy for a prince to exhibit all the qualities considered good; but since they cannot all be possessed or observed — human conditions not permitting it — he must be prudent enough to know how to avoid the reproach of those vices that would lose him his state, and to keep himself, if possible, from those that would not lose it for him. But where that is not possible, he may abandon himself to them with less hesitation. And he need not worry about incurring a reproach for those vices without which the state can hardly be saved: if everything is carefully considered, something that looks like virtue, if followed, would be his ruin; while something else that looks like vice, if followed, brings him security and prosperity.
+
+**Reviewed candidate:** A prince who wants to maintain his position must therefore know how to do wrong, and to use that ability or not as necessity requires. Let us set aside imaginary princes and discuss real ones. When people speak of any man, and especially of princes because of their higher position, they single out qualities that earn him praise or blame. One is called liberal, meaning generous with his money; another miserly. I use the Tuscan term here: in our language an avaricious man is one who wants to take other people's possessions by robbery, whereas a miserly man denies himself too much use of his own. One is called open-handed, another grasping; one cruel, another compassionate; one faithless, another faithful; one effeminate and cowardly, another bold and brave; one friendly, another arrogant; one lustful, another chaste; one sincere, another cunning; one harsh, another easygoing; one serious, another frivolous; one religious, another unbelieving; and so on. Everyone will agree that a prince would deserve the highest praise if he displayed all the qualities considered good. But human circumstances do not allow him to possess or consistently practice them all. He must therefore be wise enough to avoid being blamed for vices that would cost him his state. If possible, he should also avoid those that would not cost him it; but where that is impossible, he can give way to them with less hesitation. Nor should he worry about being blamed for vices without which his state could scarcely be saved. Examine everything carefully, and you will find that following something that looks like virtue would ruin him, while following something else that looks like vice brings him security and prosperity.
+
+Paragraph SHA-256: baseline `c3b26a510f8bc0e218c988bc12eeb244dde4b5172a10fc486a24a5dc5a666b1c` → reviewed `f5bfc1026c3fa1543b3ca0d520779b327d21015a270260cbad39592868fa4718`
+
+## 17.1 — Chapter 16 — Liberality and Meanness
+
+Reason: Explain liberality through generosity and make the spending-to-taxation causal chain explicit.
+
+Review: accepted as authored.
+
+**Source:** Commencing then with the first of the above-named characteristics, I say that it would be well to be reputed liberal. Nevertheless, liberality exercised in a way that does not bring you the reputation for it, injures you; for if one exercises it honestly and as it should be exercised, it may not become known, and you will not avoid the reproach of its opposite. Therefore, any one wishing to maintain among men the name of liberal is obliged to avoid no attribute of magnificence; so that a prince thus inclined will consume in such acts all his property, and will be compelled in the end, if he wish to maintain the name of liberal, to unduly weigh down his people, and tax them, and do everything he can to get money. This will soon make him odious to his subjects, and becoming poor he will be little valued by any one; thus, with his liberality, having offended many and rewarded few, he is affected by the very first trouble and imperilled by whatever may be the first danger; recognizing this himself, and wishing to draw back from it, he runs at once into the reproach of being miserly.
+
+**Accepted baseline:** Beginning, then, with the first of the characteristics above: it would be well to be reputed liberal. Nevertheless, liberality exercised in a way that does not bring you the reputation for it injures you. If you exercise it honestly and as it should be exercised, it may not become known, and you will not avoid the reproach of the opposite. Anyone wishing to keep the reputation of liberal among men is obliged to avoid no display of magnificence; a prince so inclined will consume all his property in such acts, and in the end, to keep the name of liberal, will be compelled to burden his people unduly, tax them, and do everything he can to get money. This will soon make him odious to his subjects, and in becoming poor he will be little valued by anyone. So, with his liberality, having offended many and rewarded few, he is affected by the very first trouble and imperiled by whatever danger comes first. Recognizing this, and wishing to draw back, he at once incurs the reproach of being miserly.
+
+**Reviewed candidate:** To begin with the first quality mentioned above: it is good to have a reputation for generosity. Yet generosity that does not earn you that reputation harms you. If you practice it honestly and as you should, it may go unnoticed, and you will still be accused of being ungenerous. Anyone who wants to keep a reputation for generosity must therefore spare no magnificent display. A prince who acts this way will spend all his wealth on such displays. In the end, to keep his reputation, he will have to burden his people excessively, tax them, and do everything he can to raise money. His subjects will soon hate him, and once he is poor, no one will think much of him. His generosity will have offended many and rewarded few, leaving him vulnerable to the first trouble and endangered by the first threat. When he recognizes this and tries to pull back, he is immediately accused of being miserly.
+
+Paragraph SHA-256: baseline `f649d23396541f00cc58aab9a2b266b06553401a33e010bf58e4afc1151f7026` → reviewed `cfcdc6db23168137159597841c1b2824b21489afe9385155a7bd43ad5ca9fa9e`
+
+## 17.2 — Chapter 16 — Liberality and Meanness
+
+Reason: Make the paradox of saving versus giving understandable without losing either group in the comparison.
+
+Review: accepted as authored.
+
+**Source:** Therefore, a prince, not being able to exercise this virtue of liberality in such a way that it is recognized, except to his cost, if he is wise he ought not to fear the reputation of being mean, for in time he will come to be more considered than if liberal, seeing that with his economy his revenues are enough, that he can defend himself against all attacks, and is able to engage in enterprises without burdening his people; thus it comes to pass that he exercises liberality towards all from whom he does not take, who are numberless, and meanness towards those to whom he does not give, who are few.
+
+**Accepted baseline:** A prince, then, not being able to exercise liberality in a way that is recognized except at his cost, would be wise not to fear the reputation of being miserly. In time he will come to be more esteemed than if liberal: with his economy his revenues suffice, he can defend himself against all attacks, and can undertake enterprises without burdening his people. Thus he exercises liberality toward all from whom he does not take — numberless — and meanness only toward those to whom he does not give, who are few.
+
+**Reviewed candidate:** Since a prince cannot practice generosity in a way that is recognized without paying this price, a wise prince should not fear a reputation for stinginess. In time he will be more highly regarded than if he were generous. His careful spending makes his revenues sufficient; he can defend himself against every attack and undertake ventures without burdening his people. In this way he is generous to the countless people from whom he takes nothing, and stingy only to the few to whom he gives nothing.
+
+Paragraph SHA-256: baseline `ced7a7f5f49473e51f8408f3a077af098c07f26dca4d39402c6baf1cc3fedfed` → reviewed `c07ef24a5a7f924bac08820b014cd922d32fec97084c5e08372dbb594908a3aa`
+
+## 17.3 — Chapter 16 — Liberality and Meanness
+
+Reason: Replace dated phrasing and expose the conditions attached to the recommendation.
+
+Review: accepted as authored.
+
+**Source:** We have not seen great things done in our time except by those who have been considered mean; the rest have failed. Pope Julius the Second was assisted in reaching the papacy by a reputation for liberality, yet he did not strive afterwards to keep it up, when he made war on the King of France; and he made many wars without imposing any extraordinary tax on his subjects, for he supplied his additional expenses out of his long thriftiness. The present King of Spain would not have undertaken or conquered in so many enterprises if he had been reputed liberal. A prince, therefore, provided that he has not to rob his subjects, that he can defend himself, that he does not become poor and abject, that he is not forced to become rapacious, ought to hold of little account a reputation for being mean, for it is one of those vices which will enable him to govern.
+
+**Accepted baseline:** We have seen great things done in our time only by those considered mean; the rest have failed. Pope Julius II was helped to the papacy by a reputation for liberality, yet did not strive to keep it up afterwards, when he made war on the King of France; he made many wars without imposing any extraordinary tax on his subjects, supplying his extra expenses out of his long thriftiness. The present King of Spain would not have undertaken or conquered so many enterprises had he been reputed liberal. A prince, provided he need not rob his subjects, can defend himself, does not become poor and abject, and is not forced to become rapacious, ought to hold of little account a reputation for meanness — it is one of those vices that will enable him to govern.
+
+**Reviewed candidate:** In our time, we have seen great things achieved only by those considered stingy; the others have failed. A reputation for generosity helped Pope Julius II reach the papacy, but he did not try to maintain it afterwards, when he made war on the King of France. He fought many wars without imposing any exceptional tax on his subjects, paying the extra costs from what his long-standing thrift had saved. The present King of Spain would not have undertaken or succeeded in so many ventures if he had been known for generosity. So a prince should care little about a reputation for stinginess, provided that he does not have to rob his subjects, can defend himself, does not become poor and contemptible, and is not forced to seize wealth from others. Stinginess is one of those vices that will enable him to govern.
+
+Paragraph SHA-256: baseline `d97fa6c0ec73e672167344134ab3038dca0316d7bc3959fe58e8c99392f05324` → reviewed `04cdb8baac36e0409ffaf47ce2df5d2300e01b5f4cd74d1b9cd8141b3e094edb`
+
+## 17.4 — Chapter 16 — Liberality and Meanness
+
+Reason: Clarify the two objections and the contrast between spending domestic wealth and spending others' wealth; preserve all examples.
+
+Review: accepted as authored.
+
+**Source:** And if any one should say: Caesar obtained empire by liberality, and many others have reached the highest positions by having been liberal, and by being considered so, I answer: Either you are a prince in fact, or in a way to become one. In the first case this liberality is dangerous, in the second it is very necessary to be considered liberal; and Caesar was one of those who wished to become pre-eminent in Rome; but if he had survived after becoming so, and had not moderated his expenses, he would have destroyed his government. And if any one should reply: Many have been princes, and have done great things with armies, who have been considered very liberal, I reply: Either a prince spends that which is his own or his subjects’ or else that of others. In the first case he ought to be sparing, in the second he ought not to neglect any opportunity for liberality. And to the prince who goes forth with his army, supporting it by pillage, sack, and extortion, handling that which belongs to others, this liberality is necessary, otherwise he would not be followed by soldiers. And of that which is neither yours nor your subjects’ you can be a ready giver, as were Cyrus, Caesar, and Alexander; because it does not take away your reputation if you squander that of others, but adds to it; it is only squandering your own that injures you.
+
+**Accepted baseline:** If someone should say: Caesar obtained empire by liberality, and many others reached the highest positions by being, and being considered, liberal — I answer: either you are already a prince, or you are on the way to becoming one. In the first case, such liberality is dangerous; in the second, it is very necessary to be considered liberal. Caesar was one who wished to become preeminent in Rome; but if he had survived after becoming so and had not moderated his expenses, he would have destroyed his government. And if someone should reply: many princes have done great things with armies, and been considered very liberal — I answer: a prince spends either his own, his subjects', or that of others. In the first case he ought to be sparing; in the second he ought not to neglect any opportunity for liberality. A prince who goes forth with his army, supporting it by pillage, sack, and extortion, handling what belongs to others, must be liberal; otherwise he would not be followed by his soldiers. Of what is neither yours nor your subjects' you can be a ready giver, as Cyrus, Caesar, and Alexander were; squandering others' property does not take away your reputation but adds to it. It is only squandering your own that injures you.
+
+**Reviewed candidate:** Someone may object: Caesar gained power through generosity, and many others have reached the highest positions by being generous and being known for it. My answer is that you are either already a prince or on your way to becoming one. In the first case, such generosity is dangerous; in the second, a reputation for it is essential. Caesar wanted to become supreme in Rome. But if he had lived on after achieving that position and had not reduced his spending, he would have destroyed his government. Someone may reply that many princes have achieved great things with armies while being considered very generous. My answer is that a prince spends either his own and his subjects' wealth, or the wealth of others. With the first, he should be sparing; with the second, he should miss no opportunity to be generous. A prince who leads an army supported by pillaging, sacking and extortion, and who handles wealth belonging to others, must be generous: otherwise his soldiers would not follow him. You can give freely what belongs neither to you nor to your subjects, as Cyrus, Caesar and Alexander did. Squandering other people's property does not damage your reputation; it enhances it. Only squandering your own harms you.
+
+Paragraph SHA-256: baseline `959254b8730061e703fe662e99bbd9f0a03b9f42a7f8f660217c4a6d075f57dd` → reviewed `08a67568d93d19f013ee915bc67fe21784ac27b0d810e5c8edae0c667700e4c3`
+
+## 17.5 — Chapter 16 — Liberality and Meanness
+
+Reason: Clarify the self-exhausting quality of generosity and restore the source's poor OR despised distinction.
+
+Review: accepted with review corrections (R4).
+
+**Source:** And there is nothing wastes so rapidly as liberality, for even whilst you exercise it you lose the power to do so, and so become either poor or despised, or else, in avoiding poverty, rapacious and hated. And a prince should guard himself, above all things, against being despised and hated; and liberality leads you to both. Therefore it is wiser to have a reputation for meanness which brings reproach without hatred, than to be compelled through seeking a reputation for liberality to incur a name for rapacity which begets reproach with hatred.
+
+**Accepted baseline:** Nothing wastes itself so rapidly as liberality; while you exercise it, you lose the power to do so, and become either poor and despised or, to avoid poverty, rapacious and hated. A prince should guard himself above all from being despised and hated; liberality leads to both. So it is wiser to have a reputation for meanness, which brings reproach without hatred, than to be compelled, through seeking a reputation for liberality, to incur a name for rapacity, which brings reproach with hatred.
+
+**Reviewed candidate:** Nothing uses itself up as quickly as generosity. Even as you practice it, you lose the means to continue. You become either poor or despised; or, to avoid poverty, you become predatory and hated. Above all, a prince should guard against being despised and hated, and generosity leads to both. It is therefore wiser to be known for stinginess, which brings blame without hatred, than to seek a reputation for generosity and be forced into a reputation for predatory greed, which brings both blame and hatred.
+
+Paragraph SHA-256: baseline `6ac5bb7fcb4b16c314c2d1e8a403ed58b55b368881f43ec6d4baec99dff16a7b` → reviewed `64160a0cb2b2210788b45d6ab64758172059572384da4384263328a60b2b3267`
+
+## 18.1 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Clarify clemency and exemplary punishment while preserving the harsh political claim and named examples.
+
+Review: accepted as authored.
+
+**Source:** Coming now to the other qualities mentioned above, I say that every prince ought to desire to be considered clement and not cruel. Nevertheless he ought to take care not to misuse this clemency. Cesare Borgia was considered cruel; notwithstanding, his cruelty reconciled the Romagna, unified it, and restored it to peace and loyalty. And if this be rightly considered, he will be seen to have been much more merciful than the Florentine people, who, to avoid a reputation for cruelty, permitted Pistoia to be destroyed. Therefore a prince, so long as he keeps his subjects united and loyal, ought not to mind the reproach of cruelty; because with a few examples he will be more merciful than those who, through too much mercy, allow disorders to arise, from which follow murders or robberies; for these are wont to injure the whole people, whilst those executions which originate with a prince offend the individual only.
+
+**Accepted baseline:** Coming now to the other qualities mentioned above: every prince ought to desire to be considered clement and not cruel. Nevertheless he ought to take care not to misuse this clemency. Cesare Borgia was considered cruel; yet his cruelty reconciled the Romagna, unified it, and restored it to peace and loyalty. Rightly considered, he will be seen to have been much more merciful than the Florentine people, who, to avoid a reputation for cruelty, permitted Pistoia to be destroyed. A prince, then, so long as he keeps his subjects united and loyal, ought not to mind the reproach of cruelty; with a few examples he will be more merciful than those who, through too much mercy, allow disorders to arise that lead to murders or robberies. The latter injure the whole people; executions ordered by a prince offend only individuals.
+
+**Reviewed candidate:** Turning now to the other qualities mentioned above, every prince should want to be considered merciful rather than cruel. But he must take care not to misuse his mercy. Cesare Borgia was considered cruel; nevertheless, his cruelty reconciled the Romagna, united it, and restored peace and loyalty. Look at this carefully, and he will seem much more merciful than the Florentine people, who let Pistoia be destroyed to avoid a reputation for cruelty. A prince who keeps his subjects united and loyal should therefore not mind being called cruel. By making a few examples through punishment, he will be more merciful than those who show so much mercy that they allow disorder to arise, followed by murder or robbery. These harms usually affect the whole population, whereas executions ordered by a prince harm only the individuals concerned.
+
+Paragraph SHA-256: baseline `7c555b5ffe6fa41246d1c9f5190dba1f968965cecec92fc84d8fb462fdc574e2` → reviewed `6ea6f992fc9408f5f7e50d3e222e25fdb0fd127d6f884b54470e272487df54d6`
+
+## 18.3 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Replace imputation and clarify the attribution of Dido's justification.
+
+Review: accepted as authored.
+
+**Source:** And of all princes, it is impossible for the new prince to avoid the imputation of cruelty, owing to new states being full of dangers. Hence Virgil, through the mouth of Dido, excuses the inhumanity of her reign owing to its being new, saying:
+
+**Accepted baseline:** Of all princes, the new prince cannot avoid the imputation of cruelty, because new states are full of dangers. Hence Virgil, through the mouth of Dido, excuses the inhumanity of her reign by its newness:
+
+**Reviewed candidate:** Of all princes, a new prince cannot avoid being accused of cruelty, because a new state is full of dangers. Thus Virgil has Dido excuse the inhumanity of her rule on the grounds that it is new, saying:
+
+Paragraph SHA-256: baseline `4d97af3933c4055129192e5269fea96cf284e94e32aa9f3d52f8101a98196eb3` → reviewed `49bbe87f6bbd6f2634604682a25b71b4713ac6afd2139d7e359f179c42c92665`
+
+## 18.4 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Preserve the Latin quotation and add its English sense; no quotation silently removed.
+
+Review: accepted as authored.
+
+**Source:** “Res dura, et regni novitas me talia cogunt Moliri, et late fines custode tueri.”
+
+**Accepted baseline:** "Res dura, et regni novitas me talia cogunt Moliri, et late fines custode tueri."
+
+**Reviewed candidate:** "Res dura, et regni novitas me talia cogunt Moliri, et late fines custode tueri." In English: "Hard circumstances and the newness of my kingdom force me to take these measures and post guards far and wide along my borders."
+
+Paragraph SHA-256: baseline `8f3ba5a2cd29885cf0c326e833510ea67ecf75393aacf8bb3d4af0a642f8c308` → reviewed `56667f9a360e342784f135e75bead6d3e5161ae17a14977b4e7671d4ea6667b8`
+
+## 18.5 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Make the balanced warning about confidence and distrust easier to hear.
+
+Review: accepted as authored.
+
+**Source:** Nevertheless he ought to be slow to believe and to act, nor should he himself show fear, but proceed in a temperate manner with prudence and humanity, so that too much confidence may not make him incautious and too much distrust render him intolerable.
+
+**Accepted baseline:** Nevertheless a prince ought to be slow to believe and to act, nor should he himself show fear; he should proceed in a temperate manner with prudence and humanity, so that too much confidence does not make him incautious, nor too much distrust make him intolerable.
+
+**Reviewed candidate:** Nevertheless, a prince should be slow to believe and slow to act. He should not show fear himself, but proceed with restraint, good judgment and humanity. Too much confidence must not make him careless, nor too much distrust make him unbearable.
+
+Paragraph SHA-256: baseline `339169c751a218e20a71d513adc033eb8099e0d4f08d40d123bdfb956836dec9` → reviewed `5f1e7c3c48a0f547af9d86c3bf3dabd90e71e4369e185a4810fafee29dffedcd`
+
+## 18.6 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Modernize the existing English verse rendering without dropping fate, reluctance, instability or defensive severity.
+
+Review: accepted as authored.
+
+**Source:** . . . against my will, my fate A throne unsettled, and an infant state, Bid me defend my realms with all my pow’rs, And guard with these severities my shores.
+
+**Accepted baseline:** . . . against my will, my fate A throne unsettled, and an infant state, Bid me defend my realms with all my pow'rs, And guard with these severities my shores.
+
+**Reviewed candidate:** "… Against my will, my fate, an unsettled throne and a newly founded state compel me to defend my realm with all my power and guard my shores with these harsh measures."
+
+Paragraph SHA-256: baseline `d698f19478ebe0e9aa473d43e7a6e57663cb949b176f526c0396582454d272ee` → reviewed `ae6bad7104585d359c0b16e94baa8472f8f686ed0c983528f135f3198174ffc9`
+
+## 18.8 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Clarify the loved-versus-feared argument, preserving the condition, examples and cynical assessment of human motives.
+
+Review: accepted as authored.
+
+**Source:** Upon this a question arises: whether it be better to be loved than feared or feared than loved? It may be answered that one should wish to be both, but, because it is difficult to unite them in one person, it is much safer to be feared than loved, when, of the two, either must be dispensed with. Because this is to be asserted in general of men, that they are ungrateful, fickle, false, cowardly, covetous, and as long as you succeed they are yours entirely; they will offer you their blood, property, life, and children, as is said above, when the need is far distant; but when it approaches they turn against you. And that prince who, relying entirely on their promises, has neglected other precautions, is ruined; because friendships that are obtained by payments, and not by greatness or nobility of mind, may indeed be earned, but they are not secured, and in time of need cannot be relied upon; and men have less scruple in offending one who is beloved than one who is feared, for love is preserved by the link of obligation which, owing to the baseness of men, is broken at every opportunity for their advantage; but fear preserves you by a dread of punishment which never fails.
+
+**Accepted baseline:** A question arises here: is it better to be loved than feared, or feared than loved? One would wish to be both; but since it is difficult to unite them in one person, it is much safer to be feared than loved, if one must be dispensed with. Of men in general this can be asserted: they are ungrateful, fickle, false, cowardly, covetous. As long as you succeed they are yours entirely; they will offer you their blood, property, life, and children, as said above, when the need is far distant; but when it approaches, they turn against you. A prince who relies entirely on their promises and has neglected other precautions is ruined. Friendships obtained by payments, and not by greatness or nobility of mind, may indeed be earned but not secured, and in time of need cannot be relied upon. Men have less scruple in offending one who is loved than one who is feared: love is preserved by a link of obligation which, owing to the baseness of men, is broken at every opportunity for their advantage; but fear preserves you by a dread of punishment that never fails.
+
+**Reviewed candidate:** This raises a question: is it better to be loved than feared, or feared than loved? Ideally, a prince would be both. But since the two are hard to combine in one person, it is much safer to be feared than loved if he must give up one of them. In general, men are ungrateful, changeable, dishonest, cowardly and greedy. As long as you succeed, they are wholly yours. They will offer their blood, property, lives and children, as I said above, while the need is still far away. But when it draws near, they turn against you. A prince who has relied entirely on their promises and neglected other precautions is ruined. Friendships bought with payments, rather than won through greatness or nobility of mind, may indeed be acquired, but they cannot be secured and cannot be relied on when needed. Men have fewer misgivings about offending someone they love than someone they fear. Love is held by a bond of obligation that men, in their baseness, break whenever it suits their interests. Fear, however, protects you through a dread of punishment that never fails.
+
+Paragraph SHA-256: baseline `87315abf7f69a7a0dac4a4675b167e955841f8691d1661d030d0e1db06981d4d` → reviewed `286edd08934732727b154920ee059ed10ec479d576f86b771bd1ebd10ff3512a`
+
+## 18.9 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Explain patrimony and legalistic phrasing; retain the distinction between fear and hatred and between civilian and military rule.
+
+Review: accepted as authored.
+
+**Source:** Nevertheless a prince ought to inspire fear in such a way that, if he does not win love, he avoids hatred; because he can endure very well being feared whilst he is not hated, which will always be as long as he abstains from the property of his citizens and subjects and from their women. But when it is necessary for him to proceed against the life of someone, he must do it on proper justification and for manifest cause, but above all things he must keep his hands off the property of others, because men more quickly forget the death of their father than the loss of their patrimony. Besides, pretexts for taking away the property are never wanting; for he who has once begun to live by robbery will always find pretexts for seizing what belongs to others; but reasons for taking life, on the contrary, are more difficult to find and sooner lapse. But when a prince is with his army, and has under control a multitude of soldiers, then it is quite necessary for him to disregard the reputation of cruelty, for without it he would never hold his army united or disposed to its duties.
+
+**Accepted baseline:** Still, a prince ought to inspire fear in such a way that, if he does not win love, he avoids hatred. He can endure being feared very well as long as he is not hated — which he will avoid so long as he abstains from the property of his citizens and subjects and from their women. When it becomes necessary to proceed against someone's life, he must do it on proper justification and for manifest cause; but above all he must keep his hands off the property of others. Men more quickly forget the death of their father than the loss of their patrimony. Pretexts for taking property are never lacking; he who has once begun to live by robbery will always find pretexts for seizing what belongs to others. Reasons for taking life, by contrast, are harder to find and sooner lapse. When a prince is with his army, and has under his control a multitude of soldiers, it is quite necessary for him to disregard the reputation of cruelty; without it he would never hold his army united or disposed to its duties.
+
+**Reviewed candidate:** Nevertheless, a prince should inspire fear in a way that avoids hatred, even if he cannot win love. He can safely be feared as long as he is not hated. He will avoid hatred if he leaves the property of his citizens and subjects alone, and leaves their women alone. When he must take someone's life, he must have proper justification and a clear cause. Above all, he must keep his hands off other people's property: men forget their father's death sooner than the loss of their inheritance. Besides, excuses for taking property are never lacking. Anyone who has begun to live by robbery will always find reasons to seize what belongs to others. Reasons for taking a life, by contrast, are harder to find and lose their force sooner. But when a prince is with his army, commanding a multitude of soldiers, he must disregard a reputation for cruelty. Without it, he could never keep his army united or ready to do its duty.
+
+Paragraph SHA-256: baseline `43430713e92b731fb6d3ee06e425a3bbd1edb4e302a5b67ee3e0c51218b0c1f8` → reviewed `7d1eba96da860ea836cb60ddc12866bfe97a1c731150139dc5d04f65252a479e`
+
+## 18.10 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Clarify the Hannibal/Scipio comparison and explain legate without losing any named actor, qualification or inference.
+
+Review: accepted as authored.
+
+**Source:** Among the wonderful deeds of Hannibal this one is enumerated: that having led an enormous army, composed of many various races of men, to fight in foreign lands, no dissensions arose either among them or against the prince, whether in his bad or in his good fortune. This arose from nothing else than his inhuman cruelty, which, with his boundless valour, made him revered and terrible in the sight of his soldiers, but without that cruelty, his other virtues were not sufficient to produce this effect. And short-sighted writers admire his deeds from one point of view and from another condemn the principal cause of them. That it is true his other virtues would not have been sufficient for him may be proved by the case of Scipio, that most excellent man, not only of his own times but within the memory of man, against whom, nevertheless, his army rebelled in Spain; this arose from nothing but his too great forbearance, which gave his soldiers more license than is consistent with military discipline. For this he was upbraided in the Senate by Fabius Maximus, and called the corrupter of the Roman soldiery. The Locrians were laid waste by a legate of Scipio, yet they were not avenged by him, nor was the insolence of the legate punished, owing entirely to his easy nature. Insomuch that someone in the Senate, wishing to excuse him, said there were many men who knew much better how not to err than to correct the errors of others. This disposition, if he had been continued in the command, would have destroyed in time the fame and glory of Scipio; but, he being under the control of the Senate, this injurious characteristic not only concealed itself, but contributed to his glory.
+
+**Accepted baseline:** Among Hannibal's wonderful deeds this is numbered: having led an enormous army composed of many races of men to fight in foreign lands, no dissensions arose among them or against their commander, in bad or in good fortune. This came from nothing else than his inhuman cruelty, which, with his boundless valor, made him revered and terrible to his soldiers; without that cruelty, his other virtues were not sufficient to produce this effect. Shortsighted writers admire his deeds from one point of view and from another condemn the principal cause of them. That his other virtues would not have been enough is shown by the case of Scipio, that most excellent man, not only of his own times but within human memory, against whom, nevertheless, his army in Spain rebelled. This came from nothing but his too great forbearance, which gave his soldiers more license than is consistent with military discipline. For this he was upbraided in the Senate by Fabius Maximus, and called the corrupter of Roman soldiery. The Locrians were laid waste by a legate of Scipio, yet they were not avenged by him, nor was the insolence of the legate punished — entirely owing to his easy nature. So much so that someone in the Senate, wishing to excuse him, said there were many men who knew much better how not to err themselves than how to correct the errors of others. This disposition, if he had remained in command, would in time have destroyed Scipio's fame and glory; but as he was under the control of the Senate, this injurious characteristic not only concealed itself but contributed to his glory.
+
+**Reviewed candidate:** One of Hannibal's remarkable achievements was this: he led an enormous army, made up of men of many races, to fight in foreign lands, yet no disputes arose among them or against their commander, whether his fortunes were good or bad. This resulted from nothing but his inhuman cruelty, which, together with his boundless courage, made his soldiers both revere and fear him. Without that cruelty, his other virtues would not have been enough. Shortsighted writers admire his deeds while condemning the chief cause of them. That his other virtues alone would not have sufficed is shown by Scipio, an outstanding man not only of his own time but of all human memory. Yet his army rebelled against him in Spain. This happened solely because he was too lenient, giving his soldiers more freedom than military discipline allowed. Fabius Maximus rebuked him for this in the Senate and called him the corrupter of the Roman soldiers. The Locrians were devastated by one of Scipio's legates, an officer serving under him. Scipio neither avenged them nor punished the officer's outrageous conduct, entirely because of his easygoing nature. Someone in the Senate, trying to excuse him, even said that many men knew far better how to avoid wrongdoing themselves than how to correct it in others. Had Scipio remained in command, this disposition would eventually have destroyed his fame and glory. But because he was under the Senate's control, this harmful quality not only remained hidden but contributed to his glory.
+
+Paragraph SHA-256: baseline `f4466f761fd9e3da47f66e33cbec2790f2be7db15b6d2e102cd000f70506df10` → reviewed `2f29fecd668d823fba50110ead2e19921b5db688b1d5d84fcc7fd321e8873752`
+
+## 18.11 — Chapter 17 — Cruelty and Clemency: Whether It Is Better to Be Loved Than Feared
+
+Reason: Clarify what the prince can control without changing the conclusion.
+
+Review: accepted as authored.
+
+**Source:** Returning to the question of being feared or loved, I come to the conclusion that, men loving according to their own will and fearing according to that of the prince, a wise prince should establish himself on that which is in his own control and not in that of others; he must endeavour only to avoid hatred, as is noted.
+
+**Accepted baseline:** Returning to the question of being feared or loved, I conclude: since men love according to their own will and fear according to the prince's, a wise prince should establish himself on what is in his own control, not what is in the control of others. He must endeavor only to avoid hatred, as noted.
+
+**Reviewed candidate:** Returning to whether it is better to be feared or loved, I conclude that men love as they choose, but fear as the prince chooses. A wise prince should therefore base his position on what he controls, rather than on what others control. He must simply take care to avoid hatred, as I have said.
+
+Paragraph SHA-256: baseline `087a7f7dc263fa0e46d22784dbbf0ad119f215aae6142fc1acbe0464910598dd` → reviewed `337d490fd6e3798dba760f18460fc4d5b05157558c20ac08b6afe5be23cb492c`
+
+## 19.2 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Clarify keeping faith, the two methods of conflict, Chiron's example and conditional promise-breaking without deleting reasoning.
+
+Review: accepted with review corrections (R5).
+
+**Source:** Every one admits how praiseworthy it is in a prince to keep faith, and to live with integrity and not with craft. Nevertheless our experience has been that those princes who have done great things have held good faith of little account, and have known how to circumvent the intellect of men by craft, and in the end have overcome those who have relied on their word. You must know there are two ways of contesting, the one by the law, the other by force; the first method is proper to men, the second to beasts; but because the first is frequently not sufficient, it is necessary to have recourse to the second. Therefore it is necessary for a prince to understand how to avail himself of the beast and the man. This has been figuratively taught to princes by ancient writers, who describe how Achilles and many other princes of old were given to the Centaur Chiron to nurse, who brought them up in his discipline; which means solely that, as they had for a teacher one who was half beast and half man, so it is necessary for a prince to know how to make use of both natures, and that one without the other is not durable. A prince, therefore, being compelled knowingly to adopt the beast, ought to choose the fox and the lion; because the lion cannot defend himself against snares and the fox cannot defend himself against wolves. Therefore, it is necessary to be a fox to discover the snares and a lion to terrify the wolves. Those who rely simply on the lion do not understand what they are about. Therefore a wise lord cannot, nor ought he to, keep faith when such observance may be turned against him, and when the reasons that caused him to pledge it exist no longer. If men were entirely good this precept would not hold, but because they are bad, and will not keep faith with you, you too are not bound to observe it with them. Nor will there ever be wanting to a prince legitimate reasons to excuse this non-observance. Of this endless modern examples could be given, showing how many treaties and engagements have been made void and of no effect through the faithlessness of princes; and he who has known best how to employ the fox has succeeded best.
+
+**Accepted baseline:** Everyone admits how praiseworthy it is in a prince to keep faith, and to live with integrity rather than craft. Nevertheless, experience has been that the princes who have done great things have held good faith of little account, and have known how to outwit men by craft; in the end they have overcome those who relied on their word. You must know that there are two ways of contending: by law, or by force. The first is proper to men, the second to beasts; but since the first is often not sufficient, one must have recourse to the second. It is necessary, then, for a prince to know how to make use of both the beast and the man. This was taught figuratively to princes by ancient writers, who describe how Achilles and many other princes of old were given to the centaur Chiron to nurse, who brought them up in his discipline. The meaning is simply that, as they had for a teacher one who was half beast and half man, so a prince must know how to make use of both natures, and one without the other is not durable. A prince compelled to adopt the beast ought to choose the fox and the lion: the lion cannot defend himself against snares, the fox cannot defend himself against wolves. One must be a fox to discover snares and a lion to terrify wolves. Those who rely simply on the lion do not understand what they are about. A wise lord cannot, nor ought he to, keep faith when such observance may be turned against him and when the reasons that caused him to pledge it no longer exist. If men were entirely good this precept would not hold; but because they are bad and will not keep faith with you, you are not bound to observe it with them. Nor will a prince ever lack legitimate reasons to excuse such non-observance. Endless modern examples could be given: how many treaties and engagements have been made void and of no effect through the faithlessness of princes; and he who has known best how to employ the fox has succeeded best.
+
+**Reviewed candidate:** Everyone agrees that a prince deserves praise for keeping his word and living honestly rather than by deceit. Yet experience shows that princes who have achieved great things have placed little value on keeping promises and have known how to outwit men through cunning. In the end they have defeated those who relied on their word. You must understand that there are two ways of contesting for power: through law and through force. The first belongs to men, the second to beasts. But because the first is often insufficient, it is necessary to turn to the second. A prince must therefore know how to use both the man and the beast in himself. Ancient writers taught this figuratively: they described Achilles and many other princes of old being entrusted to the centaur Chiron, who raised and trained them. The point is simply that their teacher was half beast and half man. A prince likewise needs both natures; neither can last without the other. When a prince must deliberately act as a beast, he should choose the fox and the lion. The lion cannot protect himself against traps, and the fox cannot protect himself against wolves. He must be a fox to detect traps and a lion to frighten wolves. Those who rely only on the lion do not understand what they are doing. A wise ruler therefore cannot, and should not, keep a promise when keeping it may turn against him and the reasons for making it no longer exist. If men were entirely good, this rule would not apply. But because they are bad and will not keep their word to you, you are not bound to keep yours to them. A prince will never lack legitimate reasons to excuse breaking his word. There are endless modern examples of treaties and commitments made worthless by princes who did not keep them. Whoever has known best how to use the fox has succeeded best.
+
+Paragraph SHA-256: baseline `908bf13923d870badf6f80fb24db5feaea2738d75115bdf65fac9edc52236c71` → reviewed `d2714472c1e25ce35c8dc6bd4023e4da64cf151411dff196652b7e51232ca572`
+
+## 19.3 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Retain the source quotation and attribution while supplying an English rendering of its complete argument.
+
+Review: accepted as authored.
+
+**Source:** “Contesting,” _i.e_. “striving for mastery.” Mr Burd points out that this passage is imitated directly from Cicero’s “De Officiis”: “Nam cum sint duo genera decertandi, unum per disceptationem, alterum per vim; cumque illud proprium sit hominis, hoc beluarum; confugiendum est ad posterius, si uti non licet superiore.”
+
+**Accepted baseline:** "Contesting" means "striving for mastery." Mr. Burd points out that this passage is imitated directly from Cicero's De Officiis: "Nam cum sint duo genera decertandi, unum per disceptationem, alterum per vim; cumque illud proprium sit hominis, hoc beluarum; confugiendum est ad posterius, si uti non licet superiore."
+
+**Reviewed candidate:** "Contesting" means "striving for mastery." Mr. Burd points out that this passage directly imitates Cicero's De Officiis: "Nam cum sint duo genera decertandi, unum per disceptationem, alterum per vim; cumque illud proprium sit hominis, hoc beluarum; confugiendum est ad posterius, si uti non licet superiore." In English: "There are two ways to settle a dispute: one through discussion, the other through force. The first belongs to human beings, the second to beasts. We must resort to the second if we cannot use the first."
+
+Paragraph SHA-256: baseline `9920a2f1499ed7eabec39069b3a88b95f73eb8823f0c9e86c489c9eb94169d3d` → reviewed `c06da6559c49cd69d4c79414ad748751f20b2b05de662cbe21b6eea88f885b8c`
+
+## 19.4 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Replace dissembler and clarify the contrast between impressive oaths and failure to honor them.
+
+Review: accepted as authored.
+
+**Source:** But it is necessary to know well how to disguise this characteristic, and to be a great pretender and dissembler; and men are so simple, and so subject to present necessities, that he who seeks to deceive will always find someone who will allow himself to be deceived. One recent example I cannot pass over in silence. Alexander the Sixth did nothing else but deceive men, nor ever thought of doing otherwise, and he always found victims; for there never was a man who had greater power in asserting, or who with greater oaths would affirm a thing, yet would observe it less; nevertheless his deceits always succeeded according to his wishes, because he well understood this side of mankind.
+
+**Accepted baseline:** It is necessary to know how to disguise this trait well, and to be a great pretender and dissembler. Men are so simple and so subject to present necessities that he who seeks to deceive will always find someone willing to be deceived. One recent example I cannot pass over. Alexander VI did nothing but deceive men; he never thought of doing otherwise, and always found victims. There never was a man who had greater power in asserting, or who with greater oaths would affirm a thing, yet would observe it less. Nevertheless his deceits always succeeded according to his wishes, since he well understood this side of mankind.
+
+**Reviewed candidate:** But a prince must know how to hide this trait well. He must be skilled at pretending and concealing his true intentions. Men are so easily deceived and so governed by their immediate needs that anyone seeking to deceive them will always find someone who lets himself be deceived. I cannot pass over one recent example in silence. Alexander VI did nothing but deceive men, never thought of doing otherwise, and always found victims. No one could make a claim more forcefully or swear stronger oaths to affirm it, yet no one honored such assurances less. Nevertheless, his deceptions always succeeded as he wished, because he understood this side of mankind so well.
+
+Paragraph SHA-256: baseline `537f0c79d90e9f6df989d82b669379b21d9899c4007d16a6d30d5d2a382e6eb2` → reviewed `321f484beee55c6b94a79c748ff1d98f50a23da4a1c2a1f8cc7886741e5357a3`
+
+## 19.5 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Explain the Italian quotation and the omitted Latin phrase while retaining both and the textual-variant information.
+
+Review: accepted as authored.
+
+**Source:** “Nondimanco sempre gli succederono gli inganni (ad votum).” The words “ad votum” are omitted in the Testina addition, 1550.
+
+**Accepted baseline:** "Nondimanco sempre gli succederono gli inganni (ad votum)." The words "ad votum" are omitted in the Testina edition, 1550.
+
+**Reviewed candidate:** "Nondimanco sempre gli succederono gli inganni (ad votum)." That is, "Nevertheless, his deceptions always succeeded as he wished." The Latin words "ad votum," meaning "as he wished," are omitted in the Testina edition of 1550.
+
+Paragraph SHA-256: baseline `09e7705ee3727a994ad46946ab3c1aa9a86640e32d866c6bd260f8ad1c7f52f2` → reviewed `1a95a3966331eb3ba41eb436baf9055c81509893c36e45e48737fbdda9ed6a4e`
+
+## 19.8 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Clarify possession versus appearance of virtues without removing the instruction to be good when possible.
+
+Review: accepted as authored.
+
+**Source:** Therefore it is unnecessary for a prince to have all the good qualities I have enumerated, but it is very necessary to appear to have them. And I shall dare to say this also, that to have them and always to observe them is injurious, and that to appear to have them is useful; to appear merciful, faithful, humane, religious, upright, and to be so, but with a mind so framed that should you require not to be so, you may be able and know how to change to the opposite.
+
+**Accepted baseline:** It is unnecessary, then, for a prince to have all the good qualities enumerated; but it is very necessary to appear to have them. I shall dare to say this as well: to have them and always to observe them is harmful; to appear to have them is useful. Appear merciful, faithful, humane, religious, upright — and be so; but with a mind so framed that, should you need not to be so, you are able and know how to change to the opposite.
+
+**Reviewed candidate:** A prince therefore does not need to possess all the good qualities I have listed, but he very much needs to appear to possess them. I will even dare to say that having them and always acting on them is harmful, while appearing to have them is useful. Appear merciful, true to your word, humane, religious and upright—and actually be so. But keep your mind ready, so that if you need to act otherwise, you can and know how to turn to the opposite.
+
+Paragraph SHA-256: baseline `e247c14ffbc2366444636741b870c9ff696fff56e6a508ece09801dd9a3dbcd8` → reviewed `3f50392ed9878b9f74d2baf7a8b3bcc0e26c60df504471e8cd7c75cc2305dfb2`
+
+## 19.9 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Simplify conditional syntax while preserving necessity and the instruction not to depart from good if avoidable.
+
+Review: accepted with review corrections (R6).
+
+**Source:** And you have to understand this, that a prince, especially a new one, cannot observe all those things for which men are esteemed, being often forced, in order to maintain the state, to act contrary to fidelity, friendship, humanity, and religion. Therefore it is necessary for him to have a mind ready to turn itself accordingly as the winds and variations of fortune force it, yet, as I have said above, not to diverge from the good if he can avoid doing so, but, if compelled, then to know how to set about it.
+
+**Accepted baseline:** You must understand that a prince, especially a new one, cannot observe all those things for which men are esteemed, being often compelled, in order to maintain the state, to act contrary to fidelity, friendship, humanity, and religion. He must therefore have a mind ready to turn itself according to the winds and variations of fortune; yet, as said above, not to diverge from the good if he can avoid it, but, if compelled, to know how to take up the opposite course.
+
+**Reviewed candidate:** You must understand that a prince, especially a new one, cannot practice every quality for which men are respected. To preserve his state, he is often forced to act against good faith, friendship, humanity and religion. His mind must therefore be ready to turn as the winds and changes of fortune demand. Yet, as I have said, he should not depart from good conduct if he can avoid it; if he is forced to do so, he must know how.
+
+Paragraph SHA-256: baseline `2d9c46daa653ad42d99d4f686cfec7eac1b5fe4d8d15f38cf0ea4264b34f7023` → reviewed `200b8ae044a8f4178a1b881c67945cef35ab2e41c4b15c9ae650625475031ad2`
+
+## 19.10 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Make the editorial note self-contained and explain Coryphaeus while preserving its uncertainty, source forms and historical judgment.
+
+Review: accepted with review corrections (R7, R8, R9).
+
+**Source:** “Contrary to fidelity” or “faith,” “contro alla fede,” and “tutto fede,” “altogether faithful,” in the next paragraph. It is noteworthy that these two phrases, “contro alla fede” and “tutto fede,” were omitted in the Testina edition, which was published with the sanction of the papal authorities. It may be that the meaning attached to the word “fede” was “the faith,” _i.e_. the Catholic creed, and not as rendered here “fidelity” and “faithful.” Observe that the word “religione” was suffered to stand in the text of the Testina, being used to signify indifferently every shade of belief, as witness “the religion,” a phrase inevitably employed to designate the Huguenot heresy. South in his Sermon IX, p. 69, ed. 1843, comments on this passage as follows: “That great patron and Coryphaeus of this tribe, Nicolo Machiavel, laid down this for a master rule in his political scheme: ‘That the show of religion was helpful to the politician, but the reality of it hurtful and pernicious.’”
+
+**Accepted baseline:** "Contrary to fidelity" or "faith" ("contro alla fede"), and "altogether faithful" ("tutto fede") in the next paragraph. It is noteworthy that these two phrases, "contro alla fede" and "tutto fede," were omitted in the Testina edition, published with papal sanction. The meaning attached to "fede" may have been "the faith" — that is, the Catholic creed — rather than "fidelity" as rendered here. Note that "religione" was allowed to stand, being used to signify any shade of belief — as "the religion" was inevitably used to designate the Huguenot heresy. South, in his Sermon IX (p. 69, ed. 1843), comments: "That great patron and Coryphaeus of this tribe, Nicolo Machiavel, laid down this for a master rule in his political scheme: that the show of religion was helpful to the politician, but the reality of it hurtful and pernicious."
+
+**Reviewed candidate:** "Against good faith," or "fidelity," translates "contro alla fede"; "altogether faithful" in the next paragraph translates "tutto fede." Both Italian phrases were omitted in the Testina edition, published with the approval of the papal authorities. The word "fede" may have been understood as "the faith," meaning the Catholic creed, rather than "good faith" and "faithful" as rendered here. Notice that "religione" was allowed to remain in the Testina text. It could refer to any variety of belief: for example, "the religion" was the phrase invariably used to designate the Huguenot heresy. South, in Sermon IX, page 69 of the 1843 edition, comments on this passage: "That great patron and Coryphaeus [leader] of this tribe, Nicolo Machiavel, laid down this for a master rule in his political scheme: that the show of religion was helpful to the politician, but the reality of it hurtful and pernicious."
+
+Paragraph SHA-256: baseline `68523e56a9e4fb22a6e8b84a0439b3a6d7be4254b912686fd6511c822e363a3a` → reviewed `6fe9b749f32468f368da2f001813231317c5d1de805cba055110e23772928795`
+
+## 19.11 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Clarify eye/hand metaphor and who is protected by the state's authority; retain all five qualities and outcome-based judgment.
+
+Review: accepted with review corrections (R10).
+
+**Source:** For this reason a prince ought to take care that he never lets anything slip from his lips that is not replete with the above-named five qualities, that he may appear to him who sees and hears him altogether merciful, faithful, humane, upright, and religious. There is nothing more necessary to appear to have than this last quality, inasmuch as men judge generally more by the eye than by the hand, because it belongs to everybody to see you, to few to come in touch with you. Every one sees what you appear to be, few really know what you are, and those few dare not oppose themselves to the opinion of the many, who have the majesty of the state to defend them; and in the actions of all men, and especially of princes, which it is not prudent to challenge, one judges by the result.
+
+**Accepted baseline:** A prince ought to take care that nothing slip from his lips that is not replete with the above-named five qualities, so that he may appear to anyone who sees and hears him altogether merciful, faithful, humane, upright, and religious. There is nothing more necessary to appear to have than this last. Men judge generally more by the eye than by the hand, since it belongs to everyone to see you, to few to come in touch with you. Everyone sees what you appear to be; few really know what you are, and those few dare not oppose themselves to the opinion of the many, who have the majesty of the state to defend them. In the actions of all men, and especially of princes, which it is not prudent to challenge, one judges by the result.
+
+**Reviewed candidate:** For this reason, a prince must take care that every word he speaks reflects the five qualities named above. To anyone who sees and hears him, he should appear altogether merciful, faithful, humane, upright and religious. Above all, he must seem religious. Men generally judge more by what they see than by what they can feel for themselves: everyone can see you, but few can come into close contact with you. Everyone sees what you appear to be; few truly know what you are. Those few do not dare oppose the opinion of the many, who have the state's imposing authority behind them. People judge the actions of all men, and especially of princes whom it is unwise to challenge, by their results.
+
+Paragraph SHA-256: baseline `321e368665f73ae46ae28ae28df28c6d1613136986e8256e14e0618b0dfd5311` → reviewed `17c105d52b11692b757ce08a0b59bdaf554ccd6daa2012453a8c9b2a5f8e1ba6`
+
+## 19.12 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Correct a meaning reversal: source says the few find a place ONLY when the many lack ground; accepted baseline says NO place when they lack ground.
+
+Review: accepted as authored.
+
+**Source:** For that reason, let a prince have the credit of conquering and holding his state, the means will always be considered honest, and he will be praised by everybody; because the vulgar are always taken by what a thing seems to be and by what comes of it; and in the world there are only the vulgar, for the few find a place there only when the many have no ground to rest on.
+
+**Accepted baseline:** For this reason, let a prince have the credit of conquering and holding his state: the means will always be considered honest and he will be praised by everybody. The vulgar are always taken by what a thing appears to be and by what comes of it; and in the world there are only the vulgar, for the few find no place there when the many have no ground to rest on.
+
+**Reviewed candidate:** Therefore, let a prince gain the credit for conquering and holding his state: his methods will always be considered honorable, and everyone will praise him. The common people are always won over by how something looks and how it turns out. And the world consists only of the common people, for the few find a place only when the many have no ground to stand on.
+
+Paragraph SHA-256: baseline `e8aac0532032c7be07bd85240567806a258fdb677faf1f2910b47c78ca83db79` → reviewed `61aa06902316a23730a10ab3d7e407f2ab75175d496fc3d754f9c4b43e65d008`
+
+## 19.13 — Chapter 18 — How Princes Should Keep Faith
+
+Reason: Clarify the conditional claim and restore source reputation AND kingdom rather than baseline OR.
+
+Review: accepted as authored.
+
+**Source:** One prince of the present time, whom it is not well to name, never preaches anything else but peace and good faith, and to both he is most hostile, and either, if he had kept it, would have deprived him of reputation and kingdom many a time.
+
+**Accepted baseline:** One prince of the present time, whom it is not well to name, never preaches anything but peace and good faith — and is most hostile to both; either, if he had kept it, would have deprived him of his reputation or his kingdom many times over.
+
+**Reviewed candidate:** One prince of our own time, whom it is best not to name, preaches nothing but peace and good faith, yet is deeply hostile to both. Had he practiced either, it would many times have cost him his reputation and his kingdom.
+
+Paragraph SHA-256: baseline `160b0374f817ee90debe4857fdedf9b3dd9cb84e506fc71ac38e07dba2d9c4d8` → reviewed `a155ede86aff84fb7f5f159b5b3e31ea0a3198bb7a2f2cfdc3989189ddae5582`
+
+## 26.7 — Chapter 25 — What Fortune Can Effect in Human Affairs
+
+Reason: Untangle the later/former references and the sequence of political responses while preserving all examples and conditions.
+
+Review: accepted with review corrections (R11, R12).
+
+**Source:** Pope Julius the Second went to work impetuously in all his affairs, and found the times and circumstances conform so well to that line of action that he always met with success. Consider his first enterprise against Bologna, Messer Giovanni Bentivogli being still alive. The Venetians were not agreeable to it, nor was the King of Spain, and he had the enterprise still under discussion with the King of France; nevertheless he personally entered upon the expedition with his accustomed boldness and energy, a move which made Spain and the Venetians stand irresolute and passive, the latter from fear, the former from desire to recover the kingdom of Naples; on the other hand, he drew after him the King of France, because that king, having observed the movement, and desiring to make the Pope his friend so as to humble the Venetians, found it impossible to refuse him. Therefore Julius with his impetuous action accomplished what no other pontiff with simple human wisdom could have done; for if he had waited in Rome until he could get away, with his plans arranged and everything fixed, as any other pontiff would have done, he would never have succeeded. Because the King of France would have made a thousand excuses, and the others would have raised a thousand fears.
+
+**Accepted baseline:** Pope Julius II went to work impetuously in all his affairs, and found the times and circumstances so well in accord with that line of action that he always met with success. Consider his first enterprise against Bologna, while Messer Giovanni Bentivogli was still alive. The Venetians were not agreeable, nor was the King of Spain, and he had the enterprise still under discussion with the King of France. Nevertheless, he personally entered upon the expedition with his accustomed boldness and energy — a move that made Spain and the Venetians stand irresolute and passive, the latter from fear, the former from their desire to recover the Kingdom of Naples. On the other hand, he drew after him the King of France, who, observing the movement and desiring to make the Pope his friend so as to humble the Venetians, found it impossible to refuse him. Julius, by his impetuous action, accomplished what no other pontiff could have done with simple human wisdom. If he had waited in Rome until he could leave with his plans arranged and everything fixed, as another pontiff would, he would never have succeeded; the King of France would have made a thousand excuses, and the others would have raised a thousand fears.
+
+**Reviewed candidate:** Pope Julius II acted impetuously in everything he did. The times and circumstances suited that approach so well that he always succeeded. Consider his first expedition against Bologna, while Messer Giovanni Bentivogli was still alive. Neither the Venetians nor the King of Spain approved, and he was still discussing the venture with the King of France. Nevertheless, he set out in person with his usual boldness and energy. This left Spain and the Venetians uncertain and inactive: the Venetians held back out of fear, Spain out of a desire to recover the Kingdom of Naples. He also brought the King of France along with him. Seeing the Pope's move, and wanting his friendship in order to humble the Venetians, that king found it impossible to refuse him. By acting impetuously, Julius achieved what no other pope could have achieved through ordinary human wisdom. Had he waited in Rome until he could leave with all his plans arranged and everything settled, as another pope would have done, he would never have succeeded. The King of France would have made a thousand excuses, and the others would have raised a thousand fears.
+
+Paragraph SHA-256: baseline `b75665d804c4bc84f1577315a857c49d1e3073fdffa569ab98c6a0e0a74485f1` → reviewed `1592f93010c9d853b2ad57a9bf7ae4fa834f880a9cf7222eaa70f9dd2b4bf80c`
+
+## 27.13 — Chapter 26 — An Exhortation to Liberate Italy from the Barbarians
+
+Reason: Identify the retained Italian verse and point to its aligned English rendering in the next paragraph.
+
+Review: accepted as authored.
+
+**Source:** Virtu contro al Furore Prendera l’arme, e fia il combatter corto: Che l’antico valore Negli italici cuor non e ancor morto.
+
+**Accepted baseline:** Virtu contro al Furore Prendera l'arme, e fia il combatter corto: Che l'antico valore Negli italici cuor non e ancor morto.
+
+**Reviewed candidate:** The verse in Italian, followed below by its English rendering: "Virtu contro al Furore Prendera l'arme, e fia il combatter corto: Che l'antico valore Negli italici cuor non e ancor morto."
+
+Paragraph SHA-256: baseline `1299d086130cbeeb9a5f47a40ff9a29d415b0d962126a09f871a72a027b332cd` → reviewed `a6d214696a8bfffbb18ee703c54bef826dfc87c264dc5c25d47af9b26236012f`
+
+## 27.14 — Chapter 26 — An Exhortation to Liberate Italy from the Barbarians
+
+Reason: Modernize the existing English verse rendering while preserving its virtue/fury opposition, short fight, Roman valor and Italian hearts.
+
+Review: accepted as authored.
+
+**Source:** Virtue against fury shall advance the fight, And it i’ th’ combat soon shall put to flight: For the old Roman valour is not dead, Nor in th’ Italians’ brests extinguished.
+
+**Accepted baseline:** Virtue against fury shall advance the fight, And it i' th' combat soon shall put to flight: For the old Roman valour is not dead, Nor in th' Italians' brests extinguished.
+
+**Reviewed candidate:** "Virtue will advance into battle against fury and soon put it to flight: for the old Roman courage is not dead, nor extinguished in Italian hearts."
+
+Paragraph SHA-256: baseline `117ac960d66610f4c6063cb2e976595a1c1fff6a2dbe033699fbe1dd234b5037` → reviewed `95c87ef769713f8c7aad9d601e46708e8fbb90e986a60caca5be79316a4ac223`
