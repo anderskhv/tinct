@@ -1,6 +1,6 @@
 # Crime and Punishment: Svidrigaïlov card spoiler correction
 
-**Status: ACCEPTANCE_STATUS. Content-only staging. Nothing is published.**
+**Status: independently ACCEPTED (both patch files). Ready for Codex to integrate. Content-only staging. Nothing is published.**
 
 ## Problem
 
@@ -26,14 +26,14 @@ Both editions (`original-en` and `modern-en`) get three snapshots. Names are unc
 
 ## Why each claim sits where it does
 
-`EVIDENCE.md` quotes each point in the source, live and candidate texts.
+Quotes below are from the accepted candidate modern-en (`18be4155…`), the text Svidrigaïlov's cards will ship with. `EVIDENCE.md` quotes each point in the source, live and candidate texts.
 
 | Claim | First supported | Placed in |
 |---|---|---|
-| Former employer; Dunya a governess there; she had a hard time | 3.38, **before the name**: "Dunya was having a hard time at the Svidrigaïlovs'", "she took the governess position", "your sister has been living with me these last six weeks" | 1 |
-| Pursued Dunya | 3.38, after the name. The letter stages it as a surprise: "And how do you think it all turned out? Would you believe that the crazy fellow had been in love with Dunya from the very beginning…", followed by his "open and shameless proposal". The card policy keeps a relationship revealed as a surprise gated, so it is released at paragraph end. | 2, 3 |
+| Former employer; Dunya a governess there; she had a hard time | 3.38, **before the name**: "Dounia was having a hard time at the Svidrigaïlovs'", "she took the governess position", "your sister has been living with me these last six weeks" | 1 |
+| Pursued Dunya | 3.38, after the name. The letter stages it as a surprise: "And how do you think it all turned out? Would you believe that the crazy fellow had been in love with Dounia from the very beginning…", followed by his "open and shameless proposal". The card policy keeps a relationship revealed as a surprise gated, so it is released at paragraph end. | 2, 3 |
 | Unsettling | 3.38, after the name: his rudeness, mocking remarks and drinking | 2, 3 |
-| Recently widowed | 16.73: "Marfa Petrovna is dead!" (3.38 establishes that she is his wife) | 3 |
+| Recently widowed | 16.73: "Marfa Petrovna's dead!" (3.38 establishes that she is his wife) | 3 |
 | Rumored to be responsible for terrible things / dark reputation | 17.49: "that terrible man seems to have been the cause of her death. They say he beat her dreadfully." | 3 |
 | His arrival in St. Petersburg alarms the whole family | 22.31–22.34: Luzhin says he "set out for Petersburg in great haste right after his wife's funeral"; Dounia asks "in alarm"; Pulcheria cries "Won't he leave Dounia in peace even here?" | 3 |
 | **Wealthy** | **Never established**, so it is omitted everywhere | none |
@@ -43,7 +43,9 @@ Both editions (`original-en` and `modern-en`) get three snapshots. Names are unc
 - **21.33** is his own account: "not considered poor", with income from forests and water meadows.
 - **21.43**: the fortune is Marfa Petrovna's.
 - **22.2**: Raskolnikov calls him "that landowner".
-- **21.37 and 21.103** are excluded, per Anders's instruction not to infer poverty from his debt or his claim "I'm not rich", nor wealth from his offer of ten thousand roubles.
+- **21.103** is excluded either way, per Anders's instruction: his offer of ten thousand roubles is not evidence of wealth, and his claim "I'm not rich" is not evidence of poverty.
+- **21.37** (debtors' prison, bought out by Marfa Petrovna) is context. It points away from wealth, but the omission does not depend on it.
+- **Later confirmation (after the gate):** at 22.37 Luzhin says "I don't know whether he's well off now". The text itself leaves his wealth open.
 
 **Release points** are the earliest paragraph ends at which every claim in a snapshot is supported. 3.38 is the letter paragraph itself. 22.34 is the first paragraph end at which all of snapshot 3's clauses are established; 22.31–22.34 is also where the family learns of his arrival.
 
@@ -69,7 +71,29 @@ There are two variants. Their wording and operations are the same; only the mode
 
 ## Independent acceptance
 
-ACCEPTANCE_SECTION
+A fresh reviewer, who did not read the earlier reviews, verified this version from the raw pinned texts with its own tools. Its report is `review/v3/ACCEPTANCE.md`, with tools in `review/v3/tools/` and patched copies in `review/v3/`.
+
+- **Verdict: ACCEPT, for both `PATCH.json` and `PATCH-staged-01963b24.json`.**
+- **Claim by claim.** Every claim in every snapshot is supported at its release point in Garnett, live modern-en and the candidate. Nothing is released early.
+  - Snapshot 1 carries only what is written before the name.
+  - 3.38 and 22.34 are the earliest paragraph ends for snapshots 2 and 3.
+  - Omitting "Wealthy" everywhere is correct.
+  - It independently confirmed the surprise argument for "pursued Dunya". It gave a sharper reason for gating "unsettling": it is a judgement resting on text after the name. `EVIDENCE.md` was updated to match.
+- **Mechanics.** 162 of 162 checks passed:
+  - every offset;
+  - old values equal the baseline;
+  - a structural diff shows only the declared changes;
+  - order, bounds and evidence rules hold;
+  - the reading-position simulation in all three texts;
+  - all 51 `EVIDENCE.md` quotes are verbatim.
+  - Its own patched sha256 values equal those in the hashes table above.
+- **Review notes, all resolved:**
+  - N1: the 20.62/20.68 citation in snapshot 3's `editorialBasis` was fixed and re-verified. It is the only change from the first accepted run. Putting the old phrase back reproduces the earlier accepted hashes exactly.
+  - N3: the evidence note was fixed.
+  - N4 and R1–R4: README fixes. The README now quotes the candidate throughout and states the wealth rule exactly.
+  - N6: the reviewer's own spelling note was corrected by a count.
+  - N2 (optional "as a governess"): left as it is. See *Notes for the card owner*.
+  - N5: the revision bump is in the handoff.
 
 ## Reconciliation against newer card versions (checked 2026-09-24)
 

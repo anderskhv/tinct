@@ -220,7 +220,7 @@ The prose glosses are accurate, with one qualification: N3.
 - **N3. EVIDENCE.md, "3.38 (reveal)".** "Unsettling" (his rudeness) is not staged as a surprise. It is stated in the same sentence as the name. It is still correctly gated to the end of 3.38 by the paragraph-end rule for non-identity characterization. Suggested gloss: "'pursued Dunya' is gated as a relationship revealed as a surprise; 'unsettling' is post-name characterization, released at paragraph end."
 - **N4. README.md is stale.** It describes the earlier two-snapshot version: release of snapshot 2 at 22.34, "Wealthy" kept in snapshot 1, and patched sha `c641a049…`. Its "Open decisions" section says "Wealthy" is supported at 3.38. Update it to the three-snapshot design and the new hashes: PATCH.json `f8cc73ef…` → `9c50ea4c…`, and staged `cf4be5a3…` → `4a840fff…`. Also drop the "Wealthy is supported" claim.
 - **N5. Release step (for Codex).** Neither patch touches `contentVersion`. As the README notes, bump the `characterReleases` revision in `characterCards.ts` when shipping, because card assets are immutably cached. This is outside the patch.
-- **N6. Observation, pre-existing and out of scope.** The modern-en display name is "Svidrigailov", while the candidate text (and most chapters of live modern-en, e.g. 21.x and 22.x) spells it "Svidrigaïlov". The brief requires names to be unchanged, and they are.
+- **N6. Observation, pre-existing and out of scope.** The modern-en display name is "Svidrigailov", while the candidate text (and most chapters of live modern-en, e.g. 21.x and 22.x) spells it "Svidrigaïlov". *(Corrected in the re-verification below: live modern-en is mostly "Svidrigailov".)* The brief requires names to be unchanged, and they are.
 
 ## Files
 
@@ -229,3 +229,55 @@ The prose glosses are accurate, with one qualification: N3.
 - `review/v3/patched-crime-and-punishment.v1.json`: PATCH.json applied to the live card (sha `9c50ea4c…`).
 - `review/v3/patched-crime-and-punishment.v1.staged-01963b24.json`: the staged patch applied to the staged card (sha `4a840fff…`).
 - `review/v3/tools/`: `texts.py`, `find.py`, `wealth_scan.py`, `verify.py`, `check_evidence_md.py`. All run offline and deterministically. Run `python3 review/v3/tools/verify.py`.
+
+---
+
+## Re-verification (N1/N3), 2026-09-24
+
+**Final verdict: ACCEPT. This covers both patch files in their final state.** N1 and N3 are applied correctly. N2 was declined, which is the owner's choice and is not required by the policy. `README.md` is accurate on every substantive point that matters for integration: hashes, snapshots, gates, offsets and branch facts. It needs the four small corrections R1–R4 below before it is final. None of them affects either patch.
+
+| File | sha256 (recomputed) |
+|---|---|
+| `PATCH.json` | `a3917171fba33ce5be38cfa320f3edaba590f2e3d9b85bea97df097169bf872d` |
+| `PATCH-staged-01963b24.json` | `c54f4596153060d629ecb1cb1f5ee40001c7ccf87370fcbc28fbf5f894008ed9` |
+| patched main card (my apply) | `5e0a9ea5a121817b11f4667928bcc10cd60b25f27d9b2e209bc68f6d2ef12be4`, which matches the author |
+| patched staged card (my apply) | `0e695a1296eae579b3477faf3f56e0176476b0915f0a9bff47391b94ada54676`, which matches the author |
+
+The inputs are unchanged: 2125526c, b4e2217d, 6609777b, 914bcdfa and 18be4155. The patched copies in this folder have been refreshed to the hashes above. The earlier copies were `9c50ea4c…` and `4a840fff…`, so the sha values in the *Files* section above now refer to the superseded version.
+
+1. **verify.py re-run.** The expected hashes are now parameters, and the defaults are the final values. The result is 162 ok and 0 FAIL, in `verify-output-n1n3.txt`. It is one check fewer than before because the `323e2f5c` comparison is now optional. Everything from item 5 above still holds for both cards:
+   - only the declared fields change;
+   - all offsets are paragraph ends in the paired text;
+   - paragraph hashes pair the cards with the right texts;
+   - order, bounds and evidence are valid;
+   - the simulation is identical: no card before the first mention, then 1 → 2 at the end of 3.38 → 3 at the end of 22.34, in Garnett, live modern-en and the candidate.
+2. **The only change is the editorialBasis.**
+   - `tools/compare_versions.py` diffs my previously accepted patched copies against the new ones. It finds exactly four differences: `svidrigailov-3.editorialBasis` in each edition of each card. In each one, "(the reader first meets him there at 20.68)" becomes "(the reader first sees him there at 20.62 and learns his name at 20.68)".
+   - Independently: if I replace the new phrase with the old one in the new patch files, they hash back exactly to the accepted `f8cc73ef…` and `cf4be5a3…`. So nothing else in either patch changed.
+   - **The citations are accurate.**
+     - 20.62: "his door was flung open and a man whom he had never seen stood in the doorway watching him intently" (Garnett). The same paragraph in live modern-en and the candidate reads "a man he had never seen stood in the doorway, watching him intently".
+     - 20.68: "“Arkady Ivanovitch Svidrigaïlov, allow me to introduce myself....”"
+     - "there" means St. Petersburg, since the scene is Raskolnikov's room. That is correct.
+3. **EVIDENCE.md** (sha `6f97c674…`).
+   - `tools/check_evidence_md.py` checks all 51 quotes: all are verbatim, and all stated ends equal the recomputed paragraph lengths.
+   - The "3.38 (reveal)" note now keeps the surprise ("pursued Dunya") separate from "Unsettling", described as "a character judgement resting on text after the name … released at paragraph end". N3 is resolved.
+4. **README.md** (sha `512c00e5…`) against the final state.
+   - **Accurate:**
+     - both patch hashes, baseline hashes and patched hashes;
+     - the three-snapshot table, and the baseline table;
+     - the claim-to-gate table;
+     - the paragraph-end offsets (15515 / 13544 / 13789; 87 everywhere);
+     - the unchanged-fields list;
+     - the release handoff checkpoints (21.2 → snapshot 2; 22.35 and 41.7 → snapshot 3).
+     - I checked the git facts read-only. `1bd1bfb3`, `e1bf66a9` and `origin/main` all carry `2125526c` on both card paths. `origin/codex/crime-reviewed-release-20260924` = `01963b24` serves `b4e2217d` at `app/public/…`, while `books/characters/…` there is still `2125526c`, as the README says. The history commits exist.
+     - "Wealthy" is omitted everywhere, with the right conclusion. The old claim that "Wealthy" is supported at 3.38 is gone, so N4 is resolved in substance.
+   - **N6 correction accepted.** My N6 said the live modern-en is mostly "Svidrigaïlov". That was wrong. My own count: live modern-en has "Svidrigailov" 173 times (chapters 3, 4 and 31–41) and "Svidrigaïlov" 38 times (chapters 17 and 20–24). The candidate and Garnett have "Svidrigaïlov" 211 times and "Svidrigailov" never. The README's figures are correct.
+   - **R1 (must fix before the README is final).** The placeholders `ACCEPTANCE_STATUS` (the status line) and `ACCEPTANCE_SECTION` (under *Independent acceptance*) are still unfilled. Fill them with this verdict and a pointer to `review/v3/ACCEPTANCE.md`.
+   - **R2 (misquotes).** Two quotes in the claim table blend the live and candidate texts and match neither verbatim:
+     - "Dunya was having a hard time at the Svidrigaïlovs'" should be either the live text, "Dunya was having a hard time at the Svidrigailovs'", or the candidate, "Dounia was having a hard time at the Svidrigaïlovs'".
+     - "Would you believe that the crazy fellow had been in love with Dunya from the very beginning" should be either the live text, "…that this ridiculous man had been in love with Dunya…", or the candidate, "…that the crazy fellow had been in love with Dounia…".
+     - I recommend quoting the candidate throughout, since it is the text that ships. If so, 16.73 should also become "Marfa Petrovna's dead!". Its current form, "Marfa Petrovna is dead!", is the live text only.
+   - **R3 (the owner's rule is misstated).** The README says 21.37 and 21.103 "are excluded, per Anders's instruction not to infer poverty from his debt or his claim 'I'm not rich', nor wealth from his offer". The owner's rule names only the offer (not evidence of wealth) and the later claim (not evidence of poverty). The debt is not covered by it. The conclusion is unaffected. Proposed replacement: "**21.37** (debtors' prison; Marfa Petrovna bought him out) and 21.43 cut against his own account at 21.33. **21.101–21.103**: per Anders's rule, neither the ten-thousand offer (wealth) nor 'I'm not rich' (poverty) is used as evidence."
+   - **R4 (optional).** The wealth list could cite 22.37 as corroboration after the gate: Luzhin says "I do not know whether he is well off now". It shows the text itself leaves the question open.
+
+**Files added or refreshed in this pass:** `verify-output-n1n3.txt`, `tools/compare_versions.py`, `tools/verify.py` (hashes now parameters), and the two refreshed `patched-*.json` copies.
