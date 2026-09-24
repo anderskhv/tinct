@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><base href="/lab/library_2/"><meta name="robots" content="noindex,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111610"><title>Tinct — Reading table mockup</title>
+<style>
+/* Mockup only: returning reader at a constant "reading table" scene. Two concepts: table (cover carousel) and shelf (spines). */
+:root{--bg:#111610;--cream:#eee7d0;--soft:#b8bea9;--line:#eee7d02d;--paper:#efe6cc;--ink:#343627}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--cream);overflow-x:hidden}body{font:16px/1.4 Georgia,serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+main{overflow-x:clip}.scene-wrap{contain:paint}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+header{position:fixed;z-index:30;top:0;left:0;right:0;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(#090e0b99,transparent)}
+.brand{display:flex;align-items:center;gap:14px}header svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.6;fill:none}.logo{font-size:32px;letter-spacing:-.04em}
+nav{display:flex;align-items:center;gap:16px}.avatar{width:32px;height:32px;border-radius:50%;background:#2f3f31;border:1px solid var(--line);font:14px system-ui;display:grid;place-items:center}
+.switch{position:fixed;z-index:40;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));display:flex;gap:4px;padding:4px;border-radius:999px;background:#0c1a13d9;border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:12px system-ui}
+.switch button{padding:7px 12px;border-radius:999px;color:var(--soft)}.switch button.on{background:var(--cream);color:#222b20}
+.scene-wrap{position:relative;height:100svh;min-height:680px;overflow:hidden}
+.scene{position:absolute;inset:0;background:url(assets/room-sharp.jpg) 64% 0/cover no-repeat}
+.shade{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0,#111610e8 26%,#11161066 46%,transparent 62%),linear-gradient(#0a0f0c66,transparent 22%)}
+.greet{position:absolute;left:20px;top:78px;font:12px system-ui;letter-spacing:.13em;text-transform:uppercase;color:var(--soft)}
+/* Table concept: a scroll-snapped cover carousel standing on the table. */
+.carousel{position:absolute;left:0;right:0;top:104px;height:252px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;display:flex;align-items:flex-end;scrollbar-width:none;padding:0 calc(50vw - 75px)}
+.carousel::-webkit-scrollbar{display:none}
+.slot{flex:none;width:150px;height:100%;scroll-snap-align:center;display:flex;align-items:flex-end;justify-content:center;margin-right:-44px;perspective:700px}
+.slot:last-child{margin-right:0}
+.bk{width:150px;aspect-ratio:2/3;position:relative;transform-origin:50% 100%;transition:filter .2s;will-change:transform;-webkit-box-reflect:below 2px linear-gradient(transparent 78%,#ffffff26)}
+.bk img{width:100%;height:100%;object-fit:cover;border-radius:2px;display:block;box-shadow:8px 14px 18px #000a}
+.bk .rib{position:absolute;right:12%;top:-4px;width:12px;height:36px;background:#7b2a24;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%)}
+.stack{width:140px;height:200px;position:relative}
+.stack img{position:absolute;left:0;width:140px;aspect-ratio:3/.34;object-fit:cover;object-position:50% 40%;border-radius:2px;box-shadow:0 3px 6px #0009}
+.stack span{position:absolute;left:0;right:0;top:40px;text-align:center;font:13px system-ui;color:var(--soft)}
+.info{position:absolute;left:20px;right:20px;bottom:calc(64px + env(safe-area-inset-bottom))}
+.fade{transition:opacity .2s}.fade.out{opacity:0}
+h1{font-size:32px;font-weight:400;line-height:1.05;letter-spacing:-.03em;margin:0}
+.meta{display:flex;align-items:center;gap:10px;margin:7px 0 0;font:12px system-ui;color:var(--soft)}.meta .place{font:15px Georgia;color:#dcd6c0}
+.bar{flex:1;max-width:120px;height:2px;background:#eee7d033;border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;background:var(--cream);transition:width .4s}
+.slip{position:relative;margin:16px 0 16px;padding:13px 16px 12px 16px;background:linear-gradient(100deg,#f2e9cf,#e6dbbd);color:var(--ink);border-radius:1px 2px 6px 1px;transform:rotate(-.8deg);box-shadow:0 1px 1px #0003,2px 8px 16px #0006;max-width:520px}
+.slip::before{content:'';position:absolute;left:14px;top:-9px;width:30px;height:16px;background:#e8dcbc;box-shadow:0 1px 1px #0002;transform:rotate(-4deg);opacity:.9}
+.slip small{display:block;font:11px system-ui;letter-spacing:.12em;text-transform:uppercase;color:#77715a;margin-bottom:5px}
+.slip p{margin:0;font-size:15px;line-height:1.42;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.slip.open p{-webkit-line-clamp:unset}
+.slip button{font:12px system-ui;color:#5b6348;margin-top:5px}
+.cta{display:inline-flex;align-items:center;gap:14px;background:var(--cream);color:#222b20;min-height:44px;padding:0 24px 0 26px;border-radius:999px;font:600 15px system-ui}.cta svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:14px}.dots i{width:5px;height:5px;border-radius:50%;background:#eee7d055}.dots i.on{background:var(--cream)}
+/* Shelf concept: spines on a shelf; the chosen one stands out as a cover. */
+.shelf-view{display:none}
+body.mode-shelf .carousel,body.mode-shelf .dots{display:none}body.mode-shelf .shelf-view{display:block}
+.chosen{position:absolute;left:50%;top:96px;transform:translateX(-50%);width:112px;aspect-ratio:2/3;perspective:900px}
+.chosen .face{width:100%;height:100%;transition:transform .26s cubic-bezier(.5,0,.75,0);transform-style:preserve-3d}.chosen .face.turn{transform:rotateY(-88deg)}
+.chosen img{width:100%;height:100%;object-fit:cover;border-radius:2px;box-shadow:8px 14px 18px #000a}
+.shelf{position:absolute;left:0;right:0;top:276px;height:92px;padding:0 20px;display:flex;align-items:flex-end;gap:3px;overflow-x:auto;scrollbar-width:none}
+.shelf::after{content:'';position:absolute;left:0;right:0;bottom:-10px;height:12px;background:linear-gradient(#5a3b22,#2d1d10);box-shadow:0 8px 14px #000b}
+.spine{flex:none;width:32px;border-radius:2px 2px 1px 1px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:11px/1 Georgia;color:#f3ead0;padding:8px 0;box-shadow:inset 3px 0 5px #ffffff22,inset -4px 0 6px #0005,1px 0 2px #0007;transition:transform .25s,margin .25s;position:relative;overflow:hidden;white-space:nowrap}
+.spine::before,.spine::after{content:'';position:absolute;left:0;right:0;height:2px;background:#e7c77a88}.spine::before{top:9px}.spine::after{bottom:9px}
+.spine.on{transform:rotate(180deg) translateY(14px)}
+.spine.done{opacity:.8}.spine.done b{position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:10px;height:20px;background:#7b2a24}
+.gap{flex:none;width:18px}
+.below{padding:34px 0 90px}.below h2{font:650 19px/1.3 system-ui,sans-serif;margin:0 0 12px;padding:0 20px}
+.row{display:flex;gap:10px;overflow-x:auto;padding:0 20px 8px;scrollbar-width:none}.row::-webkit-scrollbar{display:none}
+.card{flex:none;width:calc((100vw - 50px)/3.2)}.card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;display:block}
+.note{margin:26px 20px 0;padding:14px 16px;border:1px dashed #eee7d044;border-radius:8px;font:13px/1.5 system-ui;color:var(--soft)}
+@media(min-width:900px){
+ header{height:76px;padding:0 max(28px,2.5vw)}.greet{left:max(28px,2.5vw);top:96px}
+ .scene-wrap{height:100svh;min-height:640px}.scene{background-image:url(assets/room-wide-v2.jpg);background-position:50% 0}
+ .shade{background:linear-gradient(0deg,var(--bg),transparent 30%),linear-gradient(90deg,#080d0bd9,#080d0b55 42%,transparent 62%)}
+ .carousel{left:40%;right:0;top:auto;bottom:24%;height:360px;padding:0 calc(30vw - 110px)}
+ .slot{width:220px;margin-right:-60px;perspective:1000px}.bk{width:220px}
+ .info{left:max(28px,2.5vw);right:auto;width:min(36%,520px);bottom:18%}
+ h1{font-size:clamp(46px,4.6vw,78px)}.meta .place{font-size:19px}.slip p{font-size:17px}.cta{font-size:17px;min-height:48px}
+ .dots{display:none}
+ .chosen{left:62%;top:auto;bottom:34%;width:210px;transform:none}
+ .shelf{left:52%;right:max(28px,2.5vw);top:auto;bottom:18%;height:150px}.spine{width:42px;font-size:15px}
+ .below{padding-left:max(8px,1vw)}.card{width:170px}.below h2{font-size:21px}
+}
+</style></head>
+<body>
+<header><div class="brand"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span class="logo">tinct</span></div><nav><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/></svg><span class="avatar">A</span></nav></header>
+<main>
+<section class="scene-wrap"><div class="scene"></div><div class="shade"></div>
+ <p class="greet" id="greet">Good evening</p>
+ <div class="carousel" id="carousel"></div>
+ <div class="shelf-view"><div class="chosen"><div class="face" id="face"><img id="chosen-img" alt=""></div></div><div class="shelf" id="spines"></div></div>
+ <div class="info"><div class="fade" id="info">
+  <h1 id="title"></h1>
+  <div class="meta"><span class="place" id="place"></span><span class="bar"><i id="bar"></i></span><span id="pct"></span></div>
+  <div class="slip" id="slip"><small>Where you are</small><p id="recap"></p><button id="more">Read more</button></div>
+  <button class="cta">Continue<svg viewBox="0 0 24 24"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></button>
+ </div><div class="dots" id="dots"></div></div>
+</section>
+<section class="below"><h2>Finished</h2><div class="row" id="finished"></div>
+ <h2 style="margin-top:26px">Featured</h2><div class="row" id="featured"></div>
+ <p class="note">Mockup: the returning reader's “reading table”. One constant place, rotating by time of day (morning terrace by the sea, rainy window seat, evening library, night desk). The Frankenstein room stands in for the evening library. Swipe the covers (Table) or tap a spine (Shelf); the paper slip is the recap of where you are.</p>
+</section>
+</main>
+<div class="switch" role="tablist"><button class="on" data-c="table">Table</button><button data-c="shelf">Shelf</button></div>
+<script>
+const reading=[
+ {id:'crime-and-punishment',title:'Crime and Punishment',place:'Part One · Chapter 4',pct:18,col:'#3b3a35',recap:'Raskolnikov has read his mother’s letter: Dunya is to marry the calculating Luzhin to secure his future. Furious at the sacrifice, he wanders the city and, on the boulevard, tries to protect a drunk young girl from a man following her.'},
+ {id:'frankenstein',title:'Frankenstein',place:'Chapter 7',pct:42,col:'#2c3a2b',recap:'Victor returns to Geneva after William’s murder. In the storm near Plainpalais he glimpses the creature and becomes certain it is the killer — but Justine, the family’s servant, has been accused and will stand trial.'},
+ {id:'meditations',title:'Meditations',place:'Book Four',pct:63,col:'#5b4a33',recap:'Marcus reminds himself that he can retreat into his own mind at any hour; disturbance comes from opinion, not from things. Everything changes, and a life is short — so act rightly now.'},
+ {id:'odyssey',title:'The Odyssey',place:'Book Two',pct:8,col:'#294557',recap:'Telemachus calls an assembly of Ithaca and denounces the suitors eating through his father’s house. They refuse to leave; with Athena’s help, disguised as Mentor, he secretly prepares a ship to seek news of Odysseus.'}];
+const finished=[{id:'pride-and-prejudice',t:'Finished in August',col:'#6f5a4a'},{id:'jekyll-and-hyde',t:'Finished in July',col:'#6b1f1f'},{id:'the-prince',t:'Finished in May',col:'#4a3f2c'}];
+const featured=['jane-eyre','candide','julius-caesar','the-awakening','notes-from-underground'];
+const $=id=>document.getElementById(id);let current=0;
+const h=new Date().getHours();$('greet').textContent=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+function fill(i,animate){const b=reading[i];const set=()=>{$('title').textContent=b.title;$('place').textContent=b.place;$('pct').textContent=b.pct+'%';$('bar').style.width=b.pct+'%';$('recap').textContent=b.recap;$('slip').classList.remove('open');$('more').textContent='Read more';$('chosen-img').src=`assets/${b.id}.jpg`;};
+ if(!animate){set();return;}$('info').classList.add('out');$('face').classList.add('turn');setTimeout(()=>{set();$('info').classList.remove('out');$('face').classList.remove('turn');},230);
+ document.querySelectorAll('#dots i').forEach((d,k)=>d.classList.toggle('on',k===i));document.querySelectorAll('.spine[data-i]').forEach(s=>s.classList.toggle('on',+s.dataset.i===i));}
+// Table: carousel
+const car=$('carousel');
+car.innerHTML=reading.map((b,i)=>`<div class="slot"><div class="bk" data-i="${i}"><img src="assets/${b.id}.jpg" alt="${b.title}"><span class="rib"></span></div></div>`).join('')+`<div class="slot"><button class="stack" id="stack">${finished.map((f,k)=>`<img src="assets/${f.id}.jpg" style="bottom:${k*30}px" alt="">`).join('')}<span>✓ ${finished.length} finished</span></button></div>`;
+$('dots').innerHTML=reading.map(()=>'<i></i>').join('');
+function layout(){const slots=[...car.querySelectorAll('.slot')];const mid=car.scrollLeft+car.clientWidth/2;let best=0,bd=1e9;
+ slots.forEach((s,k)=>{const c=s.offsetLeft+s.offsetWidth/2,d=(c-mid)/s.offsetWidth;const t=Math.max(-1.6,Math.min(1.6,d));const el=s.firstElementChild;el.style.transform=`translateZ(${-Math.abs(t)*110}px) rotateY(${-t*38}deg) scale(${1-Math.min(1,Math.abs(t))*.12})`;el.style.filter=`brightness(${1-Math.min(1,Math.abs(t))*.45})`;s.style.zIndex=String(100-Math.round(Math.abs(t)*10));if(Math.abs(c-mid)<bd&&k<reading.length){bd=Math.abs(c-mid);best=k;}});
+ if(best!==current){current=best;fill(best,true);}}
+car.addEventListener('scroll',()=>requestAnimationFrame(layout),{passive:true});
+car.addEventListener('click',e=>{const b=e.target.closest('.bk');if(b){const s=b.parentElement;car.scrollTo({left:s.offsetLeft+s.offsetWidth/2-car.clientWidth/2,behavior:'smooth'});}if(e.target.closest('#stack'))document.querySelector('.below').scrollIntoView({behavior:'smooth'});});
+// Shelf: spines
+$('spines').innerHTML=reading.map((b,i)=>`<button class="spine" data-i="${i}" style="height:${88+(i*7)%14}%;background:linear-gradient(90deg,${b.col},${b.col}dd)">${b.title}</button>`).join('')+'<span class="gap"></span>'+finished.map((f,k)=>`<span class="spine done" style="height:${86+(k*5)%12}%;background:${f.col}">${['Pride and Prejudice','Jekyll & Hyde','The Prince'][k]}<b></b></span>`).join('');
+$('spines').addEventListener('click',e=>{const s=e.target.closest('.spine[data-i]');if(s&&+s.dataset.i!==current){current=+s.dataset.i;fill(current,true);}});
+$('more').onclick=()=>{const o=$('slip').classList.toggle('open');$('more').textContent=o?'Show less':'Read more';};
+document.querySelector('.switch').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('.switch button').forEach(x=>x.classList.toggle('on',x===b));document.body.classList.toggle('mode-shelf',b.dataset.c==='shelf');history.replaceState(null,'',b.dataset.c==='shelf'?'#shelf':'#table');fill(current,false);document.querySelectorAll('.spine[data-i]').forEach(s=>s.classList.toggle('on',+s.dataset.i===current));});
+$('finished').innerHTML=finished.map(f=>`<div class="card"><img src="assets/${f.id}.jpg" alt=""><small style="display:block;font:12px system-ui;color:var(--soft);margin-top:6px">${f.t}</small></div>`).join('');
+$('featured').innerHTML=featured.map(id=>`<div class="card"><img src="assets/${id}.jpg" alt=""></div>`).join('');
+fill(0,false);document.querySelectorAll('#dots i')[0].classList.add('on');requestAnimationFrame(layout);
+if(location.hash==='#shelf')document.querySelector('.switch [data-c="shelf"]').click();
+</script>
+</body></html>
