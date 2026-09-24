@@ -28,3 +28,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b06 | all 7 (9.16 shroud gloss accurate; 15.0 "knocking up" → "knocking at ... door" avoids an unintended modern sense) | — | — |
 | b32 | all 6 (Charing Cross, book sizes, Ahaz-dial, Black Letter, truck — glosses accurate) | — | — |
 | b87 | 21 of 23; 87.27 adjusted to "But just so" (1851 "even so" = likewise; keeps Melville's "But") | 87.0 rejected | source 87.0 prints "Australia", not "New Holland"; 87.20 restructure flagged for re-verification |
+| b36 | all 10 (42.18 Whitsuntide gloss accurate; 43.1 quarter-deck consistency) | — | 42.16 question restructure flagged for re-verification |

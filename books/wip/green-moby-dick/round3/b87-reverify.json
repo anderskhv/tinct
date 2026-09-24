@@ -1,0 +1,83 @@
+{
+ "batch": "b87",
+ "role": "reverify",
+ "chapters": [
+  87,
+  88,
+  89,
+  90,
+  91,
+  92,
+  93
+ ],
+ "reviewed": [
+  "87.1",
+  "87.4",
+  "87.6",
+  "87.10",
+  "87.12",
+  "87.14",
+  "87.18",
+  "87.19",
+  "87.20",
+  "87.21",
+  "87.25",
+  "87.26",
+  "87.27",
+  "87.30",
+  "88.0",
+  "88.4",
+  "88.5",
+  "88.6",
+  "89.8",
+  "89.9",
+  "89.11",
+  "89.13",
+  "90.2",
+  "90.3",
+  "90.16",
+  "90.19",
+  "91.44",
+  "91.46",
+  "92.1",
+  "92.4",
+  "93.1",
+  "93.2",
+  "93.5",
+  "93.6",
+  "93.8",
+  "93.9",
+  "93.13"
+ ],
+ "items": [
+  {
+   "id": "87.20",
+   "severity": "non-blocking",
+   "category": [
+    "omission",
+    "convention"
+   ],
+   "reason": "Restructure (R2-acc) keeps all three hedged causes and the sense, but introduces a punctuation fault and drops three small source details: (1) the tail '...innocent and inexperienced; however it may have been.' ends the sentence with a semicolon before a non-clause fragment; (2) source 'a still becharmed panic' — 'still' (motionless) is dropped; (3) 'had hitherto prevented them' — 'hitherto' dropped; (4) 'came snuffling round us, right up to our gunwales' — 'round us' dropped. Minimal fix restores these and repunctuates the tail with a dash.",
+   "new": "Now, including the occasional wide intervals between the revolving outer circles and the spaces between the various pods in any one of those circles, the entire area taken up by the whole multitude at this point must have contained at least two or three square miles. At any rate — though such a measurement at such a time might be deceptive — spouts could be seen from our low boat that seemed to play up almost from the rim of the horizon. I mention this because these smaller whales, now and then visiting our becalmed boat from the margin of the lake, showed a wondrous fearlessness and confidence, or else a still, spellbound panic that was impossible not to marvel at — whether because the cows and calves had, as it were, been purposely locked up in this innermost fold, and the wide extent of the herd had so far prevented them from learning the precise cause of its stopping, or possibly because they were so young, unsophisticated, and in every way innocent and inexperienced — however it may have been. Like household dogs, they came snuffling round us, right up to our gunwales and touching them, until it almost seemed that some enchantment had suddenly domesticated them. Queequeg patted their foreheads. Starbuck scratched their backs with his lance, though, fearful of the consequences, he refrained from darting it for the time."
+  },
+  {
+   "id": "87.14",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "Source: 'a general pausing commotion among the whales gave animating token that they were now at last under the influence of that strange perplexity' — 'at last' (the release after 'several hours' pulling') is dropped. The R2 edit ('So it is best to withhold any amazement') is itself clean.",
+   "new": "Stripped to our shirts and drawers, we sprang to the oars. After several hours' pulling, we were almost ready to give up the chase when a general pausing commotion among the whales gave encouraging signs that they were now at last under the influence of that strange paralysis of indecision which, when fishermen see it in a whale, they say he is gallied. The compact martial columns in which they had been rapidly and steadily swimming now broke apart in one measureless rout. Like King Porus's elephants in the Indian battle with Alexander, they seemed going mad with panic. Expanding in vast irregular circles in all directions, swimming aimlessly this way and that, they plainly showed their distracted terror by their short, thick spoutings. This was still more strangely shown by those among them who, completely paralyzed as it were, helplessly floated like waterlogged dismasted ships on the sea. Had these leviathans been but a flock of simple sheep pursued over a pasture by three fierce wolves, they could not possibly have shown such excessive dismay. But this occasional timidity is characteristic of almost all herding creatures. Though banding together in tens of thousands, the lion-maned buffaloes of the West have fled before a solitary horseman. Witness, too, all human beings — how when herded together in the sheepfold of a theater pit, they will at the slightest alarm of fire rush helter-skelter for the exits, crowding, trampling, jamming, and mercilessly crushing each other to death. So it is best to withhold any amazement at the strangely gallied whales before us, for there is no folly of the beasts of the earth which is not infinitely outdone by the madness of men."
+  },
+  {
+   "id": "89.8",
+   "severity": "non-blocking",
+   "category": [
+    "voice",
+    "omission"
+   ],
+   "reason": "The R2 trover gloss is accurate. But the paragraph drops the pedantic legal parenthetical 'when indeed they (the plaintiffs) had succeeded in harpooning the fish' — the same mock-legal device the round-2 fidelity review restored in 89.11 ('it (the fish)') — and softens 'finally appropriated it' to 'finally claimed it', losing the wrongful-taking sense.",
+   "new": "Some fifty years ago there was a curious case of whale-trover (a suit to recover the value of goods wrongfully taken) litigated in England. The plaintiffs stated that after a hard chase of a whale in the northern seas, and when indeed they (the plaintiffs) had succeeded in harpooning the fish, they were at last, through peril of their lives, obliged to abandon not only their lines but their boat itself. Eventually the defendants — the crew of another ship — came up with the whale, struck, killed, seized, and finally appropriated it before the very eyes of the plaintiffs. And when those defendants were confronted, their captain snapped his fingers in the plaintiffs' faces and assured them that by way of a doxology (a closing hymn of praise) to the deed he had done, he would now retain their line, harpoons, and boat, which had remained attached to the whale at the time of the seizure. So the plaintiffs sued for the recovery of the value of their whale, line, harpoons, and boat."
+  }
+ ]
+}
