@@ -1,0 +1,82 @@
+{
+ "batch": "b81",
+ "role": "reverify",
+ "chapters": [
+  81,
+  82,
+  83,
+  84,
+  85,
+  86
+ ],
+ "reviewed": [
+  "81.6",
+  "81.16",
+  "81.17",
+  "81.20",
+  "81.22",
+  "81.24",
+  "81.29",
+  "81.38",
+  "81.41",
+  "81.44",
+  "81.45",
+  "81.46",
+  "82.2",
+  "83.3",
+  "84.7",
+  "85.8",
+  "86.1",
+  "86.3",
+  "86.4",
+  "86.12",
+  "86.14"
+ ],
+ "items": [
+  {
+   "id": "81.20",
+   "severity": "non-blocking",
+   "category": [
+    "convention"
+   ],
+   "reason": "R2-fid change restored \"Gayhead\" under lead decision 3, but binding lead decision 7 gives geographic names their modern standard form; Gay Head is a place (Tashtego's Martha's Vineyard home) and the candidate writes \"Gay Head\" elsewhere (4x). Revert to \"Gay Head\"; nothing else changed.",
+   "new": "\"The unmannerly Dutch dogger!\" cried Stubb. \"Pull now, men, like fifty thousand battleship-loads of red-haired devils. What do you say, Tashtego — are you the man to snap your spine in twenty-two pieces for the honor of old Gay Head? What do you say?\""
+  },
+  {
+   "id": "81.38",
+   "severity": "non-blocking",
+   "category": [
+    "meaning"
+   ],
+   "reason": "Source \"with swift fury blindly darted at the craft\": candidate \"with savage fury\" swaps speed for ferocity (pre-existing wording, left in the R2-touched paragraph). Restore \"swift\"; R2 fixes (exulting, damaging) kept.",
+   "new": "But humane Starbuck was too late. The instant the dart struck, an ulcerous jet shot from that cruel wound. Goaded by it into more than bearable agony, the whale — now spouting thick blood — blindly charged the boats with swift fury, spattering them and their exulting crews all over with showers of gore, capsizing Flask's boat and damaging the bows. It was his death stroke. For by this time, so drained was he from blood loss that he helplessly rolled away from the wreck he had made, lay panting on his side, and impotently flapped his stumped fin. Then over and over he slowly revolved like a dying world, turned up the white secrets of his belly, lay like a log, and died. It was most pitiable, that last expiring spout. As when unseen hands gradually draw the water from some mighty fountain, and with half-stifled, melancholy gurglings the spray-column lowers and lowers to the ground — so fell the last long dying spout of the whale."
+  },
+  {
+   "id": "81.41",
+   "severity": "non-blocking",
+   "category": [
+    "meaning"
+   ],
+   "reason": "Source \"owing to the body's immensely increasing tendency to sink\": candidate \"rapidly increasing\" turns magnitude into rate (pre-existing, in the R2-touched sentence). R2 accessibility edit (\"to a most unusual degree\") is otherwise faithful to \"unprecedentedly\".",
+   "new": "What other marvels might have been dug out of this monstrous cabinet there is no telling. But a sudden stop was put to further discoveries when the ship was dragged over sideways toward the sea to a most unusual degree, owing to the body's enormously increasing tendency to sink. However, Starbuck, who was in charge, hung on to it to the last — hung on so stubbornly, in fact, that when at length the ship would have capsized if she had kept locking arms with the body, and the command was given to break clear, the strain upon the timber-heads to which the fluke-chains and cables were fastened was so immense that it was impossible to cast them off. Meanwhile, everything in the Pequod was tilted at an angle. To cross to the other side of the deck was like walking up the steep gabled roof of a house. The ship groaned and gasped. Many of the ivory inlays in her bulwarks and cabins were popped from their places by the unnatural dislocation. In vain, handspikes and crowbars were brought to bear upon the immovable fluke-chains to pry them loose from the timber-heads. And the whale had now settled so low that the submerged ends could not be reached at all, while every moment whole tons of weight seemed to be added to the sinking mass, and the ship seemed on the point of going over."
+  },
+  {
+   "id": "81.46",
+   "severity": "non-blocking",
+   "category": [
+    "hedge"
+   ],
+   "reason": "Source \"the species of uncapturable whales\": candidate \"virtually impossible to capture\" adds a qualification Melville does not make (pre-existing, in the R2-touched paragraph). Remove \"virtually\"; R2 \"young\" restoration is correct.",
+   "new": "It was not long after the sinking of the body that a cry was heard from the Pequod's mastheads, announcing that the Jungfrau was again lowering her boats — though the only spout in sight was that of a fin-back, a species of whale that is impossible to capture because of its incredible swimming speed. Nevertheless, the fin-back's spout is so similar to the sperm whale's that unskilled fishermen often mistake it. And so Derick and all his men were now in valiant chase of this uncatchable brute. The Virgin, crowding on all sail, followed after her four young boats, and they all disappeared far to leeward, still in bold, hopeful pursuit."
+  },
+  {
+   "id": "86.12",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "Source \"which in repeated instances have one after the other hurled entire boats\": \"one after the other\" (boats hurled in succession) dropped. R2 fixes (\"opposite\", \"the elephant's trunk\", \"only\") are correct.",
+   "new": "The casual comparison in this chapter between the whale and the elephant — so far as some aspects of the tail of the one and the trunk of the other are concerned — should not suggest those two opposite organs are equal, much less the creatures they belong to. For as the mightiest elephant is only a terrier to Leviathan, so compared with Leviathan's tail, the elephant's trunk is only the stalk of a lily. The most dreadful blow from the elephant's trunk would be as the playful tap of a fan compared with the measureless crush and crash of the sperm whale's ponderous flukes, which have repeatedly hurled entire boats, one after the other, with all their oars and crews into the air, much as an Indian juggler tosses his balls.*"
+  }
+ ]
+}
