@@ -1,0 +1,14 @@
+# Lead screening log — accessibility proposals (round 2)
+
+Accessibility proposals come from reviewers who never saw the source. The lead screens each one against the brief. Every applied change is then independently re-verified against the source in round 3.
+
+| batch | applied | rejected / adjusted | notes |
+|---|---|---|---|
+| b76 | 76.1, 76.2 (gloss adjusted) | 76.0 rejected | see round2/b76-acc-screening.md |
+| b74 | 74.0, 74.7, 74.13, 77.5, 79.3, 80.1 | — | word-order and parse fixes only; sense unchanged |
+| b44 | 44.2, 44.8, 44.9, 45.0 (adjusted: "As far as this book may have a narrative" — proposal's "at all" added dismissiveness), 45.4 ("Chilean": ordinary adjective), 45.19, 46.1, 47.1, 47.12 | 44.11 rejected | 44.11: Melville's broken Prometheus sentence is deliberate; keep its structure. 45.5 "New Zealand Tom" vs 45.4 "Jack" is Melville's own inconsistency — kept |
+| b55 | 55.12 (John Hunter = anatomist, accurate), 56.2, 58.6, 58.8, 58.10, 59.4, 59.6, 59.10, 59.12 | 55.8 rejected | source 55.8 itself prints "Lacépède"; lead decision 3 follows each paragraph |
+| b119-fid | 121.2, 124.7 | 119.19 not applied | "Himalayas" is correct under lead decision 7 (geographic names take the modern form) |
+| b48 | all 9 (48.0, 48.3, 48.29, 48.48 waif gloss, 50.5 thole-pin gloss, 50.7, 51.8, 53.0 "spoken" gloss, 53.4) | — | glosses checked for accuracy; parse fixes keep sense. 48.19 Archy / 50.5 Cabaco mismatch is Melville's own and is kept |
+| b54-fid | 54.28, 54.32, 54.34, 54.85, 54.110 (quote balance) | 54.3, 54.8 not applied | name-only changes (Gallipagos, Manilla) superseded by lead decision 7 |
+| b67-fid, b110-fid, b61-fid, b128-fid, b81-fid, b48-fid, b55-fid, b74-fid, b44-fid | all items | — | fidelity reviewer items applied in full |

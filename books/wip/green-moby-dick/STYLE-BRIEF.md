@@ -83,7 +83,12 @@ JSON, UTF-8:
 
 1. **Period language:** the project rule is "do not soften period language". Where the source says "negro" or "negroes", keep the term. Do not replace it with a character's name, such as "Daggoo", because that adds an identification the source does not make at that point. Do not substitute a modern euphemism either. The same applies to "savage", "cannibal", "heathen", "pagan" and similar terms: render what the source says.
 2. **Melville's footnotes:** keep each asterisk marker (`*`) where the source places it, and keep the footnote text in the same paragraph, rendered like the rest. Don't drop, move or merge them.
-3. **Spelling of proper names:** use exactly the source paragraph's spelling, even where it is inconsistent or archaic ("Hackluyt", "Lacepede", "Pontoppodan", "Albert Durer", "Crozetts"). Do not normalize these to modern reference spellings. Ordinary words still get modern American spelling (for example "gray-headed whale").
+3. **Spelling of proper names:** use exactly the source paragraph's spelling, even where it is inconsistent or archaic ("Hackluyt", "Pontoppodan"; Lacepede is printed with accents in some paragraphs (55.8 "Lacépède") and without in others: follow each paragraph, "Albert Durer", "Crozetts"). Do not normalize these to modern reference spellings. Ordinary words still get modern American spelling (for example "gray-headed whale").
 4. **Ligatures:** æ and œ in names (Cæsar) are 1851 typography, not spelling. Modern-en writes "Caesar", and so on.
 5. **Dialect characterization** (Fleece in ch64, sailors' dialects in chs 40 and 119, Pip): keep a light, readable dialect flavor that marks the character. Don't standardize it away and don't thicken it.
 6. **Recurring hail:** "Hast seen the White Whale?" is rendered "Have you seen the White Whale?" in every gam chapter.
+7. **Names, refining decision 3** (binding from 2026-09-24):
+   - **As printed:** *personal* names and *titles*. That covers authors, artists, scholars, characters, ships, inns and books: Hackluyt, Pontoppodan, Albert Durer, Angelo, Lacépède or Lacepede as the paragraph prints it, Heidelburgh Tun, and so on.
+   - **Modern standard form:** *geographic* names and names of *peoples* that have one. Examples: Himalayas (not Himmalehs), Fiji (not Fejee), Eskimo (not Esquimaux), Crozet Islands (not Crozetts), Manila rope (not Manilla), Chilean, Caesar.
+   - **Quoted documents** keep their own spelling (Lionel Wafer's "John Ferdinando").
+   - This supersedes the "Crozetts" and "Manilla" examples in decision 3. The lead normalizes these book-wide in the assembly sweep, so reviewers need not flag them.
