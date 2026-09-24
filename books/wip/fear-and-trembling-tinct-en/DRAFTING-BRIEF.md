@@ -107,7 +107,7 @@ Everywhere else, use the bare term.
 | the aesthetic | ch4 ¶22 | brief, from context |
 | irony | ch4 ¶28 | plain |
 | the universal, the ethical, telos, the immediate | ch5 ¶0 | already in the accepted pilot |
-| mediation / mediate | ch5 ¶4 | already in the accepted pilot. Corrected 2026-09-24: ch4 ¶2 has *Mediterende* (meditating), not mediation. |
+| mediation / mediate | ch4 ¶17, note n4.22a | "(Hegel's term for reconciling opposites in a higher unity)". Corrected 2026-09-24: ch4 ¶2 has *Mediterende* (meditating), not mediation. The pilot's ch5 ¶4 gloss ("cannot be brought under the universal") becomes a second, contextual gloss; the book-level consistency review decides whether it stays. |
 | ethical life | ch5 ¶1 | already in the accepted pilot |
 | concealment; disclosure; the interesting | ch7 ¶0; ¶1; ¶2 | brief, from context |
 | the demonic | ch7 ¶12 | **No gloss.** It is used bare throughout, and the text develops it (decision 2026-09-24 after R1 reviews of parts F and G). |
