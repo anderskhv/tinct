@@ -110,3 +110,23 @@ All seven current readings are faithful.
 3. **I ¶39** (`drafts/I-ch7.json`, slot 39): "but so that his incomprehensibility might come out by leaps, piece by piece." → "but so that his incomprehensibility might become more leaping and disconnected."
 
 No anchor is affected by any of the three fixes.
+
+## Part B (ch3, Eulogy)
+
+The current `drafts/B-ch3.json` matches the "after" text of `R2-diff-B.md`. The changed slots are exactly ¶0, ¶7, ¶10 and ¶12, compared against `history/B-ch3.r2.json`. Part B has no notes, and the chapter still has 14 slots.
+
+| ¶ | Result | Note |
+|---|---|---|
+| 0 | OK | "The poet can do nothing of what the hero does" follows *Denne kan Intet gjøre af hvad hiin gjør* (*Denne* = the poet). "He draws on nothing of his own, but he is jealous of what was entrusted to him" = *tager Intet af sit Eget, men er misundelig paa det Betroede*: *men* is restored, and *misundelig paa* stays "jealous of" (R1 ruling). "cunning" = *Underfundighed*. "For the poet, in turn, is as it were the hero's better being": "in turn" only marks the mirror of the earlier *Helten er ligesom hans bedre Væsen* and adds no content. "the longer time goes on, the more faithfully he clings": the Danish tense mix (*gik hen … hænger*) is levelled to the present. This is a grammatical smoothing only. |
+| 7 | OK | "a love that was only poorly expressed by saying that …" = *for hvilken det kun var et fattigt Udtryk, at …*. It keeps *kun*. |
+| 10a | OK | "— or perhaps quietly, in a whisper?" The third alternative (*maaskee sagte, og hviskende*) is kept, and "or" only marks it. |
+| 10b | **DEFECT** (minor: lost apposition) | Danish: *paa det aftalte Sted, paa Morija-Bjerget*. The Danish apposition makes Mount Moriah *the* agreed place. "at the agreed spot on Mount Moriah" instead says the agreed spot was somewhere on the mountain. **Fix:** "he was at the agreed spot on Mount Moriah." → "he was at the agreed spot, on Mount Moriah." |
+| 12 | OK | "and neither would Mount Moriah" = *ei heller Morija-Bjerget*. |
+
+**Verdict B: PASS after the one-comma fix in ¶10.**
+
+## I ¶39 follow-up: "might become more disjointed"
+
+The current text is "…but so that his incomprehensibility might become more disjointed." It restores *blive* ("become") and *mere* ("more"), and it removes the drift that "piece by piece" introduced. "Disjointed" renders the *usammenhængende* half of the dictionary sense of *desultorisk* (leaping, disconnected). It drops the explicit "leaping" image of the Latin *desultor*, but it does not contradict it. The sentence goes on to describe separate stages, none of them an analogy, and "disjointed" fits that. It also avoids the misleading modern sense of English "desultory" (half-hearted).
+
+**Verdict: OK. No fix required.**

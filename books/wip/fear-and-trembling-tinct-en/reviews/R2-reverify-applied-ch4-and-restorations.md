@@ -43,3 +43,16 @@ The checker flagged three other hunks. They are deliberate and were kept:
 ## 3. Result
 
 With these applied, ch4 meets the reverifier's approval condition. `assemble.py` passes. The candidate was regenerated.
+
+## 4. R2 re-verification of A and F–J applied (reviews/R2-reverify.md)
+
+| Part ¶ | Old | New | Reason |
+|---|---|---|---|
+| G ¶15 | those slender lovers | those frail lovers | *spinkle* is "frail" in F ¶7 after R2 |
+| H ¶23 | the indispensable condition for meeting that demand. | the indispensable condition. | the Danish *conditio sine qua non* has no complement |
+| I ¶39 | might come out by leaps, piece by piece. | might become more disjointed. | *kunde blive mere desultorisk*: keeps the comparative and the verb "become"; "disjointed" gives the sense "disconnected, leaping" without the reader stumbling on "desultory" |
+
+The verifier passed Parts A, F and J with no changes, and G, H and I pass with the fixes above.
+| B ¶10 | the agreed spot on Mount Moriah | the agreed spot, on Mount Moriah | *paa det aftalte Sted, paa Morija-Bjerget* (apposition) |
+
+Part B then passes. For I ¶39, the verifier confirmed "might become more disjointed" as faithful.
