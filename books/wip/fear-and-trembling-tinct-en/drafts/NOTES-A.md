@@ -118,3 +118,57 @@ The runs that remain are only the three verbatim **Latin Descartes quotations** 
 4. "Cratylus" versus the print's "Cratyllus".
 5. The refrain wordings chosen in round 2: "When it is time to wean the child", "take pity on me" and "The present author is no philosopher whatsoever". Also check that the fresh Genesis wording reads well as Scripture.
 6. ch1 ¶0: the closing period was split into three sentences for clarity ("…reached it at last: … What the Greeks took for a life’s task and the veteran achieved — that is where, in our time, everyone begins."). The final summing-up clause is a restatement that makes the Danish "dermed" (with that) explicit. Check that it does not read as an addition.
+
+## Revision R1 (fidelity review applied, 2026-09-24)
+
+Source: `reviews/R1-fidelity-A.md`, with 1 MAJOR and 43 MINOR findings. Pre-edit copies are in `drafts/history/A-ch{1,2,8}.r0.json`. The full table is in `reviews/R1-applied-A.md`. I applied all 44 findings, after checking each against the Danish, and declined none. **This section supersedes any conflicting statement above.**
+
+**Changed renderings:**
+
+| Where | Danish | Now | Was |
+|---|---|---|---|
+| ch2 ¶12 (MAJOR) | *Isaak havde tabt Troen* | "Isaac had lost his faith" | "the faith". The new wording restores the echo with I's "than that he loses his faith in you". |
+| ch2 ¶4 | *forbarm Dig* | "have mercy on me" ×2 | "take pity" |
+| ch2 ¶4 | *Lyst* | "No, it is my own desire." | "what I want". ¶8 keeps "her delight", so the Lyst echo is carried by sense, not by one shared word. |
+| ch2 ¶6 | *udseet* | "the ram that God had chosen" | "provided" |
+| ch2 ¶14 | *Vandring* | "journey" | "pilgrimage" |
+| ch2 ¶7 | *Barm* | "bosom" | "breast" (*Bryst* stays "breast") |
+| ch2 ¶11 | *Skjælven* | "a trembling" | "a shiver". This matches Isaac's "trembled" in ¶4. |
+| ch2 ¶13 | *den stærkere Føde* | "the stronger food" | "stronger food". The blessing ends with a period. |
+| ch8 ¶0 | *ængste* | "make anxious" | "take by storm" is removed. |
+| ch8 ¶3 | *gaae* | "go through the same river" | "walk". The n8.5a anchor is now `one cannot go through the same river twice.` |
+| ch8 ¶2 | *oprøres* | "outraged" | The lover's reply keeps *da*: "I am by no means stopping, since my life is in it." |
+| ch8 ¶1 | *Saasnart* | "As soon as" | |
+| ch1 ¶3 | | "Most respectfully, Johannes de silentio." | |
+| ch1 ¶2 | | "Systemet" is repeated as "the System" at each occurrence. | |
+| ch1 ¶0 | | "Principia philosophiæ", as printed; the Latin gloss keeps "perhaps" (*forte*). | |
+| ch1 ¶0 | | The closing restatement ends "that is what everyone in our time begins with" (*dermed*). ¶1 keeps "that is where" (*der*). | |
+
+**Connectives and hedges restored:**
+- *thi* (ch1 ¶2)
+- *vel … men* (ch1 ¶1)
+- *end ikke* (ch2 ¶4)
+- *men* (ch2 ¶4, ¶11)
+- *dog* (ch2 ¶10)
+- *da* (ch8 ¶2)
+
+**Ambiguous English fixed:**
+- ch2 ¶6: the appositive order is now "her pride, her hope …, who had taken away her shame".
+- ch2 ¶8: "Hagar and the son, whom he had driven out".
+- ch8 ¶3: "a disciple of Heraclitus — one who went further".
+
+**Book rulings (§C):**
+- *fornam og grebe* is "sensed and grasped".
+- *tør* is "dare".
+- *de Enkelte* (plural, ordinary) is "the individuals".
+- *begribe* in ch2 ¶9 is rendered "incomprehensible".
+- There is no Virkelighed or Realitet in Part A.
+
+**Title echo:** "that anxiety and trembling" (ch1 ¶1) is kept per policy. The reviewer agrees. The echo of the English title is lost, and the Danish there is *Angst og Bævelse*, not *Frygt og Bæven*. Onboarding copy could mention it.
+
+**Screen after R1 (minrun 14):**
+- A-ch1: TOTAL words 1391; in shared 8-word runs 21.6%; in runs>=12 10.6%; in runs>=16 8.8%. The runs of 16 or more are all verbatim Latin.
+- A-ch2: TOTAL words 1492; in shared 8-word runs 29.1%; in runs>=12 4.5%; in runs>=16 2.8%. Two forced runs remain in ¶4: the deliberate "Isaac could not understand him" repetition, and Isaac's Kyrie cry, restored at the reviewer's request.
+- A-ch8: TOTAL words 1048; in shared 8-word runs 17.5%; in runs>=12 1.1%; in runs>=16 0.0%.
+
+I re-rendered the new runs in ch2 ¶0 and ch8 ¶1 from the Danish.

@@ -124,13 +124,15 @@ The pilot's Problema I and II are the model for register and density.
 | Paradox / det Paradoxe | **the paradox** / **whatever is paradoxical**, **something paradoxical** |
 | det Absurde; i Kraft af det Absurde | **the absurd**; **by virtue of the absurd** |
 | Latterlighed, latterlig | **ridiculous** (never "absurd") |
+| urimelig, det Urimelige | **unreasonable**, **the unreasonable** (Eulogy). Kept apart from "the absurd" (*det Absurde*) and from "ridiculous". Ruling of 2026-09-24. |
+| martre / pine | **torture** / **wring**, **torture** (never "torment", which is reserved for *Qval*) |
 | mediere / Mediation | **mediate** / **mediation** |
 | Mellembestemmelse; det Mellemliggende | **middle term** |
 | incommensurabel | **incommensurable** |
 | Anfægtelse | **spiritual trial** |
 | Prøvelse / prøve | **test** / **be tested** |
 | Fristelse / friste | **temptation** / **tempt** |
-| forsøge (passive: forsøges) | **put to the proof** (for trying/testing a person). In Gen. 22:1, "Gud fristede Abraham" is Kierkegaard's Bible wording and is rendered "God tempted Abraham". |
+| forsøge (passive: forsøges) | **put to the proof** (for trying/testing a person). Exception: the set adjective *en forsøgt Mand* is "a tried (experienced) man". In Gen. 22:1, "Gud fristede Abraham" is Kierkegaard's Bible wording and is rendered "God tempted Abraham". |
 | Angest, Angst | **anxiety**; never "fear" |
 | Frygt, frygte | **fear** |
 | Nød | **distress** |
