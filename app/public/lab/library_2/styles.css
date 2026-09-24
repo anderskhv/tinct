@@ -144,3 +144,5 @@ html:not(.keyboard-nav) button:focus-visible,html:not(.keyboard-nav) a:focus-vis
 html #librarian-panel{top:0;bottom:0;height:auto;max-height:none}
 html.vv-keyboard #librarian-panel{top:var(--visual-top,0px);bottom:auto;height:var(--visual-height,100dvh);max-height:var(--visual-height,100dvh)}
 html #librarian-panel .orb-space{height:clamp(90px,15svh,140px);min-height:72px;margin-bottom:14px}}
+/* Approved Read button: a pill, matching the genre and reading-time pills. */
+#read-featured{border-radius:999px;padding-left:max(22px,1.6em);padding-right:max(20px,1.45em)}
