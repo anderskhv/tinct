@@ -56,7 +56,6 @@ h1{font-size:30px;font-weight:400;line-height:1.08;letter-spacing:-.025em;margin
 .slip button{font:12px system-ui;color:var(--soft);margin-top:5px;padding:2px 0;text-decoration:underline;text-decoration-color:#b8bea966;text-underline-offset:3px}
 .actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .cta{display:inline-flex;align-items:center;gap:14px;background:var(--cream);color:#222b20;min-height:44px;padding:0 22px 0 24px;border-radius:999px;font:600 15px system-ui}.cta svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
-.finished-link{font:13px system-ui;color:var(--soft);display:flex;align-items:center;gap:7px}.finished-link i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--cream);color:#222b20;display:grid;place-items:center;font-size:11px}
 .arrows{display:none}
 
 .below{padding:30px 0 60px}.below h2{font:650 19px/1.3 system-ui,sans-serif;margin:0 0 12px;padding:0 20px}
@@ -94,7 +93,7 @@ h1{font-size:30px;font-weight:400;line-height:1.08;letter-spacing:-.025em;margin
   <div class="meta"><span class="place" id="place"></span><span class="bar"><i id="bar"></i></span><span id="pct"></span></div>
   <div class="slip" id="slip"><small>Where you left off</small><p id="recap"></p><button id="more">Read more</button></div>
  </div>
-  <div class="actions"><button class="cta">Continue<svg viewBox="0 0 24 24"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></button><button class="finished-link" id="finished-link"><i>✓</i>3 finished</button></div>
+  <div class="actions"><button class="cta">Continue<svg viewBox="0 0 24 24"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></button></div>
  </div>
 </section>
 <section class="below" id="below"><h2>Finished</h2><div class="row" id="finished"></div>
@@ -138,7 +137,6 @@ addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(current-1);if(e.key==='
 function fill(animate){const b=reading[current];const set=()=>{$('title').textContent=b.title;$('place').textContent=b.place;$('pct').textContent=b.pct+'%';$('bar').style.width=b.pct+'%';$('recap').textContent=b.recap;$('slip').classList.remove('open');$('more').textContent='Read more';const r=$('recap');$('more').hidden=r.scrollHeight<=r.clientHeight+1;};
  if(!animate)return set();$('info').classList.add('out');setTimeout(()=>{set();$('info').classList.remove('out');},180);}
 $('more').onclick=()=>{const o=$('slip').classList.toggle('open');$('more').textContent=o?'Show less':'Read more';};
-$('finished-link').onclick=()=>$('below').scrollIntoView({behavior:'smooth'});
 document.querySelector('.variant').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('.variant button').forEach(x=>x.classList.toggle('on',x===b));document.body.classList.toggle('variant-book',b.dataset.v==='book');history.replaceState(null,'',b.dataset.v==='book'?'#book':'#flat');layout();});
 
 $('finished').innerHTML=finished.map(f=>`<div class="card"><div class="cv"><img src="assets/${f.id}.jpg" alt=""><span class="done" aria-label="Finished">✓</span></div><small>${f.t}</small></div>`).join('');
