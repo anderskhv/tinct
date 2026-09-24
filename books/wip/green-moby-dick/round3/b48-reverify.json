@@ -1,0 +1,53 @@
+{
+ "batch": "b48",
+ "role": "reverify",
+ "chapters": [
+  48,
+  49,
+  50,
+  51,
+  52,
+  53
+ ],
+ "reviewed": [
+  "48.0",
+  "48.3",
+  "48.4",
+  "48.29",
+  "48.33",
+  "48.46",
+  "48.48",
+  "50.5",
+  "50.7",
+  "51.3",
+  "51.4",
+  "51.6",
+  "51.8",
+  "51.9",
+  "51.10",
+  "52.0",
+  "53.0",
+  "53.4"
+ ],
+ "items": [
+  {
+   "id": "51.6",
+   "severity": "non-blocking",
+   "category": [
+    "voice",
+    "meaning"
+   ],
+   "reason": "Source 'gored the dark waves in her madness'. The R2 fix restored 'gored' but the candidate still has 'in her fury'; 'madness' is Melville's word and ties the ship to Ahab's madness. Restore it.",
+   "new": "But at last, when we turned eastward, the Cape winds began howling around us, and we rose and fell upon the long, troubled seas that lie there. When the ivory-tusked Pequod bowed sharply to the blast and gored the dark waves in her madness, until showers of silver chips — the foam-flakes — flew over her bulwarks, then all this desolate emptiness of life went away, but gave place to sights more dismal than before."
+  },
+  {
+   "id": "51.8",
+   "severity": "non-blocking",
+   "category": [
+    "meaning"
+   ],
+   "reason": "Source 'for long allured by the perfidious silences that before had attended us'. 'allured' means lured or enticed on, which echoes the jet 'alluring us on' in 51.3; 'deceived' drops the luring sense. 'lured on' restores it, and 'treacherous' still carries 'perfidious'.",
+   "new": "Cape of Good Hope, do they call you? Rather Cape Tormentoso, as they named you long ago. For, long lured on by the treacherous silences that had attended us before, we found ourselves launched into this tormented sea, where guilty beings transformed into those birds and those fish seemed condemned to swim forever without any harbor in store, or to beat that black air without any horizon. But calm, snow-white, and unchanging — still directing its fountain of feathers toward the sky — still beckoning us on from ahead — the solitary jet would at times appear."
+  }
+ ]
+}

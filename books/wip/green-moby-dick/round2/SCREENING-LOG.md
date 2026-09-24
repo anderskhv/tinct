@@ -17,3 +17,5 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b61 | all 4 (61.9, 64.53 lubber's hole gloss, 65.2, 66.1) | — | glosses accurate |
 | b81 | all 8 | — | parse and repetition fixes; 86.12 disambiguates the elephant's trunk as in source |
 | b110 | 27 of 28 (incl. 113.25 Latin gloss — accurate; 117.2 Asphaltites = Dead Sea) | 113.15 rejected | source itself ambiguous ("bowing over his head"); fidelity review kept the ambiguity |
+| b119 | all 25 (119.23 Mene Tekel gloss accurate; 123.0 "kept slack" matches source reasoning) | — | "Gallipagos" 127.20 handled in decision-7 sweep |
+| b67 | all 11 (69.5 Cock-Lane hoax 1762, 71.17 headsman, 73.31 darbies, 73.41 baleen, 67.1 stages — glosses accurate) | — | 67.1 restructure flagged for careful re-verification |
