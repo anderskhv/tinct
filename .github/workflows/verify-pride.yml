@@ -1,0 +1,45 @@
+name: Verify accepted Pride release
+on:
+  pull_request:
+    branches: [main]
+    paths: ['books/wip/pride-release-20260924*', 'app/scripts/verify-reviewed-release.py', 'app/scripts/check-reviewed-characters.cjs', 'app/public/data/editions/pride-and-prejudice-modern-en.json', 'app/public/data/characters/pride-and-prejudice.v1.json', '.github/workflows/verify-pride.yml']
+  push:
+    branches: [main]
+    paths: ['app/public/data/editions/pride-and-prejudice-modern-en.json', 'app/public/data/characters/pride-and-prejudice.v1.json']
+permissions:
+  contents: read
+jobs:
+  accepted-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/test-prepare-reviewed-editions.py
+      - run: python3 scripts/verify-reviewed-release.py --config books/wip/pride-release-20260924.json --baseline b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec
+      - run: python3 ../books/classify-modern-en.py pride-and-prejudice --gate
+      - run: npm run build
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check versioned text and character links in the built reader
+        env:
+          TEST_BOOK: pride-and-prejudice
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/pride-release
+        run: node scripts/check-reviewed-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pride-release-acceptance
+          path: app/artifacts/pride-release
