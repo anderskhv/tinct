@@ -2,7 +2,7 @@ name: Verify structural migration core
 on:
   push:
     branches: [codex/edition-structure-migration-20260924]
-    paths: ['app/src/data/editionCoordinateMigration*', 'app/src/lab/labEditionMigration*', 'app/src/lab/labPosition.ts', '.github/workflows/verify-structure-migration.yml']
+    paths: ['app/src/data/editionCoordinateMigration*', 'app/src/lab/labEditionMigration*', 'app/src/lab/labHighlightMigration*', 'app/src/lab/labPosition.ts', '.github/workflows/verify-structure-migration.yml']
 permissions:
   contents: read
 jobs:
@@ -19,4 +19,4 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: bash ../scripts/cloud-setup.sh
-      - run: npx vitest run src/data/editionCoordinateMigration.test.ts src/lab/labEditionMigration.test.ts src/lab/labPosition.test.ts src/lab/labPositionStore.test.ts src/lab/labPositionOwnership.test.ts src/worker.labPosition.test.ts
+      - run: npx vitest run src/data/editionCoordinateMigration.test.ts src/lab/labEditionMigration.test.ts src/lab/labHighlightMigration.test.ts src/lab/labPosition.test.ts src/lab/labPositionStore.test.ts src/lab/labPositionOwnership.test.ts src/worker.labPosition.test.ts
