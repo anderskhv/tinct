@@ -84,7 +84,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   werther: { editions: EN, revision: '2026-09-11.2' },
   // 2026-09-12.1 — novels and prose works
   frankenstein: { editions: EN, revision: '2026-09-23.2' },
-  'pride-and-prejudice': { editions: EN, revision: '2026-09-12.1' },
+  'pride-and-prejudice': { editions: EN, revision: '2026-09-24.1' },
   'jane-eyre': { editions: EN, revision: '2026-09-12.1' },
   'great-expectations': { editions: EN, revision: '2026-09-12.1' },
   'treasure-island': { editions: EN, revision: '2026-09-12.1' },

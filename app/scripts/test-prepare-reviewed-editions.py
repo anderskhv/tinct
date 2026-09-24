@@ -76,6 +76,19 @@ class ReanchorTests(unittest.TestCase):
         second = module.utf16(text[:text.rindex("Antony")])
         self.assertEqual(module.project(text, new, second), module.utf16(new[:new.rindex("Antony")]))
 
+    def test_snapshot_evidence_moves_with_utf16_reveal_boundary(self):
+        old, asset = fixture("Antony spoke.", "Antony")
+        snapshot = asset["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        snapshot["availableAt"]["offset"] = 6
+        snapshot["evidence"] = [{"chapterNumber": 1, "paragraphIndex": 0, "throughOffset": 6}]
+        new = json.dumps({"chapters": [{"number": 1, "title": "One", "paragraphs": ["😀 Antony spoke."]}]}, ensure_ascii=False).encode()
+        output, _ = module.reanchor(asset, old, new, "new", allow_alias_changes=False)
+        changed = output["editions"]["modern-en"]["characters"][0]["snapshots"][0]
+        self.assertEqual(changed["availableAt"]["offset"], 9)
+        self.assertEqual(changed["evidence"][0]["throughOffset"], 9)
+        self.assertEqual(snapshot["evidence"][0]["throughOffset"], 6)
+        self.assertEqual(output["editions"]["original-en"], asset["editions"]["original-en"])
+
     def test_corrupt_previous_source_fails_closed(self):
         old, asset = fixture("Antony spoke.", "Antony")
         with self.assertRaisesRegex(ValueError, "previous edition"):
