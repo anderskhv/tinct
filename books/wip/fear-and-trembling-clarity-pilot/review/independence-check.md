@@ -38,7 +38,8 @@ measured against those translations as well.
 | Served `original-en` (AI-authored, 2026) | 26.1% | 11.1% | 4.6% |
 | Served `modern-en` (the baseline) | 35.1% | 17.1% | 7.8% |
 | Candidate v2 (before independence revision) | 34.5% | 17.6% | 7.6% |
-| **Candidate v3 (final)** | **19.9%** | **4.2%** | **0.0%** |
+| Candidate v3 (after independence revision) | 19.9% | 4.2% | 0.0% |
+| **Candidate v4 (final, after fidelity fixes)** | **21.0%** | **4.3%** | **0.0%** |
 
 Unmasked, and against Hong alone, v2 had shared 31.7% of its words in 8-word
 runs, against 16% between Lowrie and Hong.
@@ -49,7 +50,7 @@ v2 had the same memorization fingerprint as the served editions. The v3
 revision re-rendered from the Danish about 70 sentences that contained runs of
 14 or more shared words. The meaning was kept and the phrasing was independent.
 The v2→v3 changes are listed in `comparison/v2-to-v3-diff.md`. They were
-re-verified against the Danish by a fresh reviewer (`reverification-v3.md`).
+re-verified against the Danish by a fresh reviewer (`reverification-v3.md`). That review found two places where the rewording had blurred a distinction and several lost echoes. v4 fixes them without reintroducing any shared run of 16 or more words (`comparison/v3-to-v4-diff.md`).
 
 After revision:
 

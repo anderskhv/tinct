@@ -35,7 +35,7 @@ Anfægtelse* below).
 |---|---|---|
 | det Ethiske | **the ethical** | Defined by the source itself: "the ethical as such is the universal" (P-I ¶0) |
 | det Almene | **the universal** | "it applies to everyone … at every moment" (source's own definition, P-I ¶0) |
-| den Enkelte | **the single individual** | Not given a free-standing definition. In P-I ¶0 the source's clause is kept as a qualification ("Taken immediately — as a being of senses and soul — the single individual is …"). v1 turned it into an apposition that defined the term as the immediate person; the fidelity review rejected that as MAJOR. |
+| den Enkelte | **the single individual** | Not given a free-standing definition. In P-I ¶0 the source's clause is kept as a qualification ("Taken in his immediacy — as a being of senses and soul — the single individual is …"). v1 turned it into an apposition that defined the term as the immediate person; the fidelity review rejected that as MAJOR. |
 | den Enkelte som den Enkelte | **the single individual as the single individual** | Kept whole. It is the formula of the paradox and is never shortened. |
 | Enkelthed | **particularity** | "whatever sets him apart as this one person" (P-I ¶0) |
 | det Enkelte (neuter) | **the particular** | P-I ¶2 |
@@ -47,13 +47,16 @@ Anfægtelse* below).
 | sædelig Dyd | **the virtue of ethical life** | P-I ¶14 |
 | Moralität (Hegel's "moral form of evil") | **moral** | Kept apart from *ethical life*. The ethical-life gloss says "ethics", not "morality" (reverification v2, MAJOR). |
 | Pligt / Forpligtelse | **duty** / **obligation** | Plain |
+| offre / opgive | **sacrifice** / **give up** | Kept apart: resignation *gives up*; the deed *sacrifices* (P-II ¶25 separates them) |
+| Latterlighed | **ridiculous** | Never "absurd", which is reserved for *det Absurde* |
+| Udtryk | **expression** | An argumentative term in both Problemata; never "name" or "sign" |
 | absolut Pligt mod Gud | **absolute duty to God** | P-II title |
 | det Absolute | **the absolute** | Not glossed as "God" in P-I. P-II ¶4 makes the identification itself. |
 | Tro / troe | **faith** / **have faith**, **believe** | Never "belief". *den Troende* is **the believer**. |
 | Troens Ridder | **the knight of faith** | Already established in earlier sections |
 | tragisk Helt | **the tragic hero** | Established earlier |
 | Paradox | **paradox** | Defined by the text: the single individual is higher than the universal |
-| det Paradoxe (adj. noun) | **whatever is paradoxical** | Kept apart from *Paradoxet* ("the paradox"), which cannot be mediated (P-I ¶16) |
+| det Paradoxe (adj. noun) | **whatever is paradoxical** / **something paradoxical** | Kept apart from *Paradoxet* ("the paradox"), which cannot be mediated (P-I ¶16, ¶19) |
 | det Absurde | **the absurd** | Defined by the text: "the absurd is precisely this: that he as the single individual is higher than the universal" (P-I ¶6) |
 | mediere / Mediation | **mediate** / **mediation** | "that is, it cannot be brought under the universal — for all mediation takes place precisely by means of the universal" (P-I ¶4). The second half is the source's own. |
 | Mellembestemmelse; det Mellemliggende | **middle term** (both) | P-I ¶6; P-II ¶7 ("that is, the universal", from the source). The two Danish words are unified so that the reader can connect the passages. |
