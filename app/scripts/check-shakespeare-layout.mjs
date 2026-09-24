@@ -61,7 +61,7 @@ async function inspect(page, scenario) {
   assert(!state.overflow, 'no horizontal overflow')
   if (state.desktop) for (const offset of state.openingOffsets) assert(offset < 2, 'speaker and first dialogue line share the verse margin')
   for (const display of state.lineDisplays) assert.equal(display, state.layout === 'flowing' ? 'inline' : 'block')
-  for (const speaker of state.speakers) if (state.layout === 'flowing' || state.desktop) { assert.equal(speaker.display, 'block'); assert(speaker.font >= 14 && Math.abs(speaker.font - Math.max(14, speaker.parentFont * .63)) < 1) }
+  for (const speaker of state.speakers) { assert.equal(speaker.display, 'block'); assert(speaker.font >= 14 && Math.abs(speaker.font - Math.max(14, speaker.parentFont * .63)) < 1) }
   for (const marker of state.markers) { assert(marker.attached, 'verse marker stays with preceding word'); assert.equal(marker.text, '', 'marker is not added to source text'); assert(marker.content.includes('·')) }
   if (state.layout === 'verse') assert.equal(state.markers.length, 0)
   return state
