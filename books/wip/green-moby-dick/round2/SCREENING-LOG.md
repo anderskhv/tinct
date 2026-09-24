@@ -24,3 +24,5 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b94 | all 17 (100.9 Line gloss, 101.4 anti-scorbutic gloss accurate) | — | 101.1 restructure moves "only" — flagged for re-verification; 101.0 date arithmetic is Melville's own |
 | b102 | all 23 (103.9 Pompey's Pillar gloss accurate) | — | restructures 104.6, 105.5, 105.12 flagged for clause-level re-verification |
 | b23 | 8 of 9 | 23.3 rejected | Lee Shore climax "worm-like ... like a coward" is Melville's deliberate doubled figure; 29.2 "old second mate" is source wording; 24.21 "No more!" = "enough said" confirmed |
+| b01 | all 3 (5.5 "polish" confirmed as the referent in source) | — | playbill "AFFGHANISTAN" kept as quoted document; "Feegees" in dialogue handled in decision-7 sweep |
+| b06 | all 7 (9.16 shroud gloss accurate; 15.0 "knocking up" → "knocking at ... door" avoids an unintended modern sense) | — | — |
