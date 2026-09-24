@@ -1,0 +1,61 @@
+{
+  "book": "jane-eyre",
+  "edition": "modern-en",
+  "coordinateConvention": "chapter is 1-based, paragraph is 0-based (reader chapterNumber/paragraphIndex); offsets are UTF-16 code units",
+  "bases": {
+    "corrected": {
+      "description": "featured-source-cleanup corrected candidate (primary target; supersedes accepted)",
+      "commit": "7994156f131a0c382e3f1372518dcb55a44eaade",
+      "branch": "claude/admiring-brahmagupta-rb9sws",
+      "path": "books/wip/featured-source-cleanup/jane-eyre/jane-eyre-modern-en.json",
+      "sha256": "bfd5ace3b7803b4d31773148fdaf244ab6da0fd91db329a6077ae88d351a9749",
+      "paragraphs": 4034,
+      "patchedSha256": "0488dac58943afde5be0b7e1105206429e2fc0a887462ff753057081e096dff6"
+    },
+    "accepted": {
+      "description": "pre-cleanup accepted candidate (only if it is ever published without the structural cleanup, e.g. PR #160 as-is)",
+      "commit": "d47d80f8e849819c67b4879f925d1493619478e3",
+      "branch": "claude/laughing-hypatia-svxsjf",
+      "path": "books/wip/green-jane-eyre/candidate.json",
+      "sha256": "5e270560909297f7f9ccb4e0914a79923b29471008b23e1e70a251a882dce7d7",
+      "paragraphs": 4047,
+      "patchedSha256": "dbf47f1399830208fd1b3e25457ff7f573b1ea1c3b0c47c37924ebbb679b7d61"
+    }
+  },
+  "changes": [
+    {
+      "id": "JE-TC-1",
+      "coordinates": {
+        "accepted": {
+          "chapter": 34,
+          "paragraph": 140
+        },
+        "corrected": {
+          "chapter": 34,
+          "paragraph": 139
+        }
+      },
+      "flaggedAs": "34.140",
+      "old": "“Very well,” I said shortly; “under the circumstances, quite as well as if I were either your real sister, or a man and a clergyman like yourself.”",
+      "new": "“We can be together very well,” I said shortly; “under the circumstances, quite as well as if I were either your real sister, or a man and a clergyman like yourself.”",
+      "oldParagraphSha256": "a71bc4bf96a2429babad24cfd99d8cfda2c8ded242df4622bd0bb5df3838d663",
+      "newParagraphSha256": "ddde74e736378dc212e76a6d20adbac6ca71746f019a6e261d003fed0442d179",
+      "edit": {
+        "utf16Offset": 1,
+        "deleted": "Very",
+        "inserted": "We can be together very",
+        "utf16Delta": 19
+      },
+      "reason": "Demonstrated misreading. A bare “Very well” reads today as reluctant assent; in context it is Jane's elliptical answer to St. John's “How can we be forever together … and unwed?” (“we can be together very well”), which the following “quite as well as if” depends on. Two of three blind readers misread it; the fresh reader of the corrected text read it correctly. Supplies only the elided predicate; keeps Brontë's “very well” so the rise to “perfectly well” at the next Jane line is preserved.",
+      "characterReferenceImpact": {
+        "mentionsInParagraph": 0,
+        "anchorsInParagraph": 0,
+        "cardsChecked": [
+          "main app/public/data/characters/jane-eyre.v1.json sha256 2149c234… (contentVersion 2026-09-12.1)",
+          "codex/jane-reviewed-release-20260924 card sha256 b3449a6d… (contentVersion 2026-09-24.1)"
+        ],
+        "required": "Recompute the modern-en paragraphHashes entry for this paragraph (chapter 34 index 140 on the pre-cleanup card layout, 139 after the structural cleanup) to newParagraphSha256, and set sourceSha256 to the patched edition hash. No mention or anchor moves; no offsets shift."
+      }
+    }
+  ]
+}
