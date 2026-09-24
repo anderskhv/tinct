@@ -157,7 +157,7 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
         approved = approved_mapping_span(a, b, mention, approved_mappings)
         if approved is not None:
             projected_start, projected_end, value = approved
-            relocated.append({**mention, "newText": value, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "explicit accepted identity mapping; same occurrence count"})
+            relocated.append({**mention, "newText": value, "newStartOffset": projected_start, "newEndOffset": projected_end, "method": "explicit accepted identity mapping; verified occurrence selection"})
         if projected_end <= projected_start:
             dropped.append({**mention, "reason": "source span removed"})
             continue
@@ -201,7 +201,8 @@ def prepare(root=ROOT, config_path=CONFIG):
         before_raw = target.read_bytes()
         if digest(before_raw) != item["before"]:
             raise ValueError(f"{book}: live source moved; review before replacing")
-        url = f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/books/wip/green-{book}/candidate.json"
+        base = item.get("sourceDirectory", f"books/wip/green-{book}")
+        url = f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/{base}/candidate.json"
         request = urllib.request.Request(url, headers={"User-Agent": "Tinct-release-preflight"})
         accepted_raw = urllib.request.urlopen(request, timeout=30).read()
         if digest(accepted_raw) != item["accepted"]:
