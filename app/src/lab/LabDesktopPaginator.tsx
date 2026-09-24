@@ -219,9 +219,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
   }, [paragraphs, comparison, chapterTitle, layoutKey, chapterActions, hasNextChapter, hyphenLang, hyphensReady])
   return <div ref={hostRef} className={`lab-desktop-measure lab-page-measure${comparison ? ' is-paired' : ''}`} aria-hidden="true">
     <div className="lab-desktop-measure-page">
-      <LabChapterHeading title={chapterTitle} preview={chapterActions} />
+      <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
       <div className="lab-desktop-measure-rows" />
-      {chapterActions && <LabChapterEnd hasNext={hasNextChapter} />}
+      {chapterActions && <LabChapterEnd hasNext={hasNextChapter} measuring />}
     </div>
   </div>
 }

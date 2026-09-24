@@ -1046,7 +1046,7 @@ export function LabPageMeasurePaint(input: {
   return (
     <article className={`lab-passage lab-book is-reading${input.hearingPaint ? ' is-hearing' : ''}`}>
       {isChapterFirstReadingPage(input.page) && (
-        <LabChapterHeading title={input.chapterTitle} preview={input.chapterActions} />
+        <LabChapterHeading title={input.chapterTitle} preview={input.chapterActions} measuring />
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">

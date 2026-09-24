@@ -398,7 +398,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">
       <article className="lab-passage lab-book is-reading lab-native-page-surface">
         <div className="lab-native-page-flow" data-native-page-flow>
-          <LabChapterHeading title={chapterTitle} preview={chapterActions} />
+          <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
           <div className="lab-book-columns">
             <div className="lab-book-col">
               <div className="lab-hearing-stage">
@@ -411,8 +411,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         </div>
       </article>
       {fillPages && <article className="lab-passage lab-book is-reading lab-native-fragment-surface" data-native-fragment-surface>
-        <LabChapterHeading title={chapterTitle} preview={chapterActions} />
-        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd hasNext={hasNextChapter} />}</div></div>
+        <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
+        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd hasNext={hasNextChapter} measuring />}</div></div>
       </article>}
     </div>
   )
