@@ -1,0 +1,885 @@
+{
+ "ok": true,
+ "failures": [],
+ "counts": {
+  "books": 73,
+  "chapters": 1328,
+  "paragraphs": 10618,
+  "usfxTextKeys": 35518,
+  "candidateKeys": 35519,
+  "verseMismatchesVsUsfx": 0,
+  "missingInCandidate": [],
+  "emptyReferences": 29,
+  "vplAbsentBooks": [
+   "GEN"
+  ],
+  "vplDifferences": 143,
+  "vplUnexplainedDifferences": 0,
+  "vplDifferenceKinds": {
+   "following-superscription-folded-into-verse": 21,
+   "speaker-label-folded-into-verse": 4,
+   "unnumbered-text-folded-into-verse": 117,
+   "vpl-space-before-qs-marker": 1
+  }
+ },
+ "vplDifferences": [
+  {
+   "ref": "PSA.3.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David, when he fled from Absalom his son. LORD, how my adversaries have increased! Many are those who rise up against me.",
+   "candidate": "LORD, how my adversaries have increased! Many are those who rise up against me."
+  },
+  {
+   "ref": "PSA.4.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician; on stringed instruments. A Psalm by David. Answer me when I call, God of my righteousness. Give me relief from my distress. Have mercy on me, and hear my prayer.",
+   "candidate": "Answer me when I call, God of my righteousness. Give me relief from my distress. Have mercy on me, and hear my prayer."
+  },
+  {
+   "ref": "PSA.5.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician, with the flutes. A Psalm by David. Give ear to my words, LORD. Consider my meditation.",
+   "candidate": "Give ear to my words, LORD. Consider my meditation."
+  },
+  {
+   "ref": "PSA.6.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician; on stringed instruments, upon the eight-stringed lyre. A Psalm by David. LORD, don’t rebuke me in your anger, neither discipline me in your wrath.",
+   "candidate": "LORD, don’t rebuke me in your anger, neither discipline me in your wrath."
+  },
+  {
+   "ref": "PSA.7.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A meditation by David, which he sang to the LORD, concerning the words of Cush, the Benjamite. LORD, my God, I take refuge in you. Save me from all those who pursue me, and deliver me,",
+   "candidate": "LORD, my God, I take refuge in you. Save me from all those who pursue me, and deliver me,"
+  },
+  {
+   "ref": "PSA.8.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician; on an instrument of Gath. A Psalm by David. LORD, our Lord, how majestic is your name in all the earth! You have set your glory above the heavens!",
+   "candidate": "LORD, our Lord, how majestic is your name in all the earth! You have set your glory above the heavens!"
+  },
+  {
+   "ref": "PSA.9.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. Set to “The Death of the Son.” A Psalm by David. I will give thanks to the LORD with my whole heart. I will tell of all your marvelous works.",
+   "candidate": "I will give thanks to the LORD with my whole heart. I will tell of all your marvelous works."
+  },
+  {
+   "ref": "PSA.11.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By David. In the LORD, I take refuge. How can you say to my soul, “Flee as a bird to your mountain”?",
+   "candidate": "In the LORD, I take refuge. How can you say to my soul, “Flee as a bird to your mountain”?"
+  },
+  {
+   "ref": "PSA.12.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician; upon an eight-stringed lyre. A Psalm of David. Help, LORD; for the godly man ceases. For the faithful fail from among the children of men.",
+   "candidate": "Help, LORD; for the godly man ceases. For the faithful fail from among the children of men."
+  },
+  {
+   "ref": "PSA.13.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. How long, LORD? Will you forget me forever? How long will you hide your face from me?",
+   "candidate": "How long, LORD? Will you forget me forever? How long will you hide your face from me?"
+  },
+  {
+   "ref": "PSA.14.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By David. The fool has said in his heart, “There is no God.” They are corrupt. They have done abominable deeds. There is no one who does good.",
+   "candidate": "The fool has said in his heart, “There is no God.” They are corrupt. They have done abominable deeds. There is no one who does good."
+  },
+  {
+   "ref": "PSA.15.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. LORD, who shall dwell in your sanctuary? Who shall live on your holy hill?",
+   "candidate": "LORD, who shall dwell in your sanctuary? Who shall live on your holy hill?"
+  },
+  {
+   "ref": "PSA.16.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Poem by David. Preserve me, God, for I take refuge in you.",
+   "candidate": "Preserve me, God, for I take refuge in you."
+  },
+  {
+   "ref": "PSA.17.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Prayer by David. Hear, LORD, my righteous plea. Give ear to my prayer that doesn’t go out of deceitful lips.",
+   "candidate": "Hear, LORD, my righteous plea. Give ear to my prayer that doesn’t go out of deceitful lips."
+  },
+  {
+   "ref": "PSA.18.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By David the servant of the LORD, who spoke to the LORD the words of this song in the day that the LORD delivered him from the hand of all his enemies, and from the hand of Saul. He said, I love you, LORD, my strength.",
+   "candidate": "I love you, LORD, my strength."
+  },
+  {
+   "ref": "PSA.19.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. The heavens declare the glory of God. The expanse shows his handiwork.",
+   "candidate": "The heavens declare the glory of God. The expanse shows his handiwork."
+  },
+  {
+   "ref": "PSA.20.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. May the LORD answer you in the day of trouble. May the name of the God of Jacob set you up on high,",
+   "candidate": "May the LORD answer you in the day of trouble. May the name of the God of Jacob set you up on high,"
+  },
+  {
+   "ref": "PSA.21.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. The king rejoices in your strength, LORD! How greatly he rejoices in your salvation!",
+   "candidate": "The king rejoices in your strength, LORD! How greatly he rejoices in your salvation!"
+  },
+  {
+   "ref": "PSA.22.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician; set to “The Doe of the Morning.” A Psalm by David. My God, my God, why have you forsaken me? Why are you so far from helping me, and from the words of my groaning?",
+   "candidate": "My God, my God, why have you forsaken me? Why are you so far from helping me, and from the words of my groaning?"
+  },
+  {
+   "ref": "PSA.23.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. The LORD is my shepherd; I shall lack nothing.",
+   "candidate": "The LORD is my shepherd; I shall lack nothing."
+  },
+  {
+   "ref": "PSA.24.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. The earth is the LORD’s, with its fullness; the world, and those who dwell in it.",
+   "candidate": "The earth is the LORD’s, with its fullness; the world, and those who dwell in it."
+  },
+  {
+   "ref": "PSA.25.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. To you, LORD, I lift up my soul.",
+   "candidate": "To you, LORD, I lift up my soul."
+  },
+  {
+   "ref": "PSA.26.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. Judge me, LORD, for I have walked in my integrity. I have trusted also in the LORD without wavering.",
+   "candidate": "Judge me, LORD, for I have walked in my integrity. I have trusted also in the LORD without wavering."
+  },
+  {
+   "ref": "PSA.27.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. The LORD is my light and my salvation. Whom shall I fear? The LORD is the strength of my life. Of whom shall I be afraid?",
+   "candidate": "The LORD is my light and my salvation. Whom shall I fear? The LORD is the strength of my life. Of whom shall I be afraid?"
+  },
+  {
+   "ref": "PSA.28.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. To you, LORD, I call. My rock, don’t be deaf to me, lest, if you are silent to me, I would become like those who go down into the pit.",
+   "candidate": "To you, LORD, I call. My rock, don’t be deaf to me, lest, if you are silent to me, I would become like those who go down into the pit."
+  },
+  {
+   "ref": "PSA.29.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. Ascribe to the LORD, you sons of the mighty, ascribe to the LORD glory and strength.",
+   "candidate": "Ascribe to the LORD, you sons of the mighty, ascribe to the LORD glory and strength."
+  },
+  {
+   "ref": "PSA.30.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm. A Song for the Dedication of the Temple. By David. I will extol you, LORD, for you have raised me up, and have not made my foes to rejoice over me.",
+   "candidate": "I will extol you, LORD, for you have raised me up, and have not made my foes to rejoice over me."
+  },
+  {
+   "ref": "PSA.31.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. In you, LORD, I take refuge. Let me never be disappointed. Deliver me in your righteousness.",
+   "candidate": "In you, LORD, I take refuge. Let me never be disappointed. Deliver me in your righteousness."
+  },
+  {
+   "ref": "PSA.32.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. A contemplative psalm. Blessed is he whose disobedience is forgiven, whose sin is covered.",
+   "candidate": "Blessed is he whose disobedience is forgiven, whose sin is covered."
+  },
+  {
+   "ref": "PSA.34.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David; when he pretended to be insane before Abimelech, who drove him away, and he departed. I will bless the LORD at all times. His praise will always be in my mouth.",
+   "candidate": "I will bless the LORD at all times. His praise will always be in my mouth."
+  },
+  {
+   "ref": "PSA.35.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. Contend, LORD, with those who contend with me. Fight against those who fight against me.",
+   "candidate": "Contend, LORD, with those who contend with me. Fight against those who fight against me."
+  },
+  {
+   "ref": "PSA.36.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By David, the servant of the LORD. A revelation is within my heart about the disobedience of the wicked: There is no fear of God before his eyes.",
+   "candidate": "A revelation is within my heart about the disobedience of the wicked: There is no fear of God before his eyes."
+  },
+  {
+   "ref": "PSA.37.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. Don’t fret because of evildoers, neither be envious against those who work unrighteousness.",
+   "candidate": "Don’t fret because of evildoers, neither be envious against those who work unrighteousness."
+  },
+  {
+   "ref": "PSA.38.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David, for a memorial. LORD, don’t rebuke me in your wrath, neither chasten me in your hot displeasure.",
+   "candidate": "LORD, don’t rebuke me in your wrath, neither chasten me in your hot displeasure."
+  },
+  {
+   "ref": "PSA.39.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. For Jeduthun. A Psalm by David. I said, “I will watch my ways, so that I don’t sin with my tongue. I will keep my mouth with a bridle while the wicked is before me.”",
+   "candidate": "I said, “I will watch my ways, so that I don’t sin with my tongue. I will keep my mouth with a bridle while the wicked is before me.”"
+  },
+  {
+   "ref": "PSA.40.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. I waited patiently for the LORD. He turned to me, and heard my cry.",
+   "candidate": "I waited patiently for the LORD. He turned to me, and heard my cry."
+  },
+  {
+   "ref": "PSA.41.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. Blessed is he who considers the poor. The LORD will deliver him in the day of evil.",
+   "candidate": "Blessed is he who considers the poor. The LORD will deliver him in the day of evil."
+  },
+  {
+   "ref": "PSA.42.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A contemplation by the sons of Korah. As the deer pants for the water brooks, so my soul pants after you, God.",
+   "candidate": "As the deer pants for the water brooks, so my soul pants after you, God."
+  },
+  {
+   "ref": "PSA.44.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By the sons of Korah. A contemplative psalm. We have heard with our ears, God; our fathers have told us what work you did in their days, in the days of old.",
+   "candidate": "We have heard with our ears, God; our fathers have told us what work you did in their days, in the days of old."
+  },
+  {
+   "ref": "PSA.45.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. Set to “The Lilies.” A contemplation by the sons of Korah. A wedding song. My heart overflows with a noble theme. I recite my verses for the king. My tongue is like the pen of a skillful writer.",
+   "candidate": "My heart overflows with a noble theme. I recite my verses for the king. My tongue is like the pen of a skillful writer."
+  },
+  {
+   "ref": "PSA.46.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By the sons of Korah. According to Alamoth. God is our refuge and strength, a very present help in trouble.",
+   "candidate": "God is our refuge and strength, a very present help in trouble."
+  },
+  {
+   "ref": "PSA.47.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by the sons of Korah. Oh clap your hands, all you nations. Shout to God with the voice of triumph!",
+   "candidate": "Oh clap your hands, all you nations. Shout to God with the voice of triumph!"
+  },
+  {
+   "ref": "PSA.48.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song. A Psalm by the sons of Korah. Great is the LORD, and greatly to be praised, in the city of our God, in his holy mountain.",
+   "candidate": "Great is the LORD, and greatly to be praised, in the city of our God, in his holy mountain."
+  },
+  {
+   "ref": "PSA.49.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by the sons of Korah. Hear this, all you peoples. Listen, all you inhabitants of the world,",
+   "candidate": "Hear this, all you peoples. Listen, all you inhabitants of the world,"
+  },
+  {
+   "ref": "PSA.50.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by Asaph. The Mighty One, God, the LORD, speaks, and calls the earth from sunrise to sunset.",
+   "candidate": "The Mighty One, God, the LORD, speaks, and calls the earth from sunrise to sunset."
+  },
+  {
+   "ref": "PSA.51.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David, when Nathan the prophet came to him, after he had gone in to Bathsheba. Have mercy on me, God, according to your loving kindness. According to the multitude of your tender mercies, blot out my transgressions.",
+   "candidate": "Have mercy on me, God, according to your loving kindness. According to the multitude of your tender mercies, blot out my transgressions."
+  },
+  {
+   "ref": "PSA.52.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A contemplation by David, when Doeg the Edomite came and told Saul, “David has come to Ahimelech’s house.” Why do you boast of mischief, mighty man? God’s loving kindness endures continually.",
+   "candidate": "Why do you boast of mischief, mighty man? God’s loving kindness endures continually."
+  },
+  {
+   "ref": "PSA.53.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Mahalath.” A contemplation by David. The fool has said in his heart, “There is no God.” They are corrupt, and have done abominable iniquity. There is no one who does good.",
+   "candidate": "The fool has said in his heart, “There is no God.” They are corrupt, and have done abominable iniquity. There is no one who does good."
+  },
+  {
+   "ref": "PSA.54.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. On stringed instruments. A contemplation by David, when the Ziphites came and said to Saul, “Isn’t David hiding himself among us?” Save me, God, by your name. Vindicate me in your might.",
+   "candidate": "Save me, God, by your name. Vindicate me in your might."
+  },
+  {
+   "ref": "PSA.55.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. On stringed instruments. A contemplation by David. Listen to my prayer, God. Don’t hide yourself from my supplication.",
+   "candidate": "Listen to my prayer, God. Don’t hide yourself from my supplication."
+  },
+  {
+   "ref": "PSA.56.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Silent Dove in Distant Lands.” A poem by David, when the Philistines seized him in Gath. Be merciful to me, God, for man wants to swallow me up. All day long, he attacks and oppresses me.",
+   "candidate": "Be merciful to me, God, for man wants to swallow me up. All day long, he attacks and oppresses me."
+  },
+  {
+   "ref": "PSA.57.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Do Not Destroy.” A poem by David, when he fled from Saul, in the cave. Be merciful to me, God, be merciful to me, for my soul takes refuge in you. Yes, in the shadow of your wings, I will take refuge, until disaster has passed.",
+   "candidate": "Be merciful to me, God, be merciful to me, for my soul takes refuge in you. Yes, in the shadow of your wings, I will take refuge, until disaster has passed."
+  },
+  {
+   "ref": "PSA.58.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Do Not Destroy.” A poem by David. Do you indeed speak righteousness, silent ones? Do you judge blamelessly, you sons of men?",
+   "candidate": "Do you indeed speak righteousness, silent ones? Do you judge blamelessly, you sons of men?"
+  },
+  {
+   "ref": "PSA.59.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Do Not Destroy.” A poem by David, when Saul sent, and they watched the house to kill him. Deliver me from my enemies, my God. Set me on high from those who rise up against me.",
+   "candidate": "Deliver me from my enemies, my God. Set me on high from those who rise up against me."
+  },
+  {
+   "ref": "PSA.60.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “The Lily of the Covenant.” A teaching poem by David, when he fought with Aram Naharaim and with Aram Zobah, and Joab returned, and killed twelve thousand of Edom in the Valley of Salt. God, you have rejected us. You have broken us down. You have been angry. Restore us, again.",
+   "candidate": "God, you have rejected us. You have broken us down. You have been angry. Restore us, again."
+  },
+  {
+   "ref": "PSA.61.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. For a stringed instrument. By David. Hear my cry, God. Listen to my prayer.",
+   "candidate": "Hear my cry, God. Listen to my prayer."
+  },
+  {
+   "ref": "PSA.62.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To Jeduthun. A Psalm by David. My soul rests in God alone. My salvation is from him.",
+   "candidate": "My soul rests in God alone. My salvation is from him."
+  },
+  {
+   "ref": "PSA.63.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David, when he was in the desert of Judah. God, you are my God. I will earnestly seek you. My soul thirsts for you. My flesh longs for you, in a dry and weary land, where there is no water.",
+   "candidate": "God, you are my God. I will earnestly seek you. My soul thirsts for you. My flesh longs for you, in a dry and weary land, where there is no water."
+  },
+  {
+   "ref": "PSA.64.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. Hear my voice, God, in my complaint. Preserve my life from fear of the enemy.",
+   "candidate": "Hear my voice, God, in my complaint. Preserve my life from fear of the enemy."
+  },
+  {
+   "ref": "PSA.65.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. A song. Praise waits for you, God, in Zion. Vows shall be performed to you.",
+   "candidate": "Praise waits for you, God, in Zion. Vows shall be performed to you."
+  },
+  {
+   "ref": "PSA.66.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A song. A Psalm. Make a joyful shout to God, all the earth!",
+   "candidate": "Make a joyful shout to God, all the earth!"
+  },
+  {
+   "ref": "PSA.67.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. With stringed instruments. A Psalm. A song. May God be merciful to us, bless us, and cause his face to shine on us. Selah.",
+   "candidate": "May God be merciful to us, bless us, and cause his face to shine on us. Selah."
+  },
+  {
+   "ref": "PSA.68.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. A song. Let God arise! Let his enemies be scattered! Let them who hate him also flee before him.",
+   "candidate": "Let God arise! Let his enemies be scattered! Let them who hate him also flee before him."
+  },
+  {
+   "ref": "PSA.68.32",
+   "kind": "vpl-space-before-qs-marker",
+   "vpl": "Sing to God, you kingdoms of the earth! Sing praises to the Lord— Selah—",
+   "candidate": "Sing to God, you kingdoms of the earth! Sing praises to the Lord—Selah—"
+  },
+  {
+   "ref": "PSA.69.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Lilies.” By David. Save me, God, for the waters have come up to my neck!",
+   "candidate": "Save me, God, for the waters have come up to my neck!"
+  },
+  {
+   "ref": "PSA.70.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. By David. A reminder. Hurry, God, to deliver me. Come quickly to help me, LORD.",
+   "candidate": "Hurry, God, to deliver me. Come quickly to help me, LORD."
+  },
+  {
+   "ref": "PSA.72.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By Solomon. God, give the king your justice; your righteousness to the royal son.",
+   "candidate": "God, give the king your justice; your righteousness to the royal son."
+  },
+  {
+   "ref": "PSA.73.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by Asaph. Surely God is good to Israel, to those who are pure in heart.",
+   "candidate": "Surely God is good to Israel, to those who are pure in heart."
+  },
+  {
+   "ref": "PSA.74.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A contemplation by Asaph. God, why have you rejected us forever? Why does your anger smolder against the sheep of your pasture?",
+   "candidate": "God, why have you rejected us forever? Why does your anger smolder against the sheep of your pasture?"
+  },
+  {
+   "ref": "PSA.75.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “Do Not Destroy.” A Psalm by Asaph. A song. We give thanks to you, God. We give thanks, for your Name is near. Men tell about your wondrous works.",
+   "candidate": "We give thanks to you, God. We give thanks, for your Name is near. Men tell about your wondrous works."
+  },
+  {
+   "ref": "PSA.76.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. On stringed instruments. A Psalm by Asaph. A song. In Judah, God is known. His name is great in Israel.",
+   "candidate": "In Judah, God is known. His name is great in Israel."
+  },
+  {
+   "ref": "PSA.77.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To Jeduthun. A Psalm by Asaph. My cry goes to God! Indeed, I cry to God for help, and for him to listen to me.",
+   "candidate": "My cry goes to God! Indeed, I cry to God for help, and for him to listen to me."
+  },
+  {
+   "ref": "PSA.78.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A contemplation by Asaph. Hear my teaching, my people. Turn your ears to the words of my mouth.",
+   "candidate": "Hear my teaching, my people. Turn your ears to the words of my mouth."
+  },
+  {
+   "ref": "PSA.79.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by Asaph. God, the nations have come into your inheritance. They have defiled your holy temple. They have laid Jerusalem in heaps.",
+   "candidate": "God, the nations have come into your inheritance. They have defiled your holy temple. They have laid Jerusalem in heaps."
+  },
+  {
+   "ref": "PSA.80.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. To the tune of “The Lilies of the Covenant.” A Psalm by Asaph. Hear us, Shepherd of Israel, you who lead Joseph like a flock, you who sit above the cherubim, shine out.",
+   "candidate": "Hear us, Shepherd of Israel, you who lead Joseph like a flock, you who sit above the cherubim, shine out."
+  },
+  {
+   "ref": "PSA.81.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. On an instrument of Gath. By Asaph. Sing aloud to God, our strength! Make a joyful shout to the God of Jacob!",
+   "candidate": "Sing aloud to God, our strength! Make a joyful shout to the God of Jacob!"
+  },
+  {
+   "ref": "PSA.82.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by Asaph. God presides in the great assembly. He judges among the gods.",
+   "candidate": "God presides in the great assembly. He judges among the gods."
+  },
+  {
+   "ref": "PSA.83.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A song. A Psalm by Asaph. God, don’t keep silent. Don’t keep silent, and don’t be still, God.",
+   "candidate": "God, don’t keep silent. Don’t keep silent, and don’t be still, God."
+  },
+  {
+   "ref": "PSA.84.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. On an instrument of Gath. A Psalm by the sons of Korah. How lovely are your dwellings, LORD of Armies!",
+   "candidate": "How lovely are your dwellings, LORD of Armies!"
+  },
+  {
+   "ref": "PSA.85.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by the sons of Korah. LORD, you have been favorable to your land. You have restored the fortunes of Jacob.",
+   "candidate": "LORD, you have been favorable to your land. You have restored the fortunes of Jacob."
+  },
+  {
+   "ref": "PSA.86.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Prayer by David. Hear, LORD, and answer me, for I am poor and needy.",
+   "candidate": "Hear, LORD, and answer me, for I am poor and needy."
+  },
+  {
+   "ref": "PSA.87.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by the sons of Korah; a Song. His foundation is in the holy mountains.",
+   "candidate": "His foundation is in the holy mountains."
+  },
+  {
+   "ref": "PSA.88.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song. A Psalm by the sons of Korah. For the Chief Musician. To the tune of “The Suffering of Affliction.” A contemplation by Heman, the Ezrahite. LORD, the God of my salvation, I have cried day and night before you.",
+   "candidate": "LORD, the God of my salvation, I have cried day and night before you."
+  },
+  {
+   "ref": "PSA.89.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A contemplation by Ethan, the Ezrahite. I will sing of the loving kindness of the LORD forever. With my mouth, I will make known your faithfulness to all generations.",
+   "candidate": "I will sing of the loving kindness of the LORD forever. With my mouth, I will make known your faithfulness to all generations."
+  },
+  {
+   "ref": "PSA.90.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Prayer by Moses, the man of God. Lord, you have been our dwelling place for all generations.",
+   "candidate": "Lord, you have been our dwelling place for all generations."
+  },
+  {
+   "ref": "PSA.92.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm. A song for the Sabbath day. It is a good thing to give thanks to the LORD, to sing praises to your name, Most High,",
+   "candidate": "It is a good thing to give thanks to the LORD, to sing praises to your name, Most High,"
+  },
+  {
+   "ref": "PSA.98.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm. Sing to the LORD a new song, for he has done marvelous things! His right hand and his holy arm have worked salvation for him.",
+   "candidate": "Sing to the LORD a new song, for he has done marvelous things! His right hand and his holy arm have worked salvation for him."
+  },
+  {
+   "ref": "PSA.100.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm of thanksgiving. Shout for joy to the LORD, all you lands!",
+   "candidate": "Shout for joy to the LORD, all you lands!"
+  },
+  {
+   "ref": "PSA.101.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. I will sing of loving kindness and justice. To you, LORD, I will sing praises.",
+   "candidate": "I will sing of loving kindness and justice. To you, LORD, I will sing praises."
+  },
+  {
+   "ref": "PSA.102.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Prayer of the afflicted, when he is overwhelmed and pours out his complaint before the LORD. Hear my prayer, LORD! Let my cry come to you.",
+   "candidate": "Hear my prayer, LORD! Let my cry come to you."
+  },
+  {
+   "ref": "PSA.103.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. Praise the LORD, my soul! All that is within me, praise his holy name!",
+   "candidate": "Praise the LORD, my soul! All that is within me, praise his holy name!"
+  },
+  {
+   "ref": "PSA.108.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song. A Psalm by David. My heart is steadfast, God. I will sing and I will make music with my soul.",
+   "candidate": "My heart is steadfast, God. I will sing and I will make music with my soul."
+  },
+  {
+   "ref": "PSA.109.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. God of my praise, don’t remain silent,",
+   "candidate": "God of my praise, don’t remain silent,"
+  },
+  {
+   "ref": "PSA.110.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. The LORD says to my Lord, “Sit at my right hand, until I make your enemies your footstool for your feet.”",
+   "candidate": "The LORD says to my Lord, “Sit at my right hand, until I make your enemies your footstool for your feet.”"
+  },
+  {
+   "ref": "PSA.119.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "ALEPH Blessed are those whose ways are blameless, who walk according to the LORD’s law.",
+   "candidate": "Blessed are those whose ways are blameless, who walk according to the LORD’s law."
+  },
+  {
+   "ref": "PSA.119.8",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I will observe your statutes. Don’t utterly forsake me. BETH",
+   "candidate": "I will observe your statutes. Don’t utterly forsake me."
+  },
+  {
+   "ref": "PSA.119.16",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I will delight myself in your statutes. I will not forget your word. GIMEL",
+   "candidate": "I will delight myself in your statutes. I will not forget your word."
+  },
+  {
+   "ref": "PSA.119.24",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Indeed your statutes are my delight, and my counselors. DALETH",
+   "candidate": "Indeed your statutes are my delight, and my counselors."
+  },
+  {
+   "ref": "PSA.119.32",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I run in the path of your commandments, for you have set my heart free. HE",
+   "candidate": "I run in the path of your commandments, for you have set my heart free."
+  },
+  {
+   "ref": "PSA.119.40",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Behold, I long for your precepts! Revive me in your righteousness. VAV",
+   "candidate": "Behold, I long for your precepts! Revive me in your righteousness."
+  },
+  {
+   "ref": "PSA.119.48",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I reach out my hands for your commandments, which I love. I will meditate on your statutes. ZAYIN",
+   "candidate": "I reach out my hands for your commandments, which I love. I will meditate on your statutes."
+  },
+  {
+   "ref": "PSA.119.56",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "This is my way, that I keep your precepts. HETH",
+   "candidate": "This is my way, that I keep your precepts."
+  },
+  {
+   "ref": "PSA.119.64",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "The earth is full of your loving kindness, LORD. Teach me your statutes. TETH",
+   "candidate": "The earth is full of your loving kindness, LORD. Teach me your statutes."
+  },
+  {
+   "ref": "PSA.119.72",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "The law of your mouth is better to me than thousands of pieces of gold and silver. YODH",
+   "candidate": "The law of your mouth is better to me than thousands of pieces of gold and silver."
+  },
+  {
+   "ref": "PSA.119.80",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Let my heart be blameless toward your decrees, that I may not be disappointed. KAPF",
+   "candidate": "Let my heart be blameless toward your decrees, that I may not be disappointed."
+  },
+  {
+   "ref": "PSA.119.88",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Preserve my life according to your loving kindness, so I will obey the statutes of your mouth. LAMEDH",
+   "candidate": "Preserve my life according to your loving kindness, so I will obey the statutes of your mouth."
+  },
+  {
+   "ref": "PSA.119.96",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I have seen a limit to all perfection, but your commands are boundless. MEM",
+   "candidate": "I have seen a limit to all perfection, but your commands are boundless."
+  },
+  {
+   "ref": "PSA.119.104",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Through your precepts, I get understanding; therefore I hate every false way. NUN",
+   "candidate": "Through your precepts, I get understanding; therefore I hate every false way."
+  },
+  {
+   "ref": "PSA.119.112",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I have set my heart to perform your statutes forever, even to the end. SAMEKH",
+   "candidate": "I have set my heart to perform your statutes forever, even to the end."
+  },
+  {
+   "ref": "PSA.119.120",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "My flesh trembles for fear of you. I am afraid of your judgments. AYIN",
+   "candidate": "My flesh trembles for fear of you. I am afraid of your judgments."
+  },
+  {
+   "ref": "PSA.119.128",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Therefore I consider all of your precepts to be right. I hate every false way. PE",
+   "candidate": "Therefore I consider all of your precepts to be right. I hate every false way."
+  },
+  {
+   "ref": "PSA.119.136",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Streams of tears run down my eyes, because they don’t observe your law. TZADHE",
+   "candidate": "Streams of tears run down my eyes, because they don’t observe your law."
+  },
+  {
+   "ref": "PSA.119.144",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Your testimonies are righteous forever. Give me understanding, that I may live. QOPH",
+   "candidate": "Your testimonies are righteous forever. Give me understanding, that I may live."
+  },
+  {
+   "ref": "PSA.119.152",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "Of old I have known from your testimonies, that you have founded them forever. RESH",
+   "candidate": "Of old I have known from your testimonies, that you have founded them forever."
+  },
+  {
+   "ref": "PSA.119.160",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "All of your words are truth. Every one of your righteous ordinances endures forever. SIN AND SHIN",
+   "candidate": "All of your words are truth. Every one of your righteous ordinances endures forever."
+  },
+  {
+   "ref": "PSA.119.168",
+   "kind": "following-superscription-folded-into-verse",
+   "vpl": "I have obeyed your precepts and your testimonies, for all my ways are before you. TAV",
+   "candidate": "I have obeyed your precepts and your testimonies, for all my ways are before you."
+  },
+  {
+   "ref": "PSA.120.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. In my distress, I cried to the LORD. He answered me.",
+   "candidate": "In my distress, I cried to the LORD. He answered me."
+  },
+  {
+   "ref": "PSA.121.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. I will lift up my eyes to the hills. Where does my help come from?",
+   "candidate": "I will lift up my eyes to the hills. Where does my help come from?"
+  },
+  {
+   "ref": "PSA.122.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. By David. I was glad when they said to me, “Let’s go to the LORD’s house!”",
+   "candidate": "I was glad when they said to me, “Let’s go to the LORD’s house!”"
+  },
+  {
+   "ref": "PSA.123.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. I lift up my eyes to you, you who sit in the heavens.",
+   "candidate": "I lift up my eyes to you, you who sit in the heavens."
+  },
+  {
+   "ref": "PSA.124.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. By David. If it had not been the LORD who was on our side, let Israel now say,",
+   "candidate": "If it had not been the LORD who was on our side, let Israel now say,"
+  },
+  {
+   "ref": "PSA.125.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. Those who trust in the LORD are as Mount Zion, which can’t be moved, but remains forever.",
+   "candidate": "Those who trust in the LORD are as Mount Zion, which can’t be moved, but remains forever."
+  },
+  {
+   "ref": "PSA.126.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. When the LORD brought back those who returned to Zion, we were like those who dream.",
+   "candidate": "When the LORD brought back those who returned to Zion, we were like those who dream."
+  },
+  {
+   "ref": "PSA.127.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. By Solomon. Unless the LORD builds the house, they who build it labor in vain. Unless the LORD watches over the city, the watchman guards it in vain.",
+   "candidate": "Unless the LORD builds the house, they who build it labor in vain. Unless the LORD watches over the city, the watchman guards it in vain."
+  },
+  {
+   "ref": "PSA.128.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. Blessed is everyone who fears the LORD, who walks in his ways.",
+   "candidate": "Blessed is everyone who fears the LORD, who walks in his ways."
+  },
+  {
+   "ref": "PSA.129.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. Many times they have afflicted me from my youth up. Let Israel now say:",
+   "candidate": "Many times they have afflicted me from my youth up. Let Israel now say:"
+  },
+  {
+   "ref": "PSA.130.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. Out of the depths I have cried to you, LORD.",
+   "candidate": "Out of the depths I have cried to you, LORD."
+  },
+  {
+   "ref": "PSA.131.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. By David. LORD, my heart isn’t arrogant, nor my eyes lofty; nor do I concern myself with great matters, or things too wonderful for me.",
+   "candidate": "LORD, my heart isn’t arrogant, nor my eyes lofty; nor do I concern myself with great matters, or things too wonderful for me."
+  },
+  {
+   "ref": "PSA.132.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. LORD, remember David and all his affliction,",
+   "candidate": "LORD, remember David and all his affliction,"
+  },
+  {
+   "ref": "PSA.133.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. By David. See how good and how pleasant it is for brothers to live together in unity!",
+   "candidate": "See how good and how pleasant it is for brothers to live together in unity!"
+  },
+  {
+   "ref": "PSA.134.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Song of Ascents. Look! Praise the LORD, all you servants of the LORD, who stand by night in the LORD’s house!",
+   "candidate": "Look! Praise the LORD, all you servants of the LORD, who stand by night in the LORD’s house!"
+  },
+  {
+   "ref": "PSA.138.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. I will give you thanks with my whole heart. Before the gods, I will sing praises to you.",
+   "candidate": "I will give you thanks with my whole heart. Before the gods, I will sing praises to you."
+  },
+  {
+   "ref": "PSA.139.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. LORD, you have searched me, and you know me.",
+   "candidate": "LORD, you have searched me, and you know me."
+  },
+  {
+   "ref": "PSA.140.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "For the Chief Musician. A Psalm by David. Deliver me, LORD, from evil men. Preserve me from violent men:",
+   "candidate": "Deliver me, LORD, from evil men. Preserve me from violent men:"
+  },
+  {
+   "ref": "PSA.141.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. LORD, I have called on you. Come to me quickly! Listen to my voice when I call to you.",
+   "candidate": "LORD, I have called on you. Come to me quickly! Listen to my voice when I call to you."
+  },
+  {
+   "ref": "PSA.142.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A contemplation by David, when he was in the cave. A Prayer. I cry with my voice to the LORD. With my voice, I ask the LORD for mercy.",
+   "candidate": "I cry with my voice to the LORD. With my voice, I ask the LORD for mercy."
+  },
+  {
+   "ref": "PSA.143.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A Psalm by David. Hear my prayer, LORD. Listen to my petitions. In your faithfulness and righteousness, relieve me.",
+   "candidate": "Hear my prayer, LORD. Listen to my petitions. In your faithfulness and righteousness, relieve me."
+  },
+  {
+   "ref": "PSA.144.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "By David. Blessed be the LORD, my rock, who trains my hands to war, and my fingers to battle—",
+   "candidate": "Blessed be the LORD, my rock, who trains my hands to war, and my fingers to battle—"
+  },
+  {
+   "ref": "PSA.145.1",
+   "kind": "unnumbered-text-folded-into-verse",
+   "vpl": "A praise psalm by David. I will exalt you, my God, the King. I will praise your name forever and ever.",
+   "candidate": "I will exalt you, my God, the King. I will praise your name forever and ever."
+  },
+  {
+   "ref": "SNG.1.4",
+   "kind": "speaker-label-folded-into-verse",
+   "vpl": "Take me away with you. Let’s hurry. The king has brought me into his rooms. Friends We will be glad and rejoice in you. We will praise your love more than wine! Beloved They are right to love you.",
+   "candidate": "Take me away with you. Let’s hurry. The king has brought me into his rooms. We will be glad and rejoice in you. We will praise your love more than wine! They are right to love you."
+  },
+  {
+   "ref": "SNG.5.1",
+   "kind": "speaker-label-folded-into-verse",
+   "vpl": "I have come into my garden, my sister, my bride. I have gathered my myrrh with my spice; I have eaten my honeycomb with my honey; I have drunk my wine with my milk. Friends Eat, friends! Drink, yes, drink abundantly, beloved.",
+   "candidate": "I have come into my garden, my sister, my bride. I have gathered my myrrh with my spice; I have eaten my honeycomb with my honey; I have drunk my wine with my milk. Eat, friends! Drink, yes, drink abundantly, beloved."
+  },
+  {
+   "ref": "SNG.6.13",
+   "kind": "speaker-label-folded-into-verse",
+   "vpl": "Return, return, Shulammite! Return, return, that we may gaze at you. Lover Why do you desire to gaze at the Shulammite, as at the dance of Mahanaim?",
+   "candidate": "Return, return, Shulammite! Return, return, that we may gaze at you. Why do you desire to gaze at the Shulammite, as at the dance of Mahanaim?"
+  },
+  {
+   "ref": "SNG.8.5",
+   "kind": "speaker-label-folded-into-verse",
+   "vpl": "Who is this who comes up from the wilderness, leaning on her beloved? Beloved Under the apple tree I awakened you. There your mother conceived you. There she was in labor and bore you.",
+   "candidate": "Who is this who comes up from the wilderness, leaning on her beloved? Under the apple tree I awakened you. There your mother conceived you. There she was in labor and bore you."
+  }
+ ]
+}

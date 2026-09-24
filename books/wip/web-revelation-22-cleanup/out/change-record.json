@@ -1,0 +1,346 @@
+{
+ "scope": "Remove the Project Gutenberg #8294 trailer appended to web-en Revelation 22 paragraph 4. No other byte changes.",
+ "baseline": {
+  "edition": {
+   "path": "app/public/data/editions/bible-web-en.json",
+   "sha256": "46d206635dc79214cb29a8b27f392f3d4a5f856bdedb3441315973f542c4eeae",
+   "bytes": 4425337
+  },
+  "shard": {
+   "path": "app/public/data/editions-chapters/bible-web-en/ch1189.json",
+   "sha256": "e8bb0cb2b076ebd6ce8ccac5dd97d1f5ef16050140b1e6907b0b2208e7c6d6e0",
+   "bytes": 21214
+  }
+ },
+ "candidate": {
+  "edition": {
+   "file": "out/bible-web-en.candidate.json",
+   "sha256": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa",
+   "bytes": 4407053
+  },
+  "shard": {
+   "file": "out/ch1189.candidate.json",
+   "sha256": "df0f57ab799913a44cfd951941e310fbdaa5142392c0ea019cb888d3475d9614",
+   "bytes": 2930
+  }
+ },
+ "source": {
+  "gutenberg": {
+   "ebook": 8294,
+   "title": "The World English Bible (WEB), Complete",
+   "url": "https://www.gutenberg.org/cache/epub/8294/pg8294.txt",
+   "sha256": "abf7c2da851fc68e770a5f88d3dcea650115c0daa0f0a56f54418d282d4afe7d"
+  }
+ },
+ "change": {
+  "chapterNumber": 1189,
+  "title": "Revelation 22",
+  "paragraphIndex": 4,
+  "oldParagraph": {
+   "sha256": "9401d3e2b93bbcd8d8fe83d45d721161c60d84ded7632d06ff9125af2c881e01",
+   "utf16Length": 18247,
+   "chars": 18247
+  },
+  "newParagraph": {
+   "sha256": "7c307a62d147383da90c83e5e6e87e264fd507448cc58f28247dcb65a5134f34",
+   "utf16Length": 67,
+   "chars": 67,
+   "text": "²¹ The grace of the Lord Jesus Christ be with all the saints. Amen."
+  },
+  "removed": {
+   "utf16Start": 67,
+   "utf16End": 18247,
+   "sha256": "fd4d478bccb640bb5fb13f2a8f25c204cba05aa2b6f2f337cd7abcccf992d1bc",
+   "chars": 18179,
+   "file": "out/removed-text.txt",
+   "rule": "the single separator space and everything from the Gutenberg END marker to the end of the paragraph"
+  },
+  "paragraphsInChapter": 5,
+  "paragraphCountChanged": false,
+  "otherParagraphsChanged": 0
+ },
+ "verseMapping": [
+  {
+   "ref": "REV.22.1",
+   "chapterNumber": 1189,
+   "paragraphIndex": 0,
+   "labelStart": 0,
+   "start": 2,
+   "end": 111,
+   "unchangedFromBaseline": true,
+   "textSha256": "6039b8b2b07ae95ee9946af27e428cf94d5d54bbad9f5c2472717baa80afa3fa",
+   "gutenbergApparatusNotStaged": [
+    "{TR adds \"pure\"}"
+   ]
+  },
+  {
+   "ref": "REV.22.2",
+   "chapterNumber": 1189,
+   "paragraphIndex": 0,
+   "labelStart": 112,
+   "start": 114,
+   "end": 326,
+   "unchangedFromBaseline": true,
+   "textSha256": "e2c5ababafcfb5d48e68fc5e68aaa47e77e1c8f659ceacd978b637adbea46d45",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.3",
+   "chapterNumber": 1189,
+   "paragraphIndex": 0,
+   "labelStart": 327,
+   "start": 329,
+   "end": 438,
+   "unchangedFromBaseline": true,
+   "textSha256": "9843b218c747a2f599470b0a2c4e2451e3411fb745cc3323cf1d9b51976e374d",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.4",
+   "chapterNumber": 1189,
+   "paragraphIndex": 0,
+   "labelStart": 439,
+   "start": 441,
+   "end": 505,
+   "unchangedFromBaseline": true,
+   "textSha256": "895a06c28b3f743bae3748b99a69b90fe4a25fddde48f8872ce499db80d1f748",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.5",
+   "chapterNumber": 1189,
+   "paragraphIndex": 0,
+   "labelStart": 506,
+   "start": 508,
+   "end": 633,
+   "unchangedFromBaseline": true,
+   "textSha256": "5c2cc6bfcd1f72e8c98b54792acf0f38af635e5de80272f6c9fdd452632377f9",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.6",
+   "chapterNumber": 1189,
+   "paragraphIndex": 1,
+   "labelStart": 0,
+   "start": 2,
+   "end": 175,
+   "unchangedFromBaseline": true,
+   "textSha256": "0c48993a9ec7a5017fdadbd4553ad683bd8f79d456a48e70a48ab3e8786cc0f4",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.7",
+   "chapterNumber": 1189,
+   "paragraphIndex": 1,
+   "labelStart": 176,
+   "start": 178,
+   "end": 267,
+   "unchangedFromBaseline": true,
+   "textSha256": "f03eb4d7bdb55d03070a5b3b6984972780ff049b1b952602ba10dc13543f97af",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.8",
+   "chapterNumber": 1189,
+   "paragraphIndex": 1,
+   "labelStart": 268,
+   "start": 270,
+   "end": 430,
+   "unchangedFromBaseline": true,
+   "textSha256": "ce89d0b5467fb8213bf39df8d97630b99ba307dfc0e5809f56421ce443697b06",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.9",
+   "chapterNumber": 1189,
+   "paragraphIndex": 1,
+   "labelStart": 431,
+   "start": 433,
+   "end": 604,
+   "unchangedFromBaseline": true,
+   "textSha256": "211a5dc18d5977b054edb6baf555e234d2bf055332f3f0208bdc4f22d0230404",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.10",
+   "chapterNumber": 1189,
+   "paragraphIndex": 1,
+   "labelStart": 605,
+   "start": 608,
+   "end": 702,
+   "unchangedFromBaseline": true,
+   "textSha256": "10485f3a83ba7f86cd46091d59ff47ddd0576162728264e35bbd03178d35d1d4",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.11",
+   "chapterNumber": 1189,
+   "paragraphIndex": 2,
+   "labelStart": 0,
+   "start": 3,
+   "end": 188,
+   "unchangedFromBaseline": true,
+   "textSha256": "40fb8bab5236507e16415f29f7974f8e7edebd9e7859b586474323d5638cc446",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.12",
+   "chapterNumber": 1189,
+   "paragraphIndex": 2,
+   "labelStart": 189,
+   "start": 192,
+   "end": 282,
+   "unchangedFromBaseline": true,
+   "textSha256": "d8dddb0f59382cb30ba2f9da0be74024bbf884d3d03ae8d27a9e1c335ab7b512",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.13",
+   "chapterNumber": 1189,
+   "paragraphIndex": 2,
+   "labelStart": 283,
+   "start": 286,
+   "end": 366,
+   "unchangedFromBaseline": true,
+   "textSha256": "9b347b120819eeb7b74861829c440230c0f1eae4761b1b99f6eb1d9f4d37f0e2",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.14",
+   "chapterNumber": 1189,
+   "paragraphIndex": 2,
+   "labelStart": 367,
+   "start": 370,
+   "end": 507,
+   "unchangedFromBaseline": true,
+   "textSha256": "241aa942b402015e6cf316342677dfd569a36516ee139b3562bf44e5850f63d7",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.15",
+   "chapterNumber": 1189,
+   "paragraphIndex": 2,
+   "labelStart": 508,
+   "start": 511,
+   "end": 647,
+   "unchangedFromBaseline": true,
+   "textSha256": "17ab875c6716846dbdf01e63c09c6e1d6beef2042de210a8c0cb1ce8db1bfb1a",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.16",
+   "chapterNumber": 1189,
+   "paragraphIndex": 3,
+   "labelStart": 0,
+   "start": 3,
+   "end": 154,
+   "unchangedFromBaseline": true,
+   "textSha256": "e17948471507d04987980f0df2d41b099d6a6e0a7d6d0a99cfa117282a33b3f4",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.17",
+   "chapterNumber": 1189,
+   "paragraphIndex": 3,
+   "labelStart": 155,
+   "start": 158,
+   "end": 318,
+   "unchangedFromBaseline": true,
+   "textSha256": "bd012c6697a766bb475fc5d4916bf90923dde7936069479843ad8fc885a86693",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.18",
+   "chapterNumber": 1189,
+   "paragraphIndex": 3,
+   "labelStart": 319,
+   "start": 322,
+   "end": 480,
+   "unchangedFromBaseline": true,
+   "textSha256": "94190c53d6d34a949c5f11a471c2818434189732df9edb99d148964cc73cfa09",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.19",
+   "chapterNumber": 1189,
+   "paragraphIndex": 3,
+   "labelStart": 481,
+   "start": 484,
+   "end": 657,
+   "unchangedFromBaseline": true,
+   "textSha256": "ce3313967162462f01219e2eb33d6188e7822371d78d09387aa5c18b622bbf4b",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.20",
+   "chapterNumber": 1189,
+   "paragraphIndex": 3,
+   "labelStart": 658,
+   "start": 661,
+   "end": 748,
+   "unchangedFromBaseline": true,
+   "textSha256": "2ce89f3cef7d6cb5ad6cf21fd49984e49b7c76f691b832340967cd4dda3e4032",
+   "gutenbergApparatusNotStaged": []
+  },
+  {
+   "ref": "REV.22.21",
+   "chapterNumber": 1189,
+   "paragraphIndex": 4,
+   "labelStart": 0,
+   "start": 3,
+   "end": 67,
+   "unchangedFromBaseline": true,
+   "textSha256": "a5ae586ae75e8a2eb0bf778e382201e89ea426ae5bc3f6a54f7d5093769b8352",
+   "gutenbergApparatusNotStaged": []
+  }
+ ],
+ "characterCards": {
+  "file": "app/public/data/characters/bible.v1.json",
+  "edition": "web-en",
+  "sourceSha256": {
+   "old": "46d206635dc79214cb29a8b27f392f3d4a5f856bdedb3441315973f542c4eeae",
+   "new": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa"
+  },
+  "paragraphHash": {
+   "chapter": 1189,
+   "paragraphIndex": 4,
+   "old": "9401d3e2b93bbcd8d8fe83d45d721161c60d84ded7632d06ff9125af2c881e01",
+   "new": "7c307a62d147383da90c83e5e6e87e264fd507448cc58f28247dcb65a5134f34"
+  },
+  "mentionsInChapter": [
+   {
+    "characterId": "jesus",
+    "chapterNumber": 1189,
+    "paragraphIndex": 4,
+    "startOffset": 25,
+    "endOffset": 30,
+    "text": "Jesus"
+   },
+   {
+    "characterId": "john-apostle",
+    "chapterNumber": 1189,
+    "paragraphIndex": 1,
+    "startOffset": 277,
+    "endOffset": 281,
+    "text": "John"
+   },
+   {
+    "characterId": "god-the-lord",
+    "chapterNumber": 1189,
+    "paragraphIndex": 3,
+    "startOffset": 554,
+    "endOffset": 557,
+    "text": "God"
+   },
+   {
+    "characterId": "the-lamb",
+    "chapterNumber": 1189,
+    "paragraphIndex": 0,
+    "startOffset": 387,
+    "endOffset": 395,
+    "text": "the Lamb"
+   }
+  ],
+  "mentionsNeedingOffsetChange": 0
+ }
+}
