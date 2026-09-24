@@ -5360,7 +5360,8 @@
 }
 /* Separate block keeps the first dialogue line at the verse margin after
    the speaker, while preserving hanging indents on wrapped source lines. */
-.lab[data-shakespeare] .lab-verse-dialogue { display: block; }
+.lab.is-desktop[data-shakespeare] .lab-verse-dialogue,
+.lab[data-shakespeare-layout="verse"] .lab-verse-dialogue { display: block; }
 /* Match the verse line’s hanging indent, including in measurement copies. */
 .lab[data-shakespeare] .lab-verse-speaker { text-indent: inherit; }
 .lab[data-shakespeare-layout="flowing"] .lab-verse-break {
