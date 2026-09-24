@@ -1,7 +1,7 @@
 {
   "schema": "tinct-card-field-patch/1",
   "bookId": "crime-and-punishment",
-  "purpose": "Remove premature facts from Svidrigaïlov's first-encounter card and defer them to 22.37.",
+  "purpose": "Remove premature facts from Svidrigaïlov's first-encounter card and defer them to the end of 22.34.",
   "targets": [
     "app/public/data/characters/crime-and-punishment.v1.json",
     "books/characters/crime-and-punishment/characters.v1.json"
@@ -46,8 +46,8 @@
         "id": "svidrigailov-2",
         "availableAt": {
           "chapterNumber": 22,
-          "paragraphIndex": 37,
-          "offset": 1063
+          "paragraphIndex": 34,
+          "offset": 87
         },
         "name": "Svidrigaïlov",
         "subtitle": "Dunya's former employer, with a dark reputation",
@@ -59,6 +59,11 @@
             "throughOffset": 317
           },
           {
+            "chapterNumber": 17,
+            "paragraphIndex": 49,
+            "throughOffset": 265
+          },
+          {
             "chapterNumber": 22,
             "paragraphIndex": 31,
             "throughOffset": 266
@@ -67,14 +72,9 @@
             "chapterNumber": 22,
             "paragraphIndex": 34,
             "throughOffset": 87
-          },
-          {
-            "chapterNumber": 22,
-            "paragraphIndex": 37,
-            "throughOffset": 1063
           }
         ],
-        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; his arrival in St. Petersburg and the family's alarm at 22.31-22.34; the rumors of a hushed-up criminal case of homicidal brutality at 22.36-22.37. Released at the end of the reviewed source paragraph."
+        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; the rumor that he caused it (\"They say he beat her dreadfully\") at 17.49; the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first meets him there at 20.68). Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported."
       }
     },
     {
@@ -114,8 +114,8 @@
         "id": "svidrigailov-2",
         "availableAt": {
           "chapterNumber": 22,
-          "paragraphIndex": 37,
-          "offset": 973
+          "paragraphIndex": 34,
+          "offset": 87
         },
         "name": "Svidrigailov",
         "subtitle": "Dunya's former employer, with a dark reputation",
@@ -127,6 +127,11 @@
             "throughOffset": 314
           },
           {
+            "chapterNumber": 17,
+            "paragraphIndex": 49,
+            "throughOffset": 264
+          },
+          {
             "chapterNumber": 22,
             "paragraphIndex": 31,
             "throughOffset": 237
@@ -135,14 +140,9 @@
             "chapterNumber": 22,
             "paragraphIndex": 34,
             "throughOffset": 87
-          },
-          {
-            "chapterNumber": 22,
-            "paragraphIndex": 37,
-            "throughOffset": 973
           }
         ],
-        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; his arrival in St. Petersburg and the family's alarm at 22.31-22.34; the rumors of a hushed-up criminal case of homicidal brutality at 22.36-22.37. Released at the end of the reviewed source paragraph."
+        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; the rumor that he caused it (\"They say he beat her dreadfully\") at 17.49; the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first meets him there at 20.68). Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported."
       }
     }
   ],
@@ -151,14 +151,19 @@
     "appliesTo": "accepted candidate sha256 18be4155...",
     "availableAt": {
       "chapterNumber": 22,
-      "paragraphIndex": 37,
-      "offset": 973
+      "paragraphIndex": 34,
+      "offset": 87
     },
     "evidence": [
       {
         "chapterNumber": 16,
         "paragraphIndex": 73,
         "throughOffset": 312
+      },
+      {
+        "chapterNumber": 17,
+        "paragraphIndex": 49,
+        "throughOffset": 264
       },
       {
         "chapterNumber": 22,
@@ -169,11 +174,6 @@
         "chapterNumber": 22,
         "paragraphIndex": 34,
         "throughOffset": 87
-      },
-      {
-        "chapterNumber": 22,
-        "paragraphIndex": 37,
-        "throughOffset": 973
       }
     ]
   }

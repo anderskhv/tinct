@@ -30,12 +30,12 @@ NEW_BODY_1 = ("Wealthy and unsettling, he pursued Dunya while she worked in his 
 BODY_2 = OLD_BODY
 EDITIONS = {"original-en": "source.json", "modern-en": "baseline-live-modern-en.json"}
 # (chapter, paragraph) evidence points, each released at paragraph end.
-EVIDENCE_POINTS = [(16, 73), (22, 31), (22, 34), (22, 37)]
-RELEASE_POINT = (22, 37)
+EVIDENCE_POINTS = [(16, 73), (17, 49), (22, 31), (22, 34)]
+RELEASE_POINT = (22, 34)
 BASIS_2 = ("Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. "
-           "Marfa Petrovna's death (so his widowhood) is established at 16.73; his arrival in St. Petersburg and the family's "
-           "alarm at 22.31-22.34; the rumors of a hushed-up criminal case of homicidal brutality at 22.36-22.37. "
-           "Released at the end of the reviewed source paragraph.")
+           "Marfa Petrovna's death (so his widowhood) is established at 16.73; the rumor that he caused it (\"They say he beat her dreadfully\") at 17.49; "
+           "the family learns he has come to St. Petersburg, and is alarmed, at 22.31-22.34 (the reader first meets him there at 20.68). "
+           "Released at the end of the reviewed source paragraph 22.34, the earliest point at which every clause is supported.")
 
 
 def norm(t):
@@ -87,7 +87,7 @@ def main():
     patch = {
         "schema": "tinct-card-field-patch/1",
         "bookId": "crime-and-punishment",
-        "purpose": "Remove premature facts from Svidrigaïlov's first-encounter card and defer them to 22.37.",
+        "purpose": "Remove premature facts from Svidrigaïlov's first-encounter card and defer them to the end of 22.34.",
         "targets": ["app/public/data/characters/crime-and-punishment.v1.json",
                     "books/characters/crime-and-punishment/characters.v1.json"],
         "baselineSha256": sha(INP / "crime-and-punishment.v1.json"),

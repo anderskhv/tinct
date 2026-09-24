@@ -133,8 +133,8 @@ def main():
         points = [("first mention 3.38", ch["firstMention"]),
                   ("end of 16.73 (Marfa dead)", {"chapterNumber": 16, "paragraphIndex": 73, "offset": 10**6}),
                   ("21.2 (he introduces himself)", {"chapterNumber": 21, "paragraphIndex": 2, "offset": 0}),
-                  ("22.37 one unit before end", {**s2, "offset": s2["offset"] - 1}),
-                  ("22.37 end", s2),
+                  ("22.34 one unit before end", {**s2, "offset": s2["offset"] - 1}),
+                  ("22.34 end", s2),
                   ("41.7 (late)", {"chapterNumber": 41, "paragraphIndex": 7, "offset": 0})]
         for label, pt in points:
             print(f"  {ed:12} {label:32} -> {released(ch, pt)}")

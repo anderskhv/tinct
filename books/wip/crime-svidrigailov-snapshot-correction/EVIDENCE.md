@@ -26,6 +26,14 @@ The link is restated for Raskolnikov: Marfa Petrovna Svidrigaïlov.
 - **live modern-en** (end 79): "For heaven's sake—Marfa Petrovna Svidrigaïlov! I wrote you so much about her."
 - **accepted candidate modern-en** (end 79): "For heaven's sake—Marfa Petrovna Svidrigaïlov! I wrote you so much about her."
 
+## 17.49
+
+First rumor of terrible deeds: Pulcheria says he seems to have caused his wife's death ('They say he beat her dreadfully'). Raskolnikov repeats it to him at 21.16.
+
+- **source (original-en, Garnett)** (end 265): …exandrovna answered hurriedly, encouraged by his curiosity. “On the very day I was sending you that letter! Would you believe it, that awful man seems to have been the cause of her death. They say he beat her dreadfully.”
+- **live modern-en** (end 264): …ria Alexandrovna answered hurriedly, encouraged by his interest. "On the very day I sent you that letter! Would you believe it—that terrible man seems to have been the cause of her death. They say he beat her dreadfully."
+- **accepted candidate modern-en** (end 264): …ria Alexandrovna answered hurriedly, encouraged by his interest. "On the very day I sent you that letter! Would you believe it—that terrible man seems to have been the cause of her death. They say he beat her dreadfully."
+
 ## 20.68
 
 He appears in person in Raskolnikov's room in St. Petersburg and introduces himself. This supports his presence in the city, but the family is not yet aware.
@@ -52,7 +60,7 @@ Dounia's alarm.
 
 ## 22.34
 
-Pulcheria's alarm: the whole family now knows and is alarmed.
+Pulcheria's alarm: the whole family now knows and is alarmed. Every clause of the original body is now supported, so this is the release point for svidrigailov-2.
 
 - **source (original-en, Garnett)** (end 87): “Good heavens! won’t he leave Dounia in peace even here?” cried Pulcheria Alexandrovna.
 - **live modern-en** (end 87): "Good heavens! Won't he leave Dounia in peace even here?" cried Pulcheria Alexandrovna.
@@ -68,7 +76,7 @@ Pulcheria is convinced he caused Marfa Petrovna's death.
 
 ## 22.37
 
-Luzhin reports a hushed-up criminal case of homicidal brutality: 'rumored to be responsible for terrible things' is now supported. This is the release point for svidrigailov-2.
+Luzhin's further account of a hushed-up criminal case of homicidal brutality (after the release point; corroborates the rumor clause).
 
 - **source (original-en, Garnett)** (end 1063): …m also in another way. Solely by her exertions and sacrifices, a criminal charge, involving an element of fantastic and homicidal brutality for which he might well have been sentenced to Siberia, was hushed up. That’s the sort of man he is, if you care to know.”
 - **live modern-en** (end 973): …f service to him in another way as well. Solely through her efforts and sacrifices, a criminal case involving grotesque and homicidal brutality—for which he might easily have been sent to Siberia—was hushed up. That's the sort of man he is, if you care to know."

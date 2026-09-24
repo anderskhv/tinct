@@ -21,12 +21,13 @@ POINTS = [
     ((3, 38), "First mention: the mother's letter. The reader learns Dounia was a governess in the Svidrigaïlovs' house and that he treated her rudely. The rest of the paragraph shows Marfa Petrovna is his living wife and active in the story, so he is not a widower here, and he is in the country, not St. Petersburg.", None),
     ((16, 73), "First statement that Marfa Petrovna is dead. From 3.38 the reader knows she is his wife, so this is the earliest support for 'recently widowed'.", r"Marfa Petrovna(?:'s| is|’s) dead"),
     ((17, 47), "The link is restated for Raskolnikov: Marfa Petrovna Svidrigaïlov.", r"Marfa Petrovna Svidriga"),
+    ((17, 49), "First rumor of terrible deeds: Pulcheria says he seems to have caused his wife's death ('They say he beat her dreadfully'). Raskolnikov repeats it to him at 21.16.", r"beat her"),
     ((20, 68), "He appears in person in Raskolnikov's room in St. Petersburg and introduces himself. This supports his presence in the city, but the family is not yet aware.", r"Svidriga"),
     ((22, 31), "Luzhin tells the family that he set off for Petersburg right after his wife's funeral.", r"Petersburg"),
     ((22, 32), "Dounia's alarm.", r"alarm|Petersburg"),
-    ((22, 34), "Pulcheria's alarm: the whole family now knows and is alarmed.", r"peace"),
+    ((22, 34), "Pulcheria's alarm: the whole family now knows and is alarmed. Every clause of the original body is now supported, so this is the release point for svidrigailov-2.", r"peace"),
     ((22, 36), "Pulcheria is convinced he caused Marfa Petrovna's death.", r"cause"),
-    ((22, 37), "Luzhin reports a hushed-up criminal case of homicidal brutality: 'rumored to be responsible for terrible things' is now supported. This is the release point for svidrigailov-2.", r"hushed up"),
+    ((22, 37), "Luzhin's further account of a hushed-up criminal case of homicidal brutality (after the release point; corroborates the rumor clause).", r"hushed up"),
 ]
 
 
