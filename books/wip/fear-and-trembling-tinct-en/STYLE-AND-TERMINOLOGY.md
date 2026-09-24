@@ -66,9 +66,11 @@ The pilot's Problema I and II are the model for register and density.
 
 ## B. Structure and alignment
 
-- **One output paragraph per source slot.** The book has 232 slots
-  (5/13/17/42/32/29/88/6), identical to `original-da`. Never merge, split,
-  reorder or drop slots.
+- **One output entry per source slot** of `source/original-da-corrected.json`
+  (5/13/17/42/32/29/88/6). Never merge, split, reorder or drop slots while
+  drafting. The final structure removes the nine Problema III slots that
+  contain only footnote text (see `STRUCTURE-MAP.md`). That mapping is applied
+  at assembly, not by drafters.
 - **Page-break boundaries.** A few slots begin or end mid-sentence, because the
   parse broke paragraphs at page breaks. Keep each slot's content in that slot.
   Where a slot would otherwise begin or end on a fragment, you may move the
@@ -76,14 +78,13 @@ The pilot's Problema I and II are the model for register and density.
   read as whole sentences. Record every such move in your notes. If a slot's
   content is itself only a fragment, a dash-split across the two slots is
   acceptable.
-- **Footnotes** are Johannes's own footnotes to the book.
-  - **A note spliced into a slot, or missing from it:** mark the anchor point
-    in the main text with `*` (use `**` for a second note in the same slot).
-    Then append the note at the end of that slot's paragraph, as
-    ` [* Note: …]`.
-  - **A note that occupies its own slot in the source:** that slot contains
-    only the note, written as `[Note to the preceding paragraph: …]`, and the
-    anchor slot carries the `*`.
+- **Footnotes** are Johannes's own footnotes (18 of them; see `source/CORRECTIONS.md`). They stay **separately identifiable**:
+  - Never put footnote text or markers into a slot's main text.
+  - Translate each note into the `notes` list of the slot the corrected source gives it, with the same `id`.
+  - The attachment point is the source's `anchorAfter`. Give its English equivalent as `anchorAfterEn`: the exact final words of your English main text after which the marker belongs.
+  - Where the served parse gave a note its own slot (`ownSlot: true`, `text: ""`), your slot text is also `""` and the note goes in that slot's `notes`.
+  - Assembly removes such slots and maps them to the anchor slot; see `STRUCTURE-MAP`.
+  - How notes are presented to readers and in narration is Codex's decision. For review only, the assembled review copy shows each note as ` [* Note: …]` at the end of its anchor paragraph.
 - **Section numerals** (I–IV in the Exordium, and any others recorded in the
   corrected source) begin the slot as "I. ", "II. " and so on.
 - **Restored text** (the two weaning passages, the dropped "fatte") is

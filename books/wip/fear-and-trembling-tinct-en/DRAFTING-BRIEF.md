@@ -24,7 +24,8 @@ from the Danish into clear modern English, for an intelligent newcomer.
    The wording must be your own rendering of the Danish.
 2. **One English paragraph per source slot.** No merging, splitting,
    reordering or dropping. Handle page-break fragments and footnotes exactly as
-   §B of the standard says, and record every boundary move.
+   §B of the standard says, and record every boundary move. Translate
+   `sectionHeading` numerals as given.
 3. **Translate everything:**
    - every clause, qualification, hedge, example, allusion, rhetorical
      question and exclamation;
@@ -40,7 +41,8 @@ from the Danish into clear modern English, for an intelligent newcomer.
 ## Output
 
 1. `drafts/<part>.json`, shaped as:
-   `{"chapter": N, "part": "<part>", "slots": [{"index": i, "text": "…"}, …]}`.
+   `{"chapter": N, "part": "<part>", "slots": [{"index": i, "sectionHeading": "I."|null, "text": "…", "notes": [{"id": "n7.15a", "anchorAfterEn": "…exact final English words before the marker…", "text": "…"}]}, …]}`.
+   Notes are **never** placed in `text`. Own-slot notes keep `text: ""`.
    It covers exactly your slot range. Use UTF-8 and typographic quotes.
 2. `drafts/NOTES-<part>.md`, containing:
    - first-use definitions you introduced, and where;

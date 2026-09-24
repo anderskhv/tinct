@@ -1,0 +1,54 @@
+== 1. Structure
+chapters: 8 (expected 8); slots: [5, 13, 17, 42, 32, 29, 88, 6] (expected [5, 13, 17, 42, 32, 29, 88, 6])
+footnotes: 18 distinct ids; served handling: {'spliced': 4, 'spliced+missing': 1, 'missing': 5, 'ownSlot': 7, 'missing+ownSlot': 1}
+section headings: [(2, 3, 'I.'), (2, 6, 'II.'), (2, 7, 'III.'), (2, 9, 'IV.')]
+slot counts and indices OK
+
+== 2. Raw collation (raw OCR minus junk + documented corrections == corrected text)
+ch1 [Forord] raw lines 194-339: OK; streams: main + 0 note(s); raw tokens 1042, corrected tokens 1040, identical tokens 1019, difflib opcodes 22 all explained by documented corrections
+    dropped raw lines: {'heading': 1, 'garbage line': 1, 'page number': 3}
+    garbage lines: 222:'28 ÅG",'
+    documented token corrections applied: Latin=7, OCR=2, punct=4, quote=9
+ch2 [Stemning] raw lines 340-553: OK; streams: main + 0 note(s); raw tokens 1315, corrected tokens 1315, identical tokens 1297, difflib opcodes 18 all explained by documented corrections
+    dropped raw lines: {'heading': 1, 'page number': 5, 'section numeral': 4, 'garbage line': 5}
+    garbage lines: 441:'É 3 n x'; 474:'sk & ke'; 507:'4 x 4'; 536:'sk k'; 537:'t 3'
+    documented token corrections applied: OCR=5, punct=1, quote=12
+ch3 [Lovtale over Abraham] raw lines 554-949: OK; streams: main + 0 note(s); raw tokens 2984, corrected tokens 2974, identical tokens 2927, difflib opcodes 52 all explained by documented corrections
+    dropped raw lines: {'heading': 1, 'page number': 10, 'running head': 1, 'garbage line': 1}
+    garbage lines: 914:'Ed | i | k'
+    documented token corrections applied: OCR=13, punct=27, quote=12
+ch4 [Foreløbig Expectoration] raw lines 950-2300: OK; streams: main + 3 note(s); raw tokens 10235, corrected tokens 10229, identical tokens 10128, difflib opcodes 100 all explained by documented corrections
+    dropped raw lines: {'heading': 2, 'page number': 31, 'garbage line': 6, 'running head': 2}
+    garbage lines: 1102:'en er'; 1200:'Huk'; 1254:'3?'; 1590:'ÅåÅ'; 1717:'j 47'; 2018:'mn Er FRE 0.'
+    documented token corrections applied: German=1, Latin=1, OCR=41, marker=6, punct=34, quote=17
+ch5 [Problema I — Gives der en teleologisk Su] raw lines 2301-2967: OK; streams: main + 1 note(s); raw tokens 4948, corrected tokens 4939, identical tokens 4873, difflib opcodes 71 all explained by documented corrections
+    dropped raw lines: {'heading': 3, 'page number': 14, 'running head': 1, 'garbage line': 2}
+    garbage lines: 2594:'. se'; 2851:'Zå'
+    documented token corrections applied: German=13, Greek=8, OCR=20, marker=2, punct=17, quote=4
+ch6 [Problema II — Gives der en absolut Pligt] raw lines 2968-3634: OK; streams: main + 1 note(s); raw tokens 5004, corrected tokens 5003, identical tokens 4947, difflib opcodes 56 all explained by documented corrections
+    dropped raw lines: {'heading': 2, 'page number': 16, 'running head': 1, 'garbage line': 2}
+    garbage lines: 3265:'G?'; 3311:'(/'
+    documented token corrections applied: German=4, Greek=3, Latin=2, OCR=27, marker=2, punct=12, quote=6
+ch7 [Problema III — Var det ethisk forsvarlig] raw lines 3635-5603: OK; streams: main + 11 note(s); raw tokens 14507, corrected tokens 14490, identical tokens 14258, difflib opcodes 220 all explained by documented corrections
+    dropped raw lines: {'heading': 4, 'page number': 44, 'running head': 3, 'garbage line': 10}
+    garbage lines: 3966:'-'; 3969:"1ot' > . u '"; 4014:'kg'; 4017:'Naet'; 4172:'en re eee en rer'; 4488:'en er eee'; 4642:'88%'; 5339:'9:'; 5473:'val dne'; 5476:'” bb S em'
+    documented token corrections applied: German=8, Greek=6, Latin=7, OCR=92, marker=20, name=6, punct=58, quote=18
+ch8 [Epilog] raw lines 5604-5735: OK; streams: main + 2 note(s); raw tokens 957, corrected tokens 956, identical tokens 929, difflib opcodes 12 all explained by documented corrections
+    dropped raw lines: {'heading': 1, 'page number': 3}
+    documented token corrections applied: Greek=1, OCR=3, marker=4, punct=2, quote=2
+TOTAL raw tokens 40992, corrected tokens 40946, identical 40378, explained opcodes 551, unexplained 0; corrections by category: German=26, Greek=18, Latin=17, OCR=203, marker=34, name=6, punct=155, quote=80
+
+== 3. Served comparison (content assignment per slot)
+every slot with main text: >=97% of its corrected words occur in the same served slot, except:
+  ch2 slot 6: 0.851 of corrected main-text words occur in the served slot (explained by: sectionHeading II. recorded (numeral on its own line in raw, dropped in served); restored main text missing from served)
+  ch2 slot 8: 0.709 of corrected main-text words occur in the served slot (explained by: restored main text missing from served)
+  ch3 slot 10: 0.969 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+  ch7 slot 3: 0.942 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+  ch7 slot 6: 0.968 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+  ch7 slot 45: 0.889 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+  ch7 slot 67: 0.875 of corrected main-text words occur in the served slot (explained by: footnote n7.67a (marker after ⟦von Bruderpflicht? Wer sprach von Liebe?⟧, raw 5293))
+  ch7 slot 71: 0.875 of corrected main-text words occur in the served slot (explained by: removed from served text (not present in raw main text or notes; OCR junk/signature mark or split-word fragment))
+  ch7 slot 73: 0.961 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+  ch7 slot 75: 0.964 of corrected main-text words occur in the served slot (explained by: OCR corrections)
+
+RESULT: PASS
