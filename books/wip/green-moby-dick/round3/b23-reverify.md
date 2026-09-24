@@ -1,6 +1,6 @@
 # b23 re-verification (round 3) — chapters 23–31
 
-Independent source-based check of every paragraph changed in round 2 (10 fidelity fixes, 9 applied accessibility edits; 23.3 was rejected by the lead and is unchanged).
+Independent source-based check of all 16 paragraphs changed in round 2 (19 ledger entries: 10 fidelity, 9 accessibility; 27.0 and 28.5 took both). The lead rejected 23.3, so it is unchanged.
 
 - 24.7 — VERIFIED CLEAN. "unaided, empty-handed state" restores succourless correctly; "javelin-throwing islands" is a brief, accurate gloss; nothing omitted.
 - 24.12 — VERIFIED CLEAN. "a man named Other" keeps the printed name and adds only the minimal gloss; the rest is complete.
@@ -21,4 +21,4 @@ Independent source-based check of every paragraph changed in round 2 (10 fidelit
 
 No new grammar errors, doubled words or broken quotes found. Glosses checked: "javelin-throwing", "a man named", "taffrail at the stern", "lowering the boats" (26.2).
 
-**Overall verdict:** 16 paragraphs verified clean, 3 with non-blocking defects (27.0, 28.5, 31.1). No blocking defects. Minimal full-paragraph fixes are in round3/b23-reverify.json.
+**Overall verdict:** 13 paragraphs verified clean, 3 with non-blocking defects (27.0, 28.5, 31.1). No blocking defects. Minimal full-paragraph fixes are in round3/b23-reverify.json.
