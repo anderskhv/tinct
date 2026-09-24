@@ -64,31 +64,40 @@ The pilot's Problema I and II are the model for register and density.
    - Johannes's own period references are kept, with no gloss unless one is
      essential to follow the sentence.
 
-## B. Structure and alignment
+## B. Structure
 
-- **One output entry per source slot** of `source/original-da-corrected.json`
-  (5/13/17/42/32/29/88/6). Never merge, split, reorder or drop slots while
-  drafting. The final structure removes the nine Problema III slots that
-  contain only footnote text (see `STRUCTURE-MAP.md`). That mapping is applied
-  at assembly, not by drafters.
-- **Page-break boundaries.** A few slots begin or end mid-sentence, because the
-  parse broke paragraphs at page breaks. Keep each slot's content in that slot.
-  Where a slot would otherwise begin or end on a fragment, you may move the
-  smallest piece across the boundary (at most one clause) so that both slots
-  read as whole sentences. Record every such move in your notes. If a slot's
-  content is itself only a fragment, a dash-split across the two slots is
-  acceptable.
-- **Footnotes** are Johannes's own footnotes (18 of them; see `source/CORRECTIONS.md`). They stay **separately identifiable**:
-  - Never put footnote text or markers into a slot's main text.
-  - Translate each note into the `notes` list of the slot the corrected source gives it, with the same `id`.
-  - The attachment point is the source's `anchorAfter`. Give its English equivalent as `anchorAfterEn`: the exact final words of your English main text after which the marker belongs.
-  - Where the served parse gave a note its own slot (`ownSlot: true`, `text: ""`), your slot text is also `""` and the note goes in that slot's `notes`.
-  - Assembly removes such slots and maps them to the anchor slot; see `STRUCTURE-MAP`.
-  - How notes are presented to readers and in narration is Codex's decision. For review only, the assembled review copy shows each note as ` [* Note: …]` at the end of its anchor paragraph.
-- **Section numerals** (I–IV in the Exordium, and any others recorded in the
-  corrected source) begin the slot as "I. ", "II. " and so on.
-- **Restored text** (the two weaning passages, the dropped "fatte") is
-  translated in place, as recorded in `source/CORRECTIONS.md`.
+- **Printed paragraphing.** The final structure follows the printed
+  paragraphing of the 1895 edition, determined from the page scans
+  (`source/PRINTED-PARAGRAPHS.md`). It has 184 paragraphs:
+
+  | Chapter | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+  |---|---|---|---|---|---|---|---|---|
+  | Paragraphs | 4 | 15 | 14 | 35 | 29 | 22 | 61 | 4 |
+
+  The mapping from the served 232 slots is in `STRUCTURE-MAP.md`.
+- **One English paragraph per paragraph** of `source/original-da-final.json`.
+  Never merge, split, reorder or drop paragraphs. Because paragraphs now match
+  the print, no boundary moves are needed or allowed.
+- **Footnotes** are Johannes's own footnotes (18 of them; see
+  `source/CORRECTIONS.md`). They stay **separately identifiable**:
+  - Never put note text or markers into the main text.
+  - Translate each note into the `notes` of its paragraph, with the same `id`.
+  - Give `anchorAfterEn`: the exact final words of your English main text
+    after which the marker belongs. These are the English counterpart of the
+    source's `anchorAfter`.
+  - How notes are presented to readers and in narration is Codex's decision.
+    Review copies show each note as ` [* Note: …]` at the end of its
+    paragraph.
+- **Section numerals and dividers.**
+  - `sectionHeading` (I.–IV. in the Attunement) and `dividerBefore` (rule or
+    asterism) are structural fields.
+  - Keep them as fields, never in the text.
+- **Verse.** Where a Danish paragraph has line breaks (`\n`, the two German
+  verse blocks in Problema III), keep the German lines with their `\n`.
+  - Give a line-by-line English rendering after the German, in square
+    brackets. Use ` / ` between lines.
+- **Restored text** (the weaning passages after II and III, "fatte",
+  "Havmand i Nærheden") is translated like any other text.
 
 ## C. Fixed renderings (whole book)
 

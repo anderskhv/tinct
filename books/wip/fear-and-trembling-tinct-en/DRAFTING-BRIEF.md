@@ -8,7 +8,7 @@ from the Danish into clear modern English, for an intelligent newcomer.
 
 | What | Where |
 |---|---|
-| **Source** | `source/original-da-corrected.json`: the corrected, slot-aligned Danish (3rd ed., Reitzel/Grøn, 1895). Each slot has `text`, `notes` (Johannes's footnotes), `sectionHeading` and `corrections`. For uncertain spots, the raw OCR is `/home/user/tinct/books/raw/fear-and-trembling/raw.txt`. |
+| **Source** | `source/original-da-final.json`: the scan-verified Danish (3rd ed., Reitzel/Grøn, 1895) in its printed paragraphing. Each paragraph has `text`, `notes` (Johannes's footnotes, each with `anchorAfter`), `sectionHeading` and `dividerBefore`. The per-slot corrections log is `source/original-da-corrected.json`. For uncertain spots, the raw OCR is `/home/user/tinct/books/raw/fear-and-trembling/raw.txt`. |
 | **Standard** | `STYLE-AND-TERMINOLOGY.md`. Follow it exactly. |
 | **Model of register and density** | The accepted pilot, `../fear-and-trembling-clarity-pilot/final/problema-1-final.md` and `problema-2-final.md`. Your English should read like it: clear, full and faithful, with nothing summarized. |
 
@@ -22,10 +22,10 @@ from the Danish into clear modern English, for an intelligent newcomer.
    - any web source.
 
    The wording must be your own rendering of the Danish.
-2. **One English paragraph per source slot.** No merging, splitting,
-   reordering or dropping. Handle page-break fragments and footnotes exactly as
-   §B of the standard says, and record every boundary move. Translate
-   `sectionHeading` numerals as given.
+2. **One English paragraph per source paragraph.** No merging, splitting,
+   reordering or dropping, and no boundary moves: the paragraphs are the
+   printed ones. Handle footnotes, headings, dividers and verse exactly as
+   §B of the standard says.
 3. **Translate everything:**
    - every clause, qualification, hedge, example, allusion, rhetorical
      question and exclamation;
@@ -41,12 +41,11 @@ from the Danish into clear modern English, for an intelligent newcomer.
 ## Output
 
 1. `drafts/<part>.json`, shaped as:
-   `{"chapter": N, "part": "<part>", "slots": [{"index": i, "sectionHeading": "I."|null, "text": "…", "notes": [{"id": "n7.15a", "anchorAfterEn": "…exact final English words before the marker…", "text": "…"}]}, …]}`.
-   Notes are **never** placed in `text`. Own-slot notes keep `text: ""`.
+   `{"chapter": N, "part": "<part>", "slots": [{"index": i, "sectionHeading": "I."|null, "dividerBefore": "rule"|"asterism"|null, "text": "…", "notes": [{"id": "n7.15a", "anchorAfterEn": "…exact final English words before the marker…", "text": "…"}]}, …]}`.
+   Here `index` is the paragraph index in `original-da-final.json`. Notes are **never** placed in `text`.
    It covers exactly your slot range. Use UTF-8 and typographic quotes.
 2. `drafts/NOTES-<part>.md`, containing:
    - first-use definitions you introduced, and where;
-   - every boundary move;
    - footnote placement, with each footnote's anchor;
    - Greek/Latin/German/French glosses;
    - each place where you resolved or deliberately kept an ambiguity, and why;
@@ -84,3 +83,31 @@ A short summary:
 - boundary moves;
 - the screen summary;
 - the three things you are least sure of.
+
+## First-use definitions (whole book, in reading order)
+
+Give the short in-sentence definition **only** at the location listed.
+Everywhere else, use the bare term.
+
+| Term | First use | Definition basis |
+|---|---|---|
+| movement (Bevægelse) | ch1 ¶0 | plain; no gloss needed |
+| the System | ch1 ¶2 | capitalized, no gloss |
+| mediation / mediate | ch4 ¶2 | "reconciling opposites by bringing them under something more general" — keep it brief and grounded in the context of the Danish |
+| spiritual trial (Anfægtelse) | ch4 ¶7 | "an inner assault on a person" (pilot wording) |
+| paradox | ch4 ¶9 | defined by the text itself |
+| the absurd | ch4 ¶10 | defined by the text itself; do not gloss beyond it |
+| incommensurable | ch4 ¶10 | "not measurable by any common standard" |
+| the tragic hero | ch4 ¶11 | no gloss |
+| the movement of infinity / infinite movement | ch4 ¶11 | no gloss beyond the text |
+| the leap; the double movement | ch4 ¶12 | no gloss beyond the text |
+| infinite resignation | ch4 ¶13 | brief, from the text: giving up the finite, finding peace in the eternal |
+| knight of infinite resignation; philistine | ch4 ¶15 | philistine: "a narrow, comfortable townsman" |
+| knight of faith | ch4 ¶16 | no gloss |
+| the single individual | ch4 ¶18 | no free-standing definition (pilot decision) |
+| the aesthetic | ch4 ¶22 | brief, from context |
+| irony | ch4 ¶28 | plain |
+| the universal, the ethical, telos, the immediate | ch5 ¶0 | already in the accepted pilot |
+| ethical life | ch5 ¶1 | already in the accepted pilot |
+| concealment; disclosure; the interesting | ch7 ¶0; ¶1; ¶2 | brief, from context |
+| the demonic | ch7 ¶18 | brief, from context |
