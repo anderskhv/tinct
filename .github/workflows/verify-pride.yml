@@ -6,10 +6,14 @@ on:
   push:
     branches: [main]
     paths: ['app/public/data/editions/pride-and-prejudice-modern-en.json', 'app/public/data/characters/pride-and-prejudice.v1.json']
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
 permissions:
   contents: read
 jobs:
   accepted-content:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -43,3 +47,32 @@ jobs:
         with:
           name: pride-release-acceptance
           path: app/artifacts/pride-release
+  production-content:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify accepted production text and cards
+        env:
+          TEST_BOOK: pride-and-prejudice
+          TEST_ORIGIN: https://tinct.app
+          ARTIFACT_DIR: artifacts/pride-production
+        run: node scripts/check-reviewed-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pride-production-acceptance
+          path: app/artifacts/pride-production
