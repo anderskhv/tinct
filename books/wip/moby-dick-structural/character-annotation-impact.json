@@ -1,0 +1,555 @@
+{
+ "package": "app/public/data/characters/moby-dick.v1.json",
+ "packageSha256": "dccdb35d2c4d2cfc7e1c8faba22807c1754cdaf356127f9229c836502fe34019",
+ "contentVersion": "2026-09-12.1",
+ "rule": "In chapters 56, 57 and 73 only: paragraphIndex -> paragraphIndex - 1 for every mention, ignoredContextMatch and anchor; startOffset/endOffset unchanged (paragraph text unchanged); drop paragraphHashes[chapter][0]; paragraphCount -3; recompute sourceSha256. All other chapters unchanged. No mention or anchor lies in the removed fragment paragraphs.",
+ "editions": {
+  "original-en": {
+   "pinnedSourceSha256": "30974242d9ee3eae074671da0b424c0ef5d8b00258acf43cf27d92905136c952",
+   "paragraphCount": 2432,
+   "mentionsToShift": 38,
+   "mentionsInRemovedFragments": 0,
+   "anchorsInAffectedChapters": 0,
+   "paragraphHashesArraysChanged": [
+    56,
+    57,
+    73
+   ],
+   "shifts": [
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 3,
+     "to": 2,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 3,
+     "to": 2,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 4,
+     "to": 3,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 4,
+     "to": 3,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 7,
+     "to": 6,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 8,
+     "to": 7,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 8,
+     "to": 7,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "moby-dick-whale",
+     "chapter": 73,
+     "from": 17,
+     "to": 16,
+     "text": "Moby Dick"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 18,
+     "to": 17,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 18,
+     "to": 17,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 19,
+     "to": 18,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 19,
+     "to": 18,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 20,
+     "to": 19,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 21,
+     "to": 20,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 22,
+     "to": 21,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 23,
+     "to": 22,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 24,
+     "to": 23,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 24,
+     "to": 23,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 25,
+     "to": 24,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 26,
+     "to": 25,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 26,
+     "to": 25,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 31,
+     "to": 30,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 32,
+     "to": 31,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 32,
+     "to": 31,
+     "text": "Captain Ahab"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 33,
+     "to": 32,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 34,
+     "to": 33,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 36,
+     "to": 35,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 39,
+     "to": 38,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 40,
+     "to": 39,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Ahab"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Ahab"
+    }
+   ]
+  },
+  "modern-en": {
+   "pinnedSourceSha256": "2ab04dd727bbe5804b7acf1d05f578cfed5aef17c08d7d72b6db9101f8c1763c",
+   "paragraphCount": 2432,
+   "mentionsToShift": 36,
+   "mentionsInRemovedFragments": 0,
+   "anchorsInAffectedChapters": 0,
+   "paragraphHashesArraysChanged": [
+    56,
+    57,
+    73
+   ],
+   "shifts": [
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 3,
+     "to": 2,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 3,
+     "to": 2,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 4,
+     "to": 3,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 4,
+     "to": 3,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 7,
+     "to": 6,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 8,
+     "to": 7,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 8,
+     "to": 7,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 10,
+     "to": 9,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 11,
+     "to": 10,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "moby-dick-whale",
+     "chapter": 73,
+     "from": 17,
+     "to": 16,
+     "text": "Moby Dick"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 18,
+     "to": 17,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 18,
+     "to": 17,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 19,
+     "to": 18,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 20,
+     "to": 19,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 21,
+     "to": 20,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 22,
+     "to": 21,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 24,
+     "to": 23,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 24,
+     "to": 23,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 25,
+     "to": 24,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 26,
+     "to": 25,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 26,
+     "to": 25,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 31,
+     "to": 30,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 32,
+     "to": 31,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 32,
+     "to": 31,
+     "text": "Captain Ahab"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 33,
+     "to": 32,
+     "text": "Flask"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 34,
+     "to": 33,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "stubb",
+     "chapter": 73,
+     "from": 36,
+     "to": 35,
+     "text": "Stubb"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 39,
+     "to": 38,
+     "text": "Flask"
+    },
+    {
+     "characterId": "flask",
+     "chapter": 73,
+     "from": 40,
+     "to": 39,
+     "text": "Flask"
+    },
+    {
+     "characterId": "fedallah",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Fedallah"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Ahab"
+    },
+    {
+     "characterId": "ahab",
+     "chapter": 73,
+     "from": 42,
+     "to": 41,
+     "text": "Ahab"
+    }
+   ],
+   "note": "The live package's modern-en side is pinned to the pre-repair baseline 2ab04dd7…. Codex first re-anchors it to the accepted repair (1a3f31bb…); the shift rule above then applies to that re-anchored package. The listed shifts are from the current live package and are indicative for modern-en."
+  }
+ }
+}
