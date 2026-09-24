@@ -30,6 +30,11 @@ for item in config["books"]:
     assert source == read_at(args.baseline, source_path) == fetch(config["sourceRef"], base + "source.json")
     accepted, old = json.loads(raw), json.loads(old_raw)
     hashes = fetch(config["sourceRef"], base + "accepted-paragraph-hashes.tsv").decode().splitlines()
+    header = hashes.pop(0).split("\t")
+    assert header in (["coord", "sha256_16"], ["ref", "sha256_16"], ["id", "section", "sha256_16"])
+    rows = [line.split("\t") for line in hashes]
+    assert all(len(row) == len(header) for row in rows)
+    hashes = [row[0] + "\t" + row[header.index("sha256_16")] for row in rows]
     assert hashes == [f"{ch['number']}.{i}\t{sha(text.encode())[:16]}" for ch in accepted["chapters"] for i,text in enumerate(ch["paragraphs"])]
     card_path = f"app/public/data/characters/{book}.v1.json"
     card = json.loads((ROOT / card_path).read_bytes())
