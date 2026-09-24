@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { GrokVoiceSessionController, LOOKUP_ACKNOWLEDGEMENT, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
+import { GrokVoiceSessionController, LOOKUP_ACKNOWLEDGEMENT, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS, MAX_CALLS_PER_TOOL_PER_TURN, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
 import { GROK_VOICE_INSTRUCTIONS, GROK_VOICE_MODEL } from './grokConfig'
 import type { StartVoiceSessionInput, VoiceSessionCallbacks } from './session'
 
@@ -206,6 +206,37 @@ describe('tools', () => {
     const output = sent.find(event => event.type === 'conversation.item.create') as unknown as { item: { type: string; call_id: string; output: string } }
     expect(output.item).toEqual({ type: 'function_call_output', call_id: 'c1', output: JSON.stringify({ ok: true, notes: 'Keller on Genesis' }) })
     expect(sent.find(event => event.type === 'response.create')).toEqual({ type: 'response.create', response: { instructions: 'Use the source evidence.' } })
+  })
+
+  it('keeps the session prompt and reference when a tool follow-up adds its own guidance', async () => {
+    // xAI response.instructions replace the session prompt for that response.
+    // Guidance alone once produced "The requested passage could not be retrieved." verbatim.
+    const onApplicationTool = vi.fn().mockResolvedValue({ output: { ok: false, reason: 'later_chapter_spoiler_boundary' }, responseInstructions: 'Answer from your knowledge of the book.' })
+    const { controller, sent } = connected({ onApplicationTool }, { reference: '{"book":"Confessions"}', tools: [{ type: 'function', name: 'get_book_passage', parameters: {} }] })
+    controller.handleEvent({ type: 'session.created' })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'get_book_passage', call_id: 'c1', arguments: '{"chapter_number":8}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(sent.filter(event => event.type === 'response.create')).toHaveLength(1))
+    const instructions = String((sent.find(event => event.type === 'response.create')!.response as { instructions: string }).instructions)
+    expect(instructions.startsWith(GROK_VOICE_INSTRUCTIONS)).toBe(true)
+    expect(instructions).toContain('{"book":"Confessions"}')
+    expect(instructions.endsWith('For this response: Answer from your knowledge of the book.')).toBe(true)
+  })
+
+  it('runs at most a bounded number of parallel calls to one tool and still answers every call', async () => {
+    const onApplicationTool = vi.fn().mockResolvedValue({ output: { ok: false, reason: 'later_chapter_spoiler_boundary' } })
+    const { controller, sent } = connected({ onApplicationTool }, { tools: [{ type: 'function', name: 'get_book_passage', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    for (let chapter = 2; chapter <= 40; chapter++) controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'get_book_passage', call_id: `c${chapter}`, arguments: `{"chapter_number":${chapter}}` })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(sent.filter(event => event.type === 'conversation.item.create')).toHaveLength(39))
+    expect(onApplicationTool).toHaveBeenCalledTimes(MAX_CALLS_PER_TOOL_PER_TURN)
+    const outputs = sent.filter(event => event.type === 'conversation.item.create').map(event => JSON.parse((event.item as { output: string }).output) as { reason: string })
+    expect(outputs.filter(output => output.reason === 'skipped_too_many_parallel_calls')).toHaveLength(39 - MAX_CALLS_PER_TOOL_PER_TURN)
+    expect(sent.filter(event => event.type === 'response.create')).toHaveLength(1)
   })
 
   it('acknowledges only a lookup that is still running after the bounded delay', async () => {

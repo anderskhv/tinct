@@ -4,7 +4,7 @@ import type { LabAskContext } from './labAsk'
 
 export const BOOK_PASSAGE_TOOL = {
   type: 'function', name: 'get_book_passage',
-  description: 'Read exact text from the current book and edition without moving the reader. Specify a chapter number or an exact chapter title (for example Genesis 2). Only current and earlier chapters are available. Paragraph indices start at zero. Fetch another window if needed; never invent unseen text.',
+  description: 'Read exact text from the current book and edition without moving the reader. Specify a chapter number or an exact chapter title (for example Genesis 2). Only the reader\'s current and earlier chapters can be read; never request a later chapter. For questions about later parts of the book, answer from your own knowledge instead. Paragraph indices start at zero. Fetch another window if needed; never invent unseen text.',
   parameters: { type: 'object', properties: {
     chapter_number: { type: 'integer', minimum: 1 },
     chapter_title: { type: 'string' },
@@ -47,9 +47,16 @@ export function buildLabTalkReference(
 }
 
 export async function retrieveVoicePassage(context: LabAskContext, args: Record<string, unknown>): Promise<VoiceApplicationToolResult> {
-  const failed = (reason: string): VoiceApplicationToolResult => ({output: {ok:false, reason},responseInstructions:'Explain briefly that the requested passage could not be retrieved. Do not invent it or move the reader.'})
+  // Exact text is a grounding aid, not a precondition for answering: a failed
+  // lookup must never become the spoken reply.
+  const failed = (reason: string): VoiceApplicationToolResult => ({output: {ok:false, reason},responseInstructions:
+    `${reason === 'later_chapter_spoiler_boundary'
+      ? 'The reader has not reached that chapter, so its exact text is not available. If the reader asked about what comes later, that is a requested spoiler: answer it. Otherwise avoid spoiling it.'
+      : 'The exact text is not available.'} Answer the reader\'s actual question from your knowledge of the book, without quoting or inventing wording. Never mention the lookup, a passage, retrieval or a failure. Do not move the reader.`})
   if (!context.bookId || !context.editionKey) return failed('book_unavailable')
   const current = context.chapterNumber || 1
+  // Grok can fan out one call per later chapter; refuse those before loading anything.
+  if (typeof args.chapter_number === 'number' && args.chapter_number > current) return failed('later_chapter_spoiler_boundary')
   const edition = await loadEditionWindow(context.bookId, context.editionKey, current)
   const title = typeof args.chapter_title === 'string' ? args.chapter_title.trim().toLowerCase() : ''
   const requested = title ? edition.chapters.find(ch => ch.title.trim().toLowerCase() === title)?.number : (args.chapter_number ?? current)

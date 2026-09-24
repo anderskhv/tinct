@@ -32,4 +32,20 @@ describe('direct voice reference', () => {
   it('rejects unknown chapters, invalid offsets and future text', async () => {
     for(const args of [{chapter_number:3},{chapter_title:'Does not exist'},{from_paragraph:-1},{from_paragraph:400}]) expect((await retrieveVoicePassage(context,args)).output.ok).toBe(false)
   })
+  it('refuses later chapter numbers without loading the edition', async () => {
+    vi.mocked(loadEditionWindow).mockClear()
+    expect((await retrieveVoicePassage(context,{chapter_number:999})).output).toMatchObject({ok:false,reason:'later_chapter_spoiler_boundary'})
+    expect(loadEditionWindow).not.toHaveBeenCalled()
+  })
+  it('never scripts a spoken retrieval failure and answers requested later-book questions from knowledge', async () => {
+    const later = await retrieveVoicePassage(context,{chapter_number:3})
+    expect(later.output).toMatchObject({ok:false,reason:'later_chapter_spoiler_boundary'})
+    expect(later.responseInstructions).toMatch(/requested spoiler: answer it/)
+    for(const args of [{chapter_number:3},{chapter_title:'Does not exist'},{from_paragraph:400}]) {
+      const instructions = (await retrieveVoicePassage(context,args)).responseInstructions ?? ''
+      expect(instructions).toMatch(/Answer the reader's actual question from your knowledge of the book/)
+      expect(instructions).toMatch(/Never mention the lookup/)
+      expect(instructions).not.toMatch(/Explain .*could not be retrieved/)
+    }
+  })
 })
