@@ -74,6 +74,8 @@ Owner: Claude from `books/`.
 
 Current adding-book guide: [books/README.md](books/README.md). English only; Grok streaming replaces full-book audio generation. No Danish translation or legacy Kokoro/Edge TTS/RunPod step is required.
 
+Fetch the original when available and multiple suitable human English translations where available, with separate provenance and rights checks. Default primary is accepted Tinct Modern E; default Compare is the most accessible suitable human English translation, or the English original. Preserve saved reader choices and verify alignment per edition pair. See [edition selection](books/README.md#edition-selection-and-reader-defaults).
+
 Canonical book package:
 
 1. Source found and validated.

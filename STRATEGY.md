@@ -30,6 +30,20 @@ This is a design direction for current work, not a request to implement a locali
 
 Grok streaming and shared caching replace the former full-book audio-generation step. New books do not require Kokoro, Edge TTS, RunPod/GPU jobs, prerecorded audio, or legacy manifests/timings. Runtime narration eligibility and cache compatibility still require verification. Opening prewarming is separately scoped, not an automatic task for every book. Danish translation, narration and onboarding are not part of the current pipeline; preserve existing assets.
 
+## Edition selection and reader defaults
+
+**Approved by Anders, 2026-09-24.**
+
+- Fetch the original-language text when a suitable, verifiable source is available. Document any availability gap; do not invent an original or silently substitute a translation.
+- For works not originally written in English, fetch multiple good human English translations when available and permitted for Tinct's use. Select for fidelity, completeness and readability, not quantity. Record each translator, edition, provenance and rights evidence separately.
+- Select and pin one authoritative human English baseline for Tinct Modern E. Other translations may inform review, but do not silently mix their readings; document substantive source variants.
+- Default primary reading edition: **Tinct Modern E** (`modern-en`), once reviewed and accepted.
+- Default Compare edition: **the most accessible suitable human English translation**, or **the English original** for works originally written in English. Record the editorial choice and its reason. A non-English original remains an optional edition, not the automatic comparison default for an English reader.
+- Additional translations remain selectable. Preserve each translation's own text and paragraph structure; verify cross-edition mappings before marking it aligned. Do not force independent human translations into false paragraph equality.
+- These are initial defaults, not instructions to overwrite readers' saved edition choices. App changes implementing them belong to the coding agent.
+
+For an English-original work such as Virginia Woolf's *To the Lighthouse*, fetch the original English text; there is no separate English human translation to source. The intended reading pair is accepted Tinct Modern E as primary and Woolf's original as Compare. The original is the fetched source, not the only eventual reading edition. Preserve deliberate literary ambiguity and voice in any modernization.
+
 ## Featured ten-book selection
 
 **Approved by Anders, 2026-09-23.** These ten books, in the supplied order, are the selection for the featured-book and opening-audio rollout. This supersedes the earlier suggestion to take the first ten entries from the existing 16-book popular shelf. Recording this decision does not itself change the live shelf or generate audio.
