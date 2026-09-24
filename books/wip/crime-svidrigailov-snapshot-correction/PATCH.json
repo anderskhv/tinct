@@ -1,0 +1,180 @@
+{
+  "schema": "tinct-card-field-patch/1",
+  "bookId": "crime-and-punishment",
+  "purpose": "Remove premature facts from Svidrigaïlov's first-encounter card and defer them to 22.37.",
+  "targets": [
+    "app/public/data/characters/crime-and-punishment.v1.json",
+    "books/characters/crime-and-punishment/characters.v1.json"
+  ],
+  "baselineSha256": "2125526c56769e4f09be387f6d5dc2e974dc9aca7fb931115fb893da34706d98",
+  "serialization": "json.dumps(indent=2, ensure_ascii=False) + '\\n' (matches the baseline byte for byte)",
+  "operations": [
+    {
+      "edition": "original-en",
+      "op": "replace",
+      "path": [
+        "editions",
+        "original-en",
+        "characters",
+        {
+          "id": "svidrigailov"
+        },
+        "snapshots",
+        {
+          "id": "svidrigailov-1"
+        },
+        "body"
+      ],
+      "old": "Wealthy, unsettling, and recently widowed, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things. His arrival in St. Petersburg alarms the whole Raskolnikov family.",
+      "new": "Wealthy and unsettling, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things."
+    },
+    {
+      "edition": "original-en",
+      "op": "insert-after",
+      "path": [
+        "editions",
+        "original-en",
+        "characters",
+        {
+          "id": "svidrigailov"
+        },
+        "snapshots"
+      ],
+      "after": "svidrigailov-1",
+      "absentBefore": "svidrigailov-2",
+      "value": {
+        "id": "svidrigailov-2",
+        "availableAt": {
+          "chapterNumber": 22,
+          "paragraphIndex": 37,
+          "offset": 1063
+        },
+        "name": "Svidrigaïlov",
+        "subtitle": "Dunya's former employer, with a dark reputation",
+        "body": "Wealthy, unsettling, and recently widowed, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things. His arrival in St. Petersburg alarms the whole Raskolnikov family.",
+        "evidence": [
+          {
+            "chapterNumber": 16,
+            "paragraphIndex": 73,
+            "throughOffset": 317
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 31,
+            "throughOffset": 266
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 34,
+            "throughOffset": 87
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 37,
+            "throughOffset": 1063
+          }
+        ],
+        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; his arrival in St. Petersburg and the family's alarm at 22.31-22.34; the rumors of a hushed-up criminal case of homicidal brutality at 22.36-22.37. Released at the end of the reviewed source paragraph."
+      }
+    },
+    {
+      "edition": "modern-en",
+      "op": "replace",
+      "path": [
+        "editions",
+        "modern-en",
+        "characters",
+        {
+          "id": "svidrigailov"
+        },
+        "snapshots",
+        {
+          "id": "svidrigailov-1"
+        },
+        "body"
+      ],
+      "old": "Wealthy, unsettling, and recently widowed, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things. His arrival in St. Petersburg alarms the whole Raskolnikov family.",
+      "new": "Wealthy and unsettling, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things."
+    },
+    {
+      "edition": "modern-en",
+      "op": "insert-after",
+      "path": [
+        "editions",
+        "modern-en",
+        "characters",
+        {
+          "id": "svidrigailov"
+        },
+        "snapshots"
+      ],
+      "after": "svidrigailov-1",
+      "absentBefore": "svidrigailov-2",
+      "value": {
+        "id": "svidrigailov-2",
+        "availableAt": {
+          "chapterNumber": 22,
+          "paragraphIndex": 37,
+          "offset": 973
+        },
+        "name": "Svidrigailov",
+        "subtitle": "Dunya's former employer, with a dark reputation",
+        "body": "Wealthy, unsettling, and recently widowed, he pursued Dunya while she worked in his household and is rumored to be responsible for terrible things. His arrival in St. Petersburg alarms the whole Raskolnikov family.",
+        "evidence": [
+          {
+            "chapterNumber": 16,
+            "paragraphIndex": 73,
+            "throughOffset": 314
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 31,
+            "throughOffset": 237
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 34,
+            "throughOffset": 87
+          },
+          {
+            "chapterNumber": 22,
+            "paragraphIndex": 37,
+            "throughOffset": 973
+          }
+        ],
+        "editorialBasis": "Deferred from svidrigailov-1 by the 2026-09-24 correction; body is the original first-encounter text, unchanged. Marfa Petrovna's death (so his widowhood) is established at 16.73; his arrival in St. Petersburg and the family's alarm at 22.31-22.34; the rumors of a hushed-up criminal case of homicidal brutality at 22.36-22.37. Released at the end of the reviewed source paragraph."
+      }
+    }
+  ],
+  "candidateCoordinates": {
+    "edition": "modern-en",
+    "appliesTo": "accepted candidate sha256 18be4155...",
+    "availableAt": {
+      "chapterNumber": 22,
+      "paragraphIndex": 37,
+      "offset": 973
+    },
+    "evidence": [
+      {
+        "chapterNumber": 16,
+        "paragraphIndex": 73,
+        "throughOffset": 312
+      },
+      {
+        "chapterNumber": 22,
+        "paragraphIndex": 31,
+        "throughOffset": 237
+      },
+      {
+        "chapterNumber": 22,
+        "paragraphIndex": 34,
+        "throughOffset": 87
+      },
+      {
+        "chapterNumber": 22,
+        "paragraphIndex": 37,
+        "throughOffset": 973
+      }
+    ]
+  }
+}
