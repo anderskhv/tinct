@@ -166,8 +166,7 @@ Anti-truncation prompt requirements:
 
 ## QA Gates
 
-**Similarity gate (mandatory, blocking).** No audio
-generation may start until `modern-en` passes the committed similarity gate:
+**Similarity gate (mandatory, blocking).** Run the committed similarity gate before content handoff:
 
 ```bash
 python3 books/classify-modern-en.py {book-id} --gate            # whole book
@@ -179,7 +178,7 @@ The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
 2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
 failure class cannot recur silently. A prose claim that a rendering is "real"
 does not substitute for a passing gate. Run it per batch during rendering and on
-the whole book before handing off to audio.
+the whole book before handing off for publication.
 
 Run focused QA after chapter batches and before considering an edition complete:
 
@@ -201,15 +200,13 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 
 ## Audio
 
-**Current publication rule — 23 September 2026:** accepted repairs to published text can ship with required character-card compatibility. Legacy Kokoro recordings, manifests and timing regeneration are not prerequisites. A text repair does not authorize GPU/TTS spend, audio regeneration or voice-architecture changes. The separately approved Grok migration has its own scope and acceptance; follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md).
+**Current adding-book policy — 24 September 2026:** English narration uses Grok streaming and shared caching. This applies to new books and text repairs. Do not generate a full audiobook as an onboarding step: no Kokoro, Edge TTS, RunPod or GPU job, and no legacy manifest/timing regeneration gate.
 
+Follow the [adding-book guide](README.md), [audio architecture](../docs/audiobook-architecture-2026-09-21.md) and [Grok release contract](../docs/grok-narration-2026-09-23.md). The coding agent verifies runtime narration eligibility and exact text/language/provider/model/voice/settings cache compatibility. Changed text must not use stale cached speech; unchanged compatible chunks remain reusable.
 
-- Keep narration cache identity tied to exact approved text, provider, model, voice and settings under the current architecture. Do not select stale audio for changed text.
-- Do not start synthesis from a legacy backlog or release packet. Use only the explicitly approved audio task and its spending/preparation limits.
-- Do not invent source-language audio or add localization work.
-- Preserve existing audio/timing objects for rollback until the approved migration passes acceptance. Inventory exact obsolete objects before any authorized cleanup.
-- Historical Kokoro operation notes remain in [English Audio Pipeline](ENGLISH_AUDIO_PIPELINE.md); they are not current release requirements.
-- When writing a release packet, record accepted text hashes, changed paragraph coordinates, review evidence and character-card impact. Describe audio synchronization only as required by the separately approved current architecture, never as an automatic Kokoro regeneration gate.
+Opening prewarming and real-provider checks follow their separately approved scope and budget. A new book does not automatically join the featured-ten preparation job. Preserve legacy assets pending separately authorized cleanup. Record changed paragraph coordinates in release packets; do not prescribe retired-engine regeneration.
+
+Danish translation, narration and onboarding remain out of scope unless Anders reopens them.
 
 ## Registry
 
@@ -337,4 +334,4 @@ Every cell should be `Complete` or `Not complete` with a short note on the gap.
 - Do not run multiple writers against the same edition JSON in parallel.
 - Do not deploy or stash during active edition writes.
 - Do not rely only on absence of `[untranslated]`; scaffolded English can look clean while still untranslated.
-- Do not let audio live only in staging. If users need it, it must be in R2 with manifests.
+- Do not confuse legacy R2 recording coverage with current Grok streaming eligibility. Verify the active runtime contract; do not add a full-recording gate.

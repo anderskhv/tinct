@@ -2,9 +2,9 @@
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
-Last updated: 2026-09-23
+Last updated: 2026-09-24
 
-Use this as the quick overview before opening Claude, Codex, or RunPod. Keep it short and current. Git history keeps the detailed record.
+Use this as the quick overview before starting content or coding work. Keep it short and current. Git history keeps the detailed record.
 
 Run this first:
 
@@ -72,6 +72,8 @@ npm run deploy
 
 Owner: Claude from `books/`.
 
+Current adding-book guide: [books/README.md](books/README.md). English only; Grok streaming replaces full-book audio generation. No Danish translation or legacy Kokoro/Edge TTS/RunPod step is required.
+
 Canonical book package:
 
 1. Source found and validated.
@@ -98,7 +100,7 @@ Codex owns inventory, publication readiness, registry, app verification, and dep
 
 ### Audiobook migration / Codex
 
-Follow [Audiobook architecture](docs/audiobook-architecture-2026-09-21.md), including the distinction between current deployed Google/retained-Bella behavior and the approved Grok rollout. Do not resume the legacy Kokoro/RunPod backlog or infer spend from a content repair. Preserve old assets for rollback until accepted migration and exact cleanup inventory.
+Follow [Audiobook architecture](docs/audiobook-architecture-2026-09-21.md), and the [Grok release contract](docs/grok-narration-2026-09-23.md). English narration now selects Grok streaming with shared caching; retained Google/Bella paths are historical rollback code. Do not resume the legacy Kokoro/RunPod backlog or infer spend from a content repair. Preserve old assets for rollback until accepted migration and exact cleanup inventory.
 
 ### Publication / Codex
 
@@ -112,7 +114,7 @@ A book may move into public `BOOKS` only when:
 - QA passed
 - onboarding exists
 - taxonomy is complete
-- audio flags match actual R2 coverage
+- narration flags match the current Grok runtime contract; full-book R2 recording coverage is not a publication gate
 - app build and bundle verification pass
 
 ## Historical Bella word-sync repair — 2026-09-21

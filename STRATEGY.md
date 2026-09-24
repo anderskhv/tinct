@@ -24,6 +24,12 @@ The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md
 
 This is a design direction for current work, not a request to implement a localization framework, change schemas or dependencies, generate translations, or deploy now. Concrete implementation remains subject to the relevant work plan. Other dated metrics and historical completion claims in this document have not been reverified by this language-scope update.
 
+## Adding books — current delivery process
+
+**Updated 2026-09-24.** Follow [Adding books](books/README.md): validate the source, prepare and independently review English editions, complete onboarding and character compatibility, then hand the accepted package to the coding agent for integration and publication.
+
+Grok streaming and shared caching replace the former full-book audio-generation step. New books do not require Kokoro, Edge TTS, RunPod/GPU jobs, prerecorded audio, or legacy manifests/timings. Runtime narration eligibility and cache compatibility still require verification. Opening prewarming is separately scoped, not an automatic task for every book. Danish translation, narration and onboarding are not part of the current pipeline; preserve existing assets.
+
 ## Featured ten-book selection
 
 **Approved by Anders, 2026-09-23.** These ten books, in the supplied order, are the selection for the featured-book and opening-audio rollout. This supersedes the earlier suggestion to take the first ten entries from the existing 16-book popular shelf. Recording this decision does not itself change the live shelf or generate audio.

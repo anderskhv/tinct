@@ -2,7 +2,7 @@
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
-This file is for sessions opened from `/Users/andershvelplund/Documents/Projects/Tinct/books`.
+Use this guide from the current cloud checkout. Start with [Adding books](README.md); historical Mac paths are not cloud-accessible work destinations.
 
 Current sources of truth:
 
@@ -26,9 +26,9 @@ From this folder, default to content work only. Do not edit reader UX, React com
 Before starting any task, check the working tree from the repo root:
 
 ```bash
-bash /Users/andershvelplund/Documents/Projects/Tinct/scripts/tinct-status.sh
-git -C /Users/andershvelplund/Documents/Projects/Tinct status --short
-git -C /Users/andershvelplund/Documents/Projects/Tinct branch --show-current
+bash scripts/tinct-status.sh
+git status --short
+git branch --show-current
 ```
 
 Before answering what books are WIP, publishable, or missing translation/audio,
@@ -36,8 +36,8 @@ run the current-file inventory. Do not rely on memory, prior chat, or stale
 reports:
 
 ```bash
-python3 /Users/andershvelplund/Documents/Projects/Tinct/books/wip_inventory.py
-python3 /Users/andershvelplund/Documents/Projects/Tinct/books/wip_inventory.py --audio
+python3 books/wip_inventory.py
+python3 books/wip_inventory.py --audio
 ```
 
 Published/live means present in `app/src/data/bookRegistry.ts` `BOOKS`. Ignore
@@ -94,7 +94,7 @@ publishable per `wip_inventory.py`, unless Anders directs otherwise.
 4. For non-English works, keep the original-language edition when available and add a public-domain human English translation as the English baseline.
 5. Create `modern-en`.
 5b. Similarity gate (mandatory, blocking): `python3 books/classify-modern-en.py {book-id} --gate`
-   must PASS before audio work. Run per batch with
+   must PASS before content handoff. Run per batch with
    `--chapters N-M` while rendering. A prose claim that the rendering is
    "real" does not substitute for a passing gate.
 6. Create onboarding content and threads when appropriate.
@@ -172,13 +172,15 @@ Modern English must be a real modern-English rendering, not a summary and not a 
 
 Paragraph alignment is sacred. If alignment breaks, stop and fix alignment before continuing translation or audio.
 
-## Audio Rules
+## Audio
 
-**Updated 23 September 2026:** legacy Kokoro recordings and manifests are not a prerequisite for publishing accepted text repairs. The Frankenstein/Jekyll release is text plus required character compatibility only: no GPU/TTS generation, audio regeneration or voice changes.
+**Current adding-book policy — 24 September 2026:** English narration uses Grok streaming and shared caching. This applies to new books and text repairs. Do not generate a full audiobook as an onboarding step: no Kokoro, Edge TTS, RunPod or GPU job, and no legacy manifest/timing regeneration gate.
 
-Follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md) for the separately approved Grok migration and its exact scope. Audio reuse must match approved text/provider/model/voice/settings identity. Do not resume the old RunPod backlog from historical instructions, infer new spend from a text edit, or delete legacy objects before migration acceptance and a reviewed inventory.
+Follow the [adding-book guide](README.md), [audio architecture](../docs/audiobook-architecture-2026-09-21.md) and [Grok release contract](../docs/grok-narration-2026-09-23.md). The coding agent verifies runtime narration eligibility and exact text/language/provider/model/voice/settings cache compatibility. Changed text must not use stale cached speech; unchanged compatible chunks remain reusable.
 
-Release packets must distinguish current release requirements from historical audio observations. Record paragraph changes for current cache/synchronization handling without requiring retired-engine regeneration.
+Opening prewarming and real-provider checks follow their separately approved scope and budget. A new book does not automatically join the featured-ten preparation job. Preserve legacy assets pending separately authorized cleanup. Record changed paragraph coordinates in release packets; do not prescribe retired-engine regeneration.
+
+Danish translation, narration and onboarding remain out of scope unless Anders reopens them.
 
 ## Registry And Publishing
 
