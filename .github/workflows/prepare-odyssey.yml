@@ -1,0 +1,23 @@
+name: Prepare accepted Odyssey release
+on:
+  push:
+    branches: [codex/odyssey-reviewed-release-20260924]
+    paths: ['app/scripts/prepare-odyssey-release.py', '.github/workflows/prepare-odyssey.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/odyssey-reviewed-release-20260924
+      - run: python3 app/scripts/test-prepare-reviewed-editions.py
+      - run: python3 app/scripts/prepare-odyssey-release.py
+      - name: Commit verified paired English editions and cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/public/data/editions/odyssey-original-en.json app/public/data/editions/odyssey-modern-en.json app/public/data/characters/odyssey.v1.json app/src/services/characters/characterCards.ts books/wip/odyssey-release-20260924-report.json
+          git diff --cached --quiet || git commit -m "Stage accepted Odyssey English pair and verified character references"
+          git push origin HEAD:codex/odyssey-reviewed-release-20260924
