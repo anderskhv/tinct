@@ -1,0 +1,25 @@
+name: Prepare accepted Moby-Dick body repair
+on:
+  push:
+    branches: [codex/moby-reviewed-release-20260924]
+    paths: ['app/scripts/prepare-moby-release.py', '.github/workflows/prepare-moby.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/moby-reviewed-release-20260924
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - run: python3 app/scripts/prepare-moby-release.py
+      - name: Commit staged coordinate evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/public/data/editions/moby-dick-modern-en.json app/public/data/characters/moby-dick.v1.json app/public/data/editions-chapters/moby-dick-modern-en/ app/src/services/characters/characterCards.ts books/wip/moby-release-20260924-report.json
+          git diff --cached --quiet || git commit -m "Stage accepted Moby-Dick body, compatible cards and chapter shards"
+          git push origin HEAD:codex/moby-reviewed-release-20260924
