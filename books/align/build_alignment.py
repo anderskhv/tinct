@@ -67,7 +67,7 @@ def sha(path: Path) -> str:
 
 
 # Tokens whose final period is an abbreviation, not a sentence end.
-ABBREV = re.compile(r"^[\"'“‘(\[]*(mr|mrs|messrs|dr|st|mt|sr|jr|rev|gen|col|capt|lt|gov|hon|prof|vol|ch|no|viz|cf|etc|i\.e|e\.g|[a-hj-z])\.$", re.I)
+ABBREV = re.compile(r"^[_\"'“‘(\[]*(mr|mrs|messrs|dr|st|mt|sr|jr|rev|gen|col|capt|lt|gov|hon|prof|vol|ch|no|viz|cf|etc|i\.e|e\.g|[a-hj-z])\.$", re.I)
 
 
 def sentences(words: list[str]) -> list[int]:

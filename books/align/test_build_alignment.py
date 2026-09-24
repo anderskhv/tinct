@@ -56,6 +56,7 @@ def test_legacy_pairs_convert():
 def test_abbreviations_do_not_end_sentences():
     words = "but, unlike Mr. Covey, he ate. Then J. Smith left.".split()
     assert sentences(words) == [0, 6]
+    assert sentences("hand of _Mr. David Ruggles_, whose vigilance. Next.".split()) == [0, 7]
 
 
 if __name__ == "__main__":

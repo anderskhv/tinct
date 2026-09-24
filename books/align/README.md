@@ -46,18 +46,38 @@ Files: `build_alignment.py` (first pass, merge, validate),
 `HELPER_PROMPT.md` (model pass instructions), `overrides/` (model/human
 reviews), `data/` (outputs), `review/` (reports).
 
-## Pilot results (2026-09-24)
+## Pilot results (2026-09-24, checkpoint 2)
 
-| Book | Long paras | Flagged by pass 1 | Model-resolved | Spot-check |
-|---|---|---|---|---|
-| hamlet | 65 | 20 (7.6k words) | 20, one helper, ~111k tokens total | 2/2 flagged paras correct line-by-line |
-| on-liberty | 113 | 0 | — | modern-en is a light edit; sample correct |
-| walden | 347 | 0 | — | 2 random paras correct |
-| confessions | 443 | 1 | — | 2 random paras correct |
-| frederick-douglass | 118 | 7 | not run | — |
-| genealogy-of-morals | 99 | 2 | not run | — |
-| peloponnesian-war | 799 | 0 | — | not sampled |
-| utilitarianism | 84 | 0 | — | not sampled |
+All checks below are **model review** (Claude), not human verification.
+Report: [`review/pilot-report-2026-09-24.md`](review/pilot-report-2026-09-24.md).
 
-Finding: for English-original prose the modern edition is a light edit and pass
-1 is sufficient; model cost concentrates in loose paraphrases (Shakespeare).
+| Book | Long paras | Model-reviewed | Unresolved / one-sided | Helper tokens | Word overlap* |
+|---|---|---|---|---|---|
+| hamlet | 65 | 20 (flagged only) | 1 unreviewed first-pass `u` (10/13) | 111,149 | 0.30 |
+| macbeth | 23 | 23 (all, incl. 20 auto-accepted) | 3 (see below) | 146,104 | 0.34 |
+| frederick-douglass | 118 | 7 (flagged) | 1 `u` (11/5, 217-word sentence) | 130,233 | 0.55 |
+| walden / on-liberty | 347 / 113 | 0 | 0 | 0 | 0.94 / 0.91 |
+
+*Jaccard word overlap, modern vs original, long paragraphs. Above ~0.6 the
+"modern" edition is close to a light edit, which makes alignment trivially
+easy; those books say little about genuinely modernised prose.
+
+Helper-only total: 387,486 tokens (3 helpers, one at a time, 0 retries needed:
+no override was rejected by the validator). Main-session usage is not
+measurable from inside the session.
+
+Findings:
+- Macbeth: the model changed all 23 paragraphs; it reports 8 with real
+  one-sentence misalignments in first-pass output that had been auto-accepted
+  or flagged, the rest granularity refinements. 7/1 and 17/1 checked (model
+  review): correct.
+- Frederick Douglass, auto-accepted first pass (not model-reviewed): two
+  one-sentence boundary shifts found in samples (10/0 "How I escaped death" and
+  10/2 "faculty of making us feel"). First pass is not reliable at sentence
+  level on genuinely paraphrased prose.
+- Macbeth 1.5 paragraph 1: served `macbeth-original-en.json` is missing the
+  "Glamis thou art, and Cawdor…" soliloquy (present in the raw source and in
+  modern-en). Alignment marks the modern tail target-only. Content bug, to fix
+  separately.
+- Sentence-split bugs found by the report and fixed: abbreviations ("Mr.",
+  initials) and emphasis-prefixed abbreviations ("_Mr.").
