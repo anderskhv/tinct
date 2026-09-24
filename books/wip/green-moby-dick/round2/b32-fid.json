@@ -1,0 +1,234 @@
+{
+ "batch": "b32",
+ "role": "fidelity",
+ "chapters": [
+  32,
+  33,
+  34,
+  35
+ ],
+ "reviewed": [
+  "32.0",
+  "32.1",
+  "32.2",
+  "32.3",
+  "32.4",
+  "32.5",
+  "32.6",
+  "32.7",
+  "32.8",
+  "32.9",
+  "32.10",
+  "32.11",
+  "32.12",
+  "32.13",
+  "32.14",
+  "32.15",
+  "32.16",
+  "32.17",
+  "32.18",
+  "32.19",
+  "32.20",
+  "32.21",
+  "32.22",
+  "32.23",
+  "32.24",
+  "32.25",
+  "32.26",
+  "32.27",
+  "32.28",
+  "32.29",
+  "32.30",
+  "32.31",
+  "32.32",
+  "32.33",
+  "32.34",
+  "32.35",
+  "32.36",
+  "32.37",
+  "32.38",
+  "32.39",
+  "32.40",
+  "32.41",
+  "32.42",
+  "32.43",
+  "32.44",
+  "32.45",
+  "32.46",
+  "33.0",
+  "33.1",
+  "33.2",
+  "33.3",
+  "33.4",
+  "33.5",
+  "33.6",
+  "34.0",
+  "34.1",
+  "34.2",
+  "34.3",
+  "34.4",
+  "34.5",
+  "34.6",
+  "34.7",
+  "34.8",
+  "34.9",
+  "34.10",
+  "35.0",
+  "35.1",
+  "35.2",
+  "35.3",
+  "35.4",
+  "35.5",
+  "35.6",
+  "35.7",
+  "35.8",
+  "35.9",
+  "35.10",
+  "35.11",
+  "35.12"
+ ],
+ "items": [
+  {
+   "id": "32.6",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source crier's formula \"This is Charing Cross; hear ye! good people all\" is a proclamation to the crowd (\"hear, all of you\"); candidate \"hear me\" shifts it to the speaker. Render as a modern proclamation call.",
+   "new": "Of the names on this list of whale authors, only those after Owen ever saw living whales, and only one of them was a real professional harpooner and whaleman. I mean Captain Scoresby. On the separate subject of the Greenland or right whale, he is the best authority there is. But Scoresby knew nothing and says nothing of the great sperm whale, compared with which the Greenland whale is hardly worth mentioning. And let it be said here that the Greenland whale is a usurper on the throne of the seas. He is not even by any means the largest of the whales. Yet because his claims go back so far, and because of the profound ignorance that, until some seventy years ago, surrounded the then fabulous or utterly unknown sperm whale — an ignorance that to this day still reigns everywhere except in a few scientific retreats and whaling ports — this usurpation has been complete in every way. A look at nearly all the allusions to leviathan in the great poets of past days will satisfy you that the Greenland whale, without a single rival, was to them the monarch of the seas. But the time has at last come for a new proclamation. This is Charing Cross; hear this, good people all — the Greenland whale is deposed — the great sperm whale now reigns!"
+  },
+  {
+   "id": "32.9",
+   "severity": "blocking",
+   "category": [
+    "convention",
+    "meaning"
+   ],
+   "reason": "Lead decision 8: Job at 32.9 is a verbatim scripture quotation and keeps its archaic pronouns. Source: \"Will he (the leviathan) make a covenant with thee? Behold the hope of him is vain!\" Candidate modernized it to \"with you? See, the hope of him is vain!\" Restore verbatim (keeping Melville's inserted \"(the leviathan)\").",
+   "new": "But it is a ponderous task; no ordinary letter-sorter at the Post Office is equal to it. To grope down to the bottom of the sea after them; to have one's hands among the unspeakable foundations, ribs, and very pelvis of the world — this is a fearful thing. Who am I, that I should try to hook the nose of this leviathan! The awful taunts in Job might well appall me. Will he (the leviathan) make a covenant with thee? Behold the hope of him is vain! But I have swum through libraries and sailed through oceans; I have had to do with whales with these visible hands; I am in earnest; and I will try. There are some preliminaries to settle."
+  },
+  {
+   "id": "32.25",
+   "severity": "blocking",
+   "category": [
+    "meaning",
+    "hedge",
+    "voice"
+   ],
+   "reason": "Source: \"if you descend into the bowels of the various leviathans, why there you will not find distinctions a fiftieth part as available to the systematizer\". The negation means inside the whale you won't find even a fiftieth as much; candidate \"you'll find distinctions a fiftieth as useful\" asserts exactly a fiftieth, dropping the \"not\". Also: \"Yet we have seen that by his baleen it is impossible correctly to classify the Greenland whale\" was generalized to \"baleen is useless for classification\"; \"boldly sort them that way\" became \"sort them boldly by size\" (an added gloss; the source's point is 'bodily, in their entire liberal volume'); \"descend into the bowels\" flattened to \"look inside\"; \"systematizer\" to \"classifier\".",
+   "new": "But perhaps, you might think, in the whale's internal parts — his anatomy — there we could find the right classification. Not so. What feature of the Greenland whale's anatomy is more striking than his baleen? Yet we have seen that the Greenland whale cannot be correctly classified by his baleen. And if you descend into the bowels of the various leviathans, why, there you will not find distinctions even a fiftieth as useful to the systematizer as the external ones already listed. What remains? Nothing but to take hold of the whales physically, in their full liberal volume, and boldly sort them that way. And this is the bibliographical system I adopt here. It is the only one that can possibly work, for it alone is practical. Let us proceed."
+  },
+  {
+   "id": "32.39",
+   "severity": "non-blocking",
+   "category": [
+    "convention"
+   ],
+   "reason": "Source prints \"DUODECIMOES\" here and at 32.40, parallel to \"OCTAVOES\" (32.30, kept). Candidate has \"DUODECIMOS\" here but \"Duodecimoes\" at 32.40: internally inconsistent. Keep the source's plural as the book-heading form.",
+   "new": "DUODECIMOES. — These include the smaller whales: I. The Huzza Porpoise. II. The Algerine Porpoise. III. The Mealy-Mouthed Porpoise."
+  },
+  {
+   "id": "32.42",
+   "severity": "non-blocking",
+   "category": [
+    "technical"
+   ],
+   "reason": "Source: \"I have lowered for him many times, but never yet saw him captured.\" \"Lowered\" is the whaling term for lowering the boats to chase; candidate \"I've gone after him\" blurs it.",
+   "new": "BOOK III (Duodecimo), CHAPTER II (Algerine Porpoise). — A pirate. Very savage. He is only found, I think, in the Pacific. He is somewhat larger than the Huzza Porpoise but much the same in general build. Provoke him and he'll take on a shark. I've lowered the boats for him many times but have never yet seen him captured."
+  },
+  {
+   "id": "33.2",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "Source: \"sleep in a place indirectly communicating with it\"; candidate \"a space connected to it\" drops \"indirectly\" (the harpooneers' berth opens off the cabin only indirectly; cf. 34.9 \"passed through it\").",
+   "new": "Now, the key distinction between officer and ordinary seaman at sea is this: the officer lives aft, the seaman lives forward. Hence, on whale ships and merchant vessels alike, the mates have their quarters with the captain. And on most American whalers, the harpooners are also housed in the aft part of the ship — meaning they eat their meals in the captain's cabin and sleep in a space that connects with it indirectly."
+  },
+  {
+   "id": "34.0",
+   "severity": "non-blocking",
+   "category": [
+    "technical",
+    "invention"
+   ],
+   "reason": "Source: \"the smooth, medallion-shaped tablet, reserved for that daily purpose on the upper part of his ivory leg\". Candidate \"set into the upper part\" adds a claim that the tablet is inset; the source says only that a smooth area on the leg is reserved for it.",
+   "new": "It is noon, and Dough-Boy, the steward, thrusts his pale bread-dough face from the cabin hatch to announce dinner to his lord and master. Ahab, sitting in the lee quarter-boat, has just been taking a reading of the sun and is now silently calculating the latitude on the smooth, medallion-shaped tablet reserved for this daily purpose on the upper part of his ivory leg. From his complete inattention to the news, you'd think moody Ahab hadn't heard his servant. But presently, catching hold of the mizzen shrouds, he swings himself to the deck and, in an even, unenthusiastic voice, says, \"Dinner, Mr. Starbuck,\" and disappears into the cabin."
+  },
+  {
+   "id": "34.1",
+   "severity": "non-blocking",
+   "category": [
+    "technical"
+   ],
+   "reason": "Source: \"after a grave peep into the binnacle\". Candidate \"into the compass\" drops the nautical term (the binnacle is the compass's housing, recurring in 35.5 \"binnacle magnets\").",
+   "new": "When the last echo of his sultan's step has faded and Starbuck, the first Emir, has every reason to believe he is seated, then Starbuck rouses from his stillness, takes a few turns along the deck, and after a grave peep into the binnacle (the compass housing), says with some touch of pleasantness, \"Dinner, Mr. Stubb,\" and goes below. The second Emir lounges about the rigging a while, then slightly shakes the main brace, to see whether all is well with that important rope. He likewise takes up the old refrain and, with a quick \"Dinner, Mr. Flask,\" follows his predecessors."
+  },
+  {
+   "id": "34.5",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "Source: \"sitting silly and dumfoundered before awful Ahab\". \"Awesome\" reads as modern slang praise; \"silly\" dropped.",
+   "new": "Another thing: Flask was the last person down to dinner and the first one back up. Consider! This meant Flask's dinner was badly squeezed for time. Starbuck and Stubb both got a head start on him, yet they also had the privilege of lingering. If even Stubb, who ranks only one peg above Flask, happened to have a small appetite and showed signs of finishing his meal, then Flask had to hurry — he wouldn't get more than three mouthfuls that day, for it was against sacred custom for Stubb to leave the table before Flask. Therefore Flask once confided in private that ever since he had risen to the dignity of an officer, he had never known what it was to be anything other than hungry, more or less. What he ate didn't so much relieve his hunger as keep it alive forever. Peace and satisfaction, Flask thought, have departed from my stomach for good. I am an officer — but how I wish I could grab a bit of good old-fashioned beef in the forecastle, the way I used to as a common sailor. There's the fruit of promotion. There's the vanity of glory. There's the insanity of life! Besides, if any ordinary sailor on the Pequod had a grudge against Flask in his official capacity, all that sailor had to do for ample revenge was go aft at dinnertime and peek at Flask through the cabin skylight, sitting there silly and dumbfounded before awful Ahab."
+  },
+  {
+   "id": "34.6",
+   "severity": "non-blocking",
+   "category": [
+    "omission"
+   ],
+   "reason": "Source: \"the canvas cloth was cleared\"; candidate \"the tablecloth\" drops the shipboard detail that it is canvas.",
+   "new": "Now, Ahab and his three mates formed what might be called the first table in the Pequod's cabin. After their departure, in reverse order of their arrival, the canvas tablecloth was cleared — or rather restored to some hasty order by the pale steward. Then the three harpooners were invited to eat, being the leftover heirs of the feast. They made a sort of temporary servants' hall of the grand cabin."
+  },
+  {
+   "id": "35.1",
+   "severity": "non-blocking",
+   "category": [
+    "technical"
+   ],
+   "reason": "Source: \"not till her skysail-poles sail in among the spires of the port\". Candidate \"her very topmost poles\" drops the rigging term; \"church\" before spires is an addition.",
+   "new": "On most American whalers, the mastheads are manned almost as soon as the ship leaves port, even though she may have fifteen thousand miles or more to sail before reaching her proper cruising ground. And if, after a three, four, or five-year voyage, she's heading home with anything unfilled — even an empty vial — then her mastheads stay manned to the last. Not until her skysail-poles, the very tops of her masts, sail in among the spires of the port does she give up the hope of catching one more whale."
+  },
+  {
+   "id": "35.3",
+   "severity": "non-blocking",
+   "category": [
+    "meaning",
+    "voice",
+    "omission"
+   ],
+   "reason": "Several small drifts: (1) \"It may seem unwarrantable to couple in any respect the mast-head standers of the land with those of the sea; but that in truth it is not so, is plainly evinced\" means the coupling is justified, not that they are \"not so different\"; (2) the gradation \"it is exceedingly pleasant the mast-head; nay, to a dreamy meditative man it is delightful\" collapsed to \"delightful — especially\"; (3) \"between the boots of the famous Colossus\" (the joke) became \"legs\"; (4) \"the infinite series of the sea\" became \"expanse of the ocean\"; (5) \"snugly stowed in casks\" became \"barrels\".",
+   "new": "It may seem unjustified to link the masthead-standers of the land with those of the sea in any way, but that in truth it is not is plainly shown by a detail for which Obed Macy, the sole historian of Nantucket, is our source. Worthy Obed tells us that in the early days of the whale fishery, before ships were regularly sent out in pursuit, the islanders erected tall poles along the coast, to which lookouts climbed by means of nailed rungs, like chickens going up stairs in a henhouse. A few years ago, the same system was adopted by the bay whalemen of New Zealand, who, upon spotting whales, signaled the waiting boats near the beach. But this custom is now obsolete. So let us turn to the proper masthead: that of a whale ship at sea. The three mastheads are manned from sunrise to sunset, the sailors taking regular turns (as at the helm) and relieving each other every two hours. In the calm weather of the tropics, the masthead is exceedingly pleasant; no, to a dreamy, meditative man it is delightful. There you stand, a hundred feet above the silent decks, striding across the deep as if the masts were giant stilts. Beneath you and between your legs, so to speak, swim the largest monsters of the sea, just as ships once sailed between the boots of the famous Colossus of Rhodes. There you stand, lost in the infinite series of the sea, with nothing stirred but the waves. The hypnotized ship lazily rolls. The drowsy trade winds blow. Everything dissolves you into lethargy. For the most part, in this tropical whaling life, a sublime uneventfulness wraps around you. You hear no news. You read no newspapers. No extras with alarming reports of ordinary events trick you into unnecessary excitement. You hear of no family troubles or bankrupt investments or falling stocks. You never worry about what to have for dinner — all your meals for three years or more are snugly stowed in casks, and your menu is fixed."
+  },
+  {
+   "id": "35.6",
+   "severity": "blocking",
+   "category": [
+    "meaning"
+   ],
+   "reason": "Source: \"Captain Sleet and his Greenlandmen\" = his Greenland-whaling crew. Candidate \"Greenlanders\" means natives of Greenland, changing who is meant. Also \"the widely contrasting serenity of those seductive seas\" lost \"contrasting\" (the point of the comparison).",
+   "new": "But if we southern whale-fishers aren't as snugly housed aloft as Captain Sleet and his Greenlandmen were, that disadvantage is greatly offset by the sharply contrasting serenity of those seductive seas where we mostly sail. For one, I used to lounge up the rigging quite leisurely, resting in the top for a chat with Queequeg or anyone else off duty I might find there. Then I'd climb a little higher, throw a lazy leg over the topsail yard, take a preliminary survey of the watery pastures, and at last reach my final destination."
+  },
+  {
+   "id": "35.9",
+   "severity": "blocking",
+   "category": [
+    "convention",
+    "meaning"
+   ],
+   "reason": "Lead decision 8: Byron's verse, quoted (and parodied) as a quotation, keeps its archaic pronouns. Source: \"Roll on, thou deep and dark blue ocean, roll! Ten thousand blubber-hunters sweep over thee in vain.\" Candidate modernized to \"you\". Restore verbatim.",
+   "new": "\"Roll on, thou deep and dark blue ocean, roll! Ten thousand blubber-hunters sweep over thee in vain.\""
+  },
+  {
+   "id": "35.10",
+   "severity": "blocking",
+   "category": [
+    "hedge"
+   ],
+   "reason": "Source: \"half-hinting that they are so hopelessly lost to all honorable ambition\". Candidate \"hinting\" drops the \"half-\" qualification, making the captains' insinuation stronger than Melville's.",
+   "new": "Very often the captains of such ships scold these absent-minded young philosophers, criticizing them for not taking enough \"interest\" in the voyage — half-hinting that they are so hopelessly lost to all honorable ambition that they would secretly rather not see whales at all. But it's useless. These young Platonists have a theory that their vision is imperfect. They are nearsighted. What use, then, to strain their eyes? They've left their opera glasses at home."
+  }
+ ]
+}
