@@ -145,3 +145,37 @@ Both remaining runs are **kept**:
 2. **n7.19a, "a Laban — a lout":** is a gloss acceptable here, or should the name stand bare?
 3. **¶18, wording of the demonic definition:** the term is already used bare in part F's ¶12, before its official first-use slot here.
 4. **n7.27a:** it was not in my brief's footnote list but is attached to ¶18 in the final source. Please confirm that no other part has also translated it.
+
+---
+
+## Revision r1 (after R1 fidelity review, 2026-09-24)
+
+The r0 draft is preserved at `drafts/history/G-ch7.r0.json`. The full disposition table is in `reviews/R1-applied-G.md`.
+
+- **MAJOR applied: the demonic is now bare.** The ¶18 gloss is deleted, per the editorial decision that the term is bare throughout the book. The r0 note above that describes a "first-use definition of the demonic" at ¶18 is **superseded**. The reviewer also points out that the term's actual first occurrence is ch7 ¶12 (part F), where the Danish sentence itself characterises it. The brief's first-use table should be corrected to match.
+- **21 of 22 MINOR items applied.** The main changes:
+  - *vel* → "presumably";
+  - "are" (present tense for the lovers);
+  - "to the lovers themselves";
+  - "delude himself with";
+  - "also … find rest in it";
+  - "a private lesson", with "word by word" dropped;
+  - "murmur" (*Susen*), kept distinct from "sigh" (*Suk*);
+  - "Let us make a change";
+  - "but … but";
+  - "collapses";
+  - "gallantry" (*Lefleri*);
+  - "one girl";
+  - "one hears … in poetry";
+  - "rattling-about of particularities";
+  - "a Laban (a boor)";
+  - "then she inflames";
+  - "now pride awakes".
+- **Declined (1):** *Difficile* stays as plain "what is so very difficult". It is a naturalised loan, so a gloss would only add friction.
+- **Consistency fixes.** These supersede the r0 terminology notes above.
+  - **holde Bryllup:** now always "hold the wedding". *lade være at holde Bryllup* is "refrain from holding the wedding" in both ¶15 and n7.19a.
+  - **fornærme / Fornærmelse:** now always "offend (against)" / "offense" (¶15, n7.19a, ¶17, ¶18). The r0 "wrong" rendering is gone.
+- **Screen after revision:** 22.8% of words are in shared 8-word runs, 6.0% in runs of 12 or more words, and 0.0% in runs of 16 or more.
+  - **Re-rendered:** the revision created two new runs, in ¶15 and n7.19a, and both were re-rendered from the Danish.
+  - **Kept as forced:** ¶15 (14 words; short clause plus "3) Should he speak?"), ¶18 (15 words; three short sentences, with "make a change" as the review asked) and ¶21 (15 words; unchanged from r0).
+- **Anchors:** both are unchanged and valid.

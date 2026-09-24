@@ -166,6 +166,8 @@ The pilot's Problema I and II are the model for register and density.
 | Umulighed / umulig | **impossibility** / **impossible** | |
 | Virkelighed (the concept) | **actuality** | e.g. "incommensurable with actuality". The idiom "i Virkeligheden" (in real life, in fact) may be rendered idiomatically. The adverb *virkelig* is "really". Ruling of 2026-09-24. |
 | Realitet | **reality** | "ideality into reality"; "the reality of his deed" (pilot). In n4.21a both occur: "the whole reality of actuality". |
+| tør (turde) | **dare** by default. Use **may not** / **must not** only where the Danish is plainly a prohibition (e.g. ethics forbidding in ch7 ¶35). | Ruling of 2026-09-24. |
+| en Enkelt (ordinary Danish) | **an individual**, **someone** | Never the fixed term "the single individual", which renders *den Enkelte* only. |
 | fatte / gribe | **comprehend**, **understand** / **grasp**, **seize** | *gribe* is the grasp of faith and resignation. Keep *fatte* apart from it. |
 | Skjulthed; skjult | **concealment**; **concealed**, **hidden** | The Problema III pair. Keep it opposed to "disclosure". |
 | Aabenbarelse; aabenbare (vb) | **disclosure**; **disclose** | Never "revelation", which is reserved for any Danish *Aabenbaring* (divine revelation). |

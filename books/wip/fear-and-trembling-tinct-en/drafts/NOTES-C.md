@@ -113,3 +113,34 @@ I kept all three remaining runs:
 1. **"Mediation" at ¶2.** The brief assigns it, but the Danish says *meditere*. I left it out; please confirm. Kierkegaard might intend a pun on *mediere*, but nothing in the text requires it.
 2. **The ¶8 closing clause.** Its syntax is compressed and should be checked.
 3. **The bare period references in ¶10–11.** "Married with the left hand" and *Kongereise* ("royal journey") carry no gloss. Decide whether either needs one.
+
+## Revision r1 (after R1 fidelity review)
+
+- **Review:** `reviews/R1-fidelity-C.md` (0 MAJOR, 15 MINOR). The table of decisions is in `reviews/R1-applied-C.md`.
+- **Pre-revision draft:** `drafts/history/C-ch4.r0.json`.
+- **Applied (13):**
+  - 0.1: "Here it holds true that …"
+  - 2.1: "Yet here again the question is whether …"
+  - 2.2: "sacrificed the best", keeping the fixed token
+  - 4.1: "to be willing to murder one's son", restoring the parallel
+  - 7.1: "I have known a person who once could have saved my life"
+  - 7.2: "I fear that later …"
+  - 9.1: "her own beauty for sale to philosophy"
+  - 10.1: the gloss now sits directly at "incommensurable"
+  - 11.1: "Nor, then, could I …"
+  - 11.2: "if anything", for *snarere*
+  - 11.3: "dawdled along the highway"
+  - 11.4: "a tragic hero"
+  - 11.5: "a journey in the king's service"
+- **No change (2):**
+  - 4.2: by the coordinator's ruling, *Nul og Nichts* is rendered and *Schäfer-Historier* is kept in German with a gloss. That was already the case.
+  - 6.1: "movement of feeling" is kept for clarity.
+- **Screen re-renders:** "thoughtless glorification", "let the verdict on Abraham be the same as on anyone else" (¶4) and "He put it plainly" (¶7).
+- **Screen after r1:**
+  - Four runs of 14 or more remain: ¶2 [14], ¶4 [19], ¶10 [14] and ¶11 [18]. The ¶4 run is kept as forced; the other three are kept for the reasons in the screen section above.
+  - Totals: 24.6% in 8-word runs, 8.7% in runs of 12 or more, and 1.0% in runs of 16 or more.
+- **Footnote anchor:** the n4.2a anchor is unchanged and valid.
+- **Word count:** 3,664 in the main text and 65 in the note.
+- **For the lead (from the reviewer, not Part C defects):**
+  - The accepted pilot glosses spiritual trial again at ch5 ¶0, which is now a second definition.
+  - The standard (§A5) and the brief conflict over glossing "the absurd". The coordinator has ruled: no gloss.

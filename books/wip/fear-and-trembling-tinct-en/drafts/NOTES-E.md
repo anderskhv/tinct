@@ -112,3 +112,27 @@ Calibration (Problema I-II): Lowrie vs Hong single-reference 12-word 3.8%, 16-wo
 ```
 
 The runs of 12 words or more (8.1%) are mostly fixed-term chains, such as "make the infinite movement of resignation" and "by virtue of the absurd", together with short, plain Danish sentences. I did not distort anything to lower the number.
+
+## 9. Revision r1 (after R1 fidelity review), 2026-09-24
+
+- **Files:**
+  - The pre-edit draft is saved as `drafts/history/E-ch4.r0.json`.
+  - The full table of findings and new wordings is in `reviews/R1-applied-E.md`.
+- **Result:** all 3 MAJOR and all 16 MINOR findings were applied. None was declined.
+- **Changes that supersede §4:**
+  - **Virkelighed → "actuality"** (book-level ruling, STYLE §C): ¶18 ×2, ¶28. *Realitet* ("reality") does not occur in ¶18–¶34.
+    - In the §1 courtesy translation of n4.21a, the phrase "the whole reality of actual life" should read **"the whole reality of actuality"**, per the ruling.
+  - **fatte → "comprehend" / "understand"; gribe → "grasp".**
+    - ¶27: "comprehended the horror of life", "comprehend the thought", "This I cannot comprehend."
+    - ¶18: "He has understood the deep secret".
+    - Every remaining "grasp" in E renders *gribe*.
+  - **faae → "get" without exception.** ¶24 now reads "by faith I get everything".
+  - **det Paradoxe → "what is paradoxical"** (¶24). The §8 justification for that run as "fixed terminology" is withdrawn; the run no longer appears.
+  - **The refrain in ¶26** now ends in a full stop both times, with no exclamation mark.
+  - **The ¶22 aesthetic gloss** now reads "(the aesthetic being the sphere of immediate feeling)".
+  - **The ¶24 conditional** "kan Du troe det" now reads "if you can believe it."
+- **Screen after r1:** `TOTAL words 4332; in shared 8-word runs 25.3%; in runs>=12 8.3%; in runs>=16 0.4%`. Three runs remain:
+  - ¶18 (15 words): forced, the reviewer's m1 wording following *modsiger / Modsigelse*;
+  - ¶24 (15 words): fixed terms;
+  - ¶26 (16 words): the refrain.
+  - One new ¶26 run was re-rendered: "someone like that is no knight".
