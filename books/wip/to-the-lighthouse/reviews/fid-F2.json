@@ -1,0 +1,58 @@
+[
+ {
+  "loc": "10.10",
+  "severity": "recommended",
+  "category": "meaning",
+  "issue": "Source “How could she help being ‘like that’ to look at?” keeps the accuser's quoted phrase “like that” (her looks as the charge's cause); “Could she help how she looked?” drops the quoted phrase and its ironic distance.",
+  "find": "Could she help how she looked?",
+  "replace": "How could she help looking “like that”?"
+ },
+ {
+  "loc": "10.16",
+  "severity": "recommended",
+  "category": "meaning",
+  "issue": "Source “which at once made him gaze and marvel” means immediately; moved to the end, “gaze and marvel at once” reads as ‘simultaneously’.",
+  "find": "that made him gaze and marvel at once",
+  "replace": "that at once made him gaze and marvel"
+ },
+ {
+  "loc": "14.1",
+  "severity": "recommended",
+  "category": "antecedent",
+  "issue": "Source “She thought she must have been tossed in her perambulator” is passive; “one must have tossed her” introduces an unclear “one” that readers of this edition (where “one”→“you” generic) will take as ‘someone’ rather than a bull.",
+  "find": "She thought one must have tossed her in her baby carriage when she was tiny.",
+  "replace": "She thought she must have been tossed in her baby carriage by a bull when she was tiny."
+ },
+ {
+  "loc": "16.11",
+  "severity": "recommended",
+  "category": "meaning",
+  "issue": "Source “let the Bœuf en Daube overboil” means cook too long (hence the burning smell), not “boil over”.",
+  "find": "let the Bœuf en Daube boil over?",
+  "replace": "let the Bœuf en Daube boil too long?"
+ },
+ {
+  "loc": "10.11",
+  "severity": "recommended",
+  "category": "omission",
+  "issue": "Source hedge “feeling life rather sinister again” is dropped; “sensing again how sinister life was” makes it absolute.",
+  "find": "sensing again how sinister life was",
+  "replace": "feeling again that life was rather sinister"
+ },
+ {
+  "loc": "9.8",
+  "severity": "recommended",
+  "category": "meaning",
+  "issue": "Source “her dear Lily, her little Brisk, was a fool” is Mrs. Ramsay's flat verdict on Lily; “was being a fool” softens it to a passing lapse.",
+  "find": "was being a fool",
+  "replace": "was a fool"
+ },
+ {
+  "loc": "14.0",
+  "severity": "recommended",
+  "category": "markup",
+  "issue": "Source aside “(as Nancy looked down upon life spread beneath her)” is a parenthesis; the rendering turns it into commas, dropping the paragraph's inner parenthesis (the outer section-long parenthesis is correctly kept).",
+  "find": "Here and there, as Nancy gazed down at life spread out below, something rose out of the mist",
+  "replace": "Here and there (as Nancy gazed down at life spread out below) something rose out of the mist"
+ }
+]
