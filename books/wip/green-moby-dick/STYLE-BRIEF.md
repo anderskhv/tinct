@@ -46,7 +46,7 @@ Short is not the same as abridged. Melville's padding ("for the nonce", "I say")
 - **Species names:** don't touch a paragraph just to change the capitalization of "Sperm Whale" or "sperm whale". In a paragraph you rewrite, follow the source's capitalization.
 - **Archaic pronouns:** thee, thou, thy, ye and the -est/-eth verb forms become you/your and modern verbs in narration and dialogue. That includes Quaker speech and Ahab's high speeches, which is the edition's practice in chs 16, 18, 36 and 119. Keep the *elevation* of Ahab's and Mapple's rhetoric: its cadence, apostrophes, exclamations and imagery. Only the grammar is modernized.
 - **Quoted verse and hymns:** modernize the wording lightly, keep the lines as the source lays them out, and keep the rhyme where it survives.
-- **Proper names and allusions:** keep them exactly as printed (Heidelburgh Tun, Melancthon, Lavater, Lais, Darien, Lacépède, Scoresby, Beale, Pequod, Town-Ho, Jeroboam, Samuel Enderby). Don't swap "Indian" for "Pacific" and so on.
+- **Proper names and allusions:** keep them exactly as printed in the source paragraph, including Melville's spellings (Heidelburgh Tun, Melancthon, Lavater, Lais, Darien, Lacepede, Hackluyt, Pontoppodan, Albert Durer, Crozetts, Scoresby, Beale, Pequod, Town-Ho, Jeroboam, Samuel Enderby). Don't swap "Indian" for "Pacific" and so on.
 - **Whaling terms:** keep them (blubber, spermaceti, case, junk, blanket-piece, try-works, flukes, flurry, gam, lay, fast-fish, loose-fish, cutting-in, mincer, spade, crotch, line-tub, chocks, loggerheads, top-maul, and so on). Where a term would stop a first-time reader and the text does not explain it nearby, you may add a **brief, accurate** gloss woven into the sentence, for example "the case (the great reservoir of spermaceti in the head)". A gloss should be a few words, used once per chapter, and never contain an opinion or a claim that the source does not make. When unsure of a gloss's accuracy, leave the term unglossed.
 - **Measures, numbers and dates:** keep them as printed (feet, fathoms, barrels, tuns).
 - **Addressing the reader:** keep Melville's "you" and imperative asides ("mark", "bethink yourself"), rendered in modern form ("Now, notice this", "Think of another thing").
@@ -78,3 +78,9 @@ JSON, UTF-8:
 }
 ```
 `reviewed` must list **every** coordinate you read in full, which is the coverage evidence. `new` is always the complete paragraph, never a fragment. Validate the file with `python3 -c "import json;json.load(open(PATH))"` before finishing.
+
+## Lead decisions (binding; added 2026-09-24 during round 1)
+
+1. **Period language:** the project rule is "do not soften period language". Where the source says "negro" or "negroes", keep the term. Do not replace it with a character's name, such as "Daggoo", because that adds an identification the source does not make at that point. Do not substitute a modern euphemism either. The same applies to "savage", "cannibal", "heathen", "pagan" and similar terms: render what the source says.
+2. **Melville's footnotes:** keep each asterisk marker (`*`) where the source places it, and keep the footnote text in the same paragraph, rendered like the rest. Don't drop, move or merge them.
+3. **Spelling of proper names:** use exactly the source paragraph's spelling, even where it is inconsistent or archaic ("Hackluyt", "Lacepede", "Pontoppodan", "Albert Durer", "Crozetts"). Do not normalize these to modern reference spellings. Ordinary words still get modern American spelling (for example "gray-headed whale").
