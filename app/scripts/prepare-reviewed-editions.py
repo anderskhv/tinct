@@ -144,6 +144,10 @@ def reanchor(asset, before_raw, accepted_raw, revision, allow_alias_changes=True
         character["roleVisibleAt"] = point(character["roleVisibleAt"])
         for snapshot in character["snapshots"]:
             snapshot["availableAt"] = point(snapshot["availableAt"])
+            for evidence in snapshot.get("evidence", []):
+                if "throughOffset" in evidence:
+                    a, b = texts(evidence)
+                    evidence["throughOffset"] = project(a, b, evidence["throughOffset"])
     block["mentions"] = mentions
     block["sourceSha256"] = digest(accepted_raw)
     block["paragraphHashes"] = {k: [digest(p) for p in values] for k, values in new.items()}
