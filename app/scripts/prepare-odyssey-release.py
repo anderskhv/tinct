@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Integrate the two pinned accepted Odyssey editions and existing card identities."""
-import copy, csv, importlib.util, io, json, re, urllib.request
+import argparse, copy, csv, importlib.util, io, json, re, urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location("prepare",Path(__file__).with_name("prepare-reviewed-editions.py"))
@@ -17,7 +17,10 @@ HASHES={
 def fetch(ref,path):
  req=urllib.request.Request(f"https://raw.githubusercontent.com/anderskhv/tinct/{ref}/{path}",headers={"User-Agent":"Tinct-release-preflight"})
  return urllib.request.urlopen(req,timeout=45).read()
-before={ed:(ROOT/f"app/public/data/editions/odyssey-{ed}.json").read_bytes() for ed in HASHES}
+parser=argparse.ArgumentParser()
+parser.add_argument("--verify",action="store_true")
+args=parser.parse_args()
+before={ed:fetch(BASE,f"app/public/data/editions/odyssey-{ed}.json") for ed in HASHES}
 after={ed:fetch(CLEAN,f"books/wip/featured-source-cleanup/odyssey/odyssey-{ed}.json") for ed in HASHES}
 assert after["modern-en"]==fetch(REVIEW,FOLDER+"/odyssey-modern-en.candidate.json")
 changed={}
@@ -42,7 +45,7 @@ rows=list(csv.DictReader(io.StringIO(fetch(REVIEW,FOLDER+"/accepted-paragraph-ha
 expected=[{"chapter":str(c["number"]),"paragraph_index":str(i),"sha256_raw":p.digest(s),"sha256_prose_reader_v1":p.digest(p.normalize(s))} for c in json.loads(after["modern-en"])["chapters"] for i,s in enumerate(c["paragraphs"])]
 assert rows==expected
 cardpath=ROOT/"app/public/data/characters/odyssey.v1.json"
-original=json.loads(cardpath.read_bytes())
+original=json.loads(fetch(BASE,"app/public/data/characters/odyssey.v1.json"))
 asset=copy.deepcopy(original)
 impact=json.loads(fetch(REVIEW,FOLDER+"/character-card-impact.json"))
 assert impact["before_sha256"]==HASHES["modern-en"][0] and impact["after_sha256"]==HASHES["modern-en"][1]
@@ -89,9 +92,17 @@ for ed,block in asset["editions"].items():
 service=ROOT/"app/src/services/characters/characterCards.ts"
 text,count=re.subn(r"(odyssey:\s*\{\s*editions:\s*EN,\s*revision:\s*)'[^']+'",lambda m:m.group(1)+repr(REVISION),service.read_text())
 assert count==1
-for ed,raw in after.items():(ROOT/f"app/public/data/editions/odyssey-{ed}.json").write_bytes(raw)
-cardpath.write_text(json.dumps(asset,ensure_ascii=False,indent=2)+"\n")
-service.write_text(text)
+card_raw=(json.dumps(asset,ensure_ascii=False,indent=2)+"\n").encode()
+if args.verify:
+ for ed,raw in after.items():assert (ROOT/f"app/public/data/editions/odyssey-{ed}.json").read_bytes()==raw
+ assert cardpath.read_bytes()==card_raw
+ assert service.read_text()==text
+else:
+ for ed,raw in after.items():(ROOT/f"app/public/data/editions/odyssey-{ed}.json").write_bytes(raw)
+ cardpath.write_bytes(card_raw)
+ service.write_text(text)
 receipt={"reviewRef":REVIEW,"cleanupRef":CLEAN,"revision":REVISION,"sha256":{k:p.digest(v) for k,v in after.items()},"changed":{k:len(v) for k,v in changed.items()},"retained":{ed:len(asset["editions"][ed]["mentions"]) for ed in HASHES},"acceptedRejectedModernMentions":impact["dropped"],"removedOriginalSpliceMention":removed,"reanchor":report,"scope":"Paired accepted English text and card compatibility; no new identity decisions, no user-data writes, no synthesis."}
-(ROOT/"books/wip/odyssey-release-20260924-report.json").write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
+report_path=ROOT/"books/wip/odyssey-release-20260924-report.json"
+if args.verify:assert json.loads(report_path.read_bytes())==receipt
+else:report_path.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({k:receipt[k] for k in ("sha256","changed","retained")},indent=2))

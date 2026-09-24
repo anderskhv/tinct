@@ -1,0 +1,78 @@
+name: Verify accepted Odyssey release
+on:
+  pull_request:
+    branches: [main]
+    paths: ['books/wip/odyssey-release-20260924*', 'app/scripts/prepare-odyssey-release.py', 'app/scripts/check-reviewed-characters.cjs', 'app/public/data/editions/odyssey-modern-en.json', 'app/public/data/editions/odyssey-original-en.json', 'app/public/data/characters/odyssey.v1.json', '.github/workflows/verify-odyssey.yml']
+  push:
+    branches: [main]
+    paths: ['app/public/data/editions/odyssey-modern-en.json', 'app/public/data/editions/odyssey-original-en.json', 'app/public/data/characters/odyssey.v1.json']
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  accepted-content:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/test-prepare-reviewed-editions.py
+      - run: python3 scripts/prepare-odyssey-release.py --verify
+      - run: python3 ../books/classify-modern-en.py odyssey --gate
+      - run: npm run build
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check versioned text and character links in the built reader
+        env:
+          TEST_BOOK: odyssey
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/odyssey-release
+        run: node scripts/check-reviewed-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: odyssey-release-acceptance
+          path: app/artifacts/odyssey-release
+  production-content:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify accepted production text and cards
+        env:
+          TEST_BOOK: odyssey
+          TEST_ORIGIN: https://tinct.app
+          ARTIFACT_DIR: artifacts/odyssey-production
+        run: node scripts/check-reviewed-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: odyssey-production-acceptance
+          path: app/artifacts/odyssey-production
