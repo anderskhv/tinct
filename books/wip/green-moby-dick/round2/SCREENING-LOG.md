@@ -21,3 +21,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b67 | all 11 (69.5 Cock-Lane hoax 1762, 71.17 headsman, 73.31 darbies, 73.41 baleen, 67.1 stages — glosses accurate) | — | 67.1 restructure flagged for careful re-verification |
 | b133 | 13 of 14 | 134.10 rejected | source prints "guilt and guiltiness" — Melville's own wording; 133.17 larger rewrite flagged for clause-by-clause re-verification |
 | b16 | 8 of 9 | 16.24 rejected | fidelity fix already restored the source echo ("lost by a whale" / "Lost by a whale!"); fid and acc ran concurrently, no other overlap |
+| b94 | all 17 (100.9 Line gloss, 101.4 anti-scorbutic gloss accurate) | — | 101.1 restructure moves "only" — flagged for re-verification; 101.0 date arithmetic is Melville's own |
