@@ -96,9 +96,9 @@ Inspiration requested for the preface: Michael Sugrue's lecture "Machiavelli" (h
 
 **Blurb, draft 1:** How good can you afford to be?
 
-**About, draft 2 (more teeth):**
+**About, draft 3 (Anders's opening; awaiting final approval):**
 
-Few writers have a darker reputation. Elizabethan playwrights turned him into a stage villain, the Church banned his books, and one modern lecturer called him "the Darth Vader of philosophy." Yet Niccolò Machiavelli was a Florentine civil servant, the son of a book-loving lawyer of modest means. For fourteen years he served the republic as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Months later he was tortured. On his farm he wrote The Prince, hoping for work, even if it meant rolling stones.
+Few writers have a darker reputation. The church banned his books, playwrights have cast him as a villain, and he's been called the Darth Vader of Philosophy. Yet Niccolò Machiavelli was a Florentine civil servant, the son of a book-loving lawyer of modest means. For fourteen years he served the republic as an envoy to kings, popes, and Cesare Borgia. When the Medici returned in 1512, he lost his post. Months later he was tortured. On his farm he wrote The Prince, hoping for work, even if it meant rolling stones.
 
 **Anders's preface angle (in progress, 2026-09-24):**
 
