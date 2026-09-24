@@ -82,6 +82,12 @@ Retaining her feeling of neglect mattered because of the novel's themes. However
 
 Frankenstein's characters and edition-picker copy have not been approved yet. Its approved spelling mixes "recognise" and "honor"; preserve that when quoting it.
 
+## Output format (clarified 2026-09-24)
+
+Stick to the handoff's own sections: short blurb, About the author, preface, character or key-figure map, reading orientation where useful, edition picker. Do not produce "Why it matters" or other legacy onboarding sections. Don't shape drafts around the current app fields; the content will be mapped to the app later, as a new onboarding concept is in progress.
+
 ## The Prince (in progress)
 
-Status: reviewing existing copy. Nothing approved yet.
+Status: first drafts of the blurb and preface. Nothing approved yet. The existing repo copy (`bookRegistry.ts` description, onboarding `about`/`whyItMatters`) is not the approved editorial introduction.
+
+Inspiration requested for the preface: Michael Sugrue's lecture "Machiavelli" (https://www.youtube.com/watch?v=mU7hdGKOGyk). YouTube blocks transcript access from the cloud session, so it has not been transcribed yet.
