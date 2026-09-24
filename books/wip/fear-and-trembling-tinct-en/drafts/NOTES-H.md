@@ -97,3 +97,30 @@ Accuracy was checked against the Danish for each change. No hedge, clause or ima
 2. ¶23 "dialectical knife-edge": harmonize with ¶13's "paa Spidsen".
 3. ¶25, the length and splitting of the long diatribe. Every clause is kept, and the "Consider merely the thought …" restructuring should be checked for fidelity.
 4. ¶26 "Sarah" for Tobit's Sara: confirm book-wide.
+
+## Revision R1 (2026-09-24): fidelity review applied
+
+- **Review:** `reviews/R1-fidelity-H.md` (0 MAJOR, 35 MINOR).
+- **Disposition table:** `reviews/R1-applied-H.md`.
+- **Pre-edit draft:** `drafts/history/H-ch7.r0.json`.
+
+All 35 MINORs are applied. Five use my own wording rather than the reviewer's (23-5, 23-7, n34-1, 24-1, 28-2); the reasons are in the table. I declined only one uncounted nit (*dog* in ¶28).
+
+**This revision supersedes these earlier entries:**
+- **¶23 *paa en dialektisk Spidse*:** now "at a dialectical extreme point". This is the coordinator's harmonized wording for the book-level review, to be matched with ¶13 ("paa Spidsen"). I found no clearly better faithful wording. "point" alone reads flat, and "knife-edge" adds precariousness that the Danish does not state.
+- **¶23 *det Dæmoniske i Angeren*:** now "the demonic in repentance", as in part G ¶20. This undoes my earlier resolution "that lies in".
+- ***hjemfalden til*:** now "falls by right to the monastery" (¶23) and "has fallen so completely to the comic" (¶25), replacing "forfeit to".
+- ***martre*:** now "torture" (¶25, ¶28). *Qval* stays "torment". In ¶22 *pine* ("pine Kræfter ud af") stays "torment strength out of". It was not flagged; the reviewer may want a separate word so that "torment" stays reserved for *Qval*.
+- ***Virkelighed*:** "actuality" in "grasp actuality" (¶25), per the ruling. The idiom *i Virkeligheden* in ¶22 stays "in reality". *Realitet* in n7.34a stays "reality".
+- ***fatte*:** "comprehend" (¶22). *opfattet* is now "conceived" (¶25). *gribe* is "grasp".
+- ***tør*:** "dare presume" (¶25).
+- ***mangen Enkelt*:** "many an individual" (¶25). This removes the leak of the technical term.
+- ***vel*:** "presumably" (¶23 and ¶25).
+- **¶26 *tungt*:** now "hard", replacing "heavy". The rhetorical question is restored as "Is there not a world of sorrow in what follows…?"
+- **¶26 *bedragen*:** "deceived" in the epigrams, and "cheated" throughout the sentence "No girl has been cheated as Sarah was; for she was cheated of…".
+- **¶27:** generic subject "take upon oneself". The *Thi* is restored ("For what love of God…").
+- **¶28:** "If he has sinned…"; "through his own doing"; "cast out as a prey"; "No, thank you —"; "or of the explanation" (the ambiguity is now kept).
+
+**Screen after R1 (minrun 14):** `TOTAL words 3483; in shared 8-word runs 19.3%; in runs>=12 0.4%; in runs>=16 0.0%`. No run of 14 or more words remains. The four such runs that the applied fixes first produced were re-rendered from the Danish. The single remaining 13-word run, in n7.34a ("…but precisely as such it is the deepest ethical self-contradiction"), is kept as forced.
+
+**Word count after R1:** main text 3,219; notes 329.
