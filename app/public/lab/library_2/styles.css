@@ -132,8 +132,8 @@ html{scrollbar-gutter:stable}#librarian-panel:focus-within{outline:none}#librari
 @media(max-width:699px){#shelves{padding-top:max(0px,calc(100svh - var(--hero-height,82svh) - 40px))}}
 /* Focus rings only for keyboard navigation; programmatic focus after taps and transitions stays quiet. */
 html:not(.keyboard-nav) button:focus-visible,html:not(.keyboard-nav) a:focus-visible,html:not(.keyboard-nav) [tabindex]:focus-visible{outline:none}
-/* Flap Back shares the portrait's top line; narrow flaps nudge the portrait right rather than down. */
-.book-slip #tour-back:not([hidden])+#slip-portrait{align-self:flex-start;margin-left:max(56px,calc((100% - var(--portrait-height,96px)*.818)/2));margin-right:0}
+/* Flap Back has its own line above the portrait and stays through the tour, so nothing reflows. */
+.book-slip #tour-back{position:static;align-self:flex-start;margin:0 0 10px;flex-shrink:0}
 /* Phone landing: the hero fills the first screen and its scene continues behind the Featured row. */
 @media(max-width:699px){:root{--cover-h:calc((100vw - 50px)/3.2*1.5);--peek:calc(37px + var(--cover-h)*.12);--bleed:calc(var(--cover-h)*.85)}
 #library .hero{height:calc(var(--land-bottom,100svh) - var(--peek) + var(--bleed));min-height:calc(470px + var(--bleed));max-height:none}
