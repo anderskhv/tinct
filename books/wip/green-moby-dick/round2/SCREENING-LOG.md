@@ -16,3 +16,4 @@ Accessibility proposals come from reviewers who never saw the source. The lead s
 | b54 | all 5 (54.5 Line = equator, 54.47, 54.66, 54.69 trick = turn of duty, 54.77) | — | glosses accurate |
 | b61 | all 4 (61.9, 64.53 lubber's hole gloss, 65.2, 66.1) | — | glosses accurate |
 | b81 | all 8 | — | parse and repetition fixes; 86.12 disambiguates the elephant's trunk as in source |
+| b110 | 27 of 28 (incl. 113.25 Latin gloss — accurate; 117.2 Asphaltites = Dead Sea) | 113.15 rejected | source itself ambiguous ("bowing over his head"); fidelity review kept the ambiguity |
