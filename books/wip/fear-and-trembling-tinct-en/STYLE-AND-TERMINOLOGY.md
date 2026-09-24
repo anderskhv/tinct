@@ -142,6 +142,7 @@ The pilot's Problema I and II are the model for register and density.
 | Udfaldet | **the outcome** |
 | Docenterne | **the lecturers** |
 | Udtryk | **expression** |
+| Spidse (paa Spidsen, paa en dialektisk Spidse) | **extreme point** (P-III ¶13, ¶23, which recall each other). The accepted pilot's "at the summit" (P-I ¶19, *bliver paa Spidsen*) stays; see the consistency review. |
 | offre / opgive | **sacrifice** / **give up** |
 | Inderlighed / Yderlighed | **inwardness** / **outwardness** |
 | det Umiddelbare, Umiddelbarhed | **the immediate**, **immediacy** |

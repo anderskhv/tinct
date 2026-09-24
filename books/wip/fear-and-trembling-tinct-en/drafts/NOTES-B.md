@@ -132,3 +132,55 @@ There are no runs of 14 or more words.
 1. *urimelig* is rendered "preposterous". It is consistent and distinct from "absurd", but the word choice is open.
 2. The reading of *at* in ¶8: "Let Isaac never learn of it, so that he can find comfort in his youth".
 3. ¶0 "jealous of what was entrusted to him": the literal rendering, with the readings listed above.
+
+---
+
+## Revision R1 (2026-09-24): fidelity review applied
+
+The pre-edit draft is in `drafts/history/B-ch3.r0.json`. The full finding-by-finding table is in `reviews/R1-applied-B.md`. I applied all 3 MAJOR and all 54 MINOR findings, and declined none.
+
+**Key changes**
+- **¶0.** "He takes nothing from what is his own; he is jealous, rather, of what was entrusted to him." This replaces "takes nothing that is his own", which was a sense error. The Johannine echo is now carried.
+- **¶1.** The litany is restored in full:
+  - "There was the one who …" at every *der var den, der*;
+  - "the one who was great by his power / wisdom / hope / love", which mirrors the four paradoxes;
+  - "So there was struggle …";
+  - "in proportion to";
+  - "the one who believed God";
+  - "won".
+- **urimelig / det Urimelige → "unreasonable / the unreasonable"** (¶2, ¶3, ¶6, ¶8), following the book ruling in STYLE §C. "Preposterous" is withdrawn.
+- **forspildt → "wasted"** (¶6 ×3).
+- **Book rulings:**
+  - *fatte* → "comprehend" (¶2);
+  - *gribe* → "grasp" (¶3), and "grasp" is no longer used for anything else (¶3 *forstaaet* → "understood");
+  - *virkeligt* → "actual" (¶6).
+- **Hedges restored:** *vel* → "presumably" / "probably" (¶2, ¶3, ¶7).
+- **Connectives restored:** *Thi* → "For" (¶6, ¶12); *men* → "but" (¶0); *dog* → "yet" (¶7).
+
+**Refrain table: additions and corrections to the table above**
+
+| Danish | English |
+|---|---|
+| stride med | struggle with (¶0 "struggling … with the craft of forgetfulness", ¶1, ¶13) |
+| Saaledes blev der stridt | So there was struggle (¶1). This replaces "That is how the struggle went". |
+| Der var den, der … / Der var i Verden ogsaa den, der … | There was the one who … (¶1); There was (also) one in the world who … (¶2, ¶3) |
+| den, der troede Gud | the one who believed God (¶1). This replaces "had faith in God". |
+| skal (ikke) glemmes / mindes | shall (not) be forgotten / shall be remembered (¶0, ¶1, ¶3) |
+| Tiden gik hen | Time went on (¶0, ¶3) |
+| Ikke saaledes (med) Abraham | Not so (with) Abraham (¶10 ×2) |
+| Der var mangen Fader, der … | There were many fathers who … (¶10 ×2) |
+| det var Gud / Herren, der prøvede … | it was God / the Lord who … (¶6 ×3, ¶10) |
+| holdt fast / fastholde | held fast / hold fast (¶3) |
+| opfyldt / Opfyldelse | fulfilled / fulfillment (¶3, ¶6) |
+| Elsker | lover (¶0, ¶13 ×2) |
+| forspildt | wasted (¶6 ×3). This replaces "squandered". |
+
+**NOTES corrections**
+- The intransitive *den, der troer* is "the one who has faith" (¶3). *Troe* with an object is "believe": "believed God", "believed the unreasonable".
+- **¶0 misundelig:** the rendering is final: "he is jealous, rather, of what was entrusted to him". The three readings recorded above still apply.
+- **¶8 *at*:** the reviewer confirms the final/optative reading. It is now "so that he may find comfort in his youth".
+- **¶0 tense:** the ending "the longer time went on, the more faithfully he clings to him" keeps the Danish tense mix (*gik … hænger*) deliberately.
+
+**Screen after R1 (minrun 14):** `TOTAL words 3456; in shared 8-word runs 17.6%; in runs>=12 3.2%; in runs>=16 1.0%`.
+
+Two ¶3 runs remain. Both are refrains or formulas restored at the reviewer's request and are forced by short, plain Danish clauses; `reviews/R1-applied-B.md` gives the details. Two other new runs were re-rendered.
