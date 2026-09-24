@@ -1,0 +1,386 @@
+{
+ "batch": "b110",
+ "role": "accessibility",
+ "chapters": [
+  110,
+  111,
+  112,
+  113,
+  114,
+  115,
+  116,
+  117,
+  118
+ ],
+ "reviewed": [
+  "110.0",
+  "110.1",
+  "110.2",
+  "110.3",
+  "110.4",
+  "110.5",
+  "110.6",
+  "110.7",
+  "110.8",
+  "110.9",
+  "110.10",
+  "110.11",
+  "110.12",
+  "110.13",
+  "110.14",
+  "110.15",
+  "110.16",
+  "110.17",
+  "110.18",
+  "111.0",
+  "111.1",
+  "111.2",
+  "111.3",
+  "112.0",
+  "112.1",
+  "112.2",
+  "112.3",
+  "112.4",
+  "112.5",
+  "112.6",
+  "112.7",
+  "113.0",
+  "113.1",
+  "113.2",
+  "113.3",
+  "113.4",
+  "113.5",
+  "113.6",
+  "113.7",
+  "113.8",
+  "113.9",
+  "113.10",
+  "113.11",
+  "113.12",
+  "113.13",
+  "113.14",
+  "113.15",
+  "113.16",
+  "113.17",
+  "113.18",
+  "113.19",
+  "113.20",
+  "113.21",
+  "113.22",
+  "113.23",
+  "113.24",
+  "113.25",
+  "113.26",
+  "113.27",
+  "114.0",
+  "114.1",
+  "114.2",
+  "114.3",
+  "114.4",
+  "114.5",
+  "114.6",
+  "114.7",
+  "114.8",
+  "114.9",
+  "115.0",
+  "115.1",
+  "115.2",
+  "115.3",
+  "115.4",
+  "115.5",
+  "115.6",
+  "115.7",
+  "115.8",
+  "115.9",
+  "115.10",
+  "115.11",
+  "115.12",
+  "115.13",
+  "116.0",
+  "116.1",
+  "116.2",
+  "116.3",
+  "116.4",
+  "116.5",
+  "116.6",
+  "117.0",
+  "117.1",
+  "117.2",
+  "117.3",
+  "117.4",
+  "117.5",
+  "117.6",
+  "117.7",
+  "117.8",
+  "117.9",
+  "117.10",
+  "117.11",
+  "117.12",
+  "117.13",
+  "117.14",
+  "118.0",
+  "118.1",
+  "118.2",
+  "118.3",
+  "118.4",
+  "118.5",
+  "118.6",
+  "118.7"
+ ],
+ "items": [
+  {
+   "id": "110.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'ejaculated' is dated as a speech tag and reads oddly aloud to a modern listener; 'exclaimed' keeps the sense.",
+   "new": "\"Ah! poor fellow! he'll have to die now,\" exclaimed the Long Island sailor."
+  },
+  {
+   "id": "111.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'When gliding by the Bashee isles we emerged' is an elliptical 1851 construction with no subject for 'gliding'; reads as a dangling clause.",
+   "new": "As we glided past the Bashee isles, we emerged at last upon the great South Sea. Were it not for other things, I could have greeted my dear Pacific with uncounted thanks, for now the long prayer of my youth was answered: that serene ocean rolled eastward from me a thousand leagues of blue."
+  },
+  {
+   "id": "111.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized",
+    "convention"
+   ],
+   "reason": "'There is, one knows not what sweet mystery' keeps the archaic 'one knows not what' plus a stray comma that breaks the sentence; a reader has to reparse it.",
+   "new": "There is some sweet mystery about this sea — no one knows quite what — whose gently awesome stirrings seem to speak of some hidden soul beneath — like those fabled heavings of the Ephesian sod over the buried Evangelist St. John. And it is fitting that over these sea-pastures, wide-rolling watery prairies and Potters' Fields of all four continents, the waves should rise and fall, and ebb and flow unceasingly; for here millions of mixed shades and shadows, drowned dreams, sleepwalkings, reveries — all that we call lives and souls — lie dreaming, dreaming, still; tossing like sleepers in their beds; the ever-rolling waves made so only by their restlessness."
+  },
+  {
+   "id": "112.2",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'Out of this revelation ... there at last came out' doubles 'out' and is clumsy to read aloud.",
+   "new": "Out late, and not innocently, one bitter winter midnight on the road between two country towns, the blacksmith, half-stupefied, felt the deadly numbness stealing over him, and took refuge in a leaning, dilapidated barn. The outcome was the loss of the ends of both his feet. From this revelation, piece by piece, there at last emerged the four acts of gladness, and the one long fifth act of grief, its catastrophe not yet reached, of his life's drama."
+  },
+  {
+   "id": "113.9",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Inverted syntax 'glad enough would I lay my head upon your anvil' left from 1851; modernize grammar while keeping Ahab's intensity.",
+   "new": "\"Look here, then,\" cried Ahab, passionately advancing, and leaning with both hands on Perth's shoulders; \"look here — here — can you smooth out a seam like this, blacksmith?\" sweeping one hand across his furrowed brow; \"if you could, blacksmith, I would gladly lay my head upon your anvil, and feel your heaviest hammer between my eyes. Answer! Can you smooth this seam?\""
+  },
+  {
+   "id": "113.15",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'bowing over his head toward the fire' is ambiguous (his own head, or Ahab's?). Minimal fix assumes he bows his own head; fidelity reviewer should confirm against the source, otherwise leave as is.",
+   "new": "This done, Perth was about to begin welding the twelve into one, when Ahab stayed his hand and said he would weld his own iron. As, then, with regular, gasping grunts, he hammered on the anvil, Perth passing him the glowing rods one after another, and the hard-pressed forge shooting up its intense straight flame, the Parsee passed silently, and, bowing his head toward the fire, seemed to be invoking some curse or some blessing upon the toil. But, as Ahab looked up, he slid aside."
+  },
+  {
+   "id": "113.22",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'sup' is archaic for 'eat'.",
+   "new": "\"Take them, man, I have no need for them; for I now neither shave, eat, nor pray till — but here — to work!\""
+  },
+  {
+   "id": "113.24",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'What say you, pagans!' is archaic question form.",
+   "new": "\"No, no — no water for that; I want it of the true death-temper. Ahoy, there! Tashtego, Queequeg, Daggoo! What do you say, pagans! Will you give me as much blood as will cover this barb?\" holding it high up. A cluster of dark nods replied: Yes. Three punctures were made in the heathen flesh, and the White Whale's barbs were then tempered."
+  },
+  {
+   "id": "113.25",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "The Latin curse is left untranslated and a listener cannot follow Ahab's inverted baptism. Proposed brief accurate gloss: 'I do not baptize you in the name of the father, but in the name of the devil.' Lead may reject if the edition leaves Latin unglossed elsewhere.",
+   "new": "\"Ego non baptizo te in nomine patris, sed in nomine diaboli!\" (I do not baptize you in the name of the father, but in the name of the devil!) deliriously howled Ahab, as the malignant iron scorchingly devoured the baptismal blood."
+  },
+  {
+   "id": "113.27",
+   "severity": "blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'all your strange mummery, not without meaning blended with the black tragedy' is hard to parse: 'not without meaning' reads as modifying 'mummery' rather than 'blended'. Moving the verb first fixes it with no content change.",
+   "new": "At one end the rope was unstranded, and the separate spread yarns were all braided and woven round the socket of the harpoon; the pole was then driven hard up into the socket; from the lower end the rope was traced halfway along the pole's length and firmly secured there with intertwistings of twine. This done, pole, iron and rope — like the Three Fates — remained inseparable, and Ahab moodily stalked away with the weapon, the sound of his ivory leg and the sound of the hickory pole both ringing hollowly along every plank. But before he entered his cabin, a light, unnatural, half-bantering, yet most piteous sound was heard. Oh, Pip! Your wretched laugh, your idle but unresting eye, all your strange mummery blended, not without meaning, with the black tragedy of the melancholy ship, and mocked it!"
+  },
+  {
+   "id": "114.3",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'as over these there steals the hush, the hum; you almost swear' is a fragment split by a semicolon, hard to follow aloud.",
+   "new": "The long-drawn virgin valleys; the mild blue hillsides; as the hush, the hum steals over these, you would almost swear that play-weary children lie sleeping in these solitudes, in some glad springtime, when the flowers of the woods are plucked. And all this mixes with your most mystic mood; so that fact and fancy, half-way meeting, interpenetrate and form one seamless whole."
+  },
+  {
+   "id": "114.5",
+   "severity": "blocking",
+   "category": [
+    "unmodernized",
+    "voice"
+   ],
+   "reason": "'and at the last one pause' is a reread trap (reads as 'the last one'); 'men yet may roll' keeps archaic 'yet'. Minimal grammar fixes only.",
+   "new": "Oh, grassy glades! Oh, ever-vernal endless landscapes in the soul; in you, though long parched by the dead drought of the earthy life, in you, men may still roll like young horses in new morning clover; and for some few fleeting moments feel the cool dew of the life immortal on them. Would to God these blessed calms would last. But the mingled, mingling threads of life are woven by warp and woof: calms crossed by storms, a storm for every calm. There is no steady unretracing progress in this life; we do not advance through fixed gradations and pause at the last one — through infancy's unconscious spell, boyhood's thoughtless faith, adolescence's doubt (the common doom), then skepticism, then disbelief, resting at last in manhood's pondering repose of If. But once gone through, we trace the round again; and are infants, boys, and men, and Ifs eternally. Where lies the final harbor, from which we unmoor no more? In what rapt ether sails the world, of which the weariest will never weary? Where is the foundling's father hidden? Our souls are like those orphans whose unwedded mothers die in bearing them: the secret of our paternity lies in their grave, and we must go there to learn it."
+  },
+  {
+   "id": "114.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'lowly murmured' is an archaic adverb use.",
+   "new": "And that same day, too, gazing far down from his boat's side into that same golden sea, Starbuck murmured low:"
+  },
+  {
+   "id": "114.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'Tell me not of' is archaic imperative; the brief modernizes grammar in high speeches.",
+   "new": "\"Loveliness unfathomable, as ever lover saw in his young bride's eye! Do not tell me of your teeth-tiered sharks and your kidnapping cannibal ways. Let faith oust fact; let fancy oust memory; I look deep down and do believe.\""
+  },
+  {
+   "id": "115.12",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'How wondrous familiar is a fool!' uses 'wondrous' as an adverb with inverted order.",
+   "new": "\"How wondrously familiar a fool is!\" muttered Ahab; then aloud: \"You are a full ship and homeward-bound, you say; well, then, call me an empty ship, and outward-bound. So go your ways, and I will mine. Forward there! Set all sail, and keep her to the wind!\""
+  },
+  {
+   "id": "116.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'Not seldom', 'catch somewhat of' and 'For next day' are leftover archaic idioms stacked in one sentence.",
+   "new": "Often in this life, when, on the right side, fortune's favorites sail close by us, we, though all drooping before, catch something of the rushing breeze and joyfully feel our sagging sails fill out. So it seemed with the Pequod. For the next day after encountering the gay Bachelor, whales were seen and four were slain; and one of them by Ahab."
+  },
+  {
+   "id": "116.3",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'where to traditions no rocks furnish tablets' is inverted to the point of needing a reread; 'as stars that shine' is archaic for 'like stars'.",
+   "new": "\"He turns and turns himself to it — how slowly, but how steadfastly, his homage-rendering and invoking brow, with his last dying motions. He too worships fire; most faithful, broad, baronial vassal of the sun! Oh, that these too-favoring eyes should see these too-favoring sights. Look! Here, far water-locked; beyond all hum of human weal or woe; in these most candid and impartial seas; where no rocks furnish tablets for traditions; where for long Chinese ages the billows have still rolled on speechless and unspoken to, like stars that shine upon the Niger's unknown source — here, too, life dies sunward full of faith; but see! No sooner dead than death whirls round the corpse, and it heads some other way."
+  },
+  {
+   "id": "116.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'who of drowned bones have built your separate throne' is inverted; reorder.",
+   "new": "\"Oh, you dark Hindu half of nature, who have built your separate throne of drowned bones somewhere in the heart of these unverdured seas; you are an infidel, you queen, and too truly you speak to me in the wide-slaughtering Typhoon, and the hushed burial of its after-calm. Nor has this whale of yours turned his dying head sunward, and then gone round again, without a lesson to me."
+  },
+  {
+   "id": "116.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'gives it not again' is archaic negation.",
+   "new": "\"Oh, trebly hooped and welded hip of power! Oh, high aspiring, rainbowed jet! The one strives, the other jets, all in vain! In vain, oh whale, do you seek intercession with the all-quickening sun, that only calls forth life but does not give it again. Yet you, darker half, rock me with a prouder, if a darker faith. All your unnamable inminglings float beneath me here; I am buoyed by breaths of once living things, exhaled as air, but water now."
+  },
+  {
+   "id": "117.2",
+   "severity": "blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'the moaning in squadrons over Asphaltites of unforgiven ghosts of Gomorrah' strings three prepositional phrases so the listener loses who is moaning; 'Asphaltites' stops understanding. Reorder and add a brief gloss (Lacus Asphaltites = the Dead Sea, beside Sodom and Gomorrah).",
+   "new": "Ahab and all his boat's crew seemed asleep but the Parsee; who, crouching in the bow, sat watching the sharks that spectrally played round the whale and tapped the light cedar planks with their tails. A sound like the moaning of unforgiven ghosts of Gomorrah, in squadrons over Asphaltites (the Dead Sea), ran shuddering through the air."
+  },
+  {
+   "id": "117.3",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'Started from his slumbers, Ahab, face to face, saw the Parsee' and 'said he' are 1851 syntax.",
+   "new": "Starting from his slumbers, Ahab found himself face to face with the Parsee; and hooped round by the gloom of the night, they seemed the last men in a flooded world. \"I have dreamed it again,\" he said."
+  },
+  {
+   "id": "117.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'And who are hearsed that die on the sea?' inverted relative clause; needs a reread.",
+   "new": "\"And who that dies on the sea is ever hearsed?\""
+  },
+  {
+   "id": "117.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Subjunctive 'till it be seen'.",
+   "new": "\"Believe it or not, you cannot die until it is seen, old man.\""
+  },
+  {
+   "id": "117.10",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Subjunctive 'Though it come to the last'.",
+   "new": "\"Even if it comes to the last, I shall still go before you, your pilot.\""
+  },
+  {
+   "id": "117.11",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Subjunctive 'if that ever befall'.",
+   "new": "\"And when you are so gone before — if that ever happens — then before I can follow, you must still appear to me, to pilot me still? Was it not so? Well, then, if I believed all you say, oh my pilot, I have here two pledges that I shall yet slay Moby Dick and survive it.\""
+  },
+  {
+   "id": "117.13",
+   "severity": "non-blocking",
+   "category": [
+    "convention"
+   ],
+   "reason": "Capital 'Immortal' after a semicolon is broken punctuation; end the attribution with a period.",
+   "new": "\"The gallows, you mean. I am immortal then, on land and on sea,\" cried Ahab, with a laugh of derision. \"Immortal on land and on sea!\""
+  },
+  {
+   "id": "118.1",
+   "severity": "non-blocking",
+   "category": [
+    "voice"
+   ],
+   "reason": "'Meanwhile, while his whole attention was absorbed' doubles while, awkward aloud.",
+   "new": "Now, in that Japanese sea, the days in summer are floods of brilliance. That unblinkingly vivid Japanese sun seems the blazing focus of the glassy ocean's immeasurable burning-glass. The sky looks lacquered; there are no clouds; the horizon floats; and this nakedness of unrelieved radiance is like the unbearable splendors of God's throne. It was well that Ahab's quadrant, the instrument for measuring the sun's height, was fitted with colored glasses through which to sight that solar fire. So, swinging his seated body to the roll of the ship, and with his astrological-looking instrument to his eye, he held that posture for some moments to catch the exact instant when the sun should reach its precise meridian. Meanwhile, as his whole attention was absorbed, the Parsee was kneeling beneath him on the ship's deck, and with his face thrown up like Ahab's, was eyeing the same sun with him; only his eyelids half hooded his eyes, and his wild face was subdued to an earthly passionlessness. At length the desired observation was taken; and with his pencil on his ivory leg, Ahab soon calculated what his latitude must be at that precise instant. Then, falling into a moment's reverie, he looked up again toward the sun and murmured to himself: \"You sea-mark! You high and mighty Pilot! You tell me truly where I am now — but can you cast the least hint of where I shall be? Or can you tell where some other thing besides me is living this moment? Where is Moby Dick? This instant you must be eyeing him. These eyes of mine look into the very eye that is even now beholding him; aye, and into the eye that is even now equally beholding the objects on the unknown, far side of you, you sun!\""
+  },
+  {
+   "id": "118.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "'Level by nature to this earth's horizon are the glances of man's eyes' is inverted and needs a reread.",
+   "new": "Then, gazing at his quadrant and handling one after another its many cabalistic contrivances, he pondered again, and muttered: \"Foolish toy! Babies' plaything of haughty Admirals, and Commodores, and Captains; the world brags of you, of your cunning and might; but what, after all, can you do, except tell the poor, pitiful point where you yourself happen to be on this wide planet, and the hand that holds you — no! not one jot more! You cannot tell where one drop of water or one grain of sand will be tomorrow noon; and yet with your impotence you insult the sun! Science! Curse you, you vain toy; and cursed be all the things that cast man's eyes aloft to that heaven whose live vividness only scorches him, as these old eyes are even now scorched with your light, O sun! By nature, the glances of man's eyes are level with this earth's horizon; not shot from the crown of his head, as if God had meant him to gaze on his firmament. Curse you, you quadrant!\" dashing it to the deck. \"No longer will I guide my earthly way by you; the level ship's compass, and the level dead-reckoning, by log and by line — it is these that shall guide me, and show me my place on the sea. Aye,\" stepping down from the boat to the deck, \"thus I trample on you, you paltry thing that feebly points on high; thus I split and destroy you!\""
+  }
+ ]
+}
