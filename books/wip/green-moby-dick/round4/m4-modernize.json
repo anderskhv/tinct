@@ -1,0 +1,858 @@
+{
+ "batch": "m4",
+ "role": "modernize",
+ "chapters": [
+  92,
+  94,
+  96,
+  97,
+  98,
+  99,
+  100,
+  101,
+  102,
+  103,
+  104,
+  105,
+  108,
+  109,
+  110,
+  112,
+  113
+ ],
+ "reviewed": [
+  "92.0",
+  "92.2",
+  "92.4",
+  "94.0",
+  "94.2",
+  "94.5",
+  "94.7",
+  "94.8",
+  "94.10",
+  "96.1",
+  "96.2",
+  "96.4",
+  "96.5",
+  "96.6",
+  "96.8",
+  "96.11",
+  "97.0",
+  "98.0",
+  "98.2",
+  "99.1",
+  "99.2",
+  "99.4",
+  "99.6",
+  "99.7",
+  "100.2",
+  "100.4",
+  "100.6",
+  "100.7",
+  "100.13",
+  "100.20",
+  "100.29",
+  "100.35",
+  "100.41",
+  "100.42",
+  "101.2",
+  "101.3",
+  "101.8",
+  "101.9",
+  "101.10",
+  "101.11",
+  "101.12",
+  "102.3",
+  "102.5",
+  "102.8",
+  "102.9",
+  "102.13",
+  "103.0",
+  "103.3",
+  "103.5",
+  "103.6",
+  "103.7",
+  "103.10",
+  "104.2",
+  "104.5",
+  "105.1",
+  "105.2",
+  "105.4",
+  "105.7",
+  "105.8",
+  "105.13",
+  "108.1",
+  "108.5",
+  "108.8",
+  "108.10",
+  "108.12",
+  "108.14",
+  "108.15",
+  "108.27",
+  "108.28",
+  "108.31",
+  "108.34",
+  "109.0",
+  "109.2",
+  "109.6",
+  "109.9",
+  "109.12",
+  "110.8",
+  "110.9",
+  "110.10",
+  "110.15",
+  "112.1",
+  "112.5",
+  "113.13",
+  "113.15"
+ ],
+ "items": [
+  {
+   "id": "92.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized periodic syntax and phrasing ('a problem to the learned', 'but the French compound', 'Besides'); split long sentences.",
+   "new": "Now this ambergris is a very curious substance, and it was so important as an article of trade that in 1791 a certain Nantucket-born Captain Coffin was questioned about it at the bar of the English House of Commons. At that time, and in fact until fairly recently, the exact origin of ambergris was, like that of amber itself, a puzzle to scholars. The word ambergris is simply the French compound for \"gray amber,\" yet the two substances are entirely different. Amber is sometimes found on the seashore, but it is also dug up from soil far inland, whereas ambergris is found only at sea. Amber, moreover, is hard, transparent, brittle and odorless, and it is used for pipe mouthpieces, beads and ornaments. Ambergris is soft and waxy, and so intensely fragrant and spicy that it is widely used in perfume, in pastilles, fine candles, hair powders and pomade. The Turks cook with it, and they also carry it to Mecca for the same purpose that frankincense is carried to St. Peter's in Rome. Some wine merchants drop a few grains into claret to flavor it."
+  },
+  {
+   "id": "92.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Recast 1851 word order ('there were found in this ambergris') and 'afterwards turned out' into modern syntax.",
+   "new": "I forgot to mention that we found some hard, round, bony plates in this ambergris. At first Stubb thought they might be buttons off sailors' trousers, but it later turned out that they were just pieces of small squid bones that had been embalmed in it that way."
+  },
+  {
+   "id": "92.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'owing to my anxiety to repel', 'slanderous aspersion', passive inversion and 'slatternly'.",
+   "new": "I would like to end the chapter on that appeal, but I can't, because I am anxious to answer a charge often made against whalemen — one that some already prejudiced minds might think is indirectly confirmed by what I have said about the Frenchman's two whales. Elsewhere in this book I have disproved the slander that whaling is a sloppy, dirty business from start to finish. But there is another charge to rebut. People hint that all whales always smell bad. So where did this hateful stigma come from?"
+  },
+  {
+   "id": "94.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Recast 1851 passive/periodic sentence ('so dearly purchased, was duly brought', 'regularly gone through').",
+   "new": "Stubb's whale, bought at such a high price, was brought alongside the Pequod in due course, and all the cutting and hoisting operations described earlier were carried out in the usual way, right down to bailing out the Heidelburgh Tun, or Case."
+  },
+  {
+   "id": "94.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'concreted', 'unctuous', 'molifier', 'serpentine and spiralise' and the exclamation series.",
+   "new": "The sperm had cooled and crystallized so much that when I sat down with several others in front of a large Constantine's bath of it, I found it had oddly set into lumps, which rolled about here and there in the liquid. Our job was to squeeze these lumps back into fluid. A sweet, oily duty! No wonder this sperm was such a popular cosmetic in the old days. What a cleanser! What a sweetener! What a softener! What a delicious soother! After my hands had been in it just a few minutes, my fingers felt like eels and began, so to speak, to snake and spiral."
+  },
+  {
+   "id": "94.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Would that', 'conceit of attainable felicity', 'the fancy' and split the periodic sentence; kept the Job phrase 'In thoughts of the visions of the night' as an allusion.",
+   "new": "If only I could go on squeezing that sperm forever! Long, repeated experience has taught me that in every case a man must eventually lower, or at least relocate, his notion of the happiness he can reach — placing it not in the intellect or the imagination at all, but in the wife, the heart, the bed, the table, the saddle, the fireside, the country. Now that I have seen all this, I am ready to squeeze case for all eternity. In thoughts of the visions of the night, I saw long rows of angels in paradise, each with his hands in a jar of spermaceti."
+  },
+  {
+   "id": "94.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'First comes ... so called', 'ere going to the mincer' and 'portable oblongs'.",
+   "new": "First there is what is called white-horse, which comes from the tapering part of the fish and from the thicker parts of his flukes. It is tough with congealed tendons — a wad of muscle — but it still holds some oil. Once it has been cut from the whale, the white-horse is first chopped into oblong pieces small enough to carry, before it goes to the mincer. These look a lot like blocks of Berkshire marble."
+  },
+  {
+   "id": "94.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'bestowed upon', 'participating ... in its unctuousness', 'As its name imports', 'bestreaked', 'Spite of reason', 'conceive'.",
+   "new": "Plum-pudding is the name given to certain scraps of the whale's flesh that stick here and there to the blanket of blubber and often share a good deal of its oiliness. It is a most refreshing, festive, beautiful thing to look at. As the name suggests, it has an extremely rich, mottled color: a streaky snow-white and golden ground dotted with spots of the deepest crimson and purple. It is plums of ruby set in pictures of citron. Against all reason, it is hard to stop yourself from eating it. I admit that I once slipped behind the foremast to taste some. It tasted rather as I imagine a royal cutlet from the thigh of Louis le Gros might have tasted — supposing he had been killed on the first day after the venison season, and that this particular venison season had coincided with an unusually fine vintage in the vineyards of Champagne."
+  },
+  {
+   "id": "94.10",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'so called', 'properly belonging to', 'incidentally used' and 'designates'.",
+   "new": "Gurry, as it is called, is strictly a right whalemen's term, though the sperm whalers sometimes use it in passing. It means the dark, sticky substance scraped off the back of the Greenland or right whale, and a great deal of it ends up covering the decks of those inferior souls who hunt that ignoble Leviathan."
+  },
+  {
+   "id": "96.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Recast 1851 descriptive syntax ('are planted', 'of a peculiar strength, fitted to sustain', 'two in number', 'many confidential communications are carried on') into modern sentences.",
+   "new": "The try-works stand between the foremast and the mainmast, where the deck has the most room. The timbers underneath are specially strong, built to carry the weight of an almost solid block of brick and mortar about ten feet by eight and five feet high. The foundation does not go through the deck; instead, the masonry is bolted firmly to the surface by heavy iron knees that brace it on every side and screw it down to the timbers. Its sides are cased in wood, and its top is completely covered by a large, sloping, battened hatch. Take off this hatch and you uncover the great try-pots. There are two of them, and each holds several barrels. When they are not in use, they are kept remarkably clean. Sometimes they are polished with soapstone and sand until the insides shine like silver punch-bowls. On night watches some cynical old sailors will crawl into them and curl up there for a nap. While the pots are being polished — one man in each, side by side — plenty of confidential talk passes back and forth over the iron rims. It is also a place for deep mathematical thought. It was in the Pequod's left-hand try-pot, with the soapstone busily circling around me, that the remarkable fact first struck me, indirectly, that in geometry all bodies sliding along the cycloid, my soapstone for example, will descend from any point in exactly the same time."
+  },
+  {
+   "id": "96.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Replaced dangling 1851 participle construction, 'prevented from communicating itself' and 'kept replenished' with modern syntax.",
+   "new": "Take the fire-board off the front of the try-works and you expose the bare masonry on that side, pierced by the two iron mouths of the furnaces, directly below the pots. These mouths have heavy iron doors. A shallow tank running under the whole enclosed base of the works keeps the fierce heat of the fire from passing into the deck. A pipe fitted at the back keeps this tank topped up with water as fast as it evaporates. There are no outside chimneys; the flues open straight out of the back wall. And here let us go back for a moment."
+  },
+  {
+   "id": "96.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Here be it said', 'staple fuel', 'considerable of its unctuous properties', 'Would that', 'Hindoo', 'funereal pyres'; split the long closing sentences.",
+   "new": "\"All ready there? Off hatch, then, and start her. You, cook, light the works.\" That was easy, since the carpenter had been stuffing his shavings into the furnace all through the voyage. It should be said here that on a whaling voyage the first fire in the try-works has to be fed with wood for a while. After that no wood is used, except to get the regular fuel burning quickly. The point is this: once it has been tried out, the crisp, shriveled blubber, now called scraps or fritters, still holds a good deal of its oil. These fritters feed the flames. Like a bloated, burning martyr, or a misanthrope consuming himself, the whale, once lit, supplies his own fuel and burns with his own body. If only he would consume his own smoke too! For his smoke is horrible to breathe, and breathe it you must; not only that, you must live in it for the time being. It has an unspeakable, wild, Hindu smell, the kind that may hang around funeral pyres. It smells like the left wing of the day of judgment; it is an argument for the pit."
+  },
+  {
+   "id": "96.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'We were clear from the carcase', 'forked forth', 'issuing from', 'bore down upon' and the periodic Canaris sentence.",
+   "new": "By midnight the works were going full blast. We had cast off the carcass and set sail; the wind was rising, and the darkness over the wild ocean was intense. But the fierce flames licked that darkness up as they shot out in forks from the sooty flues every so often, lighting every high rope in the rigging as if with the famous Greek fire. The burning ship drove on, as though she had been sent without mercy on some errand of vengeance. In just this way the brigs of the bold Hydriote Canaris, loaded with pitch and sulfur, came out of their harbors at midnight with broad sheets of flame for sails, bore down on the Turkish frigates, and wrapped them in fire."
+  },
+  {
+   "id": "96.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized the scene-setting sentences ('now afforded', 'Standing on this were', 'Here lounged the watch', 'capricious emblazonings') while keeping the rhythm and every image of the long closing sentence.",
+   "new": "With the hatch lifted off the top of the works, there was now a wide hearth in front of them. On it stood the Tartarean shapes of the pagan harpooners, who are always the stokers on a whale-ship. With huge pronged poles they tossed hissing masses of blubber into the scalding pots or stirred up the fires underneath, until the flames shot out of the doors like curling snakes and snapped at their feet. The smoke rolled away in sullen heaps. Every time the ship pitched, the boiling oil pitched with her, as if it longed to leap into their faces. Across from the mouth of the works, on the far side of the wide wooden hearth, was the windlass, which served as a sea-going sofa. The watch lounged there when they had nothing else to do, staring into the red heat of the fire until their eyes felt scorched in their heads. Their tawny faces, now thick with grime from smoke and sweat, their matted beards, and by contrast the barbaric brilliance of their teeth were all strangely lit up by the flickering blaze of the works. As they told each other their unholy adventures, tales of terror in words of mirth; as their wild laughter forked up out of them like the flames from the furnace; as the harpooners gestured wildly back and forth in front of them with their huge pronged forks and dippers; as the wind howled on, and the sea leaped, and the ship groaned and dove, and still kept driving her red hell farther and farther into the blackness of the sea and the night, and scornfully champed the white bone in her mouth, and spat viciously all around her; then the rushing Pequod, loaded with savages and freighted with fire, burning a corpse and plunging into that blackness of darkness, seemed the physical counterpart of her monomaniac commander's soul."
+  },
+  {
+   "id": "96.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Starting from', 'smote', 'spite of all this', 'it seemed but a minute', 'Uppermost was the impression', 'crazy conceit', 'thought I', 'Lo!', 'fronting' and the verbless closing exclamation.",
+   "new": "But that night in particular something strange happened to me, something I have never been able to explain. I jerked awake from a brief sleep on my feet, horribly aware that something was fatally wrong. The jawbone tiller was hitting my side, where I had been leaning against it; in my ears was the low hum of sails just starting to shake in the wind. I thought my eyes were open, and I was half aware of putting my fingers to the lids and mechanically stretching them even wider. Yet in spite of all this I could see no compass in front of me to steer by, though it seemed only a minute since I had been watching the card in the light of the steady binnacle lamp. There seemed to be nothing ahead of me but a jet-black gloom, made ghastly now and then by flashes of red. My strongest impression was that whatever swift, rushing thing I was standing on was not so much heading for any harbor ahead as fleeing from every harbor behind. A stark, bewildered feeling, like death, came over me. My hands clutched the tiller convulsively, but with the crazy idea that the tiller had somehow, by some enchantment, been turned upside down. My God! What is the matter with me? I thought. And then I saw it: in my brief sleep I had turned around and was facing the ship's stern, with my back to her bow and the compass. In an instant I turned back, just in time to keep the vessel from flying up into the wind and very likely capsizing. How glad and how grateful I was to be free of this unnatural hallucination of the night, and of the fatal danger of being brought by the lee!"
+  },
+  {
+   "id": "96.11",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ishmael's own 'Give not thyself up ... lest it invert thee' and the 'alike ... and' construction; Solomon quotation kept verbatim (decision 8); italic 'i.e.' rendered without underscores.",
+   "new": "But even Solomon, he says, \"the man that wandereth out of the way of understanding shall remain\" — that is, even while he is still alive — \"in the congregation of the dead.\" So do not surrender yourself to fire, or it may turn you upside down and deaden you, as it did me for a time. There is a wisdom that is woe, but there is a woe that is madness. And in some souls there is a Catskill eagle that can dive down into the blackest gorges and just as well soar out of them again and vanish into the sunny spaces. And even if he flies forever inside the gorge, that gorge is in the mountains, so that even at the bottom of his lowest swoop the mountain eagle is still higher than other birds on the plain, even when they soar."
+  },
+  {
+   "id": "97.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Replaced 1851 conditional inversion 'Had you descended' and 'a chiselled muteness' phrasing with modern syntax.",
+   "new": "If you had gone down from the Pequod's try-works to the Pequod's forecastle, where the off-duty watch lay asleep, you would almost have thought for one moment that you were standing in some lit-up shrine of sainted kings and counselors. There they lay in their three-cornered oak vaults, each sailor a carved silence, with a score of lamps flashing on his hooded eyes."
+  },
+  {
+   "id": "98.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Undid inverted opening 'Already has it been related', 'descried', 'surtout', 'rehearsing', 'striking them down' and 'profundities'; split the long periodic sentence.",
+   "new": "I have already told how the great leviathan is sighted far off from the masthead; how he is chased across the watery moors and slaughtered in the valleys of the deep; how he is then towed alongside and beheaded; how (on the same principle that gave the headsman of old the clothes his victim was executed in) his great padded overcoat becomes the property of his executioner; and how, in due course, he is sentenced to the pots, where, like Shadrach, Meshach, and Abednego, his spermaceti, oil and bone pass through the fire unharmed. What remains, to close the last chapter of this part of the account, is to recite — to sing, if I may — the romantic business of drawing off his oil into the casks and stowing them down in the hold. There leviathan goes back once more to his native depths, gliding along under the surface as before — but, alas, never again to rise and blow."
+  },
+  {
+   "id": "98.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'At length', 'This done' and 'hermetically closed' phrasing.",
+   "new": "Finally, once the last pint is in the cask and everything has cooled, the great hatches are opened up, the ship's bowels are laid bare, and down go the casks to their final resting place in the sea. When that is done, the hatches are put back and sealed airtight, like a closet that has been walled up."
+  },
+  {
+   "id": "99.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'else all things are little worth', 'but an empty cipher' and the participial opening.",
+   "new": "But one morning, as he turned to pass the doubloon, he seemed freshly drawn to the strange figures and inscriptions stamped on it, as though he were only now beginning to read into them, in his own monomaniac way, whatever meaning might be hidden there. And some meaning is hidden in all things; otherwise all things are worth very little, and the round world itself is nothing but an empty zero, good only for selling by the cartload, the way they sell off hills around Boston, to fill in some swamp in the Milky Way."
+  },
+  {
+   "id": "99.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'whence', 'amidst', the 'Nor, though ... nevertheless' construction and 'wanton'; kept the Pactolus gloss.",
+   "new": "Now this doubloon was of the purest virgin gold, dug somewhere out of the heart of splendid hills from which the headwaters of many a Pactolus (the gold-bearing river of legend) flow east and west over golden sands. And though it was now nailed among rusty iron bolts and copper spikes green with verdigris, it still kept its Quito glow, untouched and unstained by any filth. It had been placed among a ruthless crew, ruthless hands passed it every hour, and all night long it was wrapped in thick darkness that could have hidden any thief creeping up on it; yet every sunrise found the doubloon where the last sunset had left it. For it was set apart and made sacred for one awe-inspiring purpose, and however reckless their sailor ways, the sailors one and all revered it as the white whale's talisman. Sometimes they talked it over during the weary night watch, wondering who would end up with it, and whether he would live to spend it."
+  },
+  {
+   "id": "99.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'It so chanced', 'a most wealthy example', 'unwaning clime', 'Zoned by those letters' and 'cabalistics'.",
+   "new": "As it happened, the Pequod's doubloon was an unusually rich example of such things. Around its rim ran the letters REPUBLICA DEL ECUADOR: QUITO. So this bright coin came from a country set in the middle of the world, right under the great equator and named after it, and it had been minted halfway up the Andes, in a climate that never wanes and knows no autumn. Inside the ring of letters you could see the figures of three Andean peaks: a flame rising from one, a tower on another, and on the third a crowing rooster. Arching over them all was a section of the divided zodiac, each sign marked with its usual cabalistic symbols, and the keystone sun entering the equinoctial point at Libra."
+  },
+  {
+   "id": "99.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ahab's grammar ('Methinks', 'but mirrors back', 'aye', 'but six months before', ''tis fit') while keeping his cadence, repetitions and imagery.",
+   "new": "\"There is always something egotistical in mountaintops and towers and every other grand and lofty thing. Look here — three peaks as proud as Lucifer. The firm tower, that is Ahab; the volcano, that is Ahab; the brave, the fearless and victorious bird, that too is Ahab. They are all Ahab. And this round gold is only the image of the rounder globe, which, like a magician's glass, reflects back to each and every man in turn nothing but his own mysterious self. Great pains, small gains for those who ask the world to solve them; it cannot solve itself. It strikes me now that this coined sun has a ruddy face. But look! Yes, he is entering the sign of storms, the equinox! And only six months ago he rolled out of the last equinox, at Aries! From storm to storm! So be it, then. Born in labor, it is fitting that man should live in pain and die in agony! So be it, then! Here is solid stuff for woe to work on. So be it, then.\""
+  },
+  {
+   "id": "99.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Starbuck's 'mouldings', 'marked the coin inspectingly', 'girds us round', 'would fain' and 'I will quit it'.",
+   "new": "\"No fairy fingers can have pressed this gold; devil's claws must have left their marks on it since yesterday,\" Starbuck murmured to himself, leaning against the bulwarks. \"The old man seems to be reading Belshazzar's terrible writing on the wall. I have never looked at the coin closely. He has gone below; let me read it. A dark valley between three mighty peaks that dwell in heaven and almost seem the Trinity, in some faint earthly symbol. So in this valley of Death God surrounds us, and above all our gloom the sun of Righteousness still shines as a beacon and a hope. If we look down, the dark valley shows us her moldy soil; but if we look up, the bright sun meets our eyes halfway to cheer us. Yet, oh, the great sun does not stay put; and if at midnight we would gladly snatch some sweet comfort from him, we look for him in vain! This coin speaks wisely, gently, truly, but still sadly to me. I will leave it, before Truth shakes me into falsehood.\""
+  },
+  {
+   "id": "100.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'So cried Ahab', 'bearing down under the stern', 'or thereabouts', 'roundabout' and 'broidered'.",
+   "new": "Ahab shouted this as he hailed yet another ship, this one flying English colors and bearing down under the stern. The old man stood in his hoisted quarter-boat with the trumpet to his mouth, his ivory leg in plain view of the stranger captain, who was lounging casually in the bow of his own boat. He was a deeply tanned, burly, good-natured, handsome man of about sixty, dressed in a roomy short jacket that hung around him in folds of blue pilot-cloth; one empty sleeve of it streamed out behind him like the embroidered sleeve of a hussar's cloak."
+  },
+  {
+   "id": "100.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'See you this?' and the participial 'withdrawing it from the folds'.",
+   "new": "\"Do you see this?\" He pulled it out from the folds that had hidden it and held up a white arm made of sperm whale bone, ending in a wooden head like a mallet."
+  },
+  {
+   "id": "100.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'without quitting his little craft', 'presented itself', 'contrivance peculiar to the Pequod', 'unsupplied with the kindly invention' and 'abjectly reduced'.",
+   "new": "In less than a minute Ahab and his crew, still sitting in their little boat, had been lowered to the water, and they were soon alongside the stranger. But now an odd problem came up. In the excitement of the moment Ahab had forgotten that since losing his leg he had never once boarded any ship at sea except his own, and even then always by means of a clever and very handy mechanical device found only on the Pequod, which could not be rigged up and fitted on another vessel at a moment's notice. Now, it is not at all easy for anyone except people who do it almost every hour, like whalemen, to climb up a ship's side from a boat on the open sea, because the great swells lift the boat high up toward the bulwarks one moment and in the next instant drop it halfway down to the keelson. So, with one leg gone, and the strange ship naturally having none of that thoughtful invention, Ahab found himself miserably reduced to a clumsy landsman again, staring hopelessly at the shifting, uncertain height he could hardly hope to climb."
+  },
+  {
+   "id": "100.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'It has before been hinted', 'untoward circumstance that befell him', 'cleets', 'bethink them' and 'bannisters'.",
+   "new": "I may have hinted before that almost every small mishap that came his way as an indirect result of his unlucky injury irritated or infuriated Ahab. This time all of that was made worse by the sight of the strange ship's two officers leaning over the side next to the upright ladder of nailed-on cleats and swinging a pair of prettily decorated man-ropes toward him; at first it did not seem to occur to them that a one-legged man would be too crippled to use their sea-banisters. But this awkward moment lasted only a minute, because the strange captain saw at a glance how things stood and called out, \"I see, I see! Stop hauling there! Jump to it, boys, and swing over the cutting-tackle.\""
+  },
+  {
+   "id": "100.13",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'I was ignorant of', 'could only trim dish', 'Presently up breaches' inversion.",
+   "new": "\"It was the first time in my life I had ever cruised on the Line,\" the Englishman began. \"I didn't know anything about the White Whale back then. Well, one day we lowered for a pod of four or five whales, and my boat got fast to one of them. He was a real circus horse, too, going round and round in circles, so that the only way my boat's crew could keep her level was by all sitting with their backsides on the outer gunwale. Then all of a sudden a great bouncing whale comes breaching up from the bottom of the sea, with a milky-white head and hump, all crow's-feet and wrinkles.\""
+  },
+  {
+   "id": "100.20",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'thus familiarly pointed out', 'nothing specific visible, to denote', 'straightway went on to do his captain's bidding'.",
+   "new": "The professional gentleman being pointed out so casually had been standing near them the whole time, with nothing in particular to show his gentleman's rank on board. His face was extremely round but serious. He wore a faded blue woolen frock, or shirt, and patched trousers, and until now he had been dividing his attention between a marlinspike in one hand and a pill-box in the other, now and then throwing a critical glance at the ivory limbs of the two crippled captains. But when his superior introduced him to Ahab, he bowed politely and went straight off to do what his captain had asked."
+  },
+  {
+   "id": "100.29",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'now cried Ahab, who thus far had been' and 'by-play'.",
+   "new": "\"What happened to the White Whale?\" Ahab shouted now; up to this point he had been listening impatiently to this side-play between the two Englishmen."
+  },
+  {
+   "id": "100.35",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Bunger's 'thinks to terrify by feints', 'making believe swallow', 'in good earnest', 'a twelvemonth', 'd'ye see', 'have a mind to pawn', keeping his comic pomposity.",
+   "new": "\"Well, then,\" Bunger broke in, \"give him your left arm as bait to get back the right. Do you know, gentlemen\" — bowing very gravely and precisely to each captain in turn — \"do you know, gentlemen, that Divine Providence has built the whale's digestive organs so mysteriously that he cannot possibly digest even a man's arm completely? And he knows it, too. So what you take for the White Whale's malice is only his clumsiness. He never intends to swallow a single limb; he only means to scare you with feints. But sometimes he is like the old juggler, once a patient of mine in Ceylon, who used to pretend to swallow jackknives, and one day actually let one slip down inside him for real. There it stayed for a year or more, until I gave him an emetic and he threw it up in little tacks, you see. There was no possible way for him to digest that jackknife and fully absorb it into his general bodily system. Yes, Captain Boomer, if you are quick enough about it, and are willing to pawn one arm for the privilege of giving the other a decent burial, why, in that case the arm is yours. Just let the whale have another go at you soon, that's all.\""
+  },
+  {
+   "id": "100.41",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Recast the participial chain and 'commanded ... to stand by to lower' into modern syntax.",
+   "new": "But Fedallah put a finger to his lips and slid over the bulwarks to take the boat's steering oar, while Ahab swung the cutting-tackle over to himself and ordered the ship's sailors to get ready to lower."
+  },
+  {
+   "id": "100.42",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'In vain the English Captain hailed him' inversion and 'face set like a flint to his own'.",
+   "new": "A moment later he was standing in the stern of the boat, and the Manila men were jumping to their oars. The English captain called after him, but it was no use. Ahab stood upright, his back to the stranger ship and his face set like flint toward his own, until they came alongside the Pequod."
+  },
+  {
+   "id": "101.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'All honor to ... therefore', 'exists to the present day' and 'doubtless ... must long ago have'.",
+   "new": "So all honor to the Enderbies, whose firm, I believe, is still in business today — though the original Samuel has no doubt long since slipped his cable and sailed for the great South Sea of the other world."
+  },
+  {
+   "id": "101.3",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'minds me of', 'a very fast sailer', 'they were all trumps', 'at the rate of ten gallons the hour', 'tars', 'by and by', 'forecastle scuttle', and split the long run-on sentences.",
+   "new": "The ship named for him deserved the honor; she was very fast and a noble vessel in every way. I went aboard her once at midnight somewhere off the coast of Patagonia and drank good flip down in the forecastle. It was a fine gam we had, and they were all good sports — every soul on board. May they have a short life and a jolly death. And that fine gam I had — long, long after old Ahab set his ivory heel on her planks — brings back to me the noble, solid, Saxon hospitality of that ship. May my parson forget me and the devil remember me if I ever lose sight of it. Flip? Did I say we had flip? Yes, and we put it away at ten gallons an hour. And when the squall hit (it's squally down there off Patagonia) and all hands, visitors included, were called to reef topsails, we were so top-heavy that we had to hoist each other aloft in bowlines. Not knowing what we were doing, we furled the tails of our jackets into the sails, so that we hung there, reefed tight in the howling gale, a warning to all drunken sailors. Still, the masts didn't go overboard, and eventually we scrambled down, so sober that we had to pass the flip around again — though the savage salt spray bursting down the forecastle hatch watered it down and pickled it rather too much for my taste."
+  },
+  {
+   "id": "101.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Transcribed provision list: spelled out 'lbs.' as 'pounds' for modern readers; items, figures, measures and Melville's aside kept, with the reviewers' brief glosses of firkins and ankers.",
+   "new": "400,000 pounds of beef. 60,000 pounds of Friesland pork. 150,000 pounds of stockfish. 550,000 pounds of biscuit. 72,000 pounds of soft bread. 2,800 firkins (small casks) of butter. 20,000 pounds of Texel and Leyden cheese. 144,000 pounds of cheese (probably of lower quality). 550 ankers (casks) of Geneva gin. 10,800 barrels of beer."
+  },
+  {
+   "id": "101.9",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'parchingly dry in the reading; not so in the present case'.",
+   "new": "Most statistical tables make for bone-dry reading. That is not true here, though, where the reader gets drenched in whole pipes, barrels, quarts and gills of good gin and good cheer."
+  },
+  {
+   "id": "101.10",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'studious digesting', 'incidentally suggested to me', 'touching the probable quantity', 'I impute it', 'unctuous natures', 'Esquimaux', 'pledge each other in bumpers of train oil'.",
+   "new": "At the time I spent three days carefully digesting all this beer, beef and bread, and along the way it happened to give me many profound thoughts that could be applied in a transcendental and Platonic sense. I also drew up some supplementary tables of my own on the probable amount of stockfish, and so on, eaten by every Low Dutch harpooner in that old Greenland and Spitsbergen whale fishery. To begin with, the amount of butter and of Texel and Leyden cheese they ate seems astonishing. I put it down, though, to their naturally oily natures, which were made oilier still by their line of work, and especially by their hunting their game in those frozen polar seas, right on the coasts of the Eskimo country, where the sociable natives drink each other's health in brimming glasses of train oil."
+  },
+  {
+   "id": "101.11",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'prosecuted', 'say, and reckoning', 'exclusive of', 'fuddled as one might fancy', 'be it remembered', 'grievous loss might ensue'; untangled the long periodic calculation into separate sentences.",
+   "new": "The amount of beer is also very large: 10,800 barrels. Now, those polar fisheries could only be worked during the short summer of that climate, so the whole cruise of one of these Dutch whalemen, including the short trip to and from the Spitsbergen sea, did not run much beyond three months, let's say. Counting 30 men for each of the 180 ships in their fleet, we get 5,400 Low Dutch seamen in all. So, I say, we have exactly two barrels of beer per man as a twelve weeks' ration, not counting his fair share of those 550 ankers of gin. Now, whether these gin-and-beer harpooners, as tipsy as you might imagine them to have been, were the right sort of men to stand up in the bow of a boat and take good aim at fleeing whales seems rather unlikely. Yet they did aim at them, and hit them, too. But remember, this was very far north, where beer suits the constitution well. On the equator, in our southern fishery, beer would tend to make the harpooner drowsy at the masthead and sozzled in his boat, and Nantucket and New Bedford might suffer heavy losses."
+  },
+  {
+   "id": "101.12",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'But no more', 'high livers', 'For, say they'.",
+   "new": "But that's enough of that. I have said enough to show that the old Dutch whalers of two or three centuries ago lived well, and that the English whalers have not ignored such an excellent example. For, as they say, when you are cruising in an empty ship, if you can't get anything better out of the world, at least get a good dinner out of it. And that empties the decanter."
+  },
+  {
+   "id": "102.3",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'for that rare knowledge I am indebted', the dangling 'For being at Tranque ... when attached to' and 'retired palm villa'.",
+   "new": "As for my exact knowledge of the leviathan's bones at their gigantic, fully grown size, I owe that rare knowledge to my late royal friend Tranquo, king of Tranque, one of the Arsacides. Years ago, when I was serving on the trading ship Dey of Algiers and we called at Tranque, the lord of Tranque invited me to spend part of the Arsacidean holidays with him at his secluded palm villa at Pupella, a seaside glen not far from his capital, which our sailors called Bamboo-Town."
+  },
+  {
+   "id": "102.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Chief among these latter', 'plumage-like, tufted droopings seemed his verdant jet', 'fathom-deep enfoldings' and the periodic 'When ... then' sentence.",
+   "new": "The most important of these was a great Sperm Whale that had been found dead and stranded after an unusually long, raging gale, with his head against a coconut tree whose drooping tufts of feathery leaves looked like his green spout. When the huge body had finally been stripped of its fathom-deep wrappings and the bones had dried to dust in the sun, the skeleton was carefully carried up the Pupella glen, where a grand temple of lordly palms now gave it shelter."
+  },
+  {
+   "id": "102.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'life-restless loom', 'assuming greener, fresher verdure', 'wived' and 'begat him', keeping the weaving imagery and the Life/Death chiasmus.",
+   "new": "There, in the green, restlessly living loom of that Arsacidean wood, the great, white, worshipped skeleton lay lounging — a gigantic idler! And yet, as the green warp and weft, forever being woven, mingled and hummed around him, the mighty idler seemed to be the cunning weaver himself, though he was all woven over with the vines, putting on greener and fresher growth every month, and was himself only a skeleton. Life wrapped Death; Death was a trellis for Life; the grim god married youthful Life and fathered curly-headed glories on her."
+  },
+  {
+   "id": "102.9",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized the inverted clauses ('saw the skull an altar', 'more I marvelled', 'To and fro I paced'), 'object of vertu', 'naught was there but bones'.",
+   "new": "When I visited this wonderful whale with royal Tranquo and saw that its skull had been made an altar, with artificial smoke rising from the place where the real spout had come out, I was surprised that the king should treat a chapel as a collector's piece. He laughed. But I was more surprised that the priests swore that smoky spout of his was genuine. I paced back and forth in front of the skeleton, pushed the vines aside, broke in through the ribs, and, unwinding a ball of Arsacidean twine behind me, wandered and circled for a long time among its many winding, shady colonnades and arbors. But my line soon ran out, and following it back, I came out through the opening where I had gone in. I saw nothing living inside; there was nothing there but bones."
+  },
+  {
+   "id": "102.13",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'I shall now proceed to set down', 'as in my wild wanderings', 'crowded for space', 'did not trouble myself', 'congenial admeasurement'.",
+   "new": "The measurements of the skeleton that I am about to record are copied word for word from my right arm, where I had them tattooed, since in my wild wanderings at the time there was no other safe way to keep such valuable figures. But I was short of space, and I wanted the rest of my body — or whatever parts of it were still untattooed — to stay a blank page for a poem I was writing then, so I did not bother with the odd inches. Nor, in fact, should inches come into any measurement of the whale that suits him."
+  },
+  {
+   "id": "103.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'lay before you a particular, plain statement, touching' and 'whose skeleton we are briefly to exhibit'.",
+   "new": "First of all, I want to give you a detailed, plain account of how big this leviathan is when alive, since we are about to show his skeleton briefly. That account may be useful here."
+  },
+  {
+   "id": "103.3",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'divers other parts', 'unobstructed bones', 'embraces so very large a proportion', the chain of 'as' clauses, and 'gain a complete notion'.",
+   "new": "I have already shown you, in various ways, his skull, spout-hole, jaw, teeth, tail, forehead, fins and several other parts, so now I will simply point out what is most interesting in the general mass of his bones once they are laid bare. But the colossal skull makes up so very large a share of the whole length of the skeleton, and it is by far the most complicated part, and nothing about it will be repeated in this chapter; so you must be sure to keep it in your mind, or under your arm, as we go on. Otherwise you will not get a complete idea of the overall structure we are about to look at."
+  },
+  {
+   "id": "103.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'not a little resembled', 'new-laid upon the stocks', 'the keel is otherwise, for the time, but'.",
+   "new": "To me this vast chest with its ivory ribs, and the long, plain spine running far away from it in a straight line, looked a good deal like the hull of a great ship just laid down on the stocks, when only about twenty of her bare bow-ribs have been set in place and the keel, for the moment, is otherwise just a long, unconnected timber."
+  },
+  {
+   "id": "103.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'to begin from the neck', 'each successively longer', 'bore a seemly correspondence', 'beams whereon to lay'.",
+   "new": "There were ten ribs on each side. The first, counting from the neck, was nearly six feet long. The second, third and fourth each got longer in turn, up to the high point of the fifth, one of the middle ribs, which measured eight feet and a few inches. From there the remaining ribs grew shorter, until the tenth and last spanned only five feet and a few inches. Their thickness was generally in proportion to their length. The middle ribs had the greatest curve. On some of the Arsacides, ribs like these are used as beams to lay footbridges across small streams."
+  },
+  {
+   "id": "103.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'could not but be struck anew with the circumstance', 'mould of his invested form', 'measured but little more', 'conveyed half of the true notion', 'for some way', 'Still more, for the ample fins'.",
+   "new": "Looking at these ribs, I was struck once again by the point this book has made in so many ways: the whale's skeleton is by no means a mold of his body as it is when clothed in flesh. The largest of the Tranque ribs, one of the middle ones, sat in the part of the fish that is deepest in life. Now, the greatest depth of this particular whale's body, fully clothed, must have been at least sixteen feet, while the matching rib measured only a little over eight. So this rib gave only half a true idea of how big that part was in the living animal. What's more, for some distance along where I now saw only a bare spine, all of it had once been wrapped in tons of extra bulk in the form of flesh, muscle, blood and bowels. Furthermore, in place of the broad fins I saw here only a few jumbled joints, and in place of the heavy, majestic, but boneless flukes, nothing at all!"
+  },
+  {
+   "id": "103.10",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'forty and odd', 'in width something less than', 'cannibal urchins', 'Thus we see how that'.",
+   "new": "There are forty-odd vertebrae altogether, and in the skeleton they are not locked together. Most of them lie like the great knobbed blocks of a Gothic spire, forming solid layers of heavy masonry. The largest, one in the middle, is a little under three feet wide and more than four feet deep. The smallest, where the spine narrows into the tail, is only two inches wide and looks rather like a white billiard ball. I was told there had been even smaller ones, but some little cannibal urchins, the priest's children, had stolen them to play marbles with, and they were lost. So we see that the spine of even the hugest living thing tapers off in the end into simple child's play."
+  },
+  {
+   "id": "104.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'How, then, with me', 'chirography', 'penning my thoughts', 'outreaching comprehensiveness of sweep', 'Such, and so magnifying, is the virtue', 'many there be who have tried it'.",
+   "new": "We often hear of writers who rise and swell along with their subject, even when it may seem an ordinary one. So what about me, writing about this Leviathan? Without my meaning it, my handwriting grows into poster capitals. Give me a condor's quill! Give me Vesuvius' crater for an inkwell! Friends, hold my arms! For the mere act of writing down my thoughts about this Leviathan wears me out and makes me faint, they reach out so widely and take in so much, as if they would include the whole circle of the sciences, and all the generations of whales and men and mastodons, past, present and to come, along with all the turning panoramas of empire on earth and across the whole universe, not leaving out its suburbs. That is how much a large, generous theme can magnify a writer! We swell to its size. To produce a mighty book, you must choose a mighty theme. No great and lasting book can ever be written about the flea, though plenty of people have tried."
+  },
+  {
+   "id": "104.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'bestowed upon it the name', the absolute 'some specimen bones of it being taken', the verbless sentence, 'furnishes but little clue', 'fully invested body', 'the mutations of the globe'.",
+   "new": "But by far the most wonderful of all Cetacean remains was the nearly complete, enormous skeleton of an extinct monster found in 1842 on Judge Creagh's plantation in Alabama. The awestruck, credulous slaves who lived nearby took it for the bones of one of the fallen angels. The Alabama doctors declared it a huge reptile and gave it the name Basilosaurus. But when some sample bones were taken across the sea to Owen, the English anatomist, this supposed reptile turned out to be a whale, though of a species now gone. That is a telling example of the fact this book has repeated again and again: the whale's skeleton gives very little clue to the shape of his body when fully clothed in flesh. So Owen renamed the monster Zeuglodon, and in his paper read before the London Geological Society he declared it, in substance, one of the most extraordinary creatures that the changes of the globe have wiped out of existence."
+  },
+  {
+   "id": "105.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'upon investigation we find', 'superior in magnitude', 'embracing a distinct geological period prior to man', and the inverted 'of the whales found ...' clause.",
+   "new": "But when we look into it, we find that today's whales are not only bigger than those whose fossil remains turn up in the Tertiary system (which covers a distinct geological period before man), but that among the whales found in that Tertiary system, the ones from its later formations are larger than the ones from its earlier formations."
+  },
+  {
+   "id": "105.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Of all the pre-adamite whales yet exhumed' inversion, 'Whereas, we have already seen, that', 'on whalemen's authority', 'near a hundred feet'.",
+   "new": "The largest by far of all the pre-Adamite whales dug up so far is the Alabama one mentioned in the last chapter, and its skeleton was under seventy feet long. Yet we have already seen that the tape measure gives seventy-two feet for the skeleton of a large modern whale. And whalemen have told me that Sperm Whales nearly a hundred feet long at the time of capture have been taken."
+  },
+  {
+   "id": "105.4",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Assuredly', 'if we are to credit', 'embraced acres of living bulk', 'setting down ... at', 'so late as'.",
+   "new": "We certainly must conclude so, if we are to believe the accounts of gentlemen like Pliny and the ancient naturalists in general. For Pliny tells us of whales whose living bulk covered acres, and Aldrovandus of others that were eight hundred feet long — whales the size of ropewalks and Thames Tunnels! And even in the time of Banks and Solander, Cooke's naturalists, we find a Danish member of the Academy of Sciences recording certain Iceland Whales (reydan-siskur, or Wrinkled Bellies) as one hundred and twenty yards long, that is, three hundred and sixty feet. And Lacépède, the French naturalist, in his detailed history of whales, right at the start of his work (page 3), gives the Right Whale as one hundred meters, or three hundred and twenty-eight feet. And this work came out as recently as A.D. 1825."
+  },
+  {
+   "id": "105.7",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Recast the dangling participial periodic sentence ('Comparing ... ; in such a comparison an irresistible argument would seem furnished') and 'overspread'.",
+   "new": "If you compare the humped herds of whales with the humped herds of buffalo that, less than forty years ago, covered the prairies of Illinois and Missouri in their tens of thousands, shaking their iron manes and scowling with their thunder-clotted brows over the sites of what are now crowded river cities, where the polite broker now sells you land at a dollar an inch, that comparison would seem to offer an unanswerable argument that the hunted whale cannot escape rapid extinction."
+  },
+  {
+   "id": "105.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized the long 'Though ... and though ... yet' periodic sentence, 'not a good lifetime', 'peremptorily forbids', 'slain', 'if need were, could be statistically stated'.",
+   "new": "But you have to look at this question from every angle. It is true that only a short time ago — less than a full lifetime — the buffalo of Illinois outnumbered the people of London today; that now not a single horn or hoof of them is left anywhere in that region; and that the cause of this astonishing extermination was the spear of man. Even so, the very different nature of the whale hunt absolutely rules out so inglorious an end for the Leviathan. Forty men in one ship who hunt Sperm Whales for forty-eight months think they have done extremely well, and thank God, if they finally bring home the oil of forty fish. By contrast, in the days of the old Canadian and Indian hunters and trappers of the West, when the far west (in whose sunset suns still rise) was an untouched wilderness, the same number of men in moccasins, over the same number of months, riding horses instead of sailing ships, would have killed not forty buffalo but forty thousand and more — a fact that could be backed up with statistics if necessary."
+  },
+  {
+   "id": "105.13",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'we are to consider, that from the presumed great longevity ... therefore', 'what that is, we may soon gain some idea of', 'yielding up'.",
+   "new": "Moreover, we have to consider that since whales are thought to live a very long time, probably reaching a hundred years or more, several separate adult generations must be alive at any one time. We can quickly get some idea of what that means if we imagine all the graveyards, cemeteries and family vaults in creation giving up the living bodies of all the men, women and children who were alive seventy-five years ago, and then add that countless multitude to the present human population of the globe."
+  },
+  {
+   "id": "108.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Stage direction modernized from 1851 participial telegraphese ('which joist is firmly fixed in the vice', 'lying about', 'Forward, the red flame ... is seen'); parenthetical layout kept, italics dropped per convention.",
+   "new": "(The carpenter stands at his vise-bench, filing away busily by the light of two lanterns at the ivory shaft for the leg, which is clamped tight in the vise. Slabs of ivory, leather straps, pads, screws and all kinds of tools lie scattered over the bench. Farther forward the red flame of the forge can be seen, where the blacksmith is working.)"
+  },
+  {
+   "id": "108.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized the deferential period idiom 'If the captain pleases, I will now mark the length'.",
+   "new": "Just in time, sir. If it suits the captain, I'll mark the length now. Let me measure you, sir."
+  },
+  {
+   "id": "108.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ahab's 'No fear' and 'What's Prometheus about there?'",
+   "new": "Don't worry; I like a good grip. I like to feel something in this slippery world that can hold on, man. What's Prometheus up to over there? The blacksmith, I mean — what's he doing?"
+  },
+  {
+   "id": "108.12",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Um-m', 'I do deem it now a most meaning thing', 'animated them with fire', 'This must be the remainder the Greek made the Africans of', 'pedlar'.",
+   "new": "Mm. So he must. It strikes me now as deeply significant that the old Greek Prometheus, who made men, so they say, should have been a blacksmith and brought them to life with fire; for whatever is made in fire must rightly belong to fire, and so hell is likely. Look how the soot flies! This must be the leftover stuff the Greek made the Africans from. Carpenter, when he's finished with that buckle, tell him to forge a pair of steel shoulder blades; there's a peddler on board with a crushing pack."
+  },
+  {
+   "id": "108.14",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Hold', 'while Prometheus is about it', 'after a desirable pattern', 'Imprimis', 'take the order, and away'.",
+   "new": "Wait. While Prometheus is at it, I'll order a complete man, made to a pattern I like. Item one: fifty feet tall in his socks. Next, a chest built on the model of the Thames Tunnel. Next, legs with roots on them, so he stays in one place. Next, arms three feet thick at the wrist. No heart at all, a brass forehead, and about a quarter of an acre of fine brains. And let me see — shall I order eyes that look outward? No, but put a skylight on top of his head to light up the inside. There, take the order and be off."
+  },
+  {
+   "id": "108.15",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'I should like to know' and the aside's word order; aside kept as a stage direction.",
+   "new": "Now what is he talking about, and who is he talking to, I'd like to know? Should I keep standing here? (aside)"
+  },
+  {
+   "id": "108.27",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Truly, sir, I begin to understand somewhat', 'on that score', 'how that', 'if it be really so'.",
+   "new": "Well, sir, I'm starting to understand a little now. Yes, I've heard something curious about that, sir: that a dismasted man never quite loses the feeling of his old spar, and it still pricks him now and then. May I humbly ask if that's really true, sir?"
+  },
+  {
+   "id": "108.28",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ahab's 'thy live leg', 'Where thou feelest tingling life; there ... do I', 'Is't a riddle?' while keeping his cadence.",
+   "new": "It is, man. Look, put your living leg here, in the spot where mine used to be. There — now the eye sees only one distinct leg, but the soul sees two. Where you feel tingling life, there, exactly there, right down to a hair, I feel it too. Is that a riddle?"
+  },
+  {
+   "id": "108.31",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Truly, sir', 'I must calculate over again', 'I think I didn't carry a small figure'.",
+   "new": "Good Lord! Honestly, sir, if it comes to that, I'll have to work out my sums again; I think I forgot to carry a small figure, sir."
+  },
+  {
+   "id": "108.34",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'standing debtor', 'Cursed be that mortal inter-indebtedness', 'given bid for bid', 'Prætorians', 'compendious vertebra', keeping Ahab's elevation; stage direction kept.",
+   "new": "Bungle away at it, then, and bring it to me when it's done (turns to go). Oh, Life! Here I stand, as proud as a Greek god, and yet I am in debt to this blockhead for a bone to stand on! A curse on this mortal web of everyone owing everyone, which will never let us be rid of ledgers. I want to be as free as air, and here I am written down in the whole world's account books. I am so rich that I could have matched the wealthiest Praetorians bid for bid when they auctioned off the Roman empire (which was the world's); and yet I owe for the very flesh of the tongue I brag with. By heaven! I'll get a crucible, climb in, and melt myself down into one small, compact vertebra. So."
+  },
+  {
+   "id": "109.0",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'According to usage', 'lo! no inconsiderable oil', 'Much concern was shown', 'this unfavourable affair'; footnote asterisk kept in place.",
+   "new": "As usual, they were pumping out the ship the next morning, and, surprisingly, a fair amount of oil came up with the water; the casks down below must have sprung a bad leak. Everyone was very worried, and Starbuck went down to the cabin to report this bad news.*"
+  },
+  {
+   "id": "109.2",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'drawing nigh', the 'between which lies' inversion, 'oriental archipelagoes' phrasing and the long participial description; kept the reviewers' modern geographic forms (decision 7).",
+   "new": "By now the Pequod was approaching Formosa and the Bashee Isles from the south and west; between them runs one of the tropical passages out of the China seas into the Pacific. So Starbuck found Ahab with a general chart of the eastern archipelagoes spread out in front of him, along with a separate one showing the long eastern coasts of the Japanese islands of Nippon, Matsumae and Shikoku. The wondrous old man sat with his back to the gangway door, his snow-white new ivory leg braced against the screwed-down leg of his table and a long jackknife like a pruning-hook in his hand, frowning and tracing out his old courses again."
+  },
+  {
+   "id": "109.6",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Starbuck's 'more oil than we may make good in a year' and 'What we come twenty thousand miles to get'.",
+   "new": "\"It's either that, sir, or lose more oil in one day than we can make up in a year. Something we sail twenty thousand miles to get is worth saving, sir.\""
+  },
+  {
+   "id": "109.9",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ahab's 'Begone!', 'I'm all aleak', 'Aye!', 'who can find it ... or how hope to plug it', 'I'll not have', keeping his leak-imagery rhetoric.",
+   "new": "\"And I wasn't speaking or thinking of that at all. Get out! Let it leak! I'm leaking all over myself. Yes! Leaks within leaks! Not only full of leaky casks, but those leaky casks are in a leaky ship; and that's a far worse fix than the Pequod's, man. Yet I don't stop to plug my leak, for who can find it down in the deep-loaded hull? And even if it were found, how could anyone hope to plug it in this life's howling gale? Starbuck! I won't have the Burtons hoisted.\""
+  },
+  {
+   "id": "109.12",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized the convoluted 'daring so strangely respectful ... every way seeking to avoid the slightest outward manifestation of itself' and Starbuck's 'pass over in thee'.",
+   "new": "\"Captain Ahab,\" said the mate, flushing as he stepped farther into the cabin. His boldness was so oddly respectful and careful that it seemed not only to be trying in every way to avoid showing itself outwardly in the slightest, but inwardly as well to be more than half unsure of itself. \"A better man than I am might well overlook in you what he would be quick enough to resent in a younger man — yes, and in a happier one, Captain Ahab.\""
+  },
+  {
+   "id": "110.8",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'duly planed and fitted', 'lightly shouldered', 'inquiring whether they were ready for it yet in that direction'.",
+   "new": "Once the last nail had been driven in and the lid properly planed and fitted, he swung the coffin easily onto his shoulder and carried it forward, asking whether they were ready for it up there yet."
+  },
+  {
+   "id": "110.9",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Overhearing ... Queequeg ... commanded', 'nor was there any denying him; seeing that', 'for evermore', 'ought to be indulged'.",
+   "new": "Queequeg overheard the indignant, half-joking shouts with which the men on deck started to chase the coffin away, and, to everyone's dismay, he ordered it brought to him at once. There was no refusing him, since some dying men are the most tyrannical of all mortals; and surely, since they will soon trouble us so little forever after, the poor fellows ought to be humored."
+  },
+  {
+   "id": "110.10",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'long regarded the coffin with an attentive eye', 'ranged round the sides within', the absolute 'a piece of sail-cloth being rolled up', 'entreated ... that he might make trial of its comforts, if any it had', 'told one', 'signed to be replaced'.",
+   "new": "Leaning out of his hammock, Queequeg studied the coffin closely for a long time. Then he asked for his harpoon, had the wooden shaft taken out of it, and had the iron part laid in the coffin together with one of the paddles from his boat. Next, again at his own request, biscuits were lined up around the inside walls; a flask of fresh water was set at the head, and at the foot a small bag of woody earth scraped up from the hold. A piece of sailcloth was rolled up for a pillow, and then Queequeg begged to be lifted into his final bed so that he could test how comfortable it was, if it was comfortable at all. He lay still for a few minutes, then told someone to go to his bag and bring out his little god, Yojo. Then he crossed his arms on his chest with Yojo between them and asked for the coffin lid (he called it the hatch) to be put over him. The head section folded back on a leather hinge, and there lay Queequeg in his coffin with hardly anything showing but his calm face. \"Rarmai\" (it will do; it is easy), he murmured at last, and signaled to be put back in his hammock."
+  },
+  {
+   "id": "110.15",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'lay with closed eyes' and 'the sick man was replaced in his hammock'.",
+   "new": "Through all of this Queequeg lay with his eyes shut, as if he were dreaming. Pip was led away, and the sick man was put back in his hammock."
+  },
+  {
+   "id": "112.1",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'had at an early period of the voyage excited', 'to the importunity of their persisted questionings', 'so it came to pass'.",
+   "new": "The old man walked in an odd way, with a slight lurch in his step that looked painful, and early in the voyage this had made the sailors curious. They had kept pestering him with questions until he finally gave in, and so now everyone knew the shameful story of his miserable fate."
+  },
+  {
+   "id": "112.5",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'Why tell the whole?', 'grew more and more between', 'glitteringly gazing', 'thither', 'in crape', 'unreverenced', keeping the rhythm of the cumulative sentence and every image.",
+   "new": "Why tell all of it? Every day the blows of the hammer in the basement came farther apart, and every day each blow was fainter than the one before. The wife sat frozen at the window, her eyes tearless and glittering as she stared into the weeping faces of her children. The bellows fell still; the forge clogged with cinders; the house was sold; the mother sank down into the long grass of the churchyard; twice her children followed her there; and the old man, without house or family, staggered off as a tramp in mourning crape, with no one to respect his sorrows, his gray head mocked by flaxen curls!"
+  },
+  {
+   "id": "113.13",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized Ahab's word order ('forge me first, twelve rods for its shank'), keeping the imperative rhythm.",
+   "new": "\"I know it, old man. These stubs will weld together like glue made from the melted bones of murderers. Quick! Forge me the harpoon. First make me twelve rods for its shank; then wind and twist and hammer the twelve together like the yarns and strands of a towline. Quick! I'll blow the fire.\""
+  },
+  {
+   "id": "113.15",
+   "severity": "non-blocking",
+   "category": [
+    "unmodernized"
+   ],
+   "reason": "Modernized 'This done', 'stayed his hand', the long absolute construction 'Perth passing ... the forge shooting', 'hems', 'seemed invoking'.",
+   "new": "When that was done, Perth was about to start welding the twelve into one, but Ahab stopped him and said he would weld his own iron. So Ahab hammered away on the anvil with steady, gasping grunts, while Perth handed him the glowing rods one after another and the hard-driven forge sent up its fierce, straight flame. Then the Parsee passed by without a word and bent his head toward the fire, as though calling down some curse or some blessing on the work. But when Ahab looked up, he slipped away to one side."
+  }
+ ]
+}
