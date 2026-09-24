@@ -34,11 +34,15 @@ jobs:
           READER_BUILT: '1'
           ARTIFACT_DIR: artifacts/chapter-preview-built
         run: node scripts/check-chapter-preview.cjs
+      - name: Verify page-edge hyphenation with chapter actions
+        run: node scripts/check-hyphenation-hardening.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: chapter-preview-built
-          path: app/artifacts/chapter-preview-built
+          path: |
+            app/artifacts/chapter-preview-built
+            app/artifacts/hyphenation-hardening
   production:
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
