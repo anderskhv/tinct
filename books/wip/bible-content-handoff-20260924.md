@@ -4,8 +4,8 @@ Content-only release packet. **No app code, registry, live editions, shared tool
 
 | Item | Packet | Prior work found | Status |
 | --- | --- | --- | --- |
-| WEB Catholic (73 books) | [books/staged-replacements/bible-web-catholic/](../staged-replacements/bible-web-catholic/README.md) | None. BSB staging lists it as deferred. | Staged; independently reviewed ([review](../staged-replacements/bible-web-catholic/REVIEW.md)) |
-| `web-en` Revelation 22 boilerplate | [books/wip/web-revelation-22-cleanup/](web-revelation-22-cleanup/RELEASE-PACKET.md) | Flagged, not repaired, by BSB staging | Candidate ready; independently reviewed ([review](web-revelation-22-cleanup/REVIEW.md)) |
+| WEB Catholic (73 books) | [books/staged-replacements/bible-web-catholic/](../staged-replacements/bible-web-catholic/README.md) | None. BSB staging lists it as deferred. | Staged; **accepted** after independent review ([review](../staged-replacements/bible-web-catholic/REVIEW.md)) |
+| `web-en` Revelation 22 boilerplate | [books/wip/web-revelation-22-cleanup/](web-revelation-22-cleanup/RELEASE-PACKET.md) | Flagged, not repaired, by BSB staging | Candidate ready; **accepted** after independent review ([review](web-revelation-22-cleanup/REVIEW.md)) |
 
 The staged BSB package remains separate. Nothing in these packets mixes BSB, WEB Catholic and classic WEB text, and no edition key is shared between them.
 

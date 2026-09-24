@@ -130,3 +130,31 @@ All of the following are accurate:
 Apart from S1 and S2, which are method descriptions and not claims of identity, nothing in the README or map equates equal numbers with identity. The README states the opposite explicitly at lines 67, 80, 85 and 97.
 
 Verdict: REJECT
+
+## Re-review (2026-09-24)
+
+I re-checked only the fixes, against `out/esther-daniel-passage-map.json` (sha256 `8d55819e…2c28`, which matches the hash the coordinator gave), README.md and passage_map.py. The input hashes in the map are unchanged. I re-ran my independent checks on the new map:
+
+- The pairings are unchanged: 357 DAG, 164 ESG. The only different-number pairs are DAG 3:91–97 → DAN 3:24–30.
+- There are still 0 mismatches in the `web-en`/`kjv-en` locations.
+- Addition rows carry no locations.
+- `flaggedForReview` still lists the same 19 ESG rows.
+
+| Item | Status | Evidence |
+| --- | --- | --- |
+| B1 | **Fixed** | ESG.5.1/5.2 now have `kind: hebrew-tradition-counterpart-with-unbracketed-addition` and `projection: whole-verse-only`, with `summary.versesWithUnbracketedAddition = [ESG.5.1, ESG.5.2]`. All other rows have a `projection`: ESG 159 `verse`, 3 `outside-addition-spans-only` (1:1, 3:13, 8:13), 41 `unmapped`; DAG 357 `verse`, 173 `unmapped`. README's projection table states that any partial selection in ESG 5:1–2 returns unmapped. A consumer can now tell these rows apart and follow the rule. |
+| S1 | Fixed | The top-level `note` now distinguishes DAG alignment from ESG's source-claimed, measured numbering. |
+| S2 | Fixed | Docstring steps 2–3 now match the code. |
+| S3 | Fixed | README says 17 + 2 = 19, which matches the map. |
+| S4 | Fixed (pending) | README line 11 links REVIEW.md, and the Esther section links this file. REVIEW.md did not exist when I checked; it is being written. |
+| N1 | Fixed | `sys.exit` on a versification mismatch (line 298). README's "checks before lookup" is now accurate. |
+| N2 | Fixed | README and `sourceMarkupObservations` note the `DAG.3.23` key. |
+| N3 | Fixed | `boundaryNote` values on ESG 1:18, 9:16, 9:27 and 10:2 match my findings. |
+| N4 | Fixed | Every addition row has `positionFallbackHebrewRef`: ESG 4:18–47 → EST.4.17, ESG 10:4–14 → EST.10.3, DAG 3:24–90 → DAN.3.23, DAG 13–14 → DAN.12.13. `reverseLookupUnique: true` for both books. README gives guidance for the reverse direction and for Hebrew 4:6, 9:5 and 9:30. |
+
+Remaining notes (non-blocking):
+
+- The `verse` rule falls back from a failed quote search to the whole verse. For rows with a `boundaryNote`, a partial selection of the overlapping clause lands on the principal verse, not the neighbour. An example is "on the thirteenth day of Adar" in ESG 9:16, which is Hebrew 9:17a. That is acceptable at verse granularity, and README already recommends chapter-level projection for Esther highlights.
+- REVIEW.md must exist before publishing, or the links will be dead.
+
+Verdict: ACCEPT
