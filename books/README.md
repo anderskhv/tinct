@@ -1,5 +1,7 @@
 # Adding books to Tinct
 
+For every book assignment, start with [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). It is selected automatically by the root Claude instructions: content-only staging for Claude, integration and publication for Codex.
+
 **Updated: 2026-09-24.** Current scope: English reading editions and Grok streaming narration.
 
 This is the starting guide for adding a book. Follow [book instructions](AGENTS.md), [Claude's content guide](CLAUDE.md), and the [workflow boundaries](../docs/workflow-boundaries.md). Claude prepares and reviews content; the coding agent integrates and publishes through the existing serialized release process.

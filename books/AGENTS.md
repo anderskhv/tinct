@@ -1,5 +1,7 @@
 # Book Factory Agent Instructions
 
+> **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts; Codex owns code, registry, live paths and publication. This task-specific rule overrides broader path/permission lists below.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 This directory is for adding and maintaining Tinct book content. Follow `../AGENTS.md` first. Older `CLAUDE.md` files are historical references only; this file is the Codex-facing source of truth for book work.
@@ -8,33 +10,7 @@ This directory is for adding and maintaining Tinct book content. Follow `../AGEN
 
 Book work is content-only unless Anders explicitly asks for app changes.
 
-Allowed write paths:
-
-- `books/**`
-- `app/public/data/editions/{book-id}-*.json`
-- `app/public/data/onboarding/{book-id}.json`
-- `app/public/audio/{book-id}/**`
-- `app/src/data/bookRegistry.ts` only to register or unregister the relevant book
-- When SEO work is explicitly requested: `app/scripts/seo/{book-id}.cjs` and `app/public/read/{book-id}/**`
-
-Forbidden without explicit approval:
-
-- `app/src/App.tsx`
-- `app/src/components/**`
-- `app/src/hooks/**`
-- `app/src/services/**`
-- `app/src/utils/**`
-- `app/src/contexts/**`
-- `app/src/index.css`
-- `app/src/main.tsx`
-- `app/src/worker.ts`
-- `app/vite.config.ts`
-- `app/wrangler.jsonc`
-- `app/package.json`
-- unrelated files in `app/scripts/**`
-- static app shell files such as `app/public/landing.html`, `app/public/app.html`, and `app/public/about.html`
-
-If adding a book requires new app behavior, stop and ask Anders to handle it as app work.
+Allowed write paths for Claude book assignments: the owned content staging folder under `books/wip/` or the explicitly assigned `books/staged-replacements/` folder, as defined in [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). Code, registry and live-data integration belong to Codex. The integration instructions below apply to that separate Codex task.
 
 ## Core Rules
 

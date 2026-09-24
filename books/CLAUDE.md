@@ -1,5 +1,7 @@
 # Tinct Book Factory — Claude Guide
 
+> **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts; Codex owns code, registry, live paths and publication. This task-specific rule overrides broader path/permission lists below.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 Use this guide from the current cloud checkout. Start with [Adding books](README.md); historical Mac paths are not cloud-accessible work destinations.
@@ -53,32 +55,7 @@ Do not mix unrelated dirty files into a content commit.
 
 ## Allowed Paths
 
-Content work may touch:
-
-- `books/**`
-- `app/public/data/editions/{book-id}-*.json`
-- `app/public/data/onboarding/{book-id}.json`
-- `app/public/audio/{book-id}/**`
-- `app/src/data/bookRegistry.ts`, only for the relevant book entry
-- SEO paths only when explicitly requested: `app/scripts/seo/{book-id}.cjs` and `app/public/read/{book-id}/**`
-
-Forbidden unless Anders explicitly asks:
-
-- `app/src/App.tsx`
-- `app/src/components/**`
-- `app/src/hooks/**`
-- `app/src/services/**`
-- `app/src/utils/**`
-- `app/src/contexts/**`
-- `app/src/index.css`
-- `app/src/main.tsx`
-- `app/src/worker.ts`
-- `app/vite.config.ts`
-- `app/wrangler.jsonc`
-- `app/package.json`
-- static app shell files such as `app/public/landing.html`, `app/public/app.html`, and `app/public/about.html`
-
-If a book requires new app behavior, stop and ask Anders to handle it as app/Codex work.
+For book assignments, only the owned staging folder specified by [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). No application, registry, code, shared tooling or live-data edits. Supply proposed metadata and integration requirements in the content package.
 
 ## Canonical Book Flow
 
