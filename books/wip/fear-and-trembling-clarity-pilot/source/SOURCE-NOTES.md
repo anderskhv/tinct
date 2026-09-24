@@ -50,8 +50,9 @@ losses in the served Danish. The pilot restores all three:
 | P-I ¶31 | Kierkegaard's footnote on "Troen er en Lidenskab": the Lessing / Edward II / Diderot note with its German quotation (raw.txt 2944–2965) | Translated and attached as `notes[paragraph=31]`. The German is kept and an English rendering is given. |
 | P-II ¶24 | Kierkegaard's footnote on "af sin ganske Sjæl" about the wish/duty collision (raw.txt 3503–3524) | Translated and attached as `notes[paragraph=24]` |
 
-The served `original-en` and `modern-en` omit both footnotes too, and they
-render the truncated P-II ¶7 without the final clause. The footnotes are kept
+The served `original-en` and `modern-en` omit both footnotes too. At P-II ¶7,
+`modern-en` ends mid-sentence ("…which I can still better"). `original-en`
+has the verb, but in the wrong slot: its ¶8 begins with a stray "comprehend.". The footnotes are kept
 outside the aligned paragraph array, so the 32/29 alignment is unchanged. How
 footnotes should appear in the reader is a separate product decision.
 

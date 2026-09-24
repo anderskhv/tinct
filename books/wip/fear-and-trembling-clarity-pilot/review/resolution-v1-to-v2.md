@@ -35,7 +35,7 @@ Rules for resolving them:
 | P-I 22 | Second, different gloss of "dialectic" | Fixed: gloss removed |
 | P-I 23 | "Secler" rendered "thirty pieces of silver" | **Kept.** This is the standard English form of the Judas reference (Matt. 26:15). "Thirty shekels" would send a newcomer looking for a different allusion. |
 | P-I 24 | *forsøgte*: "tested" vs "tried" | Fixed: "put to the proof" (see the terminology change below) |
-| P-I 24 | ophøie/ophæve pun lost; *ophæve* rendered "abolish" | Fixed: "wanting to exalt it and to cancel it by exalting it in a servile way" |
+| P-I 24 | ophøie/ophæve pun lost; *ophæve* rendered "abolish" | The verb is fixed ("cancel") and the construction is fixed ("wanting to exalt it and to cancel it by exalting it in a servile way"). The *pun* itself has no English equivalent and is not reproduced. |
 | P-I 24 | "they destroy themselves" is ambiguous | Fixed: "people themselves destroy it" |
 | P-I 26 | *krænket* is "wronged" | Fixed |
 | P-I 31 | Footnote marker placement | Fixed: the marker now follows "passion," |

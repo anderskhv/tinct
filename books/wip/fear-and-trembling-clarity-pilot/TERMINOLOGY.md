@@ -43,8 +43,9 @@ Anfægtelse* below).
 | τέλος | **telos** | "its end: the purpose it exists for" (P-I ¶0) |
 | teleologisk suspendere | **teleologically suspend** | The source's own gloss: given up, yet "preserved in the higher thing that is its telos" (P-I ¶0) |
 | det Ethiskes Teleologi | **the teleology of the ethical** | "the ordering of purposes that lies within the ethical itself" (P-I ¶7) |
-| det Sædelige, Sædelighed | **ethical life** | "the morality lived out in a people's shared customs and institutions" (P-I ¶1). This is Hegel's *Sittlichkeit*; v1's "family, society and state" imported Hegel's triad. The source equates the term with the ethical in P-I ¶2 ("det Ethiske ɔ: det Sædelige"). |
+| det Sædelige, Sædelighed | **ethical life** | "the ethics lived out in a people's shared customs and institutions" (P-I ¶1). This is Hegel's *Sittlichkeit*; v1's "family, society and state" imported Hegel's triad. The source equates the term with the ethical in P-I ¶2 ("det Ethiske ɔ: det Sædelige"). |
 | sædelig Dyd | **the virtue of ethical life** | P-I ¶14 |
+| Moralität (Hegel's "moral form of evil") | **moral** | Kept apart from *ethical life*. The ethical-life gloss says "ethics", not "morality" (reverification v2, MAJOR). |
 | Pligt / Forpligtelse | **duty** / **obligation** | Plain |
 | absolut Pligt mod Gud | **absolute duty to God** | P-II title |
 | det Absolute | **the absolute** | Not glossed as "God" in P-I. P-II ¶4 makes the identification itself. |
@@ -54,11 +55,11 @@ Anfægtelse* below).
 | Paradox | **paradox** | Defined by the text: the single individual is higher than the universal |
 | det Paradoxe (adj. noun) | **whatever is paradoxical** | Kept apart from *Paradoxet* ("the paradox"), which cannot be mediated (P-I ¶16) |
 | det Absurde | **the absurd** | Defined by the text: "the absurd is precisely this: that he as the single individual is higher than the universal" (P-I ¶6) |
-| mediere / Mediation | **mediate** / **mediation** | "that is, it cannot be settled by being brought under the universal and explained there — for all mediation takes place precisely by means of the universal" (P-I ¶4). The second half is the source's own. |
-| Mellembestemmelse; det Mellemliggende | **middle term**; **intermediate term** | P-I ¶6; P-II ¶7 ("that is, the universal", from the source) |
+| mediere / Mediation | **mediate** / **mediation** | "that is, it cannot be brought under the universal — for all mediation takes place precisely by means of the universal" (P-I ¶4). The second half is the source's own. |
+| Mellembestemmelse; det Mellemliggende | **middle term** (both) | P-I ¶6; P-II ¶7 ("that is, the universal", from the source). The two Danish words are unified so that the reader can connect the passages. |
 | incommensurabel | **incommensurable** | "nothing that cannot be measured by that common standard" (P-I ¶2) |
 | Anfægtelse | **spiritual trial** | "an inner assault on him" (P-I ¶0). v1's "he must resist" built in a verdict that P-II ¶6, ¶20 and ¶23 contradict. |
-| Prøvelse | **test** | Plain (Gen. 22:1). *prøves* is "being tested". *forsøges* is **"being put to the proof"**; in v1 it was "tried", which the comprehension read confused with "spiritual trial". |
+| Prøvelse | **test** | Plain. (The period Danish Bible's Gen. 22:1 has *forsøgte*, so the Genesis echo belongs to *forsøges*.) *prøves* is "being tested". *forsøges* is **"being put to the proof"**; in v1 it was "tried", which the comprehension read confused with "spiritual trial". |
 | Fristelse | **temptation** | The source defines it itself in P-I ¶15 |
 | Angest / Angst | **anxiety** | Never "fear" (*Frygt*). "Angst og Bævelse" (P-II ¶18) is rendered **anxiety and trembling** and not assimilated to the title phrase. |
 | Nød | **distress** | The triad "Nøden, Angsten, Paradoxet" is always **the distress, the anxiety, the paradox** (word order follows the source) |
@@ -88,6 +89,16 @@ Anfægtelse* below).
 
 P-II ¶0 quotes Rousseau's figure of a person who loves distant peoples instead
 of the neighbor. Kierkegaard's Danish names the "Kaffirs" (*Kafferne*). That
-word is now a racial slur. The pilot renders it as "a far-off African people",
+word is now a racial slur. The pilot renders it as "a distant African people",
 which keeps the reference and the point (loving the remote instead of the near)
 without printing the slur. This is recorded as a content decision for review.
+
+## Provenance of the term choices
+
+Two fixed renderings, **the single individual** (*den Enkelte*) and
+**spiritual trial** (*Anfægtelse*), coincide with the Hong & Hong (1983)
+terminology. Both are now standard in English-language Kierkegaard scholarship.
+They are short technical terms, not expression. They were kept because
+readers will meet them in every secondary source. Beyond the terms themselves,
+the pilot's wording was checked for independence from Hong and Lowrie; see
+`review/independence-check.md`.
