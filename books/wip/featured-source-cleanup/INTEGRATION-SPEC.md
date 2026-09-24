@@ -43,7 +43,7 @@ Per-chapter count changes, which are identical in both editions of a book:
 
 Chapters not in the map are identical, and so are all chapters of the Odyssey.
 
-The JE 36.52 modern-en edit appends text at the **end** of the paragraph, so every existing offset in modern 36.52 stays valid. The Odyssey 3.37 original-en truncation keeps its first 56 UTF-16 units, so offsets below 56 are valid and anything at or beyond 56 must be dropped.
+The JE 36.52 modern-en edit appends text at the **end** of the paragraph, so offsets 0–715 in modern 36.52 stay valid. The old closing `—"` (UTF-16 offsets 716–717) is replaced, so a modern-en annotation that starts there, or ends after offset 716, must be clamped to 716 or re-anchored. No card mention does. The Odyssey 3.37 original-en truncation keeps its first 56 UTF-16 units, so offsets below 56 are valid and anything at or beyond 56 must be dropped.
 
 ## 4. Other affected editions and runtime dependencies
 
