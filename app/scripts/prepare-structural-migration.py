@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec"
 CLEAN = "7994156f131a0c382e3f1372518dcb55a44eaade"
+CLARITY = "88ebdd4c9779fe45871ce87777c5dd6a8e48dac0"
 CONFIG = {
  "pride-and-prejudice": {
   "acceptedRef": "e004aad94981ccd203f7d603588d38392158cff5",
@@ -15,7 +16,7 @@ CONFIG = {
  },
  "jane-eyre": {
   "acceptedRef": "d47d80f8e849819c67b4879f925d1493619478e3",
-  "final": {"original-en":"d05d18103f439a8267be407ac8e6d44068236c262321f386174050bbf2109257","modern-en":"bfd5ace3b7803b4d31773148fdaf244ab6da0fd91db329a6077ae88d351a9749"},
+  "final": {"original-en":"d05d18103f439a8267be407ac8e6d44068236c262321f386174050bbf2109257","modern-en":"0488dac58943afde5be0b7e1105206429e2fc0a887462ff753057081e096dff6"},
   "counts": [38,4034],
  },
 }
@@ -46,6 +47,27 @@ for book,cfg in CONFIG.items():
  for edition in ["original-en","modern-en"]:
   old_raw=fetch(BASE,f"app/public/data/editions/{book}-{edition}.json")
   final_raw=fetch(CLEAN,f"{folder}/{book}-{edition}.json")
+  if book=="jane-eyre" and edition=="modern-en":
+   patch=json.loads(fetch(CLARITY,"books/wip/jane-eyre-targeted-clarity-review/PATCH.json"))
+   base=patch["bases"]["corrected"]
+   assert digest(final_raw)==base["sha256"]
+   before_patch=paras(final_raw)
+   final_text=final_raw.decode()
+   assert len(patch["changes"])==1
+   for change in patch["changes"]:
+    at=change["coordinates"]["corrected"]
+    assert before_patch[at["chapter"]][at["paragraph"]]==change["old"]
+    assert digest(change["old"])==change["oldParagraphSha256"]
+    assert digest(change["new"])==change["newParagraphSha256"]
+    old_literal=json.dumps(change["old"],ensure_ascii=False)
+    new_literal=json.dumps(change["new"],ensure_ascii=False)
+    assert final_text.count(old_literal)==1
+    final_text=final_text.replace(old_literal,new_literal,1)
+   final_raw=final_text.encode()
+   assert digest(final_raw)==base["patchedSha256"]
+   after_patch=paras(final_raw)
+   assert [(ch,pi) for ch in before_patch for pi,p in enumerate(before_patch[ch]) if p!=after_patch[ch][pi]]==[(34,139)]
+   result["acceptedClarityRef"]=CLARITY
   assert digest(final_raw)==cfg["final"][edition]
   old,final=paras(old_raw),paras(final_raw)
   stage=old if edition=="original-en" else paras(fetch(cfg["acceptedRef"],f"books/wip/green-{book}/candidate.json"))
