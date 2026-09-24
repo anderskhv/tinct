@@ -1,5 +1,11 @@
 # Tinct Agent Instructions
 
+## Automatic book-task routing — approved 2026-09-24
+
+Requests to **add, onboard, prepare, translate, modernize or repair a book** activate the [content-only book workflow](books/BOOK-TASK-WORKFLOW.md), even when this session starts at the repository root. Read it and its required strategy references before editing. A request to add or finish a book is not authorization to change code, integrate the app, merge to main or deploy.
+
+This is task-specific: Claude may implement and release code when Anders explicitly assigns a coding/release task, following current repository rules and serialized release ownership. Do not infer that assignment from a book request.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 ## Scope

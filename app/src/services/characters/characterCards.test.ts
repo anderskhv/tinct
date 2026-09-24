@@ -191,3 +191,54 @@ it('trims edge italic markup and punctuation without shifting internal names', (
   expect(wordSelectionOffsets('_Duke._', 0, 1)).toEqual([1, 5])
   expect(wordSelectionOffsets('Anne 40 Page', 0, 1)).toEqual([0, 4])
 })
+
+describe('dash-joined reader tokens', () => {
+  function fixture(text: string, spans: [string, number, number][]): VerifiedCharacters {
+    const point = { chapterNumber: 1, paragraphIndex: 0, offset: 0 }
+    return {
+      paragraphs: { 1: [text] },
+      edition: {
+        sourceSha256: '', paragraphHashes: {},
+        mentions: spans.map(([characterId, startOffset, endOffset]) => ({
+          characterId, chapterNumber: 1, paragraphIndex: 0, startOffset, endOffset,
+          text: text.slice(startOffset, endOffset),
+        })),
+        characters: [...new Set(spans.map(([id]) => id))].map(id => ({
+          id, kind: 'person', storyRole: 'major', firstMention: point, roleVisibleAt: point,
+          snapshots: [{ availableAt: point, name: id, subtitle: '', body: 'Reviewed card' }],
+        })),
+      },
+    }
+  }
+  it.each(['Poole—and', 'and—Poole', 'and–Poole–and'])('resolves one complete reviewed name in %s', text => {
+    const start = text.indexOf('Poole')
+    const data = fixture(text, [['poole', start, start + 5]])
+    const result = resolveCharacter(data, 1, 0, 0, text.length, text)
+    expect(result?.card.id).toBe('poole')
+    expect(result?.cutoff.offset).toBe(start + 5)
+    expect(resolveCharacter(data, 1, 0, 0, text.length, text, true)).toBeNull()
+    expect(resolveCharacter(data, 1, 0, 0, text.length, text + ' changed')).toBeNull()
+  })
+  it.each(['Poole-and', 'Pooleton—and', 'Poole—and more'])('rejects broader or unreviewed selections in %s', text => {
+    const data = fixture(text, [['poole', 0, 5]])
+    expect(resolveCharacter(data, 1, 0, 0, text.length, text)).toBeNull()
+  })
+  it('rejects a token containing two reviewed identities', () => {
+    const text = 'Poole—Hyde'
+    const data = fixture(text, [['poole', 0, 5], ['hyde', 6, 10]])
+    expect(resolveCharacter(data, 1, 0, 0, text.length, text)).toBeNull()
+  })
+  it('resolves the accepted Jekyll Poole token without moving its release cutoff', async () => {
+    const asset = JSON.parse(readFileSync('public/data/characters/jekyll-and-hyde.v1.json', 'utf8'))
+    const raw = Uint8Array.from(readFileSync('public/data/editions/jekyll-and-hyde-modern-en.json')).buffer
+    const data = (await verifyCharacters(asset, 'jekyll-and-hyde', 'modern-en', raw))!
+    const text = data.paragraphs[10][23]
+    const words = Array.from(text.matchAll(/\S+/g))
+    const index = words.findIndex(word => word[0].startsWith('Poole—and'))
+    expect(index).toBeGreaterThanOrEqual(0)
+    const offsets = wordSelectionOffsets(text, index, index + 1)!
+    const mention = data.edition.mentions.find(m => m.chapterNumber === 10 && m.paragraphIndex === 23 && m.startOffset === offsets[0])!
+    expect(resolveCharacter(data, 10, 23, ...offsets, text)?.card.id).toBe(mention.characterId)
+    expect(resolveCharacter(data, 10, 23, ...offsets, text)?.cutoff.offset).toBe(mention.endOffset)
+  })
+})

@@ -16,6 +16,9 @@ Use for reader UX, auth, sync, billing, library UI, Cloudflare Worker code, and 
 
 ## Content Work
 
+**Book requests automatically activate [BOOK-TASK-WORKFLOW.md](../books/BOOK-TASK-WORKFLOW.md).** Claude writes only its isolated content package; the runtime/registry paths below belong to Codex integration. Claude may code in an explicitly assigned separate coding task, never implicitly as part of adding a book.
+
+
 Use for adding or editing book texts, onboarding JSON, taxonomy registration, and generated SEO metadata.
 
 - Primary paths: `books/**`, `app/public/data/editions/**`, `app/public/data/onboarding/**`
@@ -70,4 +73,4 @@ Classify changed files before staging:
 - Audio tooling/docs should be separate from generated book text.
 - Scratch folders, logs, raw sources, and local audio should remain ignored.
 
-If Claude is adding books while Codex is coding, commit or stash each workstream before switching tasks. Do not mix reader fixes with generated edition files unless the feature explicitly requires both.
+If Claude is adding books while Codex is coding, use isolated branches/checkouts and owned content folders. Never stash or alter another stream's work. Hand content to Codex for integration; do not mix reader fixes into the book task.

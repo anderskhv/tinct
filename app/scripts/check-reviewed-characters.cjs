@@ -4,6 +4,9 @@ const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5197',dir=process.env.AR
 const book=process.env.TEST_BOOK||'hamlet'
 const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,'utf8'))
 const reviewedCases = {
+  'the-prince': [['cyrus',17,'cyrus',3],['hannibal',18,'hannibal',9],['chiron',19,'chiron',1]],
+  'julius-caesar': [['brutus',4,'brutus',7],['antony',9,'antony',35]],
+  'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23]],
   meditations: [['verus',1,'verus',0],['rusticus',1,'rusticus',6],['ruling-faculty',2,'the-ruling-part',1]],
   'jane-eyre': [['mrs-reed',1,'mrs-reed',0],['scatcherd',5,'miss-scatcherd',97],['grace-poole',11,'grace-poole',113]],
   'pride-and-prejudice': [['darcy',3,'darcy',5],['lady-catherine',13,'lady-catherine',14],['fitzwilliam',30,'colonel-fitzwilliam',7]],
@@ -28,6 +31,13 @@ if (extraBooks.includes(book)) {
  reviewedCases[book] = [["first",first.chapterNumber,first.characterId,first.paragraphIndex],...[['before-gate',earlier],['after-gate',later]].filter(([,m])=>m).map(([label,m])=>[label,m.chapterNumber,m.characterId,m.paragraphIndex])]
  const special = { 'measure-for-measure':[12,29,'claudio'], 'henry-v':[21,37,'guichard-dauphin'], 'winters-tale':[14,7,'second-gentleman'], coriolanus:[13,97,'ancus-martius'], cymbeline:[13,11,'julius-caesar'], 'antony-and-cleopatra':[5,26,'julius-caesar'], 'richard-iii':[8,0,'archbishop'], 'henry-iv-part-2':[3,7,'lord-bardolph'], 'merry-wives-of-windsor':[1,18,'anne'] }[book]
  if (special) { const [ch,pi,id]=special; const m=editionAsset.mentions.find(m=>m.chapterNumber===ch&&m.paragraphIndex===pi&&m.characterId===id); assert.ok(m,book+': reviewed namesake fixture'); reviewedCases[book].push(['namesake',ch,id,pi]) }
+}
+if (book === 'crime-and-punishment') {
+ const mentions=editionAsset.mentions.filter(m=>m.characterId==='svidrigailov')
+ const gates=editionAsset.characters.find(c=>c.id==='svidrigailov').snapshots.map(s=>s.availableAt)
+ const selected=[['first',mentions.find(m=>m.chapterNumber===3&&m.paragraphIndex===38)],['pursuit',mentions.find(m=>cmp(m,gates[1])>=0&&cmp(m,gates[2])<0)],['before-arrival',mentions.filter(m=>cmp(m,gates[2])<0).at(-1)],['after-arrival',mentions.find(m=>cmp(m,gates[2])>=0)]]
+ assert.ok(selected.every(([,m])=>m),'All reviewed Crime gates have reader fixtures')
+ reviewedCases[book]=selected.map(([label,m])=>[label,m.chapterNumber,m.characterId,m.paragraphIndex])
 }
 const cases=reviewedCases[book];assert.ok(cases,`No reviewed browser cases for ${book}`)
 ;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await engine.launch();try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){

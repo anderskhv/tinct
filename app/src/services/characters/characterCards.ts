@@ -58,8 +58,8 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'heart-of-darkness': { editions: EN, revision: '2026-09-11.2' },
   'hume-enquiry': { editions: EN, revision: '2026-09-11.2' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
-  'jekyll-and-hyde': { editions: EN, revision: '2026-09-23.2' },
-  'julius-caesar': { editions: EN, revision: '2026-09-23.1' },
+  'jekyll-and-hyde': { editions: EN, revision: '2026-09-24.1' },
+  'julius-caesar': { editions: EN, revision: '2026-09-24.1' },
   'jungle-book': { editions: EN, revision: '2026-09-11.2' },
   'king-lear': { editions: EN, revision: '2026-09-11.2' },
   medea: { editions: EN, revision: '2026-09-11.2' },
@@ -78,7 +78,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'romeo-and-juliet': { editions: EN, revision: '2026-09-11.2' },
   'social-contract': { editions: EN, revision: '2026-09-11.2' },
   symposium: { editions: EN, revision: '2026-09-11.2' },
-  'the-prince': { editions: EN, revision: '2026-09-23.1' },
+  'the-prince': { editions: EN, revision: '2026-09-24.1' },
   'twelfth-night': { editions: EN, revision: '2026-09-11.2' },
   utilitarianism: { editions: EN, revision: '2026-09-11.2' },
   werther: { editions: EN, revision: '2026-09-11.2' },
@@ -180,7 +180,18 @@ export function releasedCard(edition: CharacterEdition, id: string, cutoff: Pass
 export function resolveCharacter(data: VerifiedCharacters | null, chapterNumber: number, paragraphIndex: number, start: number, end: number, text: string, existingHighlight = false): CharacterSelection | null {
   if (!data || existingHighlight || start < 0 || end <= start || normalizeParagraph(text) !== data.paragraphs[chapterNumber]?.[paragraphIndex]) return null
   const mentions = data.edition.mentions.filter(m => m.chapterNumber === chapterNumber && m.paragraphIndex === paragraphIndex)
-  const matches = mentions.filter(m => m.startOffset <= start && m.endOffset >= end && text !== '')
+  let matches = mentions.filter(m => m.startOffset <= start && m.endOffset >= end && text !== '')
+  // The reader selects whitespace tokens, so a dash can join a reviewed name
+  // to another word (e.g. Poole—and). Accept only a complete reviewed span
+  // bounded by a dash or the selection edge, never a substring/alias guess.
+  const selected = normalizeParagraph(text).slice(start, end)
+  if (!matches.length && !/\s/.test(selected) && /[—–]/.test(selected)) {
+    const overlapping = mentions.filter(m => m.startOffset < end && m.endOffset > start)
+    if (new Set(overlapping.map(m => m.characterId)).size !== 1) return null
+    matches = overlapping.filter(m => m.startOffset >= start && m.endOffset <= end
+      && (m.startOffset === start || /[—–]/.test(selected[m.startOffset - start - 1]))
+      && (m.endOffset === end || /[—–]/.test(selected[m.endOffset - start])))
+  }
   const width = Math.min(...matches.map(m => m.endOffset - m.startOffset))
   const closest = matches.filter(m => m.endOffset - m.startOffset === width)
   if (new Set(closest.map(m => m.characterId)).size !== 1) return null

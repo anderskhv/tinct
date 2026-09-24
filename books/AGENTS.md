@@ -1,5 +1,7 @@
 # Book Factory Agent Instructions
 
+> **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts; Codex owns code, registry, live paths and publication. This task-specific rule overrides broader path/permission lists below.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 This directory is for adding and maintaining Tinct book content. Follow `../AGENTS.md` first. Older `CLAUDE.md` files are historical references only; this file is the Codex-facing source of truth for book work.
@@ -8,33 +10,7 @@ This directory is for adding and maintaining Tinct book content. Follow `../AGEN
 
 Book work is content-only unless Anders explicitly asks for app changes.
 
-Allowed write paths:
-
-- `books/**`
-- `app/public/data/editions/{book-id}-*.json`
-- `app/public/data/onboarding/{book-id}.json`
-- `app/public/audio/{book-id}/**`
-- `app/src/data/bookRegistry.ts` only to register or unregister the relevant book
-- When SEO work is explicitly requested: `app/scripts/seo/{book-id}.cjs` and `app/public/read/{book-id}/**`
-
-Forbidden without explicit approval:
-
-- `app/src/App.tsx`
-- `app/src/components/**`
-- `app/src/hooks/**`
-- `app/src/services/**`
-- `app/src/utils/**`
-- `app/src/contexts/**`
-- `app/src/index.css`
-- `app/src/main.tsx`
-- `app/src/worker.ts`
-- `app/vite.config.ts`
-- `app/wrangler.jsonc`
-- `app/package.json`
-- unrelated files in `app/scripts/**`
-- static app shell files such as `app/public/landing.html`, `app/public/app.html`, and `app/public/about.html`
-
-If adding a book requires new app behavior, stop and ask Anders to handle it as app work.
+Allowed write paths for Claude book assignments: the owned content staging folder under `books/wip/` or the explicitly assigned `books/staged-replacements/` folder, as defined in [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). Code, registry and live-data integration belong to Codex. The integration instructions below apply to that separate Codex task.
 
 ## Core Rules
 
@@ -67,6 +43,20 @@ Before downloading anything, discuss the intended structure with Anders:
 - Editions: standard publishing target is original text, a human English translation when the original is non-English, `modern-en`. For English-original books, the original edition is `original-en`.
 - Paragraph grouping: prose paragraphs, verse stanzas, Bible verse ranges, or play speech blocks.
 - Book metadata: title, author, year, word count, cover colors, description, taxonomy.
+
+## Edition selection and reader defaults
+
+**Approved by Anders, 2026-09-24.**
+
+- Fetch the original-language text when a suitable, verifiable source is available. Document any availability gap; do not invent an original or silently substitute a translation.
+- For works not originally written in English, fetch multiple good human English translations when available and permitted for Tinct's use. Select for fidelity, completeness and readability, not quantity. Record each translator, edition, provenance and rights evidence separately.
+- Select and pin one authoritative human English baseline for Tinct Modern E. Other translations may inform review, but do not silently mix their readings; document substantive source variants.
+- Default primary reading edition: **Tinct Modern E** (`modern-en`), once reviewed and accepted.
+- Default Compare edition: **the most accessible suitable human English translation**, or **the English original** for works originally written in English. Record the editorial choice and its reason. A non-English original remains an optional edition, not the automatic comparison default for an English reader.
+- Additional translations remain selectable. Preserve each translation's own text and paragraph structure; verify cross-edition mappings before marking it aligned. Do not force independent human translations into false paragraph equality.
+- These are initial defaults, not instructions to overwrite readers' saved edition choices. App changes implementing them belong to the coding agent.
+
+For an English-original work such as Virginia Woolf's *To the Lighthouse*, fetch the original English text; there is no separate English human translation to source. The intended reading pair is accepted Tinct Modern E as primary and Woolf's original as Compare. The original is the fetched source, not the only eventual reading edition. Preserve deliberate literary ambiguity and voice in any modernization.
 
 ## Source Text
 
@@ -166,8 +156,7 @@ Anti-truncation prompt requirements:
 
 ## QA Gates
 
-**Similarity gate (mandatory, blocking).** No audio
-generation may start until `modern-en` passes the committed similarity gate:
+**Similarity gate (mandatory, blocking).** Run the committed similarity gate before content handoff:
 
 ```bash
 python3 books/classify-modern-en.py {book-id} --gate            # whole book
@@ -179,7 +168,7 @@ The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
 2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
 failure class cannot recur silently. A prose claim that a rendering is "real"
 does not substitute for a passing gate. Run it per batch during rendering and on
-the whole book before handing off to audio.
+the whole book before handing off for publication.
 
 Run focused QA after chapter batches and before considering an edition complete:
 
@@ -201,15 +190,13 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 
 ## Audio
 
-**Current publication rule — 23 September 2026:** accepted repairs to published text can ship with required character-card compatibility. Legacy Kokoro recordings, manifests and timing regeneration are not prerequisites. A text repair does not authorize GPU/TTS spend, audio regeneration or voice-architecture changes. The separately approved Grok migration has its own scope and acceptance; follow [Audiobook architecture](../docs/audiobook-architecture-2026-09-21.md).
+**Current adding-book policy — 24 September 2026:** English narration uses Grok streaming and shared caching. This applies to new books and text repairs. Do not generate a full audiobook as an onboarding step: no Kokoro, Edge TTS, RunPod or GPU job, and no legacy manifest/timing regeneration gate.
 
+Follow the [adding-book guide](README.md), [audio architecture](../docs/audiobook-architecture-2026-09-21.md) and [Grok release contract](../docs/grok-narration-2026-09-23.md). The coding agent verifies runtime narration eligibility and exact text/language/provider/model/voice/settings cache compatibility. Changed text must not use stale cached speech; unchanged compatible chunks remain reusable.
 
-- Keep narration cache identity tied to exact approved text, provider, model, voice and settings under the current architecture. Do not select stale audio for changed text.
-- Do not start synthesis from a legacy backlog or release packet. Use only the explicitly approved audio task and its spending/preparation limits.
-- Do not invent source-language audio or add localization work.
-- Preserve existing audio/timing objects for rollback until the approved migration passes acceptance. Inventory exact obsolete objects before any authorized cleanup.
-- Historical Kokoro operation notes remain in [English Audio Pipeline](ENGLISH_AUDIO_PIPELINE.md); they are not current release requirements.
-- When writing a release packet, record accepted text hashes, changed paragraph coordinates, review evidence and character-card impact. Describe audio synchronization only as required by the separately approved current architecture, never as an automatic Kokoro regeneration gate.
+Opening prewarming and real-provider checks follow their separately approved scope and budget. A new book does not automatically join the featured-ten preparation job. Preserve legacy assets pending separately authorized cleanup. Record changed paragraph coordinates in release packets; do not prescribe retired-engine regeneration.
+
+Danish translation, narration and onboarding remain out of scope unless Anders reopens them.
 
 ## Registry
 
@@ -283,7 +270,7 @@ A book is ready for the public registry only when the agreed publishing standard
 - original edition exists
 - for non-English originals, a public-domain human English translation exists
 - `modern-en` exists
-- all included editions are paragraph-aligned
+- alignment is verified for each advertised aligned pair; independent human translations retain their own structure
 - no stubs or untranslated scaffold content remain
 - runtime narration availability follows the agreed current architecture; accepted text repairs are not blocked on legacy Kokoro regeneration
 - onboarding exists
@@ -337,4 +324,4 @@ Every cell should be `Complete` or `Not complete` with a short note on the gap.
 - Do not run multiple writers against the same edition JSON in parallel.
 - Do not deploy or stash during active edition writes.
 - Do not rely only on absence of `[untranslated]`; scaffolded English can look clean while still untranslated.
-- Do not let audio live only in staging. If users need it, it must be in R2 with manifests.
+- Do not confuse legacy R2 recording coverage with current Grok streaming eligibility. Verify the active runtime contract; do not add a full-recording gate.
