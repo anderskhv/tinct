@@ -1,0 +1,83 @@
+{
+ "batch": "v2",
+ "role": "final-verify",
+ "chapters": [
+  41,
+  42,
+  44,
+  45,
+  46,
+  47,
+  48,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  58,
+  59,
+  60,
+  61,
+  63,
+  64,
+  66
+ ],
+ "reviewed": [
+  "41.7",
+  "41.10",
+  "42.16",
+  "42.17",
+  "42.24",
+  "42.28",
+  "44.3",
+  "45.4",
+  "45.20",
+  "46.1",
+  "47.2",
+  "48.0",
+  "48.49",
+  "51.6",
+  "51.8",
+  "52.0",
+  "53.8",
+  "54.77",
+  "54.79",
+  "54.85",
+  "54.89",
+  "55.1",
+  "56.3",
+  "58.0",
+  "58.6",
+  "59.4",
+  "59.10",
+  "60.2",
+  "61.12",
+  "63.0",
+  "64.53",
+  "66.2"
+ ],
+ "items": [
+  {
+   "id": "55.1",
+   "severity": "blocking",
+   "category": [
+    "omission",
+    "hedge"
+   ],
+   "reason": "Source 'ever since then has something of the same sort of license prevailed'. Candidate 'the same sort of license has held sway' drops the qualifier 'something of', turning a partial likeness into an identical license. R1 already flagged this loss; the R4 rewrite reintroduced it.",
+   "new": "The first source of all these pictorial delusions may lie among the oldest Hindu, Egyptian, and Greek sculptures. Ever since those inventive but unscrupulous ages, when the dolphin was portrayed on the marble panels of temples, on the pedestals of statues, and on shields, medallions, cups, and coins, wearing scales of chain-mail like Saladin's and a helmeted head like St. George's — ever since then, something of the same sort of license has held sway, not only in most popular pictures of the whale but in many scientific depictions of him too."
+  },
+  {
+   "id": "58.6",
+   "severity": "blocking",
+   "category": [
+    "hedge",
+    "voice",
+    "meaning"
+   ],
+   "reason": "Source 'though but a moment's consideration will teach': 'but' (= only) was restored in R3-fix and is dropped again by the R4 rewrite ('a moment's thought will show'). Also source 'have ... befallen tens and hundreds of thousands' is sharpened to 'struck down', which implies death or injury where Melville says only that the disasters befell them; restore the neutral verb.",
+   "new": "True, landsmen in general have always looked on the native inhabitants of the seas with feelings unspeakably unsociable and repellent. We know the sea to be an everlasting terra incognita, so much so that Columbus sailed over countless unknown worlds to discover his one superficial western one. By far the most terrible of all mortal disasters have, since time immemorial, fallen on tens and hundreds of thousands of those who have gone to sea, without distinction. And only a moment's thought will show that however much baby man may boast of his science and skill, and however much that science and skill may grow in a flattering future, the sea will go on insulting and murdering him forever and ever, to the crack of doom, and pulverizing the stateliest, stiffest frigate he can build. Yet for all that, the constant repetition of these very impressions has made man lose the sense of the sea's full awfulness that originally belongs to it."
+  }
+ ]
+}

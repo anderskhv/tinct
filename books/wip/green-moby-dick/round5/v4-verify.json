@@ -1,0 +1,72 @@
+{
+ "batch": "v4",
+ "role": "final-verify",
+ "chapters": [
+  96,
+  99,
+  100,
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  109,
+  113,
+  114,
+  115,
+  116,
+  118,
+  124,
+  125,
+  127,
+  132,
+  133
+ ],
+ "reviewed": [
+  "96.6",
+  "99.2",
+  "99.7",
+  "100.4",
+  "100.29",
+  "100.35",
+  "101.0",
+  "101.1",
+  "101.3",
+  "102.0",
+  "102.2",
+  "102.11",
+  "103.1",
+  "103.4",
+  "104.6",
+  "105.9",
+  "106.5",
+  "109.2",
+  "109.9",
+  "109.12",
+  "113.15",
+  "114.5",
+  "115.1",
+  "116.1",
+  "116.5",
+  "118.0",
+  "124.7",
+  "125.4",
+  "127.20",
+  "132.2",
+  "132.16",
+  "133.14"
+ ],
+ "items": [
+  {
+   "id": "113.15",
+   "severity": "blocking",
+   "category": [
+    "meaning",
+    "hedge"
+   ],
+   "reason": "Source 'bowing over his head towards the fire' is ambiguous (over Ahab's head, or bowing his own head); R2-fid required keeping the source word order so the ambiguity stays open (hard rules 3/5). The R4 rewrite 'bent his head toward the fire' resolves it again and drops 'over'. Restore 'bowing over his head toward the fire'; rest of the R4 text kept.",
+   "new": "When that was done, Perth was about to start welding the twelve into one, but Ahab stopped him and said he would weld his own iron. So Ahab hammered away on the anvil with steady, gasping grunts, while Perth handed him the glowing rods one after another and the hard-driven forge sent up its fierce, straight flame. Meanwhile the Parsee passed by without a word and, bowing over his head toward the fire, seemed to be calling down some curse or some blessing on the work. But when Ahab looked up, the Parsee slipped away to one side."
+  }
+ ]
+}
