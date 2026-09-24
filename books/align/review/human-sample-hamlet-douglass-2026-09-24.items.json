@@ -1,0 +1,298 @@
+{
+ "sample": "review/human-sample-hamlet-douglass-2026-09-24.md",
+ "frozenAt": "02e6a13f",
+ "items": [
+  {
+   "n": 1,
+   "book": "hamlet",
+   "chapter": "1",
+   "paragraph": "52",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    164,
+    225
+   ],
+   "target": [
+    130,
+    178
+   ]
+  },
+  {
+   "n": 2,
+   "book": "hamlet",
+   "chapter": "20",
+   "paragraph": "87",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    81,
+    87
+   ],
+   "target": [
+    89,
+    95
+   ]
+  },
+  {
+   "n": 3,
+   "book": "hamlet",
+   "chapter": "17",
+   "paragraph": "9",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    2,
+    17
+   ],
+   "target": [
+    2,
+    19
+   ]
+  },
+  {
+   "n": 4,
+   "book": "hamlet",
+   "chapter": "8",
+   "paragraph": "50",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    84,
+    102
+   ],
+   "target": [
+    81,
+    100
+   ]
+  },
+  {
+   "n": 5,
+   "book": "hamlet",
+   "chapter": "9",
+   "paragraph": "19",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    103,
+    130
+   ],
+   "target": [
+    99,
+    125
+   ]
+  },
+  {
+   "n": 6,
+   "book": "hamlet",
+   "chapter": "9",
+   "paragraph": "74",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    32,
+    48
+   ],
+   "target": [
+    35,
+    51
+   ]
+  },
+  {
+   "n": 7,
+   "book": "hamlet",
+   "chapter": "3",
+   "paragraph": "5",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    259,
+    267
+   ],
+   "target": [
+    207,
+    215
+   ]
+  },
+  {
+   "n": 8,
+   "book": "hamlet",
+   "chapter": "10",
+   "paragraph": "13",
+   "statusThen": "auto-flagged",
+   "kind": "u",
+   "source": [
+    57,
+    96
+   ],
+   "target": [
+    57,
+    101
+   ]
+  },
+  {
+   "n": 9,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "48",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    109,
+    138
+   ],
+   "target": [
+    102,
+    133
+   ]
+  },
+  {
+   "n": 10,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "0",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    336,
+    390
+   ],
+   "target": [
+    298,
+    349
+   ]
+  },
+  {
+   "n": 11,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "36",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    65,
+    98
+   ],
+   "target": [
+    65,
+    102
+   ]
+  },
+  {
+   "n": 12,
+   "book": "frederick-douglass",
+   "chapter": "11",
+   "paragraph": "2",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    294,
+    320
+   ],
+   "target": [
+    269,
+    295
+   ]
+  },
+  {
+   "n": 13,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "19",
+   "statusThen": "auto",
+   "kind": "m",
+   "source": [
+    143,
+    163
+   ],
+   "target": [
+    145,
+    163
+   ]
+  },
+  {
+   "n": 14,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "10",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    1010,
+    1026
+   ],
+   "target": [
+    975,
+    994
+   ]
+  },
+  {
+   "n": 15,
+   "book": "frederick-douglass",
+   "chapter": "10",
+   "paragraph": "10",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    1861,
+    1872
+   ],
+   "target": [
+    1786,
+    1799
+   ]
+  },
+  {
+   "n": 16,
+   "book": "frederick-douglass",
+   "chapter": "11",
+   "paragraph": "6",
+   "statusThen": "model",
+   "kind": "m",
+   "source": [
+    83,
+    115
+   ],
+   "target": [
+    79,
+    111
+   ]
+  },
+  {
+   "n": 17,
+   "book": "frederick-douglass",
+   "chapter": "11",
+   "paragraph": "5",
+   "statusThen": "model",
+   "kind": "u",
+   "source": [
+    297,
+    514
+   ],
+   "target": [
+    285,
+    510
+   ]
+  }
+ ],
+ "verdicts": {
+  "1": "human: aligned at the displayed level (neighbours not yet checked)",
+  "2": "human: aligned at the displayed level (neighbours not yet checked)",
+  "3": "human: aligned at the displayed level (neighbours not yet checked)",
+  "4": "human: aligned at the displayed level (neighbours not yet checked)",
+  "5": "human: aligned at the displayed level (neighbours not yet checked)",
+  "6": "human: aligned at the displayed level (neighbours not yet checked)",
+  "7": "human: aligned at the displayed level (neighbours not yet checked); separate translation-fidelity note: 'best safety lies in fear' rendered as 'safety lies in being careful' (not an alignment error; edition text not changed here)",
+  "8": "human: aligned at the displayed level (neighbours not yet checked); marked unresolved, looks aligned",
+  "9": "human: aligned at the displayed level (neighbours not yet checked)",
+  "10": "human: OFF BY A SENTENCE (modern 'Then I started for home' has no counterpart in the displayed original)",
+  "11": "human: aligned at the displayed level (neighbours not yet checked)",
+  "12": "human: aligned at the displayed level (neighbours not yet checked)",
+  "13": "human: aligned at the displayed level (neighbours not yet checked)",
+  "14": "human: aligned at the displayed level (neighbours not yet checked)",
+  "15": "human: aligned at the displayed level (neighbours not yet checked)",
+  "16": "human: aligned at the displayed level (neighbours not yet checked)",
+  "17": "human: aligned at the displayed level (neighbours not yet checked); marked unresolved, looks aligned; too long for a comfortable mobile comparison unit"
+ },
+ "reviewer": "Anders, 2026-09-24"
+}

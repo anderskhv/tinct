@@ -88,3 +88,23 @@ text). Evaluation (`EVAL-PLAN.md`): on hold. All alignment files stay
 unapproved until their evidence meets an agreed release standard.
 - Sentence-split bugs found by the report and fixed: abbreviations ("Mr.",
   initials) and emphasis-prefixed abbreviations ("_Mr.").
+
+## Human sample result (Anders, 2026-09-24): Hamlet + Douglass, 17 items
+
+- Human: item 10 off by a sentence; the other 16 aligned at the displayed level.
+  Item 7 has a separate translation-fidelity note ("best safety lies in fear"
+  → "safety lies in being careful"); not an alignment issue, edition text not
+  changed. Item 17 is correct but too long for comfortable mobile comparison.
+- Neighbour check (model review; `sample_context.py`, frozen items in
+  `review/human-sample-hamlet-douglass-2026-09-24.items.json`, context in
+  `.context.md`): three more first-pass shifts found beside sampled items —
+  Douglass 10/0 (three shifts in one paragraph, incl. item 10), Douglass 10/36
+  ("Friday night"), Hamlet 10/13 ("That would be scann'd"). All fixed as
+  reviewed overrides; no edition text changed.
+- Items 8 and 17 "unresolved": item 8 was a first-pass flag nobody had reviewed
+  (now two clean matches); item 17 is a correct block whose finer clause
+  boundaries fall inside em-dash-joined tokens, which word offsets cannot
+  express (format v2 proposal in HANDOFF-codex.md).
+- Takeaway: unreviewed first-pass data for paraphrased prose is not good enough
+  (4 of 5 sampled Douglass auto paragraphs were fine at the item, but 2 had a
+  shift right next to it).

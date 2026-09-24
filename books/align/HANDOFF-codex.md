@@ -9,6 +9,44 @@ release standard and a per-book `approved` record. Data is in pilot; nothing her
 scheduled yet. All preparation lives under `books/align/`; app integration is
 Codex's. No app files were changed.
 
+## Revised recommendation (2026-09-24, after the human sample): smallest robust change
+
+Mobile compare is not a separate view: `handleMobileCompare`
+(`app/src/lab/LabApp.tsx` ~2960) swaps the whole paginated reader to the other
+edition at a mapped start word, and flipping back uses the same mapping
+(`mapLabCompareAnchor`). Selection, highlights, bookmarks, position and audio
+therefore already work in compare. Keep that. **This supersedes the scrolling
+passage view described below**; the data contract and fallback rules still
+apply.
+
+1. **Better start mapping, one function.** `mapLabCompareAnchor` first looks
+   the anchor up in the paragraph's alignment segments (approved, fingerprint-
+   matched files only) and returns the counterpart segment's start; `u` blocks
+   map to the block start; otherwise today's verse/proportional logic. Used in
+   both directions, so flipping back is symmetric.
+2. **Map the page end too.** Map the main page's last word the same way and
+   draw one quiet marker in the compare edition where the corresponding
+   passage ends ("end of your page"). If start-to-end fits on one compare
+   page, also split the compare pages at that end (`splitLabPagesAtAnchor`
+   already exists), so the page shows exactly the passage. If it does not fit,
+   the reader's normal pagination continues it on the next page and the marker
+   shows where to stop. No shrinking, no new scroll surface, font size
+   untouched.
+3. **Long units (e.g. Douglass 11/5, 217 words).** A long correct unit is
+   shown whole; the marker sits at its true end. Never mark positions inside a
+   unit that the data cannot support. Finer clause units are a data change
+   (below), not a display trick.
+4. Alignment never crosses paragraphs, so speaker changes, stage directions
+   and verse lines (each their own paragraph, `-lines.json` for verse) are
+   never merged.
+
+Data follow-up for long units: allow a split point inside a whitespace token,
+because em-dash-joined words ("prey!—I say", "subsist,—I say") make the correct
+clause boundary unreachable with word offsets. Proposed: a boundary may be
+`[wordIndex, utf16Offset]` instead of a bare word index (format version 2).
+Only reviewer-verified clause correspondences; never split mechanically at
+punctuation or divide each edition independently.
+
 ## Problem
 
 The mobile compare flip maps only the main page's *first word*, then fills a
