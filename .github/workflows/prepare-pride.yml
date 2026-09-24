@@ -1,0 +1,30 @@
+name: Prepare accepted Pride edition
+on:
+  push:
+    branches: ['codex/pride-reviewed-release-20260924']
+    paths: ['books/wip/pride-release-20260924.json', '.github/workflows/prepare-pride.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inventory and prepare pinned content
+        run: |
+          python3 books/wip_inventory.py
+          python3 app/scripts/prepare-reviewed-editions.py --config books/wip/pride-release-20260924.json
+          python3 books/classify-modern-en.py pride-and-prejudice --gate
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pride-preparation
+          path: books/wip/pride-release-20260924-report.json
+      - name: Commit prepared content only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/public/data/editions/pride-and-prejudice-modern-en.json app/public/data/characters/pride-and-prejudice.v1.json app/src/services/characters/characterCards.ts books/wip/pride-release-20260924-report.json
+          git commit -m 'content: prepare accepted Pride text and compatible character anchors'
+          git push
