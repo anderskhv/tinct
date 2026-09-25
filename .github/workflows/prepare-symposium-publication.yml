@@ -31,6 +31,19 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify restored opening, Compare and saved annotations
+        env:
+          TEST_BOOK: symposium
+          ARTIFACT_DIR: artifacts/symposium-release
+        run: node scripts/check-book-publication.cjs
+      - name: Verify independently reviewed cards in both editions
+        env:
+          TEST_BOOK: symposium
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/symposium-release
+        run: node scripts/check-reviewed-characters.cjs
       - name: Commit generated integration for independent final review
         run: |
           git status --short
@@ -43,4 +56,6 @@ jobs:
         if: always()
         with:
           name: symposium-release-acceptance
-          path: books/wip/symposium-publication-20260925
+          path: |
+            books/wip/symposium-publication-20260925
+            app/artifacts/symposium-release

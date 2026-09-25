@@ -4,6 +4,7 @@ const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5197',dir=process.env.AR
 const book=process.env.TEST_BOOK||'hamlet'
 const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,'utf8'))
 const reviewedCases = {
+  symposium: [['phoenix',1,'phoenix',0],['glaucon',1,'glaucon-questioner',1],['alcibiades-recognition',1,'alcibiades',0],['alcibiades-arrival',8,'alcibiades',0]],
   'the-prince': [['cyrus',17,'cyrus',3],['hannibal',18,'hannibal',9],['chiron',19,'chiron',1]],
   'julius-caesar': [['brutus',4,'brutus',7],['antony',9,'antony',35]],
   'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23]],
