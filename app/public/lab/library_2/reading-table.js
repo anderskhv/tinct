@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925e';
+import { readingApi } from './catalogue.js?v=20260925f';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -71,11 +71,14 @@ function bookMarkup(b, i) {
   const [name, colour] = bindingFor(b);
   const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
   return `
-    <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100}">
+    <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(b.cover)}')">
       <span class="rt-shadow"></span>
       <span class="rt-f rt-back"></span>
       <span class="rt-f rt-fore"></span>
-      <span class="rt-f rt-head"><i class="rt-mark"></i></span>
+      <span class="rt-f rt-head"></span>
+      <span class="rt-mark"><i></i></span>
+      <span class="rt-f rt-refl rt-refl-front"></span>
+      <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
       <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
       <span class="rt-f rt-front"><img src="${esc(b.cover)}" alt="" decoding="async" draggable="false"></span>
     </button>`;
@@ -84,7 +87,8 @@ function bookMarkup(b, i) {
 function markup(table) {
   return `
     <div class="rt-stage" id="rt-stage"><div class="rt-row" id="rt-row">${table.reading.map(bookMarkup).join('')}</div>
-      <div class="rt-arrows"><button id="rt-prev" aria-label="Previous book">‹</button><button id="rt-next" aria-label="Next book">›</button></div></div>
+      <div class="rt-dots" id="rt-dots">${table.reading.map((b, i) => `<button data-i="${i}" aria-label="${esc(b.title)}"></button>`).join('')}</div>
+      <button id="rt-prev" class="rt-hidden-nav" aria-label="Previous book" tabindex="-1"></button><button id="rt-next" class="rt-hidden-nav" aria-label="Next book" tabindex="-1"></button></div>
     <div class="rt-info"><div class="rt-fade" id="rt-info">
       <h1 id="rt-title"></h1>
       <p class="rt-meta"><span id="rt-place"></span><span id="rt-pct"></span></p>
@@ -139,31 +143,38 @@ function wire(view, table, demo, keepBookId) {
   const books = [...row.children];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = Math.max(0, table.reading.findIndex(b => b.bookId === keepBookId));
-  let turn = 1, H = 0, summaryTimer = null, swapTimer = null, shown = -1;
+  if (!keepBookId) current = 0;
+  const dots = [...view.querySelectorAll('#rt-dots button')];
+  let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1;
 
   /** Book height from the stage, with headroom for the bookmark; the row stands on the stage's floor. */
   function fit() {
     const r = stage.getBoundingClientRect();
     if (!r.height) return;
     const desk = innerWidth >= 900;
-    const next = Math.round(Math.max(130, Math.min(desk ? 420 : 290, r.height / 1.24, r.width * (desk ? 0.5 : 0.44) * 1.5)));
-    if (next === H) return;
+    const next = Math.round(Math.max(130, Math.min(desk ? 400 : 270, r.height / 1.2, r.width * (desk ? 0.5 : 0.44) * 1.5)));
+    if (next === H && Math.abs(r.width - stageW) < 2) return;
     H = next;
+    stageW = r.width;
     view.style.setProperty('--bh', `${H}px`);
     view.style.setProperty('--bw', `${Math.round(H * 2 / 3)}px`);
+    // Eye level of the painted room: a little above the books' base, so the
+    // table is seen at a low angle and the books stand on it rather than float.
+    const base = r.height - H * 0.05;
+    stage.style.perspectiveOrigin = `50% ${Math.round(base - H * 0.42)}px`;
     layout(true);
   }
 
   /**
-   * One transform per book: slide along the table (x), come forward a little
-   * when chosen (z), turn (rotateY). The chosen book faces the reader turned a
-   * few degrees (alternating direction per change); the others stand at 90°
-   * with the spine towards the reader. Positions come from real footprints,
-   * so neighbours never overlap.
+   * Books stand in reading order, the most recent on the left. The chosen one
+   * is pulled forward and turned to face the reader, turning a few degrees
+   * (alternating direction per change); the others stand spine-out, spines
+   * flush with its cover. Positions come from real footprints, so neighbours
+   * never overlap, and the row is anchored at the left of the stage.
    */
   function layout(instant) {
-    const W = H * 2 / 3, gap = Math.max(2, H * 0.01), around = H * 0.1;
-    const face = 14 * turn, rad = Math.abs(face) * Math.PI / 180;
+    const W = H * 2 / 3, gap = Math.max(2, H * 0.01), around = H * 0.08;
+    const face = 12 * turn, rad = Math.abs(face) * Math.PI / 180;
     const depth = i => H * depthRatio(table.reading[i]);
     const chosenFoot = W * Math.cos(rad) + depth(current) * Math.sin(rad);
     const xs = [];
@@ -171,16 +182,23 @@ function wire(view, table, demo, keepBookId) {
     let right = chosenFoot / 2 + around, left = -chosenFoot / 2 - around;
     for (let i = current + 1; i < books.length; i++) { xs[i] = right + depth(i) / 2; right += depth(i) + gap; }
     for (let i = current - 1; i >= 0; i--) { xs[i] = left - depth(i) / 2; left -= depth(i) + gap; }
+    if (current === 0) left = -chosenFoot / 2;
+    if (current === books.length - 1) right = chosenFoot / 2;
+    const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
+    let shift = minEdge - left;
+    if (right + shift > maxEdge) shift -= right + shift - maxEdge;
+    shift = Math.max(shift, minEdge + chosenFoot / 2);
     books.forEach((book, i) => {
       const chosen = i === current;
       book.classList.toggle('is-current', chosen);
       book.style.transitionDuration = instant || reduced ? '0s' : '';
       // Spine-out books step back so their spines line up with the chosen book's cover, not their centres.
       const z = chosen ? H * 0.05 : -(W / 2 - depth(i) / 2);
-      book.style.transform = `translate3d(${xs[i].toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${chosen ? face : 90}deg)`;
+      book.style.transform = `translate3d(${(xs[i] + shift).toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${chosen ? face : 90}deg)`;
       book.setAttribute('aria-current', String(chosen));
       book.tabIndex = chosen ? 0 : -1;
     });
+    dots.forEach((dot, i) => { dot.classList.toggle('active', i === current); dot.setAttribute('aria-pressed', String(i === current)); });
   }
 
   function select(index, byUser) {
@@ -262,6 +280,7 @@ function wire(view, table, demo, keepBookId) {
   }, { passive: false });
 
   $('rt-continue').addEventListener('click', e => { e.preventDefault(); continueReading(); });
+  dots.forEach(dot => { dot.onclick = () => select(+dot.dataset.i, true); });
   $('rt-prev').onclick = () => select(current - 1, true);
   $('rt-next').onclick = () => select(current + 1, true);
   $('rt-more').onclick = () => { const open = $('rt-recap-box').classList.toggle('open'); $('rt-more').textContent = open ? 'Show less' : 'Read more'; };
