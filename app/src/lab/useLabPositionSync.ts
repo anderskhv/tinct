@@ -36,6 +36,7 @@ import {
   writeLabPositionLocal,
 } from './labPositionStore'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
+import { currentContentRevision } from '../data/editionContentRevisions'
 
 /** Library bookId the position record keys finished chapters by. */
 export function labLibraryBookId(book: Pick<LabSource, 'bookId'>): string {
@@ -144,6 +145,7 @@ export function placeFromLabBook(
   readerState?: LabReaderStateSnapshot,
 ): LabBookPlace {
   if (book.bookId && book.bookId !== 'bible') {
+    const revision = currentContentRevision(book.bookId, readerState?.primaryEditionKey)
     return {
       bookId: book.bookId,
       headerBook: book.bookTitle,
@@ -152,6 +154,8 @@ export function placeFromLabBook(
       paragraphIndex: at.paragraphIndex,
       wordIndex: at.wordIndex,
       ...(readerState || {}),
+      // Coordinates in the text on screen: a structural release never moves this place again.
+      ...(revision ? { contentRevision: revision } : {}),
       updatedAt: now,
       deviceId,
       rev,

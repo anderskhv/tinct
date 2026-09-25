@@ -5,6 +5,7 @@ import { LabApp } from './lab/LabApp'
 import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
+import { storedContentMigrations } from './lab/labStoredContentMigrations'
 import './index.css'
 import { prepareBeforeBeginDesign } from './lab/beforeBeginDesign'
 prepareBeforeBeginDesign()
@@ -42,8 +43,18 @@ if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/re
   startReaderLoadTrace()
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Root />
   </React.StrictMode>,
 )
+
+// Saved places and highlights written against text a structural edition
+// release has since replaced move before the reader first reads them. Only a
+// reader holding such data waits, and never for more than a few seconds.
+const contentMigrations = Root === LabApp ? storedContentMigrations() : null
+if (contentMigrations) {
+  void Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))]).finally(render)
+} else {
+  render()
+}

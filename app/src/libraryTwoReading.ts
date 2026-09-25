@@ -21,7 +21,7 @@ import { loadRecap, type RecapAuth } from './readingMemory/recapLoad'
 import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
 import { accountLabPositionRecord, type LabPositionState } from './lab/labPosition'
-import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionStore'
+import { fetchLabPositionCloud, prepareLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
@@ -128,7 +128,7 @@ async function readAuth(): Promise<RecapAuth> {
 async function loadPositions(auth: RecapAuth): Promise<LabPositionState | null> {
   let local: LabPositionState
   try {
-    local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+    local = await prepareLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
   } catch {
     return null
   }

@@ -1,6 +1,8 @@
 import { getBook } from '../data/bookRegistry'
 import { loadChapterText } from '../readingMemory'
 import { projectHighlight } from './labHighlightProjection'
+import { currentContentRevision } from '../data/editionContentRevisions'
+import { highlightOffCurrentText } from './labHighlightContentMigration'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   createLabHighlight,
@@ -37,6 +39,8 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
     const target = editionKey === scope.editionKey ? scope.paragraphs : editionKey === scope.compareEditionKey ? scope.compareParagraphs : undefined
     return highlightsRef.current.flatMap(h => {
       if (h.bookId !== scope.bookId) return []
+      // Kept, but its coordinates are in text a structural release has replaced.
+      if (highlightOffCurrentText(h)) return []
       if (h.editionKey === editionKey) return [h]
       if (!target?.length || h.chapterNumber !== chapterNumber || !h.editionKey) return []
       const displayedSource = h.editionKey === scope.editionKey ? scope.paragraphs : h.editionKey === scope.compareEditionKey ? scope.compareParagraphs : undefined
@@ -58,7 +62,7 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
   )
 
   const addOrReuse = useCallback((range: LabHighlightRange, color: LabHighlightColor = 'gold', editionKey = scope?.editionKey) => {
-    const list = highlightsRef.current.filter(h => inScope(h, editionKey))
+    const list = highlightsRef.current.filter(h => inScope(h, editionKey) && !highlightOffCurrentText(h))
     const existing = list.find(h => sameHighlightRange(h, range, chapterNumber))
     if (existing) return existing
     if (
@@ -75,7 +79,10 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
       if (single) return single
     }
     const created = createLabHighlight(chapterNumber, range, color)
-    if (scope) Object.assign(created, { bookId: scope.bookId, editionKey })
+    if (scope) {
+      const contentRevision = currentContentRevision(scope.bookId, editionKey)
+      Object.assign(created, { bookId: scope.bookId, editionKey, ...(contentRevision ? { contentRevision } : {}) })
+    }
     setHighlights(current => mergeLabHighlight(current, created))
     return created
   }, [chapterNumber, scope?.bookId, scope?.editionKey])
