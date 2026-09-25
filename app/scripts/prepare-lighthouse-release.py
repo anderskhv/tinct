@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Integrate the independently accepted bounded Lighthouse package. No generation."""
-import hashlib, importlib.util, json, urllib.request
+import hashlib, importlib.util, io, json, urllib.request
+from PIL import Image
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 REF = "175a90f02db376a18a994856903a1b21e36f92a3"
@@ -43,6 +44,21 @@ outputs={
 "books/characters/to-the-lighthouse/editorial.json":(STAGE/"characters/editorial.json").read_bytes(),
 "books/wip/to-the-lighthouse-followup/characters/characters.v1.json":dump(card),
 }
+# Reuse the already-reviewed onboarding prose verbatim as the reader preface.
+preface=(json.loads(outputs["app/public/data/onboarding/to-the-lighthouse.json"])["about"]+"\n").encode()
+outputs["app/src/data/prefaces/to-the-lighthouse.txt"]=preface
+manifest=json.loads((ROOT/"docs/design/library-prefaces/manifest.json").read_bytes())
+manifest["entries"]=[e for e in manifest["entries"] if e["bookId"]!="to-the-lighthouse"]
+manifest["entries"].append({"bookId":"to-the-lighthouse","title":"To the Lighthouse","author":"Virginia Woolf","language":"en","sourceFile":PKG+"/onboarding/to-the-lighthouse.json#about","sourceCommit":REF,"sha256":sha(preface),"wordCount":len(preface.decode().split()),"reviewStatus":"accepted-onboarding-verbatim"})
+outputs["docs/design/library-prefaces/manifest.json"]=dump(manifest)
+# Public-domain/CC0 source cover from the same pinned Standard Ebooks source.
+cover_url="https://raw.githubusercontent.com/standardebooks/virginia-woolf_to-the-lighthouse/2ba2ffe0d5e8789902cfe86c5cde4753b7b68843/images/cover.jpg"
+cover=urllib.request.urlopen(cover_url,timeout=60).read()
+assert hashlib.sha1(b"blob "+str(len(cover)).encode()+b"\0"+cover).hexdigest()=="81b17e541a489abff12fa9bfb636c6a3bb98fbd3"
+im=Image.open(io.BytesIO(cover)).convert("RGB"); im.thumbnail((600,900))
+buf=io.BytesIO(); im.save(buf,format="WEBP",quality=85,method=6)
+assert len(buf.getvalue())<150*1024
+outputs["app/public/covers/v2/to-the-lighthouse.webp"]=buf.getvalue()
 for path,raw in outputs.items(): write(path,raw)
 report.update({"baseline":REF,"hashes":{p:sha(raw) for p,raw in outputs.items()},"changedParagraphs":delta})
 write("books/wip/to-the-lighthouse-followup/INTEGRATION.json",dump(report))
