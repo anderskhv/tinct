@@ -19,12 +19,12 @@ The assignment fixes paragraph order and count, so none of these was changed. Ea
 |---|---|---|
 | 1.0 | The frame opens with no speaker label, while 1.8–1.11 use labels (Review 2 #1) | Jowett's own format: his labels begin at 1.8. The restored opening 1.0–1.8 is byte-identical to the accepted completeness text |
 | 1.7 | One paragraph holds the end of the Glaucon conversation and the return to the present listener (Review 2 #2) | Jowett's paragraphing; the restored opening is protected |
-| 7.0 | Socrates's first turn has no quotation marks, but his later questions (7.2–7.44) are quoted (Review 1B note 2; Review 2 #43) | 6.12 introduces it as a set speech ("Socrates then proceeded as follows:"), and set speeches are unquoted (STYLE §3.1). The 7.45 address "Agathon" marks the return to the set speech |
+| 7.0 | Socrates's first turn has no quotation marks, but his later questions (7.2–7.44) are quoted (Review 1B note 2; Review 2 #43) | 6.12 introduces it as a set speech ("Socrates then proceeded as follows:"), and set speeches are unquoted (STYLE §3.1). The tag "Socrates went on:" at 7.45 marks the return to the set speech (STYLE §3.5) |
 | 8.0 / 8.1 | Alcibiades's first words are split across two paragraphs | Pre-existing and already recorded by the completeness package. The continuation convention (STYLE §3) makes the split readable |
 
 ## 3. Source variants: where Jowett differs from Plato's Greek
 
-The reviewers identified places where v1 had followed Plato's Greek (or a modern translation) instead of Jowett. Under the source policy (STYLE §1a), **the final text follows Jowett at every one**. They are recorded here as `books/CLAUDE.md` requires ("do not silently mix their readings; document substantive source variants").
+The reviewers identified places where v1 (and, at 3.5, the accepted baseline) had followed Plato's Greek (or a modern translation) instead of Jowett. Under the source policy (STYLE §1a), **the final text follows Jowett at every one**. They are recorded here as `books/CLAUDE.md` requires ("do not silently mix their readings; document substantive source variants").
 
 The Greek readings are given as the reviewers reported them, with Stephanus references where they gave one. The lead did not consult the Greek independently.
 
@@ -43,18 +43,30 @@ The Greek readings are given as the reviewers reported them, with Stephanus refe
 | 8.29 | "infinitely higher" | "vastly" | 1D #13 |
 | 8.36 | "never touched in war" | "as a rule" (*schedon ti*, 221b) | 1D #2 |
 | 8.37 | "the whole duty of a good and honourable man" | "consider" (222a) | 1D #18 |
+| 3.5 | "when parents forbid their sons" | "fathers" (*pateres*) | Recheck 1 #4 (baseline wording) |
+| 4.2 | "symphony is an agreement" | "a kind of agreement" (*tis*) | Recheck 1 #9 |
+| 5.6 | "the good, of which Love is to us the lord and minister" (rendered "lord and provider", STYLE §4) | "leader" (*hegemon*) | Recheck 1 #13 |
+| 7.0 | "I do not want you to say … that would be ridiculous": the answer is ridiculous | the question is ridiculous | Recheck 2 #1 |
+| 7.60 | "a closer friendship" | "steadier" (*bebaioteran*) | Recheck 2 #7 |
+| 7.63 | "being not like a servant" | "no longer" (*meketi*) | Recheck 2 #4 |
+| 8.26 | "hearing him tell what he knew" (a Jowett softening, kept) | "everything" (*panta*) | Recheck 2 #10; consistency pass #1 |
+| 8.37 | "they are ridiculous when you first hear them" | "would appear" | Recheck 2 #13 |
+| 8.39 | "and your notion is that": two parallel clauses | a participle giving the cause | Recheck 2 #14 |
+| 8.43 | "he will be out of order in praising me again" | "he will surely praise me again" | Recheck 2 #15 |
+| 8.45 | "invented a specious reason" (rendered "made up a plausible excuse") | "found" | Recheck 2 #16 |
 
-Reviewers 1C (#28) and 1D (#20) also listed smaller Greek-derived wordings that changed little or no meaning. They were reverted to Jowett's wording as well, except for two syntax-only choices that the reviewer accepted: "what loves" (7.49) and "He will no longer be" (7.63). See `reviews/RESOLUTION.md`.
+Reviewers 1C (#28) and 1D (#20) also listed smaller Greek-derived wordings that changed little or no meaning, and Recheck 1 (#8, #16) found a few more in 4.1 and 6.6. All were reverted to Jowett's wording, with one exception kept on purpose: "what loves" (7.49) for Jowett's "the principle of love", which states the love/beloved distinction in his own sense. "He will no longer be" (7.63) was kept at first but reverted to Jowett's "will not be" after Recheck 2 (#4). See `reviews/RESOLUTION.md`.
 
-Review 1B (note 1) accepted seven more phrasings as faithful clarifications of Jowett's own meaning. None changes his meaning, so none is a source variant:
+Review 1B (note 1) accepted seven more phrasings as faithful clarifications of Jowett's own meaning. One of them, 6.6 "partly playful and partly, in a modest way, serious", was later reverted to Jowett's "half playful, yet with a certain measure of seriousness" (Recheck 1 #16). The other six stay. None changes his meaning, so none is a source variant:
 
 - 5.2 "toward the cut side";
 - 5.3 "pursue males";
 - 5.5 "never apart";
-- 6.6 "partly playful and partly, in a modest way, serious";
 - 6.10 "competing with your speeches";
 - 7.14 "rather than 'probably'", which points back to Agathon's "Probably not" in 7.13;
 - 7.40 "isn't what is good also beautiful?".
+
+**Retained baseline wording.** The consistency pass (#19) found one Greek-derived detail in a paragraph this pass did not change: the closing paragraph 8.46 says the bowl was passed around "from left to right", where Jowett has only "passed round". The detail matches Jowett's own "from left to right" at 1.46 and 8.13, and it changes nothing in the scene. The accepted closing paragraph is left as it is, and the detail is recorded here.
 
 ## 4. Documented editorial exceptions
 

@@ -20,8 +20,8 @@ At the same time, nothing Plato's speakers say may be lost, strengthened, soften
 
 The rendering follows **Jowett**. This applies `books/CLAUDE.md` ("do not silently mix their readings; document substantive source variants"), and it was prompted by Reviews 1A and 1B.
 
-- **No Greek-based departures.** Plato's Greek and other translations are not used to change Jowett's meaning, qualifiers, ages, relationships, connectives or emphasis. Where v1 had followed the Greek instead of Jowett, the change was reverted. Examples: "at least" and "boys" in 5.3, "welcome" in 5.4, "conceived" in 7.48, "my dear Agathon" in 7.44 (`reviews/RESOLUTION.md`).
-- **A Jowett softening stays in Jowett's words.** Examples: "true love" in 7.64 and "hearing him tell what he knew" in 8.26. It is not "corrected" from the Greek.
+- **No Greek-based departures.** Plato's Greek and other translations are not used to change Jowett's meaning, qualifiers, ages, relationships, connectives or emphasis. Where v1 had followed the Greek instead of Jowett, the change was reverted. Examples: "at least" and "boys" in 5.3, "welcome" in 5.4, "conceived" in 7.48 and "my dear Agathon" in 7.44 (Reviews 1B and 1C). Rechecks 1 and 2 found further cases, which were reverted too, for example "lord and guide" in 5.6, "father of delicacy" in 6.6, "I am not asking" in 7.0, "firmer friendship" in 7.60 and "seem ridiculous" in 8.37 (`reviews/RESOLUTION.md`). One v1 choice is kept on purpose: "what loves" for Jowett's "the principle of love" (7.49), which states the love/beloved distinction in his own sense. It and the wordings the reviewers accepted as faithful to Jowett's sense are listed in `SOURCE-NOTES.md` §3.
+- **A Jowett softening stays in Jowett's words.** Examples: "true love" in 7.64 and "hear him tell what he knew" in 8.26. It is not "corrected" from the Greek.
 - **What is not a source variant:** modernizing a Jowett word whose Victorian sense is plain from his own text. Examples: "want" as lack; "bully", which in Jowett's usage means an insolent, overbearing person; "ingenuous". Nor is a §5 gloss that identifies what Jowett's words refer to.
 - **Documented exceptions.** These are explicit editorial decisions, each listed in `CHANGES.md` and `reviews/RESOLUTION.md`:
   - **Ambiguous pronoun, 4.1:** "under the rule of love". Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named. Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is that love rules over all things.
@@ -64,7 +64,8 @@ These rules keep the levels apart:
    - **Verse inside a quoted conversation** is nested in double quotes after the continuation mark: 1.15–1.19, 1.20–1.22, 1.44–1.46, 8.10–8.12. This way the speaker visibly keeps talking through the verse (Review 2).
    - **Verse inside an unquoted set speech** takes single quotes: 2.1, 2.3, 6.1, 6.5, 8.34.
 5. **Speaker tags.** Where the source's "he" or "I" could be read as the wrong person, name the speaker. The main case is Aristodemus's first-person narration inside Apollodorus's retelling (1.14, 1.26, 1.28, 1.32).
-   - **In exchanges, a change of speaker that follows a tagged line is itself tagged** ("she asked", "I asked", "She went on:"), because by normal convention an untagged line after "'…,' I said." continues the same speaker. This was added after Review 2: see 7.45, 7.46, 7.50, 7.51, 7.52, 7.54 and 8.29.
+   - **In exchanges, a new question or statement by the other speaker that follows a tagged line is itself tagged** ("she asked", "I asked", "She went on:"), because by normal convention an untagged line after "'…,' I said." continues the same speaker. A direct reply to the question just asked ("'Yes.'", "'Everyone.'") needs no tag. This was added after Review 2 and completed after the consistency pass: see 7.46, 7.47, 7.50, 7.51, 7.52, 7.54 and 8.29. Speakers are also named where a pronoun tag could point to the wrong person (1.15, 5.15, 7.30).
+   - **Where an unquoted set speech resumes after quoted dialogue, it is introduced with a tag like any other set speech:** "Socrates went on:" at 7.45 (§3.1).
    - Nothing else is added.
 
 ## 4. Glossary
@@ -95,12 +96,13 @@ These rules keep the levels apart:
 | ribands | **ribbons** | |
 | revellers | **revelers** | |
 | hiccough | **hiccups** | As 3.10 |
-| Heracleitus, Diomede | **Heraclitus**, **Diomedes** | Standard modern forms. "Diomede" reads as an English name and hides Homer's Diomedes. Other names keep Jowett's forms (Otys, Athene, Kronos, Acusilaus), which are recognizable and are character-card mention texts |
+| Heracleitus, Diomede | **Heraclitus**, **Diomedes** | Standard modern forms. "Diomede" reads as an English name and hides Homer's Diomedes. Other names keep Jowett's forms (Otys, Athene, Kronos, Acusilaus, Mantineia), which are recognizable and are character-card mention texts |
 | Myrrhinusian | **of the deme of Myrrhinus** | Matches 1.7 "of the deme of Cydathenaeum" |
 | fair (moral sense, of a love or of conduct), foul | **noble**, **base** | Added after Review 1A. "Fair" describing people, bodies or things stays **beautiful** |
 | Heavenly / Common (capitals) | Capitalized only when **naming**: the Heavenly Aphrodite, the Common Aphrodite, Common Love | Lowercase when descriptive ("the heavenly love", "the common love", 4.3). 3.0 aligned with 3.1 ("the Heavenly Aphrodite") |
 | Love / love | As Jowett capitalizes | Jowett's capital is kept even where the sense may be the feeling, e.g. 6.4 "the Love of the beautiful" (Review 1B) |
 | the God of War | **the God of War** | Kept as Jowett's title for Ares |
+| lord and minister (5.6) | **lord and provider** | "Minister" now suggests an official or a clergyman. Jowett means the one who serves out the good to us (Recheck 1) |
 | beloved (as an address: "beloved Agathon") | **my beloved Agathon** | Kept: a charged address in a dialogue about love (7.44, Review 1B) |
 
 ## 5. Explanations
@@ -109,7 +111,7 @@ Unfamiliar references get the smallest gloss that makes the sentence work, place
 
 - as an appositive ("Olympus, Marsyas's pupil");
 - as a plain-English version of the image ("like a token broken in half, each half matching the other");
-- as a phrase attached to a quotation ("a tale, as Homer puts it", 8.33; "As Homer says", 8.10, where Jowett's own note cites Pope's Homer). A gloss does not add a name that Jowett does not give, whether in his text or his notes.
+- as a phrase attached to a quotation ("a tale, as Homer puts it", 8.33; "In Homer's words", 8.10, where Jowett's own note cites Pope's Homer). A gloss does not add a name that Jowett's text and notes never use. Homer is named throughout Jowett (1.19, 2.5, 7.60), so "Diomedes in Homer" (8.29) and "as Homer puts it" (8.33) qualify, while Odysseus, whom Jowett never names, does not (Review 1D #29).
 
 The gloss never becomes a speaker's opinion. No footnotes and no bracketed editorial notes.
 
