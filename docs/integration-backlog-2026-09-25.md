@@ -128,3 +128,37 @@ Accepted inputs, all hash-verified:
 - No new Danish translations.
 - Accepted text is byte-exact.
 - Unresolved annotations are retained.
+
+## Queued by Anders (2026-09-25): make the book text discoverable in search
+
+Not started. Anders asked to be reminded. His brief, kept as given:
+
+> Make Tinct’s actual book text discoverable through search engines, with search visitors landing directly in the existing reader. The reader experience is stable. Preserve its appearance, pagination, controls, and reading-position behavior. My goal is for people to find books through searches such as “read Odyssey in modern English” or an exact quotation, then read the passage in context. Prioritize the books themselves; don’t generate additional SEO articles, summaries, or quote pages.
+>
+> A live-site spot check on September 25 found:
+> - `/read/` has crawlable book links and `/sitemap.xml` exists.
+> - `/read/odyssey` has metadata and an opening excerpt.
+> - `/read/odyssey/chapter-9` and `/read/frankenstein/chapter-1` contain summaries rather than complete chapter text.
+> - `/reader` sends `noindex, noarchive` in both HTML and response headers.
+> - `/robots.txt` blocks `/data/` and `/lab/`, which currently supply content and interface resources.
+> - The chapter 9 “Read” link, `/read/odyssey?chapter=9&edition=modern-en`, redirects to `/lab/?book=odyssey&view=book-detail`, losing the chapter and edition.
+>
+> Verify these findings against the current code and deployment, then implement the missing foundations:
+> 1. Fix direct reading links so book, edition, chapter, and any passage position survive navigation and redirects. Opening a link in a fresh session must reach the requested location without requiring sign-in.
+> 2. Provide permanent, indexable URLs for complete chapters in each publicly available edition. Serve the chapter text in the initial HTML, using the same content source as the reader. These URLs should open the existing reading experience, with usable text remaining available before JavaScript loads.
+> 3. Keep chapter and passage identities independent of screen pagination, font size, and window size. Reuse existing stable identifiers where possible and support links to specific passages.
+> 4. Add accurate edition-specific titles, descriptions, canonical URLs, and crawlable chapter navigation. Include the public reading URLs in the sitemap. Avoid indexing endless combinations of reader settings.
+> 5. Adjust indexing directives and crawler access narrowly for public reading pages and resources they require. Don’t simply remove every restriction or expose private/account/API routes.
+> 6. Preserve existing public URLs where practical. Don’t delete existing summary/theme/character pages as part of this work; keep the implementation focused on making the actual books discoverable.
+>
+> Use the smallest maintainable approach consistent with the current architecture. Don’t build a separate reading product or duplicate the book content into a second editorial source.
+>
+> Validate with the Odyssey and Frankenstein, covering original and modern English editions and a chapter beyond the opening:
+> - The initial HTML contains the complete intended chapter and correct edition.
+> - Public reading pages are indexable and have correct canonical URLs.
+> - Direct chapter and passage links work in a fresh session and after refresh.
+> - Pagination and font changes preserve the intended passage.
+> - Existing reading progress and mobile/desktop behavior still work.
+> - Internal links, sitemap entries, and crawler rules agree.
+>
+> Implement and run the appropriate checks. Report what changed, what was verified, and anything still needed before deployment. Distinguish technical readiness for indexing from actual Google indexing or ranking, which these checks cannot prove.

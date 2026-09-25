@@ -68,7 +68,7 @@ import { LabContentsV2 } from './LabContentsV2'
 import type { ContentsPlace } from './labContents'
 import { readLabBookChat } from './labChatHistory'
 import { labChapterStatuses, labFinishedChapterSet } from './labChapterStatus'
-import { readDeviceReadingMemory } from '../readingMemory'
+import { loadChapterText, readDeviceReadingMemory } from '../readingMemory'
 import { useAuth } from '../hooks/useAuth'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
@@ -2536,6 +2536,42 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
     ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
     : null
+  // Desktop spread, not in Compare: when a chapter ends on the left leaf, the
+  // right leaf shows the next chapter's opening, cut exactly as that chapter
+  // will paginate, instead of a blank page. Not where the next chapter opens a
+  // new Bible book: that opens on the book's cover.
+  const nextChapterNumber = nextLabChapter(book.chapters, book.chapterNumber)
+  const nextChapterTitle = nextChapterNumber != null ? book.chapters.find(chapter => chapter.number === nextChapterNumber)?.title ?? null : null
+  const nextOpensBibleBook = book.bookTitle === LAB_COPY.bookTitle && nextChapterNumber != null && bibleBookOpeningTitle(book.chapters, nextChapterNumber) != null
+  const nextOpeningKey = chromeV2 && desktopSpread && nextChapterNumber != null && nextChapterTitle && !nextOpensBibleBook && !book.chaptersProvisional
+    ? `${book.bookId || 'bible'}:${readerEditionKey}:${nextChapterNumber}`
+    : null
+  const [nextOpening, setNextOpening] = useState<{ key: string; title: string; paragraphs: string[] } | null>(null)
+  const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage } | null>(null)
+  const nextOpeningWordBudget = 3 * (desktopLeafCapacity?.wordsPerPage ?? 400)
+  useEffect(() => {
+    if (!nextOpeningKey || nextChapterNumber == null || !nextChapterTitle || nextOpening?.key === nextOpeningKey) return
+    let live = true
+    void loadChapterText({
+      bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: nextChapterNumber,
+      version: typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : undefined,
+    }).then(chapter => {
+      if (!live || !chapter?.paragraphs.length) return
+      // Only the opening is measured: enough text to fill more than one leaf.
+      const paragraphs: string[] = []
+      let words = 0
+      for (const paragraph of chapter.paragraphs) {
+        paragraphs.push(paragraph)
+        words += tokenizeHearingWords(paragraph).length
+        if (words >= nextOpeningWordBudget) break
+      }
+      setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs })
+    }).catch(() => {})
+    return () => { live = false }
+  }, [nextOpeningKey])
+  const applyNextOpeningPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string) => {
+    setNextOpeningPage(pages[0] ? { key, paragraphs: content, page: pages[0] } : null)
+  }, [])
   const showReaderRail = !frontispieceVisible && !fullscreen && (desktopPaging || labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
@@ -3962,6 +3998,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
 
+  const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
+  const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
+  const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
+    && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
+    ? { title: nextOpeningCurrent.title, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
+    : undefined
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread ? 1 : 0) >= readingPages.length - 1
@@ -4290,6 +4332,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}
             desktopSpread={desktopSpread}
+          nextChapterOpening={showChapterEnd && nextChapterOpening ? { ...nextChapterOpening, onPrimer: () => handleChapterChat('prepare') } : undefined}
             nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
             chapterTitle={book.chapterTitle}
@@ -4377,6 +4420,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
             editionKey={readerEditionKey}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}
+          />}
+          {/* The next chapter's first leaf, measured only near this chapter's end. */}
+          {!chapterCoverTitle && nextOpeningCurrent && readingPages.length > 0 && readingPageIndex >= readingPages.length - 4 && <LabDesktopPaginator
+            chapterActions hasNextChapter
+            chapterTitle={nextOpeningCurrent.title} paragraphs={nextOpeningCurrent.paragraphs}
+            editionKey={readerEditionKey}
+            layoutKey={nextOpeningLayoutKey} onPages={applyNextOpeningPages}
           />}
           {/* The standby edition, measured in the same box while nobody is
               looking at it. It writes a ref and touches no state, so it can
