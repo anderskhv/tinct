@@ -1,3 +1,4 @@
+import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
@@ -101,9 +102,15 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
   const registryBook = getBook(place.bookId)
   const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
   const editions = bookId === 'bible' ? bibleEditions() : registryBook!.editions
-  const basePrefs = bookId === current.libraryBookId
+  const sameBookPrefs = bookId === current.libraryBookId
     ? current.prefs
     : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+  // A Bible place in a chapter the current version lacks (Tobit, read in the
+  // Catholic edition) resumes in the version it was read in, never another chapter.
+  const basePrefs = bookId === 'bible' && !bibleEditionHasChapter(sameBookPrefs.primaryEdition, place.sequentialChapter)
+    && place.primaryEditionKey && bibleEditionHasChapter(place.primaryEditionKey, place.sequentialChapter)
+    ? syncLabAudioEdition(prefsFromLabResumePlace(sameBookPrefs, place), editions)
+    : sameBookPrefs
   const primaryEditionKey = editions.some(edition => edition.key === basePrefs.primaryEdition)
     ? basePrefs.primaryEdition
     // A saved place without a usable edition predates edition keys: resume

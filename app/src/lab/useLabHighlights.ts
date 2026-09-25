@@ -1,3 +1,4 @@
+import { bibleHighlightsCarryAcross } from '../data/bibleEditionChapters'
 import { getBook } from '../data/bookRegistry'
 import { loadChapterText } from '../readingMemory'
 import { projectHighlight } from './labHighlightProjection'
@@ -43,6 +44,8 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
       if (highlightOffCurrentText(h)) return []
       if (h.editionKey === editionKey) return [h]
       if (!target?.length || h.chapterNumber !== chapterNumber || !h.editionKey) return []
+      // Greek Esther and Greek Daniel 3 against the Hebrew: stays in its own edition.
+      if (scope.bookId === 'bible' && !bibleHighlightsCarryAcross(h.editionKey, editionKey ?? '', chapterNumber)) return []
       const displayedSource = h.editionKey === scope.editionKey ? scope.paragraphs : h.editionKey === scope.compareEditionKey ? scope.compareParagraphs : undefined
       const source = displayedSource?.length ? displayedSource : sources[`${scope.bookId}:${chapterNumber}:${h.editionKey}`]
       const projection = source?.length ? projectHighlight(h, source, target, [h.editionKey, editionKey].every(key => getBook(scope.bookId)?.editions.find(edition => edition.key === key)?.aligned === true)) : null

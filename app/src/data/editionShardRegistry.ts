@@ -7,6 +7,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "bible-bsb-en",
   "bible-kjv-en",
   "bible-web-en",
+  "bible-webc-en",
   "brothers-karamazov-modern-da",
   "brothers-karamazov-modern-en",
   "brothers-karamazov-original-en",

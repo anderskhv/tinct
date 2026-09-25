@@ -25,6 +25,6 @@ describe('Berean Standard Bible release', () => {
 
   it('is the default for new Bible readers while KJV and WEB stay available', () => {
     expect(LAB_EDITION_KEY).toBe('bsb-en')
-    expect(BIBLE.editions.map(e => e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en'])
+    expect(BIBLE.editions.map(e => e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en', 'webc-en'])
   })
 })

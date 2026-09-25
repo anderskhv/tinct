@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
+import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import { useReaderWindow } from './useReaderWindow'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
@@ -44,7 +45,9 @@ export interface LabV2SheetProps {
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
    * 'paragraphs': an edition whose paragraphs do not match the other's.
    */
-  compareUnavailable?: false | 'verses' | 'paragraphs'
+  compareUnavailable?: false | 'verses' | 'paragraphs' | 'chapter' | 'numbering'
+  /** The Bible chapter open in the reader: versions without it are shown but cannot be chosen as the main version. */
+  chapterNumber?: number
   /**
    * Fish narration pilot row, present only for a reader who opted in with
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
@@ -173,7 +176,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo }: LabV2SheetProps) {
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
@@ -341,7 +344,11 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
                   {compareUnavailable === 'verses'
                     ? 'Side by side isn’t available for these two versions: they share no verse numbers to pair.'
-                    : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
+                    : compareUnavailable === 'chapter'
+                      ? `The ${editionName(prefs.compareEdition)} doesn’t include this book, so there is nothing to compare here.`
+                      : compareUnavailable === 'numbering'
+                        ? 'These versions number this chapter differently (the Greek text adds verses), so Compare isn’t available here.'
+                        : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
             </div>
@@ -356,11 +363,14 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
               )}
               {choices.map(edition => {
                 const difficulty = editionDifficulty(bookId, edition)
+                // A Bible version without this chapter (Tobit outside the Catholic edition) cannot be the main version here.
+                const missing = layer === 'mainEdition' && bookId === 'bible' && chapterNumber != null && !bibleEditionHasChapter(edition.key, chapterNumber)
                 return <button key={edition.key} type="button" className="lab-v2-edition-option" aria-pressed={selected === edition.key}
-                  data-edition={edition.key} onClick={() => choose(edition.key)}>
+                  data-edition={edition.key} disabled={missing} onClick={() => choose(edition.key)}>
                   <span className="lab-v2-edition-name">{readerEditionLabel(edition)}
                     {difficulty && <span className="lab-v2-difficulty" title="Reading difficulty">{difficulty}</span>}
                     {edition.key === 'modern-en' && <span className="lab-v2-difficulty">AI-generated</span>}
+                    {missing && <span className="lab-v2-difficulty" data-testid="lab-v2-edition-missing-chapter">Doesn’t include this book</span>}
                   </span>
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>
                 </button>

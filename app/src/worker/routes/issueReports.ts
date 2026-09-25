@@ -27,7 +27,7 @@ interface IssueReport {
 }
 
 interface EditionData {
-  chapters?: { paragraphs?: string[] }[]
+  chapters?: { number?: number; paragraphs?: string[] }[]
 }
 
 interface ParagraphContext {
@@ -121,9 +121,14 @@ function findParagraphContainingSelection(chapterParagraphs: string[], selectedT
   return null
 }
 
+/** Chapters are found by number: an edition's list order need not be its numbering (WEB Catholic). */
+function editionChapter(edition: { chapters?: { number?: number; paragraphs?: string[] }[] } | null | undefined, chapterNumber: number) {
+  return edition?.chapters?.find(chapter => chapter.number === chapterNumber) ?? edition?.chapters?.[chapterNumber - 1]
+}
+
 export async function fetchParagraphContext(env: IssueReportsEnv, report: IssueReport): Promise<ParagraphContext> {
   const edition = await fetchEditionFromAssets(env, report.bookId, report.editionKey)
-  const chapter = edition?.chapters?.[report.chapterNumber - 1]
+  const chapter = editionChapter(edition, report.chapterNumber)
   const chapterParagraphs = chapter?.paragraphs || []
   let paragraphIndex = report.paragraphIndex
   let staticParagraph = chapterParagraphs[paragraphIndex] || ''
@@ -142,7 +147,7 @@ export async function fetchParagraphContext(env: IssueReportsEnv, report: IssueR
 
   const sourceEditionKey = report.editionKey === 'original-en' ? '' : 'original-en'
   const sourceEdition = sourceEditionKey ? await fetchEditionFromAssets(env, report.bookId, sourceEditionKey) : null
-  const sourceParagraph = sourceEdition?.chapters?.[report.chapterNumber - 1]?.paragraphs?.[paragraphIndex] || ''
+  const sourceParagraph = editionChapter(sourceEdition, report.chapterNumber)?.paragraphs?.[paragraphIndex] || ''
 
   return {
     fullParagraph: resolvedFullParagraph,

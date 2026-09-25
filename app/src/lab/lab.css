@@ -5120,6 +5120,18 @@
   text-underline-offset: .2em;
 }
 
+.lab-reader-load-error .lab-reader-load-action {
+  display: block;
+  margin: 0 auto .8rem;
+  padding: .55rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
 /* Account prompt (labAccountPrompt.ts): the sheet on an anonymous reader's
    second AI action, and the one-line second-book nudge under the header. */
 .lab-account-overlay {
@@ -7814,6 +7826,7 @@
   color: #555; font: 10px/1.4 'IBM Plex Mono', monospace; white-space: nowrap; }
 .lab[data-chrome-version="v2"].is-night .lab-v2-difficulty { color: #d0d0d0; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 6px; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-option:disabled { opacity: 0.5; cursor: default; }
 
 /* Literal blur lengths above avoid WebKitGTK's variable-resolution bug:
    https://bugs.webkit.org/show_bug.cgi?id=289800 */
