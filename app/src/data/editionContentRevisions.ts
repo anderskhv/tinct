@@ -34,6 +34,17 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only repair: paragraphs unchanged, wording new (Tinct Modern English rewrite).
+  confessions: {
+    revision: 'text-2026-09-25.1',
+    releasedAt: Date.parse('2026-09-25T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e',
+        after: '949e4f77fd317601cc39dc701cfbc3f5f82a5b5a842c34e93c9a6328ef78add7',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
