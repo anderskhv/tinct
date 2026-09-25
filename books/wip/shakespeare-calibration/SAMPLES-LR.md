@@ -118,7 +118,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> FOOL. Anyone who has a house to put his head in has a good headpiece: a roof over his head, and a good head on his shoulders. The man who finds a home for his codpiece before he has one for his head will end up with lice on both, head and codpiece: that's how many beggars marry. The man who cherishes his toe as he should cherish his heart will cry out in pain over a corn and lie awake when he should be sleeping. For there was never yet a fair woman who didn't make faces at herself in a mirror.
+> FOOL. Anyone who has a house to put his head in has a good headpiece: a roof over his head, and a good head on his shoulders. The man who finds a home for his codpiece before he has one for his head will end up with lice on both, head and codpiece: that's the way many beggars marry. The man who cherishes his toe as he should cherish his heart will cry out in pain over a corn and lie awake when he should be sleeping. For there was never yet a fair woman who didn't make faces at herself in a mirror.
 
 **Why**
 
@@ -127,6 +127,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - Crux: 'So beggars marry many' read as 'so many beggars marry' (Mason in Furness, New Variorum King Lear (1880)); Johnson's 'a beggar marries a wife and lice' noted.
 - Hard image made clear: 'makes his toe What he his heart should make' = cherishes a lowly member in place of a vital one (Capell; Furness's own note: 'A man who prefers or cherishes a mean member in place of a vital one shall suffer enduring pain', in Furness, New Variorum King Lear (1880)). Current keeps the opaque construction and archaic 'of a corn, cry woe' and 'turn his sleep to waking'.
 - Last sentence kept from current ('made mouths in a glass' = made faces in a mirror; Schmidt, Shakespeare-Lexicon: 'to make mouths == to make faces', citing this line). Song lines rendered as plain speakable sentences, as in Tinct's calibrated Hamlet songs.
+
+*Reviewer fix applied (CF-LR should-fix): "that's how many beggars marry" → "that's the way many beggars marry". Heard aloud as a number ('how many beggars'); Mason's reading, as recorded in Furness.*
 
 ### 11.5 LEAR. (kept)
 
@@ -166,12 +168,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> FOOL. Why, here's His Grace and a codpiece; that's a wise man and a fool.
+> FOOL. Why, here's grace — His Grace the King — and a codpiece; that's a wise man and a fool.
 
 **Why**
 
 - Hidden title made audible: 'grace' = His Grace, the King (Schmidt, Shakespeare-Lexicon: grace 11) 'used as an appellation of persons of the highest rank; of kings and queens'; Steevens in Furness, New Variorum King Lear (1880): 'the king's grace' was the usual expression). The 'codpiece' is the Fool himself (Douce in Furness, New Variorum King Lear (1880)). Current 'here's grace' reads as the virtue only. Which of the two is the wise man stays open, as in the original.
 - 'Marry' (oath) kept as 'Why,' as in current.
+
+*Reviewer fix applied (CF-LR note): "His Grace" → "grace — His Grace the King —". 'His Grace' alone drops the virtue sense of 'grace' and today suggests a duke or archbishop.*
 
 ### 11.9 KENT.
 
@@ -1246,13 +1250,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> CORDELIA. My good lord, you have begotten me, raised me, loved me. I return those duties back as is right and proper — obey you, love you, and honor you above all. Why do my sisters have husbands if they say they love you completely? Perhaps, when I marry, the lord whose hand takes my pledge shall carry half my love with him, half my care and duty. Surely I'll never marry like my sisters, and still give all my love to my father.
+> CORDELIA. My good lord, you have begotten me, raised me, loved me. I return those duties back as is right and proper — obey you, love you, and honor you most highly. Why do my sisters have husbands if they say they love you completely? Perhaps, when I marry, the lord whose hand takes my pledge shall carry half my love with him, half my care and duty. Surely I'll never marry like my sisters, and still give all my love to my father.
 
 **Why**
 
 - Omission fixed: 'Haply' = perhaps; current 'When I marry, the lord ...' drops it and turns her hedged supposition into a flat prediction.
 - Unnatural syntax fixed: current 'Surely I'll never marry like my sisters, to love my father all' and 'most honor you'.
 - Convention: spaced em dash (current 'proper—obey'). Rest kept from current, including 'pledge' for 'plight' (Schmidt, Shakespeare-Lexicon: plight 2) 'pledge', citing this line) and 'love you completely'.
+
+*Reviewer fix applied (CF-LR should-fix): "honor you above all" → "honor you most highly". 'above all' turns Cordelia's 'most honour you' into the absolute ranking she refuses a few lines later.*
 
 ### 1.37 LEAR.
 

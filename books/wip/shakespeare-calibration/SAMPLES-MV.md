@@ -54,7 +54,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> BASSANIO. So outward shows may be the least like what they really are. The world is always deceived by ornament. In law, what plea is so tainted and corrupt that, seasoned with a charming voice, it can't hide its look of evil? In religion, what damnable error is there that some solemn-faced man won't bless and confirm with a text from scripture, hiding its grossness with fair ornament? There's no vice so simple that it doesn't assume some mark of virtue on its outward parts. How many cowards, whose hearts are as treacherous as stairs of sand, still wear on their chins the beards of Hercules and frowning Mars, though, searched inside, they have livers as white as milk, the coward's mark; and these put on only valor's outgrowth, a brave man's beard, to make themselves feared. Look at beauty, and you'll see it's bought by weight, and there it works a miracle of nature, making those who wear the most of it the lightest: light in weight, and light in virtue. In the same way, those curled, snaking golden locks that frolic so wantonly with the wind on the head of some supposed beauty often turn out to be the dowry of a second head: a wig, grown by a skull that now lies in the tomb. Thus ornament is only the treacherous shore of a most dangerous sea; the beautiful scarf that veils a dark Indian face and passes it off as a beauty; in a word, the seeming truth which cunning times put on to entrap the wisest. Therefore, you gaudy gold, hard food for Midas, whose every bite turned to gold, I'll have none of you. Nor any of you, silver, you pale and common drudge that passes between man and man as money. But you, you meager lead, which threatens rather than promises anything, your paleness moves me more than eloquence, and here I choose. May joy be the consequence!
+> BASSANIO. So outward shows may be the least like what they really are. The world is always deceived by ornament. In law, what plea is so tainted and corrupt that, seasoned with a charming voice, it can't hide its look of evil? In religion, what damnable error is there that some solemn-faced man won't bless and confirm with a text from scripture, hiding its grossness with fair ornament? There's no vice so simple-minded that it doesn't assume some mark of virtue on its outward parts. How many cowards, whose hearts are as treacherous as stairs of sand, still wear on their chins the beards of Hercules and frowning Mars, though, searched inside, they have livers as white as milk; and these put on only valor's outgrowth, a brave man's beard, to make themselves feared. Look at beauty, and you'll see it's bought by weight, and there it works a miracle in nature, making those who wear the most of it the lightest: light in weight, and light in virtue. In the same way, those curled, snaking golden locks that frolic so wantonly with the wind on the head of some supposed beauty often turn out to be the dowry of a second head: a wig, grown by a skull that now lies in the tomb. Thus ornament is only the treacherous shore of a most dangerous sea; the beautiful scarf that veils a dark Indian face and passes it off as a beauty; in a word, the seeming truth which cunning times put on to entrap the wisest. Therefore, you gaudy gold, hard food for Midas, whose every bite turned to gold, I'll have none of you. Nor any of you, silver, you pale and common drudge that passes between man and man as money. But you, you meager lead, which threatens rather than promises anything, your paleness moves me more than eloquence, and here I choose. May joy be the consequence!
 
 **Why**
 
@@ -76,6 +76,12 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - L32-34 textual crux recorded: Gutenberg's 'palenness' is a misprint. Chose 'paleness', the reading of Q1 ('palenes'), Q2 and F1 ('palenesse'), kept by Cambridge/Globe (not among Furness's 'plainness' editors); Warburton's emendation 'plainness' (favoured by Furness) is the alternative. Current dash removed.
 - L35 archaic optative 'joy be the consequence' -> 'May joy be the consequence!'.
 - Conventions: current's unspaced em dashes removed; American spelling kept as in the edition (valor, meager).
+
+*Reviewer fix applied (CF-MV should-fix): "There's no vice so simple that" → "There's no vice so simple-minded that". 'simple' = silly, witless (Schmidt, Simple 5, citing this line); modern 'simple' is heard as minor.*
+
+*Reviewer fix applied (CF-MV note): "a miracle of nature" → "a miracle in nature". Restores the paradox against nature that sets up 'lightest'.*
+
+*Reviewer fix applied (CF-MV note): "livers as white as milk, the coward's mark;" → "livers as white as milk;". The sentence already names them cowards; the least necessary of eight added glosses in the speech.*
 
 ### 14.14 (kept)
 
@@ -124,7 +130,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> anxious thoughts, and despair embraced too rashly, and shuddering fear, and green-eyed jealousy. Oh, love, be moderate; calm your ecstasy. Let your joy rain down in due measure; restrain this excess! I feel too much of your blessing — make it less, for fear I overindulge and sicken.
+> anxious thoughts, and despair embraced too rashly, and shuddering fear, and green-eyed jealousy. Oh, love, be moderate; calm your ecstasy. Rain your joy in due measure; restrain this excess! I feel too much of your blessing — make it less, for fear I overindulge and sicken.
 
 **Why**
 
@@ -133,6 +139,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - L1 compound unpacked: 'rash-embrac'd despair' -> 'despair embraced too rashly'. 'green-eyed jealousy' kept (clear, recognizable).
 - L3-4 unnatural syntax fixed: current 'In measure rain your joy' keeps the inverted order; 'measure' = moderation (Onions measure 4, citing 'In measure rain thy joy'). Textual crux recorded: 'rain' (F1 'raine'; Rowe and most editors after Malone) vs 'rein' (Singer, Collier, Cambridge, Globe; preferred by Clarendon and Furness). The served text reads 'rain' and the words sound the same aloud, so 'rain' is kept.
 - L5-6 image restored: 'surfeit' = sicken from too much food or drink; current 'for fear I'm overwhelmed' drops the feast image -> 'for fear I overindulge and sicken'. Dash spaced.
+
+*Reviewer fix applied (CF-MV should-fix): "Let your joy rain down in due measure;" → "Rain your joy in due measure;". 'rain down' closed the rain/rein crux that the current wording left open to the ear (F1 'raine', Q3 'reine'; Furness collation).*
 
 ### 14.17 BASSANIO.
 
@@ -240,7 +248,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> PORTIA. Yes, that one is a colt indeed, as giddy and witless as a young horse, for he does nothing but talk about his horse, and he counts it a great point in his favor that he can shoe it himself. I'm very much afraid my lady his mother was unfaithful with a blacksmith.
+> PORTIA. Yes, that one is a colt indeed, as giddy and witless as a young horse, for he does nothing but talk about his horse, and he counts it a great point in his favor that he can shoe it himself. I'm very much afraid her ladyship his mother was unfaithful with a blacksmith.
 
 **Why**
 
@@ -249,6 +257,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - 'appropriation to his own good parts' = special excellence added to his accomplishments (Onions, A Shakespeare Glossary (1911), appropriation, citing I.ii.45; Singer in Furness): current 'a great point in his favor' kept.
 - Register restored: current 'had a fling' is modern slang (rule 6) and drops the mock-formal 'my lady his mother'; 'much afeard' = very much afraid, which current 'rather afraid' weakens; 'play'd false' = was unfaithful. The joke (he shoes horses because his real father was a smith) stays implicit, as in the original.
 - Convention: current's unspaced dash removed.
+
+*Reviewer fix applied (CF-MV note): "my lady his mother" → "her ladyship his mother". Keeps the mock formality and is clear by ear.*
 
 ### 2.10 NERISSA.
 
@@ -285,7 +295,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> PORTIA. He does nothing but frown, as if to say, “If you won't have me, choose as you please.” He hears funny stories and doesn't smile. I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered solemnity in his youth. I'd rather be married to a skull with a bone in its mouth than to either of those two. God protect me from them both!
+> PORTIA. He does nothing but frown, as if to say, “If you won't have me, choose as you please.” He hears funny stories and doesn't smile. I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered gloom in his youth. I'd rather be married to a skull with a bone in its mouth than to either of those two. God protect me from them both!
 
 **Why**
 
@@ -293,6 +303,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - False friend fixed: 'sadness' = seriousness (Onions, sadness); current 'unmannerly sadness' is heard as sorrow. 'already' in current was an addition and is removed.
 - Kept from current: 'funny stories', 'weeping philosopher' (Heraclitus, Clarendon in Furness; the phrase explains itself), 'skull with a bone in its mouth', 'God protect me from them both!'.
 - Convention: straight double quotes in current -> curly double quotes.
+
+*Reviewer fix applied (CF-MV should-fix): "ill-mannered solemnity" → "ill-mannered gloom". Schmidt files this line under Sadness 1 'sorrow, dejection', which makes him the future 'weeping philosopher'.*
 
 ### 2.12 NERISSA. (kept)
 
@@ -399,12 +411,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> PORTIA. That he has a neighborly charity in him, for he borrowed a box on the ear from the Englishman, and swore he'd pay him back when he was able. I think the Frenchman became his guarantor, and set his seal under the bond for another one.
+> PORTIA. That he has a neighborly charity in him, for he borrowed a box on the ear from the Englishman, and swore he'd pay him back when he was able. I think the Frenchman became his guarantor, and set his seal under the bond for another box on the ear.
 
 **Why**
 
 - Legal image made clear: 'seal'd under for another' = signed as surety beneath the principal, for another box on the ear (Onions, A Shakespeare Glossary (1911), seal: 'seal under for, to become surety for', citing Mer.V. I.ii.88; Clarendon in Furness: 'The principal was said to "seal to" a bond; his surety "sealed under"'). Current 'went his guarantor, and signed on for another' is unnatural ('went') and vague ('signed on'). The allusion to France's promises of help to Scotland against England (Warburton in Furness) stays implicit, as in the original.
 - 'pay him back' keeps the debt/revenge double sense (current, kept). Convention: current's unspaced dash replaced by 'for', the original's connective.
+
+*Reviewer fix applied (CF-MV should-fix): "set his seal under the bond for another one." → "set his seal under the bond for another box on the ear.". 'another one' was heard as another bond; it means another box on the ear (Clarendon in Furness).*
 
 ### 2.18 NERISSA. (kept)
 
@@ -529,12 +543,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> SOLANIO. Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?
+> SOLANIO. Shame on it, old carrion flesh! Is it still rebelling with lust at your age?
 
 **Why**
 
 - Flattened pun restored: Solanio twists Shylock's 'flesh and blood ... rebel' (his daughter) into Shylock's own flesh rebelling, i.e. lust, at his age. 'old carrion' = the living body, the flesh, used contemptuously (Onions, A Shakespeare Glossary (1911), carrion (ii), citing 'Out upon it, old carrion! rebels it at these years?'). Current 'Are you still in heat at your age?' keeps only the explanation, drops 'rebel', and coarsens it to an animal-in-heat image the original does not use (rule 5).
 - 'Out upon it' = shame on it; current 'Out on it' is archaic. The insult 'old carrion' is kept at full strength.
+
+*Reviewer fix applied (CF-MV note): "Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?" → "Shame on it, old carrion flesh! Is it still rebelling with lust at your age?". 'old carrion' is Shylock's flesh, the 'it' that rebels (Onions carrion 2(ii); Schmidt, Carrion 3).*
 
 ### 13.17 SHYLOCK. (kept)
 
@@ -630,12 +646,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> SHYLOCK. To bait fish with. If it feeds nothing else, it will feed my revenge. He has disgraced me, and cost me half a million, laughed at my losses, mocked at my gains, scorned my nation, thwarted my deals, cooled my friends, heated my enemies. And what's his reason? I am a Jew. Has not a Jew eyes? Has not a Jew hands, organs, dimensions, senses, affections, passions? Fed with the same food, hurt by the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is? If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge? If we are like you in the rest, we will resemble you in that. If a Jew wrongs a Christian, what is his humility? Revenge. If a Christian wrongs a Jew, what should his forbearance be, by Christian example? Why, revenge! The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction.
+> SHYLOCK. To bait fish with. If it feeds nothing else, it will feed my revenge. He has disgraced me, and cost me half a million, laughed at my losses, mocked at my gains, scorned my nation, thwarted my deals, cooled my friends, heated my enemies. And what's his reason? I am a Jew. Has not a Jew eyes? Has not a Jew hands, organs, dimensions, senses, affections, passions? Fed with the same food, hurt by the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is? If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge? If we are like you in the rest, we will resemble you in that. If a Jew wrongs a Christian, what is his humility? Revenge. If a Christian wrongs a Jew, what should his patient endurance be, by Christian example? Why, revenge! The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction.
 
 **Why**
 
 - Archaic idiom made clear: 'it shall go hard but I will' = I will assuredly, unless overwhelming difficulties prevent it (Onions, A Shakespeare Glossary (1911) s.v. hard: 'go h. but introduces a statement of what will happen unless overwhelming difficulties prevent it, esp. it shall go h. but I will = I will assuredly', citing Mer.V. III.i.78). Current leaves 'it shall go hard but' untranslated. Current's unspaced dash replaced by the original's comma.
 - Everything else kept from current word for word, including the famous lines. 'hindered me half a million' -> current 'cost me half a million' is a fair gloss (Abbott §198a via Furness). 'humility' kept: Schmidt (quoted in Furness, note on III.i.62) glosses it 'kindness, benevolence, humanity', but the modern sense (Christian meekness) carries the same irony, so the famous line stays recognizable. 'dimensions' = bodily frame (Onions) and 'organs' = members of the body (Onions) are clear enough in the list.
+
+*Reviewer fix applied (CF-MV note): "what should his forbearance be" → "what should his patient endurance be". Restores the echo of 'sufferance is the badge of all our tribe' (I.iii; live text 'endurance').*
 
 ### 13.22 (stage direction, unchanged)
 
@@ -747,7 +765,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> SHYLOCK. Why, there it goes, there, there, there! A diamond gone that cost me two thousand ducats in Frankfurt! The curse never fell upon our nation until now — I never felt it until now. Two thousand ducats in that, and other precious, precious jewels. I wish my daughter were dead at my feet, with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin! No news of them? Why so? And I don't know what's been spent in the search. Why, you — loss upon loss! The thief gone with so much, and so much spent to find the thief, and no satisfaction, no revenge, no ill luck stirring but what lands on my shoulders, no sighs but the ones I breathe, no tears but the ones I shed.
+> SHYLOCK. Why, there it goes, there, there, there! A diamond gone that cost me two thousand ducats in Frankfurt! The curse never fell upon our nation until now — I never felt it until now. Two thousand ducats in that, and other precious, precious jewels. I wish my daughter were dead at my feet, with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin. No news of them? Why so? And I don't know what's been spent in the search. Why, you — loss upon loss! The thief gone with so much, and so much spent to find the thief, and no satisfaction, no revenge, no ill luck stirring but what lands on my shoulders, no sighs but the ones I breathe, no tears but the ones I shed.
 
 **Why**
 
@@ -758,15 +776,27 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - Textual cruxes recorded, served-text readings kept: 'Why so?' is printed as a question in F1 and in the served text, and Furness prefers the question ('Why is there no news of them?'); Johnson and Capell print 'why, so', and Onions reads 'why, so!' = 'well, so let it be' (s.v. why, citing III.i.98). 'Why, thou—loss upon loss!' is the Q/F1 'thou' with Collier's dash; the later Folios read 'then', which Furness thinks right. Kept open as 'Why, you — loss upon loss!'.
 - Conventions: dashes spaced.
 
-### 13.31 TUBAL. (kept)
+*Reviewer fix applied (CF-MV note): "with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin!" → "with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin.". The added exclamation marks raised the delivery of Shylock's most damning line; source punctuation restored (neither soften nor sharpen).*
+
+### 13.31 TUBAL.
 
 **Original**
 
 > Yes, other men have ill luck too. Antonio, as I heard in Genoa—  
 
-**Current, kept as is**
+**Current**
 
 > TUBAL. Yes, other men have ill luck too. Antonio, as I heard in Genoa—
+
+**Proposed**
+
+> TUBAL. Yes, other men have ill luck too. Antonio, as I heard in Genoa —
+
+**Why**
+
+- keep: wording meets the standard; 'ill luck' must stay to be echoed by Shylock in 13.32. The paragraph-final dash is unspaced; see structure_notes for the edition-wide mechanical fix ('Genoa —').
+
+*Reviewer fix applied (CF-MV note): "as I heard in Genoa—" → "as I heard in Genoa —". Spaced em dash (rule 11).*
 
 ### 13.32 SHYLOCK. (kept)
 
@@ -817,15 +847,25 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 > TUBAL. I spoke with some of the sailors who escaped the wreck.
 
-### 13.36 SHYLOCK. (kept)
+### 13.36 SHYLOCK.
 
 **Original**
 
 > I thank thee, good Tubal. Good news, good news! Ha, ha, heard in Genoa?  
 
-**Current, kept as is**
+**Current**
 
 > SHYLOCK. I thank you, good Tubal. Good news, good news! Ha, ha—heard in Genoa?
+
+**Proposed**
+
+> SHYLOCK. I thank you, good Tubal. Good news, good news! Ha, ha — heard in Genoa?
+
+**Why**
+
+- keep: wording meets the standard. Crux recorded: 'heard in Genoa?' is the served (Gutenberg) reading; Qq and Ff read 'here in Genoa', Rowe and later editors 'where? in Genoa?' (Furness, New Variorum Merchant of Venice (1888), note on III.i.101). All three ask Tubal to confirm where the news came from, so the served reading stands. Unspaced dash: see structure_notes ('Ha, ha — heard').
+
+*Reviewer fix applied (CF-MV note): "Ha, ha—heard in Genoa?" → "Ha, ha — heard in Genoa?". Spaced em dash (rule 11).*
 
 ### 13.37 TUBAL. (kept)
 

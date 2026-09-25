@@ -1,0 +1,198 @@
+{
+ "reviewer": "CF-MV",
+ "passages": [
+  {
+   "passage": "MV-A",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "14.13",
+     "category": "mis-gloss",
+     "severity": "should-fix",
+     "original": "There is no vice so simple but assumes / Some mark of virtue on his outward parts.",
+     "proposed_text": "There's no vice so simple that it doesn't assume some mark of virtue on its outward parts.",
+     "issue": "'simple' here means witless or artless. Schmidt, Shakespeare-Lexicon, Simple adj. 5 'silly, witless, weak in intellect', cites Merch. III, 2, 81 (this line). Granville's 1701 adaptation, reprinted in the Furness Variorum appendix, rewrites the line as 'There is no Vice so artless, but assumes'. The point is that even the stupidest vice knows to wear a show of virtue. Modern 'simple' is heard as 'minor' or 'basic', so a false friend is left in place. The drafter kept current 'word for word' and did not address the word, so the defect is in both texts.",
+     "fix": "There's no vice so simple-minded that it doesn't assume some mark of virtue on its outward parts."
+    },
+    {
+     "id": "14.16",
+     "category": "ambiguity",
+     "severity": "should-fix",
+     "original": "In measure rain thy joy; scant this excess!",
+     "proposed_text": "Let your joy rain down in due measure; restrain this excess!",
+     "issue": "This is a recorded crux: F1 'raine', Q1 'range', Q3 'reine'; 'rein' in Singer, Collier ii-iii, Cambridge, Globe and White ii (Furness collation, line 118). The drafter keeps 'rain' because 'the words sound the same aloud', but 'rain down' can only be heard as rain, so the proposal closes the crux on the very ground it cites for leaving it open. Johnson (in Furness) notes the two words 'were not in these times distinguished by regular orthography'. Current 'In measure rain your joy' let a listener hear either word. The reasons are also inexact: Clarendon prints 'rain' ('Most editors after Malone [among them Clarendon] print rain'), though he says rein 'rests on higher authority'. It is Furness who prefers 'rein'.",
+     "fix": "Oh, love, be moderate; calm your ecstasy. Rain your joy in due measure; restrain this excess! (In the reasons: 'rein' is read by Cambridge, Globe and Furness; Clarendon prints 'rain'.)"
+    },
+    {
+     "id": "14.13",
+     "category": "mis-gloss",
+     "severity": "note",
+     "original": "Which therein works a miracle in nature,",
+     "proposed_text": "and there it works a miracle of nature,",
+     "issue": "The miracle is worked in, and against, the course of nature: the more weight a woman wears, the lighter she is. Modern 'a miracle of nature' means a natural marvel, which blunts the paradox that sets up 'lightest'. Current kept 'a miracle in nature'.",
+     "fix": "and there it works a miracle in nature,"
+    },
+    {
+     "id": "14.13",
+     "category": "voice",
+     "severity": "note",
+     "original": "Who inward search’d, have livers white as milk,",
+     "proposed_text": "though, searched inside, they have livers as white as milk, the coward's mark;",
+     "issue": "The sentence already names them 'cowards', so 'the coward's mark' repeats its own point. It is one of eight glosses in apposition that the proposal adds to this speech: 'the coward's mark', 'a brave man's beard', 'light in weight, and light in virtue', 'a wig', 'a dark Indian face and passes it off as a beauty', 'whose every bite turned to gold', 'silver' and 'as money'. Each is allowed on its own, but together they slow Bassanio's rhetoric, and this one earns least.",
+     "fix": "though, searched inside, they have livers as white as milk;"
+    },
+    {
+     "id": "14.13",
+     "category": "reasons",
+     "severity": "note",
+     "original": "How many cowards, whose hearts are all as false / As stairs of sand,",
+     "proposed_text": "How many cowards, whose hearts are as treacherous as stairs of sand,",
+     "issue": "The rendering is sound, but the cited authority is misrepresented. In Furness's note on line 90, Knight mentions stairs of sand that 'betray the feet of those who trust to them' only to reject that image. He defends the F1/Quarto spelling 'stayers' as 'banks, bulwarks of sand' that 'the least opposition will throw down'. Dyce, quoted in the same note, dismisses Knight's reading, and Hudson glosses 'stayers' as props or stays. 'stairs' is the F4/Rowe reading followed by later editors and by the served text. This is a textual crux the reasons should record, not a gloss by Knight. The dropped 'all' (just as false) is harmless.",
+     "fix": "Reasons: 'stairs' (F4, Rowe et cet.; the served text) chosen over F1/Q 'stayers', which Knight and Hudson read as props or bulwarks and Dyce rejects (Furness, note on 90). Drop the attribution of the stairs gloss to Knight."
+    }
+   ],
+   "current_defects_confirmed": [
+    "14.13 L2: 'is still deceived' left as a false friend (still = always; Onions, still adv.).",
+    "14.13 L3-5: the current sentence has no main verb ('what plea so tainted and corrupt that ... doesn't obscure').",
+    "14.13 L5-8: 'what damned error, but some sober brow will bless it' left in its archaic form; 'approve it with a text' left untranslated (Onions, approve 1, citing this line; Dyce in Furness: 'ratify, confirm').",
+    "14.13 L15-16: 'the mere outward show of valor' mis-glosses 'valour's excrement', which is the beard (Schmidt, Excrement 2, citing this line; Onions; Malone and Staunton in Furness).",
+    "14.13 L19: the unchaste sense of 'lightest' is inaudible (Heath in Furness; Onions, light adj. 3).",
+    "14.13 L20-24: 'the dowry of a second head' (a wig of dead hair: Malone in Furness; Schmidt, Dowry 2, citing this line) left untranslated.",
+    "14.13 L27: 'an Indian beauty' left untranslated. The proposed 'a dark Indian face and passes it off as a beauty' follows the standard derogatory reading: Brae ''Indian' ... in the sense of wild, savage, hideous'; White 'used in a derogatory sense'; Cowden-Clarke 'a dark-complexioned, ill-favoured woman'; Furness 'An Indian beauty is assuredly not an English beauty'. The prejudice is kept at the original's strength, neither softened nor sharpened.",
+    "14.13 L29-32: the Midas allusion and the silver 'pale and common drudge' (Schmidt, Drudge, citing this line) left opaque.",
+    "14.16: false friends 'as' (= namely: Walker and Abbott §113 in Furness) and 'doubtful' (= apprehensive: Onions, citing this line); the inverted 'In measure rain your joy'; 'overwhelmed' drops the image in 'surfeit'.",
+    "14.17: 'should ever sunder' misreads 'should' = ought (Furness, note on 127: 'In the sense of ought'). 'unfinished' is Rowe's emendation (Pope, Theobald, Warburton follow it), not Q/F 'unfurnish'd' = without its fellow (Monck Mason and Henley in Furness). 'faster' is left as a false friend (Onions, fast adj. 2). 'riding on the balls of mine' is left opaque.",
+    "Conventions: unspaced em dashes in 14.13, 14.15 and 14.17."
+   ],
+   "current_defects_disputed": [
+    "14.13 L14, in part: 'livers white as milk' is not left without its point, because the sentence opens 'How many cowards'. The 'who' right after 'Mars' mirrors the original's own syntax. The proposed 'though ... they' still helps the ear; the added 'the coward's mark' does not (see finding)."
+   ]
+  },
+  {
+   "passage": "MV-B",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "2.11",
+     "category": "mis-gloss",
+     "severity": "should-fix",
+     "original": "I fear he will prove the weeping philosopher when he grows old, being so full of unmannerly sadness in his youth.",
+     "proposed_text": "I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered solemnity in his youth.",
+     "issue": "The cited source does not support the change. Onions's 'sadness: seriousness' cites 3H6 III.ii.77 and the phrase 'in (good) sadness', not this line. Schmidt, Sadness 1 'sorrow, grief, dejection of mind', cites Merch. I, 2, 54, which is this line. The dejection is what makes the Count a future 'weeping philosopher' (Heraclitus, per Clarendon in Furness). 'solemnity' keeps his unsmiling gravity but drops the gloom. Current 'unmannerly sadness' was closer, so this 'false friend' defect is disputed.",
+     "fix": "I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered gloom in his youth."
+    },
+    {
+     "id": "2.17",
+     "category": "mis-gloss",
+     "severity": "should-fix",
+     "original": "I think the Frenchman became his surety, and seal’d under for another.",
+     "proposed_text": "I think the Frenchman became his guarantor, and set his seal under the bond for another one.",
+     "issue": "'for another' means for another box on the ear (Clarendon in Furness, note on 79). In the proposed sentence the nearest noun is 'the bond', so a listener hears 'another one' as another bond, and the joke is lost: the Frenchman stands surety for a second blow, a glance at France's promises of help to Scotland (Warburton in Furness). In the original, 'a box of the ear' is the only thing 'another' can pick up.",
+     "fix": "I think the Frenchman became his guarantor, and set his seal under the bond for another box on the ear."
+    },
+    {
+     "id": "2.9–2.21",
+     "category": "units",
+     "severity": "should-fix",
+     "original": "I will do anything, Nerissa, ere I will be married to a sponge. (2.21, Gutenberg lines 3–4)",
+     "proposed_text": "lines 1–1 [I will do anything, Nerissa, ere I will be married to a sponge.] → I'll do anything, Nerissa, before I'll marry a sponge that soaks up drink.",
+     "issue": "Every prose unit is labelled 'lines 1–1'. The quoted spans and modern text correspond, but the line ranges do not. The drafting brief requires the 1-based range within the paragraph's Gutenberg lines, and 26 of the 31 units in this passage span other lines. Only 2.10, 2.14 and the first units of 2.9, 2.13 and 2.15 are right.",
+     "fix": "2.9: [1,1] [2,3] [3,4]; 2.11: [1,2] [2,2] [2,4] [4,5] [5,6]; 2.13: [1,1] [1,2] [2,3] [4,4] [4,5] [5,5] [5,6] [6,7]; 2.15: [1,1] [1,3] [3,4] [4,5] [5,6]; 2.17: [1,3] [3,4]; 2.19: [1,2] [2,3] [3,4]; 2.21: [1,2] [2,3] [3,4]."
+    },
+    {
+     "id": "2.9",
+     "category": "voice",
+     "severity": "note",
+     "original": "I am much afeard my lady his mother play’d false with a smith.",
+     "proposed_text": "I'm very much afraid my lady his mother was unfaithful with a blacksmith.",
+     "issue": "Restoring the mock-formal title is right, but 'my lady his mother' is an archaic construction that a listener may parse as Portia's own lady. 'her ladyship his mother' keeps the mock formality and is clear by ear.",
+     "fix": "I'm very much afraid her ladyship his mother was unfaithful with a blacksmith."
+    }
+   ],
+   "current_defects_confirmed": [
+    "2.9: 'Ah' for 'Ay'. The witless-youngster sense of 'colt' is inaudible (Schmidt, Colt 2 'a young foolish fellow', citing this line; Johnson in Furness). 'had a fling' is too slangy and drops the mock-formal 'my lady his mother'. 'rather afraid' weakens 'much afeard'.",
+    "2.10: 'County Palatine' is heard as a territory (Onions: county = count, citing this line; Malone in Furness).",
+    "2.11: 'suit yourself' drops the word 'choose' that the scene turns on (Onions, choose 1, citing this line). Furness finds the sense uncertain, a further reason to keep the word. Straight double quotes.",
+    "2.13: 'a worse habit' follows Halliwell's 'better bad = worse', which Furness rejects ('a better bad-habit'), and it breaks the parallel with 'a better horse'.",
+    "2.14: 'What about Falconbridge' removes the 'say ... to' that Portia's reply plays on (Clarendon in Furness).",
+    "2.15: 'proper' (= handsome: Steevens in Furness) is left as a false friend; 'dumb-show' becomes 'a silent picture'; 'round hose' is opaque (Clarendon and Planché in Furness); 'worth only a penny' shifts Clarendon's 'a very small stock of English' from quantity to value.",
+    "2.17: 'went his guarantor' is unnatural, and 'signed on for another' blurs 'seal'd under' (Clarendon in Furness: the surety 'sealed under'; Onions, seal vb. 1, citing this line).",
+    "2.19: 'Awful' is colloquial and does not answer 'How like you'. 'whatever the worst that could happen' is awkward ('and' = if: Capell in Furness; Onions, fall vb. 5, citing this line).",
+    "2.21: 'a devil inside him' misreads within/without, which refer to the casket the glass is set on. 'just to be safe' needlessly replaces 'for fear of the worst'. 'sponge' is left where modern ears hear 'freeloader' (Onions, spongy 1 'drunken', cf. this line). 'Rhenish' is opaque."
+   ],
+   "current_defects_disputed": [
+    "2.11: 'unmannerly sadness' is not a false friend here. Schmidt, Sadness 1 'sorrow, grief, dejection of mind', cites Merch. I, 2, 54 (this line); Onions's 'sadness: seriousness' does not cite it. The current word was closer than the proposed 'solemnity' (see finding).",
+    "2.11: 'already' is a harmless unpacking of the youth/old-age contrast the original states, not an invention. Removing it is fine."
+   ]
+  },
+  {
+   "passage": "MV-C",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "13.18–13.30",
+     "category": "units",
+     "severity": "should-fix",
+     "original": "The villainy you teach me I will execute, and it shall go hard but I will better the instruction. (13.21, Gutenberg lines 14–15)",
+     "proposed_text": "lines 1–1 [The villainy you teach me I will execute, and it shall go hard but I will better the instruction.] → The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction.",
+     "issue": "As in MV-B, every multi-line prose unit is labelled 'lines 1–1'. The quoted spans correspond, but 26 units in 13.18, 13.19, 13.21, 13.26 and 13.30 span other Gutenberg lines, which breaks the line-range mapping the drafting brief requires. The single-line paragraphs (13.16, 13.22, 13.25, 13.27, 13.28, 13.29, 13.33) are correct.",
+     "fix": "13.18: [1,2] [2,3] [3,4]; 13.19: [1,3] [3,3] [3,4] [4,5]; 13.21: [1,2] [2,4] [4,5] [5,6] [6,9] [9,11] [11,12] [12,12] [12,14] [14,15]; 13.26: [1,1] [1,2]; 13.30: [1,1] [1,2] [2,3] [3,4] [4,6] [6,6] [6,7] [7,7] [7,10]."
+    },
+    {
+     "id": "13.30",
+     "category": "pun-bawdy",
+     "severity": "note",
+     "original": "I would my daughter were dead at my foot, and the jewels in her ear; would she were hearsed at my foot, and the ducats in her coffin.",
+     "proposed_text": "I wish my daughter were dead at my feet, with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin!",
+     "issue": "The wording keeps the wish at full brutality, which is right. The two added exclamation marks are not in the served text (';' and '.') or F1 (':' and ':'). In a narrated edition they raise the delivery of Shylock's most damning line, the one critics cite as proof of his greed (Honigman in Furness reads it as passion forcing speech 'beyond the bounds of genuine feeling'). The brief asks that Shylock be neither softened nor sharpened, and current kept the source punctuation.",
+     "fix": "I wish my daughter were dead at my feet, with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin."
+    },
+    {
+     "id": "13.16",
+     "category": "pun-bawdy",
+     "severity": "note",
+     "original": "Out upon it, old carrion! Rebels it at these years?",
+     "proposed_text": "Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?",
+     "issue": "The drafter's own source, Onions carrion 2(ii) ('the living human body, the flesh', citing this line), agrees with Schmidt, Carrion 3 ('term of contempt for flesh'). Both read 'old carrion' as Shylock's flesh, the 'it' that 'rebels'. Onions files 'carrion' used of a living person as a separate sense, 2(i). 'you old carrion' turns the jibe at his body into direct name-calling of the man, and leaves 'it' in 'Shame on it' without a referent. The strength is about equal, and 'with lust' fairly makes the bawdy twist audible without coarsening it.",
+     "fix": "Shame on it, old carrion flesh! Is it still rebelling with lust at your age?"
+    },
+    {
+     "id": "13.21",
+     "category": "voice",
+     "severity": "note",
+     "original": "If a Christian wrong a Jew, what should his sufferance be by Christian example?",
+     "proposed_text": "If a Christian wrongs a Jew, what should his forbearance be, by Christian example?",
+     "issue": "'sufferance' echoes Shylock's own 'sufferance is the badge of all our tribe' (I.iii), which the live modern text renders 'Still I've borne it with a patient shrug, because endurance is the badge of all our tribe.' 'forbearance', kept from current, loses the echo that gives the line its bitterness: the endurance he was told is his tribe's badge now answers Christian example with revenge.",
+     "fix": "If a Christian wrongs a Jew, what should his patient endurance be, by Christian example? Why, revenge!"
+    },
+    {
+     "id": "13.31, 13.36",
+     "category": "convention",
+     "severity": "note",
+     "original": "Antonio, as I heard in Genoa— / Ha, ha, heard in Genoa?",
+     "proposed_text": "Antonio, as I heard in Genoa— / Ha, ha—heard in Genoa?",
+     "issue": "The drafter kept these two paragraphs word for word and deferred the dash spacing to an edition-wide pass. The delivered passage is therefore inconsistent: 13.33 opens with a spaced '— has' while 13.31 ends with an unspaced 'Genoa—'. Rule 8 requires spaced em dashes.",
+     "fix": "TUBAL. Yes, other men have ill luck too. Antonio, as I heard in Genoa — / SHYLOCK. I thank you, good Tubal. Good news, good news! Ha, ha — heard in Genoa?"
+    }
+   ],
+   "current_defects_confirmed": [
+    "13.16: 'Are you still in heat at your age?' drops 'rebel' (Solanio's twist on Shylock's word) and substitutes an animal-in-heat image the original does not use. The proposal restores the flesh/rebel twist and keeps 'old carrion' at full strength.",
+    "13.18: 'jet' is likely heard as an aircraft and 'Rhenish' is opaque (Onions: Rhine wine, citing III.i), so the colour contrast carrying the insult is hard to hear. The proposed 'black jet and white ivory' and 'white Rhine wine' only name what the images already say, so the insult is neither softened nor sharpened.",
+    "13.19: 'bad match' means a bargain (Onions, match 3, and Schmidt, Match 2, both citing this line). 'smug' means neat, spruce or trim (Onions and Schmidt, both citing this line). 'Christian courtesy' is left unexplained (Schmidt, Courtesy 4 'kindness'; Edwards in Furness on lending without interest). 'dares scarcely show' is in unnatural order.",
+    "13.21: 'it shall go hard but I will' left untranslated (Onions, hard adv. 2: 'it shall go h. but I will = I will assuredly'). The rest of the speech is correctly kept verbatim, so Shylock's reply is neither softened nor sharpened.",
+    "13.26: 'a third one can't be matched' is unclear by ear. In the proposal, 'another of the tribe' and the devil turning Jew keep their full force.",
+    "13.28: archaic 'How now' left.",
+    "13.29: 'couldn't find her' changes present-tense 'cannot find her'.",
+    "13.30: 'there, there, there, there' is heard today as comfort. 'would she were hearsed' is left archaic after 'I wish' (Onions: hearsed = coffined, buried, citing this line). 'no sighs but my breathing' garbles 'no sighs but o' my breathing' (Q1 'but of'; Cambridge and Globe per Furness). 'even' is added.",
+    "13.33: 'a merchant ship' drops the size carried by 'argosy' (Onions: 'merchant vessel of the largest size and burden').",
+    "Conventions: unspaced em dashes in 13.19, 13.21, 13.26, 13.30, 13.31, 13.33 and 13.36."
+   ],
+   "current_defects_disputed": [
+    "13.33, in part: 'had ... lost' is not an error. Reporting the wreck in the simple past is natural modern English; the proposed 'has had' is fine but optional."
+   ]
+  }
+ ]
+}

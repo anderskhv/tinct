@@ -14,7 +14,7 @@
      "id": "14.13",
      "speaker": "BASSANIO.",
      "action": "rewrite",
-     "proposed": "BASSANIO. So outward shows may be the least like what they really are. The world is always deceived by ornament. In law, what plea is so tainted and corrupt that, seasoned with a charming voice, it can't hide its look of evil? In religion, what damnable error is there that some solemn-faced man won't bless and confirm with a text from scripture, hiding its grossness with fair ornament? There's no vice so simple that it doesn't assume some mark of virtue on its outward parts. How many cowards, whose hearts are as treacherous as stairs of sand, still wear on their chins the beards of Hercules and frowning Mars, though, searched inside, they have livers as white as milk, the coward's mark; and these put on only valor's outgrowth, a brave man's beard, to make themselves feared. Look at beauty, and you'll see it's bought by weight, and there it works a miracle of nature, making those who wear the most of it the lightest: light in weight, and light in virtue. In the same way, those curled, snaking golden locks that frolic so wantonly with the wind on the head of some supposed beauty often turn out to be the dowry of a second head: a wig, grown by a skull that now lies in the tomb. Thus ornament is only the treacherous shore of a most dangerous sea; the beautiful scarf that veils a dark Indian face and passes it off as a beauty; in a word, the seeming truth which cunning times put on to entrap the wisest. Therefore, you gaudy gold, hard food for Midas, whose every bite turned to gold, I'll have none of you. Nor any of you, silver, you pale and common drudge that passes between man and man as money. But you, you meager lead, which threatens rather than promises anything, your paleness moves me more than eloquence, and here I choose. May joy be the consequence!",
+     "proposed": "BASSANIO. So outward shows may be the least like what they really are. The world is always deceived by ornament. In law, what plea is so tainted and corrupt that, seasoned with a charming voice, it can't hide its look of evil? In religion, what damnable error is there that some solemn-faced man won't bless and confirm with a text from scripture, hiding its grossness with fair ornament? There's no vice so simple-minded that it doesn't assume some mark of virtue on its outward parts. How many cowards, whose hearts are as treacherous as stairs of sand, still wear on their chins the beards of Hercules and frowning Mars, though, searched inside, they have livers as white as milk; and these put on only valor's outgrowth, a brave man's beard, to make themselves feared. Look at beauty, and you'll see it's bought by weight, and there it works a miracle in nature, making those who wear the most of it the lightest: light in weight, and light in virtue. In the same way, those curled, snaking golden locks that frolic so wantonly with the wind on the head of some supposed beauty often turn out to be the dowry of a second head: a wig, grown by a skull that now lies in the tomb. Thus ornament is only the treacherous shore of a most dangerous sea; the beautiful scarf that veils a dark Indian face and passes it off as a beauty; in a word, the seeming truth which cunning times put on to entrap the wisest. Therefore, you gaudy gold, hard food for Midas, whose every bite turned to gold, I'll have none of you. Nor any of you, silver, you pale and common drudge that passes between man and man as money. But you, you meager lead, which threatens rather than promises anything, your paleness moves me more than eloquence, and here I choose. May joy be the consequence!",
      "units": [
       {
        "o_lines": [
@@ -54,7 +54,7 @@
         10
        ],
        "o": "There is no vice so simple but assumes / Some mark of virtue on his outward parts.",
-       "m": "There's no vice so simple that it doesn't assume some mark of virtue on its outward parts."
+       "m": "There's no vice so simple-minded that it doesn't assume some mark of virtue on its outward parts."
       },
       {
        "o_lines": [
@@ -70,7 +70,7 @@
         14
        ],
        "o": "Who inward search’d, have livers white as milk,",
-       "m": "though, searched inside, they have livers as white as milk, the coward's mark;"
+       "m": "though, searched inside, they have livers as white as milk;"
       },
       {
        "o_lines": [
@@ -86,7 +86,7 @@
         19
        ],
        "o": "Look on beauty, / And you shall see ’tis purchas’d by the weight, / Which therein works a miracle in nature, / Making them lightest that wear most of it:",
-       "m": "Look at beauty, and you'll see it's bought by weight, and there it works a miracle of nature, making those who wear the most of it the lightest: light in weight, and light in virtue."
+       "m": "Look at beauty, and you'll see it's bought by weight, and there it works a miracle in nature, making those who wear the most of it the lightest: light in weight, and light in virtue."
       },
       {
        "o_lines": [
@@ -172,6 +172,29 @@
       "L32-34 textual crux recorded: Gutenberg's 'palenness' is a misprint. Chose 'paleness', the reading of Q1 ('palenes'), Q2 and F1 ('palenesse'), kept by Cambridge/Globe (not among Furness's 'plainness' editors); Warburton's emendation 'plainness' (favoured by Furness) is the alternative. Current dash removed.",
       "L35 archaic optative 'joy be the consequence' -> 'May joy be the consequence!'.",
       "Conventions: current's unspaced em dashes removed; American spelling kept as in the edition (valor, meager)."
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "14.13",
+       "find": "There's no vice so simple that",
+       "replace": "There's no vice so simple-minded that",
+       "src": "CF-MV should-fix",
+       "reason": "'simple' = silly, witless (Schmidt, Simple 5, citing this line); modern 'simple' is heard as minor."
+      },
+      {
+       "id": "14.13",
+       "find": "a miracle of nature",
+       "replace": "a miracle in nature",
+       "src": "CF-MV note",
+       "reason": "Restores the paradox against nature that sets up 'lightest'."
+      },
+      {
+       "id": "14.13",
+       "find": "livers as white as milk, the coward's mark;",
+       "replace": "livers as white as milk;",
+       "src": "CF-MV note",
+       "reason": "The sentence already names them cowards; the least necessary of eight added glosses in the speech."
+      }
      ]
     },
     {
@@ -218,7 +241,7 @@
      "id": "14.16",
      "speaker": "",
      "action": "rewrite",
-     "proposed": "anxious thoughts, and despair embraced too rashly, and shuddering fear, and green-eyed jealousy. Oh, love, be moderate; calm your ecstasy. Let your joy rain down in due measure; restrain this excess! I feel too much of your blessing — make it less, for fear I overindulge and sicken.",
+     "proposed": "anxious thoughts, and despair embraced too rashly, and shuddering fear, and green-eyed jealousy. Oh, love, be moderate; calm your ecstasy. Rain your joy in due measure; restrain this excess! I feel too much of your blessing — make it less, for fear I overindulge and sicken.",
      "units": [
       {
        "o_lines": [
@@ -234,7 +257,7 @@
         4
        ],
        "o": "O love, be moderate; allay thy ecstasy, / In measure rain thy joy; scant this excess!",
-       "m": "Oh, love, be moderate; calm your ecstasy. Let your joy rain down in due measure; restrain this excess!"
+       "m": "Oh, love, be moderate; calm your ecstasy. Rain your joy in due measure; restrain this excess!"
       },
       {
        "o_lines": [
@@ -251,6 +274,15 @@
       "L1 compound unpacked: 'rash-embrac'd despair' -> 'despair embraced too rashly'. 'green-eyed jealousy' kept (clear, recognizable).",
       "L3-4 unnatural syntax fixed: current 'In measure rain your joy' keeps the inverted order; 'measure' = moderation (Onions measure 4, citing 'In measure rain thy joy'). Textual crux recorded: 'rain' (F1 'raine'; Rowe and most editors after Malone) vs 'rein' (Singer, Collier, Cambridge, Globe; preferred by Clarendon and Furness). The served text reads 'rain' and the words sound the same aloud, so 'rain' is kept.",
       "L5-6 image restored: 'surfeit' = sicken from too much food or drink; current 'for fear I'm overwhelmed' drops the feast image -> 'for fear I overindulge and sicken'. Dash spaced."
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "14.16",
+       "find": "Let your joy rain down in due measure;",
+       "replace": "Rain your joy in due measure;",
+       "src": "CF-MV should-fix",
+       "reason": "'rain down' closed the rain/rein crux that the current wording left open to the ear (F1 'raine', Q3 'reine'; Furness collation)."
+      }
      ]
     },
     {
@@ -421,7 +453,7 @@
      "id": "2.9",
      "speaker": "PORTIA.",
      "action": "rewrite",
-     "proposed": "PORTIA. Yes, that one is a colt indeed, as giddy and witless as a young horse, for he does nothing but talk about his horse, and he counts it a great point in his favor that he can shoe it himself. I'm very much afraid my lady his mother was unfaithful with a blacksmith.",
+     "proposed": "PORTIA. Yes, that one is a colt indeed, as giddy and witless as a young horse, for he does nothing but talk about his horse, and he counts it a great point in his favor that he can shoe it himself. I'm very much afraid her ladyship his mother was unfaithful with a blacksmith.",
      "units": [
       {
        "o_lines": [
@@ -433,19 +465,19 @@
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "and he makes it a great appropriation to his own good parts that he can shoe him himself.",
        "m": "and he counts it a great point in his favor that he can shoe it himself."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "I am much afeard my lady his mother play’d false with a smith.",
-       "m": "I'm very much afraid my lady his mother was unfaithful with a blacksmith."
+       "m": "I'm very much afraid her ladyship his mother was unfaithful with a blacksmith."
       }
      ],
      "reasons": [
@@ -454,7 +486,17 @@
       "'appropriation to his own good parts' = special excellence added to his accomplishments (Onions, A Shakespeare Glossary (1911), appropriation, citing I.ii.45; Singer in Furness): current 'a great point in his favor' kept.",
       "Register restored: current 'had a fling' is modern slang (rule 6) and drops the mock-formal 'my lady his mother'; 'much afeard' = very much afraid, which current 'rather afraid' weakens; 'play'd false' = was unfaithful. The joke (he shoes horses because his real father was a smith) stays implicit, as in the original.",
       "Convention: current's unspaced dash removed."
-     ]
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "2.9",
+       "find": "my lady his mother",
+       "replace": "her ladyship his mother",
+       "src": "CF-MV note",
+       "reason": "Keeps the mock formality and is clear by ear."
+      }
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.10",
@@ -479,44 +521,44 @@
      "id": "2.11",
      "speaker": "PORTIA.",
      "action": "rewrite",
-     "proposed": "PORTIA. He does nothing but frown, as if to say, “If you won't have me, choose as you please.” He hears funny stories and doesn't smile. I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered solemnity in his youth. I'd rather be married to a skull with a bone in its mouth than to either of those two. God protect me from them both!",
+     "proposed": "PORTIA. He does nothing but frown, as if to say, “If you won't have me, choose as you please.” He hears funny stories and doesn't smile. I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered gloom in his youth. I'd rather be married to a skull with a bone in its mouth than to either of those two. God protect me from them both!",
      "units": [
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "He doth nothing but frown, as who should say “And you will not have me, choose.”",
        "m": "He does nothing but frown, as if to say, “If you won't have me, choose as you please.”"
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        2
        ],
        "o": "He hears merry tales and smiles not.",
        "m": "He hears funny stories and doesn't smile."
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        4
        ],
        "o": "I fear he will prove the weeping philosopher when he grows old, being so full of unmannerly sadness in his youth.",
-       "m": "I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered solemnity in his youth."
+       "m": "I'm afraid he'll turn into the weeping philosopher when he gets old, being so full of ill-mannered gloom in his youth."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        5
        ],
        "o": "I had rather be married to a death’s-head with a bone in his mouth than to either of these.",
        "m": "I'd rather be married to a skull with a bone in its mouth than to either of those two."
       },
       {
        "o_lines": [
-        1,
-        1
+        5,
+        6
        ],
        "o": "God defend me from these two!",
        "m": "God protect me from them both!"
@@ -527,7 +569,17 @@
       "False friend fixed: 'sadness' = seriousness (Onions, sadness); current 'unmannerly sadness' is heard as sorrow. 'already' in current was an addition and is removed.",
       "Kept from current: 'funny stories', 'weeping philosopher' (Heraclitus, Clarendon in Furness; the phrase explains itself), 'skull with a bone in its mouth', 'God protect me from them both!'.",
       "Convention: straight double quotes in current -> curly double quotes."
-     ]
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "2.11",
+       "find": "ill-mannered solemnity",
+       "replace": "ill-mannered gloom",
+       "src": "CF-MV should-fix",
+       "reason": "Schmidt files this line under Sadness 1 'sorrow, dejection', which makes him the future 'weeping philosopher'."
+      }
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.12",
@@ -565,55 +617,55 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "In truth, I know it is a sin to be a mocker, but he!",
        "m": "Honestly, I know it's a sin to be a mocker, but him!"
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "why, he hath a horse better than the Neapolitan’s, a better bad habit of frowning than the Count Palatine.",
        "m": "Why, he has a better horse than the Neapolitan's, and a better bad habit of frowning than the Count Palatine."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        4
        ],
        "o": "He is every man in no man.",
        "m": "He's every man and no man at once."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        5
        ],
        "o": "If a throstle sing, he falls straight a-cap’ring.",
        "m": "If a thrush sings, he immediately starts capering."
       },
       {
        "o_lines": [
-        1,
-        1
+        5,
+        5
        ],
        "o": "He will fence with his own shadow.",
        "m": "He'd fence with his own shadow."
       },
       {
        "o_lines": [
-        1,
-        1
+        5,
+        6
        ],
        "o": "If I should marry him, I should marry twenty husbands.",
        "m": "If I married him, I'd be marrying twenty husbands."
       },
       {
        "o_lines": [
-        1,
-        1
+        6,
+        7
        ],
        "o": "If he would despise me, I would forgive him, for if he love me to madness, I shall never requite him.",
        "m": "If he'd scorn me, I'd forgive him, because even if he loved me to madness, I could never return it."
@@ -622,7 +674,8 @@
      "reasons": [
       "Flattened joke restored: 'a better bad habit of frowning' = he outdoes the Count even at a bad habit (Furness, note on I.ii.56-57: 'a better bad-habit'). Current 'a worse habit of frowning' (Halliwell's reading 'better bad = worse') breaks the 'better horse ... better bad habit' parallel that is the point: this suitor copies and outdoes every other.",
       "All other sentences kept from current word for word ('throstle' = thrush; 'requite' = return his love)."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.14",
@@ -660,31 +713,31 @@
       {
        "o_lines": [
         1,
-        1
+        3
        ],
        "o": "he hath neither Latin, French, nor Italian, and you will come into the court and swear that I have a poor pennyworth in the English.",
        "m": "He has neither Latin, French, nor Italian, and you could go into court and swear that I have only a poor penny's worth of English."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "He is a proper man’s picture; but alas, who can converse with a dumb-show?",
        "m": "He's the portrait of a handsome man, but alas, who can hold a conversation with a mime?"
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        5
        ],
        "o": "How oddly he is suited!",
        "m": "How oddly he's dressed!"
       },
       {
        "o_lines": [
-        1,
-        1
+        5,
+        6
        ],
        "o": "I think he bought his doublet in Italy, his round hose in France, his bonnet in Germany, and his behaviour everywhere.",
        "m": "I think he bought his doublet in Italy, his puffed-out breeches in France, his hat in Germany, and his manners from everywhere."
@@ -696,7 +749,8 @@
       "Image restored: 'dumb-show' = a show in mime; current 'a silent picture' replaces it with a second picture image.",
       "Archaic term made clear: 'round hose' = full, puffed breeches (Onions s.v. hose; Clarendon and Planché in Furness, note on I.ii.71: French hose 'made very round'); 'doublet' kept (familiar); 'bonnet' -> 'hat' (current).",
       "Convention: current's unspaced dash removed."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.16",
@@ -721,29 +775,39 @@
      "id": "2.17",
      "speaker": "PORTIA.",
      "action": "rewrite",
-     "proposed": "PORTIA. That he has a neighborly charity in him, for he borrowed a box on the ear from the Englishman, and swore he'd pay him back when he was able. I think the Frenchman became his guarantor, and set his seal under the bond for another one.",
+     "proposed": "PORTIA. That he has a neighborly charity in him, for he borrowed a box on the ear from the Englishman, and swore he'd pay him back when he was able. I think the Frenchman became his guarantor, and set his seal under the bond for another box on the ear.",
      "units": [
       {
        "o_lines": [
         1,
-        1
+        3
        ],
        "o": "That he hath a neighbourly charity in him, for he borrowed a box of the ear of the Englishman, and swore he would pay him again when he was able.",
        "m": "That he has a neighborly charity in him, for he borrowed a box on the ear from the Englishman, and swore he'd pay him back when he was able."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "I think the Frenchman became his surety, and seal’d under for another.",
-       "m": "I think the Frenchman became his guarantor, and set his seal under the bond for another one."
+       "m": "I think the Frenchman became his guarantor, and set his seal under the bond for another box on the ear."
       }
      ],
      "reasons": [
       "Legal image made clear: 'seal'd under for another' = signed as surety beneath the principal, for another box on the ear (Onions, A Shakespeare Glossary (1911), seal: 'seal under for, to become surety for', citing Mer.V. I.ii.88; Clarendon in Furness: 'The principal was said to \"seal to\" a bond; his surety \"sealed under\"'). Current 'went his guarantor, and signed on for another' is unnatural ('went') and vague ('signed on'). The allusion to France's promises of help to Scotland against England (Warburton in Furness) stays implicit, as in the original.",
       "'pay him back' keeps the debt/revenge double sense (current, kept). Convention: current's unspaced dash replaced by 'for', the original's connective."
-     ]
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "2.17",
+       "find": "set his seal under the bond for another one.",
+       "replace": "set his seal under the bond for another box on the ear.",
+       "src": "CF-MV should-fix",
+       "reason": "'another one' was heard as another bond; it means another box on the ear (Clarendon in Furness)."
+      }
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.18",
@@ -773,23 +837,23 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "Very vilely in the morning when he is sober, and most vilely in the afternoon when he is drunk:",
        "m": "Very vilely in the morning, when he's sober, and most vilely in the afternoon, when he's drunk."
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "when he is best, he is a little worse than a man, and when he is worst, he is little better than a beast.",
        "m": "At his best, he's a little worse than a man; at his worst, he's little better than a beast."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "And the worst fall that ever fell, I hope I shall make shift to go without him.",
        "m": "And if the worst that ever happened should happen, I hope I can manage to do without him."
@@ -799,7 +863,8 @@
       "Register and grammar restored: 'Very vilely' answers 'How like you' (I like him very vilely) and describes him at once; current 'Awful in the morning' is colloquial and does not answer the question.",
       "Idiom made clear: 'And the worst fall that ever fell' = if the worst that ever happened should happen ('and' = if, Capell via Furness, New Variorum Merchant of Venice (1888); Onions, A Shakespeare Glossary (1911), fall 5 'to happen', citing this line); current 'whatever the worst that could happen' is awkward and loses the fall/fell echo, now carried by 'happened ... happen'. 'make shift' = manage (Onions, shift): current kept.",
       "Middle sentence kept from current word for word."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "2.20",
@@ -829,23 +894,23 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "Therefore, for fear of the worst, I pray thee set a deep glass of Rhenish wine on the contrary casket,",
        "m": "Therefore, for fear of the worst, please set a deep glass of Rhine wine on the wrong casket,"
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "for if the devil be within and that temptation without, I know he will choose it.",
        "m": "because if the devil were inside it and that temptation outside, I know he'd choose it."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "I will do anything, Nerissa, ere I will be married to a sponge.",
        "m": "I'll do anything, Nerissa, before I'll marry a sponge that soaks up drink."
@@ -856,7 +921,8 @@
       "Clear line restored: 'for fear of the worst' is already plain modern English and echoes her 'worst fall' just before; current 'just to be safe' changes it for no gain.",
       "'Rhenish' = Rhine wine (Onions, A Shakespeare Glossary (1911), Rhenish, citing I.ii.102); 'contrary' = wrong (Onions, contrary, citing this line): current kept.",
       "Hard image made clear: 'sponge' = a drunkard who soaks up drink (Schmidt, Shakespeare-Lexicon (Perseus) s.v. Sponge: 'a soft porous substance imbibing fluids: Merch. I, 2, 108'; Onions, spongy 1 'drunken', cf. Mer.V. I.ii.106). Today 'sponge' is heard as a freeloader, so the drink sense is made explicit."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     }
    ],
    "structure_notes": [
@@ -921,7 +987,7 @@
      "id": "13.16",
      "speaker": "SOLANIO.",
      "action": "rewrite",
-     "proposed": "SOLANIO. Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?",
+     "proposed": "SOLANIO. Shame on it, old carrion flesh! Is it still rebelling with lust at your age?",
      "units": [
       {
        "o_lines": [
@@ -943,6 +1009,15 @@
      "reasons": [
       "Flattened pun restored: Solanio twists Shylock's 'flesh and blood ... rebel' (his daughter) into Shylock's own flesh rebelling, i.e. lust, at his age. 'old carrion' = the living body, the flesh, used contemptuously (Onions, A Shakespeare Glossary (1911), carrion (ii), citing 'Out upon it, old carrion! rebels it at these years?'). Current 'Are you still in heat at your age?' keeps only the explanation, drops 'rebel', and coarsens it to an animal-in-heat image the original does not use (rule 5).",
       "'Out upon it' = shame on it; current 'Out on it' is archaic. The insult 'old carrion' is kept at full strength."
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "13.16",
+       "find": "Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?",
+       "replace": "Shame on it, old carrion flesh! Is it still rebelling with lust at your age?",
+       "src": "CF-MV note",
+       "reason": "'old carrion' is Shylock's flesh, the 'it' that rebels (Onions carrion 2(ii); Schmidt, Carrion 3)."
+      }
      ]
     },
     {
@@ -973,23 +1048,23 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "There is more difference between thy flesh and hers than between jet and ivory,",
        "m": "There's more difference between your flesh and hers than between black jet and white ivory;"
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "more between your bloods than there is between red wine and Rhenish.",
        "m": "more between your bloods than there is between red wine and white Rhine wine."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "But tell us, do you hear whether Antonio have had any loss at sea or no?",
        "m": "But tell us, have you heard whether Antonio has had any loss at sea or not?"
@@ -998,7 +1073,8 @@
      "reasons": [
       "Insult made understandable at its original strength: jet is black and ivory white; Rhenish (Onions, A Shakespeare Glossary (1911): 'Rhine wine') is white wine against red. Salarino's colour contrast between Shylock and Jessica is the point, and current 'jet and ivory ... red wine and Rhenish' leaves it inaudible to a modern listener. The colour words only name what the original's images already say; nothing is added to the insult.",
       "Last sentence kept from current word for word."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "13.19",
@@ -1009,31 +1085,31 @@
       {
        "o_lines": [
         1,
-        1
+        3
        ],
        "o": "There I have another bad match, a bankrupt, a prodigal, who dare scarce show his head on the Rialto, a beggar that used to come so smug upon the mart;",
        "m": "There I have another bad bargain: a bankrupt, a prodigal, who hardly dares show his head on the Rialto, a beggar who used to come to the marketplace so spruce and trim."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        3
        ],
        "o": "let him look to his bond.",
        "m": "Let him look to his bond."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "He was wont to call me usurer; let him look to his bond:",
        "m": "He used to call me usurer — let him look to his bond."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        5
        ],
        "o": "he was wont to lend money for a Christian cur’sy; let him look to his bond.",
        "m": "He used to lend money out of Christian courtesy, free of interest — let him look to his bond."
@@ -1044,7 +1120,8 @@
       "False friend fixed: 'smug' = neat, spruce, trim (Onions, smug, citing 'to come so smug upon the mart', III.i.51); current 'so smug upon the market' is heard as 'self-satisfied' and 'upon the market' is unidiomatic.",
       "Point made clear: lending 'for a Christian cur'sy' = as a Christian courtesy, without interest (Edwards in Furness, New Variorum Merchant of Venice (1888), note on III.i.41: his lending without interest is why Shylock calls him prodigal); two-word gloss added.",
       "Natural order: 'dares scarcely show' -> 'hardly dares show'. The refrain 'let him look to his bond' is kept as the recognizable threat. Dashes spaced."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "13.20",
@@ -1069,84 +1146,84 @@
      "id": "13.21",
      "speaker": "SHYLOCK.",
      "action": "rewrite",
-     "proposed": "SHYLOCK. To bait fish with. If it feeds nothing else, it will feed my revenge. He has disgraced me, and cost me half a million, laughed at my losses, mocked at my gains, scorned my nation, thwarted my deals, cooled my friends, heated my enemies. And what's his reason? I am a Jew. Has not a Jew eyes? Has not a Jew hands, organs, dimensions, senses, affections, passions? Fed with the same food, hurt by the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is? If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge? If we are like you in the rest, we will resemble you in that. If a Jew wrongs a Christian, what is his humility? Revenge. If a Christian wrongs a Jew, what should his forbearance be, by Christian example? Why, revenge! The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction.",
+     "proposed": "SHYLOCK. To bait fish with. If it feeds nothing else, it will feed my revenge. He has disgraced me, and cost me half a million, laughed at my losses, mocked at my gains, scorned my nation, thwarted my deals, cooled my friends, heated my enemies. And what's his reason? I am a Jew. Has not a Jew eyes? Has not a Jew hands, organs, dimensions, senses, affections, passions? Fed with the same food, hurt by the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is? If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge? If we are like you in the rest, we will resemble you in that. If a Jew wrongs a Christian, what is his humility? Revenge. If a Christian wrongs a Jew, what should his patient endurance be, by Christian example? Why, revenge! The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction.",
      "units": [
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "To bait fish withal; if it will feed nothing else, it will feed my revenge.",
        "m": "To bait fish with. If it feeds nothing else, it will feed my revenge."
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        4
        ],
        "o": "He hath disgrac’d me and hind’red me half a million, laugh’d at my losses, mock’d at my gains, scorned my nation, thwarted my bargains, cooled my friends, heated mine enemies.",
        "m": "He has disgraced me, and cost me half a million, laughed at my losses, mocked at my gains, scorned my nation, thwarted my deals, cooled my friends, heated my enemies."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        5
        ],
        "o": "And what’s his reason? I am a Jew.",
        "m": "And what's his reason? I am a Jew."
       },
       {
        "o_lines": [
-        1,
-        1
+        5,
+        6
        ],
        "o": "Hath not a Jew eyes? Hath not a Jew hands, organs, dimensions, senses, affections, passions?",
        "m": "Has not a Jew eyes? Has not a Jew hands, organs, dimensions, senses, affections, passions?"
       },
       {
        "o_lines": [
-        1,
-        1
+        6,
+        9
        ],
        "o": "Fed with the same food, hurt with the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is?",
        "m": "Fed with the same food, hurt by the same weapons, subject to the same diseases, healed by the same means, warmed and cooled by the same winter and summer as a Christian is?"
       },
       {
        "o_lines": [
-        1,
-        1
+        9,
+        11
        ],
        "o": "If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge?",
        "m": "If you prick us, do we not bleed? If you tickle us, do we not laugh? If you poison us, do we not die? And if you wrong us, shall we not revenge?"
       },
       {
        "o_lines": [
-        1,
-        1
+        11,
+        12
        ],
        "o": "If we are like you in the rest, we will resemble you in that.",
        "m": "If we are like you in the rest, we will resemble you in that."
       },
       {
        "o_lines": [
-        1,
-        1
+        12,
+        12
        ],
        "o": "If a Jew wrong a Christian, what is his humility? Revenge.",
        "m": "If a Jew wrongs a Christian, what is his humility? Revenge."
       },
       {
        "o_lines": [
-        1,
-        1
+        12,
+        14
        ],
        "o": "If a Christian wrong a Jew, what should his sufferance be by Christian example? Why, revenge!",
-       "m": "If a Christian wrongs a Jew, what should his forbearance be, by Christian example? Why, revenge!"
+       "m": "If a Christian wrongs a Jew, what should his patient endurance be, by Christian example? Why, revenge!"
       },
       {
        "o_lines": [
-        1,
-        1
+        14,
+        15
        ],
        "o": "The villainy you teach me I will execute, and it shall go hard but I will better the instruction.",
        "m": "The villainy you teach me I will execute, and it will take a great deal to stop me from improving on the instruction."
@@ -1155,7 +1232,17 @@
      "reasons": [
       "Archaic idiom made clear: 'it shall go hard but I will' = I will assuredly, unless overwhelming difficulties prevent it (Onions, A Shakespeare Glossary (1911) s.v. hard: 'go h. but introduces a statement of what will happen unless overwhelming difficulties prevent it, esp. it shall go h. but I will = I will assuredly', citing Mer.V. III.i.78). Current leaves 'it shall go hard but' untranslated. Current's unspaced dash replaced by the original's comma.",
       "Everything else kept from current word for word, including the famous lines. 'hindered me half a million' -> current 'cost me half a million' is a fair gloss (Abbott §198a via Furness). 'humility' kept: Schmidt (quoted in Furness, note on III.i.62) glosses it 'kindness, benevolence, humanity', but the modern sense (Christian meekness) carries the same irony, so the famous line stays recognizable. 'dimensions' = bodily frame (Onions) and 'organs' = members of the body (Onions) are clear enough in the list."
-     ]
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "13.21",
+       "find": "what should his forbearance be",
+       "replace": "what should his patient endurance be",
+       "src": "CF-MV note",
+       "reason": "Restores the echo of 'sufferance is the badge of all our tribe' (I.iii; live text 'endurance')."
+      }
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "13.22",
@@ -1250,7 +1337,7 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "a third cannot be match’d, unless the devil himself turn Jew.",
        "m": "A third to match these two can't be found, unless the devil himself turns Jew."
@@ -1259,7 +1346,8 @@
      "reasons": [
       "Unnatural syntax fixed: 'a third cannot be match'd' = no third can be found to match these two; current 'a third one can't be matched' is unclear by ear, and 'turn Jew' keeps the old subjunctive.",
       "Prejudice kept at the original's strength: 'another of the tribe' and the devil turning Jew (Jews equated with devils) are unchanged in force. Dash replaced by a full stop."
-     ]
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "13.27",
@@ -1322,7 +1410,7 @@
      "id": "13.30",
      "speaker": "SHYLOCK.",
      "action": "rewrite",
-     "proposed": "SHYLOCK. Why, there it goes, there, there, there! A diamond gone that cost me two thousand ducats in Frankfurt! The curse never fell upon our nation until now — I never felt it until now. Two thousand ducats in that, and other precious, precious jewels. I wish my daughter were dead at my feet, with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin! No news of them? Why so? And I don't know what's been spent in the search. Why, you — loss upon loss! The thief gone with so much, and so much spent to find the thief, and no satisfaction, no revenge, no ill luck stirring but what lands on my shoulders, no sighs but the ones I breathe, no tears but the ones I shed.",
+     "proposed": "SHYLOCK. Why, there it goes, there, there, there! A diamond gone that cost me two thousand ducats in Frankfurt! The curse never fell upon our nation until now — I never felt it until now. Two thousand ducats in that, and other precious, precious jewels. I wish my daughter were dead at my feet, with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin. No news of them? Why so? And I don't know what's been spent in the search. Why, you — loss upon loss! The thief gone with so much, and so much spent to find the thief, and no satisfaction, no revenge, no ill luck stirring but what lands on my shoulders, no sighs but the ones I breathe, no tears but the ones I shed.",
      "units": [
       {
        "o_lines": [
@@ -1335,63 +1423,63 @@
       {
        "o_lines": [
         1,
-        1
+        2
        ],
        "o": "A diamond gone cost me two thousand ducats in Frankfort!",
        "m": "A diamond gone that cost me two thousand ducats in Frankfurt!"
       },
       {
        "o_lines": [
-        1,
-        1
+        2,
+        3
        ],
        "o": "The curse never fell upon our nation till now, I never felt it till now.",
        "m": "The curse never fell upon our nation until now — I never felt it until now."
       },
       {
        "o_lines": [
-        1,
-        1
+        3,
+        4
        ],
        "o": "Two thousand ducats in that, and other precious, precious jewels.",
        "m": "Two thousand ducats in that, and other precious, precious jewels."
       },
       {
        "o_lines": [
-        1,
-        1
+        4,
+        6
        ],
        "o": "I would my daughter were dead at my foot, and the jewels in her ear; would she were hearsed at my foot, and the ducats in her coffin.",
-       "m": "I wish my daughter were dead at my feet, with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin!"
+       "m": "I wish my daughter were dead at my feet, with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin."
       },
       {
        "o_lines": [
-        1,
-        1
+        6,
+        6
        ],
        "o": "No news of them? Why so?",
        "m": "No news of them? Why so?"
       },
       {
        "o_lines": [
-        1,
-        1
+        6,
+        7
        ],
        "o": "And I know not what’s spent in the search.",
        "m": "And I don't know what's been spent in the search."
       },
       {
        "o_lines": [
-        1,
-        1
+        7,
+        7
        ],
        "o": "Why, thou—loss upon loss!",
        "m": "Why, you — loss upon loss!"
       },
       {
        "o_lines": [
-        1,
-        1
+        7,
+        10
        ],
        "o": "The thief gone with so much, and so much to find the thief, and no satisfaction, no revenge, nor no ill luck stirring but what lights o’ my shoulders, no sighs but o’ my breathing, no tears but o’ my shedding.",
        "m": "The thief gone with so much, and so much spent to find the thief, and no satisfaction, no revenge, no ill luck stirring but what lands on my shoulders, no sighs but the ones I breathe, no tears but the ones I shed."
@@ -1404,13 +1492,23 @@
       "Addition removed: current 'I don't even know' adds 'even'.",
       "Textual cruxes recorded, served-text readings kept: 'Why so?' is printed as a question in F1 and in the served text, and Furness prefers the question ('Why is there no news of them?'); Johnson and Capell print 'why, so', and Onions reads 'why, so!' = 'well, so let it be' (s.v. why, citing III.i.98). 'Why, thou—loss upon loss!' is the Q/F1 'thou' with Collier's dash; the later Folios read 'then', which Furness thinks right. Kept open as 'Why, you — loss upon loss!'.",
       "Conventions: dashes spaced."
-     ]
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "13.30",
+       "find": "with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin!",
+       "replace": "with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin.",
+       "src": "CF-MV note",
+       "reason": "The added exclamation marks raised the delivery of Shylock's most damning line; source punctuation restored (neither soften nor sharpen)."
+      }
+     ],
+     "unit_lines_corrected_by": "CF-MV"
     },
     {
      "id": "13.31",
      "speaker": "TUBAL.",
-     "action": "keep",
-     "proposed": "TUBAL. Yes, other men have ill luck too. Antonio, as I heard in Genoa—",
+     "action": "rewrite",
+     "proposed": "TUBAL. Yes, other men have ill luck too. Antonio, as I heard in Genoa —",
      "units": [
       {
        "o_lines": [
@@ -1418,11 +1516,20 @@
         1
        ],
        "o": "Yes, other men have ill luck too. Antonio, as I heard in Genoa—",
-       "m": "Yes, other men have ill luck too. Antonio, as I heard in Genoa—"
+       "m": "Yes, other men have ill luck too. Antonio, as I heard in Genoa —"
       }
      ],
      "reasons": [
       "keep: wording meets the standard; 'ill luck' must stay to be echoed by Shylock in 13.32. The paragraph-final dash is unspaced; see structure_notes for the edition-wide mechanical fix ('Genoa —')."
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "13.31",
+       "find": "as I heard in Genoa—",
+       "replace": "as I heard in Genoa —",
+       "src": "CF-MV note",
+       "reason": "Spaced em dash (rule 11)."
+      }
      ]
     },
     {
@@ -1505,8 +1612,8 @@
     {
      "id": "13.36",
      "speaker": "SHYLOCK.",
-     "action": "keep",
-     "proposed": "SHYLOCK. I thank you, good Tubal. Good news, good news! Ha, ha—heard in Genoa?",
+     "action": "rewrite",
+     "proposed": "SHYLOCK. I thank you, good Tubal. Good news, good news! Ha, ha — heard in Genoa?",
      "units": [
       {
        "o_lines": [
@@ -1514,11 +1621,20 @@
         1
        ],
        "o": "I thank thee, good Tubal. Good news, good news! Ha, ha, heard in Genoa?",
-       "m": "I thank you, good Tubal. Good news, good news! Ha, ha—heard in Genoa?"
+       "m": "I thank you, good Tubal. Good news, good news! Ha, ha — heard in Genoa?"
       }
      ],
      "reasons": [
       "keep: wording meets the standard. Crux recorded: 'heard in Genoa?' is the served (Gutenberg) reading; Qq and Ff read 'here in Genoa', Rowe and later editors 'where? in Genoa?' (Furness, New Variorum Merchant of Venice (1888), note on III.i.101). All three ask Tubal to confirm where the news came from, so the served reading stands. Unspaced dash: see structure_notes ('Ha, ha — heard')."
+     ],
+     "reviewer_fixes": [
+      {
+       "id": "13.36",
+       "find": "Ha, ha—heard in Genoa?",
+       "replace": "Ha, ha — heard in Genoa?",
+       "src": "CF-MV note",
+       "reason": "Spaced em dash (rule 11)."
+      }
      ]
     },
     {
@@ -1582,5 +1698,90 @@
    ]
   }
  ],
- "reviewer_fixes_applied": []
+ "reviewer_fixes_applied": [
+  {
+   "id": "14.13",
+   "find": "There's no vice so simple that",
+   "replace": "There's no vice so simple-minded that",
+   "src": "CF-MV should-fix",
+   "reason": "'simple' = silly, witless (Schmidt, Simple 5, citing this line); modern 'simple' is heard as minor."
+  },
+  {
+   "id": "14.16",
+   "find": "Let your joy rain down in due measure;",
+   "replace": "Rain your joy in due measure;",
+   "src": "CF-MV should-fix",
+   "reason": "'rain down' closed the rain/rein crux that the current wording left open to the ear (F1 'raine', Q3 'reine'; Furness collation)."
+  },
+  {
+   "id": "2.11",
+   "find": "ill-mannered solemnity",
+   "replace": "ill-mannered gloom",
+   "src": "CF-MV should-fix",
+   "reason": "Schmidt files this line under Sadness 1 'sorrow, dejection', which makes him the future 'weeping philosopher'."
+  },
+  {
+   "id": "2.17",
+   "find": "set his seal under the bond for another one.",
+   "replace": "set his seal under the bond for another box on the ear.",
+   "src": "CF-MV should-fix",
+   "reason": "'another one' was heard as another bond; it means another box on the ear (Clarendon in Furness)."
+  },
+  {
+   "id": "14.13",
+   "find": "a miracle of nature",
+   "replace": "a miracle in nature",
+   "src": "CF-MV note",
+   "reason": "Restores the paradox against nature that sets up 'lightest'."
+  },
+  {
+   "id": "14.13",
+   "find": "livers as white as milk, the coward's mark;",
+   "replace": "livers as white as milk;",
+   "src": "CF-MV note",
+   "reason": "The sentence already names them cowards; the least necessary of eight added glosses in the speech."
+  },
+  {
+   "id": "2.9",
+   "find": "my lady his mother",
+   "replace": "her ladyship his mother",
+   "src": "CF-MV note",
+   "reason": "Keeps the mock formality and is clear by ear."
+  },
+  {
+   "id": "13.30",
+   "find": "with the jewels in her ear! I wish she were buried at my feet, with the ducats in her coffin!",
+   "replace": "with the jewels in her ear; I wish she were buried at my feet, with the ducats in her coffin.",
+   "src": "CF-MV note",
+   "reason": "The added exclamation marks raised the delivery of Shylock's most damning line; source punctuation restored (neither soften nor sharpen)."
+  },
+  {
+   "id": "13.16",
+   "find": "Shame on it, you old carrion! Is your flesh still rebelling with lust at your age?",
+   "replace": "Shame on it, old carrion flesh! Is it still rebelling with lust at your age?",
+   "src": "CF-MV note",
+   "reason": "'old carrion' is Shylock's flesh, the 'it' that rebels (Onions carrion 2(ii); Schmidt, Carrion 3)."
+  },
+  {
+   "id": "13.21",
+   "find": "what should his forbearance be",
+   "replace": "what should his patient endurance be",
+   "src": "CF-MV note",
+   "reason": "Restores the echo of 'sufferance is the badge of all our tribe' (I.iii; live text 'endurance')."
+  },
+  {
+   "id": "13.31",
+   "find": "as I heard in Genoa—",
+   "replace": "as I heard in Genoa —",
+   "src": "CF-MV note",
+   "reason": "Spaced em dash (rule 11)."
+  },
+  {
+   "id": "13.36",
+   "find": "Ha, ha—heard in Genoa?",
+   "replace": "Ha, ha — heard in Genoa?",
+   "src": "CF-MV note",
+   "reason": "Spaced em dash (rule 11)."
+  }
+ ]
 }

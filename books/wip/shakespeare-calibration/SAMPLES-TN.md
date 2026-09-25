@@ -94,13 +94,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. It's beauty truly blended; its red and white were laid on by Nature's own sweet and skilful hand. Lady, you are the cruellest woman alive if you lead these graces to the grave and leave the world no copy, no child to carry them on.
+> VIOLA. It's beauty truly blended; its red and white were laid on by Nature's own sweet and skilful hand. Lady, you are the cruellest woman alive if you choose to lead these graces to the grave and leave the world no copy, no child to carry them on.
 
 **Why**
 
 - False friend fixed: 'cunning' = skilful, knowing (Schmidt, Shakespeare-Lexicon, cunning adj. 1, citing 'whose red and white nature's own sweet and c. hand laid on', Tw. I,5,258; Onions 1911, cunning adj. 1 'skilful, clever'). Current keeps 'cunning', which a listener hears as 'sly', turning Viola's praise of natural beauty into a hint of trickery.
 - Pun set-up made audible: 'copy' = a reproduction, 'properly and tropically' (Schmidt, Shakespeare-Lexicon, copy subst. 3, citing 'and leave the world no c.', Tw. I,5,261). Viola means a child who would reproduce these graces; Olivia's reply deliberately takes 'copy' and 'leave' as paperwork and a will. Current leaves 'no copy' unexplained; a short gloss states Viola's sense while the word stays for Olivia to twist.
 - 'blent' = blended (Onions 1911, blent; Schmidt, Shakespeare-Lexicon, blend 1, Tw. I,5,257); current 'mixed' is acceptable, 'blended' keeps the painter's palette. 'If you will lead' -> 'if you lead': current 'if you would lead' turns Viola's warning into a remote hypothesis.
+
+*Reviewer fix applied (CF-TN note): "if you lead these graces to the grave" → "if you choose to lead these graces to the grave". 'will' is volitional; Viola's charge of cruelty rests on the choice.*
 
 ### 5.118 OLIVIA.
 
@@ -143,13 +145,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. I see you for what you are: you are too proud. But even if you were the devil, you are beautiful. My lord and master loves you. Oh, even if you were crowned the unrivalled queen of beauty, you could do no more than repay such love!
+> VIOLA. I see what you are: you are too proud. But even if you were the devil, you are beautiful. My lord and master loves you. Oh, even if you were crowned the unrivalled queen of beauty, you could do no more than repay such love!
 
 **Why**
 
 - Misreading-prone syntax fixed: 'such love / Could be but recompens'd though you were crown'd / The nonpareil of beauty' = even if you were the peerless beauty, returning such love would merely repay it (Schmidt, Shakespeare-Lexicon, recompense vb. 2 'to requite, to reward', Tw. I,5,272; Onions 1911, nonpareil 'one that has no equal', citing 'The n. of beauty'). Current 'such love could only be repaid even if you were crowned...' is heard as 'could only be repaid by something', and Viola's plea (love him back) is lost.
 - False friend fixed by ear: predicative 'you are fair' = you are beautiful; a listener hears 'fair' as 'just' or 'pale'. (The formulaic address 'fair cruelty' in 5.129 is kept.)
 - Idiom: 'I see you what you are' -> 'I see you for what you are' (current drops 'you').
+
+*Reviewer fix applied (CF-TN note): "I see you for what you are" → "I see what you are". The original's 'you' is proleptic (Abbott §414); 'see you for what you are' adds a sneer. The current wording was more exact.*
 
 ### 5.120 OLIVIA. (kept)
 
@@ -251,7 +255,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. I'd make myself a willow cabin at your gate — willow, the tree of rejected lovers — and call out to you, my soul, inside the house. I'd write faithful songs of scorned love and sing them loud even in the dead of night. I'd shout your name to the echoing hills and make the babbling gossip of the air cry out “Olivia!” Oh, you would find no rest anywhere between the elements of air and earth until you pitied me.
+> VIOLA. I'd make myself a willow cabin at your gate, like a forsaken lover, and call out to you, my soul, inside the house. I'd write faithful songs of scorned love and sing them loud even in the dead of night. I'd shout your name to the echoing hills and make the babbling gossip of the air cry out “Olivia!” Oh, you would find no rest anywhere between the elements of air and earth until you pitied me.
 
 **Why**
 
@@ -261,6 +265,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - Archaic word fixed: 'Hallow' = shout (Onions 1911, hallow 'to shout ... once trans. Tw.N. I.v.293'; Schmidt, Shakespeare-Lexicon lists this line under Holla vb. 2 'to cry loudly' and Hollo vb. 'to utter loudly' (O. Edd. hallow), not under Hallow 'to make holy', so no 'holy' pun is imported). Current 'Halloo' is a hunting cry most listeners will not parse. 'reverberate' = resounding (Onions 1911); 'babbling gossip' = tattler (Schmidt, Shakespeare-Lexicon, gossip subst. 3, citing 'the babbling g. of the air'); after 'echoing hills' the echo is clear, so no gloss is added.
 - False friend fixed: 'you should not rest ... But you should pity me', where 'should' = would. Current 'you should find no rest' is heard as 'ought to'. 'the elements of air and earth' kept (Schmidt, Shakespeare-Lexicon, element 2, citing this line).
 - Convention fixed: current quotes the cry in single curly quotes; Standard rule 8 requires curly double quotes.
+
+*Reviewer fix applied (CF-TN should-fix): "I'd make myself a willow cabin at your gate — willow, the tree of rejected lovers — and call out to you, my soul, inside the house." → "I'd make myself a willow cabin at your gate, like a forsaken lover, and call out to you, my soul, inside the house.". The gloss (willow = emblem of forsaken love: Furness; Onions) was a footnote-style aside in Viola's most famous speech; folded into her own plea. The TN blind reader made the same point.*
 
 ### 5.126 OLIVIA. (kept)
 
@@ -286,12 +292,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. Above my present fortunes, yet my standing is good: I am a gentleman.
+> VIOLA. My birth is above my present fortunes, yet my standing is good: I am a gentleman.
 
 **Why**
 
 - Opaque answer made clear: to 'What is your parentage?', 'Above my fortunes' = my birth is higher than my present lot (a servant's), and 'state' = rank, standing. Current 'Above my fortunes, yet my situation is good' leaves the first phrase opaque and blurs rank into circumstances; 'present' and 'standing' make the class point audible.
 - Olivia repeats this line word for word at 5.131 (outside the passage); the echo there must use whatever wording 5.127 adopts (see structure_notes).
+
+*Reviewer fix applied (CF-TN note): "Above my present fortunes" → "My birth is above my present fortunes". The fragment needed its subject; Olivia repeats the line at 5.131, so it must stand alone.*
 
 ### 5.128 OLIVIA.
 
@@ -331,13 +339,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. I am no paid messenger, lady; keep your purse. It is my master, not I, who goes unrewarded. May Love give the man you come to love a heart of flint, and may your passion, like my master's, be met with contempt. Farewell, fair cruelty.
+> VIOLA. I am no paid messenger, lady; keep your purse. It is my master, not I, who goes unrepaid. May Love give the man you come to love a heart of flint, and may your passion, like my master's, be met with contempt. Farewell, fair cruelty.
 
 **Why**
 
 - Unnatural syntax fixed: 'Love make his heart of flint that you shall love' = may Love harden to flint the heart of the man you will love. Current 'May Love make hard as flint the heart of whomever you fall in love with' inverts the clause, is hard to follow by ear, and drops the original's 'his' (a man).
 - Stiff phrase fixed: 'lacks recompense' = goes without requital or reward (Schmidt, Shakespeare-Lexicon, recompense subst. 2 'requital, reward', citing Tw. I,5,304). 'fee'd post' = paid messenger (Schmidt, Shakespeare-Lexicon, post subst. 2 'a messenger', citing Tw. I,5,303), kept from current.
 - 'Farewell, fair cruelty' kept: famous, and 'fair' in a formulaic address is heard as 'beautiful'.
+
+*Reviewer fix applied (CF-TN note): "goes unrewarded" → "goes unrepaid". Keeps Shakespeare's repeated 'recompense' link with 5.119 ('repaid').*
 
 #### Structure notes
 
@@ -436,12 +446,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. So you might as well say the king sleeps beside a beggar, if a beggar lives near him; or that the church stands by your tabor, if your tabor stands by the church.
+> VIOLA. So you might as well say the king lies by a beggar, if a beggar lives near him; or that the church stands by your tabor, if your tabor stands by the church.
 
 **Why**
 
 - Wordplay made audible: 'lies by' = lodges, sleeps beside (Schmidt, Shakespeare-Lexicon, lie vb., the lodging sense, citing 'the king --s by a beggar', Tw. III,1,8; Onions 1911, lie 4 'to dwell, sojourn, lodge, esp. to sleep or pass the night somewhere'). Current keeps 'lies by', which a listener now hears as 'tells lies', so Viola's absurd picture (the king in bed beside a beggar) is lost. 'stands by' keeps both senses in modern English (is next to / supports) and is unchanged.
 - Register: 'So thou mayst say' -> 'So you might as well say', so the listener hears Viola mocking Feste's logic with his own trick.
+
+*Reviewer fix applied (CF-TN should-fix): "the king sleeps beside a beggar" → "the king lies by a beggar". 'lies' = lodges, dwells (Schmidt lie vb. 7, citing this line; Malone in Furness), with the lie/lie quibble; 'sleeps beside' narrowed it to a bed image.*
 
 ### 11.6 CLOWN. (kept)
 
@@ -508,12 +520,14 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> CLOWN. Why, sir, her name is a word, and toying with that word might make my sister loose. But truly, words have been downright rascals ever since written bonds disgraced them.
+> CLOWN. Why, sir, her name is a word, and toying with that word might make my sister loose. But truly, words have been downright rascals since bonds disgraced them.
 
 **Why**
 
 - Pun carried through from 11.7: 'dally ... wanton' -> 'toying ... loose', so the listener hears Feste turn Viola's remark into a joke about his sister's chastity. Current 'dallying ... wanton' leaves both words archaic.
 - Jargon replaced: 'since bonds disgraced them' = since a man's word needs a signed bond before anyone trusts it (Schmidt, Shakespeare-Lexicon, bond, listing Tw. III,1,25 with the deed sense; Onions 1911, bond 4 'deed by which one binds oneself to another to make a payment or fulfil a contract'). Current 'promissory bonds' is legal jargon a listener will not parse; 'written bonds' makes the point and keeps the word, whose other sense (fetters, fit for rascals; Onions 1911, bond 1) still sounds.
+
+*Reviewer fix applied (CF-TN should-fix): "ever since written bonds disgraced them" → "since bonds disgraced them". A recorded crux: bonds = confinement and money bonds (Deighton), limits and contracts (Chambers) (Furness: 'dark passage'). Plain 'bonds' keeps both senses; 'since' may be temporal or causal.*
 
 ### 11.11 VIOLA. (kept)
 
@@ -538,11 +552,13 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> CLOWN. Truly, sir, I can give you none without words, and words have become so false that I am loath to reason with them.
+> CLOWN. Truly, sir, I can give you none without words, and words have become so false that I am loath to use them to prove a reason.
 
 **Why**
 
 - Unidiomatic phrase fixed: 'prove reason with them' = make a reasoned demonstration with them (Schmidt, Shakespeare-Lexicon, prove f 'to evince or establish as a truth, to demonstrate', citing Tw. III,1,29). Current 'argue reason with them' is not English idiom; 'reason with them' is natural and keeps the echo of Viola's 'reason'. The rest of current is kept.
+
+*Reviewer fix applied (CF-TN note): "that I am loath to reason with them." → "that I am loath to use them to prove a reason.". 'prove reason with them' = demonstrate a reason by words (Schmidt prove f); 'reason with them' is heard as persuading someone.*
 
 ### 11.13 VIOLA. (kept)
 
@@ -686,13 +702,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> VIOLA. Upon my word, I'll tell you — I'm almost sick with longing for one, though I wouldn't want it to grow on my chin. Is your lady in?
+> VIOLA. Upon my word, I'll tell you — I'm almost sick with longing for one, though I wouldn't want it to grow on my chin. Is your lady within?
 
 **Why**
 
 - Archaic oath rendered as an oath: 'By my troth' (troth = truth, faith: Onions 1911, troth 1-2) is left untranslated in current; 'Upon my word' keeps it an oath (Standard rule 8).
 - Double meaning made audible: 'sick for one' = pining for one (Schmidt, Shakespeare-Lexicon, sick, 'with for, == pining for ... s. for one (beard) Tw. III,1,53'), a beard, and secretly the bearded Orsino, which is why she would not have it grow on her own chin. Current 'sick for one' is not modern idiom and the lovesick sense is faint; 'sick with longing' carries it.
 - 'within' -> 'in' (at home).
+
+*Reviewer fix applied (CF-TN note): "Is your lady in?" → "Is your lady within?". Feste's delayed answer 'My lady is within, sir' (11.26) depends on the word; 'within' is still plain English.*
 
 ### 11.22 CLOWN.
 
@@ -863,7 +881,7 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> DUKE. No woman's ribs can bear the pounding of so strong a passion as love gives my heart; no woman's heart is big enough to hold so much; they cannot retain it. Alas, their love may be called appetite — not a stirring of the liver, the seat of passion, but of the palate, which overeats, grows sick of the taste, and revolts in disgust. But mine is every bit as hungry as the sea, and can digest as much. Make no comparison between the love a woman can bear me and the love I bear Olivia.
+> DUKE. No woman's ribs can bear the pounding of so strong a passion as love gives my heart; no woman's heart is big enough to hold so much; they cannot retain it. Alas, their love may be called appetite — not a stirring of the liver, the seat of passion, but of the palate — an appetite that is glutted, grows sick of the taste, and revolts in disgust. But mine is every bit as hungry as the sea, and can digest as much. Make no comparison between the love a woman can bear me and the love I bear Olivia.
 
 **Why**
 
@@ -873,6 +891,8 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 - Parallel restored: 'that I owe Olivia': to owe a person love = to bear love (Schmidt, Shakespeare-Lexicon, owe, 'with a dative and accusative ... == to bear love or hate', citing this line and Viola's reply). Current 'what I feel for Olivia' breaks Orsino's parallel (love a woman can bear me / love I bear Olivia), which Viola answers in 9.43. Modern 'owe' would add a sense of debt, so 'bear' is used.
 - 'they lack retention' = they cannot hold on to it (Schmidt, Shakespeare-Lexicon, retention 1 'the power ... of preserving', Onions 1911 'capacity for holding', both citing this line). Current 'They lack capacity' is defensible but repeats the size point just made; 'cannot retain it' adds the keeping that Orsino's claim needs. 'sides' = the body's sides that hold the heart (Schmidt, Shakespeare-Lexicon, side 1); 'bide' = endure (Schmidt, Shakespeare-Lexicon, bide 2a, citing Tw. II,4,97). Current 'body' is acceptable; 'ribs' keeps the pounding image. Minor.
 - Small omission fixed: 'mine is all as hungry as the sea' — current drops the intensifier 'all'; 'every bit as hungry' restores it.
+
+*Reviewer fix applied (CF-TN should-fix): "but of the palate, which overeats, grows sick of the taste, and revolts in disgust." → "but of the palate — an appetite that is glutted, grows sick of the taste, and revolts in disgust.". Crux 'That suffer surfeit': taken as appetite, after Deighton and Furness (Malone and Innes refer the plural 'suffer' to women). The draft made 'palate' the subject, a reading no Variorum commentator gives; 'overeats' also made 'suffer surfeit' active.*
 
 ### 9.41 VIOLA. (kept)
 
@@ -1000,13 +1020,15 @@ Three passages, one for each calibration category. Each paragraph shows the **or
 
 **Proposed**
 
-> DUKE. Yes, that's the business at hand. Go to her quickly. Give her this jewel, and say my love can give no ground and will take no denial.
+> DUKE. Yes, that's the business at hand. Go to her quickly. Give her this jewel, and say my love can give no ground and can bear no denial.
 
 **Why**
 
 - Ambiguous by ear, fixed: 'theme' = business, matter in hand (Onions 1911, theme 2). Current 'that's the matter' is heard as 'what's the matter' (a problem).
 - Archaic ellipsis fixed: current keeps 'To her in haste.'
 - 'bide no denay' = cannot endure a denial (Onions 1911, denay sb. 'denial', citing this line). Current 'will tolerate no denial' is accurate but flat; 'will take no denial' is the natural idiom and echoes Orsino's refusal to 'be so answer'd'.
+
+*Reviewer fix applied (CF-TN note): "will take no denial" → "can bear no denial". 'can' governs both verbs: inability, not refusal (Schmidt bide 2a).*
 
 #### Structure notes
 

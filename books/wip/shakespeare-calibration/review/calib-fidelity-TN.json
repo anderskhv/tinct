@@ -1,0 +1,229 @@
+{
+ "reviewer": "CF-TN",
+ "passages": [
+  {
+   "passage": "TN-A",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "5.114",
+     "category": "reasons",
+     "severity": "note",
+     "original": "Look you, sir, such a one I was this present.",
+     "proposed_text": "Look, sir: a portrait of me as I was just this moment.",
+     "issue": "The rendering is sound. It matches Knight ('such I was this moment'), Deighton ('what I was just now, though hidden by my veil') and Furness ('Such a one I was an instant ago') in the 1901 Variorum, and 'a portrait of me' carries on the picture conceit that M. Mason says runs through the exchange. But the reason's claim that Olivia labels her face 'like a dated portrait inscription' is not in the sources it cites: Schmidt present subst. 2 gives only '== this moment', and Onions present sb. 2 'adv. (?) = just now'. None of the Variorum notes on the line (Warburton to Deighton) mentions an inscription.",
+     "fix": "No text change. In the reasons, replace the inscription claim with the picture conceit (M. Mason in Furness 1901, note on I.v.231), or mark it as interpretation."
+    },
+    {
+     "id": "5.117",
+     "category": "omission",
+     "severity": "note",
+     "original": "If you will lead these graces to the grave,",
+     "proposed_text": "if you lead these graces to the grave",
+     "issue": "'Will' is volitional: if you insist on, or choose to, take these graces to the grave. Viola's charge of cruelty rests on that choice. The reason rightly says current 'would' makes the warning a remote hypothesis, but plain 'if you lead' drops the will as well.",
+     "fix": "Lady, you are the cruellest woman alive if you choose to lead these graces to the grave and leave the world no copy, no child to carry them on."
+    },
+    {
+     "id": "5.119",
+     "category": "voice",
+     "severity": "note",
+     "original": "I see you what you are, you are too proud;",
+     "proposed_text": "I see you for what you are: you are too proud.",
+     "issue": "The 'you' in 'I see you what you are' is the proleptic object of the construction, not extra content. Furness, at this line, compares 'Conceal me what I am' (I.ii) and cites Abbott §414. Current 'I see what you are' lost nothing, contrary to the reason ('current drops you'). The modern idiom 'I see you for what you are' adds an 'I see through you' sneer to what is Viola's frank verdict. Acceptable, but current was more exact.",
+     "fix": "I see what you are: you are too proud."
+    },
+    {
+     "id": "5.119",
+     "category": "voice",
+     "severity": "note",
+     "original": "But, if you were the devil, you are fair.",
+     "proposed_text": "But even if you were the devil, you are beautiful.",
+     "issue": "Acceptable. But 'fair' set against 'the devil' (proverbially black; pride, just named, is Lucifer's sin) carries a light/dark contrast that 'beautiful' drops. In a speech on Olivia's red and white, predicative 'fair' is still heard as 'beautiful', so the false-friend defect the reason claims is weak. The change is optional.",
+     "fix": "Optional: keep 'But even if you were the devil, you are fair.'"
+    },
+    {
+     "id": "5.125",
+     "category": "voice",
+     "severity": "should-fix",
+     "original": "Make me a willow cabin at your gate, / And call upon my soul within the house;",
+     "proposed_text": "I'd make myself a willow cabin at your gate — willow, the tree of rejected lovers — and call out to you, my soul, inside the house.",
+     "issue": "The gloss is accurate (Furness: 'the willow as an emblem of forsaken or of rejected love'; Onions willow 'emblem of disappointed love'). But its form, repeating 'willow' between dashes to define it, is a footnote-style aside, which the Standard's Target section bars. It breaks into the play's most famous speech in a narrator's voice Viola would not use. Fold the point into her own sentence so the emblem is heard as part of her plea. The rest of the unit ('I'd make myself', 'call out to you, my soul') is right.",
+     "fix": "I'd make myself a willow cabin at your gate, like a forsaken lover, and call out to you, my soul, inside the house."
+    },
+    {
+     "id": "5.127",
+     "category": "reasons",
+     "severity": "note",
+     "original": "Above my fortunes, yet my state is well: / I am a gentleman.",
+     "proposed_text": "Above my present fortunes, yet my standing is good: I am a gentleman.",
+     "issue": "The reason says the opaque answer is now clear. 'Present' and 'standing' help, but the first phrase is still a fragment: the listener must supply 'My parentage is' from Olivia's question. Olivia repeats the line verbatim at 5.131, so it has to stand alone.",
+     "fix": "My birth is above my present fortunes, yet my standing is good: I am a gentleman. (Reuse verbatim, in curly double quotes, at 5.131.)"
+    },
+    {
+     "id": "5.129",
+     "category": "omission",
+     "severity": "note",
+     "original": "My master, not myself, lacks recompense.",
+     "proposed_text": "It is my master, not I, who goes unrewarded.",
+     "issue": "Shakespeare repeats the word: 'such love / Could be but recompens'd' (5.119) and 'lacks recompense' (5.129). Refusing Olivia's purse, Viola turns the payment back into her earlier claim that Orsino's love is owed a return. The proposal renders these as 'repay' and 'unrewarded', so the link is weaker. Minor.",
+     "fix": "It is my master, not I, who goes unrepaid."
+    },
+    {
+     "id": "5.114, 5.118",
+     "category": "units",
+     "severity": "note",
+     "original": "(prose paragraphs 5.114 and 5.118)",
+     "proposed_text": "every unit mapped to lines 1–1",
+     "issue": "The quoted original text of the units tiles each paragraph exactly, with no gaps or overlaps, so the pairing is sound (all verse units in TN-A also have correct line ranges). But this packet shows 5.114 and 5.118 in Gutenberg lineation (4 and 5 lines), while the units follow the drafter's packet, where each prose run was one line. For example, 'Look you, sir, such a one I was this present.' is line 3 of 5.114. The line numbers are therefore not usable against Gutenberg lineation.",
+     "fix": "Recompute o_lines for prose paragraphs against Gutenberg lineation, or record that prose runs are numbered as single lines."
+    }
+   ],
+   "current_defects_confirmed": [
+    "5.114: 'just like this I was at this present time' keeps the inverted order and is hard to follow by ear. The case rests on the picture conceit (M. Mason in Furness), not on a portrait inscription.",
+    "5.114: 'You are now off your text' is unidiomatic (mild).",
+    "5.115: 'if God did all of it' leaves the cosmetics insinuation inaudible to a modern listener (Furness: 'painting and other artificial aids to beauty').",
+    "5.116: 'fast-dyed' does not convey 'natural, won't wash off' (Schmidt grain: 'in g. == innate, natural, not factitious'; Marsh in Furness, with Comedy of Errors III.ii 'a fault that water will mend' / ''tis in grain').",
+    "5.117: 'cunning' is a false friend (Schmidt cunning adj. 1 'knowing, well instructed', citing this line).",
+    "5.117: 'no copy' is unglossed (the procreation sense; Steevens and Malone in Furness cite Sonnets 3, 9 and 13), and 'if you would lead' weakens 'will' (the proposal's 'if you lead' still does; see finding 5.117).",
+    "5.118: 'labelled by my will' is a mis-gloss (Schmidt 'Labelled, appended and annexed on a slip of paper', citing this line; Onions label vb. 'to add as a label or codicil'; Rushton in Furness).",
+    "5.118: 'feature' flattens 'utensil' (Schmidt 'a household implement').",
+    "5.118: the appraise sense of 'praise' is dropped (Schmidt praise 4; Onions praise vb.; Furness: both senses are defensible, so keeping both is right).",
+    "5.119: 'such love could only be repaid even if you were crowned...' is misreading-prone.",
+    "5.122: 'free-spirited' mis-glosses 'free' (Schmidt free 11; Onions free adj. 1, both citing this line).",
+    "5.122: 'might have had his answer' loses take = accept; 'of great estate' is heard as landed property; 'graceful' weakens 'gracious' (Schmidt gracious 5 'lovely, attractive, beautiful').",
+    "5.123: 'a dying life' is unidiomatic, and 'passion' drops the 'flame' image.",
+    "5.125: 'Make me...' is heard as an order to Olivia, and the willow emblem is unglossed (Furness).",
+    "5.125: 'Halloo' is archaic (Schmidt Holla vb. 2 and Hollo vb. 1; Onions hallow 'to shout'; no 'make holy' sense recorded for this line).",
+    "5.125: 'you should find no rest' is heard as 'ought to'.",
+    "5.125: the single curly quotes around 'Olivia!' break rule 8.",
+    "5.127/5.131: 'situation' blurs rank, and current 5.131 quotes the untranslated original, so the verbatim echo is already broken.",
+    "5.128: 'Spend this for me' can be heard as an errand (mild).",
+    "5.129: 'make hard as flint the heart of whomever you fall in love with' is inverted and drops 'his'.",
+    "All TN-A paragraphs: curly apostrophes where rule 8 requires straight ones."
+   ],
+   "current_defects_disputed": [
+    "5.119: predicative 'fair' is not a real false friend here. Next to 'devil', in a speech on Olivia's colouring, it is heard as 'beautiful', so 'beautiful' is optional.",
+    "5.119 (reasons): 'current drops you' is not a defect. The 'you' of 'I see you what you are' is proleptic (Furness: compare 'Conceal me what I am'; Abbott §414), so current 'I see what you are' is complete.",
+    "5.123: 'I would not accept it' did not invent defiance. 'Would not' can be volitional (I would refuse to understand it), so current over-resolved an open line rather than reversing it. Restoring 'understand' is still the better choice."
+   ]
+  },
+  {
+   "passage": "TN-B",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "11.5",
+     "category": "pun",
+     "severity": "should-fix",
+     "original": "So thou mayst say the king lies by a beggar, if a beggar dwell near him;",
+     "proposed_text": "So you might as well say the king sleeps beside a beggar, if a beggar lives near him;",
+     "issue": "'Lies' here means lodges or dwells. Schmidt files this very line under lie vb. 7 'to reside, to lodge, to dwell', and Malone (Furness 1901) glosses 'dwells, sojourns'. Onions lie 4 ('esp. to sleep') does not cite it. Viola is parodying Feste's 'live by': the king described by his beggar neighbour, as the church by the tabor. 'Sleeps beside' replaces that with a bed image the text does not state. It also drops the lie/lie quibble: Furness defends the Folio 'lyes' against White's 'lives' by citing Othello III.iv, where the joke turns on 'lies' as both lodge and deceive. Modern 'lies by' still carries 'lies down beside, is situated by', with 'tells lies' as a live overtone. The 'mishearing' the reason objects to is part of the joke, and current was the better rendering here. Keep the drafter's other changes ('might as well say', 'lives near him').",
+     "fix": "So you might as well say the king lies by a beggar, if a beggar lives near him; or that the church stands by your tabor, if your tabor stands by the church."
+    },
+    {
+     "id": "11.10",
+     "category": "pun",
+     "severity": "should-fix",
+     "original": "But indeed, words are very rascals, since bonds disgraced them.",
+     "proposed_text": "But truly, words have been downright rascals ever since written bonds disgraced them.",
+     "issue": "Furness calls this a 'dark passage'. He records Deighton's quibble on bonds as (1) confinement, rascals put in bonds, and (2) money bonds, and Chambers's 'limits' and 'contracts to pay'. Hudson and Verity add a possible allusion to the Privy Council's restraints on players (1600–01). 'Written' settles the contract sense and silences the fetters sense, so the reason's claim that the other sense 'still sounds' does not hold. 'Ever since' also settles 'since' as temporal where it can be causal. The crux is not recorded (Standard rule 7). Plain 'bonds' keeps both senses for a modern listener: chains, fit for rascals, and the proverbial 'my word is my bond'. The 'toying ... loose' change in the same speech is good.",
+     "fix": "Why, sir, her name is a word, and toying with that word might make my sister loose. But truly, words have been downright rascals since bonds disgraced them."
+    },
+    {
+     "id": "11.12",
+     "category": "mis-gloss",
+     "severity": "note",
+     "original": "I am loath to prove reason with them.",
+     "proposed_text": "that I am loath to reason with them.",
+     "issue": "'Prove reason with them' means to demonstrate a reason by means of words (Schmidt prove f, 'to evince or establish as a truth, to demonstrate', citing this line). Modern 'reason with them' is the idiom for trying to persuade someone, so a listener may hear 'argue with words' rather than 'use words to prove my reasons'. Better than current 'argue reason', but 'prove' and the instrumental 'with' are lost.",
+     "fix": "Truly, sir, I can give you none without words, and words have become so false that I am loath to use them to prove a reason."
+    },
+    {
+     "id": "11.18",
+     "category": "reasons",
+     "severity": "note",
+     "original": "I think I saw your wisdom there.",
+     "proposed_text": "I think I saw your wise self there.",
+     "issue": "The text is good. But the citation is off: Schmidt files this line under wisdom 2 ('the quality of being wise, often opposed to folly') and does not call it ironic. The mock-title reading is Furness's ('A sarcastic perversion of \"your worship\"', note on III.i.42), which supports the change.",
+     "fix": "No text change. Cite Furness 1901 (III.i.42) instead of Schmidt wisdom 2 for the ironic title."
+    },
+    {
+     "id": "11.21",
+     "category": "omission",
+     "severity": "note",
+     "original": "Is thy lady within?",
+     "proposed_text": "Is your lady in?",
+     "issue": "'Within' is still plain English, and current keeps it. Feste answers only after he has begged a second coin: 'My lady is within, sir' (11.26, current and original). Changing the question to 'in' loosens that delayed answer, which is part of the joke. The rest of the proposal is good: 'Upon my word' renders the oath, and 'sick with longing' carries the lovesick double meaning (Schmidt sick 'with for == pining for', citing this line).",
+     "fix": "Is your lady within?"
+    },
+    {
+     "id": "11.5–11.23",
+     "category": "units",
+     "severity": "note",
+     "original": "(all TN-B prose speeches)",
+     "proposed_text": "every unit mapped to lines 1–1",
+     "issue": "As in TN-A: the quoted original text tiles each paragraph exactly, but the line numbers follow the drafter's one-line-per-prose-run convention. This packet shows most of these speeches as two or three Gutenberg lines; for example, 11.19 'Hold, there's expenses for thee.' spans lines 1–2.",
+     "fix": "Recompute o_lines against Gutenberg lineation, or record the convention."
+    }
+   ],
+   "current_defects_confirmed": [
+    "11.7/11.10: 'dally ... wanton' is left archaic, and the double sense of 'wanton' (Furness: 'give them a double meaning'; Schmidt wanton 4 'lustful, lascivious', listing both lines) is faint by ear, so Feste's turn onto his sister is weak. The 'toy ... loose' chain fixes this.",
+    "11.10: 'promissory bonds' is jargon. The proposal's 'written bonds' repeats its narrowing of the quibble; see finding 11.10.",
+    "11.12: 'argue reason with them' is not idiomatic.",
+    "11.16: subjunctive 'till she be married' (minor).",
+    "11.18: 'your wisdom' is not heard as a mock title (Furness: 'a sarcastic perversion of \"your worship\"'), and 'Folly' for 'Foolery' is a minor shift.",
+    "11.21: 'By my troth' is left untranslated (Onions troth 2, used exclamatorily), and 'sick for one' is not modern idiom (Schmidt sick, citing this line).",
+    "11.22: 'a pair of these' depends on an unseen stage picture (mild; Furness: 'Had you given me a pair would they not have bred?').",
+    "11.23: 'put to use' is heard only as 'used' (Onions use sb. 4, 'phr. put to use', citing this line; Furness: 'Use is here interest').",
+    "All TN-B paragraphs: curly apostrophes where rule 8 requires straight ones."
+   ],
+   "current_defects_disputed": [
+    "11.5: 'lies by' is not a defect and is better than the proposal (see finding 11.5). Schmidt lie vb. 7 'to reside, to lodge, to dwell' cites this line; Furness defends 'lyes' through the lodge/deceive quibble of Othello III.iv.",
+    "11.19: 'if you start mocking me' is not a flattening. W. A. Wright (in Furness) notes that 'pass upon' also meant 'to impose on, play the fool with', which 'mocking' renders. The fencing image of 'take jabs' is an acceptable option, not a correction."
+   ]
+  },
+  {
+   "passage": "TN-C",
+   "verdict": "accept-with-fixes",
+   "better_than_current": true,
+   "findings": [
+    {
+     "id": "9.40",
+     "category": "ambiguity",
+     "severity": "should-fix",
+     "original": "Alas, their love may be called appetite, / No motion of the liver, but the palate, / That suffer surfeit, cloyment, and revolt;",
+     "proposed_text": "Alas, their love may be called appetite — not a stirring of the liver, the seat of passion, but of the palate, which overeats, grows sick of the taste, and revolts in disgust.",
+     "issue": "'That suffer' is a crux, and the base text, like F1, has the plural verb. Malone refers it to women ('their'), as does Innes, who says it refers back to 'their', 'not to palate'. Deighton treats the liver–palate line as parenthetical, refers 'That' to appetite and reads 'suffers', as Rowe emended. Furness judges the terms 'more applicable to \"appetite\" than to women'. The proposal makes the singular 'palate' the subject, a reading none of these commentators proposes and Innes rejects, and records no choice, which Standard rule 7 requires. 'Overeats' also turns 'suffer surfeit' (undergo excess and its sickness; Schmidt surfeit 'excess ... and sickness and satiety caused by it') into an act. The rest of the speech is good ('revolts in disgust', 'the seat of passion', 'the love I bear Olivia', 'every bit as hungry').",
+     "fix": "Alas, their love may be called appetite — not a stirring of the liver, the seat of passion, but of the palate — an appetite that is glutted, grows sick of the taste, and revolts in disgust. (Record: 'That' taken as appetite, after Deighton and Furness; Malone refers the plural 'suffer' to women.)"
+    },
+    {
+     "id": "9.48",
+     "category": "mis-gloss",
+     "severity": "note",
+     "original": "My love can give no place, bide no denay.",
+     "proposed_text": "my love can give no ground and will take no denial.",
+     "issue": "'Can' governs both verbs: my love cannot yield and cannot endure a denial (Schmidt bide 2a 'to endure, to bear'; Onions denay 'denial', citing this line). 'Will take no denial' turns inability into refusal, as current 'will tolerate' did. Minor. Neither text keeps the frame of Orsino's 'Let all the rest give place' (9.34) against 'My love can give no place'. That echo is optional.",
+     "fix": "Give her this jewel, and say my love can give no ground and can bear no denial."
+    }
+   ],
+   "current_defects_confirmed": [
+    "9.36: 'common land' mis-glosses 'dirty lands' (Schmidt dirty 'nasty, filthy'; W. A. Wright in Furness: 'spacious in the possession of dirt').",
+    "9.36: 'fickly' is not modern English (Schmidt giddily 2 'carelessly, heedlessly'; Furness 'carelessly, indifferently'), and 'parts' is heard as body parts (Schmidt part: gifts, endowments).",
+    "9.36: 'that miracle and queen of jewels which nature decks her in' is left unexplained (Johnson in Furness: 'The miracle and queen of gems is her beauty'), and 'sovereign cruelty' stays an abstraction by ear (Schmidt sovereign 2 'supreme').",
+    "9.39: 'be given her answer' turns accept into receive and breaks the echo of 9.38 (Collier in Furness: 'you must be content with the answer').",
+    "9.40: noun 'revolt' (Onions revolt sb. 3 'revulsion of appetite', citing this line); 'suffers gluttony' is unidiomatic; 'liver' is unglossed (Onions: 'supposed seat of love and violent passion'); 'what I feel for Olivia' breaks the bear/owe parallel (Schmidt owe: 'to bear love', citing both lines); 'all' is dropped.",
+    "9.43: the inverted 'as it might be perhaps, were I a woman, I should love your lordship' is hard to follow by ear ('should' sounds like obligation).",
+    "9.45: 'our shows are more than our will' is untranslated (Schmidt will 2a 'disposition, inclination', citing this line); 'pined in her thoughts' sounds like daydreaming (Furness prefers Deighton's 'brooding over her love', which supports 'silent longing'); 'Was not this' is archaic; 'Patience on a monument' is ambiguous by ear (Onions monument 3 'statue, effigy').",
+    "9.47: 'I know not' is archaic (minor).",
+    "9.48: 'that's the matter' can be heard as 'what's the matter' (Onions theme 2 'business, matter').",
+    "9.36 structure: no 'DUKE.' prefix after the 9.35 stage direction, so a listener gets no cue that Orsino is still speaking. This is edition-level, as the drafter notes.",
+    "All TN-C paragraphs: curly apostrophes where rule 8 requires straight ones."
+   ],
+   "current_defects_disputed": [
+    "9.48: 'To her in haste' is an elliptical imperative still intelligible in modern English. Changing it is optional, not a defect fix."
+   ]
+  }
+ ]
+}
