@@ -55,7 +55,12 @@ The Greek readings are given as the reviewers reported them, with Stephanus refe
 | 8.43 | "he will be out of order in praising me again" | "he will surely praise me again" | Recheck 2 #15 |
 | 8.45 | "invented a specious reason" (rendered "made up a plausible excuse") | "found" | Recheck 2 #16 |
 
-Reviewers 1C (#28) and 1D (#20) also listed smaller Greek-derived wordings that changed little or no meaning, Recheck 1 (#8, #14, #16) found a few more in 4.1, 5.7 and 6.6, and Recheck 3 (#3, #4, #7) in 4.2, 7.45 and 8.30. All were reverted to Jowett's wording, with one exception kept on purpose: "what loves" (7.49) for Jowett's "the principle of love", which states the love/beloved distinction in his own sense. "He will no longer be" (7.63) was kept at first but reverted to Jowett's "will not be" after Recheck 2 (#4). See `reviews/RESOLUTION.md`.
+Reviewers 1C (#28) and 1D (#20) also listed smaller Greek-derived wordings that changed little or no meaning, Recheck 1 (#8, #14, #16) found a few more in 4.1, 5.7 and 6.6, and Recheck 3 (#3, #4, #7) in 4.2, 7.45 and 8.30. All were reverted to Jowett's wording, with two exceptions kept on purpose, neither of which changes an argument:
+
+- **7.49, "what loves"** for Jowett's "the principle of love". It states the love/beloved distinction in his own sense.
+- **7.54, the image of giving birth.** Jowett's inner phrases speak of conception: "the conceiving power … not without a pang refrains from conception" and "when the hour of conception arrives, and the teeming nature is full". v1 renders them as a pregnant creature that "holds back from giving birth" and "the time for birth", when it is "full to bursting", which is the Greek's image as the reviewer reports it. This keeps the passage consistent with Jowett's own frame: "the goddess of parturition who presides at birth", "the pain of travail", and 7.53's "bringing to the birth". Recorded after Recheck 4 (#1); the text is not changed.
+
+"He will no longer be" (7.63) was kept at first but reverted to Jowett's "will not be" after Recheck 2 (#4). See `reviews/RESOLUTION.md`.
 
 Review 1B (note 1) accepted seven more phrasings as faithful clarifications of Jowett's own meaning. One of them, 6.6 "partly playful and partly, in a modest way, serious", was later reverted to Jowett's "half playful, yet with a certain measure of seriousness" (Recheck 1 #16). The other six stay. None changes his meaning, so none is a source variant:
 

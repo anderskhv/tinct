@@ -124,19 +124,30 @@ Some sentences were fragments: 7.0 ended with "But to answer as you would if I a
 
 ## Decisions
 
-| Decision | Paragraphs | What it means |
-|---|---|---|
-| RETAIN | 75 | Already clear and faithful, or protected. See the list below |
-| TARGETED | 78 | Local repairs to otherwise acceptable paragraphs: all of chapters 1 and 3, and the short exchanges and the questioning of Agathon |
-| RENDER | 73 | A fresh sentence-by-sentence rendering from Jowett: the bulk of chapters 2 and 4–6, Diotima's teaching (7.45–7.68) and Alcibiades's speech (8.0–8.6, 8.23–8.39) |
+| Decision | Assessed before rendering | Final, after all reviews | What it means |
+|---|---|---|---|
+| RETAIN | 75 | 63 | Already clear and faithful, or protected. See the list below |
+| TARGETED | 78 | 90 | Local repairs to otherwise acceptable paragraphs: all of chapters 1 and 3, and the short exchanges and the questioning of Agathon |
+| RENDER | 73 | 73 | A fresh sentence-by-sentence rendering from Jowett: the bulk of chapters 2 and 4–6, Diotima's teaching (7.45–7.68) and Alcibiades's speech (8.0–8.6, 8.23–8.39) |
 
-The retained paragraphs are:
+**Changed after review.** 12 paragraphs first retained were changed in response to the reviews. Each is a small targeted repair (`CHANGES.md` gives the reason for each):
+
+- 1.15, 1.16, 1.18, 1.21, 1.45, 8.10 and 8.11: the quotation marks of the verse lines and the lines around them, so that the speaker visibly keeps talking (STYLE §3.4). 1.15 also names its speaker, and 8.10 introduces the quotation ("In Homer's words"). The verse wording is unchanged;
+- 1.9: a usage error;
+- 3.0: two capitals (STYLE §4);
+- 3.2: a false friend, and Jowett's connective restored;
+- 6.12: the colon-and-dash;
+- 7.8: a capital after a colon.
+
+The 63 retained paragraphs are:
 
 - **1.0–1.8:** the restored opening, accepted in C-02.
-- **Verse:** the eleven verse lines 1.16, 1.18, 1.21, 1.23, 1.45, 2.1, 2.3, 6.1, 6.5, 8.11 and 8.34.
-- **Short answers:** 29 short answers and one-line exchanges, such as "'Yes.'", "He assented." and "'For shame,' said Socrates."
-- **Already modern:** 24 paragraphs that were already modern and clear, including 1.9–1.11, 3.0, 3.2, 3.4, 3.9 and 8.46. Among them, 1.29 keeps "boy" as an address to a slave.
-- **After verse:** 1.15 and 8.12, which continue a speech after a verse line.
+- **Verse:** 1.23, 2.1, 2.3, 6.1, 6.5 and 8.34. The other five verse lines (1.16, 1.18, 1.21, 1.45 and 8.11) keep their wording exactly; only their quotation marks changed.
+- **Short answers:** short answers and one-line exchanges, such as "'Yes.'", "He assented." and "'For shame,' said Socrates."
+- **Already modern:** paragraphs that were already modern and clear, including 1.10–1.11, 3.4, 3.9 and 8.46. Among them, 1.29 keeps "boy" as an address to a slave.
+- **After verse:** 8.12, which continues a speech after a verse line.
+
+`assessment/paragraph-assessment.tsv` gives the decision and the reason for every paragraph.
 
 Paragraphs the metric rated as near-verbatim were **not** rewritten merely because of that. The short answers in 7.1–7.43, for example, are identical to Jowett and stay so.
 
