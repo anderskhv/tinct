@@ -1,3 +1,4 @@
+import {preserveUnresolvedSymposiumPositions,SYMPOSIUM_POSITION_RECOVERY_KEY} from '../lab/labPositionStore'
 import {readFileSync} from 'node:fs'
 import {describe,it,expect} from 'vitest'
 import mapData from './symposiumCoordinateMap.json'
@@ -13,6 +14,19 @@ import {usesRetainedBella} from '../narration/bellaRetention'
 const map=mapData as unknown as CoordinateMigration
 const current=(ed:string)=>JSON.parse(readFileSync(new URL('../../public/data/editions/symposium-'+ed+'.json',import.meta.url),'utf8'))
 describe('Symposium completeness compatibility',()=>{
+ it('retains edition-unknown Lab bookmarks before validation without guessing Danish',()=>{
+  localStorage.removeItem(SYMPOSIUM_POSITION_RECOVERY_KEY)
+  const place={bookId:'symposium',chapterNumber:7,sequentialChapter:7,paragraphIndex:100,wordIndex:8,updatedAt:1700000000000}
+  const raw={owner:null,books:{symposium:place},recentChapters:{'symposium:7':place}}
+  preserveUnresolvedSymposiumPositions(raw)
+  expect(JSON.parse(localStorage.getItem(SYMPOSIUM_POSITION_RECOVERY_KEY)!)).toEqual([{owner:null,status:'unresolved',place}])
+  preserveUnresolvedSymposiumPositions(raw)
+  expect(JSON.parse(localStorage.getItem(SYMPOSIUM_POSITION_RECOVERY_KEY)!)).toHaveLength(1)
+  preserveUnresolvedSymposiumPositions({books:{symposium:{...place,primaryEditionKey:'modern-da'}}})
+  expect(JSON.parse(localStorage.getItem(SYMPOSIUM_POSITION_RECOVERY_KEY)!)).toHaveLength(1)
+  localStorage.removeItem(SYMPOSIUM_POSITION_RECOVERY_KEY)
+ })
+
  it('migrates unstamped English records arriving later from an old offline client',()=>{
   expect(writtenBeforeRelease('symposium','original-en',undefined,Date.parse('2027-01-01'))).toBe(true)
   expect(writtenBeforeRelease('symposium','modern-da',undefined,Date.parse('2027-01-01'))).toBe(false)
