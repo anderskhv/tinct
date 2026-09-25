@@ -314,14 +314,16 @@ function buildBookIndexPage(book, edition) {
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
-  const readerHref = `/read/${book.id}?chapter=1&edition=${editionKey}`
+  const readerHref = ['faust-part-1', 'jerusalem'].includes(book.id)
+    ? `/read/${book.id}?chapter=1&edition=${editionKey}`
+    : `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
   const description = seoBookDescription(book)
   const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}?edition=${editionKey}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}${book.id === "faust-part-1" ? "?edition=original-de" : ""}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
   const body = `<nav class="top">
   <a href="/" class="logo">Tinct<span>.</span></a>
@@ -375,7 +377,6 @@ ${chapterLinks}
 }
 
 function buildGeneratedChapterPage(book, edition, chapter, index) {
-  const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
   const number = index + 1
   const paragraphs = paragraphExcerpt(chapter.paragraphs || [], SEO_EXCERPT_WORDS)
   const chapterTitle = chapter.title || `Chapter ${number}`
@@ -385,8 +386,8 @@ function buildGeneratedChapterPage(book, edition, chapter, index) {
   <p class="kicker">Chapter ${number}</p>
   <h1>${escapeHtml(chapterTitle)}</h1>
   <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
-  <a class="cta" href="/read/${book.id}?chapter=${number}&edition=${editionKey}">Open this chapter in Tinct</a>
-  <article lang="${editionKey.endsWith("-de") ? "de" : "en"}">
+  <a class="cta" href="/read/${book.id}?chapter=${number}">Open this chapter in Tinct</a>
+  <article>
   ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
   </article>
   <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>

@@ -522,3 +522,10 @@ describe('temporary edition direct links', () => {
     }
   })
 })
+
+it('never labels a retained English static excerpt as Faust original German', async () => {
+  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/read/faust-part-1/chapter-1?edition=original-de'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+  expect(response.status).toBe(302)
+  expect(response.headers.get('Location')).toContain('edition=original-de')
+  expect(response.headers.get('Location')).toContain('/library?')
+})

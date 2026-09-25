@@ -339,6 +339,16 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,noarchive"><title>Temporarily unavailable · Tinct</title></head><body><main style="max-width:680px;margin:8vh auto;padding:24px;line-height:1.6"><h1>' + htmlEscape(title) + '</h1><h2>Temporarily unavailable</h2><p>' + htmlEscape(reason) + '</p><p>' + htmlEscape(TEMPORARY_HOLD_NOTICE) + '</p><p><a href="' + htmlEscape(recovery.pathname + recovery.search) + '">Open recovery and saved annotations</a></p><p><a href="/library">Return to the library</a></p></main></body></html>'
     return new Response(request.method === 'HEAD' ? null : html, { status: 200, headers: { ...SECURITY_HEADERS, 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, noarchive' } })
   }
+  // These pre-existing English SEO excerpts cannot represent the retained German edition.
+  // Preserve the explicit German choice and route it to the current reader entry.
+  if ((request.method === 'GET' || request.method === 'HEAD') && holdBook === 'faust-part-1'
+      && holdKey === 'original-de' && /^\/read\/faust-part-1\/.+/.test(url.pathname)) {
+    const target = new URL('/library', url.origin)
+    target.searchParams.set('book', holdBook)
+    target.searchParams.set('edition', holdKey)
+    target.searchParams.set('view', 'book-detail')
+    return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
+  }
     // Static JSON content (editions, onboarding, threads) — serve via the
     // Cloudflare Cache API so repeat hits don't re-execute the worker.
     //
