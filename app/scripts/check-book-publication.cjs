@@ -57,7 +57,9 @@ async function toggleCompare(page,phone){
 }
 async function main(){
  if(live){
-  const files=[...['original-en','modern-en'].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json','read/'+book+'/book.html']
+  const files=[...['original-en','modern-en'].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json']
+  for(const asset of ['covers/v2/'+book+'.webp','brand/20260921/books/'+book+'.jpg'])if(fs.existsSync('public/'+asset))files.push(asset)
+  if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
   for(const ed of ['original-en','modern-en']){
    const dir='data/editions-chapters/'+book+'-'+ed
    files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
@@ -69,6 +71,24 @@ async function main(){
    assert.equal(hash(bytes),hash(expected),file)
    results.assets.push({path:'/'+file,sha256:hash(bytes),bytes:bytes.length})
   }
+
+  // Public book pages are branded by the Worker. Verify the exact served
+  // bytes against that real route, not the untransformed source HTML.
+  const compiled=require('esbuild').buildSync({entryPoints:['src/worker/routes/seo.ts'],bundle:true,platform:'node',format:'cjs',write:false}).outputFiles[0].text
+  const workerModule={exports:{}}
+  new Function('module','exports','require',compiled)(workerModule,workerModule.exports,require)
+  const rawPage=fs.readFileSync('public/read/'+book+'/book.html')
+  const canonical=origin+'/read/'+book
+  const expectedPage=await workerModule.exports.handleSeoAndStaticRequest(new Request(canonical),{ASSETS:{fetch:async req=>{
+   assert.equal(new URL(req.url).pathname,'/read/'+book+'/book')
+   return new Response(rawPage,{headers:{'Content-Type':'text/html; charset=utf-8'}})
+  }}},{waitUntil:()=>{}})
+  const expectedBytes=Buffer.from(await expectedPage.arrayBuffer()),pageResponse=await fetch(canonical)
+  assert.equal(pageResponse.status,200)
+  const livePage=Buffer.from(await pageResponse.arrayBuffer())
+  assert.equal(hash(livePage),hash(expectedBytes),'Canonical book page must match the Worker-branded accepted source')
+  results.assets.push({path:'/read/'+book,sourceSha256:hash(rawPage),sha256:hash(livePage),bytes:livePage.length,transformation:'handleSeoAndStaticRequest'})
+
   const info=await(await fetch(origin+'/api/narration/voices')).json()
   assert.equal(info.provider,'grok');assert.equal(info.enabled,true);results.provider=info.provider
  }

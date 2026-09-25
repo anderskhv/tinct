@@ -12,7 +12,8 @@ const browser=await chromium.launch({headless:true,args:['--mute-audio']})
 try{
  const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1})
  const records=[]
- for(const book of catalogue.books){
+ const selected=new Set((process.env.BOOK_IDS||'').split(',').filter(Boolean))
+ for(const book of catalogue.books.filter(book=>!selected.size||selected.has(book.id))){
   const filename=path.join('public','covers','v2',book.id+'.webp')
   let cover=''
   try{cover='data:image/webp;base64,'+(await fs.readFile(filename)).toString('base64')}catch{}
