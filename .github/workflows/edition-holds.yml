@@ -4,6 +4,8 @@ on:
     paths:
       - 'app/src/data/editionAvailability*'
       - 'app/src/lab/EditionHoldPanel.tsx'
+      - 'app/src/worker/routes/seo.ts'
+      - 'app/src/worker.retainedEditionAssets.test.ts'
       - 'app/scripts/check-edition-holds.cjs'
       - '.github/workflows/edition-holds.yml'
   workflow_dispatch:
@@ -26,7 +28,7 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - run: npm ci
         working-directory: app
-      - run: npm test -- src/data/editionAvailability.test.ts
+      - run: npm test -- src/data/editionAvailability.test.ts src/worker.retainedEditionAssets.test.ts
         working-directory: app
       - run: npm run build && npm run verify-bundle
         working-directory: app

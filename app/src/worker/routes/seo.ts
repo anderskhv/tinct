@@ -1,4 +1,4 @@
-import { editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
+import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
@@ -84,6 +84,9 @@ function brandedHtml(html: string, bookId?: string, bookPage = false): string {
 }
 
 const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.keys(BOOK_META)])
+// Discovery metadata intentionally omits whole-book holds. Retained JSON must
+// still pass the asset allowlist so existing readers can recover their data.
+const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
 
 async function serveSpaWithMeta(
   requestMethod: string,
@@ -300,7 +303,7 @@ function editionBookIdFromPath(pathname: string): string | null {
   const filename = pathname.split('/').pop() || ''
   if (!filename.endsWith('.json')) return null
   const stem = filename.slice(0, -'.json'.length)
-  const matches = [...PUBLIC_BOOK_IDS]
+  const matches = [...CONTENT_BOOK_IDS]
     .filter(bookId => stem.startsWith(`${bookId}-`))
     .sort((a, b) => b.length - a.length)
   return matches[0] || null
