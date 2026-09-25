@@ -1,0 +1,14 @@
+{
+ "liveMentions": 1779,
+ "goneMentionsRemoved": 7,
+ "reanchorRetained": 1749,
+ "inventoryDropped": 23,
+ "ledgerMaps": 3,
+ "ledgerDrops": 20,
+ "duplicateRemoved": 1,
+ "finalModernEnMentions": 1751,
+ "allSlicesVerified": true,
+ "overlaps": 0,
+ "canonicalMentionListSha256": "3d1dd3c54d44ffe2fa29917b53ed2e0aff801352ee95daea46acdd112560b01e",
+ "canonicalization": "json.dumps(sorted mentions by (chapterNumber, paragraphIndex, startOffset, endOffset), ensure_ascii=False, sort_keys=True), no whitespace changes; each mention object has characterId, chapterNumber, paragraphIndex, startOffset, endOffset, text, resolution"
+}

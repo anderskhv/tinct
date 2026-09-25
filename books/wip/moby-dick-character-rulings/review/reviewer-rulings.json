@@ -1,0 +1,359 @@
+[
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 13,
+    "paragraphIndex": 0,
+    "existingMention": {
+      "startOffset": 110,
+      "endOffset": 118,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-epithet",
+    "finalSpan": null,
+    "evidence": "Live: \"I settled our bill — using Queequeg's money, however.\" | Melville: \"I settled my own and comrade’s bill; using, however, my comrade’s money.\" | Candidate: \"I settled my own and my comrade's bill — using, however, my comrade's money.\" | Ruling: The reference (whose money paid the bill) is the epithet 'my comrade' in Melville and in the candidate; no reviewed name there. The paragraph's only candidate 'Queequeg' [305,313) is the 'friendship ... between me and Queequeg' clause, already held by the retained mention from live @237.",
+    "concern": null
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 13,
+    "paragraphIndex": 6,
+    "existingMention": {
+      "startOffset": 963,
+      "endOffset": 971,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-epithet",
+    "finalSpan": null,
+    "evidence": "Live: \"Dropping his harpoon, Queequeg grabbed the man in his arms\" | Melville: \"Dropping his harpoon, the brawny savage caught him in his arms\" | Candidate: \"Dropping his harpoon, the brawny savage caught him in his arms\" | Ruling: The candidate restores Melville's epithet 'the brawny savage' as the subject; not a reviewed name. All three candidate 'Queequeg' occurrences ([0,8), [897,905), [1283,1291)) are held by retained mentions of their own clauses (live @0, @838, @1203).",
+    "concern": null
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 16,
+    "paragraphIndex": 2,
+    "existingMention": {
+      "startOffset": 557,
+      "endOffset": 565,
+      "text": "Queequeg"
+    },
+    "decision": "map",
+    "decisionClass": "map-same-clause",
+    "finalSpan": {
+      "startOffset": 557,
+      "endOffset": 565,
+      "text": "Queequeg"
+    },
+    "evidence": "Live: \"it seemed to be some sort of Lent or Ramadan, a day of fasting, self-denial, and prayer for Queequeg and Yojo.\" | Melville: \"for it seemed that it was some sort of Lent or Ramadan, or day of fasting, humiliation, and prayer with Queequeg and Yojo that day\" | Candidate: \"for it seemed that for Queequeg and Yojo that day was some sort of Lent or Ramadan, a day of fasting, humiliation, and prayer.\" | Ruling: Same clause (the 'it seemed ... Lent or Ramadan ... fasting ... prayer' clause after 'I left Queequeg shut up with Yojo') and same role (Queequeg, with Yojo, as the one keeping the fast), expressed with the reviewed name 'Queequeg'; the candidate merely fronts the prepositional phrase. The span is free.",
+    "concern": "The candidate offsets [557,565) coincide with the live offsets only because the preceding text happens to have equal length; the ruling rests on clause correspondence, not on that coincidence. The other free candidate 'Queequeg' [276,284) ('no effect on Queequeg', restored from Melville where the live had 'him') is a different reference and must stay unbound."
+  },
+  {
+    "characterId": "peleg",
+    "chapterNumber": 16,
+    "paragraphIndex": 62,
+    "existingMention": {
+      "startOffset": 55,
+      "endOffset": 60,
+      "text": "Peleg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-pronoun",
+    "finalSpan": null,
+    "evidence": "Live: \"turning solemnly toward Peleg, said,\" | Melville: \"turning solemnly towards him said,\" | Candidate: \"turning solemnly toward him, said,\" | Ruling: The candidate (following Melville) uses the pronoun 'him'. The other 'Peleg' strings [75,80) and [400,405) lie inside the retained vocative 'Captain Peleg' spans [67,80) and [392,405) (live @69, @364).",
+    "concern": null
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 18,
+    "paragraphIndex": 21,
+    "existingMention": {
+      "startOffset": 313,
+      "endOffset": 321,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-no-name-in-clause",
+    "finalSpan": null,
+    "evidence": "Live: \"Then, grasping both Queequeg's hands and the booklet in his own,\" | Melville: \"and then grasping them and the book with both his,\" | Candidate: \"Then, grasping those hands and the tract with both of his own,\" | Ruling: The possessor is no longer named: 'those hands' (Melville 'them'). Both candidate 'Queequeg' occurrences are held by retained mentions of their own clauses ('eyeing Queequeg' [63,71); 'placed it in Queequeg's hands' [276,284)).",
+    "concern": null
+  },
+  {
+    "characterId": "moby-dick-whale",
+    "chapterNumber": 41,
+    "paragraphIndex": 18,
+    "existingMention": {
+      "startOffset": 766,
+      "endOffset": 775,
+      "text": "Moby Dick"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-pronoun",
+    "finalSpan": null,
+    "evidence": "Live: \"he eventually came to identify with Moby Dick not just all his physical suffering\" | Melville: \"he at last came to identify with him, not only all his bodily woes\" | Candidate: \"he at last came to identify with him not only all his bodily woes\" | Ruling: Pronoun 'him' at the reference. The candidate's 'Moby Dick' [329,338) and [1738,1747) are held by retained mentions of their own clauses (live @323 'And then it was that Moby Dick'; live @1710 '... assailable in Moby Dick').",
+    "concern": null
+  },
+  {
+    "characterId": "ahab",
+    "chapterNumber": 44,
+    "paragraphIndex": 8,
+    "existingMention": {
+      "startOffset": 501,
+      "endOffset": 505,
+      "text": "Ahab"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-not-referenced-in-counterpart",
+    "finalSpan": null,
+    "evidence": "Live: \"So, Ahab could not hope, by tracking one known whale herd in any particular season, to find Moby Dick — as some lonely hunter would search the woods for some solitary elk.\" | Melville: \"yet it did not follow, that were the Pequod to visit either of those spots at any subsequent corresponding season, she would infallibly encounter him there.\" | Candidate: \"it did not follow that if the Pequod visited either of those spots at any later corresponding season, she would infallibly meet him there.\" | Ruling: The live recasts Melville's sentence with Ahab as subject and adds an elk simile found nowhere in Melville. In Melville and the candidate the agent of this clause is 'the Pequod'/'she'; Ahab is not referenced in the sentence. The free candidate 'Ahab' [1161,1165) ('Ahab's chances of achieving his object') and [1428,1432) ('as Ahab fondly thought') belong to Melville sentences the live omitted: unbound names, not replacements.",
+    "concern": "The retained Ahab mention from this paragraph (live @782, invented sentence 'The key was this: ... Ahab could put himself in the best possible position') was projected onto candidate [2173,2177) 'with which Ahab threw his brooding soul into this unfaltering hunt', a sentence the live never rendered. Right figure, wrong clause; see REVIEW.md."
+  },
+  {
+    "characterId": "moby-dick-whale",
+    "chapterNumber": 44,
+    "paragraphIndex": 8,
+    "existingMention": {
+      "startOffset": 589,
+      "endOffset": 598,
+      "text": "Moby Dick"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-pronoun",
+    "finalSpan": null,
+    "evidence": "Live: \"to find Moby Dick — as some lonely hunter would search the woods for some solitary elk.\" | Melville: \"she would infallibly encounter him there.\" | Candidate: \"So although Moby Dick had in a former year been seen, for example, on what is called the Seychelle ground in the Indian Ocean, or in Volcano Bay on the Japanese coast, it did not follow that if the Pequod visited either of those spots at any later corresponding season, she would infallibly meet him there.\" | Ruling: The live 'Moby Dick' is the object of 'find'. Its clause-level counterpart is 'meet him there' (Melville 'encounter him there'), a pronoun. The candidate 'Moby Dick' [655,664) in the same sentence is the subject of the concessive 'although Moby Dick had in a former year been seen ... on the Seychelle ground', a clause the live sentence does not render, so it is a different reference. [1674,1683) ('Moby Dick had been periodically sighted') is in a sentence the live omitted.",
+    "concern": "Closest call of the 23. A sentence-level (not clause-level) policy would map this mention to 'Moby Dick' [655,664) in the same sentence. I rule drop because at the corresponding reference the candidate says 'him' and the name sits in a concessive clause with no live counterpart."
+  },
+  {
+    "characterId": "ahab",
+    "chapterNumber": 44,
+    "paragraphIndex": 9,
+    "existingMention": {
+      "startOffset": 844,
+      "endOffset": 848,
+      "text": "Ahab"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-pronoun",
+    "finalSpan": null,
+    "evidence": "Live: \"by following this path, Ahab could hope that in some one of these areas, at the right moment, Moby Dick might be spotted.\" | Melville: \"Because, an interval of three hundred and sixty-five days and nights was before him; an interval which, instead of impatiently enduring ashore, he would spend in a miscellaneous hunt;\" | Candidate: \"For an interval of three hundred and sixty-five days and nights lay before him — an interval which, instead of enduring it impatiently ashore, he would spend in a miscellaneous hunt,\" | Ruling: The live sentence (route via the Azores, Cape de Verdes, Carrol Ground and Seychelles) is not in Melville's paragraph. The corresponding Melville/candidate sentence refers to Ahab only as 'him'/'he'. The single candidate 'Ahab' [435,439) is held by the retained mention of 'correctly chosen by Ahab' (live @414 'shrewdly calculated by Ahab').",
+    "concern": "The retained whale mention from this paragraph (live @914 'Moby Dick might be spotted', in the invented sentence) sits on candidate [1021,1030) 'might blow Moby Dick into ... the Pequod's circumnavigating wake', a sentence the live omitted. Its closer counterpart is 'in case the White Whale ... should by chance turn up his wrinkled brow' [673,688). Right figure, loose clause; see REVIEW.md."
+  },
+  {
+    "characterId": "ahab",
+    "chapterNumber": 48,
+    "paragraphIndex": 20,
+    "existingMention": {
+      "startOffset": 851,
+      "endOffset": 855,
+      "text": "Ahab"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-merged-into-held-span",
+    "finalSpan": null,
+    "evidence": "Live: \"while at the other end of the boat Ahab, with one arm, like a fencer's, thrown half backward into the air, as if to counterbalance any tendency to trip, Ahab was seen steadily managing his steering oar\" | Melville: \"while at the other end of the boat Ahab, with one arm, like a fencer’s, thrown half backward into the air, as if to counterbalance any tendency to trip; Ahab was seen steadily managing his steering oar\" | Candidate: \"while at the other end of the boat Ahab, one arm thrown half backward into the air like a fencer's, as if to counterbalance any tendency to trip, was seen steadily managing his steering oar\" | Ruling: The candidate removes the resumed second 'Ahab'. The subject of 'was seen steadily managing' is now the single 'Ahab' [692,696), already held by the retained mention from live @733. No separate occurrence remains, and mapping onto [692,696) would overlap a retained span.",
+    "concern": null
+  },
+  {
+    "characterId": "ahab",
+    "chapterNumber": 48,
+    "paragraphIndex": 20,
+    "existingMention": {
+      "startOffset": 1368,
+      "endOffset": 1372,
+      "text": "Ahab"
+    },
+    "decision": "map",
+    "decisionClass": "map-same-clause",
+    "finalSpan": {
+      "startOffset": 1294,
+      "endOffset": 1298,
+      "text": "Ahab"
+    },
+    "evidence": "Live: \"though from his closer vicinity Ahab had observed it.\" | Melville: \"though from his closer vicinity Ahab had observed it.\" | Candidate: \"though Ahab, being closer, had observed it.\" | Ruling: Same concessive clause and same role (Ahab as subject of 'had observed it'), expressed with the reviewed name 'Ahab'. The span is free; the paragraph's other candidate 'Ahab' spans [10,14) and [692,696) are held by their own clauses.",
+    "concern": null
+  },
+  {
+    "characterId": "flask",
+    "chapterNumber": 48,
+    "paragraphIndex": 23,
+    "existingMention": {
+      "startOffset": 616,
+      "endOffset": 621,
+      "text": "Flask"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"And though the huge Daggoo loomed behind him like a dark mountain, Flask would still be the first to see a whale.\" | Melville: \"But little King-Post was small and short, and at the same time little King-Post was full of a large and tall ambition, so that this loggerhead stand-point of his did by no means satisfy King-Post.\" | Candidate: \"But little King-Post was small and short, and at the same time little King-Post was full of a large and tall ambition, so that this loggerhead standpoint of his by no means satisfied King-Post.\" | Ruling: The live sentence has no counterpart in Melville's paragraph; the live's Daggoo mention in the same sentence is one of the 7 gone mentions. The candidate ends with Melville's King-Post sentence, which refers to Flask only by the nickname 'King-Post', not a reviewed name. Both candidate 'Flask' occurrences ([18,23), [374,379)) are held by their own retained mentions.",
+    "concern": null
+  },
+  {
+    "characterId": "stubb",
+    "chapterNumber": 48,
+    "paragraphIndex": 30,
+    "existingMention": {
+      "startOffset": 670,
+      "endOffset": 675,
+      "text": "Stubb"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"Instantly, Stubb's pipe went out of his mouth.\" | Melville: \"crying out in a quick phrensy of hurry, “Down, down all, and give way!—there they are!”\" | Candidate: \"crying out in a quick frenzy of hurry, \"Down, down all, and give way! — there they are!\"\" | Ruling: Live-only sentence. Melville's and the candidate's paragraph ends with Tashtego's cry; nothing corresponds to Stubb's pipe going out. Candidate 'Stubb' [10,15) and [220,225) are held by retained mentions of their own clauses.",
+    "concern": null
+  },
+  {
+    "characterId": "tashtego",
+    "chapterNumber": 54,
+    "paragraphIndex": 2,
+    "existingMention": {
+      "startOffset": 1626,
+      "endOffset": 1634,
+      "text": "Tashtego"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"This is the story Tashtego half-consciously told us.\" | Melville: \"Interweaving in its proper place this darker thread with the story as publicly narrated on the ship, the whole of this strange affair I now proceed to put on lasting record.\" | Candidate: \"Weaving this darker thread into its proper place in the story as publicly told on the ship, I now set the whole of this strange affair down on lasting record.\" | Ruling: Live-only sentence (the live rewrites Melville's account of the secret). The nearest counterpart, the closing sentence, names no one. Candidate 'Tashtego' [944,952) and [1014,1022) are held by retained mentions of 'passed it on to Tashtego' and 'the following night Tashtego rambled in his sleep'.",
+    "concern": "The candidate restores 'never reached the ears of Captain Ahab or his mates'. 'Captain Ahab' [696,708) is unbound (the live omitted it). It is another figure and not a replacement."
+  },
+  {
+    "characterId": "tashtego",
+    "chapterNumber": 61,
+    "paragraphIndex": 14,
+    "existingMention": {
+      "startOffset": 543,
+      "endOffset": 551,
+      "text": "Tashtego"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"The line raced through the grooves, ran foul. Tashtego snatched his knife from its sheath, and cutting the live line near the wooden post, freed it.\" | Melville: \"“Stern all!” The oarsmen backed water; the same moment something went hot and hissing along every one of their wrists. It was the magical line.\" | Candidate: \"\"Stern all!\" The oarsmen backed water; at the same moment something went hot and hissing along every one of their wrists. It was the magical line.\" | Ruling: The live's fouled-line and knife episode is not in Melville's paragraph. The candidate restores Melville ('Stern all!', the line running through Stubb's hands), where Tashtego is not referenced. The only candidate 'Tashtego' [366,374) ('Stand up, Tashtego!') is held. The free 'Stubb' spans [585,590) and [997,1002) belong to another figure.",
+    "concern": null
+  },
+  {
+    "characterId": "stubb",
+    "chapterNumber": 61,
+    "paragraphIndex": 18,
+    "existingMention": {
+      "startOffset": 365,
+      "endOffset": 370,
+      "text": "Stubb"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"At the word of command, the boat alternately backing off and pulling closer, Stubb delivered his thrusts from every position.\" | Melville: \"at the word of command, the boat alternately sterning out of the way of the whale’s horrible wallow, and then ranging up for another fling.\" | Candidate: \"at the word of command, the boat alternately backed away out of reach of the whale's horrible wallowing, and then drew up again for another throw.\" | Ruling: The live adds an invented main clause, 'Stubb delivered his thrusts from every position'. In Melville and the candidate the subject of this clause is 'the boat', and Stubb is not named. Candidate 'Stubb' [27,32) and [209,214) are held by their own retained mentions.",
+    "concern": null
+  },
+  {
+    "characterId": "moby-dick-whale",
+    "chapterNumber": 64,
+    "paragraphIndex": 2,
+    "existingMention": {
+      "startOffset": 389,
+      "endOffset": 398,
+      "text": "Moby Dick"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-descriptor",
+    "finalSpan": null,
+    "evidence": "Live: \"and though a thousand other whales were brought alongside, not one could be Moby Dick.\" | Melville: \"and though a thousand other whales were brought to his ship, all that would not one jot advance his grand, monomaniac object.\" | Candidate: \"and that even if a thousand other whales were brought to his ship, not one of them would bring his grand, monomaniac goal one jot closer.\" | Ruling: The corresponding clause refers to the quest by the descriptor 'his grand, monomaniac goal' (Melville 'object'); no reviewed name. The candidate 'Moby Dick' [275,284) is held by the retained mention of the preceding clause ('reminded him that Moby Dick was still to be killed', live @281).",
+    "concern": null
+  },
+  {
+    "characterId": "starbuck",
+    "chapterNumber": 64,
+    "paragraphIndex": 4,
+    "existingMention": {
+      "startOffset": 336,
+      "endOffset": 344,
+      "text": "Starbuck"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-not-referenced-in-counterpart",
+    "finalSpan": null,
+    "evidence": "Live: \"One small helpful task from Starbuck was readily accepted by Stubb.\" | Melville: \"One small, helping cause of all this liveliness in Stubb, was soon made strangely manifest.\" | Candidate: \"One small contributing cause of all this liveliness in Stubb was soon made strangely plain.\" | Ruling: The live sentence misreads Melville's 'helping cause of all this liveliness in Stubb' and brings in Starbuck. The corresponding Melville/candidate sentence does not reference Starbuck at all. The candidate's only 'Starbuck' [233,241) is held by the retained mention of 'the sober Starbuck, his official superior'.",
+    "concern": "The retained Stubb mention (live @369 'accepted by Stubb') sits on candidate [392,397) 'liveliness in Stubb', the corresponding sentence, so it is acceptable even though the live had mistranslated Stubb's role. Candidate 'Stubb' [429,434) ('Stubb was a high liver', restored) stays unbound."
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 66,
+    "paragraphIndex": 2,
+    "existingMention": {
+      "startOffset": 397,
+      "endOffset": 405,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"Queequeg wielded his blade with the skill and vigor that would have done credit to the most experienced surgeon.\" | Melville: \"these two mariners, darting their long whaling-spades, kept up an incessant murdering of the sharks,\" | Candidate: \"then, darting their long whaling-spades, they kept up a ceaseless murdering of the sharks,\" | Ruling: Live-only sentence: the live has the men cutting the whale, while Melville and the candidate have them killing sharks. The nearest counterpart refers to both men as 'they'. Candidate 'Queequeg' [78,86) is held (live @90). [1273,1281) is the restored 'nearly took poor Queequeg's hand off' sentence, a different reference that the live never rendered.",
+    "concern": null
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 66,
+    "paragraphIndex": 2,
+    "existingMention": {
+      "startOffset": 514,
+      "endOffset": 522,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-live-invention",
+    "finalSpan": null,
+    "evidence": "Live: \"And Queequeg's keen spade, meanwhile, sliced deep into the thick hide, sending broad swaths of blubber flying over the side.\" | Melville: (no counterpart in this paragraph) | Candidate: \"then, darting their long whaling-spades, they kept up a ceaseless murdering of the sharks,\" | Candidate (other clause): \"nearly took poor Queequeg's hand off when he tried to shut the dead lid of its murderous jaw.\" | Ruling: Live-only sentence with no Melville counterpart; the nearest candidate material refers to the men as 'they'. The free candidate 'Queequeg's' [1273,1281) is the same string but a different clause (a dead shark almost biting off his hand), which the live omitted. It is not the same reference, so there is no map.",
+    "concern": null
+  },
+  {
+    "characterId": "queequeg",
+    "chapterNumber": 72,
+    "paragraphIndex": 7,
+    "existingMention": {
+      "startOffset": 282,
+      "endOffset": 290,
+      "text": "Queequeg"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-pronoun",
+    "finalSpan": null,
+    "evidence": "Live: \"Queequeg was further protected by his harpooner friends on deck, who, with long whaling-spades, kept slashing at the nearest sharks.\" | Melville: \"he was provided with still another protection.\" | Candidate: \"he had yet another protection.\" | Ruling: Pronoun 'he' at the reference (Melville 'he was provided with still another protection'). Candidate 'Queequeg' [575,583) is held. The free spans [824,832) and [906,914) are the restored 'But poor Queequeg, I suppose, ... poor Queequeg, I suppose, just prayed to his Yojo', which the live omitted: different references that stay unbound.",
+    "concern": "The retained mention from live @487 ('not to strike Queequeg himself') was projected onto candidate [575,583) 'They wanted Queequeg's greatest happiness'. That is the corresponding sentence but a different clause: the danger-to-Queequeg clause uses 'him'/'a leg'. The figure is right. Restored names 'Tashtego' [386,394) and 'Daggoo' [399,405) are unbound here."
+  },
+  {
+    "characterId": "daggoo",
+    "chapterNumber": 78,
+    "paragraphIndex": 4,
+    "existingMention": {
+      "startOffset": 169,
+      "endOffset": 175,
+      "text": "Daggoo"
+    },
+    "decision": "drop",
+    "decisionClass": "drop-epithet",
+    "finalSpan": null,
+    "evidence": "Live: \"Daggoo, having cleared the foul line, rammed the bucket down\" | Melville: \"the negro having cleared the foul line, rammed down the bucket\" | Candidate: \"the negro, having cleared the foul line, rammed the bucket down\" | Ruling: The candidate restores Melville's epithet 'the negro' at the reference; it is not a reviewed name. The only candidate 'Daggoo' [45,51) is held (addressee in 'yelled the seamen to Daggoo', live @45).",
+    "concern": null
+  },
+  {
+    "characterId": "moby-dick-whale",
+    "chapterNumber": 134,
+    "paragraphIndex": 13,
+    "existingMention": {
+      "startOffset": 628,
+      "endOffset": 643,
+      "text": "the White Whale"
+    },
+    "decision": "map",
+    "decisionClass": "map-same-clause",
+    "finalSpan": {
+      "startOffset": 522,
+      "endOffset": 537,
+      "text": "the White Whale"
+    },
+    "evidence": "Live: \"did the White Whale now reveal his vicinity; but by the far more wondrous phenomenon of breaching.\" | Melville: \"did the White Whale now reveal his vicinity; but by the far more wondrous phenomenon of breaching.\" | Candidate: \"For the White Whale now revealed his nearness not by any calm and lazy spouting,\" | Ruling: Same clause (the whale revealing his vicinity or nearness by breaching, not by spouting) and same subject role, with the exact reviewed spelling 'the White Whale' (lower-case 'the'). The candidate only moves the subject forward. The span is free; the paragraph's 'Moby Dick' [484,493) is held by the preceding 'burst bodily into view' clause.",
+    "concern": null
+  }
+]
