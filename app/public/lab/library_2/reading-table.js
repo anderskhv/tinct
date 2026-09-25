@@ -1,7 +1,7 @@
 // Returning readers: the hero becomes a reading table with the reader's own
 // books. Data and rules come from the production library
 // (/lab/library-2-reading.js, src/libraryTwoReading.ts); this file only draws.
-import { readingApi } from './catalogue.js?v=20260925b';
+import { readingApi } from './catalogue.js?v=20260925d';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -23,9 +23,9 @@ const DEMO = {
 };
 
 // Bookmark ribbons: one colour per book, stable across visits.
-const RIBBONS = ['#8c2e26', '#2f5a3e', '#2b3f66', '#a7782a', '#5b2f4f', '#1f4a5c', '#6b4a2b'];
+const RIBBONS = ['#b03a2e', '#a8325e', '#7a4fa3', '#c07a2a', '#4f8a3f', '#c9b98f'];
 const ribbonFor = id => RIBBONS[[...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % RIBBONS.length];
-const thickness = book => Math.round(Math.max(12, Math.min(40, (book.wordCount || 90000) / 300 / 13)));
+const thickness = book => Math.round(Math.max(16, Math.min(44, (book.wordCount || 90000) / 300 / 11)));
 const monthName = at => (at ? new Date(at).toLocaleString('en', { month: 'long' }) : null);
 const percentLabel = p => (p == null ? '' : p > 0 && p < 1 ? '<1%' : `${Math.round(p)}%`);
 
@@ -111,7 +111,9 @@ function wire(view, table, api, demo, keepBookId) {
     const stage = view.querySelector('.rt-stage').getBoundingClientRect();
     if (Math.abs(stage.height - stageHeight) < 2 && cw) return;
     stageHeight = stage.height;
-    const desk = innerWidth >= 900, room = desk ? stage.height - 52 : stage.height - 14;
+    // Room inside the track: 14% above the books for the bookmark, 16% below so a
+    // turned book's near corner is never clipped by the carousel's edge.
+    const desk = innerWidth >= 900, room = (desk ? stage.height - 30 : stage.height - 6) / 1.30;
     const ch = Math.max(120, Math.min(desk ? 440 : 330, room));
     cw = Math.round(ch * 2 / 3);
     view.style.setProperty('--cw', `${cw}px`);

@@ -151,24 +151,24 @@ html #librarian-panel .orb-space{height:clamp(90px,15svh,140px);min-height:72px;
 html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{display:none}
 .reading-table{--cw:150px;--ch:225px;position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;padding:70px 0 20px}
 .rt-stage{flex:1 1 0;min-height:150px;position:relative}
-.rt-track{position:absolute;inset:0;display:flex;align-items:flex-end;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 calc(50% - var(--cw)/2) 12px;gap:18px;overscroll-behavior-x:contain}
+.rt-track{position:absolute;inset:0;display:flex;align-items:flex-end;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 calc(50% - var(--cw)/2) calc(var(--ch)*.16);gap:18px;overscroll-behavior-x:contain}
 .rt-track::-webkit-scrollbar{display:none}
 /* Seen from a little above: the books stand upright on the table and the camera looks down on them. */
-.rt-slot{flex:none;width:var(--cw);height:var(--ch);scroll-snap-align:center;perspective:1100px;perspective-origin:50% -55%;position:relative;cursor:pointer;--mh:calc(var(--ch)*.14)}
+.rt-slot{flex:none;width:var(--cw);height:var(--ch);scroll-snap-align:center;perspective:1200px;perspective-origin:50% -95%;position:relative;cursor:pointer;--mh:calc(var(--ch)*.14)}
 .rt-slot::after{content:'';position:absolute;left:-4%;right:-4%;bottom:-7px;height:14px;border-radius:50%;background:radial-gradient(#000d,#0000 70%);filter:blur(3px);z-index:-1}
 .rt-book{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 100%;will-change:transform}
 .rt-cover{position:absolute;inset:0;border-radius:2px 3px 3px 2px;overflow:hidden;box-shadow:0 8px 16px #0009;transform:translateZ(1px)}
 .rt-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .rt-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0005 0,#0000 4%,#ffffff12 5.5%,#0000 9%)}
-.rt-pages{position:absolute;top:1.4%;bottom:0;left:1px;right:3px;transform-style:preserve-3d;pointer-events:none}
-.rt-pages i{position:absolute;display:block;opacity:var(--o,0)}
+.rt-pages{position:absolute;top:.35%;bottom:0;left:1px;right:3px;transform-style:preserve-3d;pointer-events:none}
+.rt-pages i{position:absolute;display:block}
 .rt-leaf{inset:0;background:#efe6cc}
 .rt-fore{top:0;bottom:0;right:0;width:var(--t);transform-origin:100% 50%;transform:rotateY(-90deg);background:repeating-linear-gradient(90deg,#f0e7cd 0 1px,#d3c8a9 1px 2px);box-shadow:inset 0 0 10px #0003}
 .rt-head{left:0;right:0;top:0;height:var(--t);transform-origin:50% 0;transform:rotateX(-90deg);background:repeating-linear-gradient(180deg,#f3ead1 0 1px,#d9ceb0 1px 2px)}
 .rt-spine{top:-1.4%;bottom:0;left:-1px;width:calc(var(--t) + 2px);transform-origin:0 50%;transform:rotateY(90deg);background:var(--cover) 0 50%/auto 100%;filter:brightness(.62) saturate(.9);box-shadow:inset -3px 0 6px #0006}
 .rt-slot[data-side="pages"] .rt-spine,.rt-slot[data-side="spine"] .rt-fore{display:none}
-.rt-mark{left:58%;width:8.5%;top:calc(-1*var(--mh));height:calc(var(--mh) + 45%);transform:translateZ(var(--dz));background:linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 70%,#000),var(--ribbon) 45%,color-mix(in srgb,var(--ribbon) 75%,#000));border-radius:2px 2px 0 0}
-.rt-back{position:absolute;inset:0;border-radius:2px;background:#1b1d18;transform:translateZ(calc(-1*var(--t) - 1px));opacity:var(--o,0)}
+.rt-mark{left:62%;width:clamp(6px,5.5%,11px);top:calc(-1*var(--mh));height:calc(var(--mh) + 40%);transform:translateZ(var(--dz));opacity:var(--o,0);background:linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 62%,#000),var(--ribbon) 40%,color-mix(in srgb,var(--ribbon) 80%,#fff) 55%,color-mix(in srgb,var(--ribbon) 70%,#000));clip-path:polygon(0 0,50% 7%,100% 0,100% 100%,0 100%);box-shadow:inset 0 -6px 6px #0004;filter:drop-shadow(0 0 1px #0008)}
+.rt-back{position:absolute;inset:0;border-radius:2px;background:#1b1d18;transform:translateZ(calc(-1*var(--t) - 1px))}
 .rt-arrows{display:none}
 .rt-info{padding:6px 20px 0;flex:none}
 .rt-fade{transition:opacity .16s ease,transform .16s ease}.rt-fade.out{opacity:0;transform:translateY(4px)}
@@ -196,7 +196,7 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
  .rt-recap{max-width:520px;margin-top:18px;font-size:17px}.rt-recap p{font-size:17px}.rt-continue{margin-top:18px}
  .rt-arrows{display:flex;position:absolute;left:50%;bottom:-52px;transform:translateX(-50%);gap:10px}
  .rt-arrows button{width:36px;height:36px;border-radius:50%;border:1px solid #eee7d02d;background:#0c1a13b3;font:16px system-ui;color:#eee7d0}
- .rt-track{bottom:0;padding-bottom:22px}
+ .rt-track{bottom:0}
 }
 /* Leaving for the reader: one quiet fade to paper, instead of intermediate pages. */
 body.leaving::after{content:'';position:fixed;inset:0;z-index:1000;background:#efe6cc;animation:leave-fade .24s ease-out both}
