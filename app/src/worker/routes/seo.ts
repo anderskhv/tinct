@@ -65,7 +65,10 @@ const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\"
 export function filterHeldDiscoveryCards(html: string): string {
   return html.replace(/<a\b[^>]*class=["'][^"']*\bguide-card\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, card => {
     const bookId = card.match(/href=["']\/read\/([a-z0-9-]+)(?:[/?#"'])/i)?.[1]
-    return bookId && isBookTemporarilyHeld(bookId) ? '' : card
+    if (bookId && isBookTemporarilyHeld(bookId)) return ''
+    return bookId === 'faust-part-1'
+      ? card.replace(/href=["'][^"']*["']/i, 'href="/read/faust-part-1"')
+      : card
   })
 }
 /** Public metadata uses only the catalogue, never saved passages or chat. */

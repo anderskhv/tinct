@@ -2,7 +2,7 @@
 
 ## Release state
 
-Prepared against main `447a7a650b9aec567251a638dc85b303d3b10477`.
+Prepared against main `447a7a650b9aec567251a638dc85b303d3b10477`; subsequently reconciled with #200 and #199 main `6dc6c76e0fbe76323d7e4ab0e02de2e23c40b2a5`, preserving their content and defaults.
 Implementation and CI/browser acceptance are in progress. Not merged, not deployed, not production-verified.
 Baseline production bundle: `index-_UsWGnmb.js`.
 Prior deploy [36166609484](https://github.com/anderskhv/tinct/actions/runs/36166609484) succeeded.
@@ -11,7 +11,7 @@ Its handoff requires resolving prior failed production checks before publication
 - followups 36169994998 and Meditations 36169994976: still FAIL on retry (jobs 108194378213 and 108194374336), HTTP 404 assertion in check-reviewed-characters.cjs:51; URL absent from log. Both completed all six phone cases before desktop. The desktop next-opening loader probes absent chapter shards before whole-book fallback; the observed missing shard endpoints and overly broad response assertion are a strong diagnosis lead, not a waived gate.
 - Chapter Preview 36169994984: PASS on retry, without code changes (job 108193638144).
 - Shakespeare 36166609436: PASS on retry after successful deployment (job 108193637574).
-These have not been waived. A separate prerequisite repair requires scope coordination; do not bundle unrelated repairs into this change.
+These have not been waived. The Lighthouse/Symposium release owner has included the narrow shard-registry prerequisite in #199 (commit `ff853fbf09e7b1a58257c83174ec9ed34201941b`), with actual production gates pending. Agreed serialized order: their verified Lighthouse release, then Symposium, then this availability release. No unrelated repair is bundled into the availability diff.
 
 ## Decision boundary
 
@@ -94,7 +94,7 @@ Availability acceptance [36171982452](https://github.com/anderskhv/tinct/actions
 The registry and raw assets stay intact. Temporary holds never enter SUCCESSORS/migrateWithheldEdition.
 Discovery and defaults exclude held editions; whole-book hides apply only to Macbeth and As You Like It.
 Saved handoffs retain exact edition and coordinates. The unavailable panel explains the defect and offers an explicit preserved-text recovery view, using the existing Contents and annotation reader. Position/history writes and playback are suspended while a hold is active, including recovery.
-No automatic fallback or Danish/English relabelling occurs.
+No automatic fallback or Danish/English relabelling occurs. Once any sound edition of a wholly held book is accepted and verified, remove its whole-book hold while retaining the other edition holds; an exhaustive registry test enforces that distinction.
 
 Required before merge: full verify CI, availability acceptance, direct-link/SEO routing tests, phone and desktop saved-data browser fixtures, and resolved prior-release acceptance.
 Required after deploy: successful deploy/smoke, exact new bundle, production catalogue/search and direct links, all 16 held identities, recovery UI and data preservation in isolated contexts, unchanged raw-content hashes.

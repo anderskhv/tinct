@@ -338,8 +338,7 @@ function buildBookIndexPage(book, edition) {
 
   <div class="booknum">Free online book</div>
   <h1 class="title">${escapeHtml(book.title)}</h1>
-  <p class="byline">by ${escapeHtml(book.author)}</p>
-  ${book.id === "faust-part-1" || book.id === "jerusalem" ? `<p>${languageLabel} · other editions temporarily unavailable</p>` : ""}
+  <p class="byline">by ${escapeHtml(book.author)}</p>${book.id === "faust-part-1" || book.id === "jerusalem" ? `\n  <p>${languageLabel} · other editions temporarily unavailable</p>` : ""}
   <p class="hook">${escapeHtml(hook)}</p>
   <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
 
@@ -351,7 +350,7 @@ ${chapterLinks}
   </section>
 
   <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
-  <div class="body" lang="${editionKey.endsWith("-de") ? "de" : "en"}">
+  <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
     ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
   </div>
 </main>

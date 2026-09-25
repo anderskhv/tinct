@@ -544,3 +544,8 @@ it('hides held Read next cards without rewriting editorial text or sound links',
   const editorial = '<p>Macbeth is mentioned here.</p>'
   expect(filterHeldDiscoveryCards(held + sound + editorial)).toBe(sound + editorial)
 })
+
+it('routes Faust recommendation cards through the labelled German book landing', () => {
+  const card = '<a href="/read/faust-part-1/summary" class="guide-card"><div>Faust</div></a>'
+  expect(filterHeldDiscoveryCards(card)).toBe('<a href="/read/faust-part-1" class="guide-card"><div>Faust</div></a>')
+})

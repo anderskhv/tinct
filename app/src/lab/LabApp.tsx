@@ -470,16 +470,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     bookSwitcherWasOpenRef.current = bookSwitcherOpen
   }, [bookSwitcherOpen])
 
-  const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
-  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
+  const audioEditionKey = effectiveLabAudioEdition(prefs, allBookEditions)
+  const audioHeld = Boolean(editionHold(book.bookId || 'bible', audioEditionKey)) || isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
   const audioUnavailable = audioHeld || !resolvedAudioIsAvailable(audioEditionKey, prefs.primaryEdition, bookEditions)
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
   useEffect(() => setAudioUnavailableNotice(false), [book.bookId, book.chapterNumber, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
-    const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), bookEditions)
+    const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), allBookEditions)
     setPrefs(synced)
     writeLabPrefs(synced, appearanceProfile)
-  }, [appearanceProfile, book.bookId, bookEditions])
+  }, [appearanceProfile, book.bookId, allBookEditions])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
       if (current.voicePersona === voicePersona) return current
@@ -514,7 +514,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     prefsProfileRef.current = appearanceProfile
     setPrefs(syncLabAudioEdition(
       migrateLabPrefsEditions(readLabPrefs(appearanceProfile), book.bookId || 'bible'),
-      bookEditions,
+      allBookEditions,
     ))
   }, [appearanceProfile, book.bookId, bookEditions])
   // The book on screen is not known until its source loads (a handoff mounts a
