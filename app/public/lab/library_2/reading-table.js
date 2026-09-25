@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925h';
+import { readingApi } from './catalogue.js?v=20260925i';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);

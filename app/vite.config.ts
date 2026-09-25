@@ -83,6 +83,7 @@ export default defineConfig(({ mode, command }) => {
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
         labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
+        libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
       },
       output: {
@@ -94,6 +95,8 @@ export default defineConfig(({ mode, command }) => {
               ? 'lab/reading-memory.js'
               : chunk.name === 'labLibraryAssistant'
                 ? 'lab/library-assistant.js'
+              : chunk.name === 'libraryTwoAssistant'
+                ? 'lab/library-2-assistant.js'
               : chunk.name === 'libraryTwoReading'
                 ? 'lab/library-2-reading.js'
               : 'assets/[name]-[hash].js',

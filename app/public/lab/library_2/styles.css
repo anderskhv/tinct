@@ -243,3 +243,6 @@ html[data-scene="pride-and-prejudice"] #header:not(.scrolled){background:linear-
 /* The room and table remain visible behind the returning reader's text. */
 html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),#10180fbb 10%,transparent 48%)}
 @media(min-width:900px){html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),transparent 22%),linear-gradient(90deg,#080e0bc4,transparent 62%)}}
+
+/* The production assistant lives inside the existing draggable panel. */
+#librarian-live{display:flex;flex:1;min-height:0;overflow:hidden}#librarian-live[hidden]{display:none}.mode-buttons button:disabled{opacity:.5;cursor:wait}#librarian-loading{font-size:15px;margin-top:12px}
