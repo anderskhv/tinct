@@ -1,7 +1,7 @@
 // Returning readers: the hero becomes a reading table with the reader's own
 // books. Data and rules come from the production library
 // (/lab/library-2-reading.js, src/libraryTwoReading.ts); this file only draws.
-import { readingApi } from './catalogue.js?v=20260925c';
+import { readingApi } from './catalogue.js?v=20260925d';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
