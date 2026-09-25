@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { RETAINED_BELLA_ORIGINAL_BOOKS, usesRetainedBella } from './bellaRetention'
 
 describe('Bella whole-edition retention', () => {
-  it('retains exactly the verified 34 original female editions', () => {
-    expect(RETAINED_BELLA_ORIGINAL_BOOKS.size).toBe(34)
+  it('retains exactly the verified 33 original female editions', () => {
+    expect(RETAINED_BELLA_ORIGINAL_BOOKS.size).toBe(33)
     expect(usesRetainedBella('frankenstein', 'original-en', 'female')).toBe(true)
     expect(usesRetainedBella('candide', 'original-en', 'female')).toBe(true)
     expect(usesRetainedBella('federalist-papers', 'original-en', 'female')).toBe(true)
@@ -16,7 +16,7 @@ describe('Bella whole-edition retention', () => {
 
   it('excludes known mismatches, holds and unresolved focused repairs', () => {
     for (const book of [
-      'meditations', 'faust-part-1', 'bible', 'the-histories',
+      'symposium', 'meditations', 'faust-part-1', 'bible', 'the-histories',
       'don-quixote', 'the-awakening', 'beyond-good-and-evil',
       'nicomachean-ethics', 'communist-manifesto',
     ]) {

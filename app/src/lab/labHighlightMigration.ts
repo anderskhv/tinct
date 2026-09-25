@@ -69,8 +69,7 @@ export function migrateLabHighlight(
     contentRevision:highlight.contentRevision,
   },'words','left')
   if (start.status !== 'exact' || end.status !== 'exact'
-    || start.point.chapterNumber !== highlight.chapterNumber
-    || end.point.chapterNumber !== highlight.chapterNumber
+    || start.point.chapterNumber !== end.point.chapterNumber
     || start.point.paragraphIndex > end.point.paragraphIndex) return unresolved()
   const after: string[] = []
   for (let pi = start.point.paragraphIndex; pi <= end.point.paragraphIndex; pi++) {
@@ -82,7 +81,7 @@ export function migrateLabHighlight(
     after.push(...tokens.slice(a,b))
   }
   if (after.join(' ') !== quote) return unresolved()
-  return {...highlight, paragraphIndex:start.point.paragraphIndex,fromWord:start.point.offset,
+  return {...highlight, chapterNumber:start.point.chapterNumber, paragraphIndex:start.point.paragraphIndex,fromWord:start.point.offset,
     endParagraphIndex:end.point.paragraphIndex,toWord:end.point.offset,
     text:highlight.text ?? quote,contentRevision:edition.afterSha256,
     contentMigrationStatus:'exact',contentRecovery:recovery}

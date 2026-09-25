@@ -30,7 +30,6 @@ export const RETAINED_BELLA_ORIGINAL_BOOKS = new Set([
   'oedipus-at-colonus',
   'on-liberty',
   'phaedrus',
-  'symposium',
   'the-aeneid',
   'the-art-of-war',
   'comedy-of-errors',

@@ -78,7 +78,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   poetics: { editions: EN, revision: '2026-09-11.2' },
   'romeo-and-juliet': { editions: EN, revision: '2026-09-11.2' },
   'social-contract': { editions: EN, revision: '2026-09-11.2' },
-  symposium: { editions: EN, revision: '2026-09-11.2' },
+  symposium: { editions: EN, revision: '2026-09-25.1' },
   'the-prince': { editions: EN, revision: '2026-09-24.1' },
   'twelfth-night': { editions: EN, revision: '2026-09-11.2' },
   utilitarianism: { editions: EN, revision: '2026-09-11.2' },

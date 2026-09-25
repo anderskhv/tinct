@@ -152,3 +152,19 @@ jobs:
         with:
           name: lighthouse-publication-live
           path: app/artifacts/lighthouse-publication-live
+
+      - name: Verify Symposium completeness on production
+        env:
+          TEST_BOOK: symposium
+          TEST_ORIGIN: https://tinct.app
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+          ARTIFACT_DIR: artifacts/symposium-publication-live
+        run: |
+          node scripts/check-book-publication.cjs
+          node scripts/check-symposium-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: symposium-publication-live
+          path: app/artifacts/symposium-publication-live

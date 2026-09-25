@@ -12,6 +12,27 @@ import {
 } from './labPosition'
 import { migrateLoadedLabPlaces, prepareLabPositionMigrations } from './labContentMigration'
 
+
+export const SYMPOSIUM_POSITION_RECOVERY_KEY = 'tinct-lab-position-recovery:symposium'
+/** Unstamped bookmarks without an edition could be Danish. Keep the exact
+ * source tuple before bounds checks, without inventing an English coordinate. */
+export function preserveUnresolvedSymposiumPositions(raw: unknown): void {
+  if (!raw || typeof raw !== 'object' || typeof localStorage === 'undefined') return
+  const state = raw as Partial<LabPositionState>
+  const places = [...Object.values(state.books || {}), ...Object.values(state.recentChapters || {})]
+    .filter(p => p?.bookId === 'symposium' && !p.primaryEditionKey && !p.contentRevision)
+  if (!places.length) return
+  try {
+    const stored = JSON.parse(localStorage.getItem(SYMPOSIUM_POSITION_RECOVERY_KEY) || '[]')
+    const history = Array.isArray(stored) ? stored : []
+    for (const place of places) {
+      const entry = {owner: state.owner || null, status: 'unresolved', place}
+      if (!history.some(old => JSON.stringify(old) === JSON.stringify(entry))) history.push(entry)
+    }
+    localStorage.setItem(SYMPOSIUM_POSITION_RECOVERY_KEY, JSON.stringify(history))
+  } catch { /* A failed recovery write must not discard the source record. */ }
+}
+
 const IDB_NAME = 'tinct-lab'
 const IDB_STORE = 'kv'
 const IDB_KEY = 'position'
@@ -44,7 +65,14 @@ export function readLabPositionLocal(deviceId = readLabDeviceId()): LabPositionS
   try {
     const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
     if (!raw) return emptyLabPositionState(deviceId)
-    return migrateLoadedLabPlaces(parseLabPositionState(JSON.parse(raw), deviceId))
+    const source = JSON.parse(raw)
+    preserveUnresolvedSymposiumPositions(source)
+    const parsed = parseLabPositionState(source, deviceId)
+    const migrated = migrateLoadedLabPlaces(parsed)
+    // Persist the repair before any reader validates/re-writes the tuple.
+    // Its original clocks and recovery coordinates remain unchanged.
+    if (migrated !== parsed) localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(migrated))
+    return migrated
   } catch {
     return emptyLabPositionState(deviceId)
   }
@@ -135,6 +163,7 @@ export function writeLabPositionLocal(state: LabPositionState, options: WriteLab
     try {
       const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
       if (raw) {
+        preserveUnresolvedSymposiumPositions(JSON.parse(raw))
         merged = mergeLabPositionStatesByTime(
           migrateLoadedLabPlaces(parseLabPositionState(JSON.parse(raw), state.deviceId)),
           state,
@@ -191,7 +220,9 @@ export async function fetchLabPositionCloud(token: string | null | undefined): P
       ...(controller ? { signal: controller.signal } : {}),
     })
     if (!res.ok) return null
-    return await prepareLabPositionMigrations(parseLabPositionState(await res.json(), readLabDeviceId()))
+    const source = await res.json()
+    preserveUnresolvedSymposiumPositions(source)
+    return await prepareLabPositionMigrations(parseLabPositionState(source, readLabDeviceId()))
   } catch {
     return null
   } finally {
