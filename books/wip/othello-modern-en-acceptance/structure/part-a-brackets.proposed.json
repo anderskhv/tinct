@@ -1,0 +1,1314 @@
+{
+ "part": "A",
+ "title": "Spoken text currently bracketed as stage directions",
+ "status": "proposed, source-verified, not applied",
+ "source": "Project Gutenberg #1531 (pg1531.txt, sha256 340a08eb95d6404c0834906eb7b899ec6503c609ca76eb5b7430bb100cd1e462)",
+ "editions": {
+  "original-en": {
+   "baseSha256": "a8e8ae40b054bce1b60dcba35fcd194f08e74829fcc0faa6665456f962b5d1df",
+   "patchedSha256": "f9c00fd7a2996a45bc649072fdf568556b1d8b9b0f6c0b60cfce3894b0959233",
+   "paragraphsChanged": 45
+  },
+  "modern-en": {
+   "baseSha256": "ed1e3ebbdbcb7f17cf637f1d04e678f0cccb6ff4ab9916131aaf837a4b7cb3d1",
+   "base": "v2 candidate",
+   "patchedSha256": "da580d7fe433bb77ec9ae58a1d528143174407fbda3355c923500ea5d3be8044",
+   "paragraphsChanged": 45
+  }
+ },
+ "characterCards": {
+  "original-en": {
+   "mentionsProjected": 33,
+   "dropped": 0,
+   "anchorPointsMoved": 16,
+   "verified": true
+  },
+  "modern-en": {
+   "mentionsProjected": 34,
+   "dropped": 0,
+   "anchorPointsMoved": 16,
+   "verified": true
+  },
+  "optionalNewPrefixMentions": {
+   "original-en": [
+    {
+     "characterId": "othello",
+     "chapterNumber": 3,
+     "paragraphIndex": 43,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 31,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 37,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 47,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 4,
+     "paragraphIndex": 79,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 30,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 39,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 40,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 76,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 78,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 6,
+     "paragraphIndex": 95,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 6,
+     "paragraphIndex": 99,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 126,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 130,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 7,
+     "paragraphIndex": 23,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 7,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 9,
+     "paragraphIndex": 109,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 9,
+     "paragraphIndex": 130,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 9,
+     "paragraphIndex": 132,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "emilia",
+     "chapterNumber": 10,
+     "paragraphIndex": 68,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "EMILIA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 10,
+     "paragraphIndex": 78,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 10,
+     "paragraphIndex": 93,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 28,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 34,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 46,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 48,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 11,
+     "paragraphIndex": 157,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 12,
+     "paragraphIndex": 15,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 12,
+     "paragraphIndex": 47,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 12,
+     "paragraphIndex": 88,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 12,
+     "paragraphIndex": 91,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 26,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 27,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 28,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 30,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 33,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 14,
+     "paragraphIndex": 80,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 14,
+     "paragraphIndex": 84,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 15,
+     "paragraphIndex": 4,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 15,
+     "paragraphIndex": 66,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    }
+   ],
+   "modern-en": [
+    {
+     "characterId": "othello",
+     "chapterNumber": 3,
+     "paragraphIndex": 43,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 31,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 37,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 4,
+     "paragraphIndex": 47,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 4,
+     "paragraphIndex": 79,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 30,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 39,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 40,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 76,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 78,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 6,
+     "paragraphIndex": 95,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 6,
+     "paragraphIndex": 99,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 126,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 6,
+     "paragraphIndex": 130,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 7,
+     "paragraphIndex": 23,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 7,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 9,
+     "paragraphIndex": 109,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 9,
+     "paragraphIndex": 130,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 9,
+     "paragraphIndex": 132,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "emilia",
+     "chapterNumber": 10,
+     "paragraphIndex": 68,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "EMILIA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 10,
+     "paragraphIndex": 78,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "cassio",
+     "chapterNumber": 10,
+     "paragraphIndex": 93,
+     "startOffset": 0,
+     "endOffset": 6,
+     "text": "CASSIO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 28,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 34,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 46,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 11,
+     "paragraphIndex": 48,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 11,
+     "paragraphIndex": 157,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 12,
+     "paragraphIndex": 15,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 12,
+     "paragraphIndex": 47,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 12,
+     "paragraphIndex": 88,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 12,
+     "paragraphIndex": 91,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 26,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 27,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 28,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 29,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 30,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "desdemona",
+     "chapterNumber": 13,
+     "paragraphIndex": 33,
+     "startOffset": 0,
+     "endOffset": 9,
+     "text": "DESDEMONA",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 14,
+     "paragraphIndex": 80,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "iago",
+     "chapterNumber": 14,
+     "paragraphIndex": 84,
+     "startOffset": 0,
+     "endOffset": 4,
+     "text": "IAGO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 15,
+     "paragraphIndex": 4,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    },
+    {
+     "characterId": "othello",
+     "chapterNumber": 15,
+     "paragraphIndex": 66,
+     "startOffset": 0,
+     "endOffset": 7,
+     "text": "OTHELLO",
+     "resolution": "reviewed-name"
+    }
+   ]
+  }
+ },
+ "entries": [
+  {
+   "id": "3.4",
+   "category": "A-unpunctuated-speaker-tag",
+   "speaker_in_source": "SECOND SENATOR",
+   "source_speaker_line": 607,
+   "source_first_line": 608,
+   "original_now": "[SECOND SENATOR And mine two hundred: But though they jump not on a just account, (As in these cases, where the aim reports, ’Tis oft with difference,) yet do they all confirm A Turkish fleet, and bearing up to Cyprus.]",
+   "original_proposed": "SECOND SENATOR. And mine two hundred: But though they jump not on a just account, (As in these cases, where the aim reports, ’Tis oft with difference,) yet do they all confirm A Turkish fleet, and bearing up to Cyprus.",
+   "modern_v2_now": "[SECOND SENATOR And mine say two hundred. But though they don't agree on an exact count (since in cases like this, where reports are based on guesswork, the numbers often differ), still they all confirm a Turkish fleet, and one heading for Cyprus.]",
+   "modern_v2_proposed": "SECOND SENATOR. And mine say two hundred. But though they don't agree on an exact count (since in cases like this, where reports are based on guesswork, the numbers often differ), still they all confirm a Turkish fleet, and one heading for Cyprus."
+  },
+  {
+   "id": "3.28",
+   "category": "B-joint-speaker-tag",
+   "speaker_in_source": "DUKE and SENATORS.",
+   "source_speaker_line": 715,
+   "source_first_line": 716,
+   "original_now": "[DUKE and SENATORS. Dead?]",
+   "original_proposed": "DUKE and SENATORS. Dead?",
+   "modern_v2_now": "[DUKE and SENATORS. Dead?]",
+   "modern_v2_proposed": "DUKE and SENATORS. Dead?"
+  },
+  {
+   "id": "3.43",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 810,
+   "source_first_line": 815,
+   "original_now": "[And till she come, as truly as to heaven I do confess the vices of my blood, So justly to your grave ears I’ll present How I did thrive in this fair lady’s love, And she in mine.]",
+   "original_proposed": "OTHELLO. And till she come, as truly as to heaven I do confess the vices of my blood, So justly to your grave ears I’ll present How I did thrive in this fair lady’s love, And she in mine.",
+   "modern_v2_now": "[And until she comes, as truthfully as I confess the sins of my flesh to heaven, just as honestly I'll lay out for your grave ears how I came to win this lovely lady's love, and she mine.]",
+   "modern_v2_proposed": "OTHELLO. And until she comes, as truthfully as I confess the sins of my flesh to heaven, just as honestly I'll lay out for your grave ears how I came to win this lovely lady's love, and she mine."
+  },
+  {
+   "id": "4.18",
+   "category": "F-unattributed-offstage-cry",
+   "speaker_in_source": null,
+   "source_speaker_line": null,
+   "source_first_line": 1291,
+   "original_now": "[Within.] A sail, a sail, a sail!",
+   "original_proposed": null,
+   "modern_v2_now": "[Within.] A sail, a sail, a sail!",
+   "modern_v2_proposed": null
+  },
+  {
+   "id": "4.31",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 1323,
+   "source_first_line": 1332,
+   "original_now": "[How now? Who has put in?]",
+   "original_proposed": "CASSIO. How now? Who has put in?",
+   "modern_v2_now": "[Well now? Who's come in?]",
+   "modern_v2_proposed": "CASSIO. Well now? Who's come in?"
+  },
+  {
+   "id": "4.37",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 1349,
+   "source_first_line": 1362,
+   "original_now": "[O, behold, The riches of the ship is come on shore! Ye men of Cyprus, let her have your knees. Hail to thee, lady! and the grace of heaven, Before, behind thee, and on every hand, Enwheel thee round!]",
+   "original_proposed": "CASSIO. O, behold, The riches of the ship is come on shore! Ye men of Cyprus, let her have your knees. Hail to thee, lady! and the grace of heaven, Before, behind thee, and on every hand, Enwheel thee round!",
+   "modern_v2_now": "[Oh, look! The ship's treasure has come ashore! You men of Cyprus, kneel to her. Hail to you, lady! And may the grace of heaven, in front of you, behind you, and on every side, surround you like a wheel!]",
+   "modern_v2_proposed": "CASSIO. Oh, look! The ship's treasure has come ashore! You men of Cyprus, kneel to her. Hail to you, lady! And may the grace of heaven, in front of you, behind you, and on every side, surround you like a wheel!"
+  },
+  {
+   "id": "4.41",
+   "category": "F-unattributed-offstage-cry",
+   "speaker_in_source": null,
+   "source_speaker_line": null,
+   "source_first_line": 1380,
+   "original_now": "[Within.] A sail, a sail!",
+   "original_proposed": null,
+   "modern_v2_now": "[Within.] A sail, a sail!",
+   "modern_v2_proposed": null
+  },
+  {
+   "id": "4.47",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 1392,
+   "source_first_line": 1397,
+   "original_now": "[Good ancient, you are welcome. [_To Emilia._] Welcome, mistress. Let it not gall your patience, good Iago, That I extend my manners; ’tis my breeding That gives me this bold show of courtesy.]",
+   "original_proposed": "CASSIO. Good ancient, you are welcome. [_To Emilia._] Welcome, mistress. Let it not gall your patience, good Iago, That I extend my manners; ’tis my breeding That gives me this bold show of courtesy.",
+   "modern_v2_now": "[Good ensign, you're welcome. [_To Emilia._] Welcome, madam. Don't let it rub your patience raw, good Iago, that I stretch my manners this far — it's my upbringing that gives me this bold show of courtesy.]",
+   "modern_v2_proposed": "CASSIO. Good ensign, you're welcome. [_To Emilia._] Welcome, madam. Don't let it rub your patience raw, good Iago, that I stretch my manners this far — it's my upbringing that gives me this bold show of courtesy."
+  },
+  {
+   "id": "4.79",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 1526,
+   "source_first_line": 1538,
+   "original_now": "[The Moor! I know his trumpet.]",
+   "original_proposed": "IAGO. The Moor! I know his trumpet.",
+   "modern_v2_now": "[The Moor! I know his trumpet call.]",
+   "modern_v2_proposed": "IAGO. The Moor! I know his trumpet call."
+  },
+  {
+   "id": "6.29",
+   "category": "D-song-in-speech",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 1845,
+   "source_first_line": 1849,
+   "original_now": "[_And let me the cannikin clink, clink, And let me the cannikin clink, clink: A soldier’s a man, O, man’s life’s but a span, Why then let a soldier drink._]",
+   "original_proposed": "IAGO. _And let me the cannikin clink, clink, And let me the cannikin clink, clink: A soldier’s a man, O, man’s life’s but a span, Why then let a soldier drink._",
+   "modern_v2_now": "[_And let the drinking-can go clink, clink, And let the drinking-can go clink, clink: A soldier's a man, Oh, man's life's just a span, So why not let a soldier drink._]",
+   "modern_v2_proposed": "IAGO. _And let the drinking-can go clink, clink, And let the drinking-can go clink, clink: A soldier's a man, Oh, man's life's just a span, So why not let a soldier drink._"
+  },
+  {
+   "id": "6.30",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 1845,
+   "source_first_line": 1855,
+   "original_now": "[Some wine, boys!]",
+   "original_proposed": "IAGO. Some wine, boys!",
+   "modern_v2_now": "[Some wine, boys!]",
+   "modern_v2_proposed": "IAGO. Some wine, boys!"
+  },
+  {
+   "id": "6.39",
+   "category": "D-song-in-speech",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 1879,
+   "source_first_line": 1884,
+   "original_now": "[_King Stephen was a worthy peer, His breeches cost him but a crown; He held them sixpence all too dear, With that he call’d the tailor lown. He was a wight of high renown, And thou art but of low degree: ’Tis pride that pulls the country down, Then take thine auld cloak about thee._]",
+   "original_proposed": "IAGO. _King Stephen was a worthy peer, His breeches cost him but a crown; He held them sixpence all too dear, With that he call’d the tailor lown. He was a wight of high renown, And thou art but of low degree: ’Tis pride that pulls the country down, Then take thine auld cloak about thee._",
+   "modern_v2_now": "[_King Stephen was a worthy lord, His trousers cost him just a crown; He thought them sixpence overpriced, And so he called the tailor clown. He was a man of high renown, And you are just of low degree: It's pride that pulls the country down, So wrap your old cloak round you._]",
+   "modern_v2_proposed": "IAGO. _King Stephen was a worthy lord, His trousers cost him just a crown; He thought them sixpence overpriced, And so he called the tailor clown. He was a man of high renown, And you are just of low degree: It's pride that pulls the country down, So wrap your old cloak round you._"
+  },
+  {
+   "id": "6.40",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 1879,
+   "source_first_line": 1893,
+   "original_now": "[Some wine, ho!]",
+   "original_proposed": "IAGO. Some wine, ho!",
+   "modern_v2_now": "[Some wine, hey!]",
+   "modern_v2_proposed": "IAGO. Some wine, hey!"
+  },
+  {
+   "id": "6.76",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 2017,
+   "source_first_line": 2022,
+   "original_now": "[Nay, good lieutenant, God’s will, gentlemen. Help, ho!—Lieutenant,—sir,—Montano,—sir:— Help, masters! Here’s a goodly watch indeed!]",
+   "original_proposed": "IAGO. Nay, good lieutenant, God’s will, gentlemen. Help, ho!—Lieutenant,—sir,—Montano,—sir:— Help, masters! Here’s a goodly watch indeed!",
+   "modern_v2_now": "[No, good lieutenant — for God's sake, gentlemen! Help, hey! — Lieutenant — sir — Montano — sir — Help, gentlemen! This is a fine watch indeed!]",
+   "modern_v2_proposed": "IAGO. No, good lieutenant — for God's sake, gentlemen! Help, hey! — Lieutenant — sir — Montano — sir — Help, gentlemen! This is a fine watch indeed!"
+  },
+  {
+   "id": "6.78",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 2017,
+   "source_first_line": 2028,
+   "original_now": "[Who’s that which rings the bell?—Diablo, ho! The town will rise. God’s will, lieutenant, hold, You will be sham’d forever.]",
+   "original_proposed": "IAGO. Who’s that which rings the bell?—Diablo, ho! The town will rise. God’s will, lieutenant, hold, You will be sham’d forever.",
+   "modern_v2_now": "[Who's that ringing the bell? — The devil, hey! The whole town will be up in arms. For God's sake, lieutenant, stop, you'll be disgraced forever.]",
+   "modern_v2_proposed": "IAGO. Who's that ringing the bell? — The devil, hey! The whole town will be up in arms. For God's sake, lieutenant, stop, you'll be disgraced forever."
+  },
+  {
+   "id": "6.95",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 2146,
+   "source_first_line": 2154,
+   "original_now": "[Look, if my gentle love be not rais’d up! I’ll make thee an example.]",
+   "original_proposed": "OTHELLO. Look, if my gentle love be not rais’d up! I’ll make thee an example.",
+   "modern_v2_now": "[Look, if my gentle love hasn't been woken up! I'll make an example of you.]",
+   "modern_v2_proposed": "OTHELLO. Look, if my gentle love hasn't been woken up! I'll make an example of you."
+  },
+  {
+   "id": "6.99",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 2160,
+   "source_first_line": 2168,
+   "original_now": "[Iago, look with care about the town, And silence those whom this vile brawl distracted. Come, Desdemona: ’tis the soldiers’ life To have their balmy slumbers wak’d with strife.]",
+   "original_proposed": "OTHELLO. Iago, look with care about the town, And silence those whom this vile brawl distracted. Come, Desdemona: ’tis the soldiers’ life To have their balmy slumbers wak’d with strife.",
+   "modern_v2_now": "[Iago, keep a careful watch over the town, and calm down those this vile brawl has upset. Come, Desdemona; it's a soldier's life to have his sweet sleep broken by fighting.]",
+   "modern_v2_proposed": "OTHELLO. Iago, keep a careful watch over the town, and calm down those this vile brawl has upset. Come, Desdemona; it's a soldier's life to have his sweet sleep broken by fighting."
+  },
+  {
+   "id": "6.126",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 2279,
+   "source_first_line": 2310,
+   "original_now": "[How now, Roderigo?]",
+   "original_proposed": "IAGO. How now, Roderigo?",
+   "modern_v2_now": "[What's going on, Roderigo?]",
+   "modern_v2_proposed": "IAGO. What's going on, Roderigo?"
+  },
+  {
+   "id": "6.130",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 2319,
+   "source_first_line": 2336,
+   "original_now": "[Two things are to be done, My wife must move for Cassio to her mistress. I’ll set her on; Myself the while to draw the Moor apart, And bring him jump when he may Cassio find Soliciting his wife. Ay, that’s the way. Dull not device by coldness and delay.]",
+   "original_proposed": "IAGO. Two things are to be done, My wife must move for Cassio to her mistress. I’ll set her on; Myself the while to draw the Moor apart, And bring him jump when he may Cassio find Soliciting his wife. Ay, that’s the way. Dull not device by coldness and delay.",
+   "modern_v2_now": "[Two things need doing: my wife has to plead for Cassio with her mistress — I'll set her on to it — meanwhile I'll take the Moor aside myself and bring him in at just the moment he can find Cassio pleading with his wife. Yes, that's the way. Don't blunt the plan with sluggishness and delay.]",
+   "modern_v2_proposed": "IAGO. Two things need doing: my wife has to plead for Cassio with her mistress — I'll set her on to it — meanwhile I'll take the Moor aside myself and bring him in at just the moment he can find Cassio pleading with his wife. Yes, that's the way. Don't blunt the plan with sluggishness and delay."
+  },
+  {
+   "id": "7.23",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 2420,
+   "source_first_line": 2427,
+   "original_now": "[In happy time, Iago.]",
+   "original_proposed": "CASSIO. In happy time, Iago.",
+   "modern_v2_now": "[Good timing, Iago.]",
+   "modern_v2_proposed": "CASSIO. Good timing, Iago."
+  },
+  {
+   "id": "7.29",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 2445,
+   "source_first_line": 2450,
+   "original_now": "[I never knew A Florentine more kind and honest.]",
+   "original_proposed": "CASSIO. I never knew A Florentine more kind and honest.",
+   "modern_v2_now": "[I never knew even a fellow Florentine more kind and honest.]",
+   "modern_v2_proposed": "CASSIO. I never knew even a fellow Florentine more kind and honest."
+  },
+  {
+   "id": "9.109",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 3039,
+   "source_first_line": 3044,
+   "original_now": "[Let it alone. Come, I’ll go in with you.]",
+   "original_proposed": "OTHELLO. Let it alone. Come, I’ll go in with you.",
+   "modern_v2_now": "[Leave it. Come, I'll go in with you.]",
+   "modern_v2_proposed": "OTHELLO. Leave it. Come, I'll go in with you."
+  },
+  {
+   "id": "9.130",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 3115,
+   "source_first_line": 3121,
+   "original_now": "[I will in Cassio’s lodging lose this napkin, And let him find it. Trifles light as air Are to the jealous confirmations strong As proofs of holy writ. This may do something. The Moor already changes with my poison: Dangerous conceits are in their natures poisons, Which at the first are scarce found to distaste, But with a little act upon the blood Burn like the mines of sulphur. I did say so.]",
+   "original_proposed": "IAGO. I will in Cassio’s lodging lose this napkin, And let him find it. Trifles light as air Are to the jealous confirmations strong As proofs of holy writ. This may do something. The Moor already changes with my poison: Dangerous conceits are in their natures poisons, Which at the first are scarce found to distaste, But with a little act upon the blood Burn like the mines of sulphur. I did say so.",
+   "modern_v2_now": "[I'll drop this handkerchief in Cassio's lodging and let him find it. Trifles light as air are, to the jealous, confirmations as strong as proofs from holy scripture. This may do something. The Moor is already changing under my poison: dangerous suspicions are by nature poisons; at first they barely taste unpleasant, but once they start working a little on the blood, they burn like sulfur mines. Just as I said.]",
+   "modern_v2_proposed": "IAGO. I'll drop this handkerchief in Cassio's lodging and let him find it. Trifles light as air are, to the jealous, confirmations as strong as proofs from holy scripture. This may do something. The Moor is already changing under my poison: dangerous suspicions are by nature poisons; at first they barely taste unpleasant, but once they start working a little on the blood, they burn like sulfur mines. Just as I said."
+  },
+  {
+   "id": "9.132",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 3115,
+   "source_first_line": 3133,
+   "original_now": "[Look, where he comes. Not poppy, nor mandragora, Nor all the drowsy syrups of the world, Shall ever medicine thee to that sweet sleep Which thou ow’dst yesterday.]",
+   "original_proposed": "IAGO. Look, where he comes. Not poppy, nor mandragora, Nor all the drowsy syrups of the world, Shall ever medicine thee to that sweet sleep Which thou ow’dst yesterday.",
+   "modern_v2_now": "[Look, here he comes. Not opium poppy, nor mandrake, nor all the sleep-inducing syrups in the world will ever dose you back into that sweet sleep that was yours yesterday.]",
+   "modern_v2_proposed": "IAGO. Look, here he comes. Not opium poppy, nor mandrake, nor all the sleep-inducing syrups in the world will ever dose you back into that sweet sleep that was yours yesterday."
+  },
+  {
+   "id": "10.68",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "EMILIA.",
+   "source_speaker_line": 3632,
+   "source_first_line": 3640,
+   "original_now": "[Look you, Cassio and my husband.]",
+   "original_proposed": "EMILIA. Look you, Cassio and my husband.",
+   "modern_v2_now": "[Look — Cassio and my husband.]",
+   "modern_v2_proposed": "EMILIA. Look — Cassio and my husband."
+  },
+  {
+   "id": "10.78",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 3691,
+   "source_first_line": 3696,
+   "original_now": "[Something sure of state, Either from Venice, or some unhatch’d practice Made demonstrable here in Cyprus to him, Hath puddled his clear spirit, and in such cases Men’s natures wrangle with inferior things, Though great ones are their object. ’Tis even so. For let our finger ache, and it indues Our other healthful members even to that sense Of pain. Nay, we must think men are not gods, Nor of them look for such observancy As fits the bridal. Beshrew me much, Emilia, I was (unhandsome warrior as I am) Arraigning his unkindness with my soul; But now I find I had suborn’d the witness, And he’s indicted falsely.]",
+   "original_proposed": "DESDEMONA. Something sure of state, Either from Venice, or some unhatch’d practice Made demonstrable here in Cyprus to him, Hath puddled his clear spirit, and in such cases Men’s natures wrangle with inferior things, Though great ones are their object. ’Tis even so. For let our finger ache, and it indues Our other healthful members even to that sense Of pain. Nay, we must think men are not gods, Nor of them look for such observancy As fits the bridal. Beshrew me much, Emilia, I was (unhandsome warrior as I am) Arraigning his unkindness with my soul; But now I find I had suborn’d the witness, And he’s indicted falsely.",
+   "modern_v2_now": "[It must be some matter of state — either news from Venice, or some plot not yet hatched that's been uncovered to him here in Cyprus — that's muddied his clear mind. And at times like that men pick fights over little things, even though it's the big things that are bothering them. That's just how it is. If our finger aches, the pain spreads to the rest of our healthy body until we feel it all over. No, we have to remember that men aren't gods, and we can't expect them to be as attentive as they were on the wedding day. Shame on me, Emilia — I was (what a poor soldier I am!) putting him on trial in my heart for his unkindness; but now I see I had bribed the witness to lie, and he's been falsely accused.]",
+   "modern_v2_proposed": "DESDEMONA. It must be some matter of state — either news from Venice, or some plot not yet hatched that's been uncovered to him here in Cyprus — that's muddied his clear mind. And at times like that men pick fights over little things, even though it's the big things that are bothering them. That's just how it is. If our finger aches, the pain spreads to the rest of our healthy body until we feel it all over. No, we have to remember that men aren't gods, and we can't expect them to be as attentive as they were on the wedding day. Shame on me, Emilia — I was (what a poor soldier I am!) putting him on trial in my heart for his unkindness; but now I see I had bribed the witness to lie, and he's been falsely accused."
+  },
+  {
+   "id": "10.93",
+   "category": "E-mid-sentence-continuation",
+   "speaker_in_source": "CASSIO.",
+   "source_speaker_line": 3759,
+   "source_first_line": 3767,
+   "original_now": "[Take me this work out.]",
+   "original_proposed": "CASSIO. Take me this work out.",
+   "modern_v2_now": "[copy out this embroidery pattern for me.]",
+   "modern_v2_proposed": "CASSIO. Copy out this embroidery pattern for me."
+  },
+  {
+   "id": "11.28",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 3929,
+   "source_first_line": 3938,
+   "original_now": "[How now, Cassio!]",
+   "original_proposed": "IAGO. How now, Cassio!",
+   "modern_v2_now": "[Hello there, Cassio!]",
+   "modern_v2_proposed": "IAGO. Hello there, Cassio!"
+  },
+  {
+   "id": "11.34",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 3950,
+   "source_first_line": 3961,
+   "original_now": "[How is it, general? Have you not hurt your head?]",
+   "original_proposed": "IAGO. How is it, general? Have you not hurt your head?",
+   "modern_v2_now": "[How are you, general? You haven't hurt your head, have you?]",
+   "modern_v2_proposed": "IAGO. How are you, general? You haven't hurt your head, have you?"
+  },
+  {
+   "id": "11.46",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 4017,
+   "source_first_line": 4023,
+   "original_now": "[Now will I question Cassio of Bianca, A housewife that by selling her desires Buys herself bread and clothes: it is a creature That dotes on Cassio, (as ’tis the strumpet’s plague To beguile many and be beguil’d by one.) He, when he hears of her, cannot refrain From the excess of laughter. Here he comes.]",
+   "original_proposed": "IAGO. Now will I question Cassio of Bianca, A housewife that by selling her desires Buys herself bread and clothes: it is a creature That dotes on Cassio, (as ’tis the strumpet’s plague To beguile many and be beguil’d by one.) He, when he hears of her, cannot refrain From the excess of laughter. Here he comes.",
+   "modern_v2_now": "[Now I'll ask Cassio about Bianca, a hussy who, by selling her body's pleasures, buys herself bread and clothes: she's a creature who's crazy about Cassio — since it's a whore's curse to fool many men and be fooled by one. When he hears about her, he can't stop himself from laughing his head off. Here he comes.]",
+   "modern_v2_proposed": "IAGO. Now I'll ask Cassio about Bianca, a hussy who, by selling her body's pleasures, buys herself bread and clothes: she's a creature who's crazy about Cassio — since it's a whore's curse to fool many men and be fooled by one. When he hears about her, he can't stop himself from laughing his head off. Here he comes."
+  },
+  {
+   "id": "11.48",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 4017,
+   "source_first_line": 4033,
+   "original_now": "[As he shall smile Othello shall go mad, And his unbookish jealousy must construe Poor Cassio’s smiles, gestures, and light behaviour Quite in the wrong. How do you now, lieutenant?]",
+   "original_proposed": "IAGO. As he shall smile Othello shall go mad, And his unbookish jealousy must construe Poor Cassio’s smiles, gestures, and light behaviour Quite in the wrong. How do you now, lieutenant?",
+   "modern_v2_now": "[As he smiles, Othello will go mad, and his ignorant jealousy will read poor Cassio's smiles, gestures, and light-hearted manner completely wrong. How are you now, lieutenant?]",
+   "modern_v2_proposed": "IAGO. As he smiles, Othello will go mad, and his ignorant jealousy will read poor Cassio's smiles, gestures, and light-hearted manner completely wrong. How are you now, lieutenant?"
+  },
+  {
+   "id": "11.157",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 4391,
+   "source_first_line": 4404,
+   "original_now": "[Cassio shall have my place. And, sir, tonight, I do entreat that we may sup together. You are welcome, sir, to Cyprus. Goats and monkeys!]",
+   "original_proposed": "OTHELLO. Cassio shall have my place. And, sir, tonight, I do entreat that we may sup together. You are welcome, sir, to Cyprus. Goats and monkeys!",
+   "modern_v2_now": "[Cassio will take my post. And, sir, tonight I'd like us to have supper together. You're welcome, sir, to Cyprus. Goats and monkeys!]",
+   "modern_v2_proposed": "OTHELLO. Cassio will take my post. And, sir, tonight I'd like us to have supper together. You're welcome, sir, to Cyprus. Goats and monkeys!"
+  },
+  {
+   "id": "12.15",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 4501,
+   "source_first_line": 4506,
+   "original_now": "[She says enough. Yet she’s a simple bawd That cannot say as much. This is a subtle whore, A closet lock and key of villainous secrets. And yet she’ll kneel and pray. I have seen her do ’t.]",
+   "original_proposed": "OTHELLO. She says enough. Yet she’s a simple bawd That cannot say as much. This is a subtle whore, A closet lock and key of villainous secrets. And yet she’ll kneel and pray. I have seen her do ’t.",
+   "modern_v2_now": "[She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a cupboard kept under lock and key, full of vile secrets. And yet she'll kneel and pray. I've seen her do it.]",
+   "modern_v2_proposed": "OTHELLO. She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a cupboard kept under lock and key, full of vile secrets. And yet she'll kneel and pray. I've seen her do it."
+  },
+  {
+   "id": "12.47",
+   "category": "E-mid-sentence-continuation",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 4644,
+   "source_first_line": 4651,
+   "original_now": "[That have the office opposite to Saint Peter, And keeps the gate of hell. You, you, ay, you! We have done our course; there’s money for your pains. I pray you turn the key, and keep our counsel.]",
+   "original_proposed": "OTHELLO. That have the office opposite to Saint Peter, And keeps the gate of hell. You, you, ay, you! We have done our course; there’s money for your pains. I pray you turn the key, and keep our counsel.",
+   "modern_v2_now": "[who have the job opposite to Saint Peter's and guard the gate of hell — you, you, yes, you! We've finished our business. Here's money for your trouble. Please turn the key, and keep our secret.]",
+   "modern_v2_proposed": "OTHELLO. You, who have the job opposite to Saint Peter's and guard the gate of hell — you, you, yes, you! We've finished our business. Here's money for your trouble. Please turn the key, and keep our secret."
+  },
+  {
+   "id": "12.88",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 4814,
+   "source_first_line": 4819,
+   "original_now": "[Hark, how these instruments summon to supper. The messengers of Venice stay the meat. Go in, and weep not. All things shall be well.]",
+   "original_proposed": "IAGO. Hark, how these instruments summon to supper. The messengers of Venice stay the meat. Go in, and weep not. All things shall be well.",
+   "modern_v2_now": "[Listen, the trumpets are calling everyone to supper. The messengers from Venice are waiting to eat. Go in, and don't cry. Everything will be all right.]",
+   "modern_v2_proposed": "IAGO. Listen, the trumpets are calling everyone to supper. The messengers from Venice are waiting to eat. Go in, and don't cry. Everything will be all right."
+  },
+  {
+   "id": "12.91",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 4814,
+   "source_first_line": 4827,
+   "original_now": "[How now, Roderigo?]",
+   "original_proposed": "IAGO. How now, Roderigo?",
+   "modern_v2_now": "[Hello, Roderigo, what is it?]",
+   "modern_v2_proposed": "IAGO. Hello, Roderigo, what is it?"
+  },
+  {
+   "id": "13.26",
+   "category": "E-mid-sentence-continuation",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5036,
+   "source_first_line": 5046,
+   "original_now": "[Lay by these:—]",
+   "original_proposed": "DESDEMONA. Lay by these:—",
+   "modern_v2_now": "[Put these away —]",
+   "modern_v2_proposed": "DESDEMONA. Put these away —"
+  },
+  {
+   "id": "13.27",
+   "category": "G-sung-line-with-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5036,
+   "source_first_line": 5049,
+   "original_now": "[Sings.] Sing willow, willow, willow.",
+   "original_proposed": "DESDEMONA. _Sing willow, willow, willow._",
+   "modern_v2_now": "[Sings.] Sing willow, willow, willow.",
+   "modern_v2_proposed": "DESDEMONA. _Sing willow, willow, willow._"
+  },
+  {
+   "id": "13.28",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5036,
+   "source_first_line": 5051,
+   "original_now": "[Prithee hie thee. He’ll come anon.]",
+   "original_proposed": "DESDEMONA. Prithee hie thee. He’ll come anon.",
+   "modern_v2_now": "[Please hurry. He'll be here soon.]",
+   "modern_v2_proposed": "DESDEMONA. Please hurry. He'll be here soon."
+  },
+  {
+   "id": "13.29",
+   "category": "G-sung-line-with-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5036,
+   "source_first_line": 5054,
+   "original_now": "[Sings.] Sing all a green willow must be my garland. Let nobody blame him, his scorn I approve,—",
+   "original_proposed": "DESDEMONA. _Sing all a green willow must be my garland. Let nobody blame him, his scorn I approve,—_",
+   "modern_v2_now": "[Sings.] Sing all a green willow must be my garland. Let nobody blame him — his scorn I approve —",
+   "modern_v2_proposed": "DESDEMONA. _Sing all a green willow must be my garland. Let nobody blame him — his scorn I approve —_"
+  },
+  {
+   "id": "13.30",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5036,
+   "source_first_line": 5057,
+   "original_now": "[Nay, that’s not next. Hark! who is’t that knocks?]",
+   "original_proposed": "DESDEMONA. Nay, that’s not next. Hark! who is’t that knocks?",
+   "modern_v2_now": "[No, that's not the next line. Listen! Who's that knocking?]",
+   "modern_v2_proposed": "DESDEMONA. No, that's not the next line. Listen! Who's that knocking?"
+  },
+  {
+   "id": "13.33",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "DESDEMONA.",
+   "source_speaker_line": 5062,
+   "source_first_line": 5068,
+   "original_now": "[So get thee gone; good night. Mine eyes do itch; Doth that bode weeping?]",
+   "original_proposed": "DESDEMONA. So get thee gone; good night. Mine eyes do itch; Doth that bode weeping?",
+   "modern_v2_now": "[So off you go; good night. My eyes are itching; does that mean I'm going to cry?]",
+   "modern_v2_proposed": "DESDEMONA. So off you go; good night. My eyes are itching; does that mean I'm going to cry?"
+  },
+  {
+   "id": "14.80",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 5422,
+   "source_first_line": 5427,
+   "original_now": "[O, that’s well said; the chair. Some good man bear him carefully from hence, I’ll fetch the general’s surgeon. [_To Bianca_] For you, mistress, Save you your labour. He that lies slain here, Cassio, Was my dear friend. What malice was between you?]",
+   "original_proposed": "IAGO. O, that’s well said; the chair. Some good man bear him carefully from hence, I’ll fetch the general’s surgeon. [_To Bianca_] For you, mistress, Save you your labour. He that lies slain here, Cassio, Was my dear friend. What malice was between you?",
+   "modern_v2_now": "[Oh, good work; the chair. Some good man carry him carefully away from here; I'll fetch the general's surgeon. [_To Bianca_] As for you, madam, spare yourself the trouble. The man lying dead here, Cassio, was my dear friend. What bad blood was there between you?]",
+   "modern_v2_proposed": "IAGO. Oh, good work; the chair. Some good man carry him carefully away from here; I'll fetch the general's surgeon. [_To Bianca_] As for you, madam, spare yourself the trouble. The man lying dead here, Cassio, was my dear friend. What bad blood was there between you?"
+  },
+  {
+   "id": "14.84",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "IAGO.",
+   "source_speaker_line": 5436,
+   "source_first_line": 5441,
+   "original_now": "[Stay you, good gentlemen.—Look you pale, mistress? Do you perceive the gastness of her eye? Nay, if you stare, we shall hear more anon. Behold her well. I pray you, look upon her. Do you see, gentlemen? Nay, guiltiness will speak Though tongues were out of use.]",
+   "original_proposed": "IAGO. Stay you, good gentlemen.—Look you pale, mistress? Do you perceive the gastness of her eye? Nay, if you stare, we shall hear more anon. Behold her well. I pray you, look upon her. Do you see, gentlemen? Nay, guiltiness will speak Though tongues were out of use.",
+   "modern_v2_now": "[Stay here, good gentlemen. — Are you pale, madam? Do you see the terror in her eyes? No, if you stare like that, we'll hear more soon enough. Look at her closely. Please, look at her. Do you see, gentlemen? Yes, guilt will speak out even if tongues went out of use.]",
+   "modern_v2_proposed": "IAGO. Stay here, good gentlemen. — Are you pale, madam? Do you see the terror in her eyes? No, if you stare like that, we'll hear more soon enough. Look at her closely. Please, look at her. Do you see, gentlemen? Yes, guilt will speak out even if tongues went out of use."
+  },
+  {
+   "id": "15.4",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 5498,
+   "source_first_line": 5517,
+   "original_now": "[O, balmy breath, that dost almost persuade Justice to break her sword! One more, one more. Be thus when thou art dead, and I will kill thee, And love thee after. One more, and this the last. So sweet was ne’er so fatal. I must weep, But they are cruel tears. This sorrow’s heavenly, It strikes where it doth love. She wakes.]",
+   "original_proposed": "OTHELLO. O, balmy breath, that dost almost persuade Justice to break her sword! One more, one more. Be thus when thou art dead, and I will kill thee, And love thee after. One more, and this the last. So sweet was ne’er so fatal. I must weep, But they are cruel tears. This sorrow’s heavenly, It strikes where it doth love. She wakes.",
+   "modern_v2_now": "[Oh, sweet-scented breath, that almost talks Justice into breaking her sword! One more, one more. Be like this when you're dead, and I'll kill you and love you afterward. One more, and this is the last. Nothing so sweet was ever so deadly. I have to cry, but these are cruel tears. This grief is like God's: it punishes where it loves. She's waking.]",
+   "modern_v2_proposed": "OTHELLO. Oh, sweet-scented breath, that almost talks Justice into breaking her sword! One more, one more. Be like this when you're dead, and I'll kill you and love you afterward. One more, and this is the last. Nothing so sweet was ever so deadly. I have to cry, but these are cruel tears. This grief is like God's: it punishes where it loves. She's waking."
+  },
+  {
+   "id": "15.66",
+   "category": "C-continuation-after-direction",
+   "speaker_in_source": "OTHELLO.",
+   "source_speaker_line": 5740,
+   "source_first_line": 5749,
+   "original_now": "[What’s the matter with thee now?]",
+   "original_proposed": "OTHELLO. What’s the matter with thee now?",
+   "modern_v2_now": "[What's the matter with you now?]",
+   "modern_v2_proposed": "OTHELLO. What's the matter with you now?"
+  },
+  {
+   "id": "15.146",
+   "category": "A-unpunctuated-speaker-tag",
+   "speaker_in_source": "OTHELLO",
+   "source_speaker_line": 6056,
+   "source_first_line": 6057,
+   "original_now": "[OTHELLO Are there not stones in heaven But what serve for thunder? Precious villain!]",
+   "original_proposed": "OTHELLO. Are there not stones in heaven But what serve for thunder? Precious villain!",
+   "modern_v2_now": "[OTHELLO Are there no thunderbolts in heaven except the ones it needs for thunder? You utter villain!]",
+   "modern_v2_proposed": "OTHELLO. Are there no thunderbolts in heaven except the ones it needs for thunder? You utter villain!"
+  }
+ ]
+}

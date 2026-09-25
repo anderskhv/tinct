@@ -1,0 +1,179 @@
+{
+  "reviewer": "F1",
+  "paragraphs_read": 33,
+  "findings": [
+    {
+      "id": "1.12",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "he asked him whither he was going that he had been converted into such a beau",
+      "after": "Aristodemus asked him where he was going, all dressed up like a dandy.",
+      "issue": "After the comma the closing phrase can attach to the subject, Aristodemus, rather than to Socrates, so the reader cannot be sure who is dressed up. Dropping the comma ties it to 'he was going' and keeps Jowett's sense: 'where are you going, that you are so dressed up?'.",
+      "proposed": "Aristodemus asked him where he was going all dressed up like a dandy."
+    },
+    {
+      "id": "1.19",
+      "category": "convention",
+      "severity": "note",
+      "jowett": "and this alteration may be supported by the authority of Homer himself",
+      "after": "and we can support this change with the authority of Homer himself",
+      "issue": "This gap is inherited from the accepted text, and the kept 1.17 has the same gap. Socrates' speech runs 1.15, verse 1.16, 1.17, verse 1.18, 1.19, but 1.19 carries no quotation marks. The house pattern reopens the quote after an embedded verse (1.20 to 1.22 as restored by R1; 1.44 to 1.46). Without marks, 'we can support this change' can read as narration. The text is readable as it stands, so this is a note.",
+      "proposed": "'and we can support this change with the authority of Homer himself, [middle unchanged] So in Homer it is not the better who comes uninvited to the worse, but the worse to the better.' If KEEP may be overridden, give 1.17 the same treatment: 'and instead our proverb will run:'"
+    },
+    {
+      "id": "2.0",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "and a proof of his claim to this honour is, that of his parents there is no memorial",
+      "after": "and the proof of his claim to this honor is that there is no record of his parents.",
+      "issue": "'the proof' slightly strengthens Jowett's 'a proof', which offers one piece of evidence and not a decisive one. The accepted text had 'a proof', and the repair did not call for this change.",
+      "proposed": "and a proof of his claim to this honor is that there is no record of his parents."
+    },
+    {
+      "id": "2.4",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "The beloved too, when he is found in any disgraceful situation, has the same feeling about his lover.",
+      "after": "The beloved, too, feels the same way about his lover when he is caught in any disgraceful situation.",
+      "issue": "Moving the 'when' clause to the end puts 'he' right after 'his lover', so the man caught in disgrace can be taken for the lover. Jowett's order is unambiguous.",
+      "proposed": "The beloved, too, when he is caught in any disgraceful situation, feels the same way about his lover."
+    },
+    {
+      "id": "2.4",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "or submitting through cowardice when any dishonour is done to him by another",
+      "after": "or letting another man dishonor him because he is too cowardly to resist",
+      "issue": "'another man' narrows Jowett's 'another'. In a passage about male lovers, 'letting another man dishonor him' invites a sexual reading that Jowett does not have. Jowett means failing, through cowardice, to defend oneself against an insult or injury.",
+      "proposed": "or letting someone else dishonor him because he is too cowardly to defend himself"
+    },
+    {
+      "id": "3.11",
+      "category": "convention",
+      "severity": "should-fix",
+      "jowett": "I will do both, said Eryximachus: I will speak in your turn, and do you speak in mine;",
+      "after": "I'll do both, said Eryximachus. I'll speak in your place, and you can speak in mine;",
+      "issue": "3.11 is a KEEP paragraph; this is raised because of the change to 3.10. The successor's 3.10 now puts Aristophanes' request in single quotes, but in the kept 3.11 Eryximachus's reply and Aristophanes' answer still have no marks, so one exchange switches convention between consecutive paragraphs. R2 flagged this. Fixing it needs the editor to override KEEP; the only alternative is to accept the inconsistency.",
+      "proposed": "'I'll do both,' said Eryximachus. 'I'll speak in your place, and you can speak in mine; and while I'm speaking, let me recommend you hold your breath. If after a while the hiccups haven't gotten better, then gargle a little water; and if they still persist, tickle your nose with something and sneeze — once or twice should do it, and even the most violent hiccups are sure to stop.' 'I'll do as you prescribe,' said Aristophanes. 'Now get on with it.'"
+    },
+    {
+      "id": "4.1",
+      "category": "convention",
+      "severity": "must-fix",
+      "jowett": "And this is what the physician has to do, and in this the art of medicine consists:",
+      "after": "This is what the physician has to do, and this is what the art of medicine consists of.",
+      "issue": "Eryximachus's speech now opens a quote at 4.0 (no closing mark) and closes it at the end of 4.5, but 4.1 has no opening single quote. The brief and the house pattern R2 cites (6.9 has no closing mark and 6.10 reopens with a quote) require a quote at the start of every continuation paragraph. As delivered, 4.0 has an unclosed quote and 4.1 to 4.4 look like narration. The rest of the paragraph is unchanged, with no closing mark at its end.",
+      "proposed": "'This is what the physician has to do, and this is what the art of medicine consists of."
+    },
+    {
+      "id": "4.1",
+      "category": "distortion",
+      "severity": "should-fix",
+      "jowett": "and not only medicine in every branch but the arts of gymnastic and husbandry are under his dominion",
+      "after": "And not only medicine in all its branches, but also the arts of physical training and farming, are under his dominion.",
+      "issue": "Jowett's 'his' can mean Asclepius or the god Love, whose 'empire' over all things 4.0 has just announced; 'dominion' echoes that word. The successor splits Jowett's sentence and adds 'we doctors trace our descent from him' and 'he created our art', which leaves Asclepius as the only natural antecedent. Readers will now take Asclepius as ruling physical training and farming. That breaks a step in Eryximachus's survey of Love's rule, which runs through medicine, physical training, farming, music, astronomy and divination. Plato's Greek settles Jowett's ambiguity ('steered through this god', meaning Love), which the brief allows when choosing between readings Jowett's words permit. R2 offered this exact change.",
+      "proposed": "And not only medicine in all its branches, but also the arts of physical training and farming, are under Love's dominion."
+    },
+    {
+      "id": "4.1",
+      "category": "terminology",
+      "severity": "should-fix",
+      "jowett": "the best physician is he who is able to separate fair love from foul, or to convert one into the other",
+      "after": "The best physician is the one who can separate the good love from the bad, or turn one into the other.",
+      "issue": "The glossary renders fair/foul as beautiful/ugly. Jowett uses the same word for 'fair love' here and 'fair and heavenly love' in 4.3, which the successor correctly gives as 'the beautiful and heavenly love'. 'Good/bad' here breaks that link inside Eryximachus's speech. The 'good kind and bad kind' gloss in 4.2 and Jowett's own good/evil love in 4.4 can stay.",
+      "proposed": "The best physician is the one who can separate the beautiful love from the ugly, or turn one into the other."
+    },
+    {
+      "id": "4.2",
+      "category": "convention",
+      "severity": "must-fix",
+      "jowett": "But what he probably meant was, that harmony is composed of differing notes",
+      "after": "But what he probably meant was this: harmony is made of differing notes",
+      "issue": "This paragraph continues Eryximachus's speech (4.0 to 4.5) but has no opening single quote. See 4.1. The rest of the paragraph is unchanged, with no closing mark at its end.",
+      "proposed": "'But what he probably meant was this: harmony is made of differing notes"
+    },
+    {
+      "id": "4.2",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "For harmony is a symphony, and symphony is an agreement;",
+      "after": "harmony is consonance, that is, notes sounding together; and consonance is a kind of agreement.",
+      "issue": "'a kind of' is a hedge that Jowett does not have; it comes from the Greek and other translations. It slightly weakens the identity the argument relies on ('you cannot harmonize what disagrees'). This is minor.",
+      "proposed": "harmony is consonance, that is, notes sounding together; and consonance is an agreement."
+    },
+    {
+      "id": "4.3",
+      "category": "convention",
+      "severity": "must-fix",
+      "jowett": "Then the old tale has to be repeated of fair and heavenly love",
+      "after": "At that point we must retell the old story of the beautiful and heavenly love",
+      "issue": "This paragraph continues Eryximachus's speech but has no opening single quote. See 4.1. The rest of the paragraph is unchanged, with no closing mark at its end.",
+      "proposed": "'At that point we must retell the old story of the beautiful and heavenly love"
+    },
+    {
+      "id": "4.3",
+      "category": "terminology",
+      "severity": "must-fix",
+      "jowett": "of the duty of accepting the temperate, and those who are as yet intemperate only that they may become temperate",
+      "after": "It tells of our duty to gratify the temperate, and to gratify those who are not yet temperate only so that they may become temperate, and to preserve their love.",
+      "issue": "The glossary renders temperate/temperance as self-controlled/self-control, and the successor already does so at 6.3, 7.59, 8.26 and 8.31. At a drinking party, 'the temperate' reads as moderate drinkers, which is the misreading the glossary exists to prevent. The purpose clause depends on repeating one word, so all three occurrences must change together.",
+      "proposed": "It tells of our duty to gratify the self-controlled, and to gratify those who are not yet self-controlled only so that they may become self-controlled, and to preserve their love."
+    },
+    {
+      "id": "4.4",
+      "category": "convention",
+      "severity": "must-fix",
+      "jowett": "The course of the seasons is also full of both these principles;",
+      "after": "The course of the seasons, too, is full of both these principles.",
+      "issue": "This paragraph continues Eryximachus's speech but has no opening single quote. See 4.1. The rest of the paragraph is unchanged, with no closing mark at its end.",
+      "proposed": "'The course of the seasons, too, is full of both these principles."
+    },
+    {
+      "id": "4.4",
+      "category": "terminology",
+      "severity": "note",
+      "jowett": "instead of accepting and honouring and reverencing the harmonious love in all his actions",
+      "after": "instead of accepting, honoring, and revering the harmonious love in everything he does",
+      "issue": "Jowett uses 'accepting' both here and in 4.3. The successor renders the 4.3 instance, like 4.0's 'indulge', as 'gratify', which 4.0 glosses as 'to yield to their love'. Keeping 'accepting' only here breaks the thread that carries Pausanias's word for yielding to a lover through Eryximachus's speech (4.0, 4.3, 4.4). 'Gratifying the harmonious love' would read oddly, but 'yielding to' keeps the thread.",
+      "proposed": "instead of yielding to, honoring, and revering the harmonious love in everything he does"
+    },
+    {
+      "id": "4.4",
+      "category": "terminology",
+      "severity": "note",
+      "jowett": "blend in temperance and harmony",
+      "after": "blend with moderation and harmony",
+      "issue": "The glossary renders temperance as self-control. For hot, cold, moist and dry, 'moderation' avoids the teetotal reading and is defensible, so it can stay as a deliberate exception. It does, however, lose the echo with 4.5's 'temperance and justice', which is to become 'self-control and justice'. If strict consistency is wanted, align it; Eryximachus's conceit already treats the elements as lovers.",
+      "proposed": "blend with self-control and harmony"
+    },
+    {
+      "id": "4.4",
+      "category": "omission",
+      "severity": "note",
+      "jowett": "these elements of love, which to know in relation to the revolutions of the heavenly bodies and the seasons of the year is termed astronomy",
+      "after": "The study of these elements, as they relate to the movements of the heavenly bodies and to the seasons of the year, is called astronomy.",
+      "issue": "Splitting off the new sentence dropped 'of love' from its subject. Eryximachus's scheme defines each art as knowledge of love: medicine in 4.1, music in 4.2, astronomy and divination in 4.4. Without those words, astronomy reads as the study of hot, cold, moist and dry.",
+      "proposed": "The study of these elements of love, as they relate to the movements of the heavenly bodies and to the seasons of the year, is called astronomy."
+    },
+    {
+      "id": "4.5",
+      "category": "convention",
+      "severity": "must-fix",
+      "jowett": "And the love, more especially, which is concerned with the good",
+      "after": "And above all, it is the love concerned with the good that has the greatest power",
+      "issue": "The last paragraph of Eryximachus's speech needs an opening single quote. It already closes correctly after 'hiccups.' See 4.1.",
+      "proposed": "'And above all, it is the love concerned with the good that has the greatest power"
+    },
+    {
+      "id": "4.5",
+      "category": "terminology",
+      "severity": "must-fix",
+      "jowett": "which is perfected in company with temperance and justice, whether among gods or men",
+      "after": "the love that is perfected in company with temperance and justice, whether among gods or men.",
+      "issue": "The glossary renders temperance as self-control. Jowett has the same pair, 'temperance and justice', at 7.59, which the successor renders 'self-control and justice'; Agathon's 6.3 also pairs justice with self-control. Leaving 'temperance' here breaks a pair of virtues the dialogue repeats and invites the abstinence reading.",
+      "proposed": "the love that is perfected in company with self-control and justice, whether among gods or men."
+    }
+  ],
+  "verdict": "accept-with-fixes",
+  "summary": "I read all 33 changed paragraphs in chapters 1-4 against Jowett (corrected original-en 3521a12d), with the accepted modern-en and the full successor chapters for context. The packet text matches the source files byte for byte, and the changed set is exactly these 33. Order is correct throughout. Every proper name, dialogue tag, hedge, quotation and step of argument survives. There are no substantive omissions or inventions: the added glosses unpack references or shifted senses, as the brief allows. They cover the Aristodemus tags, the couches, the wool-thread siphon, Dionysus, the theater, the sophists, Acusilaus, the lover and beloved roles, Aeschylus, Hector, Asclepius, the bow and lyre, divination and Polyhymnia. Voices hold: Phaedrus earnest, Pausanias lawyerly, Eryximachus pompous, Aristophanes comic, Socrates ironic. A mechanical sweep is clean: straight quotes, spaced em dashes, American spelling, no ellipses and no double spaces. Must-fix: (1) Eryximachus's speech opens a quote at 4.0 and closes it at 4.5, but 4.1 to 4.5 each lack the opening single quote that the brief and the 6.9 to 6.10 house pattern require (five mechanical insertions); (2) R2's chapter 4 misses the glossary's self-control, with 'temperate' three times in 4.3 and 'temperance and justice' in 4.5, although the successor has 'self-control and justice' at 7.59. Should-fix: 4.1 'under his dominion' now reads as Asclepius, so make it 'under Love's dominion'; 4.1 'the good love from the bad' departs from the glossary's fair/foul rendering and loses the link to 4.3's 'beautiful and heavenly love'; 3.10 now quotes speech but the kept 3.11 in the same exchange does not, which needs an editor's KEEP override. The rest are notes. I accept 'Greeks' for Hellenes and the editor's 'Heraclitus' as modern usage. The closing quote before the verse in 1.44 matches the kept 1.15 and 1.20 pattern. Verdict: accept with the fixes above."
+}

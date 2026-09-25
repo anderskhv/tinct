@@ -1,0 +1,221 @@
+{"resolver": "G1",
+ "sources": [
+  "H. H. Furness, A New Variorum Edition of Shakespeare: Othello (Lippincott, copyright 1886), full text via Internet Archive id newvariorumediti13shak. Cited as 'Furness Var.' with Furness's own act/scene/line numbers.",
+  "C. T. Onions, A Shakespeare Glossary (Oxford, 1911), full text via Internet Archive id cu31924072134673.",
+  "Alexander Schmidt, Shakespeare-Lexicon, 3rd ed. (1902), full text via Internet Archive ids shaklexicon01schmuoft and shaklexicon02schmuoft; the same text is on Perseus. Cited with Schmidt's own line references.",
+  "Context: pg1531.txt and the candidate's modern lines in align-A1 to A4. No copyrighted modernization was consulted."
+ ],
+ "items": [
+ {"id": "1.4", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Iago calls Cassio 'a fellow almost damn'd in a fair wife', a famous unresolved crux: Schmidt lists it as an 'unintelligible passage' and Furness ends by resigning it 'to corruption and obscurity', so the received text should be rendered literally. A 'spinster' is a woman who spins; Iago's sneer is that Cassio knows as much about arranging a battle as a spinning-woman.",
+  "basis": "Schmidt s.v. Damn 2 ('Unintelligible passage: a fellow almost damned in a fair wife, Oth. I, 1, 21'); Schmidt s.v. Spinster ('one whose occupation is to spin', citing Oth. I, 1, 24); Onions s.v. spinster ('one who spins'); Furness Var. notes on I.i.22-23 (Theobald, Hanmer, Tyrwhitt, Steevens, Malone, Cowden-Clarke, Arrowsmith; editor's closing note quoting Johnson).",
+  "replacements": [
+   {"line": 13, "current": "a man half-damned already by a pretty wife —", "proposed": "a man almost damned by a beautiful wife —"},
+   {"line": 16, "current": "than an old maid at her spinning wheel — only the theory out of books,", "proposed": "than a woman at her spinning wheel — only the theory out of books,"}
+  ],
+  "note": "Crux: keep it literal and unresolved. No emendation has won acceptance, so the received text is the standard reading; record that choice. Within that, 'half-damned already' turns 'almost' into 'half' and adds 'already', and 'pretty' shrinks 'fair' (beautiful), so line 13 goes back to the literal sense. 'Old maid' brings in the later meaning of 'spinster' and adds age and marriage status that the original does not have; Schmidt and Onions give only 'one who spins'."},
+
+ {"id": "1.31", "verdict": "KEEP", "confidence": "high",
+  "reading": "Iago tells Brabantio he will have horses for kin: 'nephews' are grandsons, 'coursers' are swift horses, 'gennets' are small Spanish horses and 'germans' are near relations.",
+  "basis": "Schmidt s.v. Germane ('a near relation: you'll have coursers for cousins and gennets for germans, Oth. I, 1, 114'), s.v. Courser, s.v. Nephew 2 ('= grandchild'); Onions s.v. jennet ('small Spanish horse', Oth. I.i.114), s.v. nephew 2 ('grandson', Oth. I.i.112), s.v. german ('closely related, akin').",
+  "replacements": [],
+  "note": "Every gloss is accurate and clear by ear. The coursers/cousins and gennets/germans alliteration is lost, but the joke (horses in place of kin) is intact, and rule 4 covers double meanings, not sound-play. No change."},
+
+ {"id": "2.3", "verdict": "OPEN", "confidence": "medium",
+  "reading": "Iago warns that Brabantio has, in effect, a voice 'as double as the duke's'. Johnson, Pye, Steevens and Hudson take this as a voice equal to the Duke's, the Duke being thought to have a double or casting vote. Furness himself inclines to Iago exaggerating it to twice the Duke's.",
+  "basis": "Furness Var. note on I.ii.16 'double' (Warburton, Johnson, Malone, Steevens, Henley, Pye, Knight, Delius, Hudson, Jourdain, White, and the editor's own note); Furness on I.ii.15 (Staunton: 'his' = its, referring to 'voice').",
+  "replacements": [
+   {"line": 7, "current": "and his word carries, in practice, as much weight —", "proposed": "and in practice his word carries double weight,"},
+   {"line": 8, "current": "twice as much — as the duke's. He'll force a divorce,", "proposed": "as much as the duke's. He'll force a divorce,"}
+  ],
+  "note": "Recommended: commit to Johnson's reading. It is the grammatical sense of 'as double as' (an equal comparison) and the majority view. The alternative is Furness's 'twice the Duke's'. The current self-correction ('as much weight — twice as much —') ends on the minority reading, so the listener takes away that Brabantio outweighs the Duke. The replacements above are the recommended wording: they keep 'double' audible and state the equal comparison. If the editor would rather keep both readings in play, the current wording is defensible, but record the choice either way."},
+
+ {"id": "2.4", "verdict": "KEEP", "confidence": "medium",
+  "reading": "Othello's merits ('demerits' = deserts) may 'speak unbonneted', on equal terms and without doffing the cap, to a fortune as proud as the one he has reached.",
+  "basis": "Onions s.v. unbonneted ('uncovered', hence 'on equal terms', Oth. I.ii.23); Furness Var. note on I.ii.26 (Pope and Theobald: 'speak to a Senator of Venice with his hat on, i.e. without showing any marks of deference or inequality'; Steevens; Fuseli; Coleridge; Staunton); Furness on I.ii.25 'demerites' (Steevens, Staunton: = merits); Schmidt s.v. Unbonneted ('Difficult passage').",
+  "replacements": [],
+  "note": "A genuine crux, but the equal-terms reading is the standard one (Onions, Pope, Theobald, Coleridge) and is the one the render has chosen; record it. Schmidt's tentative 'with all courtesy and humility' is a minority view. 'Hat on, as an equal' gives the listener both the image and its point. No change."},
+
+ {"id": "3.61", "verdict": "KEEP", "confidence": "high",
+  "reading": "Othello asks for Desdemona's company not to please his appetite or give in to lust, the passions of youth being dead in him, nor for his own gratification, but to be generous to her wishes.",
+  "basis": "Furness Var. note on I.iii.291-292: Upton's parenthesis 'the young affects In me defunct' is the reading the Gutenberg text prints, adopted by Capell, Dyce, Globe, Cambridge and Staunton; Johnson paraphrases it as 'the passions of youth which I have now outlived'; Gifford and Dyce approve Johnson.",
+  "replacements": [],
+  "note": "The render follows Johnson's paraphrase clause by clause, on the text as printed. The alternatives (Theobald's 'distinct', Malone's 'disjunct', Tyrwhitt's transposition) are emendations of a different text. No change."},
+
+ {"id": "3.84", "verdict": "KEEP", "confidence": "high",
+  "reading": "Food as luscious to Othello now as locusts (carob pods, 'St John's bread') will soon be as bitter as coloquintida (colocynth or bitter-apple, a purgative).",
+  "basis": "Onions s.v. locust, sense (a) ('fruit of the carob-tree, locust-bean'), s.v. coloquintida ('the colocynth or bitter-apple'); Schmidt s.v. Locusts (of a very sweet taste, perhaps from the wild honey of Matthew 3:4; Beisly's carob) and s.v. Coloquintida; Furness Var. notes on I.iii.378-379 (Beisly, Gerarde, Ellacombe; Reed citing Bullein).",
+  "replacements": [],
+  "note": "Both glosses are supported. 'Honey-sweet' echoes the wild-honey association Schmidt notes, and 'bitter-apple' is Onions's own term. The doubled adjectives are a fair price for clarity by ear. No change."},
+
+ {"id": "4.65", "verdict": "REVISE", "confidence": "medium",
+  "reading": "A dark and clever woman will find 'a white', a fair man, punning on 'wight' (a person), to 'fit' her blackness, that is, to couple with her.",
+  "basis": "Schmidt s.v. White, subst. ('she'll find a w. that shall her blackness fit, Oth. II, 1, 134 (punning on w. and wight)'); Furness Var. note on II.i.158 (Q1 reads 'hit' for 'fit'; Steevens, Staunton); context: 4.64 renders 'black' as 'dark-skinned'.",
+  "replacements": [
+   {"line": 1, "current": "she'll find a white man — a 'wight', a man — to fit her darkness, in bed.", "proposed": "she'll find a white man to fit her darkness, in bed."}
+  ],
+  "note": "'White' and 'wight' sound the same, so aloud the appositive is heard as 'a white man — a white, a man —', which is noise, not a pun. The single-quote scare marks around 'wight' also break the punctuation conventions. 'Wight' means only 'a person, a man', so 'a white man' already carries both senses in one phrase: fair-skinned, and a man. That is the only form of the pun a listener can hear. 'In bed' stays, because it makes the bawdy 'fit' audible, and Desdemona's 'Worse and worse' needs that."},
+
+ {"id": "4.72", "verdict": "KEEP", "confidence": "medium",
+  "reading": "The ideal woman was never so foolish as to 'change the cod's head for the salmon's tail', that is, to trade a delicacy for coarser fare (Steevens), with a bawdy undertone in 'cod' and 'tail'.",
+  "basis": "Furness Var. note on II.i.180 (Steevens: 'to exchange a delicacy for coarser fare'; White: to give up the best part of a homely thing for the worst part of something very fine; Lüders detects a second, less palatable meaning; Purnell); Schmidt s.v. Cod 1 (the codfish here; he notes the quibble 'cods' = testicles at As II, 4, 53); Schmidt s.v. Salmon.",
+  "replacements": [],
+  "note": "'Trade a good thing for a worse' matches Steevens. The bawdy second sense is real but left unspecified in the sources: Lüders does not spell it out, and Schmidt glosses 'cod' here as the fish. So 'one sex organ for another' is vague because the original is. A more specific mapping (husband for lover, say) would add a claim the text does not settle. The re-checker's reservation is noted, but no change."},
+
+ {"id": "4.105", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Roderigo, 'this poor trash of Venice', is someone Iago 'trashes', holding him back like a hound that hunts too fast, if he stands up to Iago urging him on against Cassio.",
+  "basis": "Furness Var. note on II.i.336 (Steevens's reading 'trash, whom I trash', whose meaning Furness says 'has since been generally accepted': to trash is to fasten a weight on the neck of a dog whose speed outruns the pack, and Steevens calls the jingle 'so much in our author's manner'; Markham on 'trashes'; White ed. i: 'whom I restrain'); Furness on II.i.337 (Rolfe on 'the putting on'); the Gutenberg text prints Steevens's reading.",
+  "replacements": [
+   {"line": 17, "current": "if this worthless Venetian trash, whom I keep on a leash like a dog", "proposed": "if this worthless Venetian trash, whom I trash — hold back like a hound on a leash —"}
+  ],
+  "note": "The hunting sense (Steevens) is right for the text as printed, so the flagged choice stands. But the current line splits the two senses across different words and loses the repeated word itself. Rule 4 forbids quietly dropping a pun, and Steevens treats the jingle as deliberate. The proposed appositive works like the standard's 'lie, meaning sleep'. Line 18 ('so he won't hunt too fast, holds firm when I urge him on,') stays unchanged and completes the sentence."},
+
+ {"id": "6.3", "verdict": "KEEP", "confidence": "high",
+  "reading": "The marriage (the 'purchase') is made, and its 'fruits', consummation and children, are still to come between husband and wife. It is a tender, veiled innuendo, not bawdy.",
+  "basis": "Play context, II.iii: Iago says at once 'he hath not yet made wanton the night with her'. Furness Var. has no note on the couplet.",
+  "replacements": [],
+  "note": "Othello's own decorum keeps the sexual sense veiled, and the render should keep it that way; making it explicit would coarsen it beyond the original (rule 5). Spoken as the couple leave for bed, 'its fruits come next; that profit is still to come between me and you' is clear enough by ear. No change."},
+
+ {"id": "7.29", "verdict": "KEEP", "confidence": "high",
+  "reading": "Cassio, himself a Florentine, says he never knew even one of his own countrymen kinder or more honest than Iago.",
+  "basis": "Furness Var. note on III.i.44 (Malone: 'I never experienced more honesty and kindness even in any one of my own countrymen than in this man'); Cassio is called a Florentine at I.i.22.",
+  "replacements": [],
+  "note": "This is exactly Malone's reading. Optional polish only: 'even a fellow Florentine' is a little more idiomatic than 'even one of my own Florentines'."},
+
+ {"id": "9.59", "verdict": "OPEN", "confidence": "medium",
+  "reading": "In an honest man, Iago's 'stops' are 'close dilations, working from the heart, that passion cannot rule': secret, involuntary betrayals of something he cannot hold down. What 'dilations' means is disputed.",
+  "basis": "Furness Var. notes on III.iii.144-145 (Upton and Cotgrave: delays; Warburton; Johnson: 'delations', secret accusations; Malone: Q1 'denotements', indications from a heart 'which cannot rule and suppress its feelings'; Staunton: 'secret droppings'; White: revelations; Furness prefers 'delays'); Schmidt s.v. Delation ('denunciation, accusation', citing this line) and s.v. Denotement ('sign, indication', Q1); Onions s.v. delation ('accusation').",
+  "replacements": [],
+  "note": "Recommended: keep the text open with the current 'secret signs, seeping out from the heart, of feelings he can't hold back'. This is Malone's reading and the widest faithful umbrella over the rival senses, and 'these pauses' in M3 already carries Furness's 'delays'. Alternative, if the editor wants to commit to the lexicons' reading (Johnson; Schmidt; Onions): replace M6 with 'they're secret accusations, seeping out from a heart' and M7 with 'that can't hold its feelings back.' Record the choice."},
+
+ {"id": "9.172", "verdict": "OPEN", "confidence": "medium",
+  "reading": "Iago vows that obeying Othello, however bloody the command, shall be 'remorse' in him. That is either pity for wronged Othello (Johnson, Steevens, Tollet) or a matter of conscience and solemn obligation (Schmidt, Onions, Hudson and Crosby).",
+  "basis": "Furness Var. note on III.iii.532 (Johnson; Steevens; Mason, and Dyce's Glossary: pity is Shakespeare's usual sense; Tollet; Hudson citing Crosby: 'a matter of conscience'; White: 'doubtful'; the emendations 'no remorse' and 'Not/Nor to obey'); Schmidt s.v. Remorse 1 ('compunction of conscience', citing this line); Onions s.v. remorse 3 ('solemn obligation', Oth. III.iii.469), set against his sense 1 ('pity, compassion', the commonest sense).",
+  "replacements": [],
+  "note": "Recommended: commit, and keep the current 'I'll obey as an act of pity for him'. Pity is Shakespeare's commonest sense of the word (Onions 1; Mason; Dyce), and 'wronged Othello's service' motivates it. Alternative, if the editor follows the two lexicons: replace M6 with 'and obeying him will be a sacred duty for me,' (Schmidt; Onions 3; Hudson and Crosby), which also echoes Iago's earlier 'stuff o' the conscience'. Don't stack both readings. Record the choice."},
+
+ {"id": "10.26", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Othello reads Desdemona's moist palm as a sign of 'fruitfulness' (bounty, with overtones of fertility and heat) and a 'liberal' heart: generous, and in the bad sense free with her favours. The hand needs sequestering, and it is 'frank', meaning liberal or free.",
+  "basis": "Schmidt s.v. Fruitfulness ('liberality, bountifulness: this argues f. and liberal heart, Oth. III, 4, 38'), s.v. Liberal 6 ('used, in a bad sense, of women profuse of their favours', citing Oth. III, 4, 38), s.v. Frank, adj. 1 ('free, unrestrained') and 3 ('liberal, bountiful', citing Oth. III, 4, 44); Furness Var. notes on III.iv.46 (Delius on 'fruitfulnesse'), 47 (Bucknill: a moist palm was thought to show a hot liver), 52 (Boaden on Mrs Siddons's relief at 'a frank one') and 55-56 (Johnson: the hand 'which he had before called frank, he now terms liberal').",
+  "replacements": [
+   {"line": 0, "current": "A damp palm means a fertile body and a generous — a loose — heart.", "proposed": "A damp palm means fruitfulness and a generous — a loose — heart."},
+   {"line": 6, "current": "an open one — an easy one.", "proposed": "a free one."}
+  ],
+  "note": "'A fertile body' commits to one sense and adds 'body', where Schmidt and Delius read 'liberality'. 'Fruitfulness' is plain modern English and keeps fertility and bounty both open. 'Generous — a loose —' is right (Schmidt, Liberal 6) and stays. For 'frank', 'an easy one' spells out a slur the original only hints at. It also makes Desdemona's innocent reply in 10.27 ('You're right to say so, because it was that hand that gave away my heart') sound like she admits it. 'Free' carries both of Schmidt's senses, generous and unrestrained, in one word. It also echoes 'locked away from freedom' two lines earlier, which is how the insinuation reaches the ear."},
+
+ {"id": "10.28", "verdict": "KEEP", "confidence": "high",
+  "reading": "'A liberal hand': a bountiful one, since it gave away her heart. Once, hearts gave hands in marriage; the new heraldry is hands without hearts.",
+  "basis": "Schmidt s.v. Liberal 6 ('munificent, bounteous', citing Oth. III, 4, 46); Furness Var. notes on III.iv.55-56 (Johnson; Malone: 'in our modern marriages, hands alone are united, without hearts'; Steevens and Knight against the baronets allusion; Dyce: 'give arms' is a heraldic term).",
+  "replacements": [],
+  "note": "This matches Schmidt's sense for this line and Malone's paraphrase. The 'loose' undertone is already set up in 10.26, so 'generous' alone is right here. No change."},
+
+ {"id": "10.40", "verdict": "KEEP", "confidence": "medium",
+  "reading": "The handkerchief was dyed in 'mummy', a magical or medicinal preparation of dead flesh, which skilled practitioners had 'conserved' (prepared, as a conserve) from virgins' hearts.",
+  "basis": "Onions s.v. mummy 1 ('medicinal or magical preparation of the flesh of dead bodies', citing this line) and s.v. conserve 2 ('to make into a conserve', citing this line); Schmidt s.v. Mummy 2 ('a preparation for magical purposes, made from dead bodies') and s.v. Conserve 2 ('to preserve, to confect').",
+  "replacements": [],
+  "note": "'Fluid from embalmed bodies, which experts had extracted from virgins' hearts' unpacks both glosses closely enough, and it avoids 'mummy' being heard as 'mommy'. The magic is carried by the surrounding sibyl, prophetic fury and hallowed worms. No change."},
+
+ {"id": "10.90", "verdict": "KEEP", "confidence": "high",
+  "reading": "Eight score and eight hours is 168, a week. Lovers' hours apart are 'more tedious than the dial eight score times', a hundred and sixty times slower than clock hours.",
+  "basis": "Arithmetic; Schmidt s.v. Score, subst. 3 ('a number of twenty').",
+  "replacements": [],
+  "note": "The figures are right, and the eight-score echo survives as 168 and 160. Turning the original's question into an exclamation is harmless. No change."},
+
+ {"id": "11.66", "verdict": "REVISE", "confidence": "medium",
+  "reading": "'Have you scored me?' asks either 'have you made my reckoning, settled my account' (Johnson, Schmidt, Delius) or 'have you branded me with a mark of disgrace' (Steevens, Collier, Staunton). Onions gives both senses.",
+  "basis": "Onions s.v. score, vb. ('scored me, (a) made my reckoning, (b) branded me', Oth. IV.i.128); Schmidt s.v. Score, vb. 2 ('i.e. made my reckoning. Q1 stored'); Furness Var. note on IV.i.145 (Johnson, Steevens, Collier, Staunton, Delius).",
+  "replacements": [
+   {"line": 0, "current": "Have you marked me down and settled my account? Fine.", "proposed": "Have you branded me and settled my account? Fine."}
+  ],
+  "note": "The current line gives only sense (a), twice over, and today 'marked me down' mostly means 'cut my price'. 'Branded me' restores Onions's sense (b), the mark of disgrace (Collier hears a cuckold's), and 'settled my account' keeps (a). Don't use 'scored', which now reads as sexual slang."},
+
+ {"id": "11.162", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Iago dodges Lodovico's question about Othello's sanity: he is what he is, it isn't Iago's place to judge what he might be, and if he is not what he might be, Iago wishes to heaven he were. It is a deliberate riddle that hints madness would be the kinder explanation without saying so.",
+  "basis": "Furness Var. note on IV.i.302-303 (no gloss; records that the punctuation puzzled even the Cambridge editors, and keeps F); context: Lodovico's 'Are his wits safe? Is he not light of brain?' (modern 11.161: 'Is his mind sound? Hasn't he gone a bit unhinged?'); standard rule 7.",
+  "replacements": [
+   {"line": 1, "current": "of what he might be. If he isn't what he might be — out of his mind —", "proposed": "of what he might be. If he isn't what he might be,"}
+  ],
+  "note": "Iago's evasion is deliberate ('I may not breathe my censure'), so rule 7 applies: keep an equally open wording and do not resolve it for the listener. The inserted '— out of his mind —' says outright what Iago only hints, and shuts out the other reading ('if he is not what he ought to be'). Lodovico's line just before already puts madness in the listener's ear, so the riddle stays understandable."},
+
+ {"id": "12.33", "verdict": "REVISE", "confidence": "medium",
+  "reading": "At the thought of his 'fountain' turned into a cistern for toads to breed in, Othello bids Patience, a rosy-lipped cherub, to 'turn thy complexion', change colour, and look as grim as hell.",
+  "basis": "Furness Var. note on IV.ii.72-74 (Theobald and Johnson: 'At such an object do thou, Patience, thyself change colour; at this do thou, even thou, rosy cherub as thou art, look grim as hell'; F 'I here' against the emendation 'Ay, there').",
+  "replacements": [
+   {"line": 15, "current": "to knot together and breed in! — turn pale at that,", "proposed": "to knot together and breed in! — change your complexion at that,"}
+  ],
+  "note": "The public-domain gloss is 'change colour', not 'turn pale'. 'Pale' picks one direction, and it cuts against the line's own movement from a rosy-lipped cherub to 'grim as hell'. It also drops 'complexion', a charged word in this play, especially from Othello. 'Change your complexion' is plain modern English and keeps both the image and its openness."},
+
+ {"id": "12.37", "verdict": "KEEP", "confidence": "high",
+  "reading": "A 'public commoner' is a common prostitute. 'Committed' carries its carnal sense, taking up Desdemona's 'what ignorant sin have I committed?'",
+  "basis": "Schmidt s.v. Commoner 2 ('a prostitute: thou public c. Oth. IV, 2, 73') and s.v. Commit (used 'emphatically of carnal sins', citing Oth. IV, 2, 70, 72, 76, 80); Onions s.v. commoner ('prostitute').",
+  "replacements": [],
+  "note": "'You common whore, open to the public' is as strong as the original and no stronger; 'whore' is already Othello's own word in this speech. The context makes the carnal sense of 'committed' clear. No change."},
+
+ {"id": "13.48", "verdict": "KEEP", "confidence": "high",
+  "reading": "'As many to the vantage as would store the world they played for' means as many more again as would populate the world they gambled their chastity for. The 'duties' are conjugal and 'sport' is sexual pleasure.",
+  "basis": "Schmidt s.v. Store, vb. 2 ('to stock with people, to populate: to new s. France with bastard warriors, H5 III, 5, 31; as many to the vantage as would s. the world they played for, Oth. IV, 3, 86'); Onions s.v. store, vb. (the same sense, after Schmidt); Furness Var. note on IV.iii.93 (Steevens: vantage = 'to boot, over and above'); Schmidt s.v. Sport 1d ('amorous dallying; sensual enjoyment of love', citing Oth. II, 1 and II, 3).",
+  "replacements": [],
+  "note": "'Fill up the world they played for with their children' is backed by Schmidt's 'populate' and his Henry V parallel ('to new store France with bastard warriors'). 'Played for' keeps the gamble-and-play double sense. The editor's 'marital duties' (l.2) and 'sexual sport' (l.12, l.16) only unpack the original's meaning, as rule 1 allows; bare 'duties' and 'sport' would be misheard today. No change."},
+
+ {"id": "13.49", "verdict": "KEEP", "confidence": "high",
+  "reading": "Desdemona prays that heaven send her such 'usage' (habits of conduct) that she does not learn evil from evil, but learns to be better from it.",
+  "basis": "Schmidt s.v. Usage 2 ('manners, behaviour', citing this line, the Q1 reading); Onions s.v. usage ('habit'); Furness Var. note on IV.iii.114 (Johnson: 'usage is an old word for custom'; Furness prefers F 'uses', echoing Emilia's 'use us well').",
+  "replacements": [],
+  "note": "'Heaven grant me the grace' renders a heaven-sent disposition of conduct faithfully and naturally, and the bad/bad repetition and the turn to 'better' survive. The lost send/mend rhyme is not something the standard requires. No change."},
+
+ {"id": "15.2", "verdict": "REVISE", "confidence": "medium",
+  "reading": "'It is the cause' means the cause, the motive or reason, of what Othello is about to do: her supposed crime, which he will not name before the chaste stars (Johnson, Hudson; Schmidt's 'motive of an action'). Steevens adds 'the cause of chastity and virtue that I maintain', and White calls the passage one of the most perplexing in the plays.",
+  "basis": "Schmidt s.v. Cause 1 ('that which produces an effect, or is the motive of an action', citing 'it is the c., it is the c., my soul, Oth. V, 2, 1'); Furness Var. notes on V.ii.3-4 (Johnson, Steevens, Hudson, White, editor) and V.ii.4 (Hudson: 'chaste' stars suggest the nature of the cause that cannot be named).",
+  "replacements": [
+   {"line": 0, "current": "It's the cause — the crime on trial — it's the cause, my soul;", "proposed": "It's the cause, it's the cause, my soul;"}
+  ],
+  "note": "Explicit verdict on the never-rechecked line-2 edit: KEEP. 'It's the cause. Still, I won't spill her blood,' is correct and should stand, and the third 'It is the cause' needs no gloss. Line 0 is changed: modern 'the cause' already means 'the reason', which is Schmidt's sense, and the chaste stars and 'she has to die' supply what the cause is. '— the crime on trial —' brings in a courtroom frame that none of the public-domain commentators offer. It half-names what Othello refuses to name, and it breaks the incantatory repetition of a famous line that is already clear (rule 2)."},
+
+ {"id": "15.153", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Disarmed by 'every puny whipster', Othello asks why honour (reputation, soldierly dignity) should outlive honesty (virtue, integrity), which is gone. Walker notes that each word could carry both meanings.",
+  "basis": "Furness Var. note on V.ii.306 (Walker: 'honour' belongs to birth, dignity and grace of mind or person, 'honesty' is equivalent to virtue, and each word 'was, at times, used in both meanings'); Furness on V.ii.305 (Booth and the editor on 'puny').",
+  "replacements": [
+   {"line": 2, "current": "But why should my reputation outlive my integrity?", "proposed": "But why should honor outlive honesty?"}
+  ],
+  "note": "Both words are current English and the line is clear as it stands (rule 2). 'Reputation' and 'integrity' narrow both words, and the added 'my' (twice) decides whose honesty is meant, just before Emilia vindicates Desdemona's. It also cuts 'honesty' out of the play's running chain of 'honest' and 'honesty' ('honest Iago'), which the render keeps everywhere else. 'Honor' follows the text's US spelling."},
+
+ {"id": "15.161", "verdict": "KEEP", "confidence": "high",
+  "reading": "'Your stop' is your hindrance; 'butt' is a goal or bound (also the archer's mark); a 'sea-mark' is a sailors' landmark, here the limit of his last voyage; 'at compt' is at the final reckoning, Judgment Day.",
+  "basis": "Schmidt s.v. Stop, subst. 4 ('hinderance, obstacle: more impediments than twenty times your s. Oth. V, 2, 264'), s.v. Butt 3 ('goal, bound', citing this line), s.v. Sea-mark ('an object serving for a direction to mariners', citing this line), s.v. Compt ('when we shall meet at c. Oth. V, 2, 278, i.e. at the judgment-day'); Onions s.v. compt ('account, reckoning'); Furness Var. note on V.ii.327 (Steevens on 'stop').",
+  "replacements": [],
+  "note": "All three flagged glosses match Schmidt. 'Finish line, my target' covers his 'goal, bound' and keeps the archery image, and 'Judgment Day' is Schmidt's own gloss. Optional polish only: 'than twenty times what you put in my way' reads more naturally than 'than twenty times your blocking me'."},
+
+ {"id": "15.166", "verdict": "KEEP", "confidence": "high",
+  "reading": "Othello looks at Iago's feet to see whether they are cloven, as a devil's were believed to be, then dismisses the idea as a fable.",
+  "basis": "Furness Var. note on V.ii.351 (Johnson: 'To see if, according to the common opinion, his feet be cloven').",
+  "replacements": [],
+  "note": "'For cloven hooves' is Johnson's gloss almost word for word. Rule 8 allows a few clarifying words for an opaque allusion, and without them the gesture makes no sense until the next line. No change."},
+
+ {"id": "15.197", "verdict": "KEEP", "confidence": "high",
+  "reading": "Spartan hounds were famed for ferocity, and 'Spartan dog' also points to Iago's vow of silence and the proverbial silence of Spartans under suffering.",
+  "basis": "Furness Var. note on V.ii.437 (Hanmer: 'The dogs of Sparta were reckoned among those of the most fierce and savage kind'; Singer: the reference is to the determined silence of Iago and the proverbial silence of the Spartans under suffering, as well as to the savageness of the dogs); Schmidt s.v. Spartan (Mids. IV, 1, 124, hounds of the Spartan kind).",
+  "replacements": [],
+  "note": "'Savage and silent' is Hanmer plus Singer in three words. No change."},
+
+ {"id": "3.35", "verdict": "REVISE", "confidence": "medium",
+  "reading": "Othello's arms have spent their best efforts in war ever since they had 'seven years' pith', the strength of seven years, meaning since he was seven, until some nine months ago.",
+  "basis": "Schmidt s.v. Pith 2 ('strength, force: since these arms of mine had seven years' p. Oth. I, 3, 83'); Onions s.v. pith 1 ('strength, vigour, mettle', citing Oth. I.iii.83); Furness Var. note on I.iii.101 (Knight on 'wasted': unemployed for nine months).",
+  "replacements": [
+   {"line": 7, "current": "for since these arms of mine were seven years old,", "proposed": "for since these arms of mine had seven years of strength in them,"}
+  ],
+  "note": "The current line drops 'pith' (strength), which is the image itself, and gives the arms an age instead, which the re-checker rightly found odd. The proposed line keeps the arms, the strength and the age, and a listener still hears 'since I was seven'."},
+
+ {"id": "10.6", "verdict": "KEEP", "confidence": "medium",
+  "reading": "The Clown puns on 'lie' meaning to lodge and 'lie' meaning to tell a lie: to tell where Cassio lodges would be to tell where the Clown himself lies, and also to lie, since he does not know.",
+  "basis": "Scene context: 10.1 modern 'where Lieutenant Cassio lies, I mean, where he's staying?', and 10.2 and 10.4 play on 'lies' as falsehood; the standard's own model for rule 4 ('lie, meaning sleep, and lie, meaning tell lies').",
+  "replacements": [],
+  "note": "By this point 10.1 has glossed 'lies' as 'where he's staying' and 10.2 to 10.4 have made 'lie' mean falsehood, so both senses are in the listener's ear, and '— and telling a lie' then lands the second. The lodging sense is fainter, as the re-checker says, but it is primed. Pushing harder would over-explain a deliberately feeble joke. The reservation is noted, but no change."},
+
+ {"id": "1.33", "verdict": "REVISE", "confidence": "high",
+  "reading": "Iago tells Brabantio that his daughter and the Moor are at this moment 'making the beast with two backs': a coupled pair forming one beast with two backs, that is, having sex.",
+  "basis": "Othello render guide (names 'the beast with two backs' among the language to keep 'at full force'); standard Target (no footnote-style asides) and rules 2 and 5; context in the modern text: 1.20 'an old black ram is mounting your white ewe' and 1.31 'your daughter covered by a Barbary stallion' come just before.",
+  "replacements": [
+   {"line": 0, "current": "I'm someone, sir, who has come to tell you that your daughter and the Moor are, right now, making the beast with two backs — having sex.", "proposed": "I'm someone, sir, who has come to tell you that your daughter and the Moor are, right now, making the beast with two backs."}
+  ],
+  "note": "Explicit verdict on the never-rechecked editor addition: REVISE (remove '— having sex'). The image explains itself, and the listener has just heard the ram and ewe and the Barbary stallion. The tag is a footnote-style aside that the standard's Target forbids. It turns Iago's gleeful obscenity into a clinical explanation, which is tonally off and blunts rather than keeps the bawdy (rule 5). It also dilutes a famous line that is already clear (rule 2)."}
+ ]}

@@ -1,0 +1,80 @@
+{
+ "reviewer": "F2",
+ "paragraphs_read": 22,
+ "findings": [
+  {
+   "id": "5.1",
+   "category": "invention",
+   "severity": "note",
+   "jowett": "of them is told the tale of Otys and Ephialtes who, as Homer says, dared to scale heaven, and would have laid hands upon the gods. [...] as they had done the giants",
+   "after": "They are the ones in the story of Otys and Ephialtes, the giant brothers who, as Homer says, dared to climb up to heaven and would have laid hands on the gods. [...] as they had once done to the giants",
+   "issue": "The added gloss 'the giant brothers' is accurate for the myth. But two sentences later, Jowett's 'as they had done the giants' refers to a separate story: the Giants whom the gods blasted with thunderbolts. It now reads as a reference back to Otys and Ephialtes. Because the round people 'are the ones in the story' of those brothers, a reader can conclude that the gods had already thunderbolted them. Jowett keeps the two groups apart, and Homer's description in the same sentence ('dared to climb up to heaven') already identifies the brothers.",
+   "proposed": "They are the ones in the story of Otys and Ephialtes, the two brothers who, as Homer says, dared to climb up to heaven and would have laid hands on the gods."
+  },
+  {
+   "id": "5.5",
+   "category": "invention",
+   "severity": "should-fix",
+   "jowett": "as the Arcadians were dispersed into villages by the Lacedaemonians",
+   "after": "just as the Lacedaemonians, the Spartans, broke up the city of the Arcadians and dispersed its people into villages.",
+   "issue": "Glossing the Lacedaemonians as the Spartans is a permitted clarification. 'Broke up the city of the Arcadians' is not: it adds a historical detail that Jowett does not state. It is also imprecise. Arcadia was a region of several cities, and the event meant (Mantinea) involved one of them, so 'the city of the Arcadians' implies a single Arcadian city. Jowett's 'dispersed into villages' is already plain present-day English. If the lead wants the city-breaking sense, 'broke up an Arcadian city and scattered its people into villages' would at least be accurate, but the simpler fix below stays closest to Jowett.",
+   "proposed": "just as the Lacedaemonians, the Spartans, dispersed the Arcadians into villages."
+  },
+  {
+   "id": "5.13",
+   "category": "distortion",
+   "severity": "note",
+   "jowett": "I should be very wrong in attributing to you, Agathon, that or any other want of refinement.",
+   "after": "I would be very wrong to accuse you, Agathon, of that or any other lack of taste.",
+   "issue": "Slight sense shift. 'Want of refinement' means boorishness or lack of cultivation; 'lack of taste' leans toward aesthetic taste. The only archaic word was 'want', and 'lack of refinement' is plain modern English that keeps Jowett's sense. 'Accuse ... of' is also a little sharper than 'attributing to'. The fix is optional, since the context carries the meaning.",
+   "proposed": "'No,' replied Socrates, 'I would be very wrong to attribute to you, Agathon, that or any other lack of refinement."
+  },
+  {
+   "id": "5.16",
+   "category": "terminology",
+   "severity": "should-fix",
+   "jowett": "I must not forget the encomium on Love which I ought to receive from him and from every one.",
+   "after": "I must not forget the speech in praise of Love which I ought to receive from him and from everyone.",
+   "issue": "The glossary says: encomium -> 'a speech of praise'. 'Give it once, e.g. \"a speech in praise of Love (what we call an encomium)\", then use \"speech of praise\".' 5.16 is the first 'encomium' in the dialogue; 1.46 has 'encomiast', which is rendered 'a single poet to praise him'. R4's 7.68 follows 5.16 with a plain 'a speech in praise of Love', so as things stand the successor never gives the term at all. The rendering itself is correct. Only the one-time naming the glossary requires is missing, and 5.16 is where it belongs. The render brief bans brackets, so I use spaced em dashes instead of the glossary's parentheses.",
+   "proposed": "Now, I love to hear him talk; but just at present I must not forget the speech in praise of Love — what we call an encomium — which I ought to receive from him and from everyone."
+  },
+  {
+   "id": "6.0",
+   "category": "convention",
+   "severity": "note",
+   "jowett": "The previous speakers, instead of praising the god Love, or unfolding his nature, [Agathon's set speech, 6.0-6.6]",
+   "after": "The speakers before me, instead of praising the god Love or revealing his nature, [no opening quote; likewise 6.2, 6.3, 6.4]",
+   "issue": "The brief's convention is that a speech running over several paragraphs opens a quote at each paragraph start and closes only at its end. Agathon's speech (6.0-6.6) carries no quote marks. The renderer chose this deliberately and documented it: it matches KEEP 5.17 (which closes the quote before the speech), 6.1 and 6.5 (verse in single quotes) and 6.6 (the unquoted end). The accepted text also leaves Phaedrus's and Pausanias's set speeches (chapters 2-3) unquoted. So this is locally consistent and not a fidelity problem. I flag it only so the lead decides the matter for the whole book, rather than leaving Aristophanes, Eryximachus and Socrates quoted while Phaedrus, Pausanias and Agathon are not.",
+   "proposed": "No change in this successor. If the lead applies the convention, do it as one coordinated edit. Open a single quote at the start of 6.0, 6.1, 6.2, 6.3, 6.4, 6.5 and 6.6. In 6.1 and 6.5, move the verse inside straight double quotes. Close the single quote only at the end of 6.6. Treat the set speeches in chapters 2-3 the same way."
+  },
+  {
+   "id": "6.3",
+   "category": "distortion",
+   "severity": "should-fix",
+   "jowett": "his greatest glory is that he can neither do nor suffer wrong to or from any god or any man",
+   "after": "His greatest glory is that he neither does wrong to any god or any man, nor suffers wrong from any god or any man.",
+   "issue": "Dropping Jowett's modal 'can' weakens Agathon's claim. In Jowett, Love is incapable of doing or suffering wrong; in the AFTER, he merely does not. The next step ('force never comes near him') supports the stronger, modal claim. The brief does not allow a speaker's claim to be weakened, and restoring 'can' costs nothing in clarity.",
+   "proposed": "His greatest glory is that he can neither do wrong to any god or any man, nor suffer wrong from any god or any man."
+  },
+  {
+   "id": "6.4",
+   "category": "voice",
+   "severity": "note",
+   "jowett": "do we not know that he only of them whom love inspires has the light of fame?--he whom Love touches not walks in darkness.",
+   "after": "do we not know that only the one whom Love inspires comes into the light of fame, while the one whom Love never touches remains in obscurity?",
+   "issue": "Agathon's ornament here is a light/darkness antithesis. 'Remains in obscurity' keeps the sense but turns the image into an abstraction. 'Walks in darkness' is neither archaic nor opaque, especially next to 'the light of fame'. The render brief asks for Agathon to stay 'recognizably ornate in modern words'.",
+   "proposed": "do we not know that only the one whom Love inspires comes into the light of fame, while the one whom Love never touches walks in darkness?"
+  },
+  {
+   "id": "6.12",
+   "category": "convention",
+   "severity": "note",
+   "jowett": "Socrates then proceeded as follows:-- [cf. 5.17: Let me say first how I ought to speak, and then speak:--]",
+   "after": "Socrates then proceeded as follows:",
+   "issue": "The editor's mechanical fix here, turning the unspaced Victorian colon-dash into a plain colon, is correct, and 6.0 now also ends on a plain colon ('tender:'). But KEEP 5.17 still ends 'and then speak:—'' with the same unspaced colon-dash. After this change it is the only one left in chapters 5-6, and the only one anywhere in the R1-R5 context packets.",
+   "proposed": "Apply the same mechanical edit to 5.17: change 'and then speak:—'' to 'and then speak:''."
+  }
+ ],
+ "verdict": "accept-with-fixes",
+ "summary": "I read all 22 changed paragraphs in chapters 5-6 in full against Jowett (pg1600), with the KEEP neighbours from the R3 packet for context. The successor is highly faithful. No omissions: every claim, simile, name, hedge, joke and dialogue tag is present and in order, and the Arist. Pol., Odyssey, Hippolytus and Stheneboea source notes are omitted by convention. No order problems, and no must-fix issues. Arguments are intact. Examples: the definition of love as 'the desire and pursuit of the whole' (5.5) is word for word; the next-best 'congenial love' is explained as a nature akin to ours (5.6); Agathon's justice, self-control and courage steps (6.3) and Socrates' three-step view of praise (6.9) keep their order. The glosses are accurate and brief: tumblers, sorb-apple, drawstring purse, last, indenture/tallies, basso-relievo, Hephaestus, Titans, Ate, Ares, Gorgias/Gorgon. Glossary applied: fair -> beautiful (6.0, 6.2, 6.4, 6.10); deformity -> ugliness (6.4); temperance -> self-control (6.3); generated -> reproduced (5.3); want -> lack (5.4, 5.13); piety/pious/impiety -> reverence/reverent toward the gods/irreverence (5.6, 5.7, 6.0); 'strait' -> 'at a loss' at all four places (5.9, 6.7, 6.8, 6.9). One departure from the glossary is justified: 'rehearsed' becomes 'delivered' at 6.10, not repeat/recount, because Agathon composed the hymn himself. Keep it. Voice is kept. Aristophanes stays comic: the gods' profit, hopping on one leg, the statesmen jab, the wink at Pausanias and Agathon, 'each, or rather either'. Agathon's balanced antitheses remain, and Socrates' irony and the Gorgias/Gorgon pun survive. The sexual content is frank and accurate: 'sexual union', 'women who take other women as lovers'. Conventions are clean in every AFTER text: straight quotes, with doubles for nested speech; Aristophanes (5.0-5.7) and Socrates (6.9-6.10) reopen at each paragraph and close only at the end; Zeus's nested speech is reopened at 5.2; em dashes are spaced; spelling is American ('theater' in 5.11-5.13 now matches chapter 1); there are no ellipses or double spaces. AFTER/Jowett word ratios run from 0.96 to 1.13. I diffed the mechanical edits in 5.11, 5.12 and 6.12 and each touches only the stated token. Fixes: three should-fix items. At 5.5, the invented 'city of the Arcadians'. At 5.16, 'encomium' is never given once, as the glossary requires. At 6.3, the dropped modal 'can' weakens Agathon's claim. Five notes, all optional: the 'giant brothers' / 'the giants' collision at 5.1; 'lack of taste' at 5.13; the unquoted Agathon speech at 6.0, a book-wide decision; 'walks in darkness' flattened at 6.4; and the leftover ':—' at KEEP 5.17, flagged under 6.12."
+}

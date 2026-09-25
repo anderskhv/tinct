@@ -1,0 +1,646 @@
+{
+ "validator": "A3",
+ "chapters": [
+  9,
+  10
+ ],
+ "verse_speeches_checked": 115,
+ "units_checked": 440,
+ "verse_units_checked": 293,
+ "short_prose_units_checked": 147,
+ "long_prose_mapped": 0,
+ "findings": [
+  {
+   "id": "9.7",
+   "unit": "U4",
+   "lines": [
+    6,
+    9
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The object is pushed to the end because the text follows the original line order ('I'll work into everything he does Cassio's request'). Modern English puts the object before the 'into' phrase.",
+   "current_modern_unit": "I'll work into everything he does Cassio's request. So cheer up, Cassio, because your advocate would rather die than give up your case.",
+   "proposed_modern_unit": "I'll work Cassio's request into everything he does. So cheer up, Cassio, because your advocate would rather die than give up your case."
+  },
+  {
+   "id": "9.33",
+   "unit": "U3",
+   "lines": [
+    4,
+    7
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "A comma followed by an opening parenthesis ('by ordinary reckoning, (except that') is non-standard punctuation and hard to voice. Dashes read aloud more naturally. Also 'offence' is the only UK spelling of this word in the packet (10.71 has 'offense', and the edition is mostly US spelling).",
+   "current_modern_unit": "and yet his offence, by ordinary reckoning, (except that, they say, in wartime they have to make examples of their best men) is hardly even the kind of fault that earns a private scolding. When will he come?",
+   "proposed_modern_unit": "and yet his offense, by ordinary reckoning — except that, they say, in wartime they have to make examples of their best men — is hardly even the kind of fault that earns a private scolding. When will he come?"
+  },
+  {
+   "id": "9.33",
+   "unit": "U5+U6",
+   "lines": [
+    10,
+    14
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U5/U6 boundary splits a relative clause between subject and verb: 'and who so many times,' is in U5, but 'took your side' is in U6. The original does the same: 'and so many a time, / When I have spoke of you dispraisingly, / Hath ta'en your part'. Merge the two units. The proposed text also moves the interrupting when-clause after the verb so a listener can follow it, and uses the US spelling 'favor' (as in 10.53).",
+   "current_modern_unit": "or stand there stammering and dithering over like this. What? Michael Cassio, who came courting with you, and who so many times, when I spoke critically of you, took your side — and I have to go to such lengths to bring him back into favour! Believe me, I could do a lot more —",
+   "proposed_modern_unit": "or stand there stammering and dithering over like this. What? Michael Cassio, who came courting with you, and who so many times took your side when I spoke critically of you — and I have to go to such lengths to bring him back into favor! Believe me, I could do a lot more —"
+  },
+  {
+   "id": "9.59",
+   "unit": "U3",
+   "lines": [
+    4,
+    7
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "The noun phrase is split around the participle ('secret signs, seeping out from the heart, of feelings he can't hold back'), following the original line order. That is hard to follow by ear. The causal 'For', which links this sentence to the previous one, has also been dropped.",
+   "current_modern_unit": "In a false, disloyal scoundrel, things like that are just habitual tricks; but in an upright man they're secret signs, seeping out from the heart, of feelings he can't hold back.",
+   "proposed_modern_unit": "For in a false, disloyal scoundrel, things like that are just habitual tricks; but in an upright man they're secret signs of feelings he can't hold back, seeping out from the heart."
+  },
+  {
+   "id": "9.68",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    7
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U1/U2 boundary separates 'I do beseech you' from what is begged ('that your wisdom ... would take no notice'). That leaves U1 ('I beg you — though maybe I'm wrong, even wicked, in my guess,') as a fragment. Lines 0-7 are a single sentence, and every line end inside it cuts a clause, so merge. The proposed text also replaces the archaic 'beg you ... that your wisdom would take no notice' with a natural imperative.",
+   "current_modern_unit": "I beg you — though maybe I'm wrong, even wicked, in my guess, since, I admit, it's the curse of my nature to pry into wrongdoing, and my suspicious mind invents faults that aren't there — that your wisdom would take no notice of someone whose guesses are so unreliable; and don't build yourself trouble out of his random, uncertain observations.",
+   "proposed_modern_unit": "I beg you — though maybe I'm wrong, even wicked, in my guess, since, I admit, it's the curse of my nature to pry into wrongdoing, and my suspicious mind invents faults that aren't there — let your wisdom take no notice of someone whose guesses are so unreliable, and don't build yourself trouble out of his random, uncertain observations."
+  },
+  {
+   "id": "9.74",
+   "unit": "U2",
+   "lines": [
+    1,
+    3
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "A relative clause is stranded after the verb, following the original order ('The cuckold lives in bliss who knows for sure...'). The long 'who' clause should stay next to its noun.",
+   "current_modern_unit": "it is the green-eyed monster, which mocks the meat it feeds on. The cuckold lives in bliss who knows for sure he's been betrayed and doesn't love the one who wronged him;",
+   "proposed_modern_unit": "it is the green-eyed monster, which mocks the meat it feeds on. The cuckold who knows for sure he's been betrayed, and doesn't love the one who wronged him, lives in bliss;"
+  },
+  {
+   "id": "9.74",
+   "unit": "U3",
+   "lines": [
+    4,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The same stranded relative clause appears here ('what damned minutes a man counts out who adores...'). A listener hears 'a man counts out' and loses the link to 'who adores'. The fix below uses a natural right-dislocation and keeps the order of the content.",
+   "current_modern_unit": "but oh, what damned minutes a man counts out who adores, yet doubts; suspects, yet loves intensely!",
+   "proposed_modern_unit": "but oh, what damned minutes he counts out, the man who adores, yet doubts; suspects, yet loves intensely!"
+  },
+  {
+   "id": "9.77",
+   "unit": "U2",
+   "lines": [
+    1,
+    9
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'changing every time the moon changes with fresh suspicions' sounds as if the moon changes with suspicions, because it follows the original order ('To follow still the changes of the moon / With fresh suspicions'). The suspicions should attach to the speaker.",
+   "current_modern_unit": "Do you think I'd make a life of jealousy, changing every time the moon changes with fresh suspicions? No. To be in doubt once is to settle the matter once and for all. Trade me for a goat when I turn the business of my soul to such puffed-up, windblown guesses as the ones you're hinting at. It won't make me jealous to say my wife is beautiful, eats well, loves company, speaks freely, sings, plays, and dances well;",
+   "proposed_modern_unit": "Do you think I'd make a life of jealousy, forming fresh suspicions every time the moon changes? No. To be in doubt once is to settle the matter once and for all. Trade me for a goat when I turn the business of my soul to such puffed-up, windblown guesses as the ones you're hinting at. It won't make me jealous to say my wife is beautiful, eats well, loves company, speaks freely, sings, plays, and dances well;"
+  },
+  {
+   "id": "9.77",
+   "unit": "U2",
+   "lines": [
+    1,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This unit is 9 lines. The only line end in lines 1-9 that does not cut a clause is after line 4, between the main clause 'exchange me for a goat' and its 'When I shall turn...' clause. If shorter units are wanted, split there: the modern breaks after 'Trade me for a goat', and the second unit starts 'when I turn the business of my soul'. The first unit then ends on an imperative whose condition is in the next unit. If that trade-off is unwelcome, keep one unit.",
+   "split_after_line": 4,
+   "current_modern_unit": "Do you think I'd make a life of jealousy, changing every time the moon changes with fresh suspicions? No. To be in doubt once is to settle the matter once and for all. Trade me for a goat when I turn the business of my soul to such puffed-up, windblown guesses as the ones you're hinting at. It won't make me jealous to say my wife is beautiful, eats well, loves company, speaks freely, sings, plays, and dances well;",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.77",
+   "unit": "U3",
+   "lines": [
+    10,
+    10
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Where virtue is, these are more virtuous' says the accomplishments themselves become more virtuous. 'these things make it even more virtuous' makes virtue the thing that grows more virtuous.",
+   "current_modern_unit": "where there's virtue, these things make it even more virtuous.",
+   "proposed_modern_unit": "where there's virtue, these things are all the more virtuous."
+  },
+  {
+   "id": "9.77",
+   "unit": "U5+U6",
+   "lines": [
+    15,
+    16
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "U5 ends on 'nothing more to it than this:', and the 'this' is only spelled out in U6 ('away at once with love — or with jealousy!'). A two-line unit keeps the statement whole.",
+   "current_modern_unit": "and once there's proof, there's nothing more to it than this: away at once with love — or with jealousy!",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.92",
+   "unit": "U3+U4",
+   "lines": [
+    6,
+    10
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U3/U4 boundary separates a subject from its verb: 'her desire, once it falls back on her better judgment,' is in U3, and 'may start comparing you' is in U4. The original splits the same way: 'Her will, recoiling to her better judgement, / May fall to match you'. There is no clean line end in lines 6-10, so merge. The proposed text also adds 'that' after 'fear' (without it, a listener first hears 'I may fear her desire' as complete). It puts 'in making this argument' before the verb, and uses 'returns to' for 'recoiling to', which means reverting to.",
+   "current_modern_unit": "But forgive me: I'm not, in making this argument, talking about her specifically, though I may fear her desire, once it falls back on her better judgment, may start comparing you with the men of her own country and perhaps regret her choice.",
+   "proposed_modern_unit": "But forgive me: in making this argument I'm not talking about her specifically, though I may fear that her desire, once it returns to her better judgment, may start comparing you with the men of her own country, and perhaps regret her choice."
+  },
+  {
+   "id": "9.94",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The Gutenberg source line reads '[_Going._] My lord, I take my leave.'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. Without it, Othello's next speech ('Why did I marry?...') sounds as if it is said to Iago's face rather than after he has turned to go. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "My lord, I'll go now.",
+   "proposed_modern_unit": "[_Going._] My lord, I'll go now."
+  },
+  {
+   "id": "9.96",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The Gutenberg source line reads '[_Returning._] My lord, I would I might entreat your honour'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. Without it, Iago says goodbye and then simply carries on talking. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "My lord, I wish I could beg Your Honor not to dig into this any further. Leave it to time.",
+   "proposed_modern_unit": "[_Returning._] My lord, I wish I could beg Your Honor not to dig into this any further. Leave it to time."
+  },
+  {
+   "id": "9.96",
+   "unit": "U3+U4",
+   "lines": [
+    6,
+    11
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "U3 ends with 'In the meantime,', an adverbial that belongs to the next clause ('let me be thought too meddlesome...'). Line 8 also carries 'Much will be seen in that.', so moving the boundary would strand a different piece. Merging the two units into one 6-line unit removes the dangling fragment.",
+   "current_modern_unit": "Notice if your lady pushes hard for his reinstatement with any strong or passionate pleading; that will tell you a lot. In the meantime, let me be thought too meddlesome in my fears (as I have good reason to fear I am) and consider her innocent, I beg Your Honor.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.100",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    3
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U1/U2 boundary splits the object phrase 'all qualities ... / Of human dealings': the modern has 'every type, with an expert's mind,' in U1 and 'of human behavior.' in U2. Merge. The proposed text also closes up the split noun phrase, which reads unnaturally.",
+   "current_modern_unit": "This fellow is extraordinarily honest, and he understands every type, with an expert's mind, of human behavior. If I find she's a wild hawk that won't be tamed, even if the straps that tie her to my wrist were my own dear heartstrings,",
+   "proposed_modern_unit": "This fellow is extraordinarily honest, and with an expert's mind he understands every type of human behavior. If I find she's a wild hawk that won't be tamed, even if the straps that tie her to my wrist were my own dear heartstrings,"
+  },
+  {
+   "id": "9.100",
+   "unit": "U5+U6",
+   "lines": [
+    9,
+    17
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U5/U6 boundary splits the exclamation between its noun and its content clause: 'Oh, the curse of marriage,' is in U5, and 'that we can call these delicate creatures ours and not their desires!' is in U6. The original is 'O curse of marriage, / That we can call...'. None of the line ends from line 10 to line 14 is clean ('ours, / And not', 'rather be a toad, / ... Than keep'), so merge, then split after line 15 (next finding).",
+   "current_modern_unit": "she's gone, I'm deceived, and my only relief must be to loathe her. Oh, the curse of marriage, that we can call these delicate creatures ours and not their desires! I'd rather be a toad and live on the damp air of a dungeon than keep a corner of the thing I love for other men's use. Yet that's the plague of great men: they have fewer privileges than the lowly. It's a destiny no one can dodge, like death:",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.100",
+   "unit": "U5+U6",
+   "lines": [
+    9,
+    17
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "After the merge, split at the clause boundary after line 15. The modern breaks between 'Yet that's the plague of great men:' and 'they have fewer privileges than the lowly.', giving units [9-15] and [16-17].",
+   "split_after_line": 15,
+   "current_modern_unit": "she's gone, I'm deceived, and my only relief must be to loathe her. Oh, the curse of marriage, that we can call these delicate creatures ours and not their desires! I'd rather be a toad and live on the damp air of a dungeon than keep a corner of the thing I love for other men's use. Yet that's the plague of great men: they have fewer privileges than the lowly. It's a destiny no one can dodge, like death:",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.112",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    9
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U3/U4 boundary splits a so...that construction: 'she loves the token so much,' is in U3, and its result clause 'that she carries it with her at all times' is in U4. The original is 'she so loves the token, / ... That she reserves it evermore about her'. Merge, then split after line 6 (next finding).",
+   "current_modern_unit": "My unpredictable husband has a hundred times coaxed me to steal it. But she loves the token so much, since he made her swear she'd always keep it, that she carries it with her at all times to kiss and talk to. I'll have the embroidery copied and give it to Iago. What he'll do with it heaven knows, not me; I only want to please his whim.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.112",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "After the merge, split after line 6, a coordination boundary. The modern breaks between 'I'll have the embroidery copied' and 'and give it to Iago.', giving units [2-6] and [7-9].",
+   "split_after_line": 6,
+   "current_modern_unit": "My unpredictable husband has a hundred times coaxed me to steal it. But she loves the token so much, since he made her swear she'd always keep it, that she carries it with her at all times to kiss and talk to. I'll have the embroidery copied and give it to Iago. What he'll do with it heaven knows, not me; I only want to please his whim.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.115",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'I have a thing for you' is now a common idiom for being attracted to someone, so a first-time listener hears a romantic confession. Emilia means she has something for Iago, and he then twists 'thing' into the bawdy 'common thing'. Adding 'here' breaks the modern idiom and keeps the word 'thing' for Iago's pun.",
+   "current_modern_unit": "Don't scold me. I have a thing for you.",
+   "proposed_modern_unit": "Don't scold me. I have a thing here for you."
+  },
+  {
+   "id": "9.126",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The Gutenberg source line reads '[_Snatching it._] Why, what's that to you?'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. The direction shows how Iago takes the handkerchief. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "Why, what's that to you?",
+   "proposed_modern_unit": "[_Snatching it._] Why, what's that to you?"
+  },
+  {
+   "id": "9.130",
+   "unit": "U3",
+   "lines": [
+    5,
+    8
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "In '...but once they start working a little on the blood burn like sulfur mines', the verb 'burn' has no subject nearby, so a listener hears 'the blood burn'. The unit follows the original's relative-clause order. Restating the subject fixes it.",
+   "current_modern_unit": "dangerous suspicions are by nature poisons which at first barely taste unpleasant, but once they start working a little on the blood burn like sulfur mines. Just as I said.",
+   "proposed_modern_unit": "dangerous suspicions are by nature poisons: at first they barely taste unpleasant, but once they start working a little on the blood, they burn like sulfur mines. Just as I said."
+  },
+  {
+   "id": "9.137",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'What did I feel of the hours...' is awkward English. 'Sense' here means awareness (Schmidt, 'sense' 3: 'perception by the mind, apprehension, feeling'), and the modern phrase 'have a sense of' is natural.",
+   "current_modern_unit": "What did I feel of the hours she stole for lust?",
+   "proposed_modern_unit": "What sense did I have of the hours she stole for lust?"
+  },
+  {
+   "id": "9.139",
+   "unit": "U4",
+   "lines": [
+    8,
+    9
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "Mis-gloss. 'all quality, / Pride, pomp, and circumstance of glorious war' means all the nature or character of war. Schmidt files this line under 'quality' 2, 'nature, character, particular condition', and Onions gives that as the word's commonest sense. 'all the splendor of rank' brings in rank and adds 'splendor'.",
+   "current_modern_unit": "the royal banner, and all the splendor of rank, the pride, pomp and ceremony of glorious war!",
+   "proposed_modern_unit": "the royal banner, and all the qualities, the pride, pomp and ceremony of glorious war!"
+  },
+  {
+   "id": "9.139",
+   "unit": "U5",
+   "lines": [
+    10,
+    12
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Othello's occupation's gone!' is a famous line and is already clear in modern English (occupation = profession). The standard keeps such lines recognizable, so the change to 'life's work' is unnecessary.",
+   "current_modern_unit": "And oh, you deadly cannons, whose rough throats imitate the dreadful thunder of immortal Jove, farewell! Othello's life's work is gone!",
+   "proposed_modern_unit": "And oh, you deadly cannons, whose rough throats imitate the dreadful thunder of immortal Jove, farewell! Othello's occupation's gone!"
+  },
+  {
+   "id": "9.149",
+   "unit": "U4",
+   "lines": [
+    6,
+    7
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "Othello's 'Would I were satisfied!' supplies the word that Iago echoes and twists: 'You would be satisfied?', 'Would? Nay, I will.', 'How satisfied, my lord? ... Behold her topp'd?'. Rendering it as 'I wish I knew for certain!' breaks the echo, because in the modern text Iago's 'You want to be satisfied?' repeats a word nobody has said. Keep 'satisfied' and add a short gloss.",
+   "current_modern_unit": "poison or fire, or streams to drown in, I won't put up with this. I wish I knew for certain!",
+   "proposed_modern_unit": "poison or fire, or streams to drown in, I won't put up with this. I wish I were satisfied — that I knew for certain!"
+  },
+  {
+   "id": "9.154",
+   "unit": "U1",
+   "lines": [
+    0,
+    3
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "Two problems, both from following the original order. 'to set them up in that view' is unclear (the original 'To bring them to that prospect' means getting them where they could be seen like that). In 'if mortal eyes ever see them share a pillow except their own eyes', 'except their own' is separated from 'mortal eyes'.",
+   "current_modern_unit": "It would be a tiresome, hard job, I think, to set them up in that view. Damn them, then, if mortal eyes ever see them share a pillow except their own eyes! What then? How then?",
+   "proposed_modern_unit": "It would be a tiresome, hard job, I think, to get them where you could see them like that. Damn them, then, if any mortal eyes but their own ever see them share a pillow! What then? How then?"
+  },
+  {
+   "id": "9.154",
+   "unit": "U3",
+   "lines": [
+    5,
+    6
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "Register: 'horny' is modern slang, and the standard avoids anachronistic slang. 'Prime' means sexually excited (Onions, 'prime' 4), and 'lecherous' carries that at the same strength without slang. The next unit already uses 'lustful'.",
+   "current_modern_unit": "It's impossible for you to see this, even if they were as horny as goats, as hot as monkeys,",
+   "proposed_modern_unit": "It's impossible for you to see this, even if they were as lecherous as goats, as hot as monkeys,"
+  },
+  {
+   "id": "9.164",
+   "unit": "U1",
+   "lines": [
+    0,
+    2
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The object is moved to the front and 'today I' is left at the end of the line ('But a handkerchief like that (I'm sure it was your wife's) today I saw Cassio wipe his beard with'). This is contorted, and the parenthesis is hard to voice.",
+   "current_modern_unit": "I didn't know that. But a handkerchief like that (I'm sure it was your wife's) today I saw Cassio wipe his beard with.",
+   "proposed_modern_unit": "I didn't know that. But today I saw Cassio wipe his beard with a handkerchief like that — I'm sure it was your wife's."
+  },
+  {
+   "id": "9.171",
+   "unit": "U1",
+   "lines": [
+    0,
+    5
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This is a 6-line unit with a clean boundary after line 3, between the Pontic Sea simile and the main clause 'Even so my bloody thoughts...'. The modern breaks between 'into the Propontic and the Hellespont,' and 'just so my bloody thoughts, at their violent pace,'.",
+   "split_after_line": 3,
+   "current_modern_unit": "Never, Iago. Like the Pontic Sea — the Black Sea — whose icy current and unstoppable flow never feels the tide pull back, but keeps rushing on into the Propontic and the Hellespont, just so my bloody thoughts, at their violent pace, will never look back, never ebb into gentle love,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.171",
+   "unit": "U2+U3",
+   "lines": [
+    6,
+    9
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "U2 ends with the oath 'Now, by that marble sky up there,', whose verb ('I here pledge my word') is in U3. A 4-line unit keeps the vow together.",
+   "current_modern_unit": "until a vast, all-consuming revenge swallows them up. Now, by that marble sky up there, with the proper reverence of a sacred vow I here pledge my word.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "9.171",
+   "unit": "U3",
+   "lines": [
+    8,
+    9
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The Gutenberg source line reads 'In the due reverence of a sacred vow [_Kneels._]'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. Without it, Iago's 'Do not rise yet' and the later [They rise.] make no sense. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "with the proper reverence of a sacred vow I here pledge my word.",
+   "proposed_modern_unit": "with the proper reverence of a sacred vow [_Kneels._] I here pledge my word."
+  },
+  {
+   "id": "9.172",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The Gutenberg source line reads 'Do not rise yet. [_Kneels._]'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. This is Iago kneeling beside Othello for the joint vow. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "Don't get up yet.",
+   "proposed_modern_unit": "Don't get up yet. [_Kneels._]"
+  },
+  {
+   "id": "10.1",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "Register: 'Hey there, you —' is too casual for Desdemona. 'Sirrah' is a lady addressing a servant, and 'You there' keeps that tone without modern chattiness.",
+   "current_modern_unit": "Hey there, you — do you know where Lieutenant Cassio lies, I mean, where he's staying?",
+   "proposed_modern_unit": "You there — do you know where Lieutenant Cassio lies, I mean, where he's staying?"
+  },
+  {
+   "id": "10.22",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "The Gutenberg source line reads 'Well, my good lady. [_Aside._] O, hardness to dissemble!'. This inline direction is missing from both the original and modern text in this packet. Across the play, 36 of 38 inline directions are missing from both texts, so the processing pipeline appears to have stripped them. Without it, 'Oh, how hard it is to pretend!' is heard as said to Desdemona's face, which changes the scene. Restore it verbatim and in place in both editions.",
+   "current_modern_unit": "Well, my good lady. Oh, how hard it is to pretend!",
+   "proposed_modern_unit": "Well, my good lady. [_Aside._] Oh, how hard it is to pretend!"
+  },
+  {
+   "id": "10.28",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "Flattened double meaning. 'A liberal hand' repeats Othello's insinuation from 10.26 (generous, and sexually free). 'A generous hand' keeps only the innocent sense.",
+   "current_modern_unit": "A generous hand. In the old days, people gave their hands in marriage along with their hearts, but in our new coat of arms, it's hands, not hearts.",
+   "proposed_modern_unit": "A generous hand — a free one. In the old days, people gave their hands in marriage along with their hearts, but in our new coat of arms, it's hands, not hearts."
+  },
+  {
+   "id": "10.38",
+   "unit": "U2+U3+U4",
+   "lines": [
+    2,
+    11
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "Two boundaries separate a verb from what it introduces. After line 3: 'She told my mother that as long as she kept it,' / 'it would make her lovable...' (original 'She told her, while she kept it, / 'Twould make her amiable'). After line 9: 'and told me that when fate wanted me to take a wife,' / 'I should give it to her' (original 'And bid me, when my fate would have me wive, / To give it her'). Merge U2-U4, then split after line 8, and optionally after line 5 (next findings). That re-cuts lines 2-11 as [2-5], [6-8] and [9-11].",
+   "current_modern_unit": "She was a sorceress, and could almost read people's thoughts. She told my mother that as long as she kept it, it would make her lovable and bring my father completely under the spell of her love. But if she lost it or gave it away, my father would look at her with disgust, and his desire would go hunting after new women. When she was dying, she gave it to me and told me that when fate wanted me to take a wife, I should give it to her. I did. So take care of it — treasure it the way you treasure your own precious eyes.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "10.38",
+   "unit": "U2+U3+U4",
+   "lines": [
+    2,
+    11
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "After the merge, split at the coordination boundary after line 8. The modern breaks between 'When she was dying, she gave it to me' and 'and told me that when fate wanted me to take a wife, I should give it to her.', giving units [2-8] and [9-11].",
+   "split_after_line": 8,
+   "current_modern_unit": "She was a sorceress, and could almost read people's thoughts. She told my mother that as long as she kept it, it would make her lovable and bring my father completely under the spell of her love. But if she lost it or gave it away, my father would look at her with disgust, and his desire would go hunting after new women. When she was dying, she gave it to me and told me that when fate wanted me to take a wife, I should give it to her. I did. So take care of it — treasure it the way you treasure your own precious eyes.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "10.38",
+   "unit": "U2+U3+U4",
+   "lines": [
+    2,
+    11
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "Optional second split after line 5, also a coordination boundary. The modern breaks between 'But if she lost it' and 'or gave it away, my father would look at her...', so that no unit here is longer than 4 lines.",
+   "split_after_line": 5,
+   "current_modern_unit": "She was a sorceress, and could almost read people's thoughts. She told my mother that as long as she kept it, it would make her lovable and bring my father completely under the spell of her love. But if she lost it or gave it away, my father would look at her with disgust, and his desire would go hunting after new women. When she was dying, she gave it to me and told me that when fate wanted me to take a wife, I should give it to her. I did. So take care of it — treasure it the way you treasure your own precious eyes.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "10.40",
+   "unit": "U2",
+   "lines": [
+    1,
+    3
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'A sibyl' is a classical allusion to the long-lived prophetesses. The standard keeps allusions and adds a clarifying word, but the modern replaces the word with 'prophetess'.",
+   "current_modern_unit": "A prophetess who had lived long enough in this world to watch the sun complete two hundred yearly circuits — two hundred years — stitched it in a fit of prophetic frenzy.",
+   "proposed_modern_unit": "A sibyl, a prophetess who had lived long enough in this world to watch the sun complete two hundred yearly circuits — two hundred years — stitched it in a fit of prophetic frenzy."
+  },
+  {
+   "id": "10.54",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "Register: 'I have a bad feeling about this' is a stock film catchphrase and deflates Othello's rising panic. 'My mind misgives' means I fear the worst.",
+   "current_modern_unit": "Get me the handkerchief! I have a bad feeling about this.",
+   "proposed_modern_unit": "Get me the handkerchief! I fear the worst."
+  },
+  {
+   "id": "10.71",
+   "unit": "U1",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'I'm begging you that through your good help I might once again come back to life' keeps the original 'beseech you / That ... I may' construction, which is not modern English.",
+   "current_modern_unit": "Madam, it's my earlier request. I'm begging you that through your good help I might once again come back to life and have a place in the love of the man I honor wholeheartedly, with every duty my heart can offer. I don't want to be kept waiting.",
+   "proposed_modern_unit": "Madam, it's my earlier request. I'm begging you: through your good help, let me come back to life once again and have a place in the love of the man I honor wholeheartedly, with every duty my heart can offer. I don't want to be kept waiting."
+  },
+  {
+   "id": "10.71",
+   "unit": "U2+U3",
+   "lines": [
+    5,
+    9
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U2/U3 boundary separates subjects from their verb: 'neither my past service, nor my present regret,' is in U2, and 'can buy me back into his love' is in U3. The original is 'That nor my service past, nor present sorrows, / Nor purpos'd merit in futurity, / Can ransom me'. Merge, then split after line 8 (next finding).",
+   "current_modern_unit": "If my offense is so deadly that neither my past service, nor my present regret, nor the good deeds I intend to do in the future can buy me back into his love, then at least knowing that would do me some good.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "10.71",
+   "unit": "U2+U3",
+   "lines": [
+    5,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "After the merge, split cleanly between the if-clause and its main clause. The modern breaks between '...can buy me back into his love,' and 'then at least knowing that would do me some good.', giving units [5-8] and [9-9].",
+   "split_after_line": 8,
+   "current_modern_unit": "If my offense is so deadly that neither my past service, nor my present regret, nor the good deeds I intend to do in the future can buy me back into his love, then at least knowing that would do me some good.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "10.72",
+   "unit": "U3",
+   "lines": [
+    4,
+    7
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'target-center' is not idiomatic. The 'blank' is the white centre of a target, which in modern English is the bull's-eye.",
+   "current_modern_unit": "So help me every holy spirit in heaven, I've spoken up for you as well as I possibly could, and I've stood right in the target-center of his anger for speaking so freely! You'll have to be patient for a while.",
+   "proposed_modern_unit": "So help me every holy spirit in heaven, I've spoken up for you as well as I possibly could, and I've stood right in the bull's-eye of his anger for speaking so freely! You'll have to be patient for a while."
+  },
+  {
+   "id": "10.74",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'he was definitely strangely upset' stacks two adverbs and is clumsy aloud.",
+   "current_modern_unit": "He just left here, and he was definitely strangely upset.",
+   "proposed_modern_unit": "He's only just left, and he was certainly in a strange, uneasy state."
+  },
+  {
+   "id": "10.81",
+   "unit": "U2",
+   "lines": [
+    1,
+    3
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'They are not ever jealous for the cause' most likely means 'not always': Schmidt, 'ever' 2, gives 'not e. = not always', though his example is from Henry VIII, not this line. 'They're never jealous because there's a reason' drops Emilia's qualification and makes the claim absolute.",
+   "current_modern_unit": "They're never jealous because there's a reason; they're jealous because they're jealous. Jealousy is a monster that fathers itself and gives birth to itself.",
+   "proposed_modern_unit": "They're not always jealous because there's a reason; they're jealous because they're jealous. Jealousy is a monster that fathers itself and gives birth to itself."
+  }
+ ],
+ "prose_maps": []
+}

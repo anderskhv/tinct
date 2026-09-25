@@ -1,0 +1,2713 @@
+{
+ "from": {
+  "file": "books/wip/othello-modern-en/othello-modern-en.candidate.json (branch claude/cool-galileo-tyen9m, commit 15d3d67e)",
+  "sha256": "012ede1e45c1d3b0c51c791212971892b345092c658b06e4712aa69a1dd2083c"
+ },
+ "to": {
+  "file": "othello-modern-en.v2.candidate.json",
+  "sha256": "ed1e3ebbdbcb7f17cf637f1d04e678f0cccb6ff4ab9916131aaf837a4b7cb3d1"
+ },
+ "lines": "0-based line indexes within the paragraph's verse/prose units (as in the re-check packets); \"before\"/\"after\" quote only the changed span.",
+ "rejected": [
+  {
+   "id": "15.158",
+   "lines": [
+    1,
+    1
+   ],
+   "proposed": "\"defenseless\" for \"naked\"",
+   "verdict": "reject (RC2), confirmed by RC1 final confirmation",
+   "result": "v1 wording kept: \"or, unarmed as I am, I'll attack you.\""
+  }
+ ],
+ "edits": [
+  {
+   "n": "E1",
+   "id": "1.4",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "took their hats off to him — and on my word as a man,",
+   "after": "stood before him hat in hand — and on my word as a man,",
+   "source": "B1 L (editor wording)",
+   "reason": "Modern \"hats off to him\" means admiration; \"Off-capp'd to him\" is humble petition.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E2",
+   "id": "1.4",
+   "lines": [
+    20,
+    20
+   ],
+   "before": "and I — whose service his own eyes had seen proved",
+   "after": "and I — whose service the general's own eyes had seen proved",
+   "source": "B1 M (editor wording)",
+   "reason": "Two unnamed \"he\"s in the speech: \"his own eyes\" was heard as Cassio's; they are the general's.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E3",
+   "id": "1.8",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "I serve him so I can serve my own turn on him.",
+   "after": "I serve him so I can serve my own ends against him.",
+   "source": "A1 should-fix",
+   "reason": "'serve my own turn on him' leaves the archaic idiom 'serve my turn' (= serve my purpose, Schmidt s.v. serve) untranslated with modern pronouns, so a listener will not understand it.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E4",
+   "id": "1.8",
+   "lines": [
+    7,
+    7
+   ],
+   "before": "for nothing but their feed — and when they're old, they're fired.",
+   "after": "for nothing but their feed — and when they're old, they're dismissed.",
+   "source": "B1 L (editor wording)",
+   "reason": "Original \"cashier'd\"; \"fired\" jars as modern office idiom.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E5",
+   "id": "1.31",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "By God's wounds, sir, you're one of those people who won't serve God just because the devil tells you to. Because we come to do you a favor, you take us for thugs — so you'll have your daughter covered by a Barbary stallion; you'll have your grandchildren neighing at you; you'll have racehorses for cousins and Spanish ponies for relatives.",
+   "after": "By God's wounds, sir, you're one of those people who won't serve God just because the devil tells you to. Because we come to do you a favor and you take us for thugs, you'll have your daughter covered by a Barbary stallion; you'll have your grandchildren neighing at you; you'll have racehorses for cousins and Spanish ponies for relatives.",
+   "source": "A1 should-fix",
+   "reason": "The modern makes the favour the cause of the misjudgement ('Because we come to do you a favor, you take us for thugs — so…'); in the original both clauses together cause the consequence ('Because we come to do you service, and you think we are ruffians, you'll have your daughter cover'd…').",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E6",
+   "id": "1.37",
+   "lines": [
+    17,
+    17
+   ],
+   "before": "who belongs here and everywhere. See for yourself right now:",
+   "after": "here one day and anywhere the next. See for yourself right now:",
+   "source": "B1 L (editor wording)",
+   "reason": "Original \"Of here and everywhere\" is a sneer at rootlessness; \"belongs here and everywhere\" sounded like praise.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E7",
+   "id": "1.40",
+   "lines": [
+    7,
+    9
+   ],
+   "before": "which are under way right now, that, to save their souls, they've no one else of his depth and ability to run their campaign. For that reason,",
+   "after": "which are under way right now: to save their souls, they've no one else of his depth and ability to run their campaign. For that reason,",
+   "source": "A1 should-fix",
+   "reason": "The result clause 'that, to save their souls, they've no one else…' dangles after the relative clause 'which are under way right now', so the listener loses its link to 'for such loud and pressing reasons' in the unit before.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E8",
+   "id": "1.45",
+   "lines": [
+    1,
+    5
+   ],
+   "before": "Fathers, from now on don't trust your daughters' minds by what you see them do. Aren't there magic spells by which the nature of youth and girlhood can be corrupted? Haven't you read, Roderigo, of some such thing?",
+   "after": "Fathers, from now on don't trust what you see your daughters do as a guide to their minds. Aren't there magic spells by which the nature of youth and girlhood can be corrupted? Haven't you read, Roderigo, of some such thing?",
+   "source": "A1 note",
+   "reason": "'don't trust your daughters' minds by what you see them do' is an unidiomatic calque of 'trust not your daughters' minds / By what you see them act'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E9",
+   "id": "2.4",
+   "lines": [
+    3,
+    7
+   ],
+   "before": "and when I find that boasting is honorable, I'll announce it — that I take my life and being from men of royal rank. And my merits can speak for themselves, hat on, as an equal, to as proud a fortune as this one I've won. For understand, Iago,",
+   "after": "and when I find that boasting is honorable, I'll announce it — that I take my life and being from men of royal rank. And my merits can speak as equals, without taking their hats off, to as proud a fortune as this one I've won. For understand, Iago,",
+   "source": "A1 should-fix",
+   "reason": "'can speak for themselves, hat on, as an equal, to as proud a fortune' splices the idiom 'speak for themselves' (= are self-evident) onto 'speak … to', garbling 'may speak unbonneted to as proud a fortune' (address it as an equal without doffing the cap; Onions 'unbonneted' = on equal terms).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E10",
+   "id": "3.12",
+   "lines": [
+    4,
+    6
+   ],
+   "before": "and just remind ourselves again that, since it matters more to the Turk than Rhodes does, he can also take it with an easier fight,",
+   "after": "and simply remind ourselves again that, just as it matters more to the Turk than Rhodes does, so he can also take it with an easier fight,",
+   "source": "A1 note",
+   "reason": "Original correlative \"as ... so\" (just as it matters more, so it is easier to take); \"since\" made it cause and effect.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E11",
+   "id": "3.24",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "I didn't see you; welcome, noble sir,",
+   "after": "Brabantio — I didn't see you; welcome, noble sir,",
+   "source": "B1 M (editor wording)",
+   "reason": "The Duke turns from Othello to Brabantio with no cue; naming him marks the change of addressee.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E12",
+   "id": "3.29",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "She's been abused, stolen from me, and corrupted",
+   "after": "She's been deceived, stolen from me, and corrupted",
+   "source": "B1 M (editor wording)",
+   "reason": "Original \"abused\" = deceived, wronged; modern \"abused\" suggests assault.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E13",
+   "id": "3.30",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "and you out of her — you'll read the bloody law book yourself, and apply its harshest letter",
+   "after": "and you out of her — you'll read the law's deadly book yourself, and apply its harshest letter",
+   "source": "B1 M (editor wording)",
+   "reason": "\"the bloody book of law\" (the law with death penalties); \"bloody law book\" was heard as a swear word.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E14",
+   "id": "3.33",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "What can you say to this in your own defense?",
+   "after": "Othello, what can you say to this in your own defense?",
+   "source": "B1 M (editor wording)",
+   "reason": "The Duke's question had no audible addressee and Brabantio answers it; naming Othello makes the interruption clear.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E15",
+   "id": "3.35",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Most powerful, serious, and respected lords, my very noble masters, good men proven by experience:",
+   "after": "Most potent, grave, and reverend lords, my very noble masters, good men proven by experience:",
+   "source": "A1 should-fix",
+   "reason": "The famous and already clear opening 'Most potent, grave, and reverend signiors' loses its recognizability and its dignity with 'serious' for 'grave' (standard rules 2 and 6).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E16",
+   "id": "3.35",
+   "lines": [
+    14,
+    15
+   ],
+   "before": "I'll tell you a plain, unpolished story of the whole course of my love: what drugs, what charms,",
+   "after": "I'll tell you a plain, unvarnished tale of the whole course of my love: what drugs, what charms,",
+   "source": "A1 note",
+   "reason": "The famous and already clear 'a round unvarnish'd tale' becomes 'a plain, unpolished story'; keeping 'unvarnished' keeps the line recognizable.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E17",
+   "id": "3.36",
+   "lines": [
+    1,
+    4
+   ],
+   "before": "so calm and quiet in spirit that her own impulses made her blush; and she, against her nature, her age, her country, her reputation, everything, to fall in love with what she was afraid to look at!",
+   "after": "so calm and quiet in spirit that her own impulses made her blush; and for her — against her nature, her age, her country, her reputation, everything — to fall in love with what she was afraid to look at!",
+   "source": "A1 should-fix",
+   "reason": "'and she, against her nature, …, to fall in love with what she was afraid to look at!' copies the original's exclamatory infinitive with a bare subject, which is ungrammatical in modern English.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E18",
+   "id": "3.37",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "Claiming this isn't proof, unless there's a fuller and more open test than the flimsy outward look of things and weak likelihoods of everyday assumption that you bring against him.",
+   "after": "Saying so is no proof, unless there's a fuller and more open test than the flimsy outward look of things and weak likelihoods of everyday assumption that you bring against him.",
+   "source": "A1 note",
+   "reason": "'Claiming this isn't proof' can be heard as 'claiming that this isn't proof', the opposite sense; 'To vouch this is no proof' needs an unambiguous subject.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E19",
+   "id": "3.43",
+   "lines": [
+    0,
+    4
+   ],
+   "before": "And until she comes, as truthfully as to heaven I confess the sins of my flesh, just as honestly I'll lay out for your serious ears how I came to win this lovely lady's love, and she mine.",
+   "after": "And until she comes, as truthfully as I confess the sins of my flesh to heaven, just as honestly I'll lay out for your grave ears how I came to win this lovely lady's love, and she mine.",
+   "source": "A1 should-fix + note",
+   "reason": "Fronted \"to heaven\" contorted; time clause split from its main clause (merge); \"grave ears\" restored.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E20",
+   "id": "3.45",
+   "lines": [
+    11,
+    14
+   ],
+   "before": "and how I carried myself through the history of my travels; in which, of vast caves and empty deserts, rough quarries, rocks, and hills whose peaks touch heaven, I had occasion to speak — that was how it went —",
+   "after": "and how I carried myself through the history of my travels, in which I had occasion to speak of vast caves and empty deserts, rough quarries, rocks, and hills whose peaks touch heaven — that was how it went —",
+   "source": "A1 should-fix",
+   "reason": "The modern copies the fronted object ('in which, of vast caves and empty deserts, rough quarries, … I had occasion to speak'), which is contorted in modern English; rewrite the merged unit.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E21",
+   "id": "3.45",
+   "lines": [
+    15,
+    18
+   ],
+   "before": "and of the cannibals who eat each other, the Anthropophagi, and men whose heads grow beneath their shoulders. To hear all this Desdemona would lean in, completely serious.",
+   "after": "and of the cannibals who eat each other, the Anthropophagi, and men whose heads grow beneath their shoulders. Desdemona would lean in earnestly to hear all this.",
+   "source": "A1 should-fix",
+   "reason": "'To hear all this Desdemona would lean in, completely serious.' fronts the infinitive with no pause, and 'completely serious' misrenders 'seriously' (= in earnest, Schmidt).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E22",
+   "id": "3.45",
+   "lines": [
+    26,
+    27
+   ],
+   "before": "which she had heard only in bits and pieces, and never attentively. I agreed,",
+   "after": "which she had heard only in bits and pieces, never from start to finish. I agreed,",
+   "source": "B1 M (editor wording)",
+   "reason": "Original \"not intentively\" = not continuously, not in full; \"never attentively\" contradicted her \"hungry ear\" two lines earlier.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E23",
+   "id": "3.45",
+   "lines": [
+    38,
+    38
+   ],
+   "before": "and that would win her. At this hint, I spoke:",
+   "after": "and that would win her. Taking that hint, I spoke up.",
+   "source": "B1 M (editor wording)",
+   "reason": "\"Upon this hint I spake\" = I declared myself; the colon made \"She loved me...\" sound like what he said to her rather than his summary to the Senate.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E24",
+   "id": "3.49",
+   "lines": [
+    5,
+    5
+   ],
+   "before": "until now I've been your daughter. But here's my husband,",
+   "after": "until now I've been your daughter. But here's my husband.",
+   "source": "A1 should-fix",
+   "reason": "Minimal adjustment so the re-cut after line 5 matches the original's full stop.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E25",
+   "id": "3.49",
+   "lines": [
+    6,
+    6
+   ],
+   "before": "and just as much duty as my mother showed",
+   "after": "And just as much duty as my mother showed",
+   "source": "A1 should-fix",
+   "reason": "As above (new sentence after the full stop).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E26",
+   "id": "3.50",
+   "lines": [
+    4,
+    6
+   ],
+   "before": "I here give you, with all my heart, what — if you didn't already have it — with all my heart I'd keep from you. — Because of you, my jewel,",
+   "after": "I here give you, with all my heart, what I'd keep from you with all my heart if you didn't already have it. — Because of you, my jewel,",
+   "source": "A1 note",
+   "reason": "'what — if you didn't already have it — with all my heart I'd keep from you' follows the original order and inverts the second 'with all my heart'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E27",
+   "id": "3.52",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "A man bears a wise saying well if all he has to bear is the easy comfort he hears in it;",
+   "after": "A man takes a sentence well — a wise saying, or a verdict — if all he has to bear is the easy comfort he hears in it;",
+   "source": "A1 note (editor wording)",
+   "reason": "\"sentence\" plays on maxim and judicial sentence (Johnson in Furness).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E28",
+   "id": "3.52",
+   "lines": [
+    4,
+    5
+   ],
+   "before": "but he has to bear both the saying and the sorrow who, to pay off his grief, must borrow from his poor patience.",
+   "after": "but a man who, to pay off his grief, must borrow from his poor patience has to bear both the sentence and the sorrow.",
+   "source": "A1 should-fix",
+   "reason": "Extraposed relative clause far from its antecedent; \"sentence\" kept consistent with 3.52 U2.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E29",
+   "id": "3.54",
+   "lines": [
+    0,
+    5
+   ],
+   "before": "That tyrant, habit, most serious senators, has made the hard flint-and-steel bed of war into my softest feather bed, the down sifted three times over. I admit a natural and ready eagerness that I find in hardship, and I will take on this present war against the Ottomans.",
+   "after": "That tyrant, habit, most grave senators, has made the hard flint-and-steel bed of war into my softest feather bed, the down sifted three times over. I admit a natural and ready eagerness that I find in hardship, and I will take on this present war against the Ottomans.",
+   "source": "A1 note",
+   "reason": "'most serious senators' flattens 'most grave senators'; use 'grave', as in Othello's other addresses to the Senate.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E30",
+   "id": "3.58",
+   "lines": [
+    3,
+    5
+   ],
+   "before": "lend your favorable ear to what I'm about to explain, and let your voice give me the permission to help my lack of skill.",
+   "after": "lend your favorable ear to what I'm about to explain, and let me find in your voice a charter to help my lack of skill.",
+   "source": "A1 note",
+   "reason": "'let your voice give me the permission to help my lack of skill' blurs who helps; it is the charter (warrant) found in the Duke's voice that assists her simpleness.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E31",
+   "id": "3.60",
+   "lines": [
+    9,
+    11
+   ],
+   "before": "I'm robbed of the rites of love — the rights of a wife — I love him for, and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "after": "I'm robbed of the rites I love him for — the rites of love, the rights of a wife — and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "source": "A1 should-fix",
+   "reason": "'I'm robbed of the rites of love — the rights of a wife — I love him for' strands 'I love him for' after the inserted gloss, so the relative clause comes loose from 'rites'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E32",
+   "id": "3.61",
+   "lines": [
+    6,
+    10
+   ],
+   "before": "And heaven forbid your good souls should think I'll skimp on your serious and important business because she's with me. No — if the light-winged trifles of feathered Cupid ever sew shut, like a hawk's eyes, with lazy lust, my sight and the faculties that serve my duties,",
+   "after": "And heaven forbid your good souls should think I'll skimp on your serious and important business because she's with me. No — if the light-winged playthings of feathered Cupid ever stitch my eyes shut with lazy lust, as a falconer stitches a hawk's, blinding the faculties that serve my duties,",
+   "source": "B1 M (editor wording)",
+   "reason": "The Cupid/hawk sentence was hard to hold by ear; \"seel\" (stitch a hawk's eyes shut) and \"speculative and offic'd instruments\" (sight and the faculties serving my duties) unpacked in natural order.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E33",
+   "id": "3.71",
+   "lines": [
+    4,
+    6
+   ],
+   "before": "Come, Desdemona, I have only an hour for love, for practical matters, and for giving orders to spend with you. We must do what the times demand.",
+   "after": "Come, Desdemona, I have only an hour to spend with you, for love, for practical matters, and for giving orders. We must do what the times demand.",
+   "source": "A1 should-fix",
+   "reason": "'an hour for love, for practical matters, and for giving orders to spend with you' leaves 'to spend with you' after the list, where it is heard as 'giving orders to spend'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E34",
+   "id": "3.74",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "What are you saying, noble heart?",
+   "after": "What is it, noble heart?",
+   "source": "A1 note",
+   "reason": "'What are you saying' sounds incredulous, but Roderigo has only said 'Iago —'; 'What sayst thou' here means 'What is it?'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E35",
+   "id": "3.80",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Oh, what villainy! I've looked at the world for four times seven years, and ever since I could tell the difference between a favor and an injury, I've never found a man who knew how to love himself. Before I'd say I'd drown myself for the love of some silly little guinea hen of a woman, I'd trade my humanity with a baboon.",
+   "after": "Oh, what villainy! I've looked at the world for four times seven years, and ever since I could tell the difference between a favor and an injury, I've never found a man who knew how to love himself. Before I'd say I'd drown myself for the love of some guinea hen of a tart, I'd trade my humanity with a baboon.",
+   "source": "A1 note (editor wording)",
+   "reason": "Iago's \"guinea-hen\" is cant for a prostitute (Onions: strumpet); \"silly little ... woman\" softened and trivialized it.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E36",
+   "id": "1.4",
+   "lines": [
+    13,
+    13
+   ],
+   "before": "a man half-damned already by a pretty wife —",
+   "after": "a man almost damned by a beautiful wife —",
+   "source": "G1 REVISE",
+   "reason": "Crux: keep it literal and unresolved. No emendation has won acceptance, so the received text is the standard reading; record that choice. Within that, 'half-damned already' turns 'almost' into 'half' and adds 'already', and 'pretty' shrinks 'fair' (beautiful), so line 13 goes back to the literal sense. 'Old maid' brings in the later meaning of 'spinster' and adds age and marriage status that the o",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E37",
+   "id": "1.4",
+   "lines": [
+    16,
+    16
+   ],
+   "before": "than an old maid at her spinning wheel — only the theory out of books,",
+   "after": "than a woman at her spinning wheel — only the theory out of books,",
+   "source": "G1 REVISE",
+   "reason": "Crux: keep it literal and unresolved. No emendation has won acceptance, so the received text is the standard reading; record that choice. Within that, 'half-damned already' turns 'almost' into 'half' and adds 'already', and 'pretty' shrinks 'fair' (beautiful), so line 13 goes back to the literal sense. 'Old maid' brings in the later meaning of 'spinster' and adds age and marriage status that the o",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E38",
+   "id": "1.33",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "I'm someone, sir, who has come to tell you that your daughter and the Moor are, right now, making the beast with two backs — having sex.",
+   "after": "I'm someone, sir, who has come to tell you that your daughter and the Moor are, right now, making the beast with two backs.",
+   "source": "G1 REVISE",
+   "reason": "Never independently re-checked editor addition; resolver G1 and blind reader B1 both reject the appended gloss \"— having sex\": the image is already clear from 1.20/1.31 and the tag reads as an editor's footnote spoken by Iago.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E39",
+   "id": "2.3",
+   "lines": [
+    7,
+    7
+   ],
+   "before": "and his word carries, in practice, as much weight —",
+   "after": "and in practice his word carries double weight,",
+   "source": "G1 OPEN (recommended reading adopted)",
+   "reason": "Recommended: commit to Johnson's reading. It is the grammatical sense of 'as double as' (an equal comparison) and the majority view. The alternative is Furness's 'twice the Duke's'. The current self-correction ('as much weight — twice as much —') ends on the minority reading, so the listener takes away that Brabantio outweighs the Duke. The replacements above are the recommended wording: they keep",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E40",
+   "id": "2.3",
+   "lines": [
+    8,
+    8
+   ],
+   "before": "twice as much — as the duke's. He'll force a divorce,",
+   "after": "as much as the duke's. He'll force a divorce,",
+   "source": "G1 OPEN (recommended reading adopted)",
+   "reason": "Recommended: commit to Johnson's reading. It is the grammatical sense of 'as double as' (an equal comparison) and the majority view. The alternative is Furness's 'twice the Duke's'. The current self-correction ('as much weight — twice as much —') ends on the minority reading, so the listener takes away that Brabantio outweighs the Duke. The replacements above are the recommended wording: they keep",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E41",
+   "id": "3.35",
+   "lines": [
+    7,
+    7
+   ],
+   "before": "for since these arms of mine were seven years old,",
+   "after": "for since these arms of mine had seven years of strength in them,",
+   "source": "G1 REVISE",
+   "reason": "The current line drops 'pith' (strength), which is the image itself, and gives the arms an age instead, which the re-checker rightly found odd. The proposed line keeps the arms, the strength and the age, and a listener still hears 'since I was seven'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E42",
+   "id": "4.12",
+   "lines": [
+    1,
+    4
+   ],
+   "before": "I've served under him, and the man commands like a complete soldier. Let's go down to the shore, come on! as much to see the ship that's just come in as to strain our eyes looking out for brave Othello,",
+   "after": "I've served under him, and the man commands like a complete soldier. Come on, let's go down to the shore, as much to see the ship that's just come in as to strain our eyes looking out for brave Othello,",
+   "source": "A2 should-fix",
+   "reason": "Re-cut: purpose phrase separated from its verb; \"come on!\" misplaced.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E43",
+   "id": "4.12",
+   "lines": [
+    5,
+    6
+   ],
+   "before": "until the sea and the blue sky blur together and we can't tell one from the other.",
+   "after": "until the sea and the blue sky blur together and we can't tell one from the other.",
+   "source": "A2 should-fix",
+   "reason": "Re-cut: purpose phrase separated from its verb; \"come on!\" misplaced.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E44",
+   "id": "4.29",
+   "lines": [
+    2,
+    4
+   ],
+   "before": "who surpasses anything clever poets could flourish in praise, and simply in the natural beauty God gave her exhausts anyone who tries to capture it.",
+   "after": "who surpasses all the clever flourishes of poets' praise, and who, simply in the natural beauty God gave her, exhausts anyone who tries to capture it.",
+   "source": "A2 note",
+   "reason": "In 'and simply in the natural beauty God gave her exhausts anyone', the subject is dropped and a long phrase comes before the verb because the line follows the original order; 'could flourish in praise' is also awkward.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E45",
+   "id": "4.33",
+   "lines": [
+    1,
+    6
+   ],
+   "before": "The storms themselves, high seas and howling winds, the jagged rocks and heaped-up sandbanks, traitors lurking underwater to snag the innocent keel, as if they could feel beauty, have set aside their deadly nature and let pass safely by the divine Desdemona.",
+   "after": "The storms themselves, high seas and howling winds, the jagged rocks and heaped-up sandbanks, traitors lurking underwater to snag the innocent keel, as if they could feel beauty, have set aside their deadly nature and let the divine Desdemona pass safely by.",
+   "source": "A2 should-fix",
+   "reason": "U2 is only a list of subjects with no verb ('Tempests themselves ... congregated sands,'), and their verb 'do omit' is in U3; merge, and in the merged unit put the inverted 'let pass safely by the divine Desdemona' into natural order.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E46",
+   "id": "4.59",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Oh, gentle lady, don't make me do it, because I'm nothing if not a critic.",
+   "after": "Oh, gentle lady, don't make me do it, because I'm nothing if not critical.",
+   "source": "A2 note",
+   "reason": "'I am nothing if not critical' is a famous line that is already clear modern English (critical = fault-finding), so keep it recognizable instead of changing it to 'a critic'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E47",
+   "id": "4.65",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "she'll find a white man — a 'wight', a man — to fit her darkness, in bed.",
+   "after": "she'll find a white man to fit her darkness, in bed.",
+   "source": "G1 REVISE",
+   "reason": "'White' and 'wight' sound the same, so aloud the appositive is heard as 'a white man — a white, a man —', which is noise, not a pun. The single-quote scare marks around 'wight' also break the punctuation conventions. 'Wight' means only 'a person, a man', so 'a white man' already carries both senses in one phrase: fair-skinned, and a man. That is the only form of the pun a listener can hear. 'In be",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E48",
+   "id": "4.69",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "These are silly old riddles for making fools laugh in the pub. What miserable praise have you got for a woman who's ugly and foolish?",
+   "after": "These are silly old absurdities for making fools laugh in the pub. What miserable praise have you got for a woman who's ugly and foolish?",
+   "source": "A2 note",
+   "reason": "Here 'paradoxes' means absurdities (Schmidt cites this very line under 'Paradox, an absurdity'), so 'riddles' wrongly glosses them as puzzles.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E49",
+   "id": "4.74",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "To breastfeed fools and keep the accounts of petty household trivia.",
+   "after": "To breastfeed fools and keep the accounts of small beer — petty household trivia.",
+   "source": "A2 note",
+   "reason": "The rendering of 'chronicle small beer' drops the image; keep 'small beer' (weak household beer) and make clear that it means trivia.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E50",
+   "id": "4.86",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "If every storm is followed by calm like this, let the winds blow until they've woken the dead!",
+   "after": "If every storm is followed by calm like this, let the winds blow until they've woken Death itself!",
+   "source": "A2 note",
+   "reason": "'till they have waken’d death' personifies Death, and the stock phrase 'woken the dead' flattens Othello's grand hyperbole.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E51",
+   "id": "4.105",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "The Moor, even though I can't stand him, has a faithful, loving, noble nature,",
+   "after": "The Moor, even though I can't stand him, has a faithful, loving, noble nature,",
+   "source": "A2 should-fix",
+   "reason": "Re-cut: clause split by the old boundary; \"for Desdemona\" moved into natural order.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E52",
+   "id": "4.105",
+   "lines": [
+    4,
+    8
+   ],
+   "before": "and I dare say he'll turn out to be, for Desdemona, a most devoted husband. Now, I love her too, not purely out of lust (though maybe I'm guilty of just as great a sin), but partly to feed my revenge,",
+   "after": "and I dare say he'll turn out to be a most devoted husband to Desdemona. Now, I love her too, not purely out of lust (though maybe I'm guilty of just as great a sin), but partly to feed my revenge,",
+   "source": "A2 should-fix",
+   "reason": "Re-cut: clause split by the old boundary; \"for Desdemona\" moved into natural order.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E53",
+   "id": "4.105",
+   "lines": [
+    9,
+    11
+   ],
+   "before": "because I suspect the lustful Moor has leapt into my saddle — into my bed, with my wife. The thought of it gnaws at my guts like a poison,",
+   "after": "because I suspect the lustful Moor has leapt into my saddle — into my bed, with my wife. The thought of it gnaws at my guts like a poisonous mineral,",
+   "source": "A2 note",
+   "reason": "'like a poisonous mineral' (a corrosive such as arsenic) has been reduced to 'like a poison'.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E54",
+   "id": "4.105",
+   "lines": [
+    14,
+    16
+   ],
+   "before": "or, if I fail at that, until I drive the Moor into a jealousy so strong that reason can't cure it. And to do that,",
+   "after": "or, if I fail at that, until I at least drive the Moor into a jealousy so strong that reason can't cure it. And to do that,",
+   "source": "A2 should-fix",
+   "reason": "The qualification 'yet ... At least' has been dropped, although it marks this as Iago's minimum fallback plan.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E55",
+   "id": "4.105",
+   "lines": [
+    17,
+    17
+   ],
+   "before": "if this worthless Venetian trash, whom I keep on a leash like a dog",
+   "after": "if this worthless Venetian trash, whom I trash — hold back like a hound on a leash —",
+   "source": "G1 REVISE",
+   "reason": "The hunting sense (Steevens) is right for the text as printed, so the flagged choice stands. But the current line splits the two senses across different words and loses the repeated word itself. Rule 4 forbids quietly dropping a pun, and Steevens treats the jingle as deliberate. The proposed appositive works like the standard's 'lie, meaning sleep'. Line 18 ('so he won't hunt too fast, holds firm ",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E56",
+   "id": "5.1",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "It is the wish of Othello, our noble and brave general, that, now that certain news has arrived reporting the total destruction of the Turkish fleet, every man should celebrate the triumph: some by dancing, some by making bonfires, each man with whatever sport and partying his rank and taste lead him to. For besides this good news, it is also the celebration of his wedding. That is what he wanted proclaimed. All the kitchens and storerooms are open, and everyone is free to feast from now, five o'clock, until the bell has struck eleven. Heaven bless the island of Cyprus and our noble general Othello!",
+   "after": "It is the wish of Othello, our noble and brave general, that, now that certain news has arrived reporting the total destruction of the Turkish fleet, every man should celebrate the triumph: some by dancing, some by making bonfires, each man with whatever sport and revelry his rank and taste lead him to. For besides this good news, it is also the celebration of his wedding. That is what he wanted proclaimed. All the kitchens and storerooms are open, and everyone is free to feast from now, five o'clock, until the bell has struck eleven. Heaven bless the island of Cyprus and our noble general Othello!",
+   "source": "A2 note",
+   "reason": "'partying' is too casual for a herald's formal proclamation (standard rule 6), and 'revelry' keeps the register.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E57",
+   "id": "6.24",
+   "lines": [
+    7,
+    10
+   ],
+   "before": "Three young men of Cyprus, proud and high-spirited, who bristle at the slightest touch on their honour, the very essence of this warlike island, I've made tipsy tonight with overflowing cups,",
+   "after": "Three young men of Cyprus, proud and high-spirited, who bristle at the slightest touch on their honor, the very essence of this warlike island — I've made them tipsy tonight with overflowing cups,",
+   "source": "A2 should-fix",
+   "reason": "Topicalized object with its verb in the next unit; resumptive \"them\" added (completes the earlier must-fix, whose object-first order was still hard to follow by ear).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E58",
+   "id": "6.105",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "As I'm an honest man, I thought you'd received some bodily wound; there's more to feel in that than in reputation. Reputation is a useless and utterly false label that others stick on you, often gained without merit and lost without deserving it. You haven't lost any reputation at all, unless you think of yourself as such a loser. Come on, man, there are ways to win the general back: you've only been dismissed in a fit of temper, a punishment more for show than out of malice, just as a man might beat his innocent dog to scare off a menacing lion. Plead with him again, and he's yours.",
+   "after": "As I'm an honest man, I thought you'd received some bodily wound; there's more to feel in that than in reputation. Reputation is a useless and utterly false label that others stick on you, often gained without merit and lost without deserving it. You haven't lost any reputation at all, unless you think of yourself as having lost it. Come on, man, there are ways to win the general back: you've only been dismissed in a fit of temper, a punishment more for show than out of malice, just as a man might beat his innocent dog to scare off a menacing lion. Plead with him again, and he's yours.",
+   "source": "A2 note",
+   "reason": "'such a loser' now reads as the slang insult, but the original means one who has lost (his reputation).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E59",
+   "id": "6.115",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Come on, come on, good wine is a good, friendly creature, if it's used well. Stop cursing it. And, good lieutenant, I think you think I love you.",
+   "after": "Come on, come on, good wine is a good, familiar creature, if it's used well. Stop cursing it. And, good lieutenant, I think you think I love you.",
+   "source": "A2 note (editor wording)",
+   "reason": "Original \"a good familiar creature\" answers Cassio's \"devil\" (familiar = of the household, and a familiar spirit); keeping \"familiar\" preserves both senses without an appended gloss.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E60",
+   "id": "6.124",
+   "lines": [
+    11,
+    14
+   ],
+   "before": "just as her desire chooses to play god over his weak faculties. How am I a villain, then, to advise Cassio to take this course, running parallel straight to his own good? The theology of hell!",
+   "after": "just as her desire chooses to play god over his weak faculties. How am I a villain, then, to advise Cassio to take this parallel course, one that runs in line with his aim and straight to his own good? The theology of hell!",
+   "source": "A2 should-fix",
+   "reason": "'to take this course, running parallel straight to his own good' is contorted by the line order and leaves 'parallel' unexplained (Schmidt glosses parallel in this line as 'conformable to the purpose').",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E61",
+   "id": "6.124",
+   "lines": [
+    22,
+    23
+   ],
+   "before": "And the harder she tries to do him good, the more she'll destroy her credibility with the Moor.",
+   "after": "And the harder she tries to do him good, the more she'll undo her credit with the Moor.",
+   "source": "A2 note",
+   "reason": "'do him good ... undo her credit' is a deliberate do/undo antithesis that 'destroy her credibility' loses, and 'undo her credit' is still clear.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E62",
+   "id": "6.126",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "What's up, Roderigo?",
+   "after": "What's going on, Roderigo?",
+   "source": "A2 should-fix",
+   "reason": "'What's up' is modern slang (standard rule 6), and the same greeting at 6.57 is rendered 'What's going on, Roderigo?'; the square brackets are kept as in the current modern unit.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E63",
+   "id": "7.8",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Oh, thereby hangs a tale — or a tail.",
+   "after": "Oh, thereby hangs a tail — a tale to tell, and a tail behind.",
+   "source": "A2 should-fix",
+   "reason": "'a tale — or a tail' works only in print: read aloud it sounds like 'a tale, or a tale', so the listener cannot hear the tail/tale pun that the next two speeches depend on.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E64",
+   "id": "7.25",
+   "lines": [
+    0,
+    4
+   ],
+   "before": "Why, no. Day had dawned before we parted. I've taken the liberty, Iago, of sending in for your wife. What I want to ask her is that she'll get me in to see virtuous Desdemona — arrange me some access to her.",
+   "after": "Why, no. Day had dawned before we parted. I've taken the liberty, Iago, of sending in for your wife. What I want to ask her is that she'll arrange for me to have some access to virtuous Desdemona.",
+   "source": "A2 should-fix",
+   "reason": "The boundary after line 1 separates the verb from its complement in 'I have made bold, Iago, / To send in to your wife', so merge; the merged modern text also says the same thing twice ('get me in to see ... — arrange me some access to her'), so tighten it.",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E65",
+   "id": "7.29",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "I never knew even one of my own Florentines",
+   "after": "I never knew even a fellow Florentine",
+   "source": "G1 KEEP (optional polish adopted)",
+   "reason": "More idiomatic; same reading (Malone).",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E66",
+   "id": "9.6",
+   "lines": [
+    1,
+    3
+   ],
+   "before": "that caution may either last so long, or live on such a thin and watery diet, or keep breeding itself out of chance events,",
+   "after": "that caution may either last so long, or survive on so thin and watery a diet, or keep breeding itself out of chance events,",
+   "source": "B2 M (editor wording)",
+   "reason": "The diet image sounded backwards; the point is that the policy of distance can survive on very little (original: \"feed upon such nice and waterish diet\").",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E67",
+   "id": "9.7",
+   "lines": [
+    6,
+    9
+   ],
+   "before": "I'll work into everything he does Cassio's request. So cheer up, Cassio, because your advocate would rather die than give up your case.",
+   "after": "I'll work Cassio's request into everything he does. So cheer up, Cassio, because your advocate would rather die than give up your case.",
+   "source": "A3 should-fix",
+   "reason": "The object is pushed to the end because the text follows the original line order ('I'll work into everything he does Cassio's request'). Modern English puts the object before the 'into' phrase.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E68",
+   "id": "9.33",
+   "lines": [
+    4,
+    7
+   ],
+   "before": "and yet his offence, by ordinary reckoning, (except that, they say, in wartime they have to make examples of their best men) is hardly even the kind of fault that earns a private scolding. When will he come?",
+   "after": "and yet his offense, by ordinary reckoning — except that, they say, in wartime they have to make examples of their best men — is hardly even the kind of fault that earns a private scolding. When will he come?",
+   "source": "A3 note",
+   "reason": "Parenthesis after a comma is hard to voice; US spelling.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E69",
+   "id": "9.33",
+   "lines": [
+    10,
+    14
+   ],
+   "before": "or stand there stammering and dithering over like this. What? Michael Cassio, who came courting with you, and who so many times, when I spoke critically of you, took your side — and I have to go to such lengths to bring him back into favour! Believe me, I could do a lot more —",
+   "after": "or stand there stammering and dithering over like this. What? Michael Cassio, who came along with you when you were courting me, and who so many times took your side when I spoke critically of you — and I have to go to such lengths to bring him back into favor! Believe me, I could do a lot more —",
+   "source": "A3 should-fix + B2 M",
+   "reason": "Merge (relative clause split from its verb); when-clause moved after the verb; \"who came courting with you\" could be heard as Cassio courting her too (original \"That came a-wooing with you\").",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E70",
+   "id": "9.59",
+   "lines": [
+    4,
+    7
+   ],
+   "before": "In a false, disloyal scoundrel, things like that are just habitual tricks; but in an upright man they're secret signs, seeping out from the heart, of feelings he can't hold back.",
+   "after": "For in a false, disloyal scoundrel, things like that are just habitual tricks; but in an upright man they're secret signs of feelings he can't hold back, seeping out from the heart.",
+   "source": "A3 note",
+   "reason": "The noun phrase is split around the participle ('secret signs, seeping out from the heart, of feelings he can't hold back'), following the original line order. That is hard to follow by ear. The causal 'For', which links this sentence to the previous one, has also been dropped.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E71",
+   "id": "9.62",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Men should be what they seem; or those who aren't — I wish they didn't even seem to be men!",
+   "after": "Men should be what they seem — or those who aren't, I wish they didn't look like honest men at all!",
+   "source": "B2 L-M (editor wording)",
+   "reason": "Knotty on first hearing; original \"Or those that be not, would they might seem none!\"",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E72",
+   "id": "9.67",
+   "lines": [
+    0,
+    2
+   ],
+   "before": "You're conspiring against your friend, Iago, if you even think he's been wronged and keep his ear a stranger to your thoughts.",
+   "after": "Iago, you're betraying your friend — me — if you even think I've been wronged and keep my ear a stranger to your thoughts.",
+   "source": "B2 M; wording per re-checker RC2 (revise)",
+   "reason": "Othello's \"thy friend\" is himself (heard as Cassio); first person makes it audible; \"Iago\" moved first so \"me, Iago\" is not heard as one phrase; the ear/stranger image kept.",
+   "recheck": {
+    "by": "RC2 revise, wording applied; confirmed by RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E73",
+   "id": "9.68",
+   "lines": [
+    0,
+    7
+   ],
+   "before": "I beg you — though maybe I'm wrong, even wicked, in my guess, since, I admit, it's the curse of my nature to pry into wrongdoing, and my suspicious mind invents faults that aren't there — that your wisdom would take no notice of someone whose guesses are so unreliable; and don't build yourself trouble out of his random, uncertain observations.",
+   "after": "I beg you — though maybe I'm wrong, even wicked, in my guess, since, I admit, it's the curse of my nature to pry into wrongdoing, and my suspicious mind invents faults that aren't there — let your wisdom take no notice of me, since my guesses are so unreliable, and don't build yourself trouble out of my random, uncertain observations.",
+   "source": "A3 should-fix + B2 M",
+   "reason": "Merge (the plea split from what is begged); Iago's third-person self-reference (\"someone... his\") made first person.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E74",
+   "id": "9.74",
+   "lines": [
+    1,
+    3
+   ],
+   "before": "it is the green-eyed monster, which mocks the meat it feeds on. The cuckold lives in bliss who knows for sure he's been betrayed and doesn't love the one who wronged him;",
+   "after": "it is the green-eyed monster, which mocks the meat it feeds on. The cuckold who knows for sure he's been betrayed, and doesn't love the one who wronged him, lives in bliss;",
+   "source": "A3 should-fix",
+   "reason": "A relative clause is stranded after the verb, following the original order ('The cuckold lives in bliss who knows for sure...'). The long 'who' clause should stay next to its noun.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E75",
+   "id": "9.74",
+   "lines": [
+    4,
+    5
+   ],
+   "before": "but oh, what damned minutes a man counts out who adores, yet doubts; suspects, yet loves intensely!",
+   "after": "but oh, what damned minutes he counts out, the man who adores, yet doubts; suspects, yet loves intensely!",
+   "source": "A3 should-fix",
+   "reason": "The same stranded relative clause appears here ('what damned minutes a man counts out who adores...'). A listener hears 'a man counts out' and loses the link to 'who adores'. The fix below uses a natural right-dislocation and keeps the order of the content.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E76",
+   "id": "9.77",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "changing every time the moon changes with fresh suspicions? No. To be in doubt once",
+   "after": "forming fresh suspicions every time the moon changes? No. To be in doubt once",
+   "source": "A3 should-fix",
+   "reason": "Suspicions attached to the moon by the original order.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E77",
+   "id": "9.77",
+   "lines": [
+    10,
+    10
+   ],
+   "before": "where there's virtue, these things make it even more virtuous.",
+   "after": "where there's virtue, these things are all the more virtuous.",
+   "source": "A3 note",
+   "reason": "'Where virtue is, these are more virtuous' says the accomplishments themselves become more virtuous. 'these things make it even more virtuous' makes virtue the thing that grows more virtuous.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E78",
+   "id": "9.77",
+   "lines": [
+    15,
+    16
+   ],
+   "before": "and once there's proof, there's nothing more to it than this: away at once with love — or with jealousy!",
+   "after": "and once there's proof, there's nothing more to it than this: away at once with either love or jealousy!",
+   "source": "A3 note + B2 M",
+   "reason": "Keeps the statement whole; \"away with love — or with jealousy!\" sounded like a self-correction (original \"Away at once with love or jealousy!\").",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E79",
+   "id": "9.92",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "Yes, that's just the point. Take this — to be blunt with you — turning down so many proposed matches with men of her own country, color and rank, the kind of match nature always leans toward in everything:",
+   "after": "Yes, that's just the point. To be blunt with you, she turned down so many proposed matches with men of her own country, color and class — the kind of match nature always leans toward in everything —",
+   "source": "B2 L-M (editor wording)",
+   "reason": "\"Take this\" plus a participle was clumsy by ear; \"rank\" (for \"degree\") echoed \"something rank\" in the next line.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E80",
+   "id": "9.92",
+   "lines": [
+    6,
+    10
+   ],
+   "before": "But forgive me: I'm not, in making this argument, talking about her specifically, though I may fear her desire, once it falls back on her better judgment, may start comparing you with the men of her own country and perhaps regret her choice.",
+   "after": "But forgive me: in making this argument I'm not talking about her specifically, though I may fear that her desire, once it returns to her better judgment, may start comparing you with the men of her own country, and perhaps regret her choice.",
+   "source": "A3 should-fix",
+   "reason": "The U3/U4 boundary separates a subject from its verb: 'her desire, once it falls back on her better judgment,' is in U3, and 'may start comparing you' is in U4. The original splits the same way: 'Her will, recoiling to her better judgement, / May fall to match you'. There is no clean line end in lines 6-10, so merge. The proposed text also adds 'that' after 'fear' (without it, a listener first hea",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E81",
+   "id": "9.96",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "My lord, I wish I could beg Your Honor",
+   "after": "My lord, I wish I could beg your lordship",
+   "source": "B2 L (editor wording)",
+   "reason": "\"Your Honor\" sounds like a judge; \"your honour\" was a courtesy to a nobleman.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E82",
+   "id": "9.96",
+   "lines": [
+    11,
+    11
+   ],
+   "before": "and consider her innocent, I beg Your Honor.",
+   "after": "and consider her innocent, I beg your lordship.",
+   "source": "B2 L (editor wording)",
+   "reason": "As above.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E83",
+   "id": "9.100",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "This fellow is extraordinarily honest, and he understands every type, with an expert's mind, of human behavior. If I find she's a wild hawk that won't be tamed, even if the straps that tie her to my wrist were my own dear heartstrings,",
+   "after": "This fellow is extraordinarily honest, and with an expert's mind he understands every type of human behavior. If I find she's a wild hawk that won't be tamed, even if the straps that tie her to my wrist were my own dear heartstrings,",
+   "source": "A3 should-fix",
+   "reason": "The U1/U2 boundary splits the object phrase 'all qualities ... / Of human dealings': the modern has 'every type, with an expert's mind,' in U1 and 'of human behavior.' in U2. Merge. The proposed text also closes up the split noun phrase, which reads unnaturally.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E84",
+   "id": "9.100",
+   "lines": [
+    6,
+    7
+   ],
+   "before": "and don't have the smooth, charming ways of talking that bedroom ladies' men have, or because I've gone down",
+   "after": "and don't have the smooth, charming manners of the ladies' men who frequent women's chambers, or because I've gone down",
+   "source": "B2 L-M; wording per re-checker RC2 (revise)",
+   "reason": "The stacked compound parsed as \"the men of bedroom ladies\"; Schmidt glosses \"conversation\" here as address/deportment (manners); \"chamberers\" = frequenters of ladies' chambers (Onions).",
+   "recheck": {
+    "by": "RC2 revise, wording applied; confirmed by RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E85",
+   "id": "9.100",
+   "lines": [
+    16,
+    16
+   ],
+   "before": "they have fewer privileges than the lowly.",
+   "after": "they're less exempt from it than common men.",
+   "source": "B2 M (editor wording)",
+   "reason": "Original \"Prerogativ'd are they less than the base\": great men have no exemption from it; \"fewer privileges\" did not connect with betrayal.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E86",
+   "id": "9.100",
+   "lines": [
+    18,
+    19
+   ],
+   "before": "this forked plague — a cuckold's horns — is fated for us from the moment we're conceived. Here comes Desdemona.",
+   "after": "this forked plague — horns growing from a betrayed husband's forehead — is fated for us even from the moment we're conceived. Here comes Desdemona.",
+   "source": "B2 M; wording per re-checker RC2 (revise)",
+   "reason": "The cuckold's horns were named but not explained, so \"a pain here, on my forehead\" (9.105) lost its subtext (Percy in Furness; Rymer, Delius); \"even\" attached to conception so it is not heard as \"even at death\".",
+   "recheck": {
+    "by": "RC2 revise, wording applied; confirmed by RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E87",
+   "id": "9.112",
+   "lines": [
+    4,
+    4
+   ],
+   "before": "since he made her swear she'd always keep it,",
+   "after": "since the Moor made her swear she'd always keep it,",
+   "source": "B2 L-M (editor wording)",
+   "reason": "\"he\" followed \"my unpredictable husband\" and was heard as Iago.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E88",
+   "id": "9.115",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Don't scold me. I have a thing for you.",
+   "after": "Don't scold me. I have a thing here for you.",
+   "source": "A3 should-fix",
+   "reason": "'I have a thing for you' is now a common idiom for being attracted to someone, so a first-time listener hears a romantic confession. Emilia means she has something for Iago, and he then twists 'thing' into the bawdy 'common thing'. Adding 'here' breaks the modern idiom and keeps the word 'thing' for Iago's pun.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E89",
+   "id": "9.116",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "A thing for me? It's a common thing — one anybody can have —",
+   "after": "A thing for me? Your thing's a common thing —",
+   "source": "B2 M (editor wording)",
+   "reason": "Keeps the bawdy \"common thing\" audible; 9.118 then completes the innocent sense.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E90",
+   "id": "9.117",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Huh?",
+   "after": "What?",
+   "source": "B2 M (editor wording)",
+   "reason": "\"Huh?\" is anachronistic.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E91",
+   "id": "9.118",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "to have a foolish wife.",
+   "after": "— it's common to have a foolish wife.",
+   "source": "B2 M (editor wording)",
+   "reason": "Completes the twist after the interruption so it lands by ear.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E92",
+   "id": "9.130",
+   "lines": [
+    5,
+    8
+   ],
+   "before": "dangerous suspicions are by nature poisons which at first barely taste unpleasant, but once they start working a little on the blood burn like sulfur mines. Just as I said.",
+   "after": "dangerous suspicions are by nature poisons; at first they barely taste unpleasant, but once they start working a little on the blood, they burn like sulfur mines. Just as I said.",
+   "source": "A3 should-fix; punctuation per re-checker RC2 (revise)",
+   "reason": "In '...but once they start working a little on the blood burn like sulfur mines', the verb 'burn' has no subject nearby, so a listener hears 'the blood burn'. The unit follows the original's relative-clause order. Restating the subject fixes it.",
+   "recheck": {
+    "by": "RC2 revise, wording applied; confirmed by RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E93",
+   "id": "9.133",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Ha! Ha! Unfaithful to me?",
+   "after": "Oh! Oh! Unfaithful to me?",
+   "source": "B2 M (editor wording)",
+   "reason": "\"Ha! Ha!\" is heard as laughter; the original \"Ha! ha!\" is a cry of shock.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E94",
+   "id": "9.137",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "What did I feel of the hours she stole for lust?",
+   "after": "What sense did I have of the hours she stole for lust?",
+   "source": "A3 note",
+   "reason": "'What did I feel of the hours...' is awkward English. 'Sense' here means awareness (Schmidt, 'sense' 3: 'perception by the mind, apprehension, feeling'), and the modern phrase 'have a sense of' is natural.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E95",
+   "id": "9.139",
+   "lines": [
+    8,
+    9
+   ],
+   "before": "the royal banner, and all the splendor of rank, the pride, pomp and ceremony of glorious war!",
+   "after": "the royal banner, and all the qualities, the pride, pomp and ceremony of glorious war!",
+   "source": "A3 should-fix",
+   "reason": "Mis-gloss. 'all quality, / Pride, pomp, and circumstance of glorious war' means all the nature or character of war. Schmidt files this line under 'quality' 2, 'nature, character, particular condition', and Onions gives that as the word's commonest sense. 'all the splendor of rank' brings in rank and adds 'splendor'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E96",
+   "id": "9.139",
+   "lines": [
+    10,
+    12
+   ],
+   "before": "And oh, you deadly cannons, whose rough throats imitate the dreadful thunder of immortal Jove, farewell! Othello's life's work is gone!",
+   "after": "And oh, you deadly cannons, whose rough throats imitate the dreadful thunder of immortal Jove, farewell! Othello's occupation's gone!",
+   "source": "A3 note",
+   "reason": "'Othello's occupation's gone!' is a famous line and is already clear in modern English (occupation = profession). The standard keeps such lines recognizable, so the change to 'life's work' is unnecessary.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E97",
+   "id": "9.146",
+   "lines": [
+    2,
+    3
+   ],
+   "before": "God be with you. Take back my post. — Oh, wretched fool, you've lived to make your honesty a vice!",
+   "after": "Goodbye. Take back my post. — Oh, what a wretched fool I am, to have lived to make my honesty a vice!",
+   "source": "B2 M (editor wording)",
+   "reason": "Iago's self-address was heard as aimed at Othello; \"God be with you\" was heard as a blessing.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E98",
+   "id": "9.149",
+   "lines": [
+    6,
+    7
+   ],
+   "before": "poison or fire, or streams to drown in, I won't put up with this. I wish I knew for certain!",
+   "after": "poison or fire, or streams to drown in, I won't put up with this. I wish I were satisfied — that I knew for certain!",
+   "source": "A3 should-fix",
+   "reason": "Othello's 'Would I were satisfied!' supplies the word that Iago echoes and twists: 'You would be satisfied?', 'Would? Nay, I will.', 'How satisfied, my lord? ... Behold her topp'd?'. Rendering it as 'I wish I knew for certain!' breaks the echo, because in the modern text Iago's 'You want to be satisfied?' repeats a word nobody has said. Keep 'satisfied' and add a short gloss.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E99",
+   "id": "9.154",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "It would be a tiresome, hard job, I think, to set them up in that view. Damn them, then, if mortal eyes ever see them share a pillow except their own eyes! What then? How then?",
+   "after": "It would be a tiresome, hard job, I think, to get them where you could see them like that. Damn them, then, if any mortal eyes but their own ever see them share a pillow! What then? How then?",
+   "source": "A3 should-fix",
+   "reason": "Two problems, both from following the original order. 'to set them up in that view' is unclear (the original 'To bring them to that prospect' means getting them where they could be seen like that). In 'if mortal eyes ever see them share a pillow except their own eyes', 'except their own' is separated from 'mortal eyes'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E100",
+   "id": "9.154",
+   "lines": [
+    5,
+    6
+   ],
+   "before": "It's impossible for you to see this, even if they were as horny as goats, as hot as monkeys,",
+   "after": "It's impossible for you to see this, even if they were as lecherous as goats, as hot as monkeys,",
+   "source": "A3 note",
+   "reason": "Register: 'horny' is modern slang, and the standard avoids anachronistic slang. 'Prime' means sexually excited (Onions, 'prime' 4), and 'lecherous' carries that at the same strength without slang. The next unit already uses 'lustful'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E101",
+   "id": "9.164",
+   "lines": [
+    0,
+    2
+   ],
+   "before": "I didn't know that. But a handkerchief like that (I'm sure it was your wife's) today I saw Cassio wipe his beard with.",
+   "after": "I didn't know that. But today I saw Cassio wipe his beard with a handkerchief like that — I'm sure it was your wife's.",
+   "source": "A3 should-fix",
+   "reason": "The object is moved to the front and 'today I' is left at the end of the line ('But a handkerchief like that (I'm sure it was your wife's) today I saw Cassio wipe his beard with'). This is contorted, and the parenthesis is hard to voice.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E102",
+   "id": "9.167",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Oh, if only the slave had forty thousand lives!",
+   "after": "Oh, if only the scoundrel had forty thousand lives!",
+   "source": "B2 M (editor wording)",
+   "reason": "\"slave\" as abuse (= wretch) is heard literally, and is loaded in this play.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E103",
+   "id": "9.167",
+   "lines": [
+    7,
+    7
+   ],
+   "before": "to tyrant hate! Swell, my chest, with your cargo,",
+   "after": "to tyrant hate! Swell, my heart, with your load,",
+   "source": "B2 L (editor wording)",
+   "reason": "\"cargo\" is odd; original \"fraught\" = burden.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E104",
+   "id": "9.176",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Damn her, the lewd tramp! Oh, damn her, damn her!",
+   "after": "Damn her, the lewd minx! Oh, damn her, damn her!",
+   "source": "B2 L (editor wording)",
+   "reason": "\"tramp\" is dialect-dependent; original \"lewd minx\".",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E105",
+   "id": "10.1",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Hey there, you — do you know where Lieutenant Cassio lies, I mean, where he's staying?",
+   "after": "You there — do you know where Lieutenant Cassio lies, I mean, where he's staying?",
+   "source": "A3 note",
+   "reason": "Register: 'Hey there, you —' is too casual for Desdemona. 'Sirrah' is a lady addressing a servant, and 'You there' keeps that tone without modern chattiness.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E106",
+   "id": "10.26",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "A damp palm means a fertile body and a generous — a loose — heart.",
+   "after": "A damp palm means fruitfulness and a generous — a loose — heart.",
+   "source": "G1 REVISE",
+   "reason": "'A fertile body' commits to one sense and adds 'body', where Schmidt and Delius read 'liberality'. 'Fruitfulness' is plain modern English and keeps fertility and bounty both open. 'Generous — a loose —' is right (Schmidt, Liberal 6) and stays. For 'frank', 'an easy one' spells out a slur the original only hints at. It also makes Desdemona's innocent reply in 10.27 ('You're right to say so, because",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E107",
+   "id": "10.26",
+   "lines": [
+    6,
+    6
+   ],
+   "before": "an open one — an easy one.",
+   "after": "a free one.",
+   "source": "G1 REVISE",
+   "reason": "'A fertile body' commits to one sense and adds 'body', where Schmidt and Delius read 'liberality'. 'Fruitfulness' is plain modern English and keeps fertility and bounty both open. 'Generous — a loose —' is right (Schmidt, Liberal 6) and stays. For 'frank', 'an easy one' spells out a slur the original only hints at. It also makes Desdemona's innocent reply in 10.27 ('You're right to say so, because",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E108",
+   "id": "10.54",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Get me the handkerchief! I have a bad feeling about this.",
+   "after": "Get me the handkerchief! I fear the worst.",
+   "source": "A3 note",
+   "reason": "Register: 'I have a bad feeling about this' is a stock film catchphrase and deflates Othello's rising panic. 'My mind misgives' means I fear the worst.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E109",
+   "id": "10.71",
+   "lines": [
+    0,
+    4
+   ],
+   "before": "Madam, it's my earlier request. I'm begging you that through your good help I might once again come back to life and have a place in the love of the man I honor wholeheartedly, with every duty my heart can offer. I don't want to be kept waiting.",
+   "after": "Madam, it's my earlier request. I'm begging you: through your good help, let me come back to life once again and have a place in the love of the man I honor wholeheartedly, with every duty my heart can offer. I don't want to be kept waiting.",
+   "source": "A3 should-fix",
+   "reason": "'I'm begging you that through your good help I might once again come back to life' keeps the original 'beseech you / That ... I may' construction, which is not modern English.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E110",
+   "id": "10.72",
+   "lines": [
+    4,
+    7
+   ],
+   "before": "So help me every holy spirit in heaven, I've spoken up for you as well as I possibly could, and I've stood right in the target-center of his anger for speaking so freely! You'll have to be patient for a while.",
+   "after": "So help me every holy spirit in heaven, I've spoken up for you as well as I possibly could, and I've stood right in the bull's-eye of his anger for speaking so freely! You'll have to be patient for a while.",
+   "source": "A3 note",
+   "reason": "'target-center' is not idiomatic. The 'blank' is the white centre of a target, which in modern English is the bull's-eye.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E111",
+   "id": "10.74",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "He just left here, and he was definitely strangely upset.",
+   "after": "He's only just left, and he was certainly in a strange, uneasy state.",
+   "source": "A3 note",
+   "reason": "'he was definitely strangely upset' stacks two adverbs and is clumsy aloud.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E112",
+   "id": "10.81",
+   "lines": [
+    1,
+    3
+   ],
+   "before": "They're never jealous because there's a reason; they're jealous because they're jealous. Jealousy is a monster that fathers itself and gives birth to itself.",
+   "after": "They're not always jealous because there's a reason; they're jealous because they're jealous. Jealousy is a monster that fathers itself and gives birth to itself.",
+   "source": "A3 note",
+   "reason": "'They are not ever jealous for the cause' most likely means 'not always': Schmidt, 'ever' 2, gives 'not e. = not always', though his example is from Henry VIII, not this line. 'They're never jealous because there's a reason' drops Emilia's qualification and makes the claim absolute.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E113",
+   "id": "11.15",
+   "lines": [
+    2,
+    6
+   ],
+   "before": "Or heard him say — since there are scoundrels like that out there who, once they've, by their own relentless begging or through some mistress's doting of her own free will, won a woman over or satisfied her, just can't help blabbing about it —",
+   "after": "Or heard him say — since there are scoundrels like that out there who, once they've won a woman over by their own relentless begging, or satisfied some mistress who dotes on them of her own free will, just can't help blabbing about it —",
+   "source": "A2 should-fix",
+   "reason": "The boundary after line 4 splits the participial clause 'Who having, by ..., Convinced or supplied them' between its adverbials and its verb, so merge; the modern 'once they've, by their own relentless begging or ..., won a woman over' also follows the original order and is hard to follow.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E114",
+   "id": "11.24",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Lie with her! Lie on her! — We say “lie on her” when people tell lies about her. — Lie with her! God, that's disgusting. Handkerchief — confessions — handkerchief! Make him confess, and then hang him for his trouble. No — hang him first, and then let him confess. I'm shaking at the thought. My nature wouldn't wrap itself in such a dark, smothering passion unless something real were prompting it. It isn't mere words that shake me like this. Pah! Noses, ears, and lips! Is it possible? — Confess? — Handkerchief? — Oh, devil! —",
+   "after": "Lie with her! Lie on her! — We say “lie on her” when people tell lies about her. — Lie with her! That's disgusting. Handkerchief — confessions — handkerchief! Make him confess, and then hang him for his trouble. No — hang him first, and then let him confess. I'm shaking at the thought. My nature wouldn't wrap itself in such a dark, smothering passion unless something real were prompting it. It isn't mere words that shake me like this. Pah! Noses, ears, and lips! Is it possible? — Confess? — Handkerchief? — Oh, devil! —",
+   "source": "A2 note",
+   "reason": "'God,' is an added oath: the original has only 'that’s fulsome'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E115",
+   "id": "11.66",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Have you marked me down and settled my account? Fine.",
+   "after": "Have you branded me and settled my account? Fine.",
+   "source": "G1 REVISE",
+   "reason": "The current line gives only sense (a), twice over, and today 'marked me down' mostly means 'cut my price'. 'Branded me' restores Onions's sense (b), the mark of disgrace (Collier hears a cuckold's), and 'settled my account' keeps (a). Don't use 'scored', which now reads as sexual slang.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E116",
+   "id": "11.98",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Yes, let her rot, and die, and be damned tonight, because she won't live. No, my heart has turned to stone; I strike it, and it hurts my hand. Oh, the world doesn't hold a sweeter creature. She could lie beside an emperor and give him orders.",
+   "after": "Yes, let her rot, and die, and be damned tonight, because she shall not live. No, my heart has turned to stone; I strike it, and it hurts my hand. Oh, the world doesn't hold a sweeter creature. She could lie beside an emperor and give him orders.",
+   "source": "A2 note",
+   "reason": "'for she shall not live' expresses Othello's resolve, but 'because she won't live' reads as a prediction.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E117",
+   "id": "11.127",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Cousin, between him and my husband there's opened up a painful rift, but you'll make everything right.",
+   "after": "Cousin, a painful rift has opened up between him and my husband, but you'll make everything right.",
+   "source": "A2 note",
+   "reason": "'between him and my husband there's opened up a painful rift' keeps the inverted order of the original ('there’s fall’n between him and my lord / An unkind breach').",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E118",
+   "id": "11.162",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "of what he might be. If he isn't what he might be — out of his mind —",
+   "after": "of what he might be. If he isn't what he might be,",
+   "source": "G1 REVISE + A2 should-fix",
+   "reason": "Iago's evasion is deliberate ('I may not breathe my censure'), so rule 7 applies: keep an equally open wording and do not resolve it for the listener. The inserted '— out of his mind —' says outright what Iago only hints, and shuts out the other reading ('if he is not what he ought to be'). Lodovico's line just before already puts madness in the listener's ear, so the riddle stays understandable.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E119",
+   "id": "12.15",
+   "lines": [
+    0,
+    2
+   ],
+   "before": "She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a locked cupboard, lock and key, full of vile secrets.",
+   "after": "She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a cupboard kept under lock and key, full of vile secrets.",
+   "source": "A4 should-fix",
+   "reason": "'a locked cupboard, lock and key, full of vile secrets' copies the original's noun stack ('A closet lock and key of villainous secrets') and leaves a bare 'lock and key' apposition that does not parse by ear.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E120",
+   "id": "12.33",
+   "lines": [
+    15,
+    15
+   ],
+   "before": "to knot together and breed in! — turn pale at that,",
+   "after": "to knot together and breed in! — change your complexion at that,",
+   "source": "G1 REVISE",
+   "reason": "The public-domain gloss is 'change colour', not 'turn pale'. 'Pale' picks one direction, and it cuts against the line's own movement from a rosy-lipped cherub to 'grim as hell'. It also drops 'complexion', a charged word in this play, especially from Othello. 'Change your complexion' is plain modern English and keeps both the image and its openness.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E121",
+   "id": "12.37",
+   "lines": [
+    7,
+    9
+   ],
+   "before": "the lewd, promiscuous wind that kisses everything it meets hides itself in the hollow caves under the earth and refuses to hear it. What have you committed!",
+   "after": "the lewd, promiscuous wind that kisses everything it meets falls silent in the hollow caves under the earth and refuses to hear it. What have you committed!",
+   "source": "A4 note",
+   "reason": "'Is hush'd within the hollow mine of earth' means the wind falls silent in its cave; 'hides itself' changes the image and loses the stillness.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E122",
+   "id": "12.40",
+   "lines": [
+    1,
+    3
+   ],
+   "before": "If keeping this body of mine for my husband alone safe from any other foul, unlawful touch means not being a whore, then I'm not one.",
+   "after": "If keeping this body of mine for my husband alone, safe from any other foul, unlawful touch, means not being a whore, then I'm not one.",
+   "source": "A4 note",
+   "reason": "Without commas the TTS reading runs 'for my husband alone safe from any other...' together; mark the appositive so the conditional subject is heard as one piece.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E123",
+   "id": "12.83",
+   "lines": [
+    13,
+    14
+   ],
+   "before": "but it will never stain my love. I can't say “whore”; it disgusts me now just to speak the word.",
+   "after": "but it will never stain my love. I can't say “whore”; it fills me with abhorrence now just to speak the word.",
+   "source": "A4 should-fix",
+   "reason": "'It does abhor me now I speak the word' (Schmidt abhor 3: 'to fill with horror and loathing') carries the well-known sound-quibble abhor / 'a whore', dramatic irony straight after 'I cannot say whore'; 'it disgusts me' drops it. Keeping the word 'abhorrence' preserves both the exact sense and the sound, as the standard requires for puns.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E124",
+   "id": "12.102",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "I tell you it's not very well. I'm going to make myself known to Desdemona. If she gives me back my jewels, I'll give up my courtship and repent of trying to seduce a married woman. If not, you can be sure I'll demand satisfaction from you, in a duel.",
+   "after": "I tell you it's not very well. I'm going to make myself known to Desdemona. If she gives me back my jewels, I'll give up my courtship and repent of trying to seduce a married woman. If not, you can be sure I'll demand satisfaction from you.",
+   "source": "A4 should-fix",
+   "reason": "'seek satisfaction of you' is left open in the original (Schmidt cites IV.2.203 under both 'payment' and 'amends, atonement'), and Iago later says Roderigo 'calls me to a restitution large / Of gold and jewels' (5.1); the added 'in a duel' invents and narrows the threat. 'demand satisfaction from you' alone keeps the original's openness.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E125",
+   "id": "12.115",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Yes, if you dare to do yourself some good and claim what's yours by right. He's having supper tonight with a tart, and I'll go there to see him. He doesn't know yet about his honorable promotion. If you watch for him leaving there — and I'll arrange for that to happen between twelve and one — you can take him whenever you like. I'll be close by to back up your attack, and between the two of us he'll go down. Come on, don't stand there stunned by it, but come along with me. I'll show you why his death is so necessary that you'll feel duty-bound to deal it to him. It's right in the middle of supper-time now, and the night is wasting away. Get to it.",
+   "after": "Yes, if you dare to do yourself some good and get yourself justice. He's having supper tonight with a tart, and I'll go there to see him. He doesn't know yet about his honorable promotion. If you watch for him leaving there — and I'll arrange for that to happen between twelve and one — you can take him whenever you like. I'll be close by to back up your attack, and between the two of us he'll go down. Come on, don't stand there stunned by it, but come along with me. I'll show you why his death is so necessary that you'll feel duty-bound to deal it to him. It's right in the middle of supper-time now, and the night is wasting away. Get to it.",
+   "source": "A4 note (editor wording)",
+   "reason": "Original \"do yourself a profit and a right\" (do yourself good and justice); \"claim what's yours by right\" added an entitlement.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E126",
+   "id": "13.15",
+   "lines": [
+    0,
+    2
+   ],
+   "before": "I don't wish that. My love thinks so well of him that even his stubbornness, his scolding, his frowns — please, unpin me — have a grace and charm in them.",
+   "after": "I don't wish that. I love him so much that even his stubbornness, his scolding, his frowns — please, unpin me — have grace and charm in them.",
+   "source": "A4 should-fix + B3 M",
+   "reason": "Merge (subject split from its verb); stray article dropped; \"My love thinks so well of him\" was heard as another person (original \"My love doth so approve him\").",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E127",
+   "id": "13.35",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "I've heard people say so. Oh, these men, these men!",
+   "after": "I've heard people say it does. Oh, these men, these men!",
+   "source": "B3 M (editor wording)",
+   "reason": "\"say so\" pointed back to Emilia's dismissal; Desdemona means she has heard that itching eyes bode weeping.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E128",
+   "id": "13.48",
+   "lines": [
+    15,
+    16
+   ],
+   "before": "That too. And don't we have desires, a desire for sexual sport, and weakness, just as men do?",
+   "after": "That too. And don't we have desires, an appetite for sexual sport, and weakness, just as men do?",
+   "source": "A4 note",
+   "reason": "'don't we have desires, a desire for sexual sport' sounds like a stutter by ear. Keep 'desires' for 'affections' (it echoes U6 'is it desire that drives it?') and vary the second noun.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E129",
+   "id": "14.52",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "Who are you? Friends or enemies?",
+   "after": "Who are you? Are you for good or evil?",
+   "source": "A4 note",
+   "reason": "'Are you of good or evil?' is a moral question (pointedly ironic from Iago); 'Friends or enemies?' changes it to one of allegiance.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E130",
+   "id": "15.2",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "It's the cause — the crime on trial — it's the cause, my soul;",
+   "after": "It's the cause, it's the cause, my soul;",
+   "source": "G1 REVISE",
+   "reason": "Resolver G1 (Schmidt: cause = motive; no public-domain commentator supports a courtroom frame) and blind reader B3 (the gloss was opaque) both reject \"— the crime on trial —\". Line 2's refrain (\"It's the cause.\") was independently approved by G1.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E131",
+   "id": "15.2",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "don't make me say its name to you, you pure, chaste stars!",
+   "after": "I won't name it to you, you pure, chaste stars!",
+   "source": "A4 note (editor wording)",
+   "reason": "Original \"Let me not name it to you\" is Othello restraining himself, not a plea to the stars.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E132",
+   "id": "15.2",
+   "lines": [
+    2,
+    4
+   ],
+   "before": "It's the cause. Still, I won't spill her blood, or scar that skin of hers, whiter than snow and smooth as the alabaster of a marble tomb.",
+   "after": "It's the cause. Still, I won't spill her blood, or scar that skin of hers, whiter than snow and smooth as the alabaster of a statue on a tomb.",
+   "source": "A4 note",
+   "reason": "'monumental alabaster' = the alabaster of tomb effigies; 'the alabaster of a marble tomb' brings in a second, different stone.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E133",
+   "id": "15.19",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "when your eyes roll like that. Why I should be afraid I don't know,",
+   "after": "when your eyes roll wildly like that. Why I should be afraid I don't know,",
+   "source": "B3 M (editor wording)",
+   "reason": "\"your eyes roll like that\" is heard as modern eye-rolling; the original's rolling eyes signal rage.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E134",
+   "id": "15.38",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "That he's had you — used you for sex.",
+   "after": "That he has had you.",
+   "source": "B3 M (editor wording)",
+   "reason": "Original \"That he hath us'd thee\" is veiled; \"used you for sex\" made Desdemona's reply \"Unlawfully?\" illogical.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E135",
+   "id": "15.33",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "And may you have mercy too! I never once wronged you in my life, never loved Cassio except with the ordinary kind of love heaven allows that I could feel for anyone. I never gave him any love-token.",
+   "after": "And may you have mercy too! I never once wronged you in my life, and never loved Cassio except with the ordinary love that heaven allows me to feel for anyone. I never gave him any love-token.",
+   "source": "A4 should-fix",
+   "reason": "'except with the ordinary kind of love heaven allows that I could feel for anyone' stacks two relative clauses after the original's 'such general warranty of heaven / As I might love' and invites the misparse 'heaven allows that...'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E136",
+   "id": "15.44",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "If every hair on his head had been a life, my huge revenge had appetite enough to devour them all.",
+   "after": "If every hair on his head had been a life, my huge revenge would have had appetite enough to devour them all.",
+   "source": "A4 should-fix",
+   "reason": "The main clause keeps the original's subjunctive 'Had stomach' as plain 'had', which is ungrammatical in a modern past counterfactual after 'If every hair... had been a life'.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E137",
+   "id": "15.56",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "My lord, my lord! Hello there! My lord, my lord!",
+   "after": "My lord, my lord! Are you there? My lord, my lord!",
+   "source": "B3 M (editor wording)",
+   "reason": "Emilia calls through a locked door (\"what, ho!\"); \"Hello there!\" is a casual greeting.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E138",
+   "id": "15.57",
+   "lines": [
+    3,
+    3
+   ],
+   "before": "There, there.",
+   "after": "Like this. Like this.",
+   "source": "B3 M (editor wording)",
+   "reason": "\"There, there\" is heard as comforting; \"So, so\" accompanies the act of smothering.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E139",
+   "id": "15.58",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Hello there! My lord, my lord!",
+   "after": "Are you there? My lord, my lord!",
+   "source": "B3 M (editor wording)",
+   "reason": "As 15.56.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E140",
+   "id": "15.61",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "She's probably coming to tell me Cassio's dead;",
+   "after": "Emilia's probably coming to tell me Cassio's dead;",
+   "source": "B3 H (editor wording)",
+   "reason": "Two \"she\"s in a row (Desdemona, then Emilia) confused the listener.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E141",
+   "id": "15.97",
+   "lines": [
+    0,
+    3
+   ],
+   "before": "Yes, with Cassio. No — if she'd been faithful, even if heaven had made me a whole other world out of one single, flawless precious stone, I wouldn't have traded her for it.",
+   "after": "Yes, with Cassio. Listen — if she had been faithful, even if heaven had made me another world like this one out of a single, flawless chrysolite gem, I wouldn't have traded her for it.",
+   "source": "A4 should-fix + B3 M",
+   "reason": "Restores the named gem (chrysolite) listed among images to keep; \"No —\" for \"Nay\" confused the listener; \"such another world\" = another world like this one.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E142",
+   "id": "15.108",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "You don't have half the power to hurt me that I have to bear the hurt. Oh, you dupe! You idiot!",
+   "after": "You don't have half as much power to hurt me as I have strength to bear the hurt. Oh, you dupe! You idiot!",
+   "source": "A4 should-fix",
+   "reason": "'the power to hurt me that I have to bear the hurt' follows the original's 'that power... As I have to be hurt', and by ear 'I have to bear' sounds like 'I must bear', which garbles the comparison (my capacity to endure is twice your power to harm).",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E143",
+   "id": "15.111",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Oh, you've come, Iago? You've done well for yourself, when other men blame their murders on you.",
+   "after": "Oh, you've come, Iago? You've done a fine job, if men are blaming their murders on you.",
+   "source": "B3 L (editor wording)",
+   "reason": "Sarcasm (\"You have done well, / That men must lay their murders on your neck\") was heard as \"done well for yourself\".",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E144",
+   "id": "15.118",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "With Cassio, woman. Come on, hold your tongue — as if by a spell.",
+   "after": "With Cassio, woman. Come on — put a spell on that tongue and keep it quiet.",
+   "source": "B3 M (editor wording)",
+   "reason": "\"charm your tongue\" rendered with an appended gloss (\"— as if by a spell\") that sounded editorial; the image is now part of the sentence.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E145",
+   "id": "15.141",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "Oh, you stupid Moor, that handkerchief you're talking about I found by chance and gave to my husband;",
+   "after": "Oh, you stupid Moor, that handkerchief you're talking about — I found it by chance and gave it to my husband;",
+   "source": "A4 should-fix",
+   "reason": "Topicalized object copied from the original order ('that handkerchief thou speak'st of / I found by fortune'): with no pause it reads as a garden path. Keep the emphatic fronting, but add a dash and a resumptive pronoun.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E146",
+   "id": "15.145",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "do with such a good wife?",
+   "after": "do with a wife as good as yours?",
+   "source": "B3 M (editor wording)",
+   "reason": "\"such a good wife\" could be heard as Emilia herself.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E147",
+   "id": "15.151",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "He's a notorious villain. Take this weapon, which I just now got back from the Moor.",
+   "after": "He's a notorious villain. Take this weapon, which I've just taken from the Moor.",
+   "source": "B3 M (editor wording)",
+   "reason": "\"got back from the Moor\" implied the sword was Montano's (original \"recover'd from the Moor\").",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E148",
+   "id": "15.151",
+   "lines": [
+    2,
+    4
+   ],
+   "before": "Come, guard the door from the outside; don't let him through — kill him instead. I'll go after that villain, because he's a damned wretch.",
+   "after": "Come, guard the door from the outside; don't let the Moor through — kill him instead. I'll go after that villain Iago, because he's a damned wretch.",
+   "source": "B3 M (editor wording)",
+   "reason": "Pronouns flipped between Iago and Othello; the Moor and Iago are named.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E149",
+   "id": "15.153",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "But why should my reputation outlive my integrity?",
+   "after": "But why should honor outlive honesty?",
+   "source": "G1 REVISE",
+   "reason": "Both words are current English and the line is clear as it stands (rule 2). 'Reputation' and 'integrity' narrow both words, and the added 'my' (twice) decides whose honesty is meant, just before Emilia vindicates Desdemona's. It also cuts 'honesty' out of the play's running chain of 'honest' and 'honesty' ('honest Iago'), which the render keeps everywhere else. 'Honor' follows the text's US spelli",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E150",
+   "id": "15.154",
+   "lines": [
+    4,
+    5
+   ],
+   "before": "Moor, she was chaste. She loved you, cruel Moor. May my soul go to heaven only as surely as I speak the truth;",
+   "after": "Moor, she was chaste. She loved you, cruel Moor. May my soul go to heaven as surely as I speak the truth;",
+   "source": "A4 note",
+   "reason": "'May my soul go to heaven only as surely as I speak the truth' is a garbled oath formula; the stray 'only' confuses. The plain formula keeps the stake ('So come my soul to bliss, as I speak true').",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E151",
+   "id": "15.161",
+   "lines": [
+    1,
+    5
+   ],
+   "before": "No better sword ever hung at a soldier's thigh. I've seen the day when with this little arm and this good sword I've cut my way through more obstacles than twenty times your blocking me. But, oh, empty boasting!",
+   "after": "No better sword ever hung at a soldier's thigh. I've seen the day when, with this little arm and this good sword, I cut my way through more obstacles than twenty times what you put in my way. But, oh, what an empty boast!",
+   "source": "A4 should-fix + G1 polish",
+   "reason": "Contorted \"than twenty times your blocking me\"; tense mix; stilted \"empty boasting\". Wording follows G1's suggestion.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E152",
+   "id": "15.180",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Well, that's the best thing you can do.",
+   "after": "Well, keeping quiet is the best thing you can do.",
+   "source": "B3 M (editor wording)",
+   "reason": "Original \"Well, thou dost best\" (Othello to the silent Iago) was heard as approving torture.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E153",
+   "id": "15.190",
+   "lines": [
+    9,
+    10
+   ],
+   "before": "like the ignorant Judean, threw away a pearl worth more than his whole tribe; of one whose lowered eyes,",
+   "after": "like the vile Judean, threw away a pearl worth more than his whole tribe; of one whose lowered eyes,",
+   "source": "A4 note",
+   "reason": "'base' means vile or low (Schmidt, base), not 'ignorant'. 'Ignorant' belongs to the rival 'Indian' reading (one ignorant of the pearl's worth), while the text used here reads 'Judean' (F1; Schmidt, Judean). Keep the adjective matched to the chosen reading.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E154",
+   "id": "15.193",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Everything he said is ruined.",
+   "after": "That ruins everything he said.",
+   "source": "B3 M (editor wording)",
+   "reason": "\"All that's spoke is marr'd\" (his act spoils his speech); \"Everything he said is ruined\" was unclear.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E155",
+   "id": "15.196",
+   "lines": [
+    0,
+    1
+   ],
+   "before": "I was afraid of this, but I thought he had no weapon, because he was so great-hearted.",
+   "after": "I was afraid of this — though I thought he had no weapon — because he had a great heart.",
+   "source": "B3 M (editor wording)",
+   "reason": "The \"for he was great of heart\" reason attached to the wrong clause.",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E156",
+   "id": "15.197",
+   "lines": [
+    9,
+    10
+   ],
+   "before": "I'll go on board ship right away, and to the state relate this heavy deed with a heavy heart.",
+   "after": "I'll go on board ship right away, and with a heavy heart report this heavy deed to the state.",
+   "source": "A4 should-fix",
+   "reason": "'and to the state relate this heavy deed with a heavy heart' keeps the original's inverted order ('and to the state / This heavy act with heavy heart relate').",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E157",
+   "id": "6.1",
+   "lines": [
+    1,
+    1
+   ],
+   "before": "Let's train ourselves in that honourable self-restraint",
+   "after": "Let's train ourselves in that honorable self-restraint",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E158",
+   "id": "6.24",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "he'll be as quarrelsome and quick to take offence",
+   "after": "he'll be as quarrelsome and quick to take offense",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E159",
+   "id": "6.45",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "For my own part — no offence to the general, or to any man of rank — I hope to be saved.",
+   "after": "For my own part — no offense to the general, or to any man of rank — I hope to be saved.",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E160",
+   "id": "6.90",
+   "lines": [
+    2,
+    2
+   ],
+   "before": "and passion, having clouded my better judgement,",
+   "after": "and passion, having clouded my better judgment,",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E161",
+   "id": "6.90",
+   "lines": [
+    7,
+    7
+   ],
+   "before": "and the man proved guilty of this offence,",
+   "after": "and the man proved guilty of this offense,",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E162",
+   "id": "7.18",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Please, spare me your wordplay. Here's a small gold coin for you: if the lady who waits on the general's wife is up and about, tell her there's a man called Cassio who begs the small favour of a word with her. Will you do this?",
+   "after": "Please, spare me your wordplay. Here's a small gold coin for you: if the lady who waits on the general's wife is up and about, tell her there's a man called Cassio who begs the small favor of a word with her. Will you do this?",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E163",
+   "id": "7.19",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "She is up and about, sir; if she'll stir herself over here, I shall endeavour to notify her of it.",
+   "after": "She is up and about, sir; if she'll stir herself over here, I shall endeavor to notify her of it.",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E164",
+   "id": "9.35",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Why, this isn't a favour to me;",
+   "after": "Why, this isn't a favor to me;",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E165",
+   "id": "11.10",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "She's the guardian of her honour too.",
+   "after": "She's the guardian of her honor too.",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E166",
+   "id": "11.11",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "Her honour is something nobody can see;",
+   "after": "Her honor is something nobody can see;",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E167",
+   "id": "11.105",
+   "lines": [
+    0,
+    0
+   ],
+   "before": "If you're so soft on her wickedness, give her a licence to sin, because if it doesn't hurt you, it doesn't touch anyone.",
+   "after": "If you're so soft on her wickedness, give her a license to sin, because if it doesn't hurt you, it doesn't touch anyone.",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC1 final confirmation",
+    "verdict": "accept"
+   }
+  },
+  {
+   "n": "E168",
+   "id": "11.166",
+   "lines": [
+    3,
+    3
+   ],
+   "before": "and his own behaviour will reveal him so plainly",
+   "after": "and his own behavior will reveal him so plainly",
+   "source": "house style",
+   "reason": "US spelling (house convention: Hamlet/Macbeth modern-en, Tinct Symposium)",
+   "recheck": {
+    "by": "RC2",
+    "verdict": "accept"
+   }
+  }
+ ]
+}

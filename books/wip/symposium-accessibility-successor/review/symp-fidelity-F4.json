@@ -1,0 +1,125 @@
+{
+ "reviewer": "F4",
+ "paragraphs_read": 28,
+ "findings": [
+  {
+   "id": "8.35",
+   "category": "convention",
+   "severity": "should-fix",
+   "jowett": "while he was on the expedition. One morning he was thinking about something which he could not resolve",
+   "after": "while he was on the expedition. One morning he was thinking about something he could not resolve.",
+   "issue": "This paragraph sits inside Alcibiades' speech (8.23 to 8.38) but has no opening quote mark. The brief's rule is that a speech running over paragraphs reopens the quote at every paragraph start. KEEP 8.34 ends on a closing single quote, so as published 8.35 reads as unquoted narration, and its 'I' ('who but he saved my life?', 'I received the prize for valor') could be taken for the narrator's. The chapter's own KEEP 8.12 sets the precedent: a mid-sentence continuation after the verse line in 8.11 opens with a quote. The editor's mechanical pass added opening quotes to 8.1, 8.25, 8.32 and 8.33 but not here. The renderer's note ('continues mid-sentence') describes a real case, but neither the brief nor 8.12 makes an exception for it.",
+   "proposed": "'while he was on the expedition. One morning he was thinking about something he could not resolve. [rest of the paragraph unchanged; add only the opening single quote]"
+  },
+  {
+   "id": "8.34",
+   "category": "convention",
+   "severity": "note",
+   "jowett": "'Of the doings and sufferings of the enduring man'",
+   "after": "'Of the doings and sufferings of the enduring man'",
+   "issue": "This is a KEEP paragraph outside the changed set. I flag it because it breaks the speech's quote convention between the mechanically fixed 8.33 and 8.35. The Homer line is a quotation inside Alcibiades' speech, so the glossary gives it double quotes. The speech continues, so the paragraph should open with the continuation single quote and leave it open. As published, the closing single quote reads as the end of the speech. Compare KEEP 8.11, which nests its verse line as '\"...\"'. This is the same kind of mechanical fix the editor made to 8.1, 8.25, 8.32 and 8.33. It is the editor's call, since the paragraph is KEEP. If it stays as it is, the 8.35 fix above is still needed.",
+   "proposed": "'\"Of the doings and sufferings of the enduring man\""
+  },
+  {
+   "id": "8.31",
+   "category": "omission",
+   "severity": "should-fix",
+   "jowett": "For I well knew that if Ajax could not be wounded by steel, much less he by money",
+   "after": "For I knew very well that money could wound him even less than steel could wound the great warrior Ajax",
+   "issue": "Jowett's premise, that steel could not wound Ajax, has dropped out. The a fortiori argument depends on Ajax being invulnerable, and 'the great warrior' does not say that he was. A reader who doesn't know the legend will take the line to mean that steel could wound Ajax a little and money could wound Socrates even less. That weakens 'proof against money' into 'hard to bribe'. The assessor's suggested wording has the same gap. The gloss 'the great warrior' is fine in itself.",
+   "proposed": "For I knew very well that if steel could not wound the great warrior Ajax, still less could money wound Socrates;"
+  },
+  {
+   "id": "8.38",
+   "category": "distortion",
+   "severity": "should-fix",
+   "jowett": "beginning as their lover he has ended by making them pay their addresses to him",
+   "after": "He starts out as their lover, the older man courting them, and ends up with them courting him instead.",
+   "issue": "This weakens Alcibiades' closing charge. Jowett makes Socrates the agent ('making them'), and this sentence explains the ill-treatment Alcibiades has just blamed him for. 'Ends up with them courting him' turns the reversal into something that simply happens. The lover gloss ('the older man courting them') is accurate and allowed by the glossary. The proverb rendering ('the fool ... who learns only by getting hurt') is a fair reading of Jowett's 'learn by experience'.",
+   "proposed": "He starts out as their lover, the older man courting them, and ends up making them court him instead."
+  },
+  {
+   "id": "8.29",
+   "category": "terminology",
+   "severity": "should-fix",
+   "jowett": "that of all the lovers whom I have ever had you are the only one who is worthy of me",
+   "after": "that of all the admirers I have ever had, you are the only one who is worthy of me",
+   "issue": "The glossary keeps 'the lover' for the courting role, and Alcibiades' speech turns on that word: the successor itself uses it at 8.27 ('the older lover with designs on him') and 8.38 ('He starts out as their lover'). 'Admirers' is a mild euphemism in the one line of the bedroom scene where Alcibiades names Socrates' role. The assessor's worry, that modern 'lovers I have had' implies sexual partners, is met by saying who they were rather than changing the word. The rest of the scene is frank and exact: 'this or any other favor', 'exchange beauty for beauty', and 'Diomede in Homer, who got gold armor in exchange for bronze' (Iliad 6, accurate). The bedroom dialogue is correctly nested in double quotes and left open for 8.30.",
+   "proposed": "that of all the lovers who have ever courted me, you are the only one who is worthy of me"
+  },
+  {
+   "id": "8.45",
+   "category": "terminology",
+   "severity": "should-fix",
+   "jowett": "where Socrates is, no one else has any chance with the fair",
+   "after": "Wherever Socrates is, no one else has any chance with the good-looking young men.",
+   "issue": "The glossary renders fair (of persons) as beautiful. Jowett uses the same phrase, 'the fair', at 8.26 ('See you how fond he is of the fair?'), and the successor renders it there as 'beautiful young men'. This parting jibe from Alcibiades echoes that claim. Across chapter 8 the successor renders Jowett's single word six ways: handsomest (8.0), best-looking (8.3), good-looking (8.4, 8.45), handsome (8.27), and beautiful (8.26, 8.37). The speech's theme is beauty ('my beauty', 'exchange beauty for beauty', 'disdainful of my beauty'). 8.0's 'handsomest and wisest of men' is a compliment to Agathon and can stay. 8.3, 8.4 and 8.27 are listed as notes.",
+   "proposed": "Wherever Socrates is, no one else has any chance with the beautiful young men."
+  },
+  {
+   "id": "8.4",
+   "category": "terminology",
+   "severity": "note",
+   "jowett": "I have never been allowed to speak to any other fair one",
+   "after": "I have never been allowed to talk to anyone else good-looking",
+   "issue": "The glossary renders fair (of persons) as beautiful. Socrates' mock complaint here is mirrored by Alcibiades' at 8.45, so align the two with 8.26 and 8.45. The violence reading ('insults me', 'can barely keep from hitting me') is right: Jowett goes on with 'do me some harm', 'attempts violence' and 'bodily fear', and 8.14 matches it.",
+   "proposed": "I have never been allowed to talk to anyone else who is beautiful"
+  },
+  {
+   "id": "8.3",
+   "category": "terminology",
+   "severity": "note",
+   "jowett": "but by the fairest of the company",
+   "after": "but next to the best-looking person here",
+   "issue": "The glossary renders fair (of persons) as beautiful. 'Best-looking' is accurate, but it adds another variant of the word that Alcibiades' beauty theme depends on (see 8.45).",
+   "proposed": "but next to the most beautiful person here"
+  },
+  {
+   "id": "8.27",
+   "category": "terminology",
+   "severity": "note",
+   "jowett": "just as if he were a fair youth, and I a designing lover",
+   "after": "just as if our roles were reversed and he were the handsome youth and I the older lover with designs on him",
+   "issue": "The glossary renders fair as beautiful. 'Beautiful' keeps the thread to 'my beauty' (8.26), 'exchange beauty for beauty' (8.29) and 'disdainful of my beauty' (8.30). The role-reversal gloss is accurate and allowed (glossary: the lover is the older man who courts). The wrestling is rendered exactly ('wrestled and grappled with me several times with no one else there').",
+   "proposed": "just as if our roles were reversed and he were the beautiful youth and I the older lover with designs on him"
+  },
+  {
+   "id": "8.3",
+   "category": "distortion",
+   "severity": "note",
+   "jowett": "where I perceive that you have contrived to find a place",
+   "after": "where, I notice, you have managed to find a place",
+   "issue": "'Contrived' means schemed, and that is Alcibiades' jealous accusation: Socrates arranged to lie beside the most beautiful person there. It comes back at 8.45 ('invented a specious reason for drawing Agathon to himself'). 'Managed' only reports success.",
+   "proposed": "where, I notice, you have schemed to get a place"
+  },
+  {
+   "id": "8.31",
+   "category": "distortion",
+   "severity": "note",
+   "jowett": "there we messed together",
+   "after": "There we shared the army's mess",
+   "issue": "Jowett says they were messmates, which is why Alcibiades could watch Socrates closely. 'Shared the army's mess' drops 'together', can read as 'ate what the whole army ate', and when read aloud 'mess' can be heard as disorder. The Potidaea gloss ('the northern city that Athens was besieging') is accurate: the siege was 432 to 430/29 BC, and it fits the harsh winter in 8.32.",
+   "proposed": "There we ate together in the same mess"
+  },
+  {
+   "id": "8.30",
+   "category": "distortion",
+   "severity": "note",
+   "jowett": "I arose as from the couch of a father or an elder brother",
+   "after": "I got up as if I had been sleeping beside my father or an elder brother",
+   "issue": "Jowett's comparison is generic: a night as chaste as one spent beside a father or an elder brother. 'My father' points to a particular person and sits oddly next to 'an elder brother'. The rest of the account is exact and neither euphemized nor sensationalized: 'so unmoved by my advances', 'lay the whole night with this wonderful monster, this extraordinary being, in my arms', 'nothing more happened'. The mind's-eye line and the reordered appeal to the judges are also faithful.",
+   "proposed": "I got up as if I had been sleeping beside a father or an elder brother"
+  },
+  {
+   "id": "8.46",
+   "category": "distortion",
+   "severity": "note",
+   "jowett": "every one was compelled to drink large quantities of wine",
+   "after": "everyone was forced to drink enormous quantities of wine",
+   "issue": "A mild amplification carried over from the pre-trim text. The requested trim is done correctly: 'The noise was tremendous' and 'from left to right' are removed, and 'the gift for writing comedy was the same as the gift for writing tragedy' is restored. 'A large bowl' for Jowett's 'a large goblet' is another small non-Jowett leftover. Optional.",
+   "proposed": "everyone was forced to drink large quantities of wine"
+  }
+ ],
+ "verdict": "accept-with-fixes",
+ "summary": "I read all 28 changed paragraphs in full against Jowett (pg1600, lines 2507 to 2934), with the KEEP neighbors 8.6 to 8.13, 8.15, 8.16, 8.18 to 8.21, 8.34 and 8.40 to 8.44 for quote context. The successor is faithful and complete. I found no must-fix issue, no invention and no order problem, and every paragraph opens with Jowett's opening content. Length runs from 0.96 to 1.21 of Jowett. Glosses: every added gloss is accurate and within the allowance for a few clarifying words. They are: Aristophanes' 'other half' story (8.0, confirmed against Diotima at source line 2282); Silenus as 'the pot-bellied old satyr' with hollow busts that open; Marsyas 'the legendary flute-player'; Olympus as 'Marsyas's pupil' (implied by 'Marsyas who taught them'); the Corybantian revelers; the Sirens; Diomede's gold armor for bronze in Homer; 'the great warrior Ajax'; Potidaea as 'the northern city that Athens was besieging'; 'our defeat at the battle of Delium'; 'the general Laches'; 'your comedy The Clouds' (restored from Jowett's own note); the Spartan general Brasidas; Nestor and Antenor as Homer's counselors; the statesman Pericles; the satyr play as one of 'the bawdy comic pieces staged after the tragedies'; 'as at the sacred mysteries' for 'profane'; and the double proverb. The proverb uses 'children' for Jowett's 'boys', which Jowett's words allow, and it unpacks his 'two proverbs' note. The one gloss problem is structural. At 8.31 the Ajax unpacking drops Jowett's premise that steel could not wound Ajax (should-fix). Frank content: the night with Socrates (8.27 to 8.30) is accurate and neither euphemized nor sensationalized. The exception is 'admirers' for Jowett's 'lovers' at 8.29, which should be 'lovers who have ever courted me' (should-fix). Voice: Alcibiades is drunk, candid and funny throughout ('Laugh if you like', 'Not a bit of it; I got nowhere with him', 'my fellow drinkers', 'What's more'). Socrates' irony survives at 8.4, 8.29, 8.39 and 8.43. The 8.43 seating rule is spelled out without improving the argument. Conventions: all 28 paragraphs pass for straight quotes, American spelling, spaced em dashes, no ellipses and no double spaces. The multi-paragraph speech is correct from 8.22, left open, through 8.38, closed with a double then a single quote. The nested bedroom dialogue in 8.29 and 8.30 is right, with 8.30 opening on a single then a double quote. So is 8.0 into 8.1. There is one exception: 8.35 lacks its opening quote (should-fix). With KEEP 8.34's closing single quote, the paragraph reads as narration. KEEP 8.34 itself should be single quote, then the verse line in double quotes, with no closing single quote (note, editor's call). Terminology: the self-control and ribbons renderings are consistent. Jowett's 'fair' (of persons) is rendered six ways in this chapter. 8.45 should match 8.26's 'beautiful young men' (should-fix), and 8.3, 8.4 and 8.27 are notes. Other should-fix: 8.38 restores Socrates' agency ('making them court him'). Counts: 13 findings. By category: convention 2, distortion 5, omission 1, terminology 5. By severity: note 8, should-fix 5. Verdict: accept-with-fixes."
+}

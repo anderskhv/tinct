@@ -1,0 +1,80 @@
+{
+  "reviewer": "F3",
+  "paragraphs_read": 38,
+  "findings": [
+    {
+      "id": "7.49",
+      "category": "distortion",
+      "severity": "must-fix",
+      "jowett": "and so he is never in want and never in wealth (cf. 7.48: 'and like his mother he is always in distress')",
+      "after": "and so he is never in need and never rich (cf. 7.48 AFTER: 'and like his mother he is always in need')",
+      "issue": "The successor renders 7.48 'always in distress' as 'always in need' and 7.49 'never in want' as 'never in need'. As a result, four sentences apart, Diotima says Love is both always and never 'in need'. That is a flat contradiction, and it is not in Jowett (or in the BEFORE text). Jowett uses two different words. 'Distress' is the mother's poverty, which Love always shares. 'In want', paired with 'in wealth', means destitute as opposed to rich. The step here is that whatever Love gets flows in and out again, so he is neither destitute nor rich: the in-between position that parallels 'between ignorance and knowledge' in the same sentence. As written, a reader cannot reconcile the two statements. Keep 7.48's 'always in need', a good rendering of the older sense of 'distress' that also echoes the lack argument, and fix 7.49. 'Lacks' would also be wrong here, because 7.46 has just established that Love lacks good and beautiful things.",
+      "proposed": "But whatever flows in to him is always flowing out again, and so he is never destitute and never rich; and he is also in between ignorance and knowledge."
+    },
+    {
+      "id": "7.59",
+      "category": "terminology",
+      "severity": "should-fix",
+      "jowett": "when he comes to maturity desires to beget and generate",
+      "after": "then when he comes to maturity he wants to beget offspring and bring them to birth",
+      "issue": "GLOSSARY.md renders Diotima's 'beget' as 'give birth' and 'generate' as 'reproduce' or 'bring to birth', and 7.54 AFTER applies this ('begets and bears fruit' becomes 'gives birth and bears fruit'). Today 'beget' means to father. That cuts against the pregnancy image: this man is the one pregnant in soul, who in 7.60 'gives birth to what he conceived long ago'. The AFTER also changes Jowett's 'desires', the key verb of the chapter's argument (love is desire), to 'wants', and adds 'offspring ... them', which Jowett does not have.",
+      "proposed": "then when he comes to maturity he desires to reproduce and to give birth."
+    },
+    {
+      "id": "7.60",
+      "category": "terminology",
+      "severity": "should-fix",
+      "jowett": "He wanders about seeking beauty that he may beget offspring--for in deformity he will beget nothing",
+      "after": "He wanders about seeking beauty so that he may beget offspring — for in ugliness he will beget nothing",
+      "issue": "This is the same departure from the glossary ('beget' should be 'give birth'), and here the argument depends on it. The clause applies the birth-in-beauty principle of 7.53–7.54. Procreation 'must take place in beauty, not in ugliness', and at the sight of ugliness the pregnant creature 'holds back from giving birth'. A few lines later in the same paragraph the same man 'gives birth to what he conceived long ago'. 'Beget' (to father) hides that link and mixes the two images within one paragraph.",
+      "proposed": "He wanders about seeking beauty so that he may give birth to offspring — for in ugliness he will give birth to nothing —"
+    },
+    {
+      "id": "7.48",
+      "category": "terminology",
+      "severity": "note",
+      "jowett": "terrible as an enchanter, sorcerer, sophist",
+      "after": "formidable as an enchanter, a sorcerer and a sophist, one of those clever professional arguers",
+      "issue": "This chapter explains 'sophist' twice, in different words: 7.48 'one of those clever professional arguers' and 7.58 'one of those professional teachers of wisdom'. R1's 1.46 had already explained it as 'professional teachers'. The renderer's note for 7.48 says its gloss is 'in line with R1's professional teachers at 1.46', but the text is not. A reader may take the two glosses ten paragraphs apart as describing two different things. Use one gloss.",
+      "proposed": "formidable as an enchanter, a sorcerer and a sophist, one of those clever professional teachers of wisdom"
+    },
+    {
+      "id": "7.45",
+      "category": "voice",
+      "severity": "note",
+      "jowett": "do you not see that there is a mean between wisdom and ignorance?",
+      "after": "Don't you see that there is something in between wisdom and ignorance?",
+      "issue": "Elsewhere Diotima's speech avoids contractions ('do not insist', 'do not be surprised', 'I do not know', 'you must follow if you can'). This contraction, and the one at 7.55, are the only ones in her voice, and they make the oracular teacher sound casual. Socrates' contractions (7.14, 7.20, 7.28, 7.40) suit his conversational irony and are fine.",
+      "proposed": "Do you not see that there is something in between wisdom and ignorance?"
+    },
+    {
+      "id": "7.55",
+      "category": "voice",
+      "severity": "note",
+      "jowett": "See you not how all animals, birds, as well as beasts",
+      "after": "Don't you see how all animals, birds as well as beasts",
+      "issue": "As at 7.45: a contraction in Diotima's otherwise formal, oracular voice.",
+      "proposed": "Do you not see how all animals, birds as well as beasts"
+    },
+    {
+      "id": "7.55",
+      "category": "distortion",
+      "severity": "note",
+      "jowett": "the weakest are ready to battle against the strongest even to the uttermost, and to die for them",
+      "after": "the weakest are ready to fight the strongest to the death, and to die for them",
+      "issue": "Jowett's 'even to the uttermost' (to the utmost limit) becomes 'to the death'. This is slightly stronger, and it anticipates and repeats the climax that follows, 'and to die for them'.",
+      "proposed": "the weakest are ready to fight the strongest to the utmost, and to die for them"
+    },
+    {
+      "id": "7.58",
+      "category": "invention",
+      "severity": "note",
+      "jowett": "or your own Codrus in order to preserve the kingdom for his sons",
+      "after": "or your own Codrus, the early king of Athens, to preserve the kingdom for his sons",
+      "issue": "Identifying Codrus is an allowed gloss, but 'the early king' suggests there was only one early king. In tradition Codrus is one of Athens's legendary early kings, usually counted as the last. The indefinite article keeps the gloss accurate.",
+      "proposed": "or your own Codrus, an early king of Athens, to preserve the kingdom for his sons"
+    }
+  ],
+  "verdict": "accept-with-fixes",
+  "summary": "I read all 38 changed paragraphs in full against Jowett (pg1600.txt), with the KEEP replies in 7.1–7.43 as context. The elenchus survives step by step. Love is of something. Love desires what it is love of. Desire necessarily implies lack, 'necessarily' being set against Agathon's 'probably'. The strong man wants to keep in the future what he has now. Love is of what one does not have, is not and lacks. The recap follows. Agathon's claim is quoted in the repaired 6.4 wording ('realm of the gods', 'ugly'). Love lacks beauty, and so lacks the good. Every KEEP reply ('He must', 'Very true', 'Certainly not') still fits its question. Diotima's teaching is complete and in order: right opinion as the in-between; Love as neither god nor ugly; the daimon; Poros and Penia with every trait in order; the philosopher; the confusion of lover and beloved; beautiful → good → happiness; the poetry analogy; 'the everlasting possession of the good', kept verbatim in 7.52 and 7.54; birth in beauty; reproduction → immortality; replacement and recollection; fame; pregnancy of body and of soul; and every rung of the ladder (7.62–7.65). Socrates' irony and Diotima's authority survive. The key terms are consistent everywhere the argument uses them: beautiful/ugly (no 'fair', 'foul' or 'deform' remains), lack, good/bad, reproduction/give birth, and immortality. The only departure is 'beget' in 7.59 and 7.60. Mechanical checks were clean: straight quotes only; spaced em dashes; no ellipses; American spelling. The quote nesting balances across the continuous speech from 7.44 to 7.68: single quotes for Socrates, double for Diotima's dialogue, single again for a third level, reopened at each paragraph start and closed only where each speech ends. Paragraph order and boundaries match Jowett, and the source notes are omitted by convention. I checked these readings and accept them as within what Jowett's words allow. At 7.0, 'as if I were asking whose child he is' (Love's parentage). At 7.54, 'holds back from giving birth' for 'refrains from conception': Jowett himself uses 'conception' loosely here for the delivery of a 'teeming', 'full' nature. The 7.67 split between what every man ought to do and what Socrates does. 'The beautiful one' at 7.60. 'Pregnant' at 7.53. The glosses at 7.47 (Metis), 7.51 ('making'), 7.60 (Lycurgus, Sparta) and 7.62 (initiation rites). Must fix: 7.49 'never in need', which the successor made contradict 7.48 'always in need'. Should fix: 'beget' in 7.59 and 7.60, against the glossary and the pregnancy image. The five notes are optional polish."
+}

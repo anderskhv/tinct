@@ -1,0 +1,1222 @@
+{
+ "validator": "A2",
+ "chapters": [
+  4,
+  5,
+  6,
+  7,
+  8,
+  11
+ ],
+ "verse_speeches_checked": 121,
+ "units_checked": 562,
+ "units_breakdown": {
+  "verse_units": 301,
+  "short_prose_whole_speech_units": 242,
+  "long_prose_speeches": 19
+ },
+ "long_prose_mapped": 19,
+ "field_conventions": {
+  "lines": "Inclusive original line indices within the speech. Whole-speech (short/prose) units and long-prose units use [0, 0].",
+  "unit": "'U2+U3' means the finding spans those consecutive proposed units. 'Pk' means the k-th unit of that speech's entry in prose_maps, and current_modern_unit is that unit's modern span.",
+  "merge_with_split_after_line": "A re-cut: merge the listed units, then split again after split_after_line. proposed_units gives the resulting units and their modern text; when proposed_modern_unit is null, the wording is unchanged.",
+  "split": "Split the modern text at the same line boundary; no wording change is needed unless proposed_modern_unit is given."
+ },
+ "findings": [
+  {
+   "id": "4.4",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    5
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U2/U3 boundary separates the subject 'The wind-shak’d surge, with high and monstrous main' (line 3) from its verb 'Seems to cast water' (line 4); merge U2+U3 and re-split after line 2, where both sides break cleanly at a semicolon.",
+   "split_after_line": 2,
+   "current_modern_unit": "Just go and stand on the foaming shore: the scolded waves seem to hurl themselves up at the clouds; the wind-shaken swell, with its huge and monstrous mane, seems to throw water on the blazing constellation of the Bear and put out its guardian stars that circle the fixed Pole Star.",
+   "proposed_modern_unit": null,
+   "proposed_units": [
+    {
+     "lines": [
+      1,
+      2
+     ],
+     "modern": "Just go and stand on the foaming shore: the scolded waves seem to hurl themselves up at the clouds;"
+    },
+    {
+     "lines": [
+      3,
+      5
+     ],
+     "modern": "the wind-shaken swell, with its huge and monstrous mane, seems to throw water on the blazing constellation of the Bear and put out its guardian stars that circle the fixed Pole Star."
+    }
+   ]
+  },
+  {
+   "id": "4.9",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U1 ends on the bare subject 'Michael Cassio,', and its appositive and verb ('Lieutenant to the warlike Moor Othello, / Is come on shore') are in U2; because the sentence starts mid-line 1 there is no clean line-level cut, so the two units should be one.",
+   "current_modern_unit": "The ship has put in here, a Veronese vessel. Michael Cassio, lieutenant to the warlike Moor Othello, has come ashore. The Moor himself is still at sea, and has been given full command here in Cyprus.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "4.12",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U3 opens with the purpose phrase 'As well to see ... As to throw out our eyes', which belongs to 'Let’s to the sea-side' in U2, and the modern text reads 'come on! as much to see' (lowercase after an exclamation mark); merge, re-split after line 4 before the 'Even till' clause, and move 'come on' so the sentence runs naturally.",
+   "split_after_line": 4,
+   "current_modern_unit": "I've served under him, and the man commands like a complete soldier. Let's go down to the shore, come on! as much to see the ship that's just come in as to strain our eyes looking out for brave Othello, until the sea and the blue sky blur together and we can't tell one from the other.",
+   "proposed_modern_unit": "I've served under him, and the man commands like a complete soldier. Come on, let's go down to the shore, as much to see the ship that's just come in as to strain our eyes looking out for brave Othello, until the sea and the blue sky blur together and we can't tell one from the other.",
+   "proposed_units": [
+    {
+     "lines": [
+      1,
+      4
+     ],
+     "modern": "I've served under him, and the man commands like a complete soldier. Come on, let's go down to the shore, as much to see the ship that's just come in as to strain our eyes looking out for brave Othello,"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "modern": "until the sea and the blue sky blur together and we can't tell one from the other."
+    }
+   ]
+  },
+  {
+   "id": "4.29",
+   "unit": "U2",
+   "lines": [
+    2,
+    4
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "In 'and simply in the natural beauty God gave her exhausts anyone', the subject is dropped and a long phrase comes before the verb because the line follows the original order; 'could flourish in praise' is also awkward.",
+   "current_modern_unit": "who surpasses anything clever poets could flourish in praise, and simply in the natural beauty God gave her exhausts anyone who tries to capture it.",
+   "proposed_modern_unit": "who surpasses all the clever flourishes of poets' praise, and who, simply in the natural beauty God gave her, exhausts anyone who tries to capture it."
+  },
+  {
+   "id": "4.33",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U2 is only a list of subjects with no verb ('Tempests themselves ... congregated sands,'), and their verb 'do omit' is in U3; merge, and in the merged unit put the inverted 'let pass safely by the divine Desdemona' into natural order.",
+   "current_modern_unit": "The storms themselves, high seas and howling winds, the jagged rocks and heaped-up sandbanks, traitors lurking underwater to snag the innocent keel, as if they could feel beauty, have set aside their deadly nature and let pass safely by the divine Desdemona.",
+   "proposed_modern_unit": "The storms themselves, high seas and howling winds, the jagged rocks and heaped-up sandbanks, traitors lurking underwater to snag the innocent keel, as if they could feel beauty, have set aside their deadly nature and let the divine Desdemona pass safely by."
+  },
+  {
+   "id": "4.59",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'I am nothing if not critical' is a famous line that is already clear modern English (critical = fault-finding), so keep it recognizable instead of changing it to 'a critic'.",
+   "current_modern_unit": "Oh, gentle lady, don't make me do it, because I'm nothing if not a critic.",
+   "proposed_modern_unit": "Oh, gentle lady, don't make me do it, because I'm nothing if not critical."
+  },
+  {
+   "id": "4.65",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The gloss puts 'wight' in straight single quotes used as quotation marks, but the convention is curly double quotes.",
+   "current_modern_unit": "If she's dark, and clever with it, she'll find a white man — a 'wight', a man — to fit her darkness, in bed.",
+   "proposed_modern_unit": "If she's dark, and clever with it, she'll find a white man — a “wight”, a man — to fit her darkness, in bed."
+  },
+  {
+   "id": "4.69",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "Here 'paradoxes' means absurdities (Schmidt cites this very line under 'Paradox, an absurdity'), so 'riddles' wrongly glosses them as puzzles.",
+   "current_modern_unit": "These are silly old riddles for making fools laugh in the pub. What miserable praise have you got for a woman who's ugly and foolish?",
+   "proposed_modern_unit": "These are silly old absurdities for making fools laugh in the pub. What miserable praise have you got for a woman who's ugly and foolish?"
+  },
+  {
+   "id": "4.74",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The rendering of 'chronicle small beer' drops the image; keep 'small beer' (weak household beer) and make clear that it means trivia.",
+   "current_modern_unit": "To breastfeed fools and keep the accounts of petty household trivia.",
+   "proposed_modern_unit": "To breastfeed fools and keep the accounts of small beer — petty household trivia."
+  },
+  {
+   "id": "4.86",
+   "unit": "U2",
+   "lines": [
+    2,
+    3
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'till they have waken’d death' personifies Death, and the stock phrase 'woken the dead' flattens Othello's grand hyperbole.",
+   "current_modern_unit": "If every storm is followed by calm like this, let the winds blow until they've woken the dead!",
+   "proposed_modern_unit": "If every storm is followed by calm like this, let the winds blow until they've woken Death itself!"
+  },
+  {
+   "id": "4.105",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    8
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The U3/U4 boundary cuts 'Now, I do love her too, / Not out of absolute lust ... But partly led to diet my revenge' in two; merge, re-split after line 3 where both sides break cleanly, and in the new unit put 'he'll turn out to be, for Desdemona, a most devoted husband' into natural order.",
+   "split_after_line": 3,
+   "current_modern_unit": "The Moor, even though I can't stand him, has a faithful, loving, noble nature, and I dare say he'll turn out to be, for Desdemona, a most devoted husband. Now, I love her too, not purely out of lust (though maybe I'm guilty of just as great a sin), but partly to feed my revenge,",
+   "proposed_modern_unit": "The Moor, even though I can't stand him, has a faithful, loving, noble nature, and I dare say he'll turn out to be a most devoted husband to Desdemona. Now, I love her too, not purely out of lust (though maybe I'm guilty of just as great a sin), but partly to feed my revenge,",
+   "proposed_units": [
+    {
+     "lines": [
+      2,
+      3
+     ],
+     "modern": "The Moor, even though I can't stand him, has a faithful, loving, noble nature,"
+    },
+    {
+     "lines": [
+      4,
+      8
+     ],
+     "modern": "and I dare say he'll turn out to be a most devoted husband to Desdemona. Now, I love her too, not purely out of lust (though maybe I'm guilty of just as great a sin), but partly to feed my revenge,"
+    }
+   ]
+  },
+  {
+   "id": "4.105",
+   "unit": "U5",
+   "lines": [
+    9,
+    11
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'like a poisonous mineral' (a corrosive such as arsenic) has been reduced to 'like a poison'.",
+   "current_modern_unit": "because I suspect the lustful Moor has leapt into my saddle — into my bed, with my wife. The thought of it gnaws at my guts like a poison,",
+   "proposed_modern_unit": "because I suspect the lustful Moor has leapt into my saddle — into my bed, with my wife. The thought of it gnaws at my guts like a poisonous mineral,"
+  },
+  {
+   "id": "4.105",
+   "unit": "U7",
+   "lines": [
+    14,
+    16
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "The qualification 'yet ... At least' has been dropped, although it marks this as Iago's minimum fallback plan.",
+   "current_modern_unit": "or, if I fail at that, until I drive the Moor into a jealousy so strong that reason can't cure it. And to do that,",
+   "proposed_modern_unit": "or, if I fail at that, until I at least drive the Moor into a jealousy so strong that reason can't cure it. And to do that,"
+  },
+  {
+   "id": "4.105",
+   "unit": "U8",
+   "lines": [
+    17,
+    18
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'whom I trash' deliberately echoes 'this poor trash' (trash, vb. = hold a hound back with a leash; Schmidt notes this editorial reading of this line), but the current line keeps only the explanation and drops the echo.",
+   "current_modern_unit": "if this worthless Venetian trash, whom I keep on a leash like a dog so he won't hunt too fast, holds firm when I urge him on,",
+   "proposed_modern_unit": "if this worthless Venetian trash, whom I trash — hold back on a leash like a hunting dog — so he won't hunt too fast, holds firm when I urge him on,"
+  },
+  {
+   "id": "4.105",
+   "unit": "U9",
+   "lines": [
+    19,
+    25
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This seven-line unit breaks cleanly on both sides after the parenthesis on line 21 ('(For I fear Cassio with my night-cap too)' / '... been in my bed),').",
+   "split_after_line": 21,
+   "current_modern_unit": "I'll have our Michael Cassio at my mercy, held like a wrestler by the hip, slander him to the Moor as a crude seducer (because I suspect Cassio has worn my nightcap too — been in my bed), make the Moor thank me, love me, and reward me for making a complete ass of him and plotting against his peace and quiet until he goes mad. It's all here in my head, but still muddled.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "5.1",
+   "unit": "P1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'partying' is too casual for a herald's formal proclamation (standard rule 6), and 'revelry' keeps the register.",
+   "current_modern_unit": "It is the wish of Othello, our noble and brave general, that, now that certain news has arrived reporting the total destruction of the Turkish fleet, every man should celebrate the triumph: some by dancing, some by making bonfires, each man with whatever sport and partying his rank and taste lead him to.",
+   "proposed_modern_unit": "It is the wish of Othello, our noble and brave general, that, now that certain news has arrived reporting the total destruction of the Turkish fleet, every man should celebrate the triumph: some by dancing, some by making bonfires, each man with whatever sport and revelry his rank and taste lead him to."
+  },
+  {
+   "id": "6.24",
+   "unit": "U2+U3",
+   "lines": [
+    2,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U2 ends on the bare subject 'Now my sick fool Roderigo,', and its verb 'hath tonight carous’d' is in U3; the sentence starts mid-line 3, so merge the two units.",
+   "current_modern_unit": "he'll be as quarrelsome and quick to take offence as my young mistress's lapdog. Now my lovesick fool Roderigo, whom love has turned almost inside out, has been drinking toasts to Desdemona tonight, whole jugfuls, bottoms up; and he's on watch.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "6.24",
+   "unit": "U4+U5",
+   "lines": [
+    7,
+    10
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U4 is only the fronted object ('Three lads of Cyprus ... in a wary distance,'), and its verb 'Have I tonight fluster’d' is in U5; merge, and add a resumptive 'them' because the modern topicalized object ('..., I've made tipsy tonight') is hard to follow by ear.",
+   "current_modern_unit": "Three young men of Cyprus, proud and high-spirited, who bristle at the slightest touch on their honour, the very essence of this warlike island, I've made tipsy tonight with overflowing cups,",
+   "proposed_modern_unit": "Three young men of Cyprus, proud and high-spirited, who bristle at the slightest touch on their honour, the very essence of this warlike island — I've made them tipsy tonight with overflowing cups,"
+  },
+  {
+   "id": "6.52",
+   "unit": "U1",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This five-line unit breaks cleanly after line 0, which is a complete clause on both sides ('You see this fellow that is gone before,' / 'You see this fellow who just went out ahead?').",
+   "split_after_line": 0,
+   "current_modern_unit": "You see this fellow who just went out ahead? He's a soldier fit to stand beside Caesar and give orders; and yet just look at his vice: it balances his virtue exactly, like day and night at the equinox, the one as long as the other. It's a pity about him.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "6.90",
+   "unit": "U3+U4+U5",
+   "lines": [
+    4,
+    12
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "Two boundaries cut single clauses: the one after line 7 separates the subject 'he that is approv’d in this offence' from 'Shall lose me', and the one after line 9 splits 'a town of war, / Yet wild'; re-cut lines 4-12 as 4-6 and 7-12, which breaks cleanly at 'who set it on,' / 'who started it;'.",
+   "split_after_line": 6,
+   "current_modern_unit": "or just lift this arm, the best of you will go down under my punishment. Let me know how this foul riot began, who started it; and the man proved guilty of this offence, even if he were my twin, born at the same birth, will lose me. What! In a town at war, still unsettled, the people's hearts brimming with fear, to carry on a private, personal quarrel at night, and at the very headquarters and guard post meant to keep us safe?",
+   "proposed_modern_unit": null,
+   "proposed_units": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "modern": "or just lift this arm, the best of you will go down under my punishment. Let me know how this foul riot began, who started it;"
+    },
+    {
+     "lines": [
+      7,
+      12
+     ],
+     "modern": "and the man proved guilty of this offence, even if he were my twin, born at the same birth, will lose me. What! In a town at war, still unsettled, the people's hearts brimming with fear, to carry on a private, personal quarrel at night, and at the very headquarters and guard post meant to keep us safe?"
+    }
+   ]
+  },
+  {
+   "id": "6.92",
+   "unit": "U4+U5",
+   "lines": [
+    5,
+    9
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "U5 opens with 'And Cassio following him', which is the second subject of 'There comes' in U4; merging is optional (five lines with no clean break inside).",
+   "current_modern_unit": "Montano and I were talking, when along comes a fellow shouting for help, and Cassio after him with his sword out, determined to use it on him. Sir, this gentleman steps up to Cassio and begs him to stop.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "6.92",
+   "unit": "U6+U7+U8",
+   "lines": [
+    10,
+    19
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 12 separates the subject 'he, swift of foot,' from 'Outran my purpose', and the one after line 17 splits 'I found them close together, / At blow and thrust'; re-cut lines 10-19 as 10-13 and 14-19, which puts the main clause and its 'For that' reason clause in separate units.",
+   "split_after_line": 13,
+   "current_modern_unit": "I myself chased after the shouting fellow, in case his yelling (as in fact happened) threw the town into panic. He, being fast on his feet, outran me, and I came back all the quicker because I heard the clash and clatter of swords and Cassio swearing loudly, which until tonight I'd never been able to say of him. When I came back (for this all happened quickly) I found them locked together, trading blows and thrusts, just as they were again when you yourself separated them.",
+   "proposed_modern_unit": null,
+   "proposed_units": [
+    {
+     "lines": [
+      10,
+      13
+     ],
+     "modern": "I myself chased after the shouting fellow, in case his yelling (as in fact happened) threw the town into panic. He, being fast on his feet, outran me, and I came back all the quicker"
+    },
+    {
+     "lines": [
+      14,
+      19
+     ],
+     "modern": "because I heard the clash and clatter of swords and Cassio swearing loudly, which until tonight I'd never been able to say of him. When I came back (for this all happened quickly) I found them locked together, trading blows and thrusts, just as they were again when you yourself separated them."
+    }
+   ]
+  },
+  {
+   "id": "6.105",
+   "unit": "P3",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'such a loser' now reads as the slang insult, but the original means one who has lost (his reputation).",
+   "current_modern_unit": "You haven't lost any reputation at all, unless you think of yourself as such a loser.",
+   "proposed_modern_unit": "You haven't lost any reputation at all, unless you think of yourself as having lost it."
+  },
+  {
+   "id": "6.115",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'familiar creature' answers Cassio's 'devil' in two senses, belonging to the household and serviceable to man, and a familiar spirit (Schmidt lists this line beside 'ye familiar spirits'); 'friendly' keeps only part of the first sense.",
+   "current_modern_unit": "Come on, come on, good wine is a good, friendly creature, if it's used well. Stop cursing it. And, good lieutenant, I think you think I love you.",
+   "proposed_modern_unit": "Come on, come on, good wine is a good familiar creature — a friendly household spirit — if it's used well. Stop cursing it. And, good lieutenant, I think you think I love you."
+  },
+  {
+   "id": "6.124",
+   "unit": "U2+U3",
+   "lines": [
+    2,
+    10
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U3 opens with the appositive 'All seals and symbols of redeemed sin', which belongs to 'his baptism' at the end of U2; move line 8 into U2 (split after line 8, not 7) and accept the resulting seven-line unit, since there is no clean break inside lines 2-8 (the U1/U2 cut after line 1 is likewise the least bad available).",
+   "split_after_line": 8,
+   "current_modern_unit": "reasonable to anyone who thinks it over, and in fact the way to win the Moor back? For it's very easy to get the sympathetic Desdemona to take up any honest request. She's made as generous as the free elements of nature. And then for her to win over the Moor — even if it meant renouncing his baptism, all the seals and symbols of his redemption from sin — his soul is so chained to his love for her that she can make, unmake, do whatever she likes,",
+   "proposed_modern_unit": null,
+   "proposed_units": [
+    {
+     "lines": [
+      2,
+      8
+     ],
+     "modern": "reasonable to anyone who thinks it over, and in fact the way to win the Moor back? For it's very easy to get the sympathetic Desdemona to take up any honest request. She's made as generous as the free elements of nature. And then for her to win over the Moor — even if it meant renouncing his baptism, all the seals and symbols of his redemption from sin —"
+    },
+    {
+     "lines": [
+      9,
+      10
+     ],
+     "modern": "his soul is so chained to his love for her that she can make, unmake, do whatever she likes,"
+    }
+   ]
+  },
+  {
+   "id": "6.124",
+   "unit": "U4",
+   "lines": [
+    11,
+    14
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'to take this course, running parallel straight to his own good' is contorted by the line order and leaves 'parallel' unexplained (Schmidt glosses parallel in this line as 'conformable to the purpose').",
+   "current_modern_unit": "just as her desire chooses to play god over his weak faculties. How am I a villain, then, to advise Cassio to take this course, running parallel straight to his own good? The theology of hell!",
+   "proposed_modern_unit": "just as her desire chooses to play god over his weak faculties. How am I a villain, then, to advise Cassio to take this parallel course, one that runs in line with his aim and straight to his own good? The theology of hell!"
+  },
+  {
+   "id": "6.124",
+   "unit": "U8",
+   "lines": [
+    22,
+    23
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'do him good ... undo her credit' is a deliberate do/undo antithesis that 'destroy her credibility' loses, and 'undo her credit' is still clear.",
+   "current_modern_unit": "And the harder she tries to do him good, the more she'll destroy her credibility with the Moor.",
+   "proposed_modern_unit": "And the harder she tries to do him good, the more she'll undo her credit with the Moor."
+  },
+  {
+   "id": "6.126",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'What's up' is modern slang (standard rule 6), and the same greeting at 6.57 is rendered 'What's going on, Roderigo?'; the square brackets are kept as in the current modern unit.",
+   "current_modern_unit": "[What's up, Roderigo?]",
+   "proposed_modern_unit": "[What's going on, Roderigo?]"
+  },
+  {
+   "id": "7.8",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'a tale — or a tail' works only in print: read aloud it sounds like 'a tale, or a tale', so the listener cannot hear the tail/tale pun that the next two speeches depend on.",
+   "current_modern_unit": "Oh, thereby hangs a tale — or a tail.",
+   "proposed_modern_unit": "Oh, thereby hangs a tail — a tale to tell, and a tail behind."
+  },
+  {
+   "id": "7.25",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 1 separates the verb from its complement in 'I have made bold, Iago, / To send in to your wife', so merge; the merged modern text also says the same thing twice ('get me in to see ... — arrange me some access to her'), so tighten it.",
+   "current_modern_unit": "Why, no. Day had dawned before we parted. I've taken the liberty, Iago, of sending in for your wife. What I want to ask her is that she'll get me in to see virtuous Desdemona — arrange me some access to her.",
+   "proposed_modern_unit": "Why, no. Day had dawned before we parted. I've taken the liberty, Iago, of sending in for your wife. What I want to ask her is that she'll arrange for me to have some access to virtuous Desdemona."
+  },
+  {
+   "id": "7.31",
+   "unit": "U2",
+   "lines": [
+    2,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This eight-line unit breaks cleanly after line 6, between two coordinated predicates ('... but he protests he loves you / And needs no other suitor ...'; modern '... he swears he loves you, / and needs no one else ...').",
+   "split_after_line": 6,
+   "current_modern_unit": "The general and his wife are talking about it, and she speaks up for you boldly: the Moor answers that the man you wounded is highly respected in Cyprus and very well connected, and that plain good sense left him no choice but to dismiss you; but he swears he loves you, and needs no one else to plead for you but his own affection to seize the first safe opportunity by the forelock and bring you back again.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "7.31",
+   "unit": "U2",
+   "lines": [
+    2,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "A second clean break falls after line 2, between two coordinated clauses ('talking of it, / And she speaks for you stoutly'), which gives units of lines 2, 3-6 and 7-9.",
+   "split_after_line": 2,
+   "current_modern_unit": "The general and his wife are talking about it, and she speaks up for you boldly: the Moor answers that the man you wounded is highly respected in Cyprus and very well connected, and that plain good sense left him no choice but to dismiss you; but he swears he loves you, and needs no one else to plead for you but his own affection to seize the first safe opportunity by the forelock and bring you back again.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "11.15",
+   "unit": "U2+U3",
+   "lines": [
+    2,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 4 splits the participial clause 'Who having, by ..., Convinced or supplied them' between its adverbials and its verb, so merge; the modern 'once they've, by their own relentless begging or ..., won a woman over' also follows the original order and is hard to follow.",
+   "current_modern_unit": "Or heard him say — since there are scoundrels like that out there who, once they've, by their own relentless begging or through some mistress's doting of her own free will, won a woman over or satisfied her, just can't help blabbing about it —",
+   "proposed_modern_unit": "Or heard him say — since there are scoundrels like that out there who, once they've won a woman over by their own relentless begging, or satisfied some mistress who dotes on them of her own free will, just can't help blabbing about it —"
+  },
+  {
+   "id": "11.24",
+   "unit": "P3",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'God,' is an added oath: the original has only 'that’s fulsome'.",
+   "current_modern_unit": "Lie with her! God, that's disgusting.",
+   "proposed_modern_unit": "Lie with her! That's disgusting."
+  },
+  {
+   "id": "11.43",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    2
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "'But,—dost thou hear?—most bloody' is the second complement of 'I will be found' in U2 (most cunning ... but most bloody), so U3 is a fragment on its own.",
+   "current_modern_unit": "I'll prove very cunning in my patience; but — do you hear? — very bloody.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "11.98",
+   "unit": "P1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'for she shall not live' expresses Othello's resolve, but 'because she won't live' reads as a prediction.",
+   "current_modern_unit": "Yes, let her rot, and die, and be damned tonight, because she won't live.",
+   "proposed_modern_unit": "Yes, let her rot, and die, and be damned tonight, because she shall not live."
+  },
+  {
+   "id": "11.127",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'between him and my husband there's opened up a painful rift' keeps the inverted order of the original ('there’s fall’n between him and my lord / An unkind breach').",
+   "current_modern_unit": "Cousin, between him and my husband there's opened up a painful rift, but you'll make everything right.",
+   "proposed_modern_unit": "Cousin, a painful rift has opened up between him and my husband, but you'll make everything right."
+  },
+  {
+   "id": "11.155",
+   "unit": "U4+U5",
+   "lines": [
+    5,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "'Concerning this, sir,' (U4) is completed by 'I am commanded home' (U5), with the aside to Desdemona in between, so U4 is a fragment on its own.",
+   "current_modern_unit": "About this letter, sir — oh, what a well-acted show of grief! — I'm ordered home. — Get out of here;",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "11.162",
+   "unit": "U1",
+   "lines": [
+    0,
+    2
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "The gloss '— out of his mind —' settles Iago's deliberately evasive riddle ('If what he might he is not, / I would to heaven he were!'), which editors read both ways, whereas standard rule 7 says to keep it open.",
+   "current_modern_unit": "He is what he is. It's not my place to voice my judgment of what he might be. If he isn't what he might be — out of his mind — I wish to heaven he were!",
+   "proposed_modern_unit": "He is what he is. It's not my place to voice my judgment of what he might be. If he isn't what he might be, I wish to heaven he were!"
+  }
+ ],
+ "prose_maps": [
+  {
+   "id": "4.77",
+   "units": [
+    {
+     "o": "He takes her by the palm.",
+     "m": "He's taking her by the hand."
+    },
+    {
+     "o": "Ay, well said, whisper.",
+     "m": "Yes, that's right, whisper."
+    },
+    {
+     "o": "With as little a web",
+     "m": "With a web as thin"
+    },
+    {
+     "o": "Ay, smile upon her, do.",
+     "m": "Yes, smile at her, go"
+    },
+    {
+     "o": "I will gyve thee in",
+     "m": "I'll shackle you with your"
+    },
+    {
+     "o": "You say true, ’tis so,",
+     "m": "You're right, that's so, indeed."
+    },
+    {
+     "o": "If such tricks as these",
+     "m": "If tricks like these strip"
+    },
+    {
+     "o": "Very good; well kissed, an",
+     "m": "Very good; nicely kissed, a"
+    },
+    {
+     "o": "’Tis so, indeed.",
+     "m": "That's so, indeed."
+    },
+    {
+     "o": "Yet again your fingers to",
+     "m": "Your fingers to your lips"
+    },
+    {
+     "o": "Would they were clyster-pipes for",
+     "m": "I wish they were enema"
+    }
+   ]
+  },
+  {
+   "id": "4.92",
+   "units": [
+    {
+     "o": "Do thou meet me presently",
+     "m": "Meet me at the harbor"
+    },
+    {
+     "o": "Come hither.",
+     "m": "Come here."
+    },
+    {
+     "o": "If thou be’st valiant—as, they",
+     "m": "If you've got any courage"
+    },
+    {
+     "o": "The lieutenant tonight watches on",
+     "m": "The lieutenant is on watch"
+    },
+    {
+     "o": "first, I must tell thee",
+     "m": "First, I have to tell"
+    }
+   ]
+  },
+  {
+   "id": "4.94",
+   "units": [
+    {
+     "o": "Lay thy finger thus, and",
+     "m": "Put your finger to your"
+    },
+    {
+     "o": "Mark me with what violence",
+     "m": "Remember how violently she first"
+    },
+    {
+     "o": "And will she love him",
+     "m": "And will she keep loving"
+    },
+    {
+     "o": "Let not thy discreet heart",
+     "m": "Don't let your sensible heart"
+    },
+    {
+     "o": "Her eye must be fed.",
+     "m": "Her eye has to be fed."
+    },
+    {
+     "o": "And what delight shall she",
+     "m": "And what pleasure will she"
+    },
+    {
+     "o": "When the blood is made",
+     "m": "When the blood has gone"
+    },
+    {
+     "o": "now, for want of these",
+     "m": "Now, for want of these"
+    },
+    {
+     "o": "very nature will instruct her",
+     "m": "Nature itself will teach her"
+    },
+    {
+     "o": "Now sir, this granted (as",
+     "m": "Now, sir, granting this (and"
+    },
+    {
+     "o": "a knave very voluble; no",
+     "m": "A very smooth-talking scoundrel, with"
+    },
+    {
+     "o": "Why, none, why, none!",
+     "m": "Why, no one, why, no"
+    },
+    {
+     "o": "A slipper and subtle knave,",
+     "m": "A slippery and sly scoundrel,"
+    },
+    {
+     "o": "a devilish knave!",
+     "m": "A devilish scoundrel!"
+    },
+    {
+     "o": "Besides, the knave is handsome,",
+     "m": "Besides, the scoundrel is handsome,"
+    },
+    {
+     "o": "A pestilent complete knave, and",
+     "m": "A complete pest of a"
+    }
+   ]
+  },
+  {
+   "id": "4.96",
+   "units": [
+    {
+     "o": "Blest fig’s end!",
+     "m": "Blessed, my fig's end — nonsense!"
+    },
+    {
+     "o": "the wine she drinks is",
+     "m": "The wine she drinks is"
+    },
+    {
+     "o": "if she had been blessed,",
+     "m": "If she were so blessed,"
+    },
+    {
+     "o": "Blessed pudding!",
+     "m": "Blessed pudding!"
+    },
+    {
+     "o": "Didst thou not see her",
+     "m": "Didn't you see her fondle"
+    },
+    {
+     "o": "Didst not mark that?",
+     "m": "Didn't you notice that?"
+    }
+   ]
+  },
+  {
+   "id": "4.98",
+   "units": [
+    {
+     "o": "Lechery, by this hand.",
+     "m": "It was lechery, I swear"
+    },
+    {
+     "o": "An index and obscure prologue",
+     "m": "The table of contents and"
+    },
+    {
+     "o": "They met so near with",
+     "m": "Their lips came so close"
+    },
+    {
+     "o": "Villainous thoughts, Roderigo!",
+     "m": "Villainous thoughts, Roderigo!"
+    },
+    {
+     "o": "When these mutualities so marshal",
+     "m": "When these intimacies lead the"
+    },
+    {
+     "o": "Pish! But, sir, be you",
+     "m": "Pah! But, sir, let me"
+    },
+    {
+     "o": "I have brought you from",
+     "m": "I've brought you here from"
+    },
+    {
+     "o": "Watch you tonight.",
+     "m": "Stand watch tonight;"
+    },
+    {
+     "o": "For the command, I’ll lay’t",
+     "m": "I'll arrange for you to"
+    },
+    {
+     "o": "Cassio knows you not.",
+     "m": "Cassio doesn't know you."
+    },
+    {
+     "o": "I’ll not be far from",
+     "m": "I won't be far from"
+    },
+    {
+     "o": "Do you find some occasion",
+     "m": "Find some way to make"
+    }
+   ]
+  },
+  {
+   "id": "4.100",
+   "units": [
+    {
+     "o": "Sir, he is rash, and",
+     "m": "Sir, he's hot-headed and very"
+    },
+    {
+     "o": "provoke him that he may,",
+     "m": "Provoke him so he does,"
+    },
+    {
+     "o": "So shall you have a",
+     "m": "That way you'll have a"
+    }
+   ]
+  },
+  {
+   "id": "5.1",
+   "units": [
+    {
+     "o": "It is Othello’s pleasure, our",
+     "m": "It is the wish of"
+    },
+    {
+     "o": "For besides these beneficial news,",
+     "m": "For besides this good news,"
+    },
+    {
+     "o": "So much was his pleasure",
+     "m": "That is what he wanted"
+    },
+    {
+     "o": "All offices are open, and",
+     "m": "All the kitchens and storerooms"
+    },
+    {
+     "o": "Heaven bless the isle of",
+     "m": "Heaven bless the island of"
+    }
+   ]
+  },
+  {
+   "id": "6.7",
+   "units": [
+    {
+     "o": "Not this hour, lieutenant.",
+     "m": "Not yet, lieutenant;"
+    },
+    {
+     "o": "’Tis not yet ten",
+     "m": "it isn't ten o'clock yet."
+    },
+    {
+     "o": "Our general cast us thus",
+     "m": "Our general sent us off"
+    }
+   ]
+  },
+  {
+   "id": "6.47",
+   "units": [
+    {
+     "o": "Ay, but, by your leave,",
+     "m": "Yes, but, if you don't"
+    },
+    {
+     "o": "Let’s have no more of",
+     "m": "Let's have no more of"
+    },
+    {
+     "o": "Forgive us our sins!",
+     "m": "Forgive us our sins!"
+    },
+    {
+     "o": "Gentlemen, let’s look to our",
+     "m": "Gentlemen, let's see to our"
+    },
+    {
+     "o": "Do not think, gentlemen, I",
+     "m": "Don't think, gentlemen, that I'm"
+    },
+    {
+     "o": "This is my ancient, this",
+     "m": "This is my ensign; this"
+    },
+    {
+     "o": "I am not drunk now.",
+     "m": "I'm not drunk now."
+    },
+    {
+     "o": "I can stand well enough,",
+     "m": "I can stand well enough,"
+    }
+   ]
+  },
+  {
+   "id": "6.105",
+   "units": [
+    {
+     "o": "As I am an honest",
+     "m": "As I'm an honest man,"
+    },
+    {
+     "o": "Reputation is an idle and",
+     "m": "Reputation is a useless and"
+    },
+    {
+     "o": "You have lost no reputation",
+     "m": "You haven't lost any reputation"
+    },
+    {
+     "o": "What, man, there are ways",
+     "m": "Come on, man, there are"
+    },
+    {
+     "o": "sue to him again, and",
+     "m": "Plead with him again, and"
+    }
+   ]
+  },
+  {
+   "id": "6.106",
+   "units": [
+    {
+     "o": "I will rather sue to",
+     "m": "I'd sooner plead to be"
+    },
+    {
+     "o": "Drunk? and speak parrot? and",
+     "m": "Drunk? And babble like a"
+    },
+    {
+     "o": "O thou invisible spirit of",
+     "m": "Oh, you invisible spirit of"
+    }
+   ]
+  },
+  {
+   "id": "6.110",
+   "units": [
+    {
+     "o": "I remember a mass of",
+     "m": "I remember a heap of"
+    },
+    {
+     "o": "O God, that men should",
+     "m": "Oh God, that men should"
+    },
+    {
+     "o": "That we should with joy,",
+     "m": "That we should, with joy,"
+    }
+   ]
+  },
+  {
+   "id": "6.113",
+   "units": [
+    {
+     "o": "Come, you are too severe",
+     "m": "Come on, you're too harsh"
+    },
+    {
+     "o": "As the time, the place,",
+     "m": "Given the time, the place,"
+    },
+    {
+     "o": "but since it is as",
+     "m": "but since it is what"
+    }
+   ]
+  },
+  {
+   "id": "6.114",
+   "units": [
+    {
+     "o": "I will ask him for",
+     "m": "If I ask him for"
+    },
+    {
+     "o": "Had I as many mouths",
+     "m": "If I had as many"
+    },
+    {
+     "o": "To be now a sensible",
+     "m": "To be a sensible man"
+    },
+    {
+     "o": "O strange! Every inordinate cup",
+     "m": "Oh, strange! Every cup too"
+    }
+   ]
+  },
+  {
+   "id": "6.117",
+   "units": [
+    {
+     "o": "You, or any man living,",
+     "m": "You, or any man alive,"
+    },
+    {
+     "o": "I’ll tell you what you",
+     "m": "I'll tell you what you"
+    },
+    {
+     "o": "Our general’s wife is now",
+     "m": "Our general's wife is the"
+    },
+    {
+     "o": "Confess yourself freely to her.",
+     "m": "Confess everything openly to her."
+    },
+    {
+     "o": "Importune her help to put",
+     "m": "Beg her to help get"
+    },
+    {
+     "o": "She is of so free,",
+     "m": "She has such a generous,"
+    },
+    {
+     "o": "This broken joint between you",
+     "m": "Beg her to put a"
+    }
+   ]
+  },
+  {
+   "id": "6.127",
+   "units": [
+    {
+     "o": "I do follow here in",
+     "m": "I'm following along in this"
+    },
+    {
+     "o": "My money is almost spent,",
+     "m": "My money's nearly gone; I've"
+    },
+    {
+     "o": "and I think the issue",
+     "m": "and I think the upshot"
+    }
+   ]
+  },
+  {
+   "id": "11.24",
+   "units": [
+    {
+     "o": "Lie with her! lie on",
+     "m": "Lie with her! Lie on"
+    },
+    {
+     "o": "We say lie on her",
+     "m": "We say “lie on her”"
+    },
+    {
+     "o": "Lie with her! that’s fulsome.",
+     "m": "Lie with her! God, that's"
+    },
+    {
+     "o": "Handkerchief—confessions—handkerchief!",
+     "m": "Handkerchief — confessions — handkerchief!"
+    },
+    {
+     "o": "To confess, and be hanged",
+     "m": "Make him confess, and then"
+    },
+    {
+     "o": "First, to be hanged, and",
+     "m": "No — hang him first, and"
+    },
+    {
+     "o": "I tremble at it.",
+     "m": "I'm shaking at the thought."
+    },
+    {
+     "o": "Nature would not invest herself",
+     "m": "My nature wouldn't wrap itself"
+    },
+    {
+     "o": "It is not words that",
+     "m": "It isn't mere words that"
+    },
+    {
+     "o": "Pish! Noses, ears, and lips.",
+     "m": "Pah! Noses, ears, and lips!"
+    },
+    {
+     "o": "Is’t possible?—Confess?—handkerchief?—O devil!—",
+     "m": "Is it possible? — Confess?"
+    }
+   ]
+  },
+  {
+   "id": "11.77",
+   "units": [
+    {
+     "o": "Let the devil and his",
+     "m": "Let the devil and his"
+    },
+    {
+     "o": "What did you mean by",
+     "m": "What did you mean by"
+    },
+    {
+     "o": "I was a fine fool",
+     "m": "I was a real fool"
+    },
+    {
+     "o": "I must take out the",
+     "m": "I'm supposed to copy the"
+    },
+    {
+     "o": "A likely piece of work,",
+     "m": "A likely piece of work"
+    },
+    {
+     "o": "This is some minx’s token,",
+     "m": "This is some tart's love-token,"
+    },
+    {
+     "o": "There, give it your hobby-horse.",
+     "m": "There, give it to your"
+    },
+    {
+     "o": "Wheresoever you had it, I’ll",
+     "m": "Wherever you got it, I"
+    }
+   ]
+  },
+  {
+   "id": "11.98",
+   "units": [
+    {
+     "o": "Ay, let her rot, and",
+     "m": "Yes, let her rot, and"
+    },
+    {
+     "o": "No, my heart is turned",
+     "m": "No, my heart has turned"
+    },
+    {
+     "o": "O, the world hath not",
+     "m": "Oh, the world doesn't hold"
+    },
+    {
+     "o": "She might lie by an",
+     "m": "She could lie beside an"
+    }
+   ]
+  }
+ ],
+ "general_notes": [
+  "Spelling is mixed within these chapters: US 'harbor' (4.60, 4.92), 'rumor' (4.29), 'labor' (4.63) and 'judgment' (11.162) sit alongside UK 'honour/honourable' (6.1, 6.24, 11.10, 11.11), 'offence' (6.24, 6.45, 6.90), 'judgement' (6.90), 'behaviour' (11.166), 'favour' (7.18), 'endeavour' (7.19), 'licence' (11.105) and 'signalling' (11.68). Pick one convention for the whole book; this is not counted as a unit finding.",
+  "In bracketed continuation speeches rendered as short or prose units (4.31, 4.79, 6.30, 6.40, 6.126, 7.23, 11.28, 11.34), the modern column shows square brackets but the original column does not; bracketed verse speeches show none on either side. Check that Compare treats both columns the same way.",
+  "Boundaries that are the least bad available, left as they are: 4.86 U3/U4 (a mid-line 'If it were now to die,'), 6.85 U1/U2 ('and then, but now,'), 6.88 U2/U3 ('what’s the matter, / That you unlace'), 4.105 U7/U8 ('Which thing to do,'). Each sits beside a mid-line sentence start, and every alternative would create a 6-12 line unit or a worse cut."
+ ]
+}

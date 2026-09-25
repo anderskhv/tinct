@@ -1,0 +1,585 @@
+{
+ "validator": "A4",
+ "chapters": [
+  12,
+  13,
+  14,
+  15
+ ],
+ "verse_speeches_checked": 141,
+ "units_checked": 623,
+ "verse_units_checked": 352,
+ "prose_or_short_units_checked": 271,
+ "long_prose_mapped": 7,
+ "findings": [
+  {
+   "id": "12.12",
+   "unit": "U2+U3",
+   "lines": [
+    3,
+    7
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U2 ends on the dangling conditional 'For if she be not honest, chaste, and true,' (M: 'Because if she isn't faithful, chaste and true,') whose main clause 'There's no man happy' opens U3; line 4 already closes a complete sentence on both sides, so re-cut after line 4 (U2 = lines 3-4, U3 = lines 5-7). No wording change needed.",
+   "current_modern_unit": "If some wretch has put this idea in your head, may heaven pay him back with the curse God laid on the serpent! Because if she isn't faithful, chaste and true, then no husband is happy. The purest of wives is as filthy as slander makes her out to be.",
+   "proposed_modern_unit": null,
+   "split_after_line": 4,
+   "proposed_units": [
+    {
+     "lines": [
+      3,
+      4
+     ],
+     "m": "If some wretch has put this idea in your head, may heaven pay him back with the curse God laid on the serpent!"
+    },
+    {
+     "lines": [
+      5,
+      7
+     ],
+     "m": "Because if she isn't faithful, chaste and true, then no husband is happy. The purest of wives is as filthy as slander makes her out to be."
+    }
+   ]
+  },
+  {
+   "id": "12.15",
+   "unit": "U1",
+   "lines": [
+    0,
+    2
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'a locked cupboard, lock and key, full of vile secrets' copies the original's noun stack ('A closet lock and key of villainous secrets') and leaves a bare 'lock and key' apposition that does not parse by ear.",
+   "current_modern_unit": "She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a locked cupboard, lock and key, full of vile secrets.",
+   "proposed_modern_unit": "She says plenty. But any brothel-keeper would be a simpleton if she couldn't say as much. This one is a sly whore, a cupboard kept under lock and key, full of vile secrets."
+  },
+  {
+   "id": "12.33",
+   "unit": "U7+U8",
+   "lines": [
+    14,
+    17
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "The boundary separates the imperative 'turn thy complexion there,' from its addressee 'Patience, thou young and rose-lipp'd cherubin' (and the parallel 'look grim as hell'), so U7 ends on 'turn pale at that,' with no one addressed. Merging gives a 4-line unit (14-17); no clean line-end split exists because line 15 holds the end of one sentence and the start of the next. No wording change.",
+   "current_modern_unit": "or to keep it as a filthy tank for slimy toads to knot together and breed in! — turn pale at that, Patience, you young, rosy-lipped angel, yes, at that, and look as grim as hell!",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "12.35",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary cuts the vocative noun phrase 'O thou weed, / Who art so lovely fair, and smell'st so sweet...' between head and relative clause: U1 ends on 'Oh, you weed,' and U2 opens with a headless 'who are so lovely...'. Merge into one 5-line unit (0-4); line 1 holds a mid-line sentence break, so no clean line-end split exists. No wording change.",
+   "current_modern_unit": "Oh, yes — as faithful as summer flies in a slaughterhouse, that breed the moment they lay their eggs. Oh, you weed, who are so lovely and beautiful, and smell so sweet that my senses ache from you, I wish you had never been born!",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "12.37",
+   "unit": "U2",
+   "lines": [
+    2,
+    2
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "Othello seizes on Desdemona's 'committed' in its absolute sense 'commit adultery' (Schmidt, commit II: 'applied particularly to incontinence', citing Oth. IV.2.72 and 80); modern 'committed' has no such absolute sense, so the listener hears only an echo. Make the sense audible once here; the later 'What have you committed!' echoes then carry it.",
+   "current_modern_unit": "Committed! Oh, you common whore, open to the public!",
+   "proposed_modern_unit": "Committed! Committed adultery! Oh, you common whore, open to the public!"
+  },
+  {
+   "id": "12.37",
+   "unit": "U5",
+   "lines": [
+    7,
+    9
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Is hush'd within the hollow mine of earth' means the wind falls silent in its cave; 'hides itself' changes the image and loses the stillness.",
+   "current_modern_unit": "the lewd, promiscuous wind that kisses everything it meets hides itself in the hollow caves under the earth and refuses to hear it. What have you committed!",
+   "proposed_modern_unit": "the lewd, promiscuous wind that kisses everything it meets falls silent in the hollow caves under the earth and refuses to hear it. What have you committed!"
+  },
+  {
+   "id": "12.40",
+   "unit": "U2",
+   "lines": [
+    1,
+    3
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "Without commas the TTS reading runs 'for my husband alone safe from any other...' together; mark the appositive so the conditional subject is heard as one piece.",
+   "current_modern_unit": "If keeping this body of mine for my husband alone safe from any other foul, unlawful touch means not being a whore, then I'm not one.",
+   "proposed_modern_unit": "If keeping this body of mine for my husband alone, safe from any other foul, unlawful touch, means not being a whore, then I'm not one."
+  },
+  {
+   "id": "12.56",
+   "unit": "U1",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "5-line unit with a clean clause boundary after line 0 on both sides (O0 'Do not talk to me, Emilia,' begins a new clause at O1 'I cannot weep'; M0 ends with a full stop). Split after line 0; lines 1-4 cannot be split further because line 2 breaks mid-line.",
+   "current_modern_unit": "I have none. Don't talk to me, Emilia. I can't cry, and I have no answer to give except in tears. Please, tonight, put my wedding sheets on my bed — remember — and call your husband here.",
+   "proposed_modern_unit": null,
+   "split_after_line": 0
+  },
+  {
+   "id": "12.83",
+   "unit": "U7",
+   "lines": [
+    13,
+    14
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'It does abhor me now I speak the word' (Schmidt abhor 3: 'to fill with horror and loathing') carries the well-known sound-quibble abhor / 'a whore', dramatic irony straight after 'I cannot say whore'; 'it disgusts me' drops it. Keeping the word 'abhorrence' preserves both the exact sense and the sound, as the standard requires for puns.",
+   "current_modern_unit": "but it will never stain my love. I can't say “whore”; it disgusts me now just to speak the word.",
+   "proposed_modern_unit": "but it will never stain my love. I can't say “whore”; it fills me with abhorrence now just to speak the word."
+  },
+  {
+   "id": "12.102",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'seek satisfaction of you' is left open in the original (Schmidt cites IV.2.203 under both 'payment' and 'amends, atonement'), and Iago later says Roderigo 'calls me to a restitution large / Of gold and jewels' (5.1); the added 'in a duel' invents and narrows the threat. 'demand satisfaction from you' alone keeps the original's openness.",
+   "current_modern_unit": "I tell you it's not very well. I'm going to make myself known to Desdemona. If she gives me back my jewels, I'll give up my courtship and repent of trying to seduce a married woman. If not, you can be sure I'll demand satisfaction from you, in a duel.",
+   "proposed_modern_unit": "I tell you it's not very well. I'm going to make myself known to Desdemona. If she gives me back my jewels, I'll give up my courtship and repent of trying to seduce a married woman. If not, you can be sure I'll demand satisfaction from you."
+  },
+  {
+   "id": "12.115",
+   "unit": "U1",
+   "lines": [
+    0,
+    0
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'do yourself a profit and a right' = do yourself good and do yourself justice (right = justice, as in 'do me right'); 'claim what's yours by right' adds an entitlement the original does not state.",
+   "current_modern_unit": "Yes, if you dare to do yourself some good and claim what's yours by right. He's having supper tonight with a tart, and I'll go there to see him. He doesn't know yet about his honorable promotion. If you watch for him leaving there — and I'll arrange for that to happen between twelve and one — you can take him whenever you like. I'll be close by to back up your attack, and between the two of us he'll go down. Come on, don't stand there stunned by it, but come along with me. I'll show you why his death is so necessary that you'll feel duty-bound to deal it to him. It's right in the middle of supper-time now, and the night is wasting away. Get to it.",
+   "proposed_modern_unit": "Yes, if you dare to do yourself some good and some justice. He's having supper tonight with a tart, and I'll go there to see him. He doesn't know yet about his honorable promotion. If you watch for him leaving there — and I'll arrange for that to happen between twelve and one — you can take him whenever you like. I'll be close by to back up your attack, and between the two of us he'll go down. Come on, don't stand there stunned by it, but come along with me. I'll show you why his death is so necessary that you'll feel duty-bound to deal it to him. It's right in the middle of supper-time now, and the night is wasting away. Get to it."
+  },
+  {
+   "id": "13.15",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    2
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary cuts a single clause between subject and predicate: 'even his stubbornness, his checks, his frowns,— / Prithee, unpin me,—have grace and favour in them.' U1 ends on a subject with no verb and U2 opens with 'please, unpin me — have a grace and charm in them.' Merge into one 3-line unit; also drop the stray article ('have grace and charm in them').",
+   "current_modern_unit": "I don't wish that. My love thinks so well of him that even his stubbornness, his scolding, his frowns — please, unpin me — have a grace and charm in them.",
+   "proposed_modern_unit": "I don't wish that. My love thinks so well of him that even his stubbornness, his scolding, his frowns — please, unpin me — have grace and charm in them."
+  },
+  {
+   "id": "13.35",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    3
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary separates 'Dost thou in conscience think,—tell me, Emilia,—' from its object clause 'That there be women do abuse their husbands / In such gross kind?', leaving U2 as a verb with no complement ('Do you honestly think — tell me, Emilia —'). Merge into one 3-line unit (1-3). No wording change.",
+   "current_modern_unit": "Do you honestly think — tell me, Emilia — that there are women who cheat on their husbands in such a filthy way?",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "13.48",
+   "unit": "U8",
+   "lines": [
+    15,
+    16
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'don't we have desires, a desire for sexual sport' sounds like a stutter by ear. Keep 'desires' for 'affections' (it echoes U6 'is it desire that drives it?') and vary the second noun.",
+   "current_modern_unit": "That too. And don't we have desires, a desire for sexual sport, and weakness, just as men do?",
+   "proposed_modern_unit": "That too. And don't we have desires, an appetite for sexual sport, and weakness, just as men do?"
+  },
+  {
+   "id": "14.52",
+   "unit": "U3",
+   "lines": [
+    2,
+    2
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Are you of good or evil?' is a moral question (pointedly ironic from Iago); 'Friends or enemies?' changes it to one of allegiance.",
+   "current_modern_unit": "Who are you? Friends or enemies?",
+   "proposed_modern_unit": "Who are you? Are you for good or evil?"
+  },
+  {
+   "id": "15.2",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Let me not name it to you, you chaste stars!' is Othello restraining himself; 'don't make me say its name to you' turns it into a plea that the stars stop forcing him.",
+   "current_modern_unit": "It's the cause — the crime on trial — it's the cause, my soul; don't make me say its name to you, you pure, chaste stars!",
+   "proposed_modern_unit": "It's the cause — the crime on trial — it's the cause, my soul; I must not name it to you, you pure, chaste stars!"
+  },
+  {
+   "id": "15.2",
+   "unit": "U2",
+   "lines": [
+    2,
+    4
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'monumental alabaster' = the alabaster of tomb effigies; 'the alabaster of a marble tomb' brings in a second, different stone.",
+   "current_modern_unit": "It's the cause. Still, I won't spill her blood, or scar that skin of hers, whiter than snow and smooth as the alabaster of a marble tomb.",
+   "proposed_modern_unit": "It's the cause. Still, I won't spill her blood, or scar that skin of hers, whiter than snow and smooth as the alabaster of a statue on a tomb."
+  },
+  {
+   "id": "15.33",
+   "unit": "U1",
+   "lines": [
+    0,
+    3
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'except with the ordinary kind of love heaven allows that I could feel for anyone' stacks two relative clauses after the original's 'such general warranty of heaven / As I might love' and invites the misparse 'heaven allows that...'.",
+   "current_modern_unit": "And may you have mercy too! I never once wronged you in my life, never loved Cassio except with the ordinary kind of love heaven allows that I could feel for anyone. I never gave him any love-token.",
+   "proposed_modern_unit": "And may you have mercy too! I never once wronged you in my life, and never loved Cassio except with the ordinary love that heaven allows me to feel for anyone. I never gave him any love-token."
+  },
+  {
+   "id": "15.44",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The main clause keeps the original's subjunctive 'Had stomach' as plain 'had', which is ungrammatical in a modern past counterfactual after 'If every hair... had been a life'.",
+   "current_modern_unit": "If every hair on his head had been a life, my huge revenge had appetite enough to devour them all.",
+   "proposed_modern_unit": "If every hair on his head had been a life, my huge revenge would have had appetite enough to devour them all."
+  },
+  {
+   "id": "15.97",
+   "unit": "U1",
+   "lines": [
+    0,
+    3
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'one entire and perfect chrysolite' has become 'one single, flawless precious stone', dropping the named gem, which the render guide lists explicitly among the images to keep (chrysolite). Restore the gem, with a short gloss.",
+   "current_modern_unit": "Yes, with Cassio. No — if she'd been faithful, even if heaven had made me a whole other world out of one single, flawless precious stone, I wouldn't have traded her for it.",
+   "proposed_modern_unit": "Yes, with Cassio. No — if she'd been faithful, even if heaven had made me a whole other world out of one single, flawless chrysolite, a precious gem, I wouldn't have traded her for it."
+  },
+  {
+   "id": "15.108",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'the power to hurt me that I have to bear the hurt' follows the original's 'that power... As I have to be hurt', and by ear 'I have to bear' sounds like 'I must bear', which garbles the comparison (my capacity to endure is twice your power to harm).",
+   "current_modern_unit": "You don't have half the power to hurt me that I have to bear the hurt. Oh, you dupe! You idiot!",
+   "proposed_modern_unit": "You don't have half as much power to hurt me as I have strength to bear the hurt. Oh, you dupe! You idiot!"
+  },
+  {
+   "id": "15.141",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "Topicalized object copied from the original order ('that handkerchief thou speak'st of / I found by fortune'): with no pause it reads as a garden path. Keep the emphatic fronting, but add a dash and a resumptive pronoun.",
+   "current_modern_unit": "Oh, you stupid Moor, that handkerchief you're talking about I found by chance and gave to my husband;",
+   "proposed_modern_unit": "Oh, you stupid Moor, that handkerchief you're talking about — I found it by chance and gave it to my husband;"
+  },
+  {
+   "id": "15.154",
+   "unit": "U4",
+   "lines": [
+    4,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'May my soul go to heaven only as surely as I speak the truth' is a garbled oath formula; the stray 'only' confuses. The plain formula keeps the stake ('So come my soul to bliss, as I speak true').",
+   "current_modern_unit": "Moor, she was chaste. She loved you, cruel Moor. May my soul go to heaven only as surely as I speak the truth;",
+   "proposed_modern_unit": "Moor, she was chaste. She loved you, cruel Moor. May my soul go to heaven as surely as I speak the truth;"
+  },
+  {
+   "id": "15.161",
+   "unit": "U2",
+   "lines": [
+    1,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'than twenty times your blocking me' is a contorted calque of 'Than twenty times your stop'; 'I've seen the day when... I've cut' mixes tenses; 'But, oh, empty boasting!' is stilted. The line order is kept.",
+   "current_modern_unit": "No better sword ever hung at a soldier's thigh. I've seen the day when with this little arm and this good sword I've cut my way through more obstacles than twenty times your blocking me. But, oh, empty boasting!",
+   "proposed_modern_unit": "No better sword ever hung at a soldier's thigh. I've seen the day when, with this little arm and this good sword, I cut my way through more obstacles than twenty times what you could do to stop me. But, oh, what an empty boast!"
+  },
+  {
+   "id": "15.190",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    6
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "The boundary separates the adjuncts 'I pray you, in your letters, / When you shall these unlucky deeds relate,' from their verb 'Speak of me as I am', so U3 ends with no main verb. Merging gives a 5-line unit (2-6) that ends cleanly at 'too well;'. The cost is that the famous 'Speak of me as I am' no longer opens a unit, so this is optional. No wording change.",
+   "current_modern_unit": "Enough about that. I ask you, in your letters, when you report these unhappy events, speak of me as I am. Don't make excuses for anything, or write anything down out of malice. Then you must speak of one who loved not wisely, but too well;",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "15.190",
+   "unit": "U5+U6+U7",
+   "lines": [
+    7,
+    13
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "Both boundaries split a subject from its verb: 'of one whose hand, / Like the base Judean, threw...' and 'of one whose subdu'd eyes, / ... Drop tears...'. No line-end inside lines 7-13 is clause-clean, so the only unbroken alternative is one 7-line unit ending at 'Set you down this.' This is longer than the norm, so it is optional. No wording change.",
+   "current_modern_unit": "of one who wasn't easily jealous, but once worked on, was distraught beyond all measure; of one whose hand, like the ignorant Judean, threw away a pearl worth more than his whole tribe; of one whose lowered eyes, though they're not used to melting into tears, drop tears as fast as the Arabian trees drip their healing gum. Write this down.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "15.190",
+   "unit": "U6",
+   "lines": [
+    9,
+    10
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'base' means vile or low (Schmidt, base), not 'ignorant'. 'Ignorant' belongs to the rival 'Indian' reading (one ignorant of the pearl's worth), while the text used here reads 'Judean' (F1; Schmidt, Judean). Keep the adjective matched to the chosen reading.",
+   "current_modern_unit": "like the ignorant Judean, threw away a pearl worth more than his whole tribe; of one whose lowered eyes,",
+   "proposed_modern_unit": "like the vile Judean, threw away a pearl worth more than his whole tribe; of one whose lowered eyes,"
+  },
+  {
+   "id": "15.190",
+   "unit": "U8+U9",
+   "lines": [
+    14,
+    18
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary cuts the object clause of 'say' ('that in Aleppo once, / Where a malignant and a turban'd Turk / Beat a Venetian... / I took by the throat the circumcised dog'): U8 ends with no main verb for 'that'. Lines 14-18 form one complete 5-line sentence bounded by clean ends ('Set you down this.' / 'thus.'). Merge. No wording change.",
+   "current_modern_unit": "And say as well that in Aleppo once, when a vicious Turk in a turban was beating a Venetian and insulting the Venetian state, I took the circumcised dog by the throat and struck him — like this.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "15.197",
+   "unit": "U5",
+   "lines": [
+    9,
+    10
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'and to the state relate this heavy deed with a heavy heart' keeps the original's inverted order ('and to the state / This heavy act with heavy heart relate').",
+   "current_modern_unit": "I'll go on board ship right away, and to the state relate this heavy deed with a heavy heart.",
+   "proposed_modern_unit": "I'll go on board ship right away, and with a heavy heart report this heavy deed to the state."
+  }
+ ],
+ "prose_maps": [
+  {
+   "id": "12.94",
+   "units": [
+    {
+     "o": "Every day thou daffest me",
+     "m": "Every day you put me"
+    },
+    {
+     "o": "I will indeed no longer",
+     "m": "I really won't put up"
+    },
+    {
+     "o": "Nor am I yet persuaded",
+     "m": "And I'm not yet ready"
+    }
+   ]
+  },
+  {
+   "id": "12.98",
+   "units": [
+    {
+     "o": "With naught but truth.",
+     "m": "With nothing but the truth."
+    },
+    {
+     "o": "I have wasted myself out",
+     "m": "I've spent myself out of"
+    },
+    {
+     "o": "The jewels you have had",
+     "m": "The jewels you've had from"
+    },
+    {
+     "o": "you have told me she",
+     "m": "You've told me she received"
+    }
+   ]
+  },
+  {
+   "id": "12.102",
+   "units": [
+    {
+     "o": "I tell you ’tis not",
+     "m": "I tell you it's not"
+    },
+    {
+     "o": "I will make myself known",
+     "m": "I'm going to make myself"
+    },
+    {
+     "o": "If she will return me",
+     "m": "If she gives me back"
+    },
+    {
+     "o": "If not, assure yourself I",
+     "m": "If not, you can be"
+    }
+   ]
+  },
+  {
+   "id": "12.105",
+   "units": [
+    {
+     "o": "Why, now I see there’s",
+     "m": "Why, now I see you"
+    },
+    {
+     "o": "Give me thy hand, Roderigo.",
+     "m": "Give me your hand, Roderigo."
+    },
+    {
+     "o": "Thou hast taken against me",
+     "m": "You've raised a very fair"
+    }
+   ]
+  },
+  {
+   "id": "12.107",
+   "units": [
+    {
+     "o": "I grant indeed it hath",
+     "m": "I admit it really hasn't"
+    },
+    {
+     "o": "But, Roderigo, if thou hast",
+     "m": "But, Roderigo, if you really"
+    },
+    {
+     "o": "If thou the next night",
+     "m": "If you don't get to"
+    }
+   ]
+  },
+  {
+   "id": "12.115",
+   "units": [
+    {
+     "o": "Ay, if you dare do",
+     "m": "Yes, if you dare to"
+    },
+    {
+     "o": "He sups tonight with a",
+     "m": "He's having supper tonight with"
+    },
+    {
+     "o": "He knows not yet of",
+     "m": "He doesn't know yet about"
+    },
+    {
+     "o": "If you will watch his",
+     "m": "If you watch for him"
+    },
+    {
+     "o": "I will be near to",
+     "m": "I'll be close by to"
+    },
+    {
+     "o": "Come, stand not amazed at",
+     "m": "Come on, don't stand there"
+    },
+    {
+     "o": "I will show you such",
+     "m": "I'll show you why his"
+    },
+    {
+     "o": "It is now high supper-time,",
+     "m": "It's right in the middle"
+    },
+    {
+     "o": "About it.",
+     "m": "Get to it."
+    }
+   ]
+  },
+  {
+   "id": "13.44",
+   "units": [
+    {
+     "o": "In troth, I think I",
+     "m": "Honestly, I think I would,"
+    },
+    {
+     "o": "Marry, I would not do",
+     "m": "Mind you, I wouldn't do"
+    },
+    {
+     "o": "but, for the whole",
+     "m": "but for the whole world"
+    },
+    {
+     "o": "I should venture purgatory for",
+     "m": "I'd risk purgatory for that."
+    }
+   ]
+  }
+ ],
+ "summary_counts": {
+  "by_severity": {
+   "should-fix": 16,
+   "note": 13
+  },
+  "by_type": {
+   "merge": 8,
+   "unnatural": 10,
+   "fidelity": 10,
+   "split": 1
+  }
+ },
+ "observations": [
+  "Prose/short [bracketed] continuation speeches (12.91, 13.26, 13.28, 13.30, 15.66) show square brackets in the modern text but not in the original. The same pattern appears in packets A1-A3, so it looks like a packet or edition artefact rather than a rendering choice. Confirm that the published modern edition does not double-bracket these lines.",
+  "Sung lines in 13.27 and 13.29 ('Sing willow, willow, willow.'; 'Sing all a green willow must be my garland. Let nobody blame him, his scorn I approve,—') sit inside stage directions, so they get no modern rendering and no alignment. The 13.29 text in the packet ('Let nobody blame him — his scorn I approve —') also differs from pg1531 punctuation ('him, his scorn I approve,—'), although it is labelled verbatim both editions. It is context only and outside this brief, but worth a check.",
+  "Verse boundaries that separate an optional adverbial or conditional clause from its main clause (e.g. 14.7 U1/U2/U3, 15.2 U5/U6/U7, 15.132 U2/U3, 15.189 U2/U3/U4) were accepted: there is no clean line-end alternative, because the sentence breaks fall mid-line, and a merge would make units of 6-7 lines. Each modern unit there corresponds exactly to its original lines."
+ ]
+}

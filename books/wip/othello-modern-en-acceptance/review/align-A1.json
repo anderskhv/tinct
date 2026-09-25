@@ -1,0 +1,1031 @@
+{
+ "validator": "A1",
+ "chapters": [
+  1,
+  2,
+  3
+ ],
+ "verse_speeches_checked": 80,
+ "units_checked": 334,
+ "units_checked_breakdown": {
+  "verse_units": 250,
+  "short_or_prose_whole_speech_units": 78,
+  "long_prose_speeches": 6
+ },
+ "long_prose_mapped": 6,
+ "findings": [
+  {
+   "id": "1.4",
+   "unit": "U2",
+   "lines": [
+    4,
+    9
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "Six-line unit divides cleanly after line 6 (O6 ends 'epithets of war:', M6 'military jargon,'): the evasive speech in [4-6], the verdict and his quoted reply in [7-9].",
+   "split_after_line": 6,
+   "current_modern_unit": "But he, in love with his own pride and his own plans, brushed them off with a long, puffed-up speech horribly stuffed with military jargon, and in the end threw out my backers' case. “Truly,” he says, “I have already chosen my officer.”",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.4",
+   "unit": "U6",
+   "lines": [
+    15,
+    16
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'Spinster' here is 'one who spins' (Schmidt; Onions); 'an old maid' brings in the later unmarried-woman sense, which Iago's comparison does not carry.",
+   "current_modern_unit": "and knows no more about arranging troops for battle than an old maid at her spinning wheel — only the theory out of books,",
+   "proposed_modern_unit": "and knows no more about arranging troops for battle than a woman at her spinning wheel — only the theory out of books,",
+   "modern_segment_edits": {
+    "M16": "than a woman at her spinning wheel — only the theory out of books,"
+   }
+  },
+  {
+   "id": "1.4",
+   "unit": "U8+U9",
+   "lines": [
+    20,
+    25
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 21 separates the subject 'And I, of whom his eyes had seen the proof…' from its verb 'must be belee'd and calm'd' (M21/M22 likewise), and leaves 'Christian and heathen', which qualifies 'other grounds', in U9; merge (then see the split after line 23).",
+   "current_modern_unit": "and I — whose service his own eyes had seen proved at Rhodes, at Cyprus, and on other battlefields, Christian and pagan — must be left with the wind stolen out of my sails, dead in the water, by this bookkeeper, this adder-up of debits and credits. He, if you please, gets to be his lieutenant, and I — God help us — His Moorship's ensign.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.4",
+   "unit": "U8+U9",
+   "lines": [
+    20,
+    25
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "After the merge, re-split after line 23, where the modern already ends the sentence ('…adder-up of debits and credits.') and 'this counter-caster' stays with 'debitor and creditor' as the modern reads it; this moves the old U8/U9 boundary from line 21 to line 23.",
+   "split_after_line": 23,
+   "current_modern_unit": "and I — whose service his own eyes had seen proved at Rhodes, at Cyprus, and on other battlefields, Christian and pagan — must be left with the wind stolen out of my sails, dead in the water, by this bookkeeper, this adder-up of debits and credits. He, if you please, gets to be his lieutenant, and I — God help us — His Moorship's ensign.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.8",
+   "unit": "U2",
+   "lines": [
+    1,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'serve my own turn on him' leaves the archaic idiom 'serve my turn' (= serve my purpose, Schmidt s.v. serve) untranslated with modern pronouns, so a listener will not understand it.",
+   "current_modern_unit": "I serve him so I can serve my own turn on him.",
+   "proposed_modern_unit": "I serve him so I can serve my own ends against him.",
+   "modern_segment_edits": {
+    "M1": "I serve him so I can serve my own ends against him."
+   }
+  },
+  {
+   "id": "1.8",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    7
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 5 cuts the relative clause 'That, doting on his own obsequious bondage, / Wears out his time' between its subject and its verb (modern 'who, in love with their own groveling slavery, / wear out their lives'); merge (no clean line break exists inside [2-7]).",
+   "current_modern_unit": "We can't all be masters, and not every master can be faithfully followed. You'll notice plenty of dutiful, bowing-and-scraping servants who, in love with their own groveling slavery, wear out their lives, just like their master's donkey, for nothing but their feed — and when they're old, they're fired.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.8",
+   "unit": "U5+U6+U7",
+   "lines": [
+    8,
+    13
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundaries after lines 9 and 11 cut one relative clause: 'Who, trimm'd in forms…, / Keep yet their hearts' (subject from verb) and 'And throwing but shows of service on their lords, / Do well thrive by them' (adjunct from its verb); merge (then see the split after line 10).",
+   "current_modern_unit": "Such honest fools should be whipped! There are others who, dressed up in the forms and faces of duty, still keep their hearts working for themselves, and, tossing their lords nothing but a show of service, do very well out of them — and when they've lined their coats with money, they serve no master but themselves. These fellows have some spirit,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.8",
+   "unit": "U5+U6+U7",
+   "lines": [
+    8,
+    13
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "After the merge, re-split after line 10, between the two coordinated predicates ('Keep yet their hearts attending on themselves, / And throwing… Do well thrive'; modern 'still keep their hearts working for themselves, / and, tossing… do very well'), giving two clean 3-line units.",
+   "split_after_line": 10,
+   "current_modern_unit": "Such honest fools should be whipped! There are others who, dressed up in the forms and faces of duty, still keep their hearts working for themselves, and, tossing their lords nothing but a show of service, do very well out of them — and when they've lined their coats with money, they serve no master but themselves. These fellows have some spirit,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.10",
+   "unit": "U1+U2+U3",
+   "lines": [
+    0,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 3 splits the single image 'And though he in a fertile climate dwell, / Plague him with flies' (modern '…rich, fertile paradise, / plague him with flies'); merge and re-split after line 2 (see split).",
+   "current_modern_unit": "Call up her father. Wake him, go after the Moor, poison his joy, denounce him in the streets, stir up her relatives' rage, and though he's living in a rich, fertile paradise, plague him with flies. Though his joy is real joy, throw so many torments and annoyances at it that it loses some of its shine.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.10",
+   "unit": "U1+U2+U3",
+   "lines": [
+    0,
+    6
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 2 (O2 'incense her kinsmen,', M2 'stir up her relatives' rage,'), so [0-2] holds the rousing orders and [3-6] the fertile-climate/flies image with the joy clause.",
+   "split_after_line": 2,
+   "current_modern_unit": "Call up her father. Wake him, go after the Moor, poison his joy, denounce him in the streets, stir up her relatives' rage, and though he's living in a rich, fertile paradise, plague him with flies. Though his joy is real joy, throw so many torments and annoyances at it that it loses some of its shine.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.25",
+   "unit": "U3+U4",
+   "lines": [
+    2,
+    6
+   ],
+   "type": "merge",
+   "severity": "note",
+   "issue": "U3 ends with 'and now in madness,' / 'And now, like a madman,', the opening of the clause whose verb is in U4 ('dost thou come / To start my quiet'); no clean line break exists, and merging gives one 5-line unit.",
+   "current_modern_unit": "You've heard me tell you in plain, honest words that my daughter is not for you. And now, like a madman, full of dinner and drinks that have muddled your head, out of drunken, spiteful bravado, you come to shatter my peace.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.31",
+   "unit": "P2 (prose-map unit 2)",
+   "lines": null,
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "The modern makes the favour the cause of the misjudgement ('Because we come to do you a favor, you take us for thugs — so…'); in the original both clauses together cause the consequence ('Because we come to do you service, and you think we are ruffians, you'll have your daughter cover'd…').",
+   "current_modern_unit": "Because we come to do you a favor, you take us for thugs — so you'll have your daughter covered by a Barbary stallion; you'll have your grandchildren neighing at you; you'll have racehorses for cousins and Spanish ponies for relatives.",
+   "proposed_modern_unit": "Because we come to do you a favor and you take us for thugs, you'll have your daughter covered by a Barbary stallion; you'll have your grandchildren neighing at you; you'll have racehorses for cousins and Spanish ponies for relatives."
+  },
+  {
+   "id": "1.37",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 2 separates 'that your fair daughter' from its predicate 'Transported … To the gross clasps of a lascivious Moor' (modern 'that your lovely daughter, / … has been carried off'); merge (no clean line break exists inside this conditional).",
+   "current_modern_unit": "Sir, I'll answer for anything. But I beg you: if it's by your wish and with your wise consent (as I'm partly starting to think it is) that your lovely daughter, at this dead hour of the night, between midnight and morning, has been carried off with no better and no worse escort than a hired servant, a gondolier, into the crude embrace of a lustful Moor —",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.40",
+   "unit": "U2+U3",
+   "lines": [
+    1,
+    6
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 3 separates 'the state' from its verb 'Cannot with safety cast him', and modern U2 ends 'For I know the state,', which a listener hears as a complete statement; merge (no clean line break exists inside [1-6]).",
+   "current_modern_unit": "It wouldn't be fitting or healthy for my position to be called as a witness — as I will be if I stay — against the Moor. For I know the state, however much this may chafe him with some reprimand, can't safely dismiss him, because he's been launched, for such loud and pressing reasons, to the Cyprus wars,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.40",
+   "unit": "U4",
+   "lines": [
+    7,
+    9
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The result clause 'that, to save their souls, they've no one else…' dangles after the relative clause 'which are under way right now', so the listener loses its link to 'for such loud and pressing reasons' in the unit before.",
+   "current_modern_unit": "which are under way right now, that, to save their souls, they've no one else of his depth and ability to run their campaign. For that reason,",
+   "proposed_modern_unit": "which are under way right now: to save their souls, they've no one else of his depth and ability to run their campaign. For that reason,",
+   "modern_segment_edits": {
+    "M7": "which are under way right now: to save their souls,"
+   }
+  },
+  {
+   "id": "1.40",
+   "unit": "U5+U6",
+   "lines": [
+    10,
+    13
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U5 holds only the concessive clause and the opening of the main clause ('Yet, for necessity of present life,' / 'yet, since I have to make a living for now,'), whose subject and verb ('I must show out a flag') are in U6; merge into one 4-line unit.",
+   "current_modern_unit": "though I hate him as much as I hate the pains of hell, yet, since I have to make a living for now, I must hang out a flag and signal of love, which is really nothing but a signal. To be sure of finding him,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "1.45",
+   "unit": "U2",
+   "lines": [
+    1,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'don't trust your daughters' minds by what you see them do' is an unidiomatic calque of 'trust not your daughters' minds / By what you see them act'.",
+   "current_modern_unit": "Fathers, from now on don't trust your daughters' minds by what you see them do. Aren't there magic spells by which the nature of youth and girlhood can be corrupted? Haven't you read, Roderigo, of some such thing?",
+   "proposed_modern_unit": "Fathers, from now on don't trust what you see your daughters do as a guide to their minds. Aren't there magic spells by which the nature of youth and girlhood can be corrupted? Haven't you read, Roderigo, of some such thing?",
+   "modern_segment_edits": {
+    "M1": "Fathers, from now on don't trust what you see your daughters do",
+    "M2": "as a guide to their minds. Aren't there magic spells"
+   }
+  },
+  {
+   "id": "2.3",
+   "unit": "U2",
+   "lines": [
+    5,
+    8
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "'as much weight — twice as much — as the duke's' hedges a crux and tells the listener Brabantio outweighs the duke twofold; the standard reading (Johnson in Furness; Schmidt 'double' = of twofold influence) is a voice as powerful as the duke's double voice, so choose it and record the choice.",
+   "current_modern_unit": "are you securely married? Be certain of this: that great nobleman is very much loved, and his word carries, in practice, as much weight — twice as much — as the duke's. He'll force a divorce,",
+   "proposed_modern_unit": "are you securely married? Be certain of this: that great nobleman is very much loved, and in practice his word carries double weight, just like the duke's. He'll force a divorce,",
+   "modern_segment_edits": {
+    "M7": "and in practice his word carries double weight,",
+    "M8": "just like the duke's. He'll force a divorce,"
+   }
+  },
+  {
+   "id": "2.4",
+   "unit": "U3",
+   "lines": [
+    3,
+    7
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'can speak for themselves, hat on, as an equal, to as proud a fortune' splices the idiom 'speak for themselves' (= are self-evident) onto 'speak … to', garbling 'may speak unbonneted to as proud a fortune' (address it as an equal without doffing the cap; Onions 'unbonneted' = on equal terms).",
+   "current_modern_unit": "and when I find that boasting is honorable, I'll announce it — that I take my life and being from men of royal rank. And my merits can speak for themselves, hat on, as an equal, to as proud a fortune as this one I've won. For understand, Iago,",
+   "proposed_modern_unit": "and when I find that boasting is honorable, I'll announce it — that I take my life and being from men of royal rank. And my merits can speak as equals, without taking their hats off, to as proud a fortune as this one I've won. For understand, Iago,",
+   "modern_segment_edits": {
+    "M6": "can speak as equals, without taking their hats off, to as proud a fortune"
+   }
+  },
+  {
+   "id": "2.12",
+   "unit": "U2+U3+U4",
+   "lines": [
+    1,
+    8
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 4 separates 'And many of the consuls, rais'd and met,' from its verb 'Are at the duke's already', and the one after line 6 separates 'When, being not at your lodging to be found,' from its clause 'The senate hath sent…'; merge and re-split after line 3 (see split).",
+   "current_modern_unit": "It's an urgent business. The warships have sent a dozen messengers, one after another, this very night, each on the heels of the last, and many of the senators, woken and assembled, are at the duke's already. You've been urgently sent for, and when you weren't to be found at your lodgings, the senate sent out three separate search parties to hunt you down.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "2.12",
+   "unit": "U2+U3+U4",
+   "lines": [
+    1,
+    8
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 3 (O3 'at one another's heels;', M3 'each on the heels of the last,'), giving [1-3] the galleys' messengers and [4-8] the consuls, the summons and the search parties.",
+   "split_after_line": 3,
+   "current_modern_unit": "It's an urgent business. The warships have sent a dozen messengers, one after another, this very night, each on the heels of the last, and many of the senators, woken and assembled, are at the duke's already. You've been urgently sent for, and when you weren't to be found at your lodgings, the senate sent out three separate search parties to hunt you down.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "2.32",
+   "unit": "U2+U3+U4",
+   "lines": [
+    1,
+    9
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "Boundaries after lines 4 and 6 cut the 'whether' clause inside its subject ('a maid so tender, fair, and happy, / So opposite to marriage…') and between subject and verb ('…darlings of our nation, / Would ever have … Run'), leaving U3 a bare modifier; merge and re-split after line 3 (see split).",
+   "current_modern_unit": "Damned as you are, you've bewitched her! For I'll put it to anyone with common sense (if she weren't bound in chains of magic) whether a girl so gentle, beautiful and happy, so opposed to marriage that she turned away the rich, curly-haired young darlings of our country, would ever — and make herself the laughingstock of everyone — run from her father's care to the soot-black chest of a thing like you — a thing to fear, not to delight in.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "2.32",
+   "unit": "U2+U3+U4",
+   "lines": [
+    1,
+    9
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 3, after the parenthesis '(If she in chains of magic were not bound)' / '(if she weren't bound in chains of magic)', so [1-3] holds the charge and the appeal to sense and [4-9] the whole 'whether' question.",
+   "split_after_line": 3,
+   "current_modern_unit": "Damned as you are, you've bewitched her! For I'll put it to anyone with common sense (if she weren't bound in chains of magic) whether a girl so gentle, beautiful and happy, so opposed to marriage that she turned away the rich, curly-haired young darlings of our country, would ever — and make herself the laughingstock of everyone — run from her father's care to the soot-black chest of a thing like you — a thing to fear, not to delight in.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.12",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    9
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 5 cuts the clause 'That, as it more concerns the Turk than Rhodes, / So may he with more facile question bear it' between its opening and its verb (modern 'that, since it matters more… / he can also take it…'); merge and re-split after line 3 (see split).",
+   "current_modern_unit": "This can't be true — not by any test of reason. It's a show, a decoy to make us look the wrong way. When we consider how important Cyprus is to the Turk, and just remind ourselves again that, since it matters more to the Turk than Rhodes does, he can also take it with an easier fight, because it isn't braced for war the same way but completely lacks the defenses that Rhodes is dressed in — if we think about this,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.12",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    9
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 3 (O3 'The importancy of Cyprus to the Turk;', M3 'how important Cyprus is to the Turk,'), between the two coordinated verbs of 'When we consider … And let ourselves again but understand', giving [0-3] and [4-9].",
+   "split_after_line": 3,
+   "current_modern_unit": "This can't be true — not by any test of reason. It's a show, a decoy to make us look the wrong way. When we consider how important Cyprus is to the Turk, and just remind ourselves again that, since it matters more to the Turk than Rhodes does, he can also take it with an easier fight, because it isn't braced for war the same way but completely lacks the defenses that Rhodes is dressed in — if we think about this,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.12",
+   "unit": "U1",
+   "lines": [
+    0,
+    5
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'since' turns the correlative 'as it more concerns the Turk than Rhodes, / So may he with more facile question bear it' (= just as it matters more, so also it is easier to take) into cause and effect.",
+   "current_modern_unit": "This can't be true — not by any test of reason. It's a show, a decoy to make us look the wrong way. When we consider how important Cyprus is to the Turk, and just remind ourselves again that, since it matters more to the Turk than Rhodes does,",
+   "proposed_modern_unit": "This can't be true — not by any test of reason. It's a show, a decoy to make us look the wrong way. When we consider how important Cyprus is to the Turk, and simply remind ourselves again that, just as it matters more to the Turk than Rhodes does,",
+   "modern_segment_edits": {
+    "M4": "and simply remind ourselves again",
+    "M5": "that, just as it matters more to the Turk than Rhodes does,"
+   }
+  },
+  {
+   "id": "3.18",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    5
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 2 separates the subject 'Signior Montano, / Your trusty and most valiant servitor' from its verb 'recommends you thus'; merge (no clean line break exists inside the report).",
+   "current_modern_unit": "About thirty ships. And now they've turned around and retraced their course, openly steering for Cyprus. Signior Montano, your loyal and most courageous servant, sends you this report with his willing respects and begs you to believe him.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.35",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "fidelity",
+   "severity": "should-fix",
+   "issue": "The famous and already clear opening 'Most potent, grave, and reverend signiors' loses its recognizability and its dignity with 'serious' for 'grave' (standard rules 2 and 6).",
+   "current_modern_unit": "Most powerful, serious, and respected lords, my very noble masters, good men proven by experience:",
+   "proposed_modern_unit": "Most potent, grave, and reverend lords, my very noble masters, good men proven by experience:",
+   "modern_segment_edits": {
+    "M0": "Most potent, grave, and reverend lords,"
+   }
+  },
+  {
+   "id": "3.35",
+   "unit": "U7",
+   "lines": [
+    14,
+    15
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "The famous and already clear 'a round unvarnish'd tale' becomes 'a plain, unpolished story'; keeping 'unvarnished' keeps the line recognizable.",
+   "current_modern_unit": "I'll tell you a plain, unpolished story of the whole course of my love: what drugs, what charms,",
+   "proposed_modern_unit": "I'll tell you a plain, unvarnished tale of the whole course of my love: what drugs, what charms,",
+   "modern_segment_edits": {
+    "M14": "I'll tell you a plain, unvarnished tale"
+   }
+  },
+  {
+   "id": "3.35",
+   "unit": "U7+U8",
+   "lines": [
+    14,
+    18
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 15 cuts the indirect question 'what drugs, what charms, / What conjuration, and what mighty magic, … I won his daughter' between its fronted objects and its verb; merge into one 5-line unit.",
+   "current_modern_unit": "I'll tell you a plain, unpolished story of the whole course of my love: what drugs, what charms, what spells, and what mighty magic (since that's what I'm charged with) I used in winning his daughter.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.36",
+   "unit": "U2",
+   "lines": [
+    1,
+    4
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'and she, against her nature, …, to fall in love with what she was afraid to look at!' copies the original's exclamatory infinitive with a bare subject, which is ungrammatical in modern English.",
+   "current_modern_unit": "so calm and quiet in spirit that her own impulses made her blush; and she, against her nature, her age, her country, her reputation, everything, to fall in love with what she was afraid to look at!",
+   "proposed_modern_unit": "so calm and quiet in spirit that her own impulses made her blush; and for her — against her nature, her age, her country, her reputation, everything — to fall in love with what she was afraid to look at!",
+   "modern_segment_edits": {
+    "M2": "made her blush; and for her — against her nature,",
+    "M3": "her age, her country, her reputation, everything —"
+   }
+  },
+  {
+   "id": "3.36",
+   "unit": "U3+U4",
+   "lines": [
+    5,
+    12
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 10 cuts 'I therefore vouch again, / That with some mixtures powerful o'er the blood, / Or with some dram…, / He wrought upon her' between the 'that' and its verb; merge and re-split after line 8 (see split).",
+   "current_modern_unit": "It's crippled and badly flawed judgment that would admit such perfection could go so wrong against all the rules of nature; it must be driven to look for the schemes of cunning hell to explain how this happened. So I declare again that with some drugs that work powerfully on the blood, or with some potion bewitched for this purpose, he worked on her.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.36",
+   "unit": "U3+U4",
+   "lines": [
+    5,
+    12
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 8 (O8 'To find out practices of cunning hell,', M8 'to look for the schemes of cunning hell'), so [5-8] holds the maimed-judgement argument and [9-12] 'Why this should be' plus the whole renewed charge.",
+   "split_after_line": 8,
+   "current_modern_unit": "It's crippled and badly flawed judgment that would admit such perfection could go so wrong against all the rules of nature; it must be driven to look for the schemes of cunning hell to explain how this happened. So I declare again that with some drugs that work powerfully on the blood, or with some potion bewitched for this purpose, he worked on her.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.37",
+   "unit": "U1",
+   "lines": [
+    0,
+    3
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'Claiming this isn't proof' can be heard as 'claiming that this isn't proof', the opposite sense; 'To vouch this is no proof' needs an unambiguous subject.",
+   "current_modern_unit": "Claiming this isn't proof, unless there's a fuller and more open test than the flimsy outward look of things and weak likelihoods of everyday assumption that you bring against him.",
+   "proposed_modern_unit": "Saying so is no proof, unless there's a fuller and more open test than the flimsy outward look of things and weak likelihoods of everyday assumption that you bring against him.",
+   "modern_segment_edits": {
+    "M0": "Saying so is no proof,"
+   }
+  },
+  {
+   "id": "3.43",
+   "unit": "U1",
+   "lines": [
+    0,
+    1
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'as truthfully as to heaven I confess the sins of my flesh' keeps the original's fronted 'to heaven', which is contorted in modern English.",
+   "current_modern_unit": "And until she comes, as truthfully as to heaven I confess the sins of my flesh,",
+   "proposed_modern_unit": "And until she comes, as truthfully as I confess the sins of my flesh to heaven,",
+   "modern_segment_edits": {
+    "M0": "And until she comes, as truthfully as",
+    "M1": "I confess the sins of my flesh to heaven,"
+   }
+  },
+  {
+   "id": "3.43",
+   "unit": "U1+U2",
+   "lines": [
+    0,
+    4
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U1 holds only the time clause and the 'as truly as' comparison, whose main clause ('So justly … I'll present') is in U2; merge into one 5-line sentence.",
+   "current_modern_unit": "And until she comes, as truthfully as to heaven I confess the sins of my flesh, just as honestly I'll lay out for your serious ears how I came to win this lovely lady's love, and she mine.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.43",
+   "unit": "U2",
+   "lines": [
+    2,
+    4
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'your serious ears' flattens 'your grave ears' (dignified, weighty); 'grave' is current English and keeps the register.",
+   "current_modern_unit": "just as honestly I'll lay out for your serious ears how I came to win this lovely lady's love, and she mine.",
+   "proposed_modern_unit": "just as honestly I'll lay out for your grave ears how I came to win this lovely lady's love, and she mine.",
+   "modern_segment_edits": {
+    "M2": "just as honestly I'll lay out for your grave ears"
+   }
+  },
+  {
+   "id": "3.45",
+   "unit": "U3",
+   "lines": [
+    6,
+    10
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "This 5-line list divides cleanly at the semicolon after line 7 (O7 'Of moving accidents by flood and field;', M7 'of stirring adventures at sea and on land,').",
+   "split_after_line": 7,
+   "current_modern_unit": "and in it I spoke of the most terrible misfortunes, of stirring adventures at sea and on land, of hair's-breadth escapes in the gap of a broken wall with death all around, of being captured by the arrogant enemy and sold into slavery, of being ransomed from it,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.45",
+   "unit": "U4+U5",
+   "lines": [
+    11,
+    14
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 12 cuts 'Wherein of antres vast and deserts idle, / Rough quarries, rocks, and hills… / It was my hint to speak' between its fronted objects and its verb; merge into one 4-line unit (see the rewrite below).",
+   "current_modern_unit": "and how I carried myself through the history of my travels; in which, of vast caves and empty deserts, rough quarries, rocks, and hills whose peaks touch heaven, I had occasion to speak — that was how it went —",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.45",
+   "unit": "U4+U5",
+   "lines": [
+    11,
+    14
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "The modern copies the fronted object ('in which, of vast caves and empty deserts, rough quarries, … I had occasion to speak'), which is contorted in modern English; rewrite the merged unit.",
+   "current_modern_unit": "and how I carried myself through the history of my travels; in which, of vast caves and empty deserts, rough quarries, rocks, and hills whose peaks touch heaven, I had occasion to speak — that was how it went —",
+   "proposed_modern_unit": "and how I carried myself through the history of my travels, in which I had occasion to speak of vast caves and empty deserts, rough quarries, rocks, and hills whose peaks touch heaven — that was how it went —",
+   "modern_segment_edits": {
+    "M11": "and how I carried myself through the history of my travels,",
+    "M12": "in which I had occasion to speak of vast caves and empty deserts,",
+    "M13": "rough quarries, rocks, and hills whose peaks touch heaven —",
+    "M14": "that was how it went —"
+   }
+  },
+  {
+   "id": "3.45",
+   "unit": "U6",
+   "lines": [
+    15,
+    18
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'To hear all this Desdemona would lean in, completely serious.' fronts the infinitive with no pause, and 'completely serious' misrenders 'seriously' (= in earnest, Schmidt).",
+   "current_modern_unit": "and of the cannibals who eat each other, the Anthropophagi, and men whose heads grow beneath their shoulders. To hear all this Desdemona would lean in, completely serious.",
+   "proposed_modern_unit": "and of the cannibals who eat each other, the Anthropophagi, and men whose heads grow beneath their shoulders. Desdemona would lean in earnestly to hear all this.",
+   "modern_segment_edits": {
+    "M17": "grow beneath their shoulders. Desdemona would lean in",
+    "M18": "earnestly to hear all this."
+   }
+  },
+  {
+   "id": "3.45",
+   "unit": "U8+U9",
+   "lines": [
+    21,
+    25
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "The boundary after line 22 separates 'which I observing,' from its verb 'Took once a pliant hour' (modern 'Noticing this, / I once picked a good moment'); merge into one 5-line unit.",
+   "current_modern_unit": "she'd come back, and with a hungry ear devour everything I said. Noticing this, I once picked a good moment and found a way to draw from her a heartfelt request that I tell the whole story of my wanderings in full,",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.49",
+   "unit": "U3+U4",
+   "lines": [
+    3,
+    9
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U3 (5 lines) ends with the dislocated object 'And so much duty as my mother show'd / To you, preferring you before her father,' whose clause is U4, while the original ends a sentence cleanly after line 5 ('but here's my husband.'); merge and re-split after line 5 (see split).",
+   "current_modern_unit": "my life and upbringing both teach me how to respect you. You're the one my duty belongs to; until now I've been your daughter. But here's my husband, and just as much duty as my mother showed to you, putting you ahead of her own father, that much I claim the right to declare I owe to the Moor, my husband.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.49",
+   "unit": "U3+U4",
+   "lines": [
+    3,
+    9
+   ],
+   "type": "split",
+   "severity": "should-fix",
+   "issue": "Re-split the merged unit after line 5, with a minimal modern adjustment to match the original's full stop: M5 ends 'But here's my husband.' and M6 begins 'And just as much duty as my mother showed'.",
+   "split_after_line": 5,
+   "current_modern_unit": "my life and upbringing both teach me how to respect you. You're the one my duty belongs to; until now I've been your daughter. But here's my husband, and just as much duty as my mother showed to you, putting you ahead of her own father, that much I claim the right to declare I owe to the Moor, my husband.",
+   "proposed_modern_unit": null,
+   "modern_segment_edits": {
+    "M5": "until now I've been your daughter. But here's my husband.",
+    "M6": "And just as much duty as my mother showed"
+   }
+  },
+  {
+   "id": "3.50",
+   "unit": "U5",
+   "lines": [
+    4,
+    6
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'what — if you didn't already have it — with all my heart I'd keep from you' follows the original order and inverts the second 'with all my heart'.",
+   "current_modern_unit": "I here give you, with all my heart, what — if you didn't already have it — with all my heart I'd keep from you. — Because of you, my jewel,",
+   "proposed_modern_unit": "I here give you, with all my heart, what I'd keep from you with all my heart if you didn't already have it. — Because of you, my jewel,",
+   "modern_segment_edits": {
+    "M4": "I here give you, with all my heart, what I'd keep from you",
+    "M5": "with all my heart if you didn't already have it.",
+    "M6": "— Because of you, my jewel,"
+   }
+  },
+  {
+   "id": "3.52",
+   "unit": "U2",
+   "lines": [
+    2,
+    3
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'sentence' plays on maxim and judicial sentence (Johnson, in Furness, reads the 'free comfort' as 'bestowed on occasion of the sentence'), and 'a wise saying' keeps only the maxim; if this is adopted, U3's 'the saying' becomes 'the sentence'.",
+   "current_modern_unit": "A man bears a wise saying well if all he has to bear is the easy comfort he hears in it;",
+   "proposed_modern_unit": "A man bears a sentence well — whether a wise saying or a verdict — if all he has to bear is the easy comfort he hears in it;",
+   "modern_segment_edits": {
+    "M2": "A man bears a sentence well — whether a wise saying or a verdict — if all he has to bear"
+   }
+  },
+  {
+   "id": "3.52",
+   "unit": "U3",
+   "lines": [
+    4,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'but he has to bear both the saying and the sorrow who, to pay off his grief, must borrow…' keeps the original's extraposed relative clause, far from its antecedent 'he'.",
+   "current_modern_unit": "but he has to bear both the saying and the sorrow who, to pay off his grief, must borrow from his poor patience.",
+   "proposed_modern_unit": "but a man who, to pay off his grief, must borrow from his poor patience has to bear both the saying and the sorrow.",
+   "modern_segment_edits": {
+    "M4": "but a man who, to pay off his grief, must borrow from his poor patience",
+    "M5": "has to bear both the saying and the sorrow."
+   }
+  },
+  {
+   "id": "3.54",
+   "unit": "U1",
+   "lines": [
+    0,
+    5
+   ],
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'most serious senators' flattens 'most grave senators'; use 'grave', as in Othello's other addresses to the Senate.",
+   "current_modern_unit": "That tyrant, habit, most serious senators, has made the hard flint-and-steel bed of war into my softest feather bed, the down sifted three times over. I admit a natural and ready eagerness that I find in hardship, and I will take on this present war against the Ottomans.",
+   "proposed_modern_unit": "That tyrant, habit, most grave senators, has made the hard flint-and-steel bed of war into my softest feather bed, the down sifted three times over. I admit a natural and ready eagerness that I find in hardship, and I will take on this present war against the Ottomans.",
+   "modern_segment_edits": {
+    "M0": "That tyrant, habit, most grave senators,"
+   }
+  },
+  {
+   "id": "3.58",
+   "unit": "U2",
+   "lines": [
+    3,
+    5
+   ],
+   "type": "unnatural",
+   "severity": "note",
+   "issue": "'let your voice give me the permission to help my lack of skill' blurs who helps; it is the charter (warrant) found in the Duke's voice that assists her simpleness.",
+   "current_modern_unit": "lend your favorable ear to what I'm about to explain, and let your voice give me the permission to help my lack of skill.",
+   "proposed_modern_unit": "lend your favorable ear to what I'm about to explain, and let me find in your voice a charter to help my lack of skill.",
+   "modern_segment_edits": {
+    "M4": "and let me find in your voice a charter"
+   }
+  },
+  {
+   "id": "3.60",
+   "unit": "U3+U4",
+   "lines": [
+    7,
+    11
+   ],
+   "type": "merge",
+   "severity": "should-fix",
+   "issue": "U3 holds only 'So that, dear lords, if I be left behind, … and he go to the war,', the connective and condition of a main clause ('The rites … are bereft me') that sits in U4; merge and re-split after line 9 (see split).",
+   "current_modern_unit": "So, dear lords, if I'm left behind, a useless moth in peacetime, while he goes to war, I'm robbed of the rites of love — the rights of a wife — I love him for, and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.60",
+   "unit": "U3+U4",
+   "lines": [
+    7,
+    11
+   ],
+   "type": "split",
+   "severity": "note",
+   "issue": "Re-split the merged unit after line 9, between the two coordinated main clauses ('The rites … are bereft me, / And I a heavy interim shall support'), giving [7-9] and [10-11].",
+   "split_after_line": 9,
+   "current_modern_unit": "So, dear lords, if I'm left behind, a useless moth in peacetime, while he goes to war, I'm robbed of the rites of love — the rights of a wife — I love him for, and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "proposed_modern_unit": null
+  },
+  {
+   "id": "3.60",
+   "unit": "U4",
+   "lines": [
+    9,
+    11
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'I'm robbed of the rites of love — the rights of a wife — I love him for' strands 'I love him for' after the inserted gloss, so the relative clause comes loose from 'rites'.",
+   "current_modern_unit": "I'm robbed of the rites of love — the rights of a wife — I love him for, and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "proposed_modern_unit": "I'm robbed of the rites I love him for — the rites of love, the rights of a wife — and I'll have to bear a heavy, dragging wait while my dear one is gone. Let me go with him.",
+   "modern_segment_edits": {
+    "M9": "I'm robbed of the rites I love him for — the rites of love, the rights of a wife —"
+   }
+  },
+  {
+   "id": "3.71",
+   "unit": "U3",
+   "lines": [
+    4,
+    6
+   ],
+   "type": "unnatural",
+   "severity": "should-fix",
+   "issue": "'an hour for love, for practical matters, and for giving orders to spend with you' leaves 'to spend with you' after the list, where it is heard as 'giving orders to spend'.",
+   "current_modern_unit": "Come, Desdemona, I have only an hour for love, for practical matters, and for giving orders to spend with you. We must do what the times demand.",
+   "proposed_modern_unit": "Come, Desdemona, I have only an hour to spend with you, for love, for practical matters, and for giving orders. We must do what the times demand.",
+   "modern_segment_edits": {
+    "M4": "Come, Desdemona, I have only an hour to spend with you,",
+    "M5": "for love, for practical matters, and for giving orders.",
+    "M6": "We must do what the times demand."
+   }
+  },
+  {
+   "id": "3.74",
+   "unit": "whole speech",
+   "lines": null,
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'What are you saying' sounds incredulous, but Roderigo has only said 'Iago —'; 'What sayst thou' here means 'What is it?'.",
+   "current_modern_unit": "What are you saying, noble heart?",
+   "proposed_modern_unit": "What is it, noble heart?"
+  },
+  {
+   "id": "3.80",
+   "unit": "P3 (prose-map unit 3)",
+   "lines": null,
+   "type": "fidelity",
+   "severity": "note",
+   "issue": "'some silly little guinea hen of a woman' softens Iago's cant term, which Onions glosses 'strumpet' and Steevens (in Furness) 'a prostitute' (Schmidt: 'a term of contempt for a woman'); 'silly little' adds a trivializing tone of its own.",
+   "current_modern_unit": "Before I'd say I'd drown myself for the love of some silly little guinea hen of a woman, I'd trade my humanity with a baboon.",
+   "proposed_modern_unit": "Before I'd say I'd drown myself for the love of a guinea hen — a strumpet — I'd trade my humanity with a baboon."
+  }
+ ],
+ "prose_maps": [
+  {
+   "id": "1.31",
+   "units": [
+    {
+     "o": "Zounds, sir, you are one",
+     "m": "By God's wounds, sir, you're"
+    },
+    {
+     "o": "Because we come to do",
+     "m": "Because we come to do"
+    }
+   ]
+  },
+  {
+   "id": "3.53",
+   "units": [
+    {
+     "o": "The Turk with a most",
+     "m": "The Turk is heading for"
+    },
+    {
+     "o": "Othello, the fortitude of the",
+     "m": "Othello, you know the strength"
+    },
+    {
+     "o": "And though we have there",
+     "m": "And though we have a"
+    },
+    {
+     "o": "you must therefore be content",
+     "m": "So you'll have to put"
+    }
+   ]
+  },
+  {
+   "id": "3.80",
+   "units": [
+    {
+     "o": "O villainous!",
+     "m": "Oh, what villainy!"
+    },
+    {
+     "o": "I have looked upon the",
+     "m": "I've looked at the world"
+    },
+    {
+     "o": "Ere I would say I",
+     "m": "Before I'd say I'd drown"
+    }
+   ]
+  },
+  {
+   "id": "3.82",
+   "units": [
+    {
+     "o": "Virtue! a fig!",
+     "m": "Virtue! A fig for that!"
+    },
+    {
+     "o": "’Tis in ourselves that we",
+     "m": "It's up to us whether"
+    },
+    {
+     "o": "Our bodies are gardens, to",
+     "m": "Our bodies are gardens, and"
+    },
+    {
+     "o": "So that if we will",
+     "m": "So whether we plant nettles"
+    },
+    {
+     "o": "If the balance of our",
+     "m": "If the scales of our"
+    },
+    {
+     "o": "But we have reason to",
+     "m": "But we have reason to"
+    }
+   ]
+  },
+  {
+   "id": "3.84",
+   "units": [
+    {
+     "o": "It is merely a lust",
+     "m": "It's nothing but a lust"
+    },
+    {
+     "o": "Come, be a man.",
+     "m": "Come on, be a man."
+    },
+    {
+     "o": "Drown thyself?",
+     "m": "Drown yourself?"
+    },
+    {
+     "o": "Drown cats and blind puppies.",
+     "m": "Drown cats and blind puppies!"
+    },
+    {
+     "o": "I have professed me thy",
+     "m": "I've declared myself your friend,"
+    },
+    {
+     "o": "Put money in thy purse; follow",
+     "m": "Put money in your purse; follow"
+    },
+    {
+     "o": "It cannot be that Desdemona",
+     "m": "It can't be that Desdemona"
+    },
+    {
+     "o": "It was a violent commencement,",
+     "m": "It started violently, and you'll"
+    },
+    {
+     "o": "These Moors are changeable in",
+     "m": "These Moors are changeable in"
+    },
+    {
+     "o": "Fill thy purse with money.",
+     "m": "Fill your purse with money."
+    },
+    {
+     "o": "The food that to him",
+     "m": "The food that tastes as"
+    },
+    {
+     "o": "She must change for youth.",
+     "m": "She's bound to swap him"
+    },
+    {
+     "o": "When she is sated with",
+     "m": "When she's had her fill"
+    },
+    {
+     "o": "She must have change, she",
+     "m": "She has to have a"
+    },
+    {
+     "o": "Therefore put money in thy",
+     "m": "So put money in your"
+    },
+    {
+     "o": "If thou wilt needs damn",
+     "m": "If you're set on damning"
+    },
+    {
+     "o": "Make all the money thou",
+     "m": "Raise all the money you"
+    },
+    {
+     "o": "If sanctimony and a frail",
+     "m": "If a holy ceremony and"
+    },
+    {
+     "o": "A pox of drowning thyself!",
+     "m": "To hell with drowning yourself!"
+    },
+    {
+     "o": "It is clean out of",
+     "m": "That's completely the wrong road:"
+    }
+   ]
+  },
+  {
+   "id": "3.86",
+   "units": [
+    {
+     "o": "Thou art sure of me.",
+     "m": "You can be sure of me."
+    },
+    {
+     "o": "Go, make money.",
+     "m": "Go, raise money."
+    },
+    {
+     "o": "I have told thee often,",
+     "m": "I've told you often, and"
+    },
+    {
+     "o": "My cause is hearted;",
+     "m": "My grievance is rooted in"
+    },
+    {
+     "o": "Let us be conjunctive in",
+     "m": "Let's join forces in our"
+    },
+    {
+     "o": "if thou canst cuckold him,",
+     "m": "If you can cuckold him"
+    },
+    {
+     "o": "There are many events in",
+     "m": "There are many events in"
+    },
+    {
+     "o": "Traverse, go, provide thy money.",
+     "m": "Forward, march!"
+    },
+    {
+     "o": "We will have more of",
+     "m": "We'll talk more about this"
+    },
+    {
+     "o": "Adieu.",
+     "m": "Goodbye."
+    }
+   ]
+  }
+ ]
+}
