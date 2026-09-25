@@ -1,0 +1,125 @@
+{
+ "edition": [
+  {
+   "coord": "26.1",
+   "id": "LH-FU-1",
+   "old": "Violets came, and then daffodils.",
+   "new": "Violets came, and daffodils.",
+   "reason": "Woolf: \"Violets came and daffodils.\" The added \"then\" imposed a sequence the source does not state."
+  },
+  {
+   "coord": "25.3",
+   "id": "LH-FU-2",
+   "old": "Prue Ramsay died of an illness connected with childbirth.",
+   "new": "Prue Ramsay died of some illness connected with childbirth.",
+   "reason": "Woolf: \"in some illness connected with childbirth\". \"some\" keeps the report's vagueness about what the illness was."
+  },
+  {
+   "coord": "40.10",
+   "id": "LH-FU-3",
+   "old": "Meddling like this in their cosmos, she drove them into a frenzy of indecision.",
+   "new": "Meddling like this in the making of their world, she drove them into a frenzy of indecision.",
+   "reason": "Woolf: \"this interference in their cosmogony\". Cosmogony is the making of a world, not the world itself (\"cosmos\"); the plain phrase keeps Lily's mock-creator role."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4a",
+   "old": "—well, it would need seeing to, that it would.",
+   "new": "—it would need seeing to, it would.",
+   "reason": "Woolf: \"it would want seeing to—it would.\" Restores her echo; \"well\" and \"that it would\" amplified the dialect."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4b",
+   "old": "The books and all were gone moldy,",
+   "new": "The books and things were moldy,",
+   "reason": "Woolf: \"The books and things were mouldy\". \"and all were gone moldy\" amplified the dialect."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4c",
+   "old": "the carpet was ruined, clean ruined.",
+   "new": "the carpet was ruined, quite ruined.",
+   "reason": "Woolf: \"the carpet was ruined quite.\" Her own postponed \"quite\" replaces the added rustic intensifier \"clean\"."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4d",
+   "old": "But folks should come and see for themselves;",
+   "new": "But people should come and see for themselves;",
+   "reason": "Woolf: \"But people should come themselves\". \"folks\" was added dialect."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4e",
+   "old": "She’d never be wanting _them_ again. Dead, they said she was; years back, in London.",
+   "new": "She’d never want _them_ again. She was dead, they said; years ago, in London.",
+   "reason": "Woolf: \"She would never want _them_ again. She was dead, they said; years ago, in London.\" Removes the added progressive and inversion; keeps the italics and an ordinary contraction."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4f",
+   "old": "(a pitiful sight the garden was now, run wild, rabbits scuttling out at you from the beds)",
+   "new": "(the garden was a pitiful sight now, all run wild, and rabbits scuttling out at you from the beds)",
+   "reason": "Woolf: \"(the garden was a pitiful sight now, all run to riot, and rabbits scuttling at you out of the beds)\". Restores her word order and \"all\"; the inversion was added."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4g",
+   "old": "(Went very sudden at the end, they said.)",
+   "new": "(She had died very sudden at the end, they said.)",
+   "reason": "Woolf: \"(She had died very sudden at the end, they said.)\" The subjectless euphemism \"Went\" was added; Woolf's own \"very sudden\" stays as her marker of Mrs. McNab's speech."
+  },
+  {
+   "coord": "27.0",
+   "id": "LH-FU-4h",
+   "old": "just as they left it, oh dear, dear!",
+   "new": "just as they left it, ah dear!",
+   "reason": "Woolf: \"ah dear!\" The doubled \"dear, dear\" amplified it. Woolf's own \"ah\" is kept: it is Mrs. McNab's sigh, distinct from Mrs. Ramsay's \"Oh dear!\" at 40.9 (independent verification R1, defect 27.0-1)."
+  }
+ ],
+ "cards": [
+  {
+   "file": "characters/editorial.json",
+   "entity": "prue",
+   "snapshotAfter": [
+    25,
+    3
+   ],
+   "id": "LH-FU-5",
+   "old": "A bracketed passage reports that she died the summer after her wedding, of an illness connected with childbirth.",
+   "new": "A bracketed passage reports that she died that summer, within months of her May wedding, of some illness connected with childbirth.",
+   "reason": "\"the summer after her wedding\" can be read as a year later. Woolf reports the wedding \"that May\" (25.1) and the death \"that summer\" (25.3): the same summer. \"some illness\" matches the corrected 25.3."
+  }
+ ],
+ "threads": [
+  {
+   "file": "characters/to-the-lighthouse-threads.json",
+   "character": "prue",
+   "chapter": "25",
+   "id": "LH-FU-6",
+   "old": "Another reports that she died that summer of an illness connected with childbirth.",
+   "new": "Another reports that she died that summer of some illness connected with childbirth.",
+   "reason": "Consequential consistency with LH-FU-2: the modern-en summary keeps the same vagueness as the corrected text and card."
+  }
+ ],
+ "cardMeta": [
+  {
+   "file": "characters/editorial.json",
+   "id": "LH-FU-7",
+   "field": "contentVersion",
+   "old": "2026-09-24.1",
+   "new": "2026-09-25.1",
+   "reason": "Card content changed (LH-FU-5) and the modern-en source hash changed; the compiled asset carries the new content version, which the registry revision must equal."
+  }
+ ],
+ "base": {
+  "branch": "claude/beautiful-allen-5llaf8",
+  "commit": "175a90f02db376a18a994856903a1b21e36f92a3",
+  "folder": "books/wip/to-the-lighthouse/",
+  "modernEnSha256": "17c56b3d069214329a1f636bc7ad0286e38576d70ebe7921affc431f90149205",
+  "editorialSha256": "e8c2b2f6068eaa1c2cef0c532505f44141c4542723a3071c160bf5fb08ef29b9",
+  "threadsSha256": "ad8b1fe535fcbc9c67701e74b9ade896da7c85d24106382b3f2ba5fb3a66a2df"
+ },
+ "semantics": "Coordinates are chapter.index (chapter 1-based, paragraph index 0-based). Each old string must occur exactly once in its target string and is replaced by new. Serialization of every JSON file: json.dumps(indent=1, ensure_ascii=False) plus a trailing newline, as in the base package."
+}
