@@ -1,0 +1,1401 @@
+{
+ "group": "G02-shakespeare-b",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "date": "2026-09-25",
+ "reference_complete_works": {
+  "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+  "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+  "retrieved_utc": "2026-09-25T11:53:54Z"
+ },
+ "globe_scene_list_cymbeline": {
+  "url": "https://shakespeare.mit.edu/cymbeline/index.html",
+  "sha256": "7dacfb2524d9c690e5bf45e1610a2886c27f9310fd4364daa69fe966708f46b3",
+  "retrieved_utc": "2026-09-25T12:08:14Z"
+ },
+ "verdict_rule": "DEFECTS = at least one proposed S1-S3 finding; COMPLETE-VS-SOURCE = whole text aligned, complete vs matched source, only S4 cosmetic findings",
+ "books": [
+  {
+   "id": "taming-of-the-shrew",
+   "title": "The Taming of the Shrew",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "matched_source": "PG #1508 (PG Shakespeare Team text; body byte-identical to the Taming section of PG #100)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "2fa6c01140bd2544025574f3b486668695917743734092cf297cce0ddce72b8e",
+     "source_url": "https://www.gutenberg.org/cache/epub/1508/pg1508.txt",
+     "source_sha256": "183c53e671d7f41e55cbe0e069c67b15650e97b0af0d548b2c5991f30dc3d87c",
+     "source_retrieved_utc": "2026-09-25T11:55:12Z",
+     "source_body_lines": "114-4901",
+     "source_covered_pct": 88.583,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1,
+     "missing_runs_ge12": 1,
+     "heading_stripped_ordered_identity": "identical except one 2475-token deletion (the Induction) before 1.0",
+     "notes": "Only gap = entire Induction (2501 tokens incl. headings)."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "65f0c9c6d2da2732126c82386f4da63be0089283e42ef7001697c53dc8882376",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "9764e1bffb4062b35dcddd22e41de0f70f26169e0d8c5b8a9afa7652a3671e2e",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-taming-of-the-shrew-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of work)",
+     "extent_words": 2399,
+     "extent_tokens": 2475,
+     "summary": "The whole Induction (Christopher Sly frame: Induction Scene 1 ~1,144 words, Scene 2 ~1,255 words) is absent; the served play opens at Act 1 Scene 1. The Presenters/Sly interjection at 1.74-1.79 (SLY 1.76, 1.78) is therefore served without its frame.",
+     "served_before": "(none: start of work)",
+     "missing_start": "INDUCTION. SCENE I. Before an alehouse on a heath. Enter Hostess and Sly. SLY. I’ll pheeze you, in faith.",
+     "missing_end": "Come, madam wife, sit by my side and let the world slip: we shall ne’er be younger.",
+     "served_after": "1.0 “Flourish. Enter Lucentio and Tranio.”",
+     "source_ref": "pg1508.txt lines 114-587 (heading 114; Ind.1 116-342; Ind.2 344-587) = pg100.txt lines 148719-149192",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "reader_impact": "app/public/data/onboarding/taming-of-the-shrew.json presents the Sly frame as the play’s opening and offers a reading angle on it; the frame is not served.",
+     "existing_repair": "none. origin/claude/friendly-albattani-qgyqfi:books/wip/green-taming-of-the-shrew/ACCEPTANCE-RECORD.md (added in 69f163693) lines 51-54 and 171-172 accept the absence as “a genuine property of the locked source.json” (confirmed in rounds 1, 3, 4). source.json there is the served original-en (sha256 2fa6c011...), so the check was circular: audit-process failure; the accepted modern-en candidate inherits the gap."
+    },
+    {
+     "id": "G02-taming-of-the-shrew-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "18 speech-initial + 8 mid-speech inline-stage-direction splits; 13 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "1.9 “KATHERINA.” | 1.10 “[_To Baptista_] I pray you, sir, is it your will” | 1.11 “To make a stale of me amongst these mates?”",
+     "source_ref": "pg1508.txt line 673 (one continuous speech in source)",
+     "locations_sd_led": [
+      "1.10",
+      "2.47",
+      "2.58",
+      "2.72",
+      "3.66",
+      "4.28",
+      "6.25",
+      "7.53",
+      "8.29",
+      "8.40",
+      "8.47",
+      "8.85",
+      "8.88",
+      "11.22",
+      "11.28",
+      "11.69",
+      "11.73",
+      "11.83",
+      "3.43",
+      "3.44",
+      "4.22",
+      "4.31",
+      "8.86",
+      "9.13",
+      "10.15",
+      "12.107"
+     ],
+     "locations_continuations": [
+      "1.11",
+      "3.45",
+      "3.67",
+      "4.23",
+      "4.29",
+      "4.32",
+      "8.30",
+      "8.89",
+      "9.14",
+      "10.16",
+      "11.23",
+      "11.84",
+      "12.108"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Dramatis Personae / contents not served (editorial front matter).",
+    "Label “Shakespeare (1623)” is the first-publication year; the served text is PG #1508’s modern-spelling edition."
+   ],
+   "needs_investigation": [],
+   "notes": "No local raw (books/raw/taming-of-the-shrew absent). 12 chapters = the 12 Act/Scene divisions of PG #1508 with identical titles; the two Induction scenes are the only missing divisions."
+  },
+  {
+   "id": "henry-iv-part-2",
+   "title": "Henry IV, Part 2",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "matched_source": "PG #1518 (body identical to the 2H4 section of PG #100)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1600)",
+     "sha256": "5312386825366dc9945e915fa5474a680d89fcc2dbceb740f84288a4f5e2f38c",
+     "source_url": "https://www.gutenberg.org/cache/epub/1518/pg1518.txt",
+     "source_sha256": "c399c5dbb16c7008f176a8c4efaa5cdb387a0145623855a4d5e42bb65e400d22",
+     "source_retrieved_utc": "2026-09-25T11:59:52Z",
+     "source_body_lines": "126-5230",
+     "source_covered_pct": 98.409,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1,
+     "missing_runs_ge12": 1,
+     "heading_stripped_ordered_identity": "identical except 321-token deletion (Induction) before 1.0 and 1 inserted token (EPILOGUE heading served at 19.51)",
+     "notes": "Only gap = Induction (328 tokens incl. heading). Epilogue present."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "5488605e212b451b6693e21690babd7690cb5f295a62ffac479519cb394cd203",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "789c2f3e84b5af3fdc2a68538963d9ec98490a10e7f4236f84ed7d4f2c47d267",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-henry-iv-part-2-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of work)",
+     "extent_words": 309,
+     "extent_tokens": 321,
+     "summary": "The Induction (Rumour “painted full of tongues”, 40-line speech, ~297 words + location/SD) is absent. Served ch1 keeps the source location “The same”, which referred to the Induction’s “Warkworth. Before the castle”.",
+     "served_before": "(none: start of work)",
+     "missing_start": "INDUCTION. Warkworth. Before the castle. Enter Rumour, painted full of tongues. RUMOUR. Open your ears;",
+     "missing_end": "From Rumour’s tongues They bring smooth comforts false, worse than true wrongs. [Exit.]",
+     "served_after": "1.0 “Enter Lord Bardolph.” (ch1 title “Act 1, Scene 1 — The same”)",
+     "source_ref": "pg1518.txt lines 126-175 (speech 134-173) = pg100.txt lines 46034-46083",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none. books/characters/henry-iv-part-2/README.md line 3 claims “including the Induction”: incorrect; the Rumour card (“who speaks the Induction”) is bound only to Warwick’s line at 8.17 (source-review.md line 239). No green package for this book."
+    },
+    {
+     "id": "G02-henry-iv-part-2-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "19.51-19.54 (inside ch19)",
+     "extent_words": 317,
+     "summary": "Epilogue is present and complete but served as the tail of ch19 “Act 5, Scene 5 — A public place near Westminster Abbey”; its heading is served as body paragraph 19.51 (“EPILOGUE.” / “EPILOG.”).",
+     "served_before": "19.50 “[_Exeunt._]”",
+     "missing_start": "n/a (present)",
+     "missing_end": "n/a (present)",
+     "served_after": "19.51 “EPILOGUE.” 19.52 “First my fear; then my curtsy; last my speech.”",
+     "source_ref": "pg1518.txt line 5197 (EPILOGUE. as its own division after 5.5); text 5200-5226",
+     "local_raw_has_it": null,
+     "modern_en": "same structure (19.51 “EPILOGUE.”)",
+     "modern_da": "same structure (19.51 “EPILOG.”)",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G02-henry-iv-part-2-03",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "9 speech-initial + 4 mid-speech inline-stage-direction splits; 5 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "5.41 “POINS.” | 5.42 “[_Reads_.] “John Falstaff, knight,” Every man must know that, as oft as” | 5.43 “he has occasion to name himself…”",
+     "source_ref": "pg1518.txt line 1466 (one continuous speech in source)",
+     "locations_sd_led": [
+      "5.42",
+      "7.14",
+      "7.165",
+      "7.172",
+      "7.175",
+      "15.31",
+      "17.20",
+      "17.45",
+      "17.67",
+      "7.15",
+      "7.160",
+      "8.13",
+      "17.23"
+     ],
+     "locations_continuations": [
+      "5.43",
+      "7.16",
+      "7.166",
+      "8.14",
+      "17.46"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1600)” is the Quarto year; served text is PG #1518 modern-spelling edition."
+   ],
+   "needs_investigation": [],
+   "notes": "19 chapters = the 19 scenes of PG #1518 with identical titles."
+  },
+  {
+   "id": "twelfth-night",
+   "title": "Twelfth Night",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1526 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "bf69ddee77f588e6032f726a7cb81a18b3d60ca37f380ed2d76a5f9d756baed3",
+     "source_url": "https://www.gutenberg.org/cache/epub/1526/pg1526.txt",
+     "source_sha256": "500cbdb31a25122829ed349ffe2bc903fbb05a5e77334573f80cd976a9565977",
+     "source_retrieved_utc": "2026-09-25T11:59:54Z",
+     "source_body_lines": "96-4525",
+     "source_covered_pct": 99.396,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (21567 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "95580e0b935cdfce4931acc61bd345c90b2ebbbae92bad677f09909ed2a5a5a0",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "6082c3cbef7468f7144738817cc795c28d35fc112b53ef4635bbfe0f7379c9ff",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-twelfth-night-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "23 speech-initial + 5 mid-speech inline-stage-direction splits; 12 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "10.52 “MALVOLIO.” | 10.53 “[_Reads._] _To the unknown beloved, this, and my good wishes._ Her very” | 10.54 “phrases! By your leave, wax.…”",
+     "source_ref": "pg1526.txt line 2014 (one continuous speech in source)",
+     "locations_sd_led": [
+      "8.42",
+      "8.49",
+      "8.52",
+      "8.55",
+      "8.57",
+      "8.60",
+      "8.62",
+      "8.64",
+      "8.66",
+      "10.47",
+      "10.53",
+      "14.136",
+      "14.141",
+      "14.144",
+      "14.148",
+      "14.151",
+      "14.155",
+      "14.157",
+      "16.53",
+      "18.57",
+      "18.107",
+      "18.126",
+      "18.128",
+      "8.37",
+      "10.78",
+      "14.131",
+      "18.110",
+      "18.137"
+     ],
+     "locations_continuations": [
+      "8.38",
+      "10.54",
+      "10.79",
+      "10.80",
+      "14.132",
+      "14.137",
+      "14.149",
+      "16.54",
+      "18.108",
+      "18.111",
+      "18.129",
+      "18.138"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1623)” = first-publication year."
+   ],
+   "needs_investigation": [],
+   "notes": "18 chapters = 18 scenes of PG #1526, identical titles. All songs present. Residual uncovered source = scene headings only."
+  },
+  {
+   "id": "measure-for-measure",
+   "title": "Measure for Measure",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "matched_source": "PG #23045, The Works of William Shakespeare [Cambridge Edition] Vol. I (1863), ed. W. G. Clark & J. Glover",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "b99ee3fc8f98dca8ec96d44d1f88d3851a67c34b575ea3818d1616e32d22b343",
+     "source_url": "https://www.gutenberg.org/cache/epub/23045/pg23045.txt",
+     "source_sha256": "b4653789e8af7e78b247dd943f1acc9b1df457358b771a9fc90e770cc7659b19",
+     "source_retrieved_utc": "2026-09-25T12:00:10Z",
+     "source_body_lines": "137-5132 (ACT I. to NOTES.), per-scene NOTES blocks and margin line numbers removed",
+     "source_covered_pct": 99.359,
+     "edition_covered_pct": 97.792,
+     "missing_runs_ge25": 1,
+     "missing_runs_ge12": 1,
+     "heading_stripped_ordered_identity": "identical after dropping digit tokens, except a 27-token transcriber’s note (pg23045 lines 3518-3521) correctly not served",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "d0e5a5ae2cf437bb6abaa4002d938224ec977e5d6f17360d7482d7e7a12f8331",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "f5e4e26b9dc5ac808959924b52a874ba4f8923978f8ce087cbf2410598ec014d",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-measure-for-measure-01",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "all 17 chapters (e.g. 1.3, 17.184)",
+     "extent_words": 524,
+     "summary": "All 524 Cambridge-edition margin line numbers are served inside original-en reading text (every ~5th verse/prose line), e.g. “science 5 Exceeds”. Book-wide apparatus, not isolated.",
+     "served_before": "1.3 “Since I am put to know that your own science”",
+     "missing_start": "n/a (extraneous numerals “5”, “10”, … “535”)",
+     "missing_end": "n/a",
+     "served_after": "“5 Exceeds, in that, the lists of all advice”; 17.184 “I know her virtue. 525 Thanks, good friend Escalus”",
+     "source_ref": "pg23045.txt right-margin line numbers (e.g. line 150 “5”, line 4931 “525”)",
+     "local_raw_has_it": null,
+     "modern_en": "absent (0 numerals)",
+     "modern_da": "absent (0 numerals)",
+     "existing_repair": "none; no green package for this book"
+    },
+    {
+     "id": "G02-measure-for-measure-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "0 speech-initial + 4 mid-speech inline-stage-direction splits; 5 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "5.105 “_Pom._ I thank your worship for your good counsel:” | 5.106 “[_Aside_] but I shall follow it as the flesh and fortune shall” | 5.107 “better determine.”",
+     "source_ref": "pg23045.txt line 1304 (one continuous speech in source)",
+     "locations_sd_led": [
+      "5.89",
+      "5.106",
+      "17.130",
+      "17.175"
+     ],
+     "locations_continuations": [
+      "5.90",
+      "5.107",
+      "5.108",
+      "17.131",
+      "17.176"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Cambridge per-scene textual NOTES, general NOTES, Dramatis Personae and transcriber’s notes not served (editorial).",
+    "Audio for this book is held (app/src/data/audioAvailability.json held_books)."
+   ],
+   "needs_investigation": [],
+   "notes": "Matched source is the 1863 Cambridge edition (Clark & Glover), Vol. I, PG #23045 — not the PG-team text (PG #1530/#100 give ~90% coverage). 17 chapters = 17 Cambridge scenes. Raw alignment including the editorial NOTES blocks gives 78.9%; the difference is apparatus."
+  },
+  {
+   "id": "merry-wives-of-windsor",
+   "title": "The Merry Wives of Windsor",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "matched_source": "PG #23044, The Works of William Shakespeare [Cambridge Edition] Vol. I (1863), ed. W. G. Clark & J. Glover",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "4ee59167c634e42eb81ede9d58ec481aedf55931bfd5fd953b9c0713a2c6b280",
+     "source_url": "https://www.gutenberg.org/cache/epub/23044/pg23044.txt",
+     "source_sha256": "466e363503f03b6d8d42f20bb46feb72a12774ac5f472b09bbaebd683f61a1e2",
+     "source_retrieved_utc": "2026-09-25T12:00:13Z",
+     "source_body_lines": "180-4905 (ACT I. to NOTES.), per-scene NOTES blocks and margin line numbers removed",
+     "source_covered_pct": 99.178,
+     "edition_covered_pct": 97.868,
+     "missing_runs_ge25": 1,
+     "missing_runs_ge12": 1,
+     "heading_stripped_ordered_identity": "identical after dropping digit tokens, except a 27-token transcriber’s note (pg23044 lines 1205-1208) correctly not served",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "9c5531e4d3ff43f4604e08517a3059460d3aee6f9f59fde3282fa61203f61010",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "f41ce14ebf382e02174e0d971bf0efc161d2b8fb579abfcd5e586b20e8f88f28",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-merry-wives-of-windsor-01",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "22 of 23 chapters (e.g. 5.2, 23.85)",
+     "extent_words": 515,
+     "summary": "All 515 Cambridge-edition margin line numbers are served inside original-en reading text, including inside Falstaff’s letter (5.2).",
+     "served_before": "5.2 “for his physician, he admits him not for his counsellor. You are”",
+     "missing_start": "n/a (extraneous numerals)",
+     "missing_end": "n/a",
+     "served_after": "“5 not young, no more am I”; 23.85 “by a country fire; 230 Sir John and all.”",
+     "source_ref": "pg23044.txt right-margin line numbers (e.g. line 1217 “5”, line 4822 “230”)",
+     "local_raw_has_it": null,
+     "modern_en": "absent (0 numerals)",
+     "modern_da": "absent (0 numerals)",
+     "existing_repair": "none. origin/claude/friendly-albattani-qgyqfi:books/wip/green-merry-wives-of-windsor (hard-parked for dialect) uses the served original-en as source.json (4ee59167...); its fidelity-review-1.md “apparatus scan” searched collation sigla only and reported 0 hits, missing the numerals."
+    },
+    {
+     "id": "G02-merry-wives-of-windsor-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "0 speech-initial + 6 mid-speech inline-stage-direction splits; 1 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "10.19 “_Mrs Ford._ Do so. Go tell thy master I am alone.” | 10.20 “[_Exit Robin._] Mistress Page, remember you your cue.”",
+     "source_ref": "pg23044.txt line 2617 (one continuous speech in source)",
+     "locations_sd_led": [
+      "1.27",
+      "4.17",
+      "4.19",
+      "8.44",
+      "10.20",
+      "12.13"
+     ],
+     "locations_continuations": [
+      "4.18"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Cambridge NOTES, Q1 (1602) literatim appendix, transcriber’s notes not served (editorial).",
+    "Audio for this book is held (app/src/data/audioAvailability.json held_books)."
+   ],
+   "needs_investigation": [],
+   "notes": "Matched source is the 1863 Cambridge edition Vol. I, PG #23044. 23 chapters = 23 Cambridge scenes. The 1602 Q1 text reprinted literatim after the NOTES is an editorial appendix and is not served (SCOPE)."
+  },
+  {
+   "id": "king-lear",
+   "title": "King Lear",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1532 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1608)",
+     "sha256": "6a8c008eae10905969decc11ef6f7c56e563c68de8597f11f7c52dc3d7732bb5",
+     "source_url": "https://www.gutenberg.org/cache/epub/1532/pg1532.txt",
+     "source_sha256": "b4f8145ac519fcea19ce1fe0f7a87eb18738a6f89c1a73b5fb6491244204ba20",
+     "source_retrieved_utc": "2026-09-25T11:59:56Z",
+     "source_body_lines": "112-6142",
+     "source_covered_pct": 99.214,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 3,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (28139 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "9f4719b82396b06f919866a68fcfab53427865248f959dd6eff16e80b04b920c",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "b330f5edaddf72173f8958ee61ba3d027fdc5f6d0a5fb111e8bdc6bef56c9cf5",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-king-lear-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "23 speech-initial + 17 mid-speech inline-stage-direction splits; 26 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "1.26 “CORDELIA.” | 1.27 “[_Aside._] Then poor Cordelia,” | 1.28 “And yet not so; since, I am sure, my love’s…”",
+     "source_ref": "pg1532.txt line 237 (one continuous speech in source)",
+     "locations_sd_led": [
+      "1.23",
+      "1.27",
+      "2.17",
+      "4.81",
+      "4.124",
+      "9.61",
+      "13.14",
+      "14.9",
+      "15.31",
+      "16.56",
+      "17.10",
+      "17.14",
+      "17.21",
+      "17.35",
+      "18.4",
+      "18.29",
+      "22.18",
+      "24.15",
+      "24.27",
+      "26.28",
+      "26.34",
+      "26.46",
+      "26.72",
+      "1.60",
+      "1.62",
+      "4.104",
+      "4.120",
+      "4.126",
+      "4.141",
+      "9.79",
+      "9.100",
+      "13.9",
+      "15.12",
+      "15.13",
+      "15.19",
+      "15.20",
+      "15.44",
+      "17.32",
+      "22.106",
+      "26.141"
+     ],
+     "locations_continuations": [
+      "1.28",
+      "1.61",
+      "1.63",
+      "2.18",
+      "4.82",
+      "4.121",
+      "4.125",
+      "4.127",
+      "9.62",
+      "9.80",
+      "9.101",
+      "13.10",
+      "14.10",
+      "15.21",
+      "15.32",
+      "17.11",
+      "17.15",
+      "17.22",
+      "18.5",
+      "18.30",
+      "22.19",
+      "22.107",
+      "24.16",
+      "26.47",
+      "26.73",
+      "26.142"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1608)” (Q1 year) on a conflated modern text; library-wide label convention, not reported as a defect."
+   ],
+   "needs_investigation": [],
+   "notes": "Served text = PG #1532 exactly (it keeps “Prythee” ×13 where the current PG #100 section reads “Prithee”: VARIANT, not a defect). Conflated text: Quarto-only (mock trial 15.11, 4.3 scene ch19, 3.7 servants 16.68) and Folio-only (Fool’s prophecy 11.18) passages all present. The 3 runs ≥12 are scene headings (chapter titles)."
+  },
+  {
+   "id": "much-ado-about-nothing",
+   "title": "Much Ado About Nothing",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1519 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1600)",
+     "sha256": "dd00eb7a88235b9852807ce3d52b7bc5c99d2dd391816465e063fffd0d2c7628",
+     "source_url": "https://www.gutenberg.org/cache/epub/1519/pg1519.txt",
+     "source_sha256": "959dd69cc60e8a10885f4f9e0b62147b4770d7a69cf39d6acec82538ddf27cca",
+     "source_retrieved_utc": "2026-09-25T11:59:59Z",
+     "source_body_lines": "132-4631",
+     "source_covered_pct": 99.463,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (22767 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "3b92db2e6ffc9d6b06eb0e3e6b15edaba45f2ed3495ddb2cb999c5b10eddf1af",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "2d45f4afa4ee771a8258be9ce63e68d4c5aaeef83372fc81d5d4f0affa2a38fa",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-much-ado-about-nothing-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "17 speech-initial + 1 mid-speech inline-stage-direction splits; 10 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "6.29 “BENEDICK.” | 6.30 “[Aside] And he had been a dog that should have howled” | 6.31 “thus, they would have hanged him;…”",
+     "source_ref": "pg1519.txt line 1592 (one continuous speech in source)",
+     "locations_sd_led": [
+      "4.18",
+      "6.30",
+      "6.40",
+      "6.47",
+      "6.53",
+      "6.56",
+      "6.91",
+      "6.94",
+      "6.98",
+      "7.33",
+      "8.44",
+      "9.39",
+      "9.46",
+      "9.57",
+      "14.60",
+      "14.125",
+      "17.43",
+      "17.35"
+     ],
+     "locations_continuations": [
+      "6.31",
+      "6.54",
+      "6.57",
+      "6.92",
+      "6.95",
+      "6.99",
+      "7.34",
+      "9.58",
+      "14.61",
+      "14.126"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1600)” = Quarto year."
+   ],
+   "needs_investigation": [],
+   "notes": "17 chapters = 17 scenes of PG #1519 (mixed-case scene headings in Acts 3-4 handled correctly)."
+  },
+  {
+   "id": "antony-and-cleopatra",
+   "title": "Antony and Cleopatra",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "matched_source": "PG #1534 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "1e768f7514f9746ced869799b520c0592a96165101c6a8be4f1f5347093a8a8b",
+     "source_url": "https://www.gutenberg.org/cache/epub/1534/pg1534.txt",
+     "source_sha256": "7ebf4c16e0ba2f7a412ac27520e14ed447c7741c65aa85ff88606dbac8689f19",
+     "source_retrieved_utc": "2026-09-25T12:00:01Z",
+     "source_body_lines": "181-6676",
+     "source_covered_pct": 98.778,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (26587 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "6cd4739c60b8cda93545514560503eca9bfeef36355dff9896a6a087bf4c2654",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "97f45e0b01d5a14aaa5b91d6b127a80f7ecf0af0ed30ed0e86475850aa850b8f",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-antony-and-cleopatra-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter titles ch23-25 and ch36-40",
+     "extent_words": 0,
+     "summary": "8 chapters are titled “Act 3, Scene 0” (source III.xi-xiii) and “Act 4, Scene 0” (source IV.xi-xv): roman numerals ≥ XI parsed as 0. Includes 3.13 (“one other gaudy night”), 4.14 (Antony’s death) and 4.15 (the monument). Also shown on the public page app/public/read/antony-and-cleopatra/book.html.",
+     "served_before": "ch22 “Act 3, Scene 10 — Another part of the Plain”",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "ch23 “Act 3, Scene 0 — Alexandria. A Room in the Palace” … ch40 “Act 4, Scene 0 — Alexandria. A monument”",
+     "source_ref": "pg1534.txt lines 3813, 3961, 4039 (SCENE XI-XIII of Act III); 5131, 5143, 5225, 5249, 5563 (SCENE XI-XV of Act IV)",
+     "local_raw_has_it": null,
+     "modern_en": "same wrong labels",
+     "modern_da": "same wrong labels (“Akt 3, Scene 0”)",
+     "existing_repair": "none; no other served edition in the repo has a “Scene 0” title (git grep)"
+    },
+    {
+     "id": "G02-antony-and-cleopatra-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "23 speech-initial + 4 mid-speech inline-stage-direction splits; 18 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "11.40 “MENAS.” | 11.41 “[_Aside_.] Thy father, Pompey, would ne’er have made this treaty.—” | 11.42 “You and I have known, sir.”",
+     "source_ref": "pg1534.txt line 2399 (one continuous speech in source)",
+     "locations_sd_led": [
+      "11.41",
+      "12.10",
+      "12.21",
+      "12.23",
+      "12.25",
+      "12.28",
+      "12.39",
+      "12.42",
+      "12.45",
+      "12.62",
+      "12.82",
+      "14.32",
+      "14.34",
+      "14.36",
+      "14.39",
+      "14.42",
+      "25.21",
+      "25.36",
+      "25.49",
+      "27.11",
+      "27.13",
+      "27.19",
+      "27.21",
+      "24.12",
+      "33.3",
+      "42.28",
+      "42.76"
+     ],
+     "locations_continuations": [
+      "11.42",
+      "12.11",
+      "12.26",
+      "12.29",
+      "12.40",
+      "12.43",
+      "12.63",
+      "12.83",
+      "14.37",
+      "14.40",
+      "14.43",
+      "24.13",
+      "25.22",
+      "25.37",
+      "27.14",
+      "33.4",
+      "42.29",
+      "42.77"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1623)” = first-publication year."
+   ],
+   "needs_investigation": [],
+   "notes": "42 chapters = 42 scenes of PG #1534; locations match; scene numbers wrong for 8 chapters (finding 01)."
+  },
+  {
+   "id": "richard-iii",
+   "title": "Richard III",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1503 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1597)",
+     "sha256": "891ead74f6cbcfa6acd05afc92b3e7798c4aa2105a1e7011086e8b2853e3a449",
+     "source_url": "https://www.gutenberg.org/cache/epub/1503/pg1503.txt",
+     "source_sha256": "8e11eb22f09dbac1b5fd390c7ab353b5b294e6f8074db21fa76e03b4c17592a2",
+     "source_retrieved_utc": "2026-09-25T12:00:03Z",
+     "source_body_lines": "135-6508",
+     "source_covered_pct": 99.442,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (31362 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "30204ef16006235b5dfad0a5281469da176f220f6b89e97f071efb523ce56b6f",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "15ce2bdaa6368395328d71fba70adb9f3eb75064831ae228a8bcfa14fc90943b",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-richard-iii-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "32 speech-initial + 19 mid-speech inline-stage-direction splits; 38 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "3.40 “QUEEN MARGARET.” | 3.41 “[_Aside._] And lessened be that small, God, I beseech Him!” | 3.42 “Thy honour, state, and seat, is due to me.”",
+     "source_ref": "pg1503.txt line 1060 (one continuous speech in source)",
+     "locations_sd_led": [
+      "3.41",
+      "3.45",
+      "3.49",
+      "3.52",
+      "3.55",
+      "3.58",
+      "3.64",
+      "8.37",
+      "9.29",
+      "9.38",
+      "10.4",
+      "10.7",
+      "10.62",
+      "15.58",
+      "16.35",
+      "17.19",
+      "17.21",
+      "19.6",
+      "19.10",
+      "19.14",
+      "23.53",
+      "23.60",
+      "23.67",
+      "23.74",
+      "23.77",
+      "23.79",
+      "23.82",
+      "23.87",
+      "23.94",
+      "23.101",
+      "23.108",
+      "23.154",
+      "9.32",
+      "10.31",
+      "13.31",
+      "16.18",
+      "16.36",
+      "16.37",
+      "17.30",
+      "17.48",
+      "19.16",
+      "19.18",
+      "19.168",
+      "23.48",
+      "23.55",
+      "23.62",
+      "23.69",
+      "23.89",
+      "23.96",
+      "23.103",
+      "23.110"
+     ],
+     "locations_continuations": [
+      "3.42",
+      "3.46",
+      "3.59",
+      "3.65",
+      "8.38",
+      "9.33",
+      "10.63",
+      "13.32",
+      "15.59",
+      "16.19",
+      "16.38",
+      "17.22",
+      "17.31",
+      "17.49",
+      "19.7",
+      "19.11",
+      "19.169",
+      "23.49",
+      "23.54",
+      "23.56",
+      "23.61",
+      "23.63",
+      "23.68",
+      "23.70",
+      "23.75",
+      "23.80",
+      "23.83",
+      "23.88",
+      "23.90",
+      "23.95",
+      "23.97",
+      "23.102",
+      "23.104",
+      "23.109",
+      "23.111",
+      "23.155",
+      "23.156",
+      "23.157"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1597)” = Q1 year."
+   ],
+   "needs_investigation": [],
+   "notes": "25 chapters = 25 scenes of PG #1503."
+  },
+  {
+   "id": "coriolanus",
+   "title": "Coriolanus",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1535 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da",
+     "source_url": "https://www.gutenberg.org/cache/epub/1535/pg1535.txt",
+     "source_sha256": "88eee215f35f02ba23749b88a8a25be4f7f854c1510f15e49e76287a7c6d758b",
+     "source_retrieved_utc": "2026-09-25T12:00:05Z",
+     "source_body_lines": "114-6478",
+     "source_covered_pct": 99.289,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 1,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (29589 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "cb7175962445184e3d28082130a5eee53b66dee497c1f92d9d516f512de8b488",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "187cf22c3daab3d621d7b1906c4de9e2c76d3b6aa70e1957c4f7830b0f42f462",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-coriolanus-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "9 speech-initial + 2 mid-speech inline-stage-direction splits; 8 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "11.82 “CORIOLANUS.” | 11.83 “[_To Volumnia and Virgilia_.] Your hand, and yours.” | 11.84 “Ere in our own house I do shade my head,…”",
+     "source_ref": "pg1535.txt line 1884 (one continuous speech in source)",
+     "locations_sd_led": [
+      "4.6",
+      "11.83",
+      "14.78",
+      "14.80",
+      "18.16",
+      "21.50",
+      "26.28",
+      "26.52",
+      "26.55",
+      "2.3",
+      "14.174"
+     ],
+     "locations_continuations": [
+      "2.4",
+      "11.84",
+      "14.81",
+      "14.175",
+      "18.17",
+      "21.51",
+      "26.53",
+      "26.56"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1623)”."
+   ],
+   "needs_investigation": [],
+   "notes": "29 chapters = 29 scenes of PG #1535 (Act 1 has 10). The one run ≥12 is the 1.8 heading."
+  },
+  {
+   "id": "cymbeline",
+   "title": "Cymbeline",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "matched_source": "PG #1538 (PG Shakespeare Team text; body identical to the PG #100 section)",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "5f25167f50db13c867e42eaa594a989b52651e122034987181c5065cfd919749",
+     "source_url": "https://www.gutenberg.org/cache/epub/1538/pg1538.txt",
+     "source_sha256": "8c28e78377ca8cb34e9bb570a7d123cae740a246fc60fc073ef79322a0840062",
+     "source_retrieved_utc": "2026-09-25T12:00:08Z",
+     "source_body_lines": "122-5918",
+     "source_covered_pct": 99.262,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 2,
+     "heading_stripped_ordered_identity": "identical ordered token sequence (heading lines excluded) (29585 tokens)",
+     "notes": "See report for residual runs."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "9fbacf6307e227a64ec6ccb4624a1afc4b41b890f045904eb2ca1276040580b0",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "0ed7dbb0a97f39216e9a520a85e4fa31dc1fe7658630fcc9c7a3e7d904e12dd6",
+     "source_url": null,
+     "aligned_to_source": false,
+     "check": "rendering of original-en: per-chapter paragraph counts equal original-en; presence of each original-en defect checked; whole-passage omission/neighbour-duplication scan (none found)"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G02-cymbeline-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "titles ch9, ch10, ch26; paragraphs 9.0, 10.0, 26.0",
+     "extent_words": 5,
+     "summary": "Three two-line scene headings were split: the chapter title keeps line 1 and line 2 is served as the chapter’s first body paragraph (9.0 “in one corner.”, 10.0 “apartments.”, 26.0 “camps.”).",
+     "served_before": "ch9 title “…Imogen’s bedchamber in Cymbeline’s palace; a trunk”",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "9.0 “in one corner.” 9.1 “Enter Imogen in her bed, and a Lady attending.”",
+     "source_ref": "pg1538.txt lines 1542-1543, 1625-1626, 4545-4546",
+     "local_raw_has_it": null,
+     "modern_en": "same (fragments in English)",
+     "modern_da": "same (“i et hjørne.”, “værelser.”, “lejre.”)",
+     "existing_repair": "none; origin/claude/friendly-albattani-qgyqfi:books/wip/green-cymbeline accepted the structure without noting it"
+    },
+    {
+     "id": "G02-cymbeline-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "37 speech-initial + 6 mid-speech inline-stage-direction splits; 35 unlabelled continuation paragraphs",
+     "extent_words": 0,
+     "summary": "Macbeth failure pattern tested: NO text lost (ordered token identity with source). Sibling artifact: where a speech line begins with an inline stage direction, the parser starts a new paragraph, so the speech is served as speaker-only paragraph / SD+first line / unlabelled continuation (mid-sentence breaks). modern-en and modern-da mirror the same segmentation.",
+     "example": "3.12 “SECOND LORD.” | 3.13 “[_Aside._] As many inches as you have oceans.” | 3.14 “Puppies!”",
+     "source_ref": "pg1538.txt line 525 (one continuous speech in source)",
+     "locations_sd_led": [
+      "3.4",
+      "3.7",
+      "3.10",
+      "3.13",
+      "3.17",
+      "3.21",
+      "3.24",
+      "3.28",
+      "6.16",
+      "6.19",
+      "6.21",
+      "7.8",
+      "7.11",
+      "8.4",
+      "8.10",
+      "8.13",
+      "8.23",
+      "8.31",
+      "16.4",
+      "17.47",
+      "17.51",
+      "19.6",
+      "19.27",
+      "19.29",
+      "22.2",
+      "22.5",
+      "22.14",
+      "22.20",
+      "22.134",
+      "28.27",
+      "29.45",
+      "29.51",
+      "29.65",
+      "29.92",
+      "29.94",
+      "29.143",
+      "29.153",
+      "2.37",
+      "6.13",
+      "23.7",
+      "28.29",
+      "29.135",
+      "29.155"
+     ],
+     "locations_continuations": [
+      "2.38",
+      "3.14",
+      "3.18",
+      "3.25",
+      "3.29",
+      "6.14",
+      "6.17",
+      "6.22",
+      "7.9",
+      "7.12",
+      "7.13",
+      "7.14",
+      "8.5",
+      "8.14",
+      "8.32",
+      "16.5",
+      "17.48",
+      "17.52",
+      "19.7",
+      "19.30",
+      "22.3",
+      "22.6",
+      "22.15",
+      "22.21",
+      "22.135",
+      "23.8",
+      "28.28",
+      "28.30",
+      "28.31",
+      "29.46",
+      "29.66",
+      "29.95",
+      "29.144",
+      "29.154",
+      "29.156"
+     ],
+     "local_raw_has_it": null,
+     "modern_en": "same split at same coordinates",
+     "modern_da": "same split at same coordinates",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Label “Shakespeare (1623)”.",
+    "Scene numbering differs from Globe-based citations (see notes)."
+   ],
+   "needs_investigation": [],
+   "notes": "29 chapters = the 29 scene divisions of PG #1538. Versus the Globe/MIT 27: served ch1+ch2 = Globe 1.1 (split at “Enter Queen, Posthumus and Imogen”), ch18+ch19 = Globe 3.6 (split at “Enter Belarius, Guiderius and Arviragus”); so served 1.3-1.7 = Globe 1.2-1.6 and served 3.8 = Globe 3.7; all else 1:1. Faithful to the matched source, not a defect."
+  }
+ ]
+}

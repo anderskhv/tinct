@@ -1,0 +1,715 @@
+{
+ "group": "G10-ancient-religious",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "audit_date": "2026-09-25",
+ "books": [
+  {
+   "id": "the-histories",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "f442e468e59838d5783d0c30d14b3f180e06c4175261913597d5f2182c22de31",
+     "source_url": "https://www.gutenberg.org/cache/epub/2707/pg2707.txt + https://www.gutenberg.org/cache/epub/2456/pg2456.txt",
+     "source_sha256": "b4a845d38e9051690201561803d2aa83f6589a7b3f80273b97d79801981e64a3 + 7b28f25dbed0064cd8f66c662eaa776cccd535cdeb6e3ff94c37dd1cc2a752db",
+     "source_retrieved_utc": "2026-09-25T11:56:11Z (vol 1); 2026-09-25T11:55:50Z (vol 2)",
+     "source_covered_pct": 99.418,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-the-histories-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of 'Book 1 — Clio, Chapter 1')",
+     "extent_words": 65,
+     "summary": "Herodotus' proem ('This is the Showing forth of the Inquiry of Herodotus of Halicarnassos…') absent; the work opens at §1.1",
+     "served_before": "(start of work; section title 'Book I — Clio')",
+     "missing_start": "This is the Showing forth of the Inquiry of Herodotus of Halicarnassos, to the end that",
+     "missing_end": "especially that the causes may be remembered for which these waged war with one another.",
+     "served_after": "Those of the Persians who have knowledge of history declare that the Phenicians first began the quarrel.",
+     "source_ref": "pg2707.txt lines 189-194 (sha256 b4a845d3…81e64a3); align.py only missing run ≥12 in whole text",
+     "local_raw_has_it": null,
+     "modern_en": "absent (1.0 = 'The learned among the Persians say…')",
+     "modern_da": "absent (1.0 = 'De lærde blandt perserne siger…')",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "within 43.0 (label 'Book 1 — Clio, Chapter 43')",
+     "extent_words": 130,
+     "summary": "Section 1.44 (Croesus invokes Zeus the Cleanser after Atys' death) runs on inside 1.43; label 44 absent, later labels correct (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…to him of the combat and of the fate of his son.",
+     "missing_start": "And Croesus was very greatly disturbed by the death of his son,",
+     "missing_end": "…him as a protector he had found him the worst of foes.",
+     "served_after": "44.0 'After this the Lydians came bearing the corpse, and behind it followed…'",
+     "source_ref": "pg2707.txt lines 863-874 (no '44.' marker in source)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "1.44",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "574.1 (second paragraph of 'Book 4 — Melpomene, Chapter 17')",
+     "extent_words": 174,
+     "summary": "Section 4.18 served as 2nd paragraph of 4.17 with stray marker '18.Beyond' (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…ground, and these sow their corn not for food but to sell.",
+     "missing_start": "18.Beyond them dwell the Neuroi; and beyond the Neuroi towards the North…",
+     "missing_end": "…has no race of men in it, as far as we know.",
+     "served_after": "575.0 'The region which lies to the East of these agricultural Scythians…'",
+     "source_ref": "pg2707.txt lines 11734-11748 (malformed marker '18.Beyond')",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "4.18",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-04",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "within 878.0 ('Book 5 — Terpsichore, Chapter 117')",
+     "extent_words": 212,
+     "summary": "Section 5.118 (Carian council at the White Pillars) runs on inside 5.117 with stray '118.' mid-paragraph (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…turned back therefore from the Hellespont and marched his army upon Caria.",
+     "missing_start": "118. And, as it chanced, a report of this was brought to…",
+     "missing_end": "…battle, they might never return home, but might fall into the river.",
+     "served_after": "879.0 'After this, when the Persians had come and had crossed the Maiander,…'",
+     "source_ref": "pg2456.txt lines 2008-2025 (marker '118.' at end of a 5.117 line)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "5.118",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-05",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "within 1060.0 ('Book 7 — Polymnia, Chapter 34')",
+     "extent_words": 155,
+     "summary": "Section 7.35 (Xerxes has the Hellespont scourged) is PRESENT, merged into 7.34; label 35 absent (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…together all the work that had been made and broke it up.",
+     "missing_start": "Then when Xerxes heard it he was exceedingly enraged, and bade them…",
+     "missing_end": "…who were appointed to have charge over the bridging of the Hellespont.",
+     "served_after": "1061.0 'Thus then the men did, to whom this ungracious office belonged;…'",
+     "source_ref": "pg2456.txt lines 5546-5558 (no '35.' marker in source)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "7.35",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-06",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1063.1 (second paragraph of 'Book 7 — Polymnia, Chapter 38')",
+     "extent_words": 275,
+     "summary": "Section 7.39 (Xerxes answers Pythios; the eldest son cut in two) served as 2nd paragraph of 7.38 with stray '38.' (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…thou hast in thy mind, mayest thou have a safe return home.\"",
+     "missing_start": "38. Then Xerxes was exceedingly angry and made answer with these words:…",
+     "missing_end": "…left, and that the army should pass between them by this way.",
+     "served_after": "1064.0 'When these had so done, the army proceeded to pass between;…'",
+     "source_ref": "pg2456.txt lines 5624-5644 (source misnumbers 39 as a second '38.')",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "7.39",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-07",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "within 1090.0 ('Book 7 — Polymnia, Chapter 66')",
+     "extent_words": 89,
+     "summary": "Section 7.67 (Caspians, Sarangians, Pactyans in the army list) runs on inside 7.66 (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans.",
+     "missing_start": "The Caspians served wearing coats of skin 65 and having native bows…",
+     "missing_end": "…these acknowledged as their commander Artaÿntes the son of Ithamitres.",
+     "served_after": "1091.0 'The Utians and Mycans and Paricanians were equipped like the Pactyans:…'",
+     "source_ref": "pg2456.txt lines 6009-6017 (no '67.' marker in source)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "7.67",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-08",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1098.1 (second paragraph of 'Book 7 — Polymnia, Chapter 75')",
+     "extent_words": 74,
+     "summary": "Section 7.76 (lacunose Greek; people with ox-horn helmets) served as 2nd paragraph of 7.75 with stray '76.... 73' (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…who lived in Asia the commander was Bassakes the son of Artabanos.",
+     "missing_start": "76.... 73 and they had small shields of raw ox-hide, and each…",
+     "missing_end": "…strips of cloth. Among these men there is an Oracle of Ares.",
+     "served_after": "1099.0 'The Meonian Cabelians, who are called Lasonians, had the same equipment…'",
+     "source_ref": "pg2456.txt lines 6094-6099 (marker '76....' with lacuna dots not parsed)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "7.76",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-09",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "within 1237.0 ('Book 7 — Polymnia, Chapter 215')",
+     "extent_words": 78,
+     "summary": "Section 7.216 (course of the Anopaia path at Thermopylae) is PRESENT, merged into 7.215 (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…the pass been proved by the Malians to be of no value.",
+     "missing_start": "216 And this path lies as follows:--it begins from the river Asopos,…",
+     "missing_end": "…and the seats of the Kercopes, where is the very narrowest part.",
+     "served_after": "1238.0 'By this path thus situated the Persians after crossing over the Asopos…'",
+     "source_ref": "pg2456.txt lines 8150-8156 (no section marker; '216' there is Macaulay's note numeral)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "7.216",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-10",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1347.1 (second paragraph of 'Book 8 — Urania, Chapter 87')",
+     "extent_words": 194,
+     "summary": "Section 8.88 (Artemisia; 'My men have become women') is PRESENT as 2nd paragraph of 8.87 with stray '88,—' (text present, not missing; inherited from the PG source's missing/malformed section marker)",
+     "served_before": "…ship or was deserting from the Barbarians and fighting for the Hellenes,",
+     "missing_start": "88,—first, I say, it was her fortune to have this, namely to…",
+     "missing_end": "…women, and my women men.\" Thus it is said that Xerxes spoke.",
+     "served_after": "1348.0 'And meanwhile in this struggle there was slain the commander Ariabignes,…'",
+     "source_ref": "pg2456.txt lines 10421-10435 (marker '88,—' not parsed)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same merge (same chapter/paragraph coordinates)",
+     "modern_da": "present, same merge",
+     "existing_repair": "none found",
+     "standard_label": "8.88",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-histories-11",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "passim: 818 paragraphs, e.g. 2.0, 3.0, 5.0",
+     "extent_words": 1316,
+     "summary": "≈1,316 bare footnote-reference numerals from Macaulay's notes served inline (notes themselves not served)",
+     "served_before": "not agreeing therein with the Hellenes,",
+     "missing_start": "3",
+     "missing_end": "3",
+     "served_after": "and this they say was the first",
+     "source_ref": "pg2707.txt line 216 (example); numerals passim in both volumes; notes at 'NOTES TO BOOK I…IX'",
+     "local_raw_has_it": null,
+     "modern_en": "absent (numerals removed)",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Macaulay's Preface and 'NOTES TO BOOK I–IX' (translator apparatus) excluded — defensible",
+    "Book headings served as section titles ('Book I — Clio' …)",
+    "All nine absent labels are merges inherited from the PG text (markers absent/malformed); every one of the 1,525 served chapter starts coincides with its source section marker"
+   ],
+   "needs_investigation": [],
+   "notes": "Source = G. C. Macaulay (1890), PG #2707 + #2456; no local raw. Body = the nine 'BOOK …' ranges up to each 'NOTES TO BOOK'. Residual uncovered source tokens = proem (78 incl. heading) + 8 book headings + ~1,525 section numerals. modern-en/modern-da: identical chapter/paragraph structure (1,525/1,626), paragraph-ratio screen clean (low chapter ratios = numerals written as digits, e.g. 7.184)."
+  },
+  {
+   "id": "the-manual",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "23835259e0a0d52214f7554e44b0adaf44c5ec5e8a356bd196d3ccb948dc803e",
+     "source_url": "https://www.gutenberg.org/cache/epub/10661/pg10661.txt",
+     "source_sha256": "7915eac7442daed1fbc461b8a281ecc315c5e619126d50d914c29c39fa3b2209",
+     "source_retrieved_utc": "2026-09-25T11:56:02Z",
+     "source_covered_pct": 98.916,
+     "edition_covered_pct": 99.926,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-the-manual-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "42.0",
+     "extent_words": 29,
+     "summary": "modern-en §42 drops Long's 'true conjunction' illustration (whole sentence); modern-da (rendered from it) lacks it too",
+     "served_before": "If they are wrong, they are the one who is harmed, for they are the one who has been deceived.",
+     "missing_start": "for if a man shall suppose the true conjunction to be false,",
+     "missing_end": "it is not the conjunction which is hindered, but the man who has been deceived about it.",
+     "served_after": "When you understand this, you will be gentle toward those who speak against you.",
+     "source_ref": "pg10661.txt lines 5211-5213; present in served original-en 42.0",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "restored in origin/codex/manual-complete-repair-2026-09-17 @01ddd9b2 books/wip/manual-repair-2026-09-17/accepted.json §42 and in green-manual/candidate.json (origin/claude/friendly-albattani-qgyqfi @e5c60041); repair ledger reason: 'restore examples, qualifications…'",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-the-manual-02",
+     "type": "MISSING",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "1.0, 19.0, 24.0, 30.0, 31.0, 32.0, 34.0, 40.0, 48.0, 51.0",
+     "extent_words": 14,
+     "summary": "Long's 13 parenthetical Greek glosses ('[Greek: hupolaepsis]' etc.) stripped; three broken parentheses left: 40.0 '(, dominæ)', 51.0 '(part, )' and '(precepts, )'",
+     "served_before": "are called by the men mistresses",
+     "missing_start": "[Greek: churiai]",
+     "missing_end": "[Greek: churiai]",
+     "served_after": ", dominæ). Therefore, since they see",
+     "source_ref": "pg10661.txt lines 4548-5342 (13 glosses: 4548-4549, 4790, 4832, 4970, 5013, 5026, 5131, 5189, 5287, 5341-5342)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a (modern rendering has no glosses)",
+     "modern_da": "n/a",
+     "existing_repair": "none; gloss omission itself is a defensible scope choice, the residue is cosmetic",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Long numbers the Encheiridion I–LII (his L = standard 50+51, LII = standard 53); served 52 sections match Long 1:1, closing quotations (Cleanthes, Euripides, Crito/Apology) present at 52.0–52.3",
+    "Rest of PG #10661 (Long's selected Discourses) is another work — excluded"
+   ],
+   "needs_investigation": [],
+   "notes": "original-en COMPLETE-VS-SOURCE (all 52 sections start at Long's numerals; per-section paragraph counts equal Long's, 68 total). The staged repairs lock the served original-en (sha 23835259…) as source — verified sound here. Served modern-en generally compresses (median chapter ratio 0.80); only §42 showed a whole-sentence loss in the ratio screen; qualifier-level losses (e.g. §18 'if I choose') are style-review territory and addressed by the staged repair."
+  },
+  {
+   "id": "confessions",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "64b39a8ae77d7175c904625fcc0bf3de13cb59e346e964b37ec8f5e47d95a6d7",
+     "source_url": "https://www.gutenberg.org/cache/epub/3296/pg3296.txt",
+     "source_sha256": "ef3fa6267968c875def9091a1882d14b525a85bbf6996a3e2f130a775b2e22d2",
+     "source_retrieved_utc": "2026-09-25T11:55:51Z",
+     "source_covered_pct": 99.977,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-confessions-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "10.0–13.52 (206 paragraphs)",
+     "extent_words": 48618,
+     "summary": "modern-da Books 10–13 are placeholder paragraphs '[TBD]' (every paragraph); edition is registered (bookRegistry.ts CONFESSIONS.editions modern-da, hasAudio true)",
+     "served_before": "…gennem manges bønner, må mere rigeligt blive opfyldt for hende. (9.37)",
+     "missing_start": "Let me know Thee, O Lord, who knowest me: let me know Thee, as I am known.",
+     "missing_end": "so shall it be opened. Amen. GRATIAS TIBI DOMINE",
+     "served_after": "(end of work)",
+     "source_ref": "pg3296.txt lines 5345-9367 (Books X–XIII)",
+     "local_raw_has_it": null,
+     "modern_en": "present (full rendering, released #192)",
+     "modern_da": "absent ('[TBD]' ×206)",
+     "existing_repair": "none; confessions-repair/PROGRESS.md (origin/claude/friendly-albattani-qgyqfi @c7acd031) says Danish 'not touched… flagged for later'. Danish is outside the 2026-09-21 delivery scope — decide whether to hide or mark the edition",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "'GRATIAS TIBI DOMINE' is in PG #3296 (line 9367, centred colophon after 'Amen.') and is served as 13.52 in original-en/modern-en — present in the matched source, not boilerplate"
+   ],
+   "needs_investigation": [
+    "Whether Pusey's 1838 printing carries the 'GRATIAS TIBI DOMINE' colophon (PG #3296 does; its print basis is not stated) — cosmetic only"
+   ],
+   "notes": "original-en COMPLETE-VS-SOURCE: only the 13 'BOOK n' headings unmatched; per-book paragraph counts (38,18,21,31,25,27,27,31,38,70,41,42,53) identical to PG. Served modern-en = sha 949e4f77… = confessions-modern-en candidate (origin/claude/peaceful-thompson-akn7f0), paragraph-ratio screen clean (chapter ratios 1.05–1.12)."
+  },
+  {
+   "id": "iliad",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "3ba331f36cb935cb861bedb51994a4d410cda83013ba8c63bb04a126bb45e86c",
+     "source_url": "https://www.gutenberg.org/cache/epub/2199/pg2199.txt",
+     "source_sha256": "72673dcefeaa5d302b4ac1cc9ce6fd0b236831e816de41391e5cfe138ab5b077",
+     "source_retrieved_utc": "2026-09-25T11:55:52Z",
+     "source_covered_pct": 99.969,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Butler's italic book summaries are served as paragraph N.0 of every book in all three editions (translator apparatus present in the matched source; rendered as ordinary body text)",
+    "Butler's 1898 preface and footnotes are not in PG #2199 and not served"
+   ],
+   "needs_investigation": [],
+   "notes": "books/raw/iliad/raw.txt == PG #2199 byte-for-byte except BOM. Only the 24 'BOOK n' headings unmatched; per-book paragraph counts and first/last paragraphs identical. modern-en/modern-da ratio screen clean (chapter ratios 0.96–1.00)."
+  },
+  {
+   "id": "divine-comedy",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "494a37942b0005c1a6ca5fab8720dcd8db1f1a7c1ec80831d7bab9bdcbd4c452",
+     "source_url": "https://www.gutenberg.org/cache/epub/1001/pg1001.txt + https://www.gutenberg.org/cache/epub/1002/pg1002.txt + https://www.gutenberg.org/cache/epub/1003/pg1003.txt",
+     "source_sha256": "10fad2f10aaffec3bfe3fd63266544f7fd5bba576cd5c63afe68e8212849754d + dbc134de583109a0496499c7b380b40850c2f5917fd0a2ef99ce57ceab2c83b4 + 1d3caefa714846480a0ce44067396bc755b23ac78de41772c6d6bc98aa24095a",
+     "source_retrieved_utc": "2026-09-25T11:55:54Z–11:55:56Z",
+     "source_covered_pct": 99.732,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Paradiso APPENDIX (six sonnets by Longfellow) excluded — not Dante's text",
+    "Longfellow's notes are not in PG #1001–1003 and not served"
+   ],
+   "needs_investigation": [],
+   "notes": "books/raw/divine-comedy/raw.txt == concatenation of PG #1001+1002+1003 (BOMs only). Only the 100 'Inferno/Purgatorio/Paradiso: Canto N' headings unmatched; every canto's tercet count and first/last tercet identical (4,812 paragraphs). modern-en 468 MIDSPLIT flags are sentence carry-over between tercets (checked 1.13-1.14, 49.0-49.1), not omissions; chapter ratios 0.90–1.07."
+  },
+  {
+   "id": "paradise-lost",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "56c47aa192f17e38ae996d1abfc268dc0090a8c365a2e8f7578160dea2f81185",
+     "source_url": "https://www.gutenberg.org/cache/epub/26/pg26.txt",
+     "source_sha256": "aeedc9f33e0c2a6422d2f557462fb87cd2430974c6aed30a26803be5394a741a",
+     "source_retrieved_utc": "2026-09-25T11:55:58Z",
+     "source_covered_pct": 99.97,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-paradise-lost-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0, 2.0, … 12.0 (one Argument per Book)",
+     "extent_words": 2399,
+     "summary": "Milton's 12 prose Arguments (authorial; in the 1674 edition the label names) are not served; also absent from the imported PG #26, so inherited",
+     "served_before": "(start of each Book)",
+     "missing_start": "This First Book proposes, first in brief, the whole subject, Man's disobedience, and the loss",
+     "missing_end": "of the Deep: the infernal Peers there sit in council.",
+     "served_after": "Of Man's first disobedience, and the fruit Of that forbidden tree",
+     "source_ref": "Standard Ebooks single-page (sha256 81b6f57a…), sections argument-1…argument-12 (297/171/319/305/197/163/74/69/269/340/103/116 words incl. heading); align of SE vs served: the 12 Arguments are the only substantive missing runs",
+     "local_raw_has_it": false,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-paradise-lost-02",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 236,
+     "summary": "Milton's prefatory note 'The Verse' (1668/1674) not served; absent from PG #26",
+     "served_before": "(start of work)",
+     "missing_start": "THE measure is English Heroic Verse without Rime, as that of Homer in Greek,",
+     "missing_end": "of ancient liberty recover'd to Heroic Poem from the troublesom and modern bondage of Rimeing.",
+     "served_after": "Of Man's first disobedience, and the fruit Of that forbidden tree",
+     "source_ref": "https://en.wikisource.org/wiki/Paradise_Lost_(1674)/The_Verse (sha256 2df9967d…, 2026-09-25T12:07:16Z)",
+     "local_raw_has_it": false,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-paradise-lost-03",
+     "type": "UNCERTAIN",
+     "severity": "S2",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "chapters 2, 6, 5, 1 (whole books)",
+     "extent_words": 10000,
+     "summary": "modern-da appears heavily abridged: Book 2 = 34% of original words (2,762 vs 8,010), Book 6 53%, Book 5 72%, Book 1 82% (other books 0.98–1.04); paragraphs drift (da 2.26 renders orig 2.23)",
+     "served_before": "(Book 2 Danish, e.g. 2.60) For de fire konkurrerende elementer — Varmt, Koldt, Fugtigt og Tørt",
+     "missing_start": "(estimated deficit ≈10,000 words across Books 1, 2, 5, 6)",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "edition-internal comparison original-en vs modern-da; 120 SHORT + 4 LONG paragraph flags",
+     "local_raw_has_it": null,
+     "modern_en": "present (Book 2 8,386 words)",
+     "modern_da": "partial (condensed); needs a Danish reader",
+     "existing_repair": "none found; Danish outside 2026-09-21 delivery scope",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "PG #26 volunteer 'Introduction (one page)' correctly excluded",
+    "The 1674 commendatory poems (Barrow, Marvell) are not Milton's — out of scope"
+   ],
+   "needs_investigation": [
+    "Scope decision: serve Milton's Arguments (and 'The Verse') with each Book, or relabel the edition; label 'Original (1674)' but PG #26 is a 1960s etext of an unidentified modern-spelling edition without the Arguments",
+    "Confirm modern-da abridgment (Books 1, 2, 5, 6) with a Danish reader if the Danish edition stays visible"
+   ],
+   "notes": "books/raw/paradise-lost/raw.txt == current PG #26 except the 'Most recently updated' line and a 3-line transcriber note. Poem text complete vs PG #26 (only 12 'Book n' headings unmatched) and vs Standard Ebooks (only Arguments + spelling variants). modern-en 87 MIDSPLIT flags = sentence carry-over, chapter ratios 1.02–1.08, no omissions detected."
+  },
+  {
+   "id": "peloponnesian-war",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "e50ada55ab4db8be8238f5b201f241478ff145f75073b79e09af48472e5f3d6a",
+     "source_url": "https://www.gutenberg.org/cache/epub/7142/pg7142.txt",
+     "source_sha256": "b7df28eabde17b252e38e808c5d9c287ac69d9503e2958ba74bd316922963b14",
+     "source_retrieved_utc": "2026-09-25T11:55:59Z",
+     "source_covered_pct": 99.762,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 2
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-peloponnesian-war-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter 11 title",
+     "extent_words": 0,
+     "summary": "Chapter 11 title reads 'Year of the War—Campaigns of Demosthenes…' with no ordinal (neighbours: 'Fifth…', 'Seventh…'); inherited verbatim from PG #7142",
+     "served_before": "Book 3, Chapter 10 — Fifth Year of the War—Trial and Execution of the Plataeans",
+     "missing_start": "(ordinal absent)",
+     "missing_end": "(ordinal absent)",
+     "served_after": "Book 3, Chapter 11 — Year of the War—Campaigns of Demosthenes in Western Greece—Ruin of Ambracia",
+     "source_ref": "pg7142.txt lines 6999-7003 (books/raw/peloponnesian-war/raw.txt identical, also without ordinal)",
+     "local_raw_has_it": false,
+     "modern_en": "same title",
+     "modern_da": "same (Danish equivalent)",
+     "existing_repair": "none; correct ordinal to be confirmed against a Crawley print",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Crawley's dedication to Connop Thirlwall (translator matter) excluded, as SOURCE.md states",
+    "'THE END' not served"
+   ],
+   "needs_investigation": [],
+   "notes": "books/raw/peloponnesian-war/raw.txt == PG #7142 (identical after CR/BOM normalisation). The 25 missing runs ≥12 (2 ≥25) are exactly the 26 chapter headings, which are served as chapter titles (all 26 titles match PG). Every chapter's paragraph count and first/last paragraph equal PG (ch26 minus 'THE END'). DUP_ADJ 15.31~32 and 16.26~27 are genuine parallel treaty clauses in the source (same similarity in original). Ending '[When the winter… completed. ]' is Crawley's bracketed text."
+  },
+  {
+   "id": "imitation-of-christ",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "43902ea5bf50af978562e161b9e3202475777fc150ab067a8af13e144e54d0a2",
+     "source_url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+     "source_sha256": "7631799607b0ede62f1bd7ed2a8eb62d89524451a3c41e9ad2b5cbf4c2aa5383",
+     "source_retrieved_utc": "2026-09-25T11:56:00Z",
+     "source_covered_pct": 99.59,
+     "edition_covered_pct": 99.987,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G10-imitation-of-christ-01",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "96.7–96.11 (end of Book III ch. 59) instead of before 97.0",
+     "extent_words": 95,
+     "summary": "Opening of Book IV ('OF THE SACRAMENT OF THE ALTAR' + 'A devout exhortation to the Holy Communion' / 'The Voice of Christ' / 'Come unto Me…' + its notes) served as the tail of Book III ch. 59",
+     "served_before": "(96.6) (1) Philippians ii. 21 (2) Psalm cxli. 8.",
+     "missing_start": "OF THE SACRAMENT OF THE ALTAR / A devout exhortation to the Holy Communion",
+     "missing_end": "The words that I speak unto you, they are spirit, and they are life.",
+     "served_after": "(97.0) With how great reverence Christ must be received",
+     "source_ref": "pg1653.txt lines 5670-5688",
+     "local_raw_has_it": null,
+     "modern_en": "present, same misplacement (96.7–96.11)",
+     "modern_da": "present, same misplacement",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-imitation-of-christ-02",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "whole book; 25.12, 37.17, 96.7; chapters 26, 38, 97",
+     "extent_words": 0,
+     "summary": "Four-book division not represented: no sections; titles 'Chapter 1…' restart at ch 26, 38, 97 with no book label; Book II–IV titles served as last paragraph of the previous book (25.12, 37.17, 96.7); Book I title and 'THE FIRST…FOURTH BOOK' absent",
+     "served_before": "(25.11) (1) Psalm xxxvii. 3.",
+     "missing_start": "THE SECOND BOOK",
+     "missing_end": "ADMONITIONS CONCERNING THE INNER LIFE",
+     "served_after": "(26.0) Of the inward life",
+     "source_ref": "pg1653.txt lines 217-218, 1595-1596, 2376-2377, 5670-5671",
+     "local_raw_has_it": null,
+     "modern_en": "same structure",
+     "modern_da": "same structure",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-imitation-of-christ-03",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "N.0 of all 114 chapters",
+     "extent_words": 0,
+     "summary": "Each chapter's descriptive title (e.g. 'Of the imitation of Christ, and of contempt of the world…') served as body paragraph N.0 while chapter titles are generic 'Chapter N'; in-chapter prayer headings/speaker labels also body text (as in source layout)",
+     "served_before": "(chapter title) Chapter 1",
+     "missing_start": "Of the imitation of Christ, and of contempt of the world and all its vanities",
+     "missing_end": "Of the imitation of Christ, and of contempt of the world and all its vanities",
+     "served_after": "He that followeth me shall not walk in darkness,(1) saith the Lord.",
+     "source_ref": "pg1653.txt line 223-226 (example), passim",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G10-imitation-of-christ-04",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "76 paragraphs, e.g. 1.6, 25.11, 96.6, 114.7 (final paragraph of the book)",
+     "extent_words": 0,
+     "summary": "76 scripture-reference footnote blocks served as body paragraphs; the work ends on '(1) Proverbs xxv. 27 (Vulg.).'; original-en also carries 180 inline '(n)' markers; modern editions keep the 76 note paragraphs with no markers (orphaned)",
+     "served_before": "(114.6) …they should no longer be called wonderful or unspeakable.",
+     "missing_start": "(1) Proverbs xxv. 27 (Vulg.).",
+     "missing_end": "(1) Proverbs xxv. 27 (Vulg.).",
+     "served_after": "(end of work)",
+     "source_ref": "pg1653.txt line 6912 (final note), 80 note lines passim",
+     "local_raw_has_it": null,
+     "modern_en": "present (76 note paragraphs)",
+     "modern_da": "present (76 note paragraphs)",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "PG #1653 'INTRODUCTORY NOTE' (editorial, Harvard Classics) excluded — defensible"
+   ],
+   "needs_investigation": [],
+   "notes": "Translation = William Benham (PG #1653); no local raw. Text complete: missing tokens are only the 'CHAPTER n' headings, 'THE FIRST BOOK ADMONITIONS PROFITABLE FOR THE SPIRITUAL LIFE' and 'THE nth BOOK' words; every chapter's paragraph list equals the source's paragraph list (114/114). Short Book IV ch. 6 (102) is short in the source too. modern-en/modern-da ratio screen clean."
+  }
+ ]
+}

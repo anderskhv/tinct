@@ -1,0 +1,834 @@
+{
+ "group": "G08-philosophy",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "audit_date": "2026-09-25",
+ "books": [
+  {
+   "id": "fear-and-trembling",
+   "verdict": "DEFECTS",
+   "method": "full-alignment (original-da vs raw OCR and vs the accepted corrected source); structural checks for original-en, modern-en, modern-da",
+   "editions": [
+    {
+     "key": "original-da",
+     "sha256": "c61144bbf51a930748799d4ff30ff48031ee12452ada5eb5391f684e8961d63a",
+     "source_url": "https://archive.org/download/frygtogbvendial00kiergoog/frygtogbvendial00kiergoog_djvu.txt",
+     "source_sha256": "902cb9ec4168e6c105f845aa29043336b05a2b88de65d4967f8a785fa250f5e7",
+     "source_retrieved_utc": "2026-09-25T11:55:18Z",
+     "source_covered_pct": 94.084,
+     "edition_covered_pct": 98.445,
+     "missing_runs_ge25": 8,
+     "second_source": {
+      "ref": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) candidate/fear-and-trembling-original-da.candidate.json sha256 290fec6aa962cce75058c7c0286cc9a4c9aca00066be5cb535d528b7af2b8934 + candidate/footnotes.json sha256 345f2eeeb3845fb0b1c663c8abac81d7a337c6cf19cba106795f232368b70b1e",
+      "source_covered_pct": 96.481,
+      "edition_covered_pct": 98.988,
+      "missing_runs_ge25": 8
+     }
+    },
+    {
+     "key": "original-en",
+     "sha256": "d6f7ab72adfe4c161c5ab69b5bedda7e3bb519a92b0050d8b0b6f07d294e45a1",
+     "source_url": null,
+     "source_sha256": null,
+     "source_retrieved_utc": null,
+     "source_covered_pct": null,
+     "edition_covered_pct": null,
+     "missing_runs_ge25": null,
+     "note": "No authoritative external source exists: 2026 AI translation (commit b76fa5649). Checked structurally: 8 chapters / 232 slots identical to original-da; inherits every original-da gap."
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-01",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 2.6 and after 2.8",
+     "extent_words": 90,
+     "summary": "Two of the four Attunement (Stemning/'Exordium') weaning refrains absent: after variation II (29 Danish words) and after variation III (61 words)",
+     "served_before": "…men Abrahams Øie var fordunklet, han saae ikke Glæden mere. (2.6 end)",
+     "missing_start": "Naar Barnet er blevet stort og skal vænnes fra, da skjuler Moderen jomfrueligt sin Barm",
+     "missing_end": "Held den, der beholdt Barnet saa nær, og ikke behøvede at sørge mere!",
+     "served_after": "Det var en aarle Morgen, Abraham stod tidlig op; han kyssede Sara (2.7); second gap is followed by 2.9",
+     "source_ref": "books/raw/fear-and-trembling/raw.txt (= archive.org djvu.txt) lines 475-478 and 508-513",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) CHANGED-PARAGRAPHS.md §A (restored as final ¶2.7 and ¶2.10)"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-02",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 4.22 (n4.22a, first ~147 words); after 5.31 (n5.31a); after 6.24 (n6.24a); after 7.47 (n7.47a first part, 322 words); after 7.67 (n7.67a); after 8.5 (n8.5a, n8.5b)",
+     "extent_words": 900,
+     "summary": "Johannes de silentio's own footnotes: 5 entirely and 2 partly missing (~900 Danish words), incl. the Lessing, collision/duty, Aristophanes/Voltaire ironist, Cratylus and Tennemann notes",
+     "served_before": "Faust er en Tvivler, en Aandens Apostat, der gaaer Kjødets (7.47 end; sentence resumes 'Gang.' at 7.48)",
+     "missing_start": "Vil man ikke bruge en Tvivler, kunde man vælge en lignende Figur, en Ironiker f. Ex.",
+     "missing_end": "hvis han ikke har havt Høimod til at tie, er on [sic: en] Forræder mod",
+     "served_after": "Gang. Dette er Digternes Mening, og medens det atter og atter gjentages (7.48); continuation of the note sits at 7.50",
+     "source_ref": "raw.txt lines 1740-1756, 2944-2966, 3505-3525, 4952-4986, 5293, 5729-5733",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) CHANGED-PARAGRAPHS.md §B (all 18 notes as separate records in candidate/footnotes.json)"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-03",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "standalone note slots 7.16, 7.20, 7.23, 7.28, 7.36, 7.38, 7.50, 7.79, 7.83; spliced into 4.4, 4.21, 4.22 (end), 7.17, 7.34",
+     "extent_words": null,
+     "summary": "13 authorial footnotes served inside the body: 8 as standalone reading paragraphs, 5 spliced into running text (some mid-sentence)",
+     "served_before": "n/a (multiple locations)",
+     "missing_start": "e.g. 7.36: 'I det Foregaaende har jeg med Flid holdt ethvert Hensyn til Spørgsmaalet om Synden'",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "raw.txt footnote blocks marked '”)' / '+)'",
+     "local_raw_has_it": true,
+     "modern_en": "same misplacement (paragraph-aligned)",
+     "modern_da": "same misplacement",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) CHANGED-PARAGRAPHS.md §B"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-04",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "edition label",
+     "extent_words": null,
+     "summary": "'Original (English)' (no translator) is a 2026 AI translation of the served Danish (commit b76fa5649, 2026-05-04); no authoritative external source exists; it inherits every gap above",
+     "served_before": "n/a",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "git log b76fa5649 'Add original-en edition for Fear and Trembling'",
+     "local_raw_has_it": null,
+     "modern_en": "modern-en is aligned to the same 232 slots",
+     "modern_da": "aligned to the same 232 slots",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) EDITION-PLAN.md (retire original-en; modern-da retirement escalated to Anders)"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-05",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (title page) and before chapter 4 (part title)",
+     "extent_words": 25,
+     "summary": "Authorial front matter not served: subtitle 'Dialektisk Lyrik', pseudonym 'Johannes de silentio', Hamann motto, part title 'Problemata'",
+     "served_before": "(start of book)",
+     "missing_start": "Was Tarquinius Superbus in seinem Garten mit den Mohnköpfen sprach",
+     "missing_end": "verstand der Sohn, aber nicht der Bote. Hamann.",
+     "served_after": "Ikke blot i Handelens, men ogsaa i Ideernes Verden (1.0)",
+     "source_ref": "raw.txt lines 158, 161, 172-173, 950",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) front-matter.json"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-06",
+     "type": "MISSING",
+     "severity": "S4",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 2.4, 2.6, 2.7, 2.9 (numerals I.-IV.); 6.6/6.7 ('fatte')",
+     "extent_words": 5,
+     "summary": "Attunement section numerals I.-IV. dropped (OCR-garbled in raw, filtered by the parser); the word 'fatte' lost at a page break in Problema II (original-en misplaces 'comprehend')",
+     "served_before": "n/a",
+     "missing_start": "I. / II. / III. / IV.",
+     "missing_end": "fatte",
+     "served_after": "n/a",
+     "source_ref": "raw.txt lines 390, 455, 484, 516; 3165",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) CHANGED-PARAGRAPHS.md §A, candidate/structure.json"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-07",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-da",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "book-wide (232 served slots vs 184 printed paragraphs)",
+     "extent_words": null,
+     "summary": "Page-break splits: served slots break printed paragraphs mid-sentence (e.g. 1.0|1.1, 6.24|6.25, 7.47|7.48); package maps 82 joined, 9 split, 9 footnote-only slots",
+     "served_before": "…Alas! alas! alas! it is a great (original-en 1.0)",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "rarity in our age! (1.1)",
+     "source_ref": "package STRUCTURE-MAP.md",
+     "local_raw_has_it": true,
+     "modern_en": "same split",
+     "modern_da": "same split",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) STRUCTURE-MAP.md/.json"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-fear-and-trembling-08",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-da"
+     ],
+     "location": "1.1, 5.0, 5.13, 7.3, 7.40, 7.45, 7.67 and others",
+     "extent_words": null,
+     "summary": "OCR debris served in place of Greek, Latin and German quotations (e.g. 7.3 'dvo ur ovv tov uvdov usqn…' for Aristotle's Greek)",
+     "served_before": "n/a",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "package source/CORRECTIONS.md",
+     "local_raw_has_it": true,
+     "modern_en": "translated/normalised",
+     "modern_da": "normalised",
+     "existing_repair": "origin/claude/hopeful-tesla-7s5ziw books/wip/fear-and-trembling-tinct-en/ (commit f5aa101bc898, accepted, not published) source/CORRECTIONS.md (scan-verified corrections)"
+    }
+   ],
+   "scope_notes": [
+    "Successor verified in this audit: raw OCR vs candidate original-da + 18 footnotes + front matter leaves no unexplained run >= 12 tokens (only OCR-garbled Greek/Latin, a heading and one hyphenation artefact).",
+    "books/raw/fear-and-trembling/raw.txt is byte-identical to the current archive.org djvu.txt; SOURCE.md calls it a '1980 reprint' (archive 'date' field) while the scan is the 1895 3rd edition (archive 'year' field, package PROVENANCE.md).",
+    "Earlier partial package origin/claude/fear-and-trembling-modern-en-20260911 books/staged-replacements/fear-and-trembling covers ch01 only and is superseded."
+   ],
+   "needs_investigation": [
+    "modern-da cannot stay aligned under the 184-paragraph successor; retirement is escalated to Anders in EDITION-PLAN.md."
+   ],
+   "notes": "All served hashes equal the package's 'Replaces live sha256' values (modern-en 152776f1…, original-da c61144bb…). Every served-defect finding here is an EXISTING-REPAIR item: the accepted successor restores it; nothing is published yet."
+  },
+  {
+   "id": "beyond-good-and-evil",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "a906a663863727ff37c8e40b5561165088d6835111f736210604dbf95f484e43",
+     "source_url": "https://www.gutenberg.org/cache/epub/4363/pg4363.txt",
+     "source_sha256": "ac99e74a7913004c2e94289dae28e6b03b6ad96c97f2fd5f72ce29caff0b4888",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 99.91,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "source_title": "Beyond Good and Evil / Friedrich Wilhelm Nietzsche / tr. Helen Zimmern (aftersong tr. L. A. Magnus)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-beyond-good-and-evil-01",
+     "type": "EXTRANEOUS",
+     "severity": "S1",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "11.30 (final paragraph of the book)",
+     "extent_words": 11,
+     "summary": "Project Gutenberg end-of-book line served as the book's last paragraph in all editions (untranslated in modern-da)",
+     "served_before": "The world now laughs, the grisly veil was torn, And Light and Dark were one that wedding-morn. (11.29)",
+     "missing_start": "n/a (extraneous): 'End of Project Gutenberg's Beyond Good and Evil, by Friedrich Nietzsche'",
+     "missing_end": "n/a",
+     "served_after": "(end of book)",
+     "source_ref": "pg4363.txt line 6153 (PG boilerplate after the work)",
+     "local_raw_has_it": null,
+     "modern_en": "present (same line at 11.30)",
+     "modern_da": "present (same English line at 11.30)",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-beyond-good-and-evil-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "8.22 (236+237+237A), 10.20 (277+278), 10.22 (280+281+282)",
+     "extent_words": null,
+     "summary": "Aphorisms 237 ('Seven Apophthegms for Women'), 237A, 278, 281 and 282 are merged into the preceding aphorism's paragraph; all 296 aphorisms' text is present",
+     "served_before": "…THIS is just what she believes of the eternally masculine. (inside 8.22)",
+     "missing_start": "237. SEVEN APOPHTHEGMS FOR WOMEN",
+     "missing_end": "n/a",
+     "served_after": "238. To be mistaken in the fundamental problem (8.23)",
+     "source_ref": "pg4363.txt lines 4221-4243, 5725-5736, 5746-5777",
+     "local_raw_has_it": null,
+     "modern_en": "same merges",
+     "modern_da": "same merges",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-beyond-good-and-evil-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter 11 ('From the Heights (Poem)'), 11.0-11.28",
+     "extent_words": 12,
+     "summary": "Aftersong is L. A. Magnus's translation, but its byline/translator credit is not served and the edition is labelled 'Zimmern (1907)'; stanza numbers 1-15 served as 15 one-token paragraphs",
+     "served_before": "…you, my old, beloved--EVIL thoughts! (10.36)",
+     "missing_start": "FROM THE HEIGHTS By F W Nietzsche",
+     "missing_end": "Translated by L. A. Magnus",
+     "served_after": "1. (11.0)",
+     "source_ref": "pg4363.txt lines 6021-6025",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [
+    "Seven bracketed translator/editor footnotes are served inline in original-en (3.3 x3, 6.0, 8.15, 10.7, 10.26); PG transcriber's note excluded.",
+    "original-en chapter 5 title 'Epigrams and Interludes' differs from Zimmern's 'Apophthegms and Interludes' (VARIANT)."
+   ],
+   "needs_investigation": [],
+   "notes": "Authorial text complete vs PG #4363 (only the aftersong heading/byline, 12 tokens, is absent). All 296 aphorisms, the Preface with its Sils Maria signature, and all 15 aftersong stanzas are present."
+  },
+  {
+   "id": "descartes-meditations",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "98e410390472e0f6e3701987e10f2b44974cdac1e277ba4d520a9e959103961a",
+     "source_url": "https://en.wikisource.org/wiki/Meditations_on_First_Philosophy (9 subpages, action=raw, concatenated)",
+     "source_sha256": "6f5b41baa52669459ec7102cb0d6d17079eb6d9e5a34a83512b0a46ed3c57138",
+     "source_retrieved_utc": "2026-09-25T11:58:39Z",
+     "source_covered_pct": 99.538,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1,
+     "source_title": "Meditations on First Philosophy / René Descartes / tr. John Veitch (Wikisource, header: 1901, first published 1853; tagged {{no source}})",
+     "cross_check": {
+      "source_url": "https://archive.org/download/themethodmeditat00descuoft/themethodmeditat00descuoft_djvu.txt",
+      "source_sha256": "6caefb66b2e47152c1aa8e90ca1e886665bfd402b03962c64c4e5fc4700671e2",
+      "source_retrieved_utc": "2026-09-25T11:59:05Z",
+      "title": "The Method, Meditations and Philosophy of Descartes (Veitch, 1901, U. Toronto scan OCR)",
+      "source_covered_pct": 95.133,
+      "edition_covered_pct": 97.358,
+      "missing_runs_ge25": 1,
+      "note": "residual runs are OCR noise, running heads and headings only"
+     }
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Veitch's note explaining square brackets (additions from the revised French version) removed by documented choice (raw SOURCE.md); the brackets remain in the text without explanation.",
+    "The 32-token Wikisource run and the 25-token scan run are that note plus section headings; everything else is covered."
+   ],
+   "needs_investigation": [
+    "Wikisource text is unsourced ({{no source}}); its wording and paragraph numbering differ slightly from the 1901 Tudor printing (e.g. 'of the opinion' vs 'of opinion'), so the label 'Veitch (1901)' is approximate.",
+    "9.23 carries the Wikisource typo 'ac. knowledge' (VARIANT, cosmetic)."
+   ],
+   "notes": "Local raw books/raw/descartes-meditations/raw.txt equals current Wikisource text (differences are wiki templates only). The green-descartes-meditations package's 'corrupt source' items are printer's errors (S1-S7), not missing text."
+  },
+  {
+   "id": "kant-groundwork",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "39baa06718f8c7378638c7b389876fae8f5e089aa9774ed8495b6203285e1ae7",
+     "source_url": "https://www.gutenberg.org/cache/epub/5682/pg5682.txt",
+     "source_sha256": "a4dfea90e9dc394871bcae6069025d16b3990f83ed5f17b5a00eef0651e84758",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 99.958,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "source_title": "Fundamental Principles of the Metaphysic of Morals / Immanuel Kant / tr. Thomas Kingsmill Abbott"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-kant-groundwork-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "footnotes 2.15, 2.17, 3.9, 3.11, 3.17, 3.25, 3.28, 3.34, 3.37, 3.42, 3.53, 3.59, 3.63, 3.71, 3.88, 3.103, 4.8, 4.37; headings 3.93, 3.95|3.96, 3.98|3.99, 4.5|4.6, 4.9, 4.21, 4.25, 4.42",
+     "extent_words": null,
+     "summary": "Kant's 18 footnotes are served as body paragraphs beginning '*'; Section II/III sub-headings are served as body paragraphs, three split across two paragraphs",
+     "served_before": "Heteronomy of the Will as the Source of all spurious Principles (3.95)",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "of Morality (3.96)",
+     "source_ref": "pg5682.txt (notes inline after their paragraphs, marked '*')",
+     "local_raw_has_it": null,
+     "modern_en": "same layout",
+     "modern_da": "same layout",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [],
+   "needs_investigation": [],
+   "notes": "Preface and Sections I-III complete, including 'Concluding Remark'; no gap >= 12 tokens."
+  },
+  {
+   "id": "genealogy-of-morals",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "2377b4157b8e28c24a35bcb25e98c2b51a25be3abf0cb5bde71a59aa75550f4f",
+     "source_url": "https://www.gutenberg.org/cache/epub/52319/pg52319.txt",
+     "source_sha256": "90ab67b3c15fb8a4220f36b559514098e33f43d58e4403405575949c039c1cba",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 99.702,
+     "edition_covered_pct": 99.998,
+     "missing_runs_ge25": 3,
+     "source_title": "The Genealogy of Morals / Friedrich Wilhelm Nietzsche / tr. Horace B. Samuel (PG header credits J. M. Kennedy, translator of the appended fragment)"
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "The three runs >= 25 tokens are Samuel's translator footnotes (signed H.B.S./Tr.), removed by documented choice.",
+    "Oscar Levy's Editor's Note and 'Peoples and Countries (Fragment)' (tr. J. M. Kennedy, a Beyond Good and Evil supplement) correctly excluded."
+   ],
+   "needs_investigation": [
+    "books/raw/genealogy-of-morals/SOURCE.md wrongly states that First Essay section 11 is absent; PG has it (heading '11' without a period) and it is served at 2.16. Documentation only."
+   ],
+   "notes": "Local raw equals PG #52319 after BOM removal. Preface (8 sections) and all three essays complete."
+  },
+  {
+   "id": "leviathan",
+   "verdict": "DEFECTS",
+   "method": "full-alignment (plus a second pass with marginal-note blocks removed, min run 3)",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "3ec71396aaa6dd3717e75900cffb1ecdd457189a6e945ef2e2be6ca96b41deb5",
+     "source_url": "https://www.gutenberg.org/cache/epub/3207/pg3207.txt",
+     "source_sha256": "3de1e492641d939567a8b0de827fb13e1ad992324f9ac8b204f60475009b7294",
+     "source_retrieved_utc": "2026-09-25T11:54:47Z",
+     "source_covered_pct": 97.638,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 13,
+     "source_title": "Leviathan / Thomas Hobbes (PG #3207, updated 2025-09-17)",
+     "shards": "49 chapter shards in app/public/data/editions-chapters/leviathan-original-en/ equal the monolithic JSON"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-leviathan-01",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 10.6, after 10.7, after 10.8 (served ch10 = Chapter IX)",
+     "extent_words": 245,
+     "summary": "Chapter IX 'Table of the Sciences' truncated: 245 of 390 words lost (mathematics, cosmography, mechanics, physics, meteorology, astronomy/astrology, optics, music, ethics, poetry, rhetoric, logic, just/unjust); surviving rows carry orphaned labels (a., a., 2))",
+     "served_before": "…first foundation of Philosophy, is called Philosophia Prima (10.6)",
+     "missing_start": "b. Consequences from Motion, and Quantity Determined",
+     "missing_end": "iv) In Contracting, The Science of JUST and UNJUST",
+     "served_after": "B. Consequences from the Accidents of Politique Bodies; which is called POLITIQUES (10.9)",
+     "source_ref": "pg3207.txt lines 2570-2700",
+     "local_raw_has_it": null,
+     "modern_en": "absent (12 paragraphs mirror the truncation)",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi books/wip/leviathan-pilot-ch10/fidelity-review-1.md N5 (commit 47dd4e635): flagged as out of scope, not repaired; the pilot candidate follows the truncated source"
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-leviathan-02",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 416,
+     "summary": "Hobbes's Epistle Dedicatory to Francis Godolphin (signed Paris, April 15/25 1651) not served",
+     "served_before": "(start of book)",
+     "missing_start": "TO MY MOST HONOR'D FRIEND Mr. FRANCIS GODOLPHIN of GODOLPHIN. HONOR'D SIR.",
+     "missing_end": "Your most humble, and most obedient servant, Thomas Hobbes. Paris APRILL 15/25 1651.",
+     "served_after": "Nature (the art whereby God hath made and governes the world) (1.0)",
+     "source_ref": "pg3207.txt lines 114-155",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-leviathan-03",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 1.0 and after 1.2",
+     "extent_words": 25,
+     "summary": "Introduction's plan of the work loses its lead-in and its last two items, so the served plan lists only Parts I-II",
+     "served_before": "…the Let Us Make Man, pronounced by God in the Creation. (1.0)",
+     "missing_start": "To describe the Nature of this Artificiall man, I will consider",
+     "missing_end": "Thirdly, what is a Christian Common-Wealth. Lastly, what is the Kingdome of Darkness.",
+     "served_after": "Concerning the first, there is a saying much usurped of late (1.3)",
+     "source_ref": "pg3207.txt lines 335, 343, 345",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-leviathan-04",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 7.17 (ANGER), after 7.26 (LIBERALITY), after 32.17 (Chapter XXXI)",
+     "extent_words": 24,
+     "summary": "Short body lines dropped with the marginal notes: the definitions of ANGER and LIBERALITY in the Chapter 6 catalogue of passions, and 'Therefore to attribute Figure to him…' in Chapter 31",
+     "served_before": "Courage-- The same, with hope of avoyding that Hurt by resistance, COURAGE. (7.17)",
+     "missing_start": "Anger-- Sudden Courage, ANGER.",
+     "missing_end": "Therefore to attribute Figure to him, is not Honour; for all Figure is Finite:",
+     "served_after": "Nor to say we conceive, and imagine, or have an Idea of him (32.18)",
+     "source_ref": "pg3207.txt lines 1714, 1742, 11957-11958",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-leviathan-05",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "book-wide",
+     "extent_words": 3500,
+     "summary": "Hobbes's marginal notes handled inconsistently: about 540 of about 675 note blocks in PG are absent (~3,500 words), 42 are served as standalone body paragraphs (e.g. 16.18, 23.8, 27.22, 34.21, 43.20, 48.0 opening Chapter 47), a few survive inline ('Hope--'); no documented policy",
+     "served_before": "n/a",
+     "missing_start": "e.g. 'Right Of Nature What' (Chapter XIV)",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "pg3207.txt (Title-Case marginal-note blocks, heuristic count)",
+     "local_raw_has_it": null,
+     "modern_en": "mirrors original-en (8 notes bracketed in ch13/15/16)",
+     "modern_da": "mirrors original-en",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi leviathan-pilot-ch13 reviews and leviathan-repair/lev-batchB-notes.md treat inline marginal headings as a source property; no completeness decision recorded"
+    }
+   ],
+   "scope_notes": [
+    "PG 'Contents of the Chapters' list and the PG transcriber's preface excluded (not work text).",
+    "Part I-IV headings are present as the chapters' 'section' fields; Introduction and Review and Conclusion present; ending ('…is to all men welcome.') complete."
+   ],
+   "needs_investigation": [
+    "Decide a policy for the 1651 marginal notes (restore all as side-headings, or strip the 42 stray note paragraphs consistently)."
+   ],
+   "notes": "No local raw. The leviathan-repair and leviathan-pilot-* folders are modern-en quality work on the served structure; only pilot-ch10 records a completeness problem (the table), and staged pilot candidates inherit the served gaps."
+  },
+  {
+   "id": "hume-enquiry",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "49ce7d94889fd07f4cad5b5a8e81f15d3fb2c6707c33a6444e961d61d511f8b9",
+     "source_url": "https://www.gutenberg.org/cache/epub/9662/pg9662.txt",
+     "source_sha256": "647459bc720d0fe09f85ac17b8d7edc2557ff89ba4467151407a4d48228be2cb",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 99.799,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "source_title": "An Enquiry Concerning Human Understanding / David Hume (Selby-Bigge 1902 text of the 1777 edition)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-hume-enquiry-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter 19 title",
+     "extent_words": null,
+     "summary": "Section XII Part III is labelled 'Section 12: … — Part 0'",
+     "served_before": "n/a",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "pg9662.txt line 5137 'PART III.'",
+     "local_raw_has_it": null,
+     "modern_en": "same label",
+     "modern_da": "same (English) label",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-hume-enquiry-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "34 note paragraphs (2.9, 3.3-3.6, 5.3, 6.5, 7.8, 8.0, 9.4 … 19.6); chapter 8 title",
+     "extent_words": null,
+     "summary": "Hume's 34 footnotes are served as body paragraphs '[n] …' after the citing paragraph, and the footnote marker '[9]' sits in the chapter title 'Section 6: OF PROBABILITY[9].'",
+     "served_before": "n/a",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "pg9662.txt notes [1]-[34]",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [
+    "Selby-Bigge's analytical index excluded (editorial).",
+    "Served 19 units = 12 sections: I, II, III, IV(1-2), V(1-2), VI, VII(1-2), VIII(1-2), IX, X(1-2), XI, XII(1-3)."
+   ],
+   "needs_investigation": [
+    "Hume's 1777 'Advertisement' (authorial, ~150 words) is absent from PG #9662 and from the served edition; decide whether to add it from another source."
+   ],
+   "notes": "Ends correctly with '…nothing but sophistry and illusion.' No gap >= 12 tokens except a section heading."
+  },
+  {
+   "id": "on-liberty",
+   "verdict": "DEFECTS",
+   "method": "full-alignment (dedication + epigraph + body; W. L. Courtney's introduction excluded)",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "ce17fe17570e069d551921dbbf21ff84ac6d268fe6e624ebb8d64ba3a6d1c979",
+     "source_url": "https://www.gutenberg.org/cache/epub/34901/pg34901.txt",
+     "source_sha256": "fad90451253e40190995748ed5d5b60b48b0881cd1a37fa705e471bc628b36ca",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 98.007,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 4,
+     "source_title": "On Liberty / John Stuart Mill (Walter Scott Publishing Co.)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-on-liberty-01",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.44 (last paragraph of Chapter II)",
+     "extent_words": 221,
+     "summary": "2.44 is the second paragraph of Mill's footnote 6 (on the 1858 press prosecutions and tyrannicide), served as if it were Chapter II's closing paragraph; its anchor (2.0) and the note's first paragraph (~124 words) are not served",
+     "served_before": "…a still greater number who conscientiously strive towards it. (2.43, the real end of Chapter II)",
+     "missing_start": "If the arguments of the present chapter are of any validity, there ought to exist the fullest liberty",
+     "missing_end": "…which alone, in the exercise of self-defence, can legitimately punish attacks directed against its own existence.",
+     "served_after": "(Chapter III begins, 3.0)",
+     "source_ref": "pg34901.txt lines 2423-2440 (served part), 2410-2421 (absent first paragraph), anchor line 1027",
+     "local_raw_has_it": true,
+     "modern_en": "same (2.44)",
+     "modern_da": "same (2.44)",
+     "existing_repair": null
+    },
+    {
+     "status": "PROPOSED",
+     "id": "G08-on-liberty-02",
+     "type": "SCOPE",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "notes to Chapters II-IV",
+     "extent_words": 890,
+     "summary": "Mill's own footnotes 6-14 (1,111 words; 890 not served anywhere) removed by documented choice ('All footnotes stripped for readability'); several are substantive (fn6 345w, fn10 294w, fn13 289w, fn14 128w). Not a defect unless policy requires authorial notes",
+     "served_before": "…fear of insurrection drives ministers and judges from their propriety; (2.0, anchor of fn6)",
+     "missing_start": "These words had scarcely been written, when, as if to give them an emphatic contradiction",
+     "missing_end": "…grow into a custom of their tribe; and custom, in the East, is a religion.",
+     "served_after": "n/a",
+     "source_ref": "pg34901.txt lines 2408-2476, 3166-3200, 3894-3910",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [
+    "W. L. Courtney's introduction (with notes 1-5) excluded as editorial.",
+    "Dedication and Humboldt epigraph served as 1.0/1.1 inside 'Chapter 1 — Introductory' (documented choice; cosmetic)."
+   ],
+   "needs_investigation": [
+    "Policy decision on Mill's authorial footnotes (see G08-on-liberty-02)."
+   ],
+   "notes": "Local raw equals PG #34901 after BOM removal. The final paragraph ('…it has preferred to banish.') is present at the end of 5.22 in all editions; every missing run is a Mill footnote."
+  },
+  {
+   "id": "utilitarianism",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "29360c7dbdc7de58c0b4e5794df9dfca5b9ca0199644499f45663130ea3c3acf",
+     "source_url": "https://www.gutenberg.org/cache/epub/11224/pg11224.txt",
+     "source_sha256": "2b2e413b8df7d42790546a6c636802f10da3ee472cc94a85d3e12204b6385241",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 99.874,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "source_title": "Utilitarianism / John Stuart Mill (7th edition, Longmans 1879)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-utilitarianism-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.25, 2.26, 5.37, 5.38",
+     "extent_words": null,
+     "summary": "Mill's four footnotes are served as body paragraphs with PG apparatus '[Footnote A: …]' at chapter ends, so the book's last paragraph is Footnote D instead of Mill's closing sentence (5.36)",
+     "served_before": "…by the sterner character of its sanctions. (5.36, Mill's real ending)",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "[Footnote C: See this point enforced and illustrated by Professor Bain (5.37)",
+     "source_ref": "pg11224.txt lines 1012-1060, 2511-2560",
+     "local_raw_has_it": null,
+     "modern_en": "same (labels kept)",
+     "modern_da": "same",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [],
+   "needs_investigation": [
+    "Label 'Mill (1863)' gives first book publication; the served text is the 1879 7th edition (library-wide label convention)."
+   ],
+   "notes": "All five chapters complete; no gap >= 12 tokens."
+  },
+  {
+   "id": "the-art-of-war",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment (PG text from Chapter I with bracketed Giles commentary blocks removed)",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61",
+     "source_url": "https://www.gutenberg.org/cache/epub/132/pg132.txt",
+     "source_sha256": "c478f7e05a07bf190585fcea0bc4658ce22e47949ac18444eca53fb274878ffe",
+     "source_retrieved_utc": "2026-09-25T11:54:38Z",
+     "source_covered_pct": 95.106,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 2,
+     "source_title": "The Art of War / Sunzi / tr. Lionel Giles",
+     "work_text_covered_pct_after_excluding_unbracketed_commentary": 99.5,
+     "note": "The only runs >= 25 (426 and 61 tokens) and one 19-token run are Giles commentary paragraphs whose opening bracket is missing in PG; verified by hand"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "id": "G08-the-art-of-war-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "9.11|9.12, 9.17|9.18|9.19, 9.35|9.36, 11.67|11.68, 13.29|13.30",
+     "extent_words": null,
+     "summary": "Five of Sun Tzu's sentences are split across two or three paragraphs where Giles's commentary was cut out",
+     "served_before": "10. These are the four useful branches of military knowledge (9.11)",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "which enabled the Yellow Emperor to vanquish four several sovereigns. (9.12)",
+     "source_ref": "pg132.txt Chapters IX, XI, XIII",
+     "local_raw_has_it": true,
+     "modern_en": "same splits",
+     "modern_da": "same splits",
+     "existing_repair": null
+    }
+   ],
+   "scope_notes": [
+    "Giles's preface, introduction, commentary and footnotes are editorial and excluded by documented choice (raw SOURCE.md)."
+   ],
+   "needs_investigation": [],
+   "notes": "Local raw equals PG #132 after BOM removal. All 13 chapters' numbered sentences present, ending with 'Spies are a most important element in war…' (13.32). DUP_ADJ flags at 10.29-10.31 are genuine parallel sentences; low modern-en length ratios are compressions, not omissions."
+  }
+ ]
+}
