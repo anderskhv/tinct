@@ -23,7 +23,10 @@ The rendering follows **Jowett**. This applies `books/CLAUDE.md` ("do not silent
 - **No Greek-based departures.** Plato's Greek and other translations are not used to change Jowett's meaning, qualifiers, ages, relationships, connectives or emphasis. Where v1 had followed the Greek instead of Jowett, the change was reverted. Examples: "at least" and "boys" in 5.3, "welcome" in 5.4, "conceived" in 7.48, "my dear Agathon" in 7.44 (`reviews/RESOLUTION.md`).
 - **A Jowett softening stays in Jowett's words.** Examples: "true love" in 7.64 and "hearing him tell what he knew" in 8.26. It is not "corrected" from the Greek.
 - **What is not a source variant:** modernizing a Jowett word whose Victorian sense is plain from his own text. Examples: "want" as lack; "bully", which in Jowett's usage means an insolent, overbearing person; "ingenuous". Nor is a §5 gloss that identifies what Jowett's words refer to.
-- **Documented exceptions.** Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named, and the exception is listed in `CHANGES.md`. The only case is 4.1, "under the rule of love": Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is that love rules over all things.
+- **Documented exceptions.** These are explicit editorial decisions, each listed in `CHANGES.md` and `reviews/RESOLUTION.md`:
+  - **Ambiguous pronoun, 4.1:** "under the rule of love". Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named. Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is that love rules over all things.
+  - **Opaque phrase, 7.0:** "that is, whose child Love is". Where a phrase stays opaque to first-time readers (Review 2), a short gloss states the reading that the sentence's own contrast requires. Here the contrast is with "is a father the father of something?", and Love's parentage was discussed at 2.0 and 6.0.
+  - **Accepted quotation, 3.8:** 'uses base' is kept verbatim (the accepted C-06 correction) and followed by a plain gloss, "would let anyone use him basely".
 
 ## 2. What is preserved
 
@@ -42,7 +45,7 @@ The rendering follows **Jowett**. This applies `books/CLAUDE.md` ("do not silent
   | Alcibiades | Drunk, rambling, confessional and funny |
 
 - **Historically specific relationships and claims.** Pederastic lover/beloved relations, ages ("youths", "boys", "beardless"), sexual pursuit, slavery ("servant", "attendant", "boy" as an address to a slave), and the speakers' views of women and of other peoples all stay as the source states them. There is no euphemism, no sanitizing, and no added modern judgment.
-- **Verse quotations.** The verse-line paragraphs 1.16, 1.18, 1.21, 1.23, 1.45, 2.1, 2.3, 6.1, 6.5, 8.11 and 8.34 are kept as they are.
+- **Verse quotations.** The wording of the verse-line paragraphs is kept exactly: 1.16, 1.18, 1.21, 1.23, 1.45, 2.1, 2.3, 6.1, 6.5, 8.11 and 8.34. Where a verse line sits inside a quoted conversation (1.16, 1.18, 1.21, 1.45, 8.11), its quotation marks follow §3.4. This change was made after Review 2.
 
 ## 3. Quotation and speaker convention
 
@@ -57,8 +60,12 @@ These rules keep the levels apart:
 1. **Set speeches** (Phaedrus, Pausanias, Eryximachus, Aristophanes, Agathon, Socrates's account of Diotima, Alcibiades's praise of Socrates) are given without enclosing quotation marks. An explicit tag introduces each one, for example "Pausanias began:". This follows the accepted chapter 3 and 7.0.
 2. **Conversational exchanges** go in single quotation marks. A quotation inside a quotation uses double marks.
 3. **Past conversations reported inside a set speech** (Socrates with Diotima, Alcibiades with Socrates) go in single quotation marks, because the surrounding speech is unquoted.
-4. **A speech interrupted by a verse-line paragraph** closes its quotation before the verse. Where the speech resumes, it reopens the quotation. For example, 1.15 → 1.16 (verse) → 1.17.
-5. **Speaker tags.** Where the source's "he" or "I" could be read as the wrong person, name the speaker. The main case is Aristodemus's first-person narration inside Apollodorus's retelling (1.14, 1.26, 1.28, 1.32). Nothing else is added.
+4. **Speeches that continue across paragraphs** leave the quotation open at the end of each paragraph and reopen it at the start of the next. They close it only where the speech ends. Examples: 5.1→5.2, 6.9→6.10, 7.47→7.49, 8.29→8.30.
+   - **Verse inside a quoted conversation** is nested in double quotes after the continuation mark: 1.15–1.19, 1.20–1.22, 1.44–1.46, 8.10–8.12. This way the speaker visibly keeps talking through the verse (Review 2).
+   - **Verse inside an unquoted set speech** takes single quotes: 2.1, 2.3, 6.1, 6.5, 8.34.
+5. **Speaker tags.** Where the source's "he" or "I" could be read as the wrong person, name the speaker. The main case is Aristodemus's first-person narration inside Apollodorus's retelling (1.14, 1.26, 1.28, 1.32).
+   - **In exchanges, a change of speaker that follows a tagged line is itself tagged** ("she asked", "I asked", "She went on:"), because by normal convention an untagged line after "'…,' I said." continues the same speaker. This was added after Review 2: see 7.45, 7.46, 7.50, 7.51, 7.52, 7.54 and 8.29.
+   - Nothing else is added.
 
 ## 4. Glossary
 
@@ -79,7 +86,10 @@ These rules keep the levels apart:
 | right opinion | **correct opinion** | Diotima's definition (between wisdom and ignorance) is kept in full |
 | encomium, encomiast | **speech of praise** / **to sing his praises** | "Encomium" is kept once, at 7.68, with its meaning clear |
 | privy members, parts of generation | **genitals** | Plain terms, as the Greek is plain |
-| female companions (Aristophanes's *hetairistriai*) | **women who are attracted to women** | No modern identity labels |
+| female companions (Aristophanes's *hetairistriai*) | **women who take female lovers** | No modern identity labels. Revised after Review 2: v1's wording made the sentence circular |
+| gymnastic(s) | **physical training** | 3.3, 4.1 and 7.52 made consistent (Review 2) |
+| the stages of the ascent: institutions / practices; sciences / notions; mind / soul | **practices and laws**; **branches of knowledge**; **soul**; **bodies** / **bodily beauty** (for Jowett's "forms") | Jowett names the same stages differently in 7.62–7.63 and 7.65. One of his own words is used in both places so that the stages line up (Review 2). "Forms" is avoided because it suggests Platonic Forms |
+| servant, attendant, "boy" (slaves) | **servant**, **attendant**, "boy" | Jowett's terms kept. The text does not say "slave" where Jowett does not |
 | intercourse (meaning sex) | **sex** | Where "intercourse" means conversation or dealings, it becomes **company** or **dealings** |
 | sup, supper, supped | **dine**, dinner, dined | "Supper" is kept where it names the meal |
 | ribands | **ribbons** | |
@@ -99,7 +109,7 @@ Unfamiliar references get the smallest gloss that makes the sentence work, place
 
 - as an appositive ("Olympus, Marsyas's pupil");
 - as a plain-English version of the image ("like a token broken in half, each half matching the other");
-- as a phrase attached to a quotation ("a tale, as Homer puts it", 8.33). A gloss does not add a name that Jowett does not use.
+- as a phrase attached to a quotation ("a tale, as Homer puts it", 8.33; "As Homer says", 8.10, where Jowett's own note cites Pope's Homer). A gloss does not add a name that Jowett does not give, whether in his text or his notes.
 
 The gloss never becomes a speaker's opinion. No footnotes and no bracketed editorial notes.
 
